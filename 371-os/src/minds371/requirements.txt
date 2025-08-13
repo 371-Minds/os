@@ -1,0 +1,51 @@
+# 371 Minds OS - Repository Intake Engine Requirements
+
+# Core dependencies
+posthog>=3.0.0
+PyYAML>=6.0
+requests>=2.28.0
+gitpython>=3.1.0
+pathlib2>=2.3.0  # For Python < 3.4 compatibility
+litellm>=1.35.2
+tiktoken>=0.6.0
+python-dotenv>=1.0.0
+pydantic>=2.5.3
+Flask>=2.0.0
+Werkzeug>=2.0.0
+
+# Deployment System
+python-digitalocean>=1.16.0
+boto3>=1.20.0
+cloudflare>=2.9.0
+
+# Repository analysis
+tree-sitter>=0.20.0
+tree-sitter-python>=0.20.0
+tree-sitter-javascript>=0.20.0
+tree-sitter-typescript>=0.20.0
+
+# Security scanning
+detect-secrets>=1.4.0
+bandit>=1.7.0
+safety>=2.0.0
+
+# Performance optimization
+psutil>=5.9.0
+memory-profiler>=0.60.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.10.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.910
+
+# Optional: For enhanced analysis
+radon>=5.1.0  # Code complexity analysis
+lizard>=1.17.0  # Cyclomatic complexity
+semgrep>=1.0.0  # Static analysis
+
+# Github Actions
+py2ts>=0.0.6
+ast2json>=0.3.0

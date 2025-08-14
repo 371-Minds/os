@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ref-tools": {
+      "command": "npx",
+      "args": ["ref-tools-mcp"],
+      "env": {
+        "REF_API_KEY": "your-api-key"
+      }
+    }
+  }
+}

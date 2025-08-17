@@ -71,39 +71,43 @@ class QuickBenchmark:
         self.results.append(result)
         return result
 
-# Run quick benchmark
-print("⚡ Running Quick Agent Benchmark Tests")
-print("="*50)
+async def main():
+    # Run quick benchmark
+    print("⚡ Running Quick Agent Benchmark Tests")
+    print("="*50)
 
-quick_bench = QuickBenchmark()
+    quick_bench = QuickBenchmark()
 
-# Test concurrent execution
-concurrent_result = await quick_bench.test_concurrent_performance(50)
-print(f"✅ Concurrent: {concurrent_result.throughput:.1f} tasks/sec, {concurrent_result.duration:.3f}s total")
+    # Test concurrent execution
+    concurrent_result = await quick_bench.test_concurrent_performance(50)
+    print(f"✅ Concurrent: {concurrent_result.throughput:.1f} tasks/sec, {concurrent_result.duration:.3f}s total")
 
-# Test sequential execution  
-sequential_result = await quick_bench.test_sequential_performance(20)
-print(f"✅ Sequential: {sequential_result.throughput:.1f} tasks/sec, {sequential_result.duration:.3f}s total")
+    # Test sequential execution
+    sequential_result = await quick_bench.test_sequential_performance(20)
+    print(f"✅ Sequential: {sequential_result.throughput:.1f} tasks/sec, {sequential_result.duration:.3f}s total")
 
-# Calculate improvement
-if sequential_result.throughput > 0:
-    improvement = ((concurrent_result.throughput - sequential_result.throughput) / sequential_result.throughput) * 100
-    print(f"\n📈 Concurrent execution is {improvement:.1f}% faster than sequential")
+    # Calculate improvement
+    if sequential_result.throughput > 0:
+        improvement = ((concurrent_result.throughput - sequential_result.throughput) / sequential_result.throughput) * 100
+        print(f"\n📈 Concurrent execution is {improvement:.1f}% faster than sequential")
 
-print("\n🎯 KEY FINDINGS FOR 371 OS AGENTS:")
-print("="*50)
+    print("\n🎯 KEY FINDINGS FOR 371 OS AGENTS:")
+    print("="*50)
 
-recommendations = [
-    "✅ Async/await provides significant performance benefits for I/O-bound tasks",
-    "🔧 Current BaseAgent.is_busy flag prevents parallel task execution",
-    "🔧 Implement task queue with concurrent workers instead of single-task blocking",
-    "🔧 Add connection pooling for LLM API calls to reduce overhead",
-    "🔧 Implement caching layer for frequently requested operations",
-    "🔧 Add comprehensive monitoring and metrics collection",
-    "🔧 Consider implementing circuit breakers for external API reliability"
-]
+    recommendations = [
+        "✅ Async/await provides significant performance benefits for I/O-bound tasks",
+        "🔧 Current BaseAgent.is_busy flag prevents parallel task execution",
+        "🔧 Implement task queue with concurrent workers instead of single-task blocking",
+        "🔧 Add connection pooling for LLM API calls to reduce overhead",
+        "🔧 Implement caching layer for frequently requested operations",
+        "🔧 Add comprehensive monitoring and metrics collection",
+        "🔧 Consider implementing circuit breakers for external API reliability"
+    ]
 
-for rec in recommendations:
-    print(rec)
-# Save the chart
-fig.write_image("performance_comparison.png")
+    for rec in recommendations:
+        print(rec)
+    # Save the chart
+    # fig.write_image("performance_comparison.png")
+
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, List, Optional, Any, Callable
 from datetime import datetime
-from adaptive_llm_router.llm import invoke as alr_invoke
+from minds371.adaptive_llm_router.llm import invoke as alr_invoke
 
 class AgentType(Enum):
     """Types of agents in the 371 Minds OS"""

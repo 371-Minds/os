@@ -1,6 +1,3 @@
-# Create improved BaseAgent implementation with benchmarking recommendations
-
-improved_base_agent_code = '''
 """
 371 Minds Operating System - Improved Base Agent Implementation
 Incorporates performance optimizations and monitoring capabilities
@@ -18,7 +15,7 @@ from enum import Enum
 from typing import Dict, List, Optional, Any, Callable
 from datetime import datetime
 from contextlib import asynccontextmanager
-from adaptive_llm_router.llm import invoke as alr_invoke
+from minds371.adaptive_llm_router.llm import invoke as alr_invoke
 
 # Performance and monitoring imports
 import psutil
@@ -44,6 +41,7 @@ class AgentType(Enum):
     CFO = "cfo"
     CLO = "clo"
     FINANCIAL = "financial"
+    CCO = "cco"
 
 class TaskStatus(Enum):
     """Status of tasks in the system"""
@@ -521,48 +519,3 @@ class ImprovedBaseAgent(ABC):
         """Gracefully shutdown the agent"""
         self.logger.info(f"Shutting down agent {self.agent_id}")
         await self.stop_workers()
-'''
-
-print("📝 IMPROVED BASE AGENT IMPLEMENTATION")
-print("="*60)
-print("✅ Created enhanced BaseAgent with the following improvements:")
-print("\n🚀 PERFORMANCE OPTIMIZATIONS:")
-improvements = [
-    "• Removed blocking is_busy flag - now supports concurrent task processing",
-    "• Added priority-based task queue with semaphore-controlled concurrency",
-    "• Implemented connection pooling for LLM API calls",
-    "• Added TTL-based caching system for frequently accessed data",
-    "• Included circuit breaker pattern for external API reliability",
-    "• Background worker processes for parallel task execution"
-]
-
-for improvement in improvements:
-    print(improvement)
-
-print("\n📊 MONITORING & METRICS:")
-monitoring_features = [
-    "• Comprehensive performance metrics collection",
-    "• Real-time system resource monitoring (CPU, memory)",
-    "• Task throughput and response time tracking",
-    "• Error rate calculation and trending",
-    "• Cache hit/miss ratio monitoring",
-    "• Circuit breaker status tracking"
-]
-
-for feature in monitoring_features:
-    print(feature)
-
-print("\n🔧 RELIABILITY FEATURES:")
-reliability_features = [
-    "• Automatic task retry with exponential backoff",
-    "• Task timeout handling with configurable limits",
-    "• Graceful shutdown and cleanup procedures",
-    "• Exception handling and error recovery",
-    "• Task priority queuing system",
-    "• Worker task management and monitoring"
-]
-
-for feature in reliability_features:
-    print(feature)
-
-print(f"\n📄 Implementation saved as improved_base_agent.py ({len(improved_base_agent_code)} characters)")

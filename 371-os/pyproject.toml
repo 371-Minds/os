@@ -1,5 +1,4 @@
-# Create the essential pyproject.toml configuration for the 371 OS
-pyproject_toml_content = '''[build-system]
+[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -43,6 +42,7 @@ dependencies = [
     "prometheus-client>=0.19.0",
     "opentelemetry-api>=1.21.0",
     "opentelemetry-sdk>=1.21.0",
+    "litellm",
 ]
 
 # Optional dependencies for different platforms and features
@@ -240,56 +240,3 @@ exclude_lines = [
     "class .*\\bProtocol\\):",
     "@(abc\\.)?abstractmethod",
 ]
-'''
-
-print("📄 PYPROJECT.TOML CONFIGURATION")
-print("=" * 60)
-print("Created comprehensive pyproject.toml with:")
-print("\n🎯 CORE FEATURES:")
-features = [
-    "✅ Modern Python packaging standards (PEP 621)",
-    "✅ Comprehensive dependency management with optional extras", 
-    "✅ Development tools configuration (black, ruff, mypy, pytest)",
-    "✅ Platform-specific optional dependencies",
-    "✅ LLM integration dependencies",
-    "✅ Cloud provider integrations",
-    "✅ Performance monitoring tools",
-    "✅ Command-line scripts for easy usage"
-]
-
-for feature in features:
-    print(feature)
-
-print("\n📦 OPTIONAL DEPENDENCY GROUPS:")
-groups = [
-    "• dev: Development and testing tools",
-    "• monitoring: DataDog, Sentry, Grafana, Elasticsearch", 
-    "• databases: PostgreSQL, MySQL, MongoDB, Redis, Qdrant",
-    "• cloud: AWS, GCP, DigitalOcean, Azure",
-    "• platforms: Slack, Discord, WebSockets, Selenium",
-    "• llm: OpenAI, Anthropic, LangChain, Tiktoken",
-    "• all: Everything included for complete installation"
-]
-
-for group in groups:
-    print(group)
-
-print("\n🛠️ INSTALLATION COMMANDS:")
-commands = [
-    "# Basic installation",
-    "pip install minds371",
-    "",
-    "# Development installation", 
-    "pip install minds371[dev]",
-    "",
-    "# Full installation with all features",
-    "pip install minds371[all]",
-    "",
-    "# Custom installation",
-    "pip install minds371[llm,cloud,monitoring]"
-]
-
-for command in commands:
-    print(command)
-
-print(f"\n📏 Configuration includes {len(pyproject_toml_content.splitlines())} lines of comprehensive setup")

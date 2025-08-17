@@ -2,14 +2,8 @@ import asyncio
 import pytest
 from unittest.mock import patch, MagicMock
 
-import sys
-import os
-
-# Add the root directory to the Python path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from qa_agent.qa_agent import QAAgent
-from base_agent import Task, AgentType
+from minds371.agents.technical.qa_agent import QAAgent
+from minds371.agents.base_agent.base_agent import Task, AgentType
 
 @pytest.mark.asyncio
 async def test_ask_question_with_simple_prompt():

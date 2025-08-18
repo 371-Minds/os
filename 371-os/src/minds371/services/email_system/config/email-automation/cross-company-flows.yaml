@@ -1,0 +1,289 @@
+# Cross-Company Email Automation Flows
+# Defines automation flows that span multiple companies in the 371minds portfolio
+
+cross_company_flows:
+  # Portfolio Introduction Flow
+  portfolio_introduction:
+    name: "371minds Portfolio Introduction"
+    description: "Introduce users to the full 371minds company portfolio"
+    trigger: "user_registration"
+    active: true
+    target_companies: "all"
+    flow_steps:
+      - step: 1
+        action: "send_email"
+        template: "portfolio_welcome"
+        delay: "immediate"
+        subject: "Welcome to the 371minds family!"
+        
+      - step: 2
+        action: "send_email"
+        template: "portfolio_overview"
+        delay: "2 days"
+        subject: "Discover all our companies and services"
+        
+      - step: 3
+        action: "conditional_branch"
+        delay: "5 days"
+        conditions:
+          - field: "user.industry_interest"
+            branches:
+              "construction": "construction_companies_intro"
+              "technology": "tech_companies_intro"
+              "creative": "creative_companies_intro"
+              "education": "education_companies_intro"
+              "business": "business_companies_intro"
+        
+      - step: 4
+        action: "send_email"
+        template: "cross_company_opportunities"
+        delay: "10 days"
+        subject: "How our companies work together for you"
+
+  # Cross-Referral Flow
+  cross_referral_flow:
+    name: "Cross-Company Referral System"
+    description: "Refer clients between portfolio companies based on needs"
+    trigger: "referral_opportunity_detected"
+    active: true
+    flow_steps:
+      - step: 1
+        action: "evaluate_referral"
+        conditions:
+          - field: "client.current_company"
+            operator: "not_equals"
+            value: "{{referral.target_company}}"
+          - field: "client.service_needs"
+            operator: "matches"
+            value: "{{referral.target_services}}"
+        
+      - step: 2
+        action: "send_email"
+        template: "referral_introduction"
+        delay: "immediate"
+        subject: "We know someone who can help with {{service_type}}"
+        to: "client"
+        
+      - step: 3
+        action: "notify_target_company"
+        template: "incoming_referral_notification"
+        delay: "immediate"
+        to: "target_company_team"
+        
+      - step: 4
+        action: "track_referral"
+        delay: "immediate"
+        
+      - step: 5
+        action: "follow_up"
+        template: "referral_follow_up"
+        delay: "7 days"
+        subject: "How did your introduction go?"
+
+  # Seasonal Campaign Flow
+  seasonal_portfolio_campaign:
+    name: "Seasonal Portfolio Campaigns"
+    description: "Coordinated seasonal campaigns across all companies"
+    trigger: "seasonal_event"
+    active: true
+    target_companies: "all"
+    campaigns:
+      new_year:
+        name: "New Year, New Possibilities"
+        trigger_date: "2024-01-01"
+        duration: "31 days"
+        emails:
+          - template: "new_year_portfolio_greeting"
+            delay: "immediate"
+            subject: "New Year, New Possibilities with 371minds"
+          - template: "new_year_resolutions_services"
+            delay: "7 days"
+            subject: "Turn your resolutions into reality"
+          - template: "new_year_special_offers"
+            delay: "14 days"
+            subject: "Special New Year offers across our portfolio"
+      
+      spring_growth:
+        name: "Spring Growth Initiative"
+        trigger_date: "2024-03-20"
+        duration: "45 days"
+        emails:
+          - template: "spring_growth_announcement"
+            delay: "immediate"
+            subject: "Spring into growth with 371minds"
+          - template: "spring_service_highlights"
+            delay: "10 days"
+            subject: "Services to help you bloom this spring"
+      
+      summer_innovation:
+        name: "Summer Innovation Series"
+        trigger_date: "2024-06-21"
+        duration: "60 days"
+        emails:
+          - template: "summer_innovation_kickoff"
+            delay: "immediate"
+            subject: "Summer of Innovation begins!"
+          - template: "innovation_case_studies"
+            delay: "14 days"
+            subject: "Innovation success stories from our portfolio"
+      
+      fall_preparation:
+        name: "Fall Preparation Campaign"
+        trigger_date: "2024-09-22"
+        duration: "45 days"
+        emails:
+          - template: "fall_preparation_guide"
+            delay: "immediate"
+            subject: "Prepare for success this fall"
+          - template: "year_end_planning"
+            delay: "21 days"
+            subject: "Year-end planning with 371minds"
+
+  # Client Journey Mapping Flow
+  client_journey_optimization:
+    name: "Cross-Company Client Journey"
+    description: "Optimize client experience across multiple companies"
+    trigger: "client_interaction"
+    active: true
+    journey_stages:
+      awareness:
+        emails:
+          - template: "portfolio_awareness"
+            subject: "Discover the 371minds advantage"
+        actions:
+          - track_engagement
+          - score_interest_level
+      
+      consideration:
+        emails:
+          - template: "service_comparison"
+            subject: "Compare our services and find your fit"
+          - template: "success_stories_portfolio"
+            subject: "Success stories across our companies"
+        actions:
+          - recommend_companies
+          - schedule_consultations
+      
+      decision:
+        emails:
+          - template: "decision_support"
+            subject: "We're here to help you decide"
+          - template: "onboarding_preparation"
+            subject: "Getting ready to work together"
+        actions:
+          - provide_detailed_proposals
+          - facilitate_company_introductions
+      
+      onboarding:
+        emails:
+          - template: "cross_company_onboarding"
+            subject: "Welcome to the 371minds experience"
+        actions:
+          - coordinate_service_delivery
+          - establish_communication_channels
+      
+      retention:
+        emails:
+          - template: "relationship_nurturing"
+            subject: "How can we continue to serve you?"
+          - template: "expansion_opportunities"
+            subject: "Additional ways we can help"
+        actions:
+          - identify_upsell_opportunities
+          - maintain_regular_touchpoints
+
+  # Event-Driven Cross-Company Flow
+  portfolio_events_flow:
+    name: "Portfolio Events and Announcements"
+    description: "Coordinate major announcements across all companies"
+    trigger: "portfolio_event"
+    active: true
+    event_types:
+      new_company_launch:
+        emails:
+          - template: "new_company_announcement"
+            delay: "immediate"
+            subject: "Introducing our newest company!"
+          - template: "new_company_services"
+            delay: "3 days"
+            subject: "Explore services from {{new_company.name}}"
+        
+      major_milestone:
+        emails:
+          - template: "portfolio_milestone"
+            delay: "immediate"
+            subject: "Celebrating a major milestone together!"
+        
+      industry_recognition:
+        emails:
+          - template: "recognition_announcement"
+            delay: "immediate"
+            subject: "Award recognition for 371minds portfolio"
+        
+      partnership_announcement:
+        emails:
+          - template: "partnership_news"
+            delay: "immediate"
+            subject: "Exciting new partnership announcement"
+
+  # Data-Driven Optimization Flow
+  portfolio_optimization:
+    name: "Portfolio Performance Optimization"
+    description: "Use data to optimize cross-company performance"
+    trigger: "performance_analysis"
+    active: true
+    optimization_areas:
+      engagement_optimization:
+        analysis_frequency: "weekly"
+        actions:
+          - analyze_cross_company_engagement
+          - identify_high_performing_content
+          - replicate_success_patterns
+        
+      conversion_optimization:
+        analysis_frequency: "monthly"
+        actions:
+          - track_cross_company_conversions
+          - optimize_referral_paths
+          - improve_handoff_processes
+        
+      retention_optimization:
+        analysis_frequency: "quarterly"
+        actions:
+          - analyze_client_lifetime_value
+          - identify_churn_patterns
+          - implement_retention_strategies
+
+# Cross-Company Flow Settings
+settings:
+  # Coordination settings
+  enable_cross_company_coordination: true
+  respect_individual_company_preferences: true
+  maintain_brand_consistency: true
+  
+  # Data sharing
+  enable_cross_company_data_sharing: true
+  data_privacy_compliance: true
+  anonymize_sensitive_data: true
+  
+  # Performance tracking
+  track_cross_company_metrics: true
+  generate_portfolio_reports: true
+  
+  # Personalization
+  enable_portfolio_personalization: true
+  use_cross_company_behavior_data: true
+  
+  # Timing coordination
+  coordinate_send_times: true
+  avoid_email_conflicts: true
+  respect_frequency_caps: true
+  
+  # Quality control
+  require_approval_for_portfolio_campaigns: true
+  maintain_content_quality_standards: true
+  
+  # Integration settings
+  crm_integration: true
+  analytics_integration: true
+  marketing_automation_sync: true

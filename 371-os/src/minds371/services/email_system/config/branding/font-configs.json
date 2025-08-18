@@ -1,0 +1,320 @@
+{
+  "portfolio_typography": {
+    "name": "371minds Portfolio Typography System",
+    "description": "Comprehensive typography system for all portfolio companies",
+    "base_settings": {
+      "base_font_size": "16px",
+      "base_line_height": 1.6,
+      "scale_ratio": 1.25,
+      "font_weight_normal": 400,
+      "font_weight_medium": 500,
+      "font_weight_semibold": 600,
+      "font_weight_bold": 700
+    }
+  },
+  "font_stacks": {
+    "primary": {
+      "name": "Primary Font Stack",
+      "description": "Main font for body text and general content",
+      "stack": "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      "fallback": "sans-serif",
+      "web_font_url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+      "characteristics": "Modern, readable, professional"
+    },
+    "heading": {
+      "name": "Heading Font Stack",
+      "description": "Font for headings and titles",
+      "stack": "'Poppins', 'Inter', 'Segoe UI', system-ui, sans-serif",
+      "fallback": "sans-serif",
+      "web_font_url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap",
+      "characteristics": "Bold, attention-grabbing, modern"
+    },
+    "monospace": {
+      "name": "Monospace Font Stack",
+      "description": "Font for code and technical content",
+      "stack": "'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace",
+      "fallback": "monospace",
+      "web_font_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap",
+      "characteristics": "Technical, readable, coding-friendly"
+    },
+    "display": {
+      "name": "Display Font Stack",
+      "description": "Font for large display text and special occasions",
+      "stack": "'Playfair Display', 'Georgia', serif",
+      "fallback": "serif",
+      "web_font_url": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap",
+      "characteristics": "Elegant, sophisticated, attention-grabbing"
+    }
+  },
+  "company_fonts": {
+    "readysetbuild": {
+      "name": "ReadySetBuild Typography",
+      "theme": "Construction & Development",
+      "primary_font": {
+        "family": "'Roboto', sans-serif",
+        "weights": [300, 400, 500, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Roboto Slab', serif",
+        "weights": [400, 500, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap"
+      },
+      "characteristics": "Strong, reliable, industrial"
+    },
+    "stacksense": {
+      "name": "StackSense Typography",
+      "theme": "Technology Consulting",
+      "primary_font": {
+        "family": "'Source Sans Pro', sans-serif",
+        "weights": [300, 400, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Space Grotesk', sans-serif",
+        "weights": [400, 500, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      },
+      "monospace_font": {
+        "family": "'Source Code Pro', monospace",
+        "weights": [400, 500, 600],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap"
+      },
+      "characteristics": "Technical, modern, clean"
+    },
+    "legacy-archaeologist": {
+      "name": "Legacy Code Archaeologist Typography",
+      "theme": "Software Modernization",
+      "primary_font": {
+        "family": "'Crimson Text', serif",
+        "weights": [400, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Cinzel', serif",
+        "weights": [400, 500, 600],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+      },
+      "monospace_font": {
+        "family": "'Ubuntu Mono', monospace",
+        "weights": [400, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap"
+      },
+      "characteristics": "Classic, archaeological, scholarly"
+    },
+    "modumind": {
+      "name": "ModuMind Typography",
+      "theme": "Modular Architecture",
+      "primary_font": {
+        "family": "'IBM Plex Sans', sans-serif",
+        "weights": [300, 400, 500, 600],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      },
+      "heading_font": {
+        "family": "'IBM Plex Sans', sans-serif",
+        "weights": [500, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap"
+      },
+      "monospace_font": {
+        "family": "'IBM Plex Mono', monospace",
+        "weights": [400, 500, 600],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      },
+      "characteristics": "Modular, systematic, technical"
+    },
+    "rootlift": {
+      "name": "Rootlift Digital Typography",
+      "theme": "Digital Growth",
+      "primary_font": {
+        "family": "'Open Sans', sans-serif",
+        "weights": [300, 400, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Montserrat', sans-serif",
+        "weights": [400, 500, 600, 700, 800],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      },
+      "characteristics": "Growth-oriented, dynamic, approachable"
+    },
+    "vision2results": {
+      "name": "Vision2Results Typography",
+      "theme": "Business Consulting",
+      "primary_font": {
+        "family": "'Lato', sans-serif",
+        "weights": [300, 400, 700, 900],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      },
+      "heading_font": {
+        "family": "'Merriweather', serif",
+        "weights": [400, 700, 900],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap"
+      },
+      "characteristics": "Professional, trustworthy, results-focused"
+    },
+    "multimedia-junkie": {
+      "name": "Multimedia Junkie Typography",
+      "theme": "Creative Production",
+      "primary_font": {
+        "family": "'Nunito', sans-serif",
+        "weights": [300, 400, 600, 700, 800],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+      },
+      "heading_font": {
+        "family": "'Fredoka One', cursive",
+        "weights": [400],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      },
+      "display_font": {
+        "family": "'Righteous', cursive",
+        "weights": [400],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      },
+      "characteristics": "Creative, playful, energetic"
+    },
+    "ikidedventures": {
+      "name": "IkidEdventures Typography",
+      "theme": "Educational Adventure",
+      "primary_font": {
+        "family": "'Quicksand', sans-serif",
+        "weights": [300, 400, 500, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Comfortaa', cursive",
+        "weights": [300, 400, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap"
+      },
+      "characteristics": "Friendly, educational, child-appropriate"
+    },
+    "epicquesthub": {
+      "name": "EpicQuestHub Typography",
+      "theme": "Gaming & Adventure",
+      "primary_font": {
+        "family": "'Rajdhani', sans-serif",
+        "weights": [300, 400, 500, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Orbitron', sans-serif",
+        "weights": [400, 700, 900],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap"
+      },
+      "display_font": {
+        "family": "'Bungee', cursive",
+        "weights": [400],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      },
+      "characteristics": "Gaming, futuristic, adventurous"
+    },
+    "lyriclines": {
+      "name": "LyricLines Typography",
+      "theme": "Music & Creativity",
+      "primary_font": {
+        "family": "'Dancing Script', cursive",
+        "weights": [400, 500, 600, 700],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+      },
+      "heading_font": {
+        "family": "'Pacifico', cursive",
+        "weights": [400],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      },
+      "body_font": {
+        "family": "'Poppins', sans-serif",
+        "weights": [300, 400, 500, 600],
+        "web_font_url": "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      },
+      "characteristics": "Musical, creative, flowing"
+    }
+  },
+  "typography_scale": {
+    "h1": {
+      "font_size": "2.5rem",
+      "line_height": 1.2,
+      "font_weight": 700,
+      "margin_bottom": "1.5rem"
+    },
+    "h2": {
+      "font_size": "2rem",
+      "line_height": 1.3,
+      "font_weight": 600,
+      "margin_bottom": "1.25rem"
+    },
+    "h3": {
+      "font_size": "1.75rem",
+      "line_height": 1.4,
+      "font_weight": 600,
+      "margin_bottom": "1rem"
+    },
+    "h4": {
+      "font_size": "1.5rem",
+      "line_height": 1.4,
+      "font_weight": 500,
+      "margin_bottom": "0.875rem"
+    },
+    "h5": {
+      "font_size": "1.25rem",
+      "line_height": 1.5,
+      "font_weight": 500,
+      "margin_bottom": "0.75rem"
+    },
+    "h6": {
+      "font_size": "1.125rem",
+      "line_height": 1.5,
+      "font_weight": 500,
+      "margin_bottom": "0.625rem"
+    },
+    "body": {
+      "font_size": "1rem",
+      "line_height": 1.6,
+      "font_weight": 400,
+      "margin_bottom": "1rem"
+    },
+    "small": {
+      "font_size": "0.875rem",
+      "line_height": 1.5,
+      "font_weight": 400
+    },
+    "caption": {
+      "font_size": "0.75rem",
+      "line_height": 1.4,
+      "font_weight": 400
+    }
+  },
+  "email_specific": {
+    "subject_line": {
+      "max_length": 50,
+      "recommended_length": 30,
+      "font_weight": 600,
+      "avoid_all_caps": true
+    },
+    "preheader": {
+      "max_length": 90,
+      "recommended_length": 70,
+      "font_weight": 400
+    },
+    "body_text": {
+      "font_size": "16px",
+      "line_height": 1.6,
+      "max_line_length": "65ch",
+      "paragraph_spacing": "1em"
+    },
+    "cta_button": {
+      "font_size": "16px",
+      "font_weight": 600,
+      "text_transform": "none",
+      "letter_spacing": "0.5px"
+    }
+  },
+  "accessibility": {
+    "minimum_font_size": "14px",
+    "recommended_font_size": "16px",
+    "minimum_line_height": 1.4,
+    "recommended_line_height": 1.6,
+    "color_contrast": {
+      "minimum_ratio": 4.5,
+      "preferred_ratio": 7.0
+    }
+  }
+}

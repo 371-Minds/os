@@ -1,0 +1,215 @@
+# Email Automation Triggers Configuration
+# Defines various triggers that initiate automated email sequences
+
+triggers:
+  # User Behavior Triggers
+  user_registration:
+    name: "New User Registration"
+    description: "Triggered when a new user registers on any company platform"
+    event_type: "user.created"
+    delay: "immediate"
+    conditions:
+      - field: "user.status"
+        operator: "equals"
+        value: "active"
+    actions:
+      - send_email: "welcome_sequence"
+      - add_tag: "new_user"
+      - update_field: "last_email_sent"
+
+  first_login:
+    name: "First Login"
+    description: "Triggered when user logs in for the first time"
+    event_type: "user.first_login"
+    delay: "5 minutes"
+    conditions:
+      - field: "user.login_count"
+        operator: "equals"
+        value: 1
+    actions:
+      - send_email: "onboarding_guide"
+      - add_tag: "first_time_user"
+
+  abandoned_cart:
+    name: "Abandoned Cart"
+    description: "Triggered when user abandons cart without completing purchase"
+    event_type: "cart.abandoned"
+    delay: "1 hour"
+    conditions:
+      - field: "cart.items_count"
+        operator: "greater_than"
+        value: 0
+      - field: "cart.last_updated"
+        operator: "older_than"
+        value: "1 hour"
+    actions:
+      - send_email: "cart_recovery"
+      - add_tag: "abandoned_cart"
+
+  # Engagement Triggers
+  email_opened:
+    name: "Email Opened"
+    description: "Triggered when user opens an email"
+    event_type: "email.opened"
+    delay: "immediate"
+    conditions:
+      - field: "email.campaign_type"
+        operator: "not_equals"
+        value: "transactional"
+    actions:
+      - add_tag: "email_engaged"
+      - update_field: "last_email_opened"
+      - increment_counter: "email_opens"
+
+  link_clicked:
+    name: "Email Link Clicked"
+    description: "Triggered when user clicks a link in an email"
+    event_type: "email.link_clicked"
+    delay: "immediate"
+    conditions:
+      - field: "link.type"
+        operator: "equals"
+        value: "cta"
+    actions:
+      - add_tag: "highly_engaged"
+      - send_email: "follow_up_sequence"
+      - update_field: "last_click_date"
+
+  # Time-Based Triggers
+  weekly_digest:
+    name: "Weekly Digest"
+    description: "Send weekly digest emails"
+    event_type: "schedule.weekly"
+    schedule: "0 9 * * 1" # Every Monday at 9 AM
+    conditions:
+      - field: "user.subscription_status"
+        operator: "equals"
+        value: "active"
+      - field: "user.email_preferences.digest"
+        operator: "equals"
+        value: true
+    actions:
+      - send_email: "weekly_digest"
+      - add_tag: "digest_recipient"
+
+  monthly_newsletter:
+    name: "Monthly Newsletter"
+    description: "Send monthly newsletter"
+    event_type: "schedule.monthly"
+    schedule: "0 10 1 * *" # First day of month at 10 AM
+    conditions:
+      - field: "user.subscription_status"
+        operator: "equals"
+        value: "active"
+    actions:
+      - send_email: "monthly_newsletter"
+      - update_field: "last_newsletter_sent"
+
+  # Milestone Triggers
+  user_anniversary:
+    name: "User Anniversary"
+    description: "Triggered on user's registration anniversary"
+    event_type: "user.anniversary"
+    delay: "immediate"
+    conditions:
+      - field: "user.registration_date"
+        operator: "anniversary"
+        value: "yearly"
+    actions:
+      - send_email: "anniversary_celebration"
+      - add_tag: "loyal_user"
+      - offer_reward: "anniversary_discount"
+
+  subscription_expiry:
+    name: "Subscription Expiry Warning"
+    description: "Triggered 7 days before subscription expires"
+    event_type: "subscription.expiry_warning"
+    delay: "immediate"
+    conditions:
+      - field: "subscription.expires_at"
+        operator: "within_days"
+        value: 7
+      - field: "subscription.status"
+        operator: "equals"
+        value: "active"
+    actions:
+      - send_email: "renewal_reminder"
+      - add_tag: "expiring_subscription"
+
+  # Company-Specific Triggers
+  project_completion:
+    name: "Project Completion"
+    description: "Triggered when a project is marked as completed"
+    event_type: "project.completed"
+    delay: "1 day"
+    companies: ["readysetbuild", "stacksense", "vision2results"]
+    conditions:
+      - field: "project.status"
+        operator: "equals"
+        value: "completed"
+    actions:
+      - send_email: "project_completion_survey"
+      - add_tag: "completed_project"
+      - schedule_followup: "30 days"
+
+  service_inquiry:
+    name: "Service Inquiry"
+    description: "Triggered when someone submits a service inquiry"
+    event_type: "form.service_inquiry"
+    delay: "immediate"
+    conditions:
+      - field: "form.type"
+        operator: "equals"
+        value: "service_inquiry"
+    actions:
+      - send_email: "inquiry_acknowledgment"
+      - notify_sales_team: true
+      - add_tag: "potential_client"
+
+  # Re-engagement Triggers
+  inactive_user:
+    name: "Inactive User Re-engagement"
+    description: "Triggered for users who haven't been active for 30 days"
+    event_type: "user.inactive"
+    delay: "immediate"
+    conditions:
+      - field: "user.last_activity"
+        operator: "older_than"
+        value: "30 days"
+      - field: "user.status"
+        operator: "equals"
+        value: "active"
+    actions:
+      - send_email: "reengagement_campaign"
+      - add_tag: "inactive_user"
+      - offer_incentive: "comeback_discount"
+
+  # Error and Recovery Triggers
+  payment_failed:
+    name: "Payment Failed"
+    description: "Triggered when a payment fails"
+    event_type: "payment.failed"
+    delay: "1 hour"
+    conditions:
+      - field: "payment.status"
+        operator: "equals"
+        value: "failed"
+      - field: "payment.retry_count"
+        operator: "less_than"
+        value: 3
+    actions:
+      - send_email: "payment_retry_notice"
+      - add_tag: "payment_issue"
+      - schedule_retry: "24 hours"
+
+# Global Settings
+settings:
+  max_emails_per_day: 5
+  respect_unsubscribe: true
+  track_opens: true
+  track_clicks: true
+  default_timezone: "UTC"
+  rate_limiting:
+    enabled: true
+    max_per_hour: 100
+    max_per_minute: 10

@@ -1,0 +1,89 @@
+{
+  "company": {
+    "name": "LyricLines",
+    "tagline": "Where Words Meet Melody",
+    "description": "Professional songwriting, music production, and lyrical content creation services",
+    "industry": "Music & Entertainment",
+    "founded": "2023",
+    "website": "https://lyriclines.com",
+    "email": "harmony@lyriclines.com",
+    "phone": "+1 (555) LYRIC-LINE"
+  },
+  "branding": {
+    "primary_color": "#EC4899",
+    "secondary_color": "#8B5CF6",
+    "accent_color": "#F59E0B",
+    "text_color": "#1F2937",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/lyriclines-logo.png",
+    "logo_alt": "LyricLines Logo",
+    "favicon": "/assets/favicons/lyriclines.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "4680 Melody Avenue",
+      "city": "Harmony Heights",
+      "state": "HH",
+      "zip": "46802",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/lyriclines",
+      "twitter": "https://twitter.com/lyriclines",
+      "instagram": "https://instagram.com/lyriclines",
+      "spotify": "https://open.spotify.com/artist/lyriclines",
+      "soundcloud": "https://soundcloud.com/lyriclines",
+      "youtube": "https://youtube.com/c/lyriclines"
+    }
+  },
+  "email_settings": {
+    "from_name": "LyricLines Team",
+    "from_email": "noreply@lyriclines.com",
+    "reply_to": "support@lyriclines.com",
+    "signature": "Best regards,<br>The LyricLines Team<br>Where Words Meet Melody",
+    "unsubscribe_url": "https://lyriclines.com/unsubscribe",
+    "privacy_policy": "https://lyriclines.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Songwriting",
+      "description": "Professional songwriting and lyrical composition services",
+      "icon": "✍️"
+    },
+    {
+      "name": "Music Production",
+      "description": "Full-service music production and arrangement",
+      "icon": "🎵"
+    },
+    {
+      "name": "Vocal Coaching",
+      "description": "Professional vocal training and performance coaching",
+      "icon": "🎤"
+    },
+    {
+      "name": "Audio Mixing",
+      "description": "Professional audio mixing and mastering services",
+      "icon": "🎛️"
+    }
+  ],
+  "key_metrics": {
+    "songs_written": "500+",
+    "artists_worked_with": "150+",
+    "albums_produced": "75+",
+    "streaming_plays": "10M+"
+  },
+  "email_templates": {
+    "welcome": "lyriclines-welcome",
+    "newsletter": "lyriclines-newsletter",
+    "song_release": "lyriclines-release",
+    "collaboration_invite": "lyriclines-collaboration"
+  },
+  "automation_tags": [
+    "music",
+    "songwriting",
+    "production",
+    "vocals",
+    "audio",
+    "entertainment"
+  ]
+}

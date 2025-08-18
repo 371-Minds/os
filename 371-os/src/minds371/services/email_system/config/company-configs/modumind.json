@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "ModuMind",
+    "tagline": "Modular Solutions for Modern Minds",
+    "description": "Innovative modular software architecture and component-based development solutions",
+    "industry": "Software Architecture",
+    "founded": "2023",
+    "website": "https://modumind.com",
+    "email": "connect@modumind.com",
+    "phone": "+1 (555) MODU-123"
+  },
+  "branding": {
+    "primary_color": "#667EEA",
+    "secondary_color": "#764BA2",
+    "accent_color": "#F093FB",
+    "text_color": "#4A5568",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/modumind-logo.png",
+    "logo_alt": "ModuMind Logo",
+    "favicon": "/assets/favicons/modumind.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "3456 Modular Street",
+      "city": "Component City",
+      "state": "CC",
+      "zip": "67890",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/modumind",
+      "twitter": "https://twitter.com/modumind",
+      "github": "https://github.com/modumind",
+      "dribbble": "https://dribbble.com/modumind"
+    }
+  },
+  "email_settings": {
+    "from_name": "ModuMind Team",
+    "from_email": "noreply@modumind.com",
+    "reply_to": "support@modumind.com",
+    "signature": "Best regards,<br>The ModuMind Team<br>Modular Solutions for Modern Minds",
+    "unsubscribe_url": "https://modumind.com/unsubscribe",
+    "privacy_policy": "https://modumind.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Modular Architecture Design",
+      "description": "Scalable and maintainable modular system architectures",
+      "icon": "🧩"
+    },
+    {
+      "name": "Component Development",
+      "description": "Reusable component libraries and design systems",
+      "icon": "⚙️"
+    },
+    {
+      "name": "Microservices Consulting",
+      "description": "Microservices architecture planning and implementation",
+      "icon": "🔗"
+    },
+    {
+      "name": "API Design & Integration",
+      "description": "RESTful and GraphQL API design and integration services",
+      "icon": "🔌"
+    }
+  ],
+  "key_metrics": {
+    "modules_created": "300+",
+    "development_speed": "60%",
+    "code_reusability": "80%",
+    "client_projects": "120+"
+  },
+  "email_templates": {
+    "welcome": "modumind-welcome",
+    "newsletter": "modumind-newsletter",
+    "architecture_proposal": "modumind-proposal",
+    "component_showcase": "modumind-showcase"
+  },
+  "automation_tags": [
+    "modular-architecture",
+    "components",
+    "microservices",
+    "api-design",
+    "scalability",
+    "reusability"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "Legacy Code Archaeologist",
+    "tagline": "Unearthing and Modernizing Legacy Systems",
+    "description": "Specialized in discovering, analyzing, and modernizing legacy codebases and systems",
+    "industry": "Software Modernization",
+    "founded": "2023",
+    "website": "https://legacy-archaeologist.com",
+    "email": "dig@legacy-archaeologist.com",
+    "phone": "+1 (555) LEGACY-1"
+  },
+  "branding": {
+    "primary_color": "#8B4513",
+    "secondary_color": "#DAA520",
+    "accent_color": "#CD853F",
+    "text_color": "#2F4F4F",
+    "background_color": "#FFF8DC",
+    "logo_url": "/assets/logos/legacy-archaeologist-logo.png",
+    "logo_alt": "Legacy Code Archaeologist Logo",
+    "favicon": "/assets/favicons/legacy-archaeologist.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "9012 Heritage Lane",
+      "city": "Code Valley",
+      "state": "CV",
+      "zip": "54321",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/legacy-archaeologist",
+      "twitter": "https://twitter.com/legacyarchaeologist",
+      "github": "https://github.com/legacy-archaeologist",
+      "stackoverflow": "https://stackoverflow.com/users/legacy-archaeologist"
+    }
+  },
+  "email_settings": {
+    "from_name": "Legacy Archaeologist Team",
+    "from_email": "noreply@legacy-archaeologist.com",
+    "reply_to": "support@legacy-archaeologist.com",
+    "signature": "Best regards,<br>The Legacy Archaeologist Team<br>Unearthing and Modernizing Legacy Systems",
+    "unsubscribe_url": "https://legacy-archaeologist.com/unsubscribe",
+    "privacy_policy": "https://legacy-archaeologist.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Legacy Code Analysis",
+      "description": "Deep dive analysis of legacy codebases and documentation",
+      "icon": "🔍"
+    },
+    {
+      "name": "System Modernization",
+      "description": "Strategic modernization of legacy systems and architectures",
+      "icon": "🏛️"
+    },
+    {
+      "name": "Code Migration",
+      "description": "Safe migration from legacy platforms to modern technologies",
+      "icon": "📦"
+    },
+    {
+      "name": "Documentation Recovery",
+      "description": "Reconstructing lost documentation and system knowledge",
+      "icon": "📜"
+    }
+  ],
+  "key_metrics": {
+    "systems_modernized": "75+",
+    "lines_analyzed": "10M+",
+    "migration_success": "95%",
+    "documentation_recovered": "500+"
+  },
+  "email_templates": {
+    "welcome": "legacy-archaeologist-welcome",
+    "newsletter": "legacy-archaeologist-newsletter",
+    "analysis_report": "legacy-archaeologist-analysis",
+    "modernization_plan": "legacy-archaeologist-plan"
+  },
+  "automation_tags": [
+    "legacy-systems",
+    "modernization",
+    "code-analysis",
+    "migration",
+    "documentation",
+    "archaeology"
+  ]
+}

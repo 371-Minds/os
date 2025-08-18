@@ -1,0 +1,89 @@
+{
+  "company": {
+    "name": "Multimedia Junkie",
+    "tagline": "Addicted to Creating Amazing Content",
+    "description": "Creative multimedia production studio specializing in video, audio, and interactive content",
+    "industry": "Multimedia Production",
+    "founded": "2023",
+    "website": "https://multimedia-junkie.com",
+    "email": "create@multimedia-junkie.com",
+    "phone": "+1 (555) MM-JUNKIE"
+  },
+  "branding": {
+    "primary_color": "#E91E63",
+    "secondary_color": "#9C27B0",
+    "accent_color": "#FF5722",
+    "text_color": "#212121",
+    "background_color": "#FAFAFA",
+    "logo_url": "/assets/logos/multimedia-junkie-logo.png",
+    "logo_alt": "Multimedia Junkie Logo",
+    "favicon": "/assets/favicons/multimedia-junkie.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "1357 Creative Lane",
+      "city": "Media City",
+      "state": "MC",
+      "zip": "97531",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/multimedia-junkie",
+      "twitter": "https://twitter.com/multimediajunkie",
+      "instagram": "https://instagram.com/multimediajunkie",
+      "youtube": "https://youtube.com/c/multimediajunkie",
+      "tiktok": "https://tiktok.com/@multimediajunkie",
+      "behance": "https://behance.net/multimediajunkie"
+    }
+  },
+  "email_settings": {
+    "from_name": "Multimedia Junkie Team",
+    "from_email": "noreply@multimedia-junkie.com",
+    "reply_to": "support@multimedia-junkie.com",
+    "signature": "Best regards,<br>The Multimedia Junkie Team<br>Addicted to Creating Amazing Content",
+    "unsubscribe_url": "https://multimedia-junkie.com/unsubscribe",
+    "privacy_policy": "https://multimedia-junkie.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Video Production",
+      "description": "Professional video production from concept to final cut",
+      "icon": "🎬"
+    },
+    {
+      "name": "Audio Engineering",
+      "description": "High-quality audio recording, mixing, and mastering",
+      "icon": "🎵"
+    },
+    {
+      "name": "Motion Graphics",
+      "description": "Dynamic motion graphics and visual effects",
+      "icon": "✨"
+    },
+    {
+      "name": "Interactive Media",
+      "description": "Interactive experiences and multimedia installations",
+      "icon": "🎮"
+    }
+  ],
+  "key_metrics": {
+    "projects_completed": "400+",
+    "hours_produced": "2000+",
+    "client_satisfaction": "96%",
+    "awards_won": "15+"
+  },
+  "email_templates": {
+    "welcome": "multimedia-junkie-welcome",
+    "newsletter": "multimedia-junkie-newsletter",
+    "project_showcase": "multimedia-junkie-showcase",
+    "production_update": "multimedia-junkie-update"
+  },
+  "automation_tags": [
+    "multimedia",
+    "video-production",
+    "audio-engineering",
+    "motion-graphics",
+    "creative",
+    "content-creation"
+  ]
+}

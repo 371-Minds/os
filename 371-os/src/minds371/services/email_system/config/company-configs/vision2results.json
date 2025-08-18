@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "Vision2Results",
+    "tagline": "Transforming Vision into Measurable Results",
+    "description": "Strategic business consulting and performance optimization for ambitious organizations",
+    "industry": "Business Consulting",
+    "founded": "2023",
+    "website": "https://vision2results.com",
+    "email": "achieve@vision2results.com",
+    "phone": "+1 (555) V2R-ESULTS"
+  },
+  "branding": {
+    "primary_color": "#3B82F6",
+    "secondary_color": "#1E40AF",
+    "accent_color": "#F59E0B",
+    "text_color": "#1F2937",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/vision2results-logo.png",
+    "logo_alt": "Vision2Results Logo",
+    "favicon": "/assets/favicons/vision2results.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "2468 Success Boulevard",
+      "city": "Achievement City",
+      "state": "AC",
+      "zip": "24680",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/vision2results",
+      "twitter": "https://twitter.com/vision2results",
+      "facebook": "https://facebook.com/vision2results",
+      "youtube": "https://youtube.com/c/vision2results"
+    }
+  },
+  "email_settings": {
+    "from_name": "Vision2Results Team",
+    "from_email": "noreply@vision2results.com",
+    "reply_to": "support@vision2results.com",
+    "signature": "Best regards,<br>The Vision2Results Team<br>Transforming Vision into Measurable Results",
+    "unsubscribe_url": "https://vision2results.com/unsubscribe",
+    "privacy_policy": "https://vision2results.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Strategic Planning",
+      "description": "Comprehensive strategic planning and roadmap development",
+      "icon": "🎯"
+    },
+    {
+      "name": "Performance Optimization",
+      "description": "Business process optimization and efficiency improvements",
+      "icon": "📊"
+    },
+    {
+      "name": "Change Management",
+      "description": "Organizational change management and transformation support",
+      "icon": "🔄"
+    },
+    {
+      "name": "Leadership Development",
+      "description": "Executive coaching and leadership development programs",
+      "icon": "👥"
+    }
+  ],
+  "key_metrics": {
+    "clients_transformed": "250+",
+    "avg_roi_improvement": "180%",
+    "success_rate": "92%",
+    "years_combined_experience": "50+"
+  },
+  "email_templates": {
+    "welcome": "vision2results-welcome",
+    "newsletter": "vision2results-newsletter",
+    "performance_report": "vision2results-performance",
+    "consultation_invite": "vision2results-consultation"
+  },
+  "automation_tags": [
+    "business-consulting",
+    "strategic-planning",
+    "performance-optimization",
+    "change-management",
+    "leadership",
+    "transformation"
+  ]
+}

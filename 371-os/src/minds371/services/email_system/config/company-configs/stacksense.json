@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "StackSense",
+    "tagline": "Making Sense of Your Tech Stack",
+    "description": "Advanced technology consulting and stack optimization for modern businesses",
+    "industry": "Technology Consulting",
+    "founded": "2023",
+    "website": "https://stacksense.com",
+    "email": "hello@stacksense.com",
+    "phone": "+1 (555) STACK-01"
+  },
+  "branding": {
+    "primary_color": "#6C5CE7",
+    "secondary_color": "#00B894",
+    "accent_color": "#FDCB6E",
+    "text_color": "#2D3436",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/stacksense-logo.png",
+    "logo_alt": "StackSense Logo",
+    "favicon": "/assets/favicons/stacksense.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "5678 Tech Boulevard",
+      "city": "Silicon Valley",
+      "state": "CA",
+      "zip": "94000",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/stacksense",
+      "twitter": "https://twitter.com/stacksense",
+      "github": "https://github.com/stacksense",
+      "medium": "https://medium.com/@stacksense"
+    }
+  },
+  "email_settings": {
+    "from_name": "StackSense Team",
+    "from_email": "noreply@stacksense.com",
+    "reply_to": "support@stacksense.com",
+    "signature": "Best regards,<br>The StackSense Team<br>Making Sense of Your Tech Stack",
+    "unsubscribe_url": "https://stacksense.com/unsubscribe",
+    "privacy_policy": "https://stacksense.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Stack Analysis",
+      "description": "Comprehensive technology stack evaluation and optimization",
+      "icon": "📊"
+    },
+    {
+      "name": "Architecture Consulting",
+      "description": "System architecture design and modernization strategies",
+      "icon": "🏗️"
+    },
+    {
+      "name": "Performance Optimization",
+      "description": "Application and infrastructure performance tuning",
+      "icon": "⚡"
+    },
+    {
+      "name": "DevOps Integration",
+      "description": "CI/CD pipeline setup and automation implementation",
+      "icon": "🔄"
+    }
+  ],
+  "key_metrics": {
+    "clients_served": "200+",
+    "performance_improvement": "85%",
+    "cost_reduction": "40%",
+    "uptime_achieved": "99.9%"
+  },
+  "email_templates": {
+    "welcome": "stacksense-welcome",
+    "newsletter": "stacksense-newsletter",
+    "audit_report": "stacksense-audit",
+    "consultation": "stacksense-consultation"
+  },
+  "automation_tags": [
+    "technology",
+    "consulting",
+    "stack-optimization",
+    "performance",
+    "devops",
+    "architecture"
+  ]
+}

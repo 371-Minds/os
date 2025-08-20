@@ -26,6 +26,7 @@ class AgentType(Enum):
     """Types of agents in the 371 Minds OS"""
     INTELLIGENT_ROUTER = "intelligent_router"
     CODE_GENERATION = "code_generation"
+    CONTENT_GENERATION = "content_generation"
     MARKETING_ASSET = "marketing_asset"
     BUSINESS_LOGIC = "business_logic"
     DEPLOYMENT = "deployment_agent"

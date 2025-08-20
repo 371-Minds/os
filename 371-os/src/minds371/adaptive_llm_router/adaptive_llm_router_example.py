@@ -1,73 +1,64 @@
 import asyncio
+import json
 import os
-from adaptive_llm_router.llm import invoke
+import sys
+from uuid import uuid4
 
-# Mock litellm because we don't have API keys in the test environment
-# and we are not testing litellm itself, but the router logic.
-class MockLiteLLMResponse:
-    class MockChoice:
-        class MockMessage:
-            def __init__(self, content):
-                self.content = content
+# Adjust path to import from agent modules
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-        def __init__(self, content):
-            self.message = self.MockMessage(content)
-
-    class MockUsage:
-        def __init__(self, prompt_tokens, completion_tokens):
-            self.prompt_tokens = prompt_tokens
-            self.completion_tokens = completion_tokens
-
-    def __init__(self, content, prompt_tokens=10, completion_tokens=20):
-        self.choices = [self.MockChoice(content)]
-        self.usage = self.MockUsage(prompt_tokens, completion_tokens)
-
-async def mock_acompletion(model, messages):
-    # The model string is 'provider/model', we return it for verification
-    return MockLiteLLMResponse(f"Mock response from {model}")
-
-# Patch litellm.acompletion
-import litellm
-litellm.acompletion = mock_acompletion
-
+from minds371.adaptive_llm_router.intelligent_router_agent import IntelligentRouterAgent
+from minds371.agents.base_agent.improved_base_agent import Task, AgentType, TaskStatus
 
 async def main():
     """
-    An example script to demonstrate the functionality of the Adaptive LLM Router.
+    An example script to demonstrate the functionality of the new IntelligentRouterAgent.
     """
-    print("--- Running Adaptive LLM Router Example ---")
+    print("--- Running Intelligent Router Agent Example ---")
 
-    # Test Case 1: Balanced Default
-    print("\n--- Test Case 1: Balanced Default ---")
-    prompt1 = "This is a standard request."
-    meta1 = {"agent_name": "test_agent"}
-    response1 = await invoke(prompt1, meta1)
-    print(f"Response: {response1}")
+    # The IntelligentRouterAgent is self-contained and doesn't need external LLM calls for this demo
+    agent = IntelligentRouterAgent()
 
-    # Test Case 2: High Quality
-    print("\n--- Test Case 2: High Quality ---")
-    prompt2 = "This is a high-quality request."
-    meta2 = {"quality": "high", "agent_name": "test_agent"}
-    response2 = await invoke(prompt2, meta2)
-    print(f"Response: {response2}")
+    # Test cases
+    test_tasks = [
+        {
+            "command": "Can you please find the catalog_services?",
+            "description": "A request for the CTO."
+        },
+        {
+            "command": "I need to sync our marketing_campaigns.",
+            "description": "A request for the CMO."
+        },
+        {
+            "command": "store the new user feedback document.",
+            "description": "A request for the utility belt (mocked)."
+        },
+        {
+            "command": "This is an unknown command.",
+            "description": "A request that should fail routing."
+        }
+    ]
 
-    # Test Case 3: Confidential
-    print("\n--- Test Case 3: Confidential ---")
-    prompt3 = "This is a confidential request."
-    meta3 = {"confidential": True, "agent_name": "test_agent"}
-    response3 = await invoke(prompt3, meta3)
-    print(f"Response: {response3}")
+    for i, task_info in enumerate(test_tasks):
+        task = Task(
+            id=str(uuid4()),
+            description=task_info["description"],
+            agent_type=AgentType.INTELLIGENT_ROUTER,
+            payload={'command': task_info['command']},
+            status=TaskStatus.PENDING
+        )
 
-    # Test Case 4: Long Context
-    print("\n--- Test Case 4: Long Context ---")
-    prompt4 = "This is a very long prompt... " * 1000  # Approx 8000 tokens
-    meta4 = {"agent_name": "test_agent"}
-    response4 = await invoke(prompt4, meta4)
-    print(f"Response: {response4}")
+        print(f"\n--- Test Case {i+1}: {task.description} ---")
+        print(f"Command: {task_info['command']}")
 
-    print("\n--- Adaptive LLM Router Example Complete ---")
+        result = await agent.process_task(task)
+
+        print("Router Output:")
+        print(json.dumps(result, indent=2))
+
+    print("\n--- Intelligent Router Agent Example Complete ---")
 
 if __name__ == "__main__":
-    # Set a dummy API key to satisfy litellm's checks, even with mocking
+    # Dummy key to satisfy any underlying checks, though our mock doesn't need it.
     os.environ["OPENAI_API_KEY"] = "dummy_key"
     asyncio.run(main())

@@ -1,51 +1,100 @@
+import asyncio
+from typing import Dict, Any, List
+import uuid
+
+# To allow importing from the parent directory
 import sys
 import os
-import asyncio
-
-# Add the parent directory to the system path to import the main agent
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from cto_alex import CtoAlexAgent
-from base_agent import Task, AgentType
 
-async def main():
+from base_agent.base_agent import BaseAgent, Task, AgentType, AgentCapability, TaskStatus
+
+class CtoAlexAgent(BaseAgent):
     """
-    Main function to run the benchmark test for CtoAlexAgent.
+    CTO Alex Agent specializes in technical strategy and oversight.
     """
-    print("--- Starting CTO Alex Agent Benchmark ---")
 
-    # Instantiate the CTO agent
-    cto_agent = CtoAlexAgent()
+    def __init__(self):
+        agent_id = f"cto-alex-{uuid.uuid4()}"
+        capabilities = [
+            AgentCapability(name="design_architecture", description="Design technical architecture for new services."),
+            AgentCapability(name="evaluate_technology", description="Evaluate and select new technologies."),
+            AgentCapability(name="handle_security_response", description="Oversee responses to security vulnerabilities."),
+            AgentCapability(name="plan_infrastructure", description="Plan infrastructure scaling and management.")
+        ]
+        super().__init__(agent_id=agent_id, agent_type=AgentType.CTO, capabilities=capabilities)
 
-    # The current CtoAlexAgent is a placeholder.
-    # This test suite verifies its current behavior and can be expanded
-    # when the agent's delegation logic is implemented.
+    async def process_task(self, task: Task) -> Dict[str, Any]:
+        """
+        Processes a technical task based on its category.
+        """
+        self.logger.info(f"CTO Alex processing task: {task.description}")
+        description = task.description.lower()
 
-    benchmark_tasks = [
-        Task(id="1", description="Design technical architecture for new microservice", agent_type=AgentType.CTO, payload={"service_name": "AuthService"}),
-        Task(id="2", description="Evaluate and select a new database technology", agent_type=AgentType.CTO, payload={"requirements": ["scalability", "low_latency"]}),
-        Task(id="3", description="Create a plan for reducing technical debt in the legacy system", agent_type=AgentType.CTO, payload={"system": "LegacyMonolith"}),
-        Task(id="4", description="Oversee the response to a critical security vulnerability", agent_type=AgentType.CTO, payload={"vulnerability_id": "CVE-2024-12345"}),
-        Task(id="5", description="Plan infrastructure scaling for anticipated holiday traffic", agent_type=AgentType.CTO, payload={"event": "Black Friday"}),
-    ]
+        if "architecture" in description:
+            result = self._handle_architecture_design(task)
+        elif "evaluate" in description or "select" in description:
+            result = self._handle_technology_evaluation(task)
+        elif "security" in description or "vulnerability" in description:
+            result = self._handle_security_response(task)
+        elif "infrastructure" in description or "scaling" in description:
+            result = self._handle_infrastructure_planning(task)
+        else:
+            result = {"status": "delegated", "message": f"Task '{task.description}' not a direct CTO task, delegating."}
 
-    print("\n--- Testing Task Processing ---")
-    for task in benchmark_tasks:
-        print(f"\nProcessing Task: {task.description}")
-        result = await cto_agent.process_task(task)
-        print(f"Result: {result}")
-        # Assert the current placeholder behavior
-        expected_message = f"Technical task '{task.description}' is being processed."
-        assert result["status"] == "success"
-        assert result["message"] == expected_message
-        print("Assertion passed: Agent returned the expected placeholder message.")
+        return result
 
-    print("\n--- Testing Health Check ---")
-    is_healthy = await cto_agent.health_check()
-    print(f"Health Check Passed: {is_healthy}")
-    assert is_healthy is True
+    def _handle_architecture_design(self, task: Task) -> Dict[str, Any]:
+        service_name = task.payload.get("service_name", "Unknown Service")
+        return {
+            "status": "completed",
+            "message": f"Architecture design for {service_name} started. Creating technical specifications.",
+            "details": {
+                "task": "Design Architecture",
+                "service": service_name,
+                "next_step": "Create Technical Specification"
+            }
+        }
 
-    print("\n--- CTO Alex Agent Benchmark Complete ---")
+    def _handle_technology_evaluation(self, task: Task) -> Dict[str, Any]:
+        requirements = task.payload.get("requirements", [])
+        return {
+            "status": "completed",
+            "message": f"Technology evaluation started. Planning proof-of-concept.",
+            "details": {
+                "task": "Evaluate Technology",
+                "requirements": requirements,
+                "next_step": "Plan Proof-of-Concept"
+            }
+        }
 
-if __name__ == "__main__":
-    asyncio.run(main())
+    def _handle_security_response(self, task: Task) -> Dict[str, Any]:
+        vulnerability_id = task.payload.get("vulnerability_id", "Unknown Vulnerability")
+        return {
+            "status": "completed",
+            "message": f"Overseeing mitigation for {vulnerability_id}. Post-mortem analysis will be conducted.",
+            "details": {
+                "task": "Security Response",
+                "vulnerability": vulnerability_id,
+                "next_step": "Conduct Post-Mortem Analysis"
+            }
+        }
+
+    def _handle_infrastructure_planning(self, task: Task) -> Dict[str, Any]:
+        event = task.payload.get("event", "General Scaling")
+        return {
+            "status": "completed",
+            "message": f"Infrastructure scaling plan for {event} is being drafted.",
+            "details": {
+                "task": "Infrastructure Planning",
+                "event": event,
+                "next_step": "Finalize Scaling Plan"
+            }
+        }
+
+    async def health_check(self) -> bool:
+        """
+        Health check for the CTO Alex agent.
+        """
+        return True

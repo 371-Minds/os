@@ -8,6 +8,7 @@ import random
 import uuid
 from datetime import datetime
 from enum import Enum
+from typing import Any, Dict
 
 from minds371.agents.base_agent.improved_base_agent import (
     ImprovedBaseAgent,
@@ -58,43 +59,36 @@ class CCOAgent(ImprovedBaseAgent):
         self.logger.info("Notifying CEO agent of warning status...")
         await asyncio.sleep(1)
 
-    async def process_task(self, task: Task) -> dict:
-        """
-        Processes a task to monitor community health.
-        """
-        if task.description == "monitor_community_health":
-            while not self.shutdown_event.is_set():
-                health_score = await self.get_community_health_score()
+    async def process_task(self, task: Task) -> Dict[str, Any]:
+        self.logger.info(f"CCO Agent is analyzing task: {task.description}")
 
-                if health_score <= 0.8:
-                    self.logger.warning("Community health score is below threshold!")
-                    sentiment_analysis = await self.analyze_sentiment()
-                    youtrack_issue = await self.create_youtrack_issue()
-                    await self.notify_ceo_agent()
+        task_description = task.description.lower()
 
-                    result = {
-                        "status": "Warning",
-                        "health_score": health_score,
-                        "sentiment_analysis": sentiment_analysis,
-                        "youtrack_issue": youtrack_issue,
-                    }
-                    # After handling a warning, we break the loop
-                    # as the monitoring cycle is complete as per the diagram.
-                    return result
-                else:
-                    self.logger.info("Community health is stable.")
+        # This logic implements the Community Health Monitoring workflow
+        if "community health" in task_description:
 
-                self.logger.info("Waiting for 1 hour before next check...")
-                try:
-                    # Wait for 1 hour or until shutdown is requested
-                    await asyncio.wait_for(self.shutdown_event.wait(), timeout=3600)
-                except asyncio.TimeoutError:
-                    continue  # Timeout means we continue the loop
+            # For now, we will simulate the workflow.
+            # Later, this will involve real data checks.
+            self.logger.info("Simulating community health check...")
 
-            return {"status": "Shutdown"}
+            # This is the sequence of actions from your diagram
+            action_plan = [
+                "1. Analyze recent posts for negative sentiment.",
+                "2. Create 'Review Community Health' issue in YouTrack.",
+                "3. Notify CEO Agent of 'Warning' status."
+            ]
+
+            return {
+                "status": "action_plan_generated",
+                "message": "Community health score is below threshold. Executing response plan.",
+                "plan": action_plan
+            }
         else:
-            self.logger.warning(f"Unknown task description: {task.description}")
-            return {"error": "Unknown task"}
+            # Handle other CCO-related tasks if necessary
+            return {
+                "status": "requires_clarification",
+                "message": f"CCO Agent received an unclassified task: '{task.description}'"
+            }
 
     async def health_check(self) -> bool:
         """

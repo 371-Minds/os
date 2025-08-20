@@ -1,4 +1,4 @@
-pyproject_toml_content = '''[build-system]
+[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -118,7 +118,6 @@ minds371-server = "minds371.platforms.api_server.fastapi_app:main"
 minds371-benchmark = "minds371.utils.benchmark:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
 
 [tool.setuptools.package-data]
 minds371 = ["configs/*.yaml", "configs/**/*.yaml", "configs/**/*.json"]
@@ -239,56 +238,3 @@ exclude_lines = [
     "class .*\\bProtocol\\):",
     "@(abc\\.)?abstractmethod",
 ]
-'''
-
-print("📄 PYPROJECT.TOML CONFIGURATION")
-print("=" * 60)
-print("Created comprehensive pyproject.toml with:")
-print("\n🎯 CORE FEATURES:")
-features = [
-    "✅ Modern Python packaging standards (PEP 621)",
-    "✅ Comprehensive dependency management with optional extras", 
-    "✅ Development tools configuration (black, ruff, mypy, pytest)",
-    "✅ Platform-specific optional dependencies",
-    "✅ LLM integration dependencies",
-    "✅ Cloud provider integrations",
-    "✅ Performance monitoring tools",
-    "✅ Command-line scripts for easy usage"
-]
-
-for feature in features:
-    print(feature)
-
-print("\n📦 OPTIONAL DEPENDENCY GROUPS:")
-groups = [
-    "• dev: Development and testing tools",
-    "• monitoring: DataDog, Sentry, Grafana, Elasticsearch", 
-    "• databases: PostgreSQL, MySQL, MongoDB, Redis, Qdrant",
-    "• cloud: AWS, GCP, DigitalOcean, Azure",
-    "• platforms: Slack, Discord, WebSockets, Selenium",
-    "• llm: OpenAI, Anthropic, LangChain, Tiktoken",
-    "• all: Everything included for complete installation"
-]
-
-for group in groups:
-    print(group)
-
-print("\n🛠️ INSTALLATION COMMANDS:")
-commands = [
-    "# Basic installation",
-    "pip install minds371",
-    "",
-    "# Development installation", 
-    "pip install minds371[dev]",
-    "",
-    "# Full installation with all features",
-    "pip install minds371[all]",
-    "",
-    "# Custom installation",
-    "pip install minds371[llm,cloud,monitoring]"
-]
-
-for command in commands:
-    print(command)
-
-print(f"\n📏 Configuration includes {len(pyproject_toml_content.splitlines())} lines of comprehensive setup")

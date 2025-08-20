@@ -1,68 +1,50 @@
-import sys
-import os
 import asyncio
-from unittest.mock import patch, AsyncMock, MagicMock
+from ..base_agent.improved_base_agent import ImprovedBaseAgent as BaseAgent, Task, AgentType
+from ...financial_system import FinancialAgent
 
-# Add the parent directory to the system path to import the main agent
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from cfo_cash import CfoCashAgent
-from base_agent import Task, AgentType
-
-async def main():
+class CfoCashAgent(BaseAgent):
     """
-    Main function to run the benchmark test for CfoCashAgent.
+    CFO Cash Agent for financial workflow logic.
     """
-    print("--- Starting CFO Cash Agent Benchmark ---")
 
-    # To avoid actual financial operations, we'll mock the FinancialAgent
-    # that CfoCashAgent depends on.
-    with patch('cfo_cash.FinancialAgent') as MockFinancialAgentClass:
-        # When FinancialAgent() is called, it returns this instance.
-        mock_financial_agent_instance = MockFinancialAgentClass.return_value
+    def __init__(self, financial_agent=None):
+        super().__init__(agent_id="cfo_cash_agent", agent_type=AgentType.CFO)
+        self.financial_agent = financial_agent or FinancialAgent()
 
-        # We need to mock the async methods on the instance.
-        async def process_task_side_effect(task):
-            await asyncio.sleep(0.01)
-            return {
-                "status": "success",
-                "message": f"Mock financial task '{task.description}' processed.",
-                "payload": task.payload
-            }
+    async def process_task(self, task: Task) -> dict:
+        """
+        Processes a task based on its description, implementing the CFO_Agent_Logic.md blueprint.
+        """
+        description = task.description.lower()
 
-        # Replace the methods with AsyncMocks and configure them.
-        mock_financial_agent_instance.process_task = AsyncMock(side_effect=process_task_side_effect)
-        mock_financial_agent_instance.health_check = AsyncMock(return_value=True)
+        if "p&l" in description:
+            # P&L Analysis
+            result = await self.financial_agent.process_task(task)
+            # In a real scenario, we might generate a more detailed report here.
+            return {"status": "success", "message": "P&L analysis complete.", "payload": result.get("payload")}
 
-        # Instantiate the CFO agent. It will be initialized with the mocked FinancialAgent.
-        cfo_agent = CfoCashAgent()
+        elif "r&d" in description:
+            # R&D Tax Optimization
+            result = await self.financial_agent.process_task(task)
+            return {"status": "success", "message": "R&D tax optimization complete.", "payload": result.get("payload")}
+        elif "forecast" in description:
+            # Revenue Forecast
+            result = await self.financial_agent.process_task(task)
+            # In a real scenario, we would run a forecasting model here.
+            return {"status": "success", "message": "Revenue forecast generated.", "payload": result.get("payload")}
 
-        # A list of benchmark tasks to simulate various financial scenarios
-        benchmark_tasks = [
-            Task(id="1", description="Analyze quarterly P&L", agent_type=AgentType.CFO, payload={"period": "Q3 2024"}),
-            Task(id="2", description="Optimize R&D tax credits for new project", agent_type=AgentType.CFO, payload={"project_id": "proj_123"}),
-            Task(id="3", description="Process new Stripe subscription event", agent_type=AgentType.CFO, payload={"platform": "stripe", "type": "subscription_created", "amount": 5000}),
-            Task(id="4", description="Sync all banking transactions", agent_type=AgentType.CFO, payload={"sync_type": "full"}),
-            Task(id="5", description="Generate revenue forecast for 2025", agent_type=AgentType.CFO, payload={"year": 2025}),
-        ]
+        elif "stripe" in description or "banking" in description:
+            # Transaction Processing
+            result = await self.financial_agent.process_task(task)
+            # In a real scenario, we would update the financial ledger here.
+            return {"status": "success", "message": "Transaction processed.", "payload": result.get("payload")}
 
-        print("\n--- Testing Task Processing ---")
-        for task in benchmark_tasks:
-            print(f"\nProcessing Task: {task.description}")
-            result = await cfo_agent.process_task(task)
-            print(f"Result: {result}")
-            # Verify that the mock financial agent was called
-            mock_financial_agent_instance.process_task.assert_called_with(task)
+        else:
+            # Default case if no specific workflow matches
+            return await self.financial_agent.process_task(task)
 
-        print("\n--- Testing Health Check ---")
-        is_healthy = await cfo_agent.health_check()
-        print(f"Health Check Passed: {is_healthy}")
-        mock_financial_agent_instance.health_check.assert_called_once()
-
-    print("\n--- CFO Cash Agent Benchmark Complete ---")
-
-if __name__ == "__main__":
-    # The actual financial_system.py uses posthog, which may not be configured.
-    # We can patch it to avoid errors during the test run.
-    with patch('financial_system.posthog', MagicMock()):
-        asyncio.run(main())
+    async def health_check(self):
+        """
+        Performs a health check on the agent and its dependencies.
+        """
+        return await self.financial_agent.health_check()

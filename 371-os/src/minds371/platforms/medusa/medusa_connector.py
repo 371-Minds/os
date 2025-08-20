@@ -1,17 +1,28 @@
 # src/minds371/platforms/medusa_connector.py
-from medusajs import MedusaAPI
-from src.minds371.infrastructure.databases.mongodb_client import MongoDBClient
+import os
+
+class MockMongoDBClient:
+    async def create_collection(self, collection_name: str, indexes: list):
+        pass
 
 class MedusaConnector:
     """Enhanced Medusa.js connector with MongoDB analytics"""
     
     def __init__(self):
+        from medusajs import MedusaAPI
         self.medusa_api = MedusaAPI(
             base_url=os.environ.get('MEDUSA_URL'),
             api_token=os.environ.get('MEDUSA_TOKEN')
         )
-        self.mongodb = MongoDBClient()
+        self.mongodb = MockMongoDBClient()
         
+    async def get_app_analytics(self, app_id: str) -> dict:
+        # This is a mock implementation
+        return {
+            "adoption_rate": 0.7,
+            "usage_trend": 0.5
+        }
+
     async def setup_community_marketplace(self, community_id: str) -> dict:
         """Setup marketplace for community with PWYC pricing"""
         marketplace_config = {
@@ -65,3 +76,7 @@ class MedusaConnector:
             "revenue_sharing": revenue_sharing,
             "launch_status": "active"
         }
+
+    async def _setup_revenue_sharing(self, product_id: str, contributors: list) -> dict:
+        # This is a placeholder for the actual revenue sharing logic.
+        return {"status": "setup", "product_id": product_id}

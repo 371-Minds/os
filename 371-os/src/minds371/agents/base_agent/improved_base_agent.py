@@ -41,6 +41,7 @@ class AgentType(Enum):
     CFO = "cfo"
     CLO = "clo"
     CGO = "cgo"
+    CPO = "cpo"
     FINANCIAL = "financial"
     CCO = "cco"
     CRO = "cro"

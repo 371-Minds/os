@@ -1,0 +1,21 @@
+Perfect — here’s a second CSV file you can import into Microsoft Ads Editor for retargeting ads.
+These ads are designed to whisper to people who clicked through to The Veil but didn’t finish The Unraveling or send the email (Step 3).
+
+📂 Retargeting Ads CSV (Microsoft Ads Import-Ready)
+Campaign,Ad Group,Keyword,Match Type,Ad Type,Final URL,Headline 1,Headline 2,Headline 3,Description Line 1,Description Line 2,Path 1,Path 2
+Weaver's Cipher - Retargeting,Reminder 1,"",Broad,Expanded Text,http://weaverscipher.com,The Pattern Awaits,Unfinished Threads,Return to the Veil,You left the cipher incomplete.,The unraveling waits for you.,cipher,return
+Weaver's Cipher - Retargeting,Reminder 1,"",Broad,Responsive Search,http://weaverscipher.com,The Cipher Calls; The Pattern Awaits; Return to the Veil; A Whisper in the Code,Begin the unraveling; Complete what you started; Finish the test,Not about code. About vision. Return to the cipher.,cipher,unfinished
+Weaver's Cipher - Retargeting,Reminder 2,"",Broad,Expanded Text,http://weaverscipher.com,The Cipher Remembers,Your Frequency is Missing,The Invitation Awaits,The resonance is incomplete.,Finish your unraveling today.,cipher,resume
+Weaver's Cipher - Retargeting,Reminder 2,"",Broad,Responsive Search,http://weaverscipher.com,The Frequency Awaits; The Cipher Remembers; Return and Complete; A Secret Unfinished,Not recruitment. A resonance.; Return to the veil.; Finish the cipher.,Discover what you left behind. The invitation is waiting.,cipher,invitation
+Weaver's Cipher - Retargeting,Reminder 3,"",Broad,Expanded Text,http://weaverscipher.com,Your Cipher Awaits,The Pattern Recognized,Return to Complete,The puzzle is not over.,Begin the unraveling once more.,cipher,continue
+Weaver's Cipher - Retargeting,Reminder 3,"",Broad,Responsive Search,http://weaverscipher.com,The Pattern Awaits; The Cipher Calls; Return to Complete; A Hidden Invitation,The unraveling is unfinished.; Return to the veil.; Complete your cipher.,Not a test. A resonance. Finish what was started.,cipher,unravel
+
+📌 Key Notes
+
+Audience Targeting: Apply this campaign only to users who visited Step 1 (The Veil) but did not trigger your email autoresponder.
+
+Messaging Style: Cryptic and whisper-like, never salesy. Keeps the mystique alive.
+
+Ad Rotation: Rotate evenly so prospects see different reminders (“unfinished threads”, “missing frequency”, etc.).
+
+⚡ Pro Tip: Pair these with Microsoft Audience Ads (native placements on MSN + Outlook + LinkedIn sites). The dark visuals + whisper text will feel hauntingly consistent.

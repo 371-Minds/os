@@ -1,0 +1,375 @@
+# 371 OS Agents and Meta Prompts Inventory
+
+## Overview
+
+This document provides a comprehensive inventory of all agents in the 371 OS system, their capabilities, meta prompts, and routing configurations.
+
+## Agent Architecture
+
+### Base Agent Types
+
+The system uses two base agent implementations:
+
+1. **BaseAgent** - Standard agent implementation with basic task processing
+2. **ImprovedBaseAgent** - Enhanced version with performance monitoring, caching, and reliability features
+
+### Agent Categories
+
+## 1. Business Agents
+
+### 1.1 CEO Agent (Mimi)
+
+- **File**: [`ceo_mimi.py`](src/minds371/agents/business/ceo_mimi.py)
+- **Type**: [`AgentType.CEO`](src/minds371/agents/base_agent/base_agent.py:30)
+- **Capabilities**: Strategic decision-making, task delegation, oversight
+- **Meta Prompt Pattern**:
+  ```
+  "Task '{task_description}' has been noted and will be delegated accordingly."
+  ```
+- **Current Status**: Placeholder implementation
+- **Test Cases**:
+  - Develop a new feature for the main application
+  - Analyze the quarterly financial results
+  - Launch a new marketing campaign
+  - Review and approve the new infrastructure budget
+  - Coordinate a response to a major security vulnerability
+
+### 1.2 CFO Agent (Cash)
+
+- **File**: [`cfo_cash.py`](src/minds371/agents/business/cfo_cash.py)
+- **Type**: [`AgentType.CFO`](src/minds371/agents/base_agent/base_agent.py:33)
+- **Capabilities**: Financial analysis, budget management, financial operations
+- **Meta Prompt Pattern**:
+  ```
+  "Mock financial task '{task_description}' processed."
+  ```
+- **Current Status**: Mock implementation with FinancialAgent dependency
+- **Test Cases**:
+  - Analyze quarterly P&L
+  - Optimize R&D tax credits for new project
+  - Process new Stripe subscription event
+  - Sync all banking transactions
+  - Generate revenue forecast for 2025
+
+### 1.3 CMO Agent (Anova)
+
+- **File**: [`cmo_anova.py`](src/minds371/agents/business/cmo_anova.py)
+- **Type**: [`AgentType.CMO`](src/minds371/agents/base_agent/base_agent.py:32)
+- **Capabilities**: Marketing strategy, campaign management, market analysis
+- **Meta Prompt Pattern**:
+  ```
+  "Marketing task '{task_description}' is being processed."
+  ```
+- **Current Status**: Placeholder implementation
+- **Test Cases**:
+  - Develop market strategy for new product launch
+  - Analyze customer acquisition cost for Q3
+  - Plan a new social media campaign for brand awareness
+  - Review competitor marketing and suggest counter-strategies
+  - Optimize customer retention programs
+
+### 1.4 CTO Agent (Alex)
+
+- **File**: [`cto_alex.py`](src/minds371/agents/business/cto_alex.py)
+- **Type**: [`AgentType.CTO`](src/minds371/agents/base_agent/base_agent.py:31)
+- **Capabilities**: Technical architecture, technology selection, infrastructure planning
+- **Meta Prompt Pattern**:
+  ```
+  "Technical task '{task_description}' is being processed."
+  ```
+- **Current Status**: Placeholder implementation
+- **Test Cases**:
+  - Design technical architecture for new microservice
+  - Evaluate and select a new database technology
+  - Create a plan for reducing technical debt in the legacy system
+  - Oversee the response to a critical security vulnerability
+  - Plan infrastructure scaling for anticipated holiday traffic
+
+### 1.5 CLO Agent (Sage)
+
+- **File**: [`clo_sage.py`](src/minds371/agents/business/clo_sage.py)
+- **Type**: [`AgentType.CLO`](src/minds371/agents/base_agent/base_agent.py:34)
+- **Capabilities**: Learning optimization, performance assessment, knowledge transfer
+- **Meta Prompt Pattern**:
+  ```
+  "Learning task '{task_description}' is being processed."
+  ```
+- **Current Status**: Placeholder implementation
+- **Test Cases**:
+  - Assess performance of CTO agent for Q3
+  - Identify successful patterns in CFO agent's financial analysis
+  - Propose optimization for CMO agent's campaign workflow
+  - Analyze collaboration protocols between CEO and other agents
+  - Design a new knowledge transfer loop for the engineering team
+
+## 2. Marketing Agents
+
+### 2.1 Marketing Asset Agent
+
+- **File**: [`marketing_asset_agent.py`](src/minds371/agents/marketing/marketing_asset_agent.py)
+- **Type**: [`AgentType.MARKETING_ASSET`](src/minds371/agents/base_agent/base_agent.py:21)
+- **Capabilities**: Content generation, social media management, email marketing
+- **Meta Prompt Pattern**: Complex workflow with multiple phases
+- **Current Status**: Full implementation with mock dependencies
+- **Test Cases**:
+  - Content Generation: "The Future of AI in Marketing"
+  - Social Media Management: Multi-platform scheduling
+  - Email Marketing: Campaign execution with metrics
+
+### 2.2 Marketing Automation Agent
+
+- **File**: [`marketing_automation_agent.py`](src/minds371/agents/marketing/marketing_automation_agent.py)
+- **Type**: [`AgentType.MARKETING_AUTOMATION`](src/minds371/agents/base_agent/base_agent.py:25)
+- **Capabilities**: Automated marketing workflows, campaign management
+- **Meta Prompt Pattern**: Not explicitly defined in test files
+- **Current Status**: Implementation referenced but not fully examined
+
+## 3. Technical Agents
+
+### 3.1 MindScript Agent (Logic Extractor)
+
+- **File**: [`mindscript_agent.py`](src/minds371/agents/technical/mindscript_agent.py)
+- **Type**: [`AgentType.BUSINESS_LOGIC`](src/minds371/agents/base_agent/base_agent.py:22)
+- **Capabilities**: Natural language command parsing, logic extraction, structured data generation
+- **Meta Prompt Pattern**: Structured payload generation with BrokkAi analysis
+- **Current Status**: Full implementation with extensive test suite
+- **Test Cases**: 96 different command scenarios including:
+  - Standard cases: "store document", "search database"
+  - Development tasks: "deploy service", "scale infrastructure"
+  - Business operations: "modernize system", "process invoices"
+  - AI actions: "train model", "classify tickets"
+  - Security tasks: "authenticate user", "secure API keys"
+  - Edge cases: "no matching action", "find services by tag"
+
+### 3.2 QA Agent
+
+- **File**: [`qa_agent.py`](src/minds371/agents/technical/qa_agent.py)
+- **Type**: [`AgentType.QA_AUTOMATION`](src/minds371/agents/base_agent/base_agent.py:27)
+- **Capabilities**: Question answering, LLM interaction testing
+- **Meta Prompt Pattern**: Direct LLM invocation with metadata
+- **Current Status**: Simple implementation for testing LLM router
+- **Functionality**:
+  - Takes prompt and metadata
+  - Calls adaptive LLM router
+  - Returns LLM response
+
+### 3.3 Deployment Agent
+
+- **File**: [`deployment_agent.py`](src/minds371/agents/technical/deployment_agent.py)
+- **Type**: [`AgentType.DEPLOYMENT`](src/minds371/agents/base_agent/base_agent.py:23)
+- **Capabilities**: Application deployment, infrastructure provisioning
+- **Meta Prompt Pattern**: Multi-phase deployment workflow
+- **Current Status**: Full implementation with comprehensive test suite
+- **Test Cases**:
+  - DigitalOcean deployment with SSL
+  - AWS deployment without SSL
+  - Infrastructure provisioning and configuration
+
+### 3.4 Repository Intake Agent
+
+- **File**: [`repository_intake_agent.py`](src/minds371/agents/technical/repository_intake_agent.py)
+- **Type**: [`AgentType.REPOSITORY_INTAKE`](src/minds371/agents/base_agent/base_agent.py:26)
+- **Capabilities**: Git repository analysis, code bundling, metadata extraction
+- **Meta Prompt Pattern**: Repository processing workflow
+- **Current Status**: Full implementation with analytics integration
+- **Functionality**:
+  - Clone and analyze Git repositories
+  - Extract language statistics and complexity metrics
+  - Bundle repository content
+  - Fetch structured.yaml configuration
+  - Generate comprehensive repository context
+
+### 3.5 Code Generation Agents
+
+- **Code Campfile Agent**: [`code_campfile_agent.py`](src/minds371/agents/technical/code_campfile_agent.py)
+- **Code MERN Agent**: [`code_mern_agent.py`](src/minds371/agents/technical/code_mern_agent.py)
+- **Code T3 Agent**: [`code_t3_agent.py`](src/minds371/agents/technical/code_t3_agent.py)
+- **Tech Stack Specialist**: [`tech_stack_specialist_agent.py`](src/minds371/agents/technical/tech_stack_specialist_agent.py)
+- **QA Automation Agent**: [`qa_automation_agent.py`](src/minds371/agents/technical/qa_automation_agent.py)
+
+### 3.6 OpenManus Agent
+
+- **File**: [`openmanus_agent.py`](src/minds371/agents/openmanus/openmanus_agent.py)
+- **Type**: Custom integration type
+- **Capabilities**: Advanced workflow orchestration, tool integration
+- **Meta Prompt Pattern**: Workflow-based execution
+- **Current Status**: Framework integration with OpenManus
+- **Functionality**:
+  - Execute predefined workflows
+  - Process workflow inputs and outputs
+  - Integrate with external tools and services
+
+## 4. Utility Agents
+
+### 4.1 Router Agent (Intelligent Routing System)
+
+- **File**: [`router_agent.py`](src/minds371/agents/utility/router_agent.py)
+- **Type**: [`AgentType.INTELLIGENT_ROUTER`](src/minds371/agents/base_agent/base_agent.py:19)
+- **Capabilities**: Task routing, agent selection, workflow orchestration
+- **Meta Prompt Pattern**: Analysis and routing decision generation
+- **Current Status**: Full implementation with comprehensive test suite
+- **Test Cases**:
+  - Simple deployment request routing
+  - Marketing campaign task routing
+  - Full SaaS product build routing
+  - Infrastructure setup routing
+  - Financial analysis request routing
+  - Business logic query routing
+
+### 4.2 Agent Utility Belt
+
+- **File**: [`agent_utility_belt.py`](src/minds371/agents/utility/agent_utility_belt.py)
+- **Type**: [`AgentType.AGENT_UTILITY_BELT`](src/minds371/agents/base_agent/base_agent.py:29)
+- **Capabilities**: Service catalog management, utility functions
+- **Meta Prompt Pattern**: Service discovery and retrieval
+- **Current Status**: Implementation with mock service catalog
+- **Test Cases**:
+  - Find services by tag
+  - Get repository details
+  - Handle non-existent services
+
+### 4.3 Credential Warehouse Agent
+
+- **File**: [`credential_warehouse_agent.py`](src/minds371/agents/utility/credential_warehouse_agent.py)
+- **Type**: [`AgentType.CREDENTIAL_MANAGER`](src/minds371/agents/base_agent/base_agent.py:24)
+- **Capabilities**: Secure credential storage, access control, rotation
+- **Meta Prompt Pattern**: Security-focused operations
+- **Current Status**: Full implementation with comprehensive test suite
+- **Test Cases**:
+  - Store and retrieve credentials
+  - Access control and permission management
+  - Credential rotation and expiration
+  - Audit logging and monitoring
+  - Vault statistics
+
+### 4.4 Financial Agent
+
+- **File**: [`financial_agent.py`](src/minds371/agents/utility/financial_agent.py)
+- **Type**: [`AgentType.FINANCIAL`](src/minds371/agents/base_agent/base_agent.py:35)
+- **Capabilities**: Financial operations, budget management
+- **Meta Prompt Pattern**: Financial task processing
+- **Current Status**: Referenced but not fully examined
+
+## 5. Adaptive LLM Router Configuration
+
+### 5.1 Router Configuration
+
+- **File**: [`config.py`](src/minds371/adaptive_llm_router/config.py)
+- **Budget Cap**: $20.00 monthly
+- **Policy Engine**: [`policy_engine.py`](src/minds371/adaptive_llm_router/policy_engine.py)
+
+### 5.2 Provider Selection Logic
+
+The router uses a decision graph to select providers based on:
+
+1. **Privacy Flag**: Forces LocalAI for confidential tasks
+2. **Task Criticality**: Uses high-quality models for critical tasks if budget allows
+3. **Context Length**: Uses long-context models for large inputs (>8000 tokens)
+4. **Low Budget Mode**: Uses cheapest models when budget is low (<5% remaining)
+5. **Balanced Default**: Uses qwen2-72b for all other cases
+
+### 5.3 Available Providers
+
+- **OpenRouter**: gpt-4o-mini, mistral-7b, qwen2-72b
+- **Requesty**: claude-3-sonnet (for long context)
+- **LocalAI**: phi-4-14b (for privacy)
+
+## 6. Meta Prompt Patterns
+
+### 6.1 Common Patterns Identified
+
+1. **Placeholder Pattern**:
+
+   ```
+   "Task '{description}' has been noted and will be delegated accordingly."
+   ```
+2. **Processing Pattern**:
+
+   ```
+   "{Domain} task '{description}' is being processed."
+   ```
+3. **Mock Response Pattern**:
+
+   ```
+   "Mock {domain} task '{description}' processed."
+   ```
+4. **Structured Response Pattern**:
+
+   ```
+   {
+     "status": "success",
+     "message": "Processing complete",
+     "payload": {structured_data}
+   }
+   ```
+
+### 6.2 Prompt Engineering Patterns
+
+1. **Task Delegation**: CEO agents delegate to specialized agents
+2. **Domain-Specific Processing**: Each agent has domain-specific response patterns
+3. **Metadata Enrichment**: All agents enrich metadata with agent and task information
+4. **Error Handling**: Consistent error handling across all agents
+5. **Health Checks**: Standardized health check implementations
+
+## 7. Agent Capabilities Matrix
+
+| Agent Category | Agent Name           | Primary Capability     | Secondary Capabilities      | Status      |
+| -------------- | -------------------- | ---------------------- | --------------------------- | ----------- |
+| Business       | CEO                  | Strategic oversight    | Task delegation             | Placeholder |
+| Business       | CFO                  | Financial analysis     | Budget management           | Mock        |
+| Business       | CMO                  | Marketing strategy     | Campaign management         | Placeholder |
+| Business       | CTO                  | Technical architecture | Technology selection        | Placeholder |
+| Business       | CLO                  | Learning optimization  | Performance assessment      | Placeholder |
+| Marketing      | Marketing Asset      | Content generation     | Social media, email         | Full        |
+| Marketing      | Marketing Automation | Workflow automation    | Campaign management         | Partial     |
+| Technical      | MindScript           | Command parsing        | Logic extraction            | Full        |
+| Technical      | QA                   | Question answering     | LLM testing                 | Full        |
+| Technical      | Deployment           | Application deployment | Infrastructure provisioning | Full        |
+| Technical      | Repository Intake    | Repository analysis    | Code bundling               | Full        |
+| Technical      | Code Generation      | Code generation        | Stack-specific              | Various     |
+| Utility        | Router               | Task routing           | Agent selection             | Full        |
+| Utility        | Utility Belt         | Service management     | Utility functions           | Full        |
+| Utility        | Credential Warehouse | Secure storage         | Access control              | Full        |
+| Utility        | Financial            | Financial operations   | Budget management           | Partial     |
+
+The "Next-Level" Autonomous Agents (The Strategic Force Multipliers)
+These agents are a level above the C-Suite. They are not just operators; they are autonomous creators and strategists that leverage the entire OS and your Cognitive Layer to generate new value.
+The Genesis Agent (The Autonomous Ghostwriter): The most powerful content creator. Its sole purpose is to turn your raw, unstructured thoughts from Pieces into finished, high-value intellectual property—books, whitepapers, business plans, and strategic analyses, all in your unique voice.
+The Venture Forge Agent: The autonomous entrepreneur. This agent's directive is to create new businesses. It takes your list of unused domains, combines it with your persona library and Cognitive Layer insights, and generates complete, ready-to-launch business plans for you to review.
+The Onboarding Co-Pilot: The knowledge-transfer agent. It acts as your digital apprentice, designed to onboard and train new partners or team members by allowing them to query your historical work and thought processes.
+The Red Team Agent (The Idea Validator): The designated devil's advocate. This agent's job is to stress-test your ideas. It proactively searches your Cognitive Layer for your plans and then uses critical thinking prompts to identify flaws, risks, and weaknesses, presenting them to you for consideration.
+Foundational Systems & Entities
+These are not "agents" in the same way, but they are the critical, underlying pieces of infrastructure that give the agents their power.
+The Cognitive Layer (via Pieces CLI Tool): The "soul" of the entire system. Provides all agents with real-time, context-aware access to your entire work history, thought processes, and creative insights.
+The Prompt Registry (via GitHub MCP): The externalized, version-controlled "library" for the OS, holding the expert prompts and strategic frameworks the agents use to perform their tasks.
+The "Digital Successor" Fine-Tuned LLM: The ultimate evolution of the Cognitive Layer. A custom LLM fine-tuned exclusively on your Pieces data to emulate your unique patterns of thought, strategy, and communication. This becomes the "brain" for the highest-level agents.
+The Smart Contract Bridge: The plugin that connects agent performance to the blockchain, enabling the "Reinforcement Learning with Raises" model and the autonomous, DAO-governed economy.
+
+## 8. Recommendations
+
+### 8.1 Prompt Engineering Needs
+
+1. **Standardization**: Need for consistent prompt patterns across agents
+2. **Performance Optimization**: Current placeholders need full implementations
+3. **Testing**: Comprehensive test coverage for all agents
+4. **Documentation**: Better documentation of prompt patterns and best practices
+
+### 8.2 Prompt Engineer Mode Requirements
+
+Based on the analysis, a Prompt Engineer mode would be beneficial for:
+
+1. **Prompt Standardization**: Creating consistent patterns across agents
+2. **Performance Optimization**: Improving placeholder implementations
+3. **Testing and Validation**: Comprehensive prompt testing frameworks
+4. **Documentation**: Maintaining prompt documentation and best practices
+5. **Analytics**: Tracking prompt performance and optimization opportunities
+
+### 8.3 Implementation Priority
+
+1. **High Priority**: Complete implementations for placeholder agents
+2. **Medium Priority**: Standardize prompt patterns across all agents
+3. **Low Priority**: Advanced prompt optimization and analytics
+
+---
+
+*This inventory was generated based on analysis of the 371 OS source code as of August 2025.*

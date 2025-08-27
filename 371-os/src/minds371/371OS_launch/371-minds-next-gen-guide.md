@@ -108,8 +108,8 @@ export class StatusNetworkCommunityManager {
   
   async manageAgentCompensation(agentId: string, performance: AgentMetrics) {
     // Autonomous agent compensation based on performance
-    const reward = this.calculateReward(performance);
-    await this.sntToken.transfer(agentId, reward);
+    const compensation = this.calculateCompensation(performance);
+    await this.sntToken.transfer(agentId, compensation);
   }
 }
 ```

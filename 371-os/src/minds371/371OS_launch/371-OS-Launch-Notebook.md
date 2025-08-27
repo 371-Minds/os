@@ -146,9 +146,9 @@ akash query deployment list --owner {{akash_address}} --state active
 @warp agent @dao-architect "Deploy agent performance tracking contracts with these specifications:
 
 1. AgentRegistry: Track all 371 OS agents with performance metrics
-2. TaskContract: Define tasks with objectives and reward parameters  
+2. TaskContract: Define tasks with objectives and compensation parameters
 3. PerformanceOracle: Connect to real-world outcome verification
-4. CompensationDistributor: Automated reward distribution based on performance
+4. CompensationDistributor: Automated compensation distribution based on performance
 
 Use DAO DAO's governance framework for contract upgrades and parameter adjustments."
 ```
@@ -421,10 +421,10 @@ TASK CREATION FLOW:
 1. Community submits proposals via DAO interface
 2. CEO Mimi evaluates and routes to appropriate agent
 3. Agent accepts task and sets success criteria
-4. Smart contract locks reward tokens
+4. Smart contract locks compensation tokens
 5. Agent executes task with performance tracking
 6. Oracle verifies completion and quality
-7. Automated reward distribution
+7. Automated compensation distribution
 
 PERFORMANCE ORACLES:
 - GitHub webhook integration for code quality metrics

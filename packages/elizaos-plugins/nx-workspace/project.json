@@ -1,0 +1,41 @@
+{
+  "name": "elizaos-plugin-nx-workspace",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugins/nx-workspace/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/elizaos-plugins/nx-workspace/dist",
+        "tsConfig": "packages/elizaos-plugins/nx-workspace/tsconfig.lib.json",
+        "packageJson": "packages/elizaos-plugins/nx-workspace/package.json",
+        "main": "packages/elizaos-plugins/nx-workspace/src/index.ts",
+        "assets": ["packages/elizaos-plugins/nx-workspace/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/elizaos-plugins/nx-workspace/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "coverageReporters": ["text"]
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/elizaos-plugins/nx-workspace/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:elizaos", "type:plugin", "platform:node"]
+}

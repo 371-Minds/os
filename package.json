@@ -1,5 +1,32 @@
 {
+  "name": "371-minds-os",
+  "version": "1.0.0",
+  "description": "371 Minds OS - Autonomous Agent Operating System with Nx Workspace Management",
+  "scripts": {
+    "build": "nx run-many -t build",
+    "test": "nx run-many -t test",
+    "lint": "nx run-many -t lint",
+    "graph": "nx graph",
+    "affected:build": "nx affected -t build",
+    "affected:test": "nx affected -t test",
+    "affected:lint": "nx affected -t lint"
+  },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.4"
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "@elizaos/core": "^0.1.0",
+    "@pieces.app/pieces-os-client": "^3.0.0"
+  },
+  "devDependencies": {
+    "nx": "^21.4.1",
+    "@nx/js": "^21.0.0",
+    "@nx/eslint": "^21.0.0",
+    "@nx/jest": "^21.0.0",
+    "@nx/node": "^21.0.0",
+    "@nx/react": "^21.0.0",
+    "@nx/workspace": "^21.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0"
   }
 }

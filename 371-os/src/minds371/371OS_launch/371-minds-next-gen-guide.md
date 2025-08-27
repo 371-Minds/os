@@ -71,7 +71,9 @@ export class CognitiveLearningLoop {
 
 ## Part II: Status Network Community Infrastructure
 
-### Why Status Network Over Status App
+### Status Network vs. Status App: A Clarification
+
+***Note:** "Status Network" refers to the underlying decentralized infrastructure, including the L2 blockchain, SNT token, and community governance protocols. "Status App" is one of several client applications that can connect to this network. For the 371 Minds OS, we are integrating directly with the Status Network to build a deeply embedded, autonomous agent economy.*
 
 **Status Network** provides **massive advantages** for your 371 OS ecosystem:
 

@@ -1,4 +1,4 @@
-# Project Plan: 371 Minds OS - The Autonomous Agent Ecosystem
+# Project Plan: 371 Minds OS - The Autonomous Agent Ecosystem 
 
 ---
 
@@ -88,5 +88,6 @@ This roadmap is designed for iterative value delivery, prioritizing monetizable 
 - **Number of third-party tools developed:** On the platform.
 
 # 371-os
+
 
 Welcome to the 371-os project! This project is a comprehensive OS for running a network of AI agents.

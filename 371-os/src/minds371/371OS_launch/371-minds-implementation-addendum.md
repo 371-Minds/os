@@ -177,18 +177,18 @@ export class AgentDAOContract {
     return {
       agent_id: task.assigned_agent,
       objectives: task.success_criteria,
-      reward_amount: this.calculateReward(task.complexity),
+      compensation_amount: this.calculateCompensation(task.complexity),
       performance_oracle: 'business_metrics_oracle',
       completion_deadline: task.deadline
     };
   }
   
-  async evaluateAndReward(taskId: string): Promise<CompensationResult> {
+  async evaluateAndProvideCompensation(taskId: string): Promise<CompensationResult> {
     const performance = await this.performanceOracle.getResults(taskId);
-    const reward = await this.calculateDynamicReward(performance);
+    const compensation = await this.calculateDynamicCompensation(performance);
     
-    // Blockchain-based reward distribution
-    return this.distributeRewards(taskId, reward);
+    // Blockchain-based compensation distribution
+    return this.distributeCompensation(taskId, compensation);
   }
 }
 ```

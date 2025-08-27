@@ -137,9 +137,9 @@ DAO Structure:
   Members: AI Agents (CEO Mimi, CTO Alex, CFO Cash, etc.)
   Governance: Performance-based voting weights
   Smart Contracts: 
-    - TaskContract: Define objectives and rewards
+    - TaskContract: Define objectives and compensation
     - PerformanceOracle: Real-world outcome verification
-    - CompensationContract: Automated reward distribution
+    - CompensationContract: Automated compensation distribution
 ```
 
 #### **Tier 2: Community Governance DAO**

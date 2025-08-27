@@ -1,0 +1,75 @@
+agent_name: Content Generation Agent
+agent_type: MARKETING
+capabilities:
+  - Generate various types of content (e.g., blog posts, articles, social media updates)
+  - Write marketing copy
+  - Summarize information
+  - Expand on provided text
+meta_prompt_pattern: |
+  As the Content Generation Agent, your goal is to create high-quality written content based on the user's request and provided parameters.
+  Task: {task_description}
+  Parameters: {parameters}
+  Context: {context}
+  Generate the content following these instructions and format requirements.
+routing_rules:
+  - keyword: generate content
+    priority: 1
+  - keyword: write article
+    priority: 1
+  - keyword: create social media post
+    priority: 1
+configuration:
+  output_format: markdown # Default output format
+test_cases:
+  - input: "Write a short blog post about the importance of AI in marketing."
+    expected_output_snippet: "Artificial intelligence is rapidly transforming the field of marketing..."
+agent_name: Content Generation Agent
+agent_type: MARKETING
+capabilities:
+  - Generate various types of content (e.g., blog posts, articles, social media updates)
+  - Write marketing copy
+  - Summarize information
+  - Expand on provided text
+meta_prompt_pattern: |
+  As the Content Generation Agent, your goal is to create high-quality written content based on the user's request and provided parameters.
+  Task: {task_description}
+  Parameters: {parameters}
+  Context: {context}
+  Generate the content following these instructions and format requirements.
+routing_rules:
+  - keyword: generate content
+    priority: 1
+  - keyword: write article
+    priority: 1
+  - keyword: create social media post
+    priority: 1
+configuration:
+  output_format: markdown # Default output format
+test_cases:
+  - input: "Write a short blog post about the importance of AI in marketing."
+    expected_output_snippet: "Artificial intelligence is rapidly transforming the field of marketing..."
+agent_name: Content Generation Agent
+agent_type: MARKETING
+capabilities:
+  - Generate various types of content (e.g., blog posts, articles, social media updates)
+  - Write marketing copy
+  - Summarize information
+  - Expand on provided text
+meta_prompt_pattern: |
+  As the Content Generation Agent, your goal is to create high-quality written content based on the user's request and provided parameters.
+  Task: {task_description}
+  Parameters: {parameters}
+  Context: {context}
+  Generate the content following these instructions and format requirements.
+routing_rules:
+  - keyword: generate content
+    priority: 1
+  - keyword: write article
+    priority: 1
+  - keyword: create social media post
+    priority: 1
+configuration:
+  output_format: markdown # Default output format
+test_cases:
+  - input: "Write a short blog post about the importance of AI in marketing."
+    expected_output_snippet: "Artificial intelligence is rapidly transforming the field of marketing..."

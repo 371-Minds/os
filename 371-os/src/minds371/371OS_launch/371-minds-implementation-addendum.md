@@ -134,7 +134,7 @@ export class EnhancedLogicExtractor {
 }
 ```
 
-### Layer 2: Adaptive LLM Router (60-70% Additional Savings)
+### Layer 2: Adaptive LLM Routing (60-70% Additional Savings)
 Smart model selection based on task complexity and personal cognitive patterns[1]:
 
 ```typescript

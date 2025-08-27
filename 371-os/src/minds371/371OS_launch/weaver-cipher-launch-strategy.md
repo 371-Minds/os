@@ -190,7 +190,7 @@ warp agent @dao-deployer "Setup DAO DAO on Akash with CosmWasm permissions"
 Smart Contracts:
   - AgentRegistry: Track all 371 OS agents
   - PerformanceTracker: Monitor real-world outcomes
-  - RewardDistributor: Automated compensation
+  - RewardDistributor: Automated agent compensation
   - GovernanceCore: Voting and proposal system
 ```
 

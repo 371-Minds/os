@@ -1,6 +1,6 @@
 # Project Plan: 371 Minds OS - The Autonomous Agent Ecosystem 
 
----
+---   
 
 ## Mission Statement
 

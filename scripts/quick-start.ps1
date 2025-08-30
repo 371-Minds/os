@@ -366,7 +366,7 @@ Write-Host "   1. Run: npm run start:dev (for local development)" -ForegroundCol
 Write-Host "   2. Run: .\monitoring\health-check.ps1 (to verify system health)" -ForegroundColor White
 Write-Host "   3. Deploy to Akash Network: .\scripts\deploy-akash.ps1" -ForegroundColor White
 Write-Host ""
-Write-Host "💡 For help: Check IMPLEMENTATION_GUIDE.md or GETTING_STARTED.md" -ForegroundColor DarkGray
+Write-Host "HELP: For help: Check IMPLEMENTATION_GUIDE.md or GETTING_STARTED.md" -ForegroundColor DarkGray
 
 # Return to original directory
 Set-Location $PSScriptRoot

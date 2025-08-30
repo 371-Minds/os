@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.11, pytest-8.4.1, pluggy-1.6.0
+benchmark: 5.1.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /app/371-os
+configfile: pytest.ini
+plugins: mock-3.14.1, anyio-4.10.0, benchmark-5.1.0, asyncio-1.1.0
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 1 item
+
+tests/performance/test_content_generation_agent_benchmark.py .           [100%]
+
+
+------------------------------------------------------- benchmark: 1 tests ------------------------------------------------------
+Name (time in ms)                           Min      Max     Mean  StdDev   Median     IQR  Outliers      OPS  Rounds  Iterations
+---------------------------------------------------------------------------------------------------------------------------------
+test_content_generation_performance     20.3970  20.5607  20.4535  0.0381  20.4537  0.0593      19;0  48.8915      49           1
+---------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+============================== 1 passed in 8.82s ===============================

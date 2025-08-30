@@ -1,0 +1,38 @@
+{
+  "name": "@elizaos/plugin-nx-workspace",
+  "version": "0.1.0",
+  "description": "ElizaOS plugin that enables agents to understand and manipulate their own Nx workspace",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "elizaos",
+    "plugin", 
+    "nx",
+    "workspace",
+    "self-aware-agents"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "peerDependencies": {
+    "@elizaos/core": "^0.1.0"
+  },
+  "dependencies": {
+    "@nx/devkit": "^21.0.0",
+    "@nx/js": "^21.0.0",
+    "nx": "^21.0.0",
+    "child_process": "*",
+    "fs-extra": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0"
+  }
+}

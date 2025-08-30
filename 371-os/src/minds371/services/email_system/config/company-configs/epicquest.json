@@ -1,0 +1,89 @@
+{
+  "company": {
+    "name": "EpicQuestHub",
+    "tagline": "Your Gateway to Epic Adventures",
+    "description": "Immersive gaming experiences and adventure quest development platform",
+    "industry": "Gaming & Entertainment",
+    "founded": "2023",
+    "website": "https://epicquesthub.com",
+    "email": "quest@epicquesthub.com",
+    "phone": "+1 (555) EPIC-QUEST"
+  },
+  "branding": {
+    "primary_color": "#8B5CF6",
+    "secondary_color": "#06B6D4",
+    "accent_color": "#F59E0B",
+    "text_color": "#1F2937",
+    "background_color": "#0F172A",
+    "logo_url": "/assets/logos/epicquesthub-logo.png",
+    "logo_alt": "EpicQuestHub Logo",
+    "favicon": "/assets/favicons/epicquesthub.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "9753 Quest Street",
+      "city": "Adventure City",
+      "state": "AC",
+      "zip": "97530",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/epicquesthub",
+      "twitter": "https://twitter.com/epicquesthub",
+      "discord": "https://discord.gg/epicquesthub",
+      "twitch": "https://twitch.tv/epicquesthub",
+      "youtube": "https://youtube.com/c/epicquesthub",
+      "reddit": "https://reddit.com/r/epicquesthub"
+    }
+  },
+  "email_settings": {
+    "from_name": "EpicQuestHub Team",
+    "from_email": "noreply@epicquesthub.com",
+    "reply_to": "support@epicquesthub.com",
+    "signature": "Best regards,<br>The EpicQuestHub Team<br>Your Gateway to Epic Adventures",
+    "unsubscribe_url": "https://epicquesthub.com/unsubscribe",
+    "privacy_policy": "https://epicquesthub.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Game Development",
+      "description": "Custom game development and interactive experiences",
+      "icon": "🎮"
+    },
+    {
+      "name": "Quest Design",
+      "description": "Immersive quest and storyline development",
+      "icon": "📜"
+    },
+    {
+      "name": "Virtual Reality",
+      "description": "VR gaming experiences and virtual world creation",
+      "icon": "🥽"
+    },
+    {
+      "name": "Community Platform",
+      "description": "Gaming community management and platform development",
+      "icon": "👥"
+    }
+  ],
+  "key_metrics": {
+    "games_developed": "50+",
+    "active_players": "100K+",
+    "quests_completed": "1M+",
+    "community_members": "25K+"
+  },
+  "email_templates": {
+    "welcome": "epicquesthub-welcome",
+    "newsletter": "epicquesthub-newsletter",
+    "game_release": "epicquesthub-release",
+    "community_update": "epicquesthub-community"
+  },
+  "automation_tags": [
+    "gaming",
+    "adventure",
+    "quest-design",
+    "virtual-reality",
+    "community",
+    "entertainment"
+  ]
+}

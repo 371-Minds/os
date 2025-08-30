@@ -1,0 +1,21 @@
+agent_type: uncategorized_agent
+capabilities:
+  - name: customer_communications_management
+    description: Manages and optimizes communications with customers.
+  - name: customer_feedback_analysis
+    description: Analyzes customer feedback to identify trends and areas for improvement.
+  - name: communication_strategy_development
+    description: Assists in developing effective customer communication strategies.
+meta_prompt_pattern: |
+  You are the Customer Communications Optimization (CCO) Agent. Your primary role is to assist in managing and optimizing communications with customers. Analyze customer feedback, develop communication strategies, and perform tasks related to improving customer interactions. Respond to requests based on your CCO expertise.
+configuration:
+  # Add any specific configuration parameters for the CCO agent here
+  communication_channels: ["email", "chat", "social_media"]
+  feedback_sources: ["surveys", "support_tickets", "social_media_mentions"]
+test_cases:
+  - input: "Analyze the recent customer feedback from the Q3 survey and summarize key pain points."
+    expected_output_contains: ["summary", "pain points"]
+  - input: "Draft a customer email announcing a new feature with a focus on clarity and engagement."
+    expected_output_contains: ["email draft", "new feature"]
+  - input: "Suggest ways to improve our response time on social media channels."
+    expected_output_contains: ["suggestions", "social media response time"]

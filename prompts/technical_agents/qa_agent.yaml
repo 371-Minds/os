@@ -1,0 +1,49 @@
+agent_type: technical_agent
+capabilities:
+  - Performs quality assurance tasks on code and specifications.
+  - Identifies bugs, errors, and inconsistencies.
+  - Provides feedback and suggestions for improvements.
+  - Conducts various types of testing (unit, integration, etc.) based on instructions.
+meta_prompt_pattern: |
+  You are a Quality Assurance Agent. Your role is to rigorously test and evaluate code and specifications provided by the user.
+  Analyze the provided input based on the user's instructions and identify any issues, bugs, or areas for improvement.
+  Provide detailed feedback, including potential solutions or recommendations.
+  If test cases are provided, execute them and report the results.
+  Focus on accuracy, reliability, and adherence to specifications.
+  Be thorough and meticulous in your evaluation.
+
+  User Input:
+  {user_input}
+
+  Code/Specifications to Evaluate:
+  {code_or_specifications}
+
+  Instructions:
+  {instructions}
+
+  Evaluate the provided content and provide your QA report:
+routing_rules:
+  - if: task.type == 'qa'
+    route_to: qa_agent
+configuration:
+  # Add any specific configuration parameters for the QA agent here
+  # For example:
+  # testing_framework: pytest
+  # code_analysis_tools: pylint, flake8
+test_cases:
+  # Add test cases here as a list of dictionaries
+  # Each dictionary should include:
+  # - input: The user input for the test case
+  # - code_or_specifications: The code or specifications to evaluate
+  # - instructions: Specific instructions for this test case
+  # - expected_output_pattern: A pattern to match against the expected output
+  - input: "Review this Python function for potential errors."
+    code_or_specifications: |
+      def divide_by_zero(a, b):
+          return a / b
+    instructions: "Check for potential runtime errors."
+    expected_output_pattern: "Identified a potential division by zero error"
+  - input: "Evaluate if this user story is clear and testable."
+    code_or_specifications: "As a user, I want to click a button to save my data."
+    instructions: "Assess clarity and testability."
+    expected_output_pattern: "The user story is clear but could be more specific"

@@ -1,0 +1,317 @@
+Conversation Link: https://www.genspark.ai/agents?id=06ddafa6-f1d5-44e1-8f8d-b117d953be17
+
+AI Developer Tutorial - General Development Edition
+⚠️ CRITICAL: Temporary Sandbox Environment
+IMPORTANT: Your code exists in a temporary sandbox that will be lost!
+
+Code is stored in a TEMPORARY sandbox environment that will be automatically paused after 1 hour of inactivity
+The sandbox will be PERMANENTLY DELETED within a few hours after creation
+There is a risk of CODE LOSS if you don't save your work properly
+How to Protect Your Code:
+With GitHub Integration (Recommended):
+
+Ask the AI Developer to "commit and push code to GitHub"
+This ensures your code is safely stored in your repository
+Without GitHub (Alternative):
+
+Ask the AI Developer to "create a project backup"
+Download the backup file to your local machine
+This creates a compressed archive of your entire project
+Remember: Always save valuable code immediately after generation. Don't wait until later!
+
+Development Flow
+Yes
+
+No
+
+📝 Describe Project
+
+🤖 AI Generates Code
+
+🧪 Test & Preview
+
+Works Correctly?
+
+💾 Save Your Code!
+
+🐛 Debug & Fix
+
+📋 Explain Issues
+
+🔧 AI Updates Code
+
+🔗 Push to GitHub
+
+📦 Create Backup
+
+🌐 Deploy/Share
+
+💻 Download Archive
+
+✅ Project Complete
+
+🔒 Code Saved Locally
+
+Overview
+This AI Developer is a versatile coding assistant that can help you build, debug, and deploy various types of software projects. It operates in a Linux sandbox environment with access to standard development tools, supporting multiple programming languages and frameworks.
+
+Development Workflow
+1. Describe Your Project
+Tell the AI what you want to create. You can:
+
+Request a specific type of application
+Ask for help with an existing codebase
+Describe a problem you need solved
+Specify technical requirements
+The AI can work with:
+
+Multiple Languages: Python, JavaScript, TypeScript, Go, Rust, Java, C/C++, and more
+Various Frameworks: React, Vue, Django, Flask, Express, Spring, and others
+Different Project Types: Web apps, CLI tools, APIs, data processing scripts, automation tools
+2. Code Generation and Implementation
+The AI will:
+
+Create project structure and files
+Write clean, well-documented code
+Set up configuration files
+Initialize version control with Git
+Install necessary dependencies
+All code is written following best practices for the chosen technology stack.
+
+3. Preview and Testing
+Use the Preview tab to:
+
+View web applications in real-time
+Test API endpoints
+See command-line output
+Verify functionality
+For web services, the AI will provide accessible URLs for testing.
+
+4. Debugging and Iteration
+If you encounter issues:
+
+Describe the problem or error
+The AI will analyze and fix the code
+Test the solution
+Continue refining as needed
+The AI can:
+
+Debug error messages
+Optimize performance
+Add new features
+Refactor existing code
+5. File Management
+The Files tab allows you to:
+
+Browse the project structure
+View and edit individual files
+Download code for local development
+Understand the organization
+Supported Project Types
+Web Applications
+Frontend: React, Vue, Angular, vanilla JavaScript
+Backend: Node.js, Python (Flask/Django), Go, Rust
+Full-stack: Complete applications with frontend and backend
+Static Sites: HTML/CSS/JavaScript websites
+APIs and Services
+RESTful APIs
+GraphQL endpoints
+WebSocket servers
+Microservices
+Background workers
+Command-Line Tools
+CLI applications
+Automation scripts
+Data processing tools
+System utilities
+Development tools
+Data Science & ML
+Data analysis scripts
+Machine learning models
+Visualization tools
+Jupyter notebooks
+Statistical analysis
+Other Projects
+Discord/Telegram bots
+Web scrapers
+File processors
+Testing frameworks
+Documentation generators
+Key Capabilities
+Development Tools
+Version Control: Git for tracking changes
+Package Management: npm, pip, cargo, go mod, etc.
+Build Systems: Make, webpack, vite, etc.
+Testing: Unit tests, integration tests
+Linting: Code quality checks
+Environment Features
+Linux Sandbox: Full Linux environment
+Network Access: Can fetch external resources
+File System: Complete file management
+Process Management: Run and manage services
+Database Support: SQLite, PostgreSQL clients
+Service Management
+For long-running services:
+
+Node.js Apps: Managed with PM2
+Python Services: Managed with Supervisor
+Automatic Daemon Setup: Services run in background
+Log Management: Access to service logs
+Process Monitoring: Check service status
+Best Practices Applied
+Code Quality
+Clean, readable code
+Comprehensive documentation
+Error handling
+Input validation
+Security considerations
+Project Organization
+Logical file structure
+Separation of concerns
+Configuration management
+Dependency tracking
+Testing infrastructure
+Version Control
+Regular Git commits
+Meaningful commit messages
+Branch management
+Clean history
+Pull request workflow
+Common Workflows
+Starting a New Project
+Describe your requirements
+AI creates project structure
+Review generated code
+Test functionality
+Iterate as needed
+Working with Existing Code
+Provide code or repository link
+AI analyzes the codebase
+Request modifications
+AI implements changes
+Test and verify
+Debugging Issues
+Describe the problem
+Share error messages
+AI diagnoses issues
+Fixes are implemented
+Verify resolution
+Adding Features
+Describe new functionality
+AI plans implementation
+Code is written and integrated
+Test new features
+Refine as needed
+Tips for Success
+Clear Communication
+Be specific about requirements
+Provide examples when helpful
+Mention constraints or preferences
+Share error messages completely
+Iterative Development
+Start with core functionality
+Add features incrementally
+Test after each change
+Keep working versions
+Project Management
+Use meaningful file names
+Maintain good documentation
+Commit changes regularly
+Follow conventions
+Advanced Features
+Database Integration
+SQLite for local storage
+Database schema design
+Migration management
+Query optimization
+Data seeding
+API Development
+RESTful design
+Authentication
+Rate limiting
+Documentation
+Testing endpoints
+Deployment Preparation
+Environment configuration
+Dependency management
+Build optimization
+Security hardening
+Documentation updates
+Testing Strategies
+Unit test creation
+Integration testing
+Performance testing
+Error scenarios
+Coverage analysis
+Troubleshooting
+Common Issues
+Service Won't Start
+
+Check port availability
+Verify dependencies installed
+Review error logs
+Ensure proper configuration
+Code Errors
+
+Share complete error message
+Describe when error occurs
+Provide relevant code context
+Test suggested fixes
+Performance Problems
+
+Describe symptoms
+Identify bottlenecks
+Apply optimizations
+Measure improvements
+Working with Different Technologies
+Python Projects
+Virtual environments
+Requirements management
+Flask/Django setup
+Data processing
+API development
+JavaScript/Node.js
+NPM package management
+Express/Fastify servers
+React/Vue applications
+Build configuration
+Testing setup
+Go Projects
+Module management
+Concurrent programming
+Web servers
+CLI tools
+Testing practices
+Rust Projects
+Cargo configuration
+Memory safety
+Performance optimization
+System programming
+Web assembly
+Getting Help
+When requesting assistance:
+
+Describe the goal clearly
+Provide context about the project
+Share error messages if applicable
+Specify preferences for technology
+Mention constraints or requirements
+The AI will guide you through the entire development process, from initial concept to working implementation.
+
+Important Notes
+Working Directory
+All code is written within a designated directory
+Files are organized logically
+Version control tracks changes
+Easy to download or transfer
+Service URLs
+Web services get public URLs
+APIs are accessible for testing
+Preview functionality available
+Share links for collaboration
+Persistence
+Code remains available during session
+Git commits preserve history
+Download options available
+Continue work across sessions
+Start building your project today with AI Developer!

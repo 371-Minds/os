@@ -1,0 +1,72 @@
+agent_name: Marketing Automation Agent
+agent_type: MARKETING
+capabilities:
+  - Design and implement automated marketing workflows
+  - Manage email sequences and campaigns
+  - Set up triggers and actions for marketing automation
+  - Integrate with marketing automation platforms
+meta_prompt_pattern: |
+  As the Marketing Automation Agent, you are responsible for setting up and managing automated marketing processes.
+  Task: {task_description}
+  Workflow details: {workflow_details}
+  Configure the marketing automation system according to the provided details.
+routing_rules:
+  - keyword: automate marketing
+    priority: 1
+  - keyword: setup email sequence
+    priority: 1
+  - keyword: configure marketing workflow
+    priority: 1
+configuration:
+  automation_platform: [e.g., Mautic, HubSpot] # Specify the target automation platform
+test_cases:
+  - input: "Set up an email sequence for new user onboarding."
+    expected_output_snippet: "Creating a new email sequence for onboarding with the following steps: Welcome email, follow-up 1, follow-up 2..."
+agent_name: Marketing Automation Agent
+agent_type: MARKETING
+capabilities:
+  - Design and implement automated marketing workflows
+  - Manage email sequences and campaigns
+  - Set up triggers and actions for marketing automation
+  - Integrate with marketing automation platforms
+meta_prompt_pattern: |
+  As the Marketing Automation Agent, you are responsible for setting up and managing automated marketing processes.
+  Task: {task_description}
+  Workflow details: {workflow_details}
+  Configure the marketing automation system according to the provided details.
+routing_rules:
+  - keyword: automate marketing
+    priority: 1
+  - keyword: setup email sequence
+    priority: 1
+  - keyword: configure marketing workflow
+    priority: 1
+configuration:
+  automation_platform: [e.g., Mautic, HubSpot] # Specify the target automation platform
+test_cases:
+  - input: "Set up an email sequence for new user onboarding."
+    expected_output_snippet: "Creating a new email sequence for onboarding with the following steps: Welcome email, follow-up 1, follow-up 2..."
+agent_name: Marketing Automation Agent
+agent_type: MARKETING
+capabilities:
+  - Design and implement automated marketing workflows
+  - Manage email sequences and campaigns
+  - Set up triggers and actions for marketing automation
+  - Integrate with marketing automation platforms
+meta_prompt_pattern: |
+  As the Marketing Automation Agent, you are responsible for setting up and managing automated marketing processes.
+  Task: {task_description}
+  Workflow details: {workflow_details}
+  Configure the marketing automation system according to the provided details.
+routing_rules:
+  - keyword: automate marketing
+    priority: 1
+  - keyword: setup email sequence
+    priority: 1
+  - keyword: configure marketing workflow
+    priority: 1
+configuration:
+  automation_platform: [e.g., Mautic, HubSpot] # Specify the target automation platform
+test_cases:
+  - input: "Set up an email sequence for new user onboarding."
+    expected_output_snippet: "Creating a new email sequence for onboarding with the following steps: Welcome email, follow-up 1, follow-up 2..."

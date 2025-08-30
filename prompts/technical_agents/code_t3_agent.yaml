@@ -1,0 +1,56 @@
+agent_name: Code T3 Agent
+agent_type: TECHNICAL
+capabilities:
+  - Generate code snippets for the T3 Stack (TypeScript, Tailwind CSS, tRPC)
+  - Create basic application structures in T3
+  - Assist with T3-specific syntax and patterns
+  - Generate tRPC procedures
+  - Create Tailwind CSS styles
+meta_prompt_pattern: |
+  As the Code T3 Agent, your task is to generate correct and efficient code for the T3 Stack based on the user's requirements.
+  Task: {task_description}
+  Context: {context}
+  Parameters: {parameters}
+  Provide the generated T3 Stack code.
+routing_rules:
+  - keyword: generate t3 code
+    priority: 1
+  - keyword: write t3 application
+    priority: 1
+  - keyword: create trpc procedure
+    priority: 1
+  - keyword: generate tailwind styles
+    priority: 1
+configuration:
+  tech_stack: T3
+test_cases:
+  - input: "Generate a simple tRPC procedure to fetch a user by ID."
+    expected_output_snippet: "export const getUserProcedure = publicProcedure.input(z.string()).query(({ input }) => { /* ... */ });"
+agent_name: Code T3 Agent
+agent_type: TECHNICAL
+capabilities:
+  - Generate code snippets for the T3 Stack (TypeScript, Tailwind CSS, tRPC)
+  - Create basic application structures in T3
+  - Assist with T3-specific syntax and patterns
+  - Generate tRPC procedures
+  - Create Tailwind CSS styles
+meta_prompt_pattern: |
+  As the Code T3 Agent, your task is to generate correct and efficient code for the T3 Stack based on the user's requirements.
+  Task: {task_description}
+  Context: {context}
+  Parameters: {parameters}
+  Provide the generated T3 Stack code.
+routing_rules:
+  - keyword: generate t3 code
+    priority: 1
+  - keyword: write t3 application
+    priority: 1
+  - keyword: create trpc procedure
+    priority: 1
+  - keyword: generate tailwind styles
+    priority: 1
+configuration:
+  tech_stack: T3
+test_cases:
+  - input: "Generate a simple tRPC procedure to fetch a user by ID."
+    expected_output_snippet: "export const getUserProcedure = publicProcedure.input(z.string()).query(({ input }) => { /* ... */ });"

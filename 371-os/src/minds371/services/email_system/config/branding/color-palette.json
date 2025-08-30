@@ -1,0 +1,276 @@
+{
+  "portfolio_master": {
+    "name": "371minds Master Portfolio",
+    "description": "Master color palette for the 371minds portfolio",
+    "colors": {
+      "primary": "#2c3e50",
+      "secondary": "#3498db",
+      "accent": "#e74c3c",
+      "success": "#27ae60",
+      "warning": "#f39c12",
+      "info": "#17a2b8",
+      "light": "#ecf0f1",
+      "dark": "#1a252f",
+      "white": "#ffffff",
+      "black": "#000000"
+    },
+    "gradients": {
+      "primary": "linear-gradient(135deg, #2c3e50 0%, #3498db 100%)",
+      "secondary": "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)",
+      "accent": "linear-gradient(135deg, #e74c3c 0%, #f39c12 100%)"
+    }
+  },
+  "company_palettes": {
+    "readysetbuild": {
+      "name": "ReadySetBuild",
+      "theme": "Construction & Development",
+      "colors": {
+        "primary": "#FF6B35",
+        "secondary": "#2E86AB",
+        "accent": "#F18F01",
+        "text": "#2C3E50",
+        "background": "#FFFFFF",
+        "light": "#FFF8F0",
+        "dark": "#1A1A1A"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #FF6B35 0%, #F18F01 100%)",
+        "secondary": "linear-gradient(135deg, #2E86AB 0%, #FF6B35 100%)"
+      },
+      "semantic_colors": {
+        "success": "#28A745",
+        "warning": "#FFC107",
+        "danger": "#DC3545",
+        "info": "#17A2B8"
+      }
+    },
+    "stacksense": {
+      "name": "StackSense",
+      "theme": "Technology Consulting",
+      "colors": {
+        "primary": "#6C5CE7",
+        "secondary": "#00B894",
+        "accent": "#FDCB6E",
+        "text": "#2D3436",
+        "background": "#FFFFFF",
+        "light": "#F8F9FF",
+        "dark": "#2D3436"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #6C5CE7 0%, #A29BFE 100%)",
+        "secondary": "linear-gradient(135deg, #00B894 0%, #00CEC9 100%)"
+      },
+      "semantic_colors": {
+        "success": "#00B894",
+        "warning": "#FDCB6E",
+        "danger": "#E17055",
+        "info": "#74B9FF"
+      }
+    },
+    "legacy-archaeologist": {
+      "name": "Legacy Code Archaeologist",
+      "theme": "Software Modernization",
+      "colors": {
+        "primary": "#8B4513",
+        "secondary": "#DAA520",
+        "accent": "#CD853F",
+        "text": "#2F4F4F",
+        "background": "#FFF8DC",
+        "light": "#FFFEF7",
+        "dark": "#2F4F4F"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #8B4513 0%, #CD853F 100%)",
+        "secondary": "linear-gradient(135deg, #DAA520 0%, #F4A460 100%)"
+      },
+      "semantic_colors": {
+        "success": "#228B22",
+        "warning": "#DAA520",
+        "danger": "#B22222",
+        "info": "#4682B4"
+      }
+    },
+    "modumind": {
+      "name": "ModuMind",
+      "theme": "Modular Architecture",
+      "colors": {
+        "primary": "#667EEA",
+        "secondary": "#764BA2",
+        "accent": "#F093FB",
+        "text": "#4A5568",
+        "background": "#FFFFFF",
+        "light": "#F7FAFC",
+        "dark": "#2D3748"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #667EEA 0%, #764BA2 100%)",
+        "secondary": "linear-gradient(135deg, #F093FB 0%, #F5576C 100%)"
+      },
+      "semantic_colors": {
+        "success": "#48BB78",
+        "warning": "#ED8936",
+        "danger": "#F56565",
+        "info": "#4299E1"
+      }
+    },
+    "rootlift": {
+      "name": "Rootlift Digital",
+      "theme": "Digital Growth",
+      "colors": {
+        "primary": "#22C55E",
+        "secondary": "#059669",
+        "accent": "#84CC16",
+        "text": "#1F2937",
+        "background": "#FFFFFF",
+        "light": "#F0FDF4",
+        "dark": "#1F2937"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #22C55E 0%, #16A34A 100%)",
+        "secondary": "linear-gradient(135deg, #84CC16 0%, #65A30D 100%)"
+      },
+      "semantic_colors": {
+        "success": "#22C55E",
+        "warning": "#F59E0B",
+        "danger": "#EF4444",
+        "info": "#3B82F6"
+      }
+    },
+    "vision2results": {
+      "name": "Vision2Results",
+      "theme": "Business Consulting",
+      "colors": {
+        "primary": "#3B82F6",
+        "secondary": "#1E40AF",
+        "accent": "#F59E0B",
+        "text": "#1F2937",
+        "background": "#FFFFFF",
+        "light": "#F8FAFC",
+        "dark": "#1E293B"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)",
+        "secondary": "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)"
+      },
+      "semantic_colors": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "danger": "#EF4444",
+        "info": "#3B82F6"
+      }
+    },
+    "multimedia-junkie": {
+      "name": "Multimedia Junkie",
+      "theme": "Creative Production",
+      "colors": {
+        "primary": "#E91E63",
+        "secondary": "#9C27B0",
+        "accent": "#FF5722",
+        "text": "#212121",
+        "background": "#FAFAFA",
+        "light": "#FCE4EC",
+        "dark": "#212121"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #E91E63 0%, #9C27B0 100%)",
+        "secondary": "linear-gradient(135deg, #FF5722 0%, #FF9800 100%)"
+      },
+      "semantic_colors": {
+        "success": "#4CAF50",
+        "warning": "#FF9800",
+        "danger": "#F44336",
+        "info": "#2196F3"
+      }
+    },
+    "ikidedventures": {
+      "name": "IkidEdventures",
+      "theme": "Educational Adventure",
+      "colors": {
+        "primary": "#FF6B6B",
+        "secondary": "#4ECDC4",
+        "accent": "#FFE66D",
+        "text": "#2C3E50",
+        "background": "#FFFFFF",
+        "light": "#FFF5F5",
+        "dark": "#2C3E50"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)",
+        "secondary": "linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%)"
+      },
+      "semantic_colors": {
+        "success": "#51CF66",
+        "warning": "#FFD43B",
+        "danger": "#FF6B6B",
+        "info": "#339AF0"
+      }
+    },
+    "epicquesthub": {
+      "name": "EpicQuestHub",
+      "theme": "Gaming & Adventure",
+      "colors": {
+        "primary": "#8B5CF6",
+        "secondary": "#06B6D4",
+        "accent": "#F59E0B",
+        "text": "#1F2937",
+        "background": "#0F172A",
+        "light": "#F3F4F6",
+        "dark": "#0F172A"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)",
+        "secondary": "linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)"
+      },
+      "semantic_colors": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "danger": "#EF4444",
+        "info": "#06B6D4"
+      }
+    },
+    "lyriclines": {
+      "name": "LyricLines",
+      "theme": "Music & Creativity",
+      "colors": {
+        "primary": "#EC4899",
+        "secondary": "#8B5CF6",
+        "accent": "#F59E0B",
+        "text": "#1F2937",
+        "background": "#FFFFFF",
+        "light": "#FDF2F8",
+        "dark": "#1F2937"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #EC4899 0%, #BE185D 100%)",
+        "secondary": "linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)"
+      },
+      "semantic_colors": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "danger": "#EF4444",
+        "info": "#3B82F6"
+      }
+    }
+  },
+  "accessibility": {
+    "contrast_ratios": {
+      "aa_normal": 4.5,
+      "aa_large": 3.0,
+      "aaa_normal": 7.0,
+      "aaa_large": 4.5
+    },
+    "color_blind_safe": {
+      "protanopia_safe": true,
+      "deuteranopia_safe": true,
+      "tritanopia_safe": true
+    }
+  },
+  "usage_guidelines": {
+    "primary_usage": "Main brand elements, headers, primary CTAs",
+    "secondary_usage": "Supporting elements, secondary CTAs, accents",
+    "accent_usage": "Highlights, notifications, special elements",
+    "text_usage": "Body text, readable content",
+    "background_usage": "Page backgrounds, content areas",
+    "gradient_usage": "Hero sections, special backgrounds, modern elements"
+  }
+}

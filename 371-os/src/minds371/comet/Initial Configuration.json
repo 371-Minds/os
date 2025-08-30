@@ -1,0 +1,11 @@
+{
+  "comet_config": {
+    "workspace_name": "371OS_RD_Lab",
+    "default_ai_model": "perplexity_pro",
+    "integration_endpoints": {
+      "youtrack_url": "https://371minds.youtrack.cloud",
+      "teamcity_url": "https://371minds.teamcity.com",
+      "github_repo": "https://github.com/371-Minds/os"
+    }
+  }
+}

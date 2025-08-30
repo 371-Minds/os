@@ -1,0 +1,348 @@
+/* 371minds Portfolio Theme - Professional and modern styling for 371minds brand */
+
+/* Brand Colors */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --dark-color: #1a252f;
+    --light-color: #ecf0f1;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-color: #bdc3c7;
+    --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    --gradient-secondary: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
+}
+
+/* Override base styles with 371minds branding */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+}
+
+.email-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+}
+
+/* Header styling */
+.email-header {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.email-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-secondary);
+}
+
+.logo-371minds {
+    max-width: 180px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 15px 0 5px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Content styling */
+.email-content {
+    padding: 40px 30px;
+    background-color: #ffffff;
+}
+
+.content-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 4px solid var(--secondary-color);
+    background-color: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--gradient-secondary);
+}
+
+/* Button styling */
+.btn-371minds {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+
+.btn-371minds:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+}
+
+.btn-secondary-371minds {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 13px 28px;
+}
+
+.btn-secondary-371minds:hover {
+    background: var(--secondary-color);
+    color: #ffffff;
+}
+
+/* Portfolio showcase */
+.portfolio-grid {
+    display: table;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.portfolio-item {
+    display: table-cell;
+    width: 33.333%;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.portfolio-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-top: 3px solid var(--secondary-color);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    background: var(--gradient-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.portfolio-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.portfolio-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Stats section */
+.stats-container {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    padding: 30px 20px;
+    margin: 30px -30px;
+    text-align: center;
+}
+
+.stats-grid {
+    display: table;
+    width: 100%;
+}
+
+.stat-item {
+    display: table-cell;
+    width: 25%;
+    padding: 0 15px;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 14px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Testimonial section */
+.testimonial {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+    position: relative;
+    border-left: 4px solid var(--accent-color);
+}
+
+.testimonial::before {
+    content: '"';
+    font-size: 60px;
+    color: var(--accent-color);
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: Georgia, serif;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 40px;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: right;
+}
+
+/* Footer styling */
+.email-footer {
+    background: var(--dark-color);
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-brand {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-tagline {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.social-links-371minds a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    margin: 0 8px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links-371minds a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Contact info */
+.contact-info {
+    margin: 20px 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.contact-info a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for 371minds theme */
+@media screen and (max-width: 600px) {
+    .portfolio-item,
+    .stat-item {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .portfolio-grid,
+    .stats-grid {
+        display: block !important;
+    }
+    
+    .email-header {
+        padding: 20px 15px !important;
+    }
+    
+    .header-title {
+        font-size: 24px !important;
+    }
+    
+    .stats-container {
+        margin: 20px -15px !important;
+        padding: 20px 15px !important;
+    }
+    
+    .testimonial {
+        padding: 20px !important;
+    }
+    
+    .testimonial-text {
+        padding-left: 30px !important;
+    }
+}

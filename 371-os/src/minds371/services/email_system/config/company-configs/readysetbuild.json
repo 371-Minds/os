@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "ReadySetBuild",
+    "tagline": "Building Tomorrow's Solutions Today",
+    "description": "Comprehensive construction and development solutions with cutting-edge technology integration",
+    "industry": "Construction & Development",
+    "founded": "2023",
+    "website": "https://readysetbuild.com",
+    "email": "info@readysetbuild.com",
+    "phone": "+1 (555) BUILD-01"
+  },
+  "branding": {
+    "primary_color": "#FF6B35",
+    "secondary_color": "#2E86AB",
+    "accent_color": "#F18F01",
+    "text_color": "#2C3E50",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/readysetbuild-logo.png",
+    "logo_alt": "ReadySetBuild Logo",
+    "favicon": "/assets/favicons/readysetbuild.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "1234 Construction Ave",
+      "city": "BuildCity",
+      "state": "BC",
+      "zip": "12345",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/readysetbuild",
+      "twitter": "https://twitter.com/readysetbuild",
+      "facebook": "https://facebook.com/readysetbuild",
+      "instagram": "https://instagram.com/readysetbuild"
+    }
+  },
+  "email_settings": {
+    "from_name": "ReadySetBuild Team",
+    "from_email": "noreply@readysetbuild.com",
+    "reply_to": "support@readysetbuild.com",
+    "signature": "Best regards,<br>The ReadySetBuild Team<br>Building Tomorrow's Solutions Today",
+    "unsubscribe_url": "https://readysetbuild.com/unsubscribe",
+    "privacy_policy": "https://readysetbuild.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Residential Construction",
+      "description": "Custom home building with modern design principles",
+      "icon": "🏠"
+    },
+    {
+      "name": "Commercial Development",
+      "description": "Large-scale commercial and industrial projects",
+      "icon": "🏢"
+    },
+    {
+      "name": "Smart Building Integration",
+      "description": "IoT and automation systems for modern buildings",
+      "icon": "🤖"
+    },
+    {
+      "name": "Sustainable Construction",
+      "description": "Eco-friendly building practices and materials",
+      "icon": "🌱"
+    }
+  ],
+  "key_metrics": {
+    "projects_completed": "150+",
+    "years_experience": "5+",
+    "client_satisfaction": "98%",
+    "team_members": "45+"
+  },
+  "email_templates": {
+    "welcome": "readysetbuild-welcome",
+    "newsletter": "readysetbuild-newsletter",
+    "project_update": "readysetbuild-project-update",
+    "quote_request": "readysetbuild-quote"
+  },
+  "automation_tags": [
+    "construction",
+    "development",
+    "residential",
+    "commercial",
+    "smart-building",
+    "sustainable"
+  ]
+}

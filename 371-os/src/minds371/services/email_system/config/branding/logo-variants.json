@@ -1,0 +1,541 @@
+{
+  "portfolio_logos": {
+    "371minds_master": {
+      "name": "371minds Master Logo",
+      "description": "Main portfolio logo for 371minds",
+      "variants": {
+        "primary": {
+          "file": "371minds-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main logo for headers and primary branding",
+          "background": "light",
+          "dimensions": {
+            "width": 200,
+            "height": 60,
+            "aspect_ratio": "10:3"
+          }
+        },
+        "horizontal": {
+          "file": "371minds-logo-horizontal.svg",
+          "format": "SVG",
+          "usage": "Horizontal layouts and wide spaces",
+          "background": "light",
+          "dimensions": {
+            "width": 300,
+            "height": 80,
+            "aspect_ratio": "15:4"
+          }
+        },
+        "stacked": {
+          "file": "371minds-logo-stacked.svg",
+          "format": "SVG",
+          "usage": "Vertical layouts and square spaces",
+          "background": "light",
+          "dimensions": {
+            "width": 120,
+            "height": 120,
+            "aspect_ratio": "1:1"
+          }
+        },
+        "white": {
+          "file": "371minds-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds and overlays",
+          "background": "dark",
+          "dimensions": {
+            "width": 200,
+            "height": 60,
+            "aspect_ratio": "10:3"
+          }
+        },
+        "monochrome": {
+          "file": "371minds-logo-mono.svg",
+          "format": "SVG",
+          "usage": "Single color applications",
+          "background": "any",
+          "dimensions": {
+            "width": 200,
+            "height": 60,
+            "aspect_ratio": "10:3"
+          }
+        }
+      }
+    }
+  },
+  "company_logos": {
+    "readysetbuild": {
+      "name": "ReadySetBuild",
+      "brand_colors": ["#FF6B35", "#2E86AB", "#F18F01"],
+      "variants": {
+        "primary": {
+          "file": "readysetbuild-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main logo for all primary applications",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 180,
+            "height": 60,
+            "max_email_width": 200
+          }
+        },
+        "icon": {
+          "file": "readysetbuild-icon.svg",
+          "format": "SVG",
+          "usage": "Social media, favicons, small spaces",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64,
+            "aspect_ratio": "1:1"
+          }
+        },
+        "white": {
+          "file": "readysetbuild-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds",
+          "background": "dark",
+          "email_optimized": true
+        },
+        "horizontal": {
+          "file": "readysetbuild-logo-horizontal.svg",
+          "format": "SVG",
+          "usage": "Wide layouts, email headers",
+          "background": "light",
+          "email_optimized": true
+        }
+      }
+    },
+    "stacksense": {
+      "name": "StackSense",
+      "brand_colors": ["#6C5CE7", "#00B894", "#FDCB6E"],
+      "variants": {
+        "primary": {
+          "file": "stacksense-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main logo for all primary applications",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 180,
+            "height": 55,
+            "max_email_width": 200
+          }
+        },
+        "icon": {
+          "file": "stacksense-icon.svg",
+          "format": "SVG",
+          "usage": "Technical documentation, code comments",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "white": {
+          "file": "stacksense-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds, terminal themes",
+          "background": "dark",
+          "email_optimized": true
+        },
+        "monochrome": {
+          "file": "stacksense-logo-mono.svg",
+          "format": "SVG",
+          "usage": "Technical documentation, print materials",
+          "background": "any"
+        }
+      }
+    },
+    "legacy-archaeologist": {
+      "name": "Legacy Code Archaeologist",
+      "brand_colors": ["#8B4513", "#DAA520", "#CD853F"],
+      "variants": {
+        "primary": {
+          "file": "legacy-archaeologist-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main logo with archaeological theme",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 200,
+            "height": 65,
+            "max_email_width": 220
+          }
+        },
+        "icon": {
+          "file": "legacy-archaeologist-icon.svg",
+          "format": "SVG",
+          "usage": "Archaeological tool icon",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "vintage": {
+          "file": "legacy-archaeologist-vintage.svg",
+          "format": "SVG",
+          "usage": "Special vintage-themed applications",
+          "background": "parchment",
+          "email_optimized": true
+        },
+        "white": {
+          "file": "legacy-archaeologist-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    },
+    "modumind": {
+      "name": "ModuMind",
+      "brand_colors": ["#667EEA", "#764BA2", "#F093FB"],
+      "variants": {
+        "primary": {
+          "file": "modumind-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main modular-themed logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 170,
+            "height": 60,
+            "max_email_width": 190
+          }
+        },
+        "modular": {
+          "file": "modumind-logo-modular.svg",
+          "format": "SVG",
+          "usage": "Emphasizes modular component design",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "modumind-icon.svg",
+          "format": "SVG",
+          "usage": "Component library, module icons",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "white": {
+          "file": "modumind-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds, code editors",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    },
+    "rootlift": {
+      "name": "Rootlift Digital",
+      "brand_colors": ["#22C55E", "#059669", "#84CC16"],
+      "variants": {
+        "primary": {
+          "file": "rootlift-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main growth-themed logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 190,
+            "height": 55,
+            "max_email_width": 210
+          }
+        },
+        "growth": {
+          "file": "rootlift-logo-growth.svg",
+          "format": "SVG",
+          "usage": "Emphasizes growth and elevation",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "rootlift-icon.svg",
+          "format": "SVG",
+          "usage": "Growth charts, analytics dashboards",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "white": {
+          "file": "rootlift-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    },
+    "vision2results": {
+      "name": "Vision2Results",
+      "brand_colors": ["#3B82F6", "#1E40AF", "#F59E0B"],
+      "variants": {
+        "primary": {
+          "file": "vision2results-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main results-focused logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 200,
+            "height": 60,
+            "max_email_width": 220
+          }
+        },
+        "arrow": {
+          "file": "vision2results-logo-arrow.svg",
+          "format": "SVG",
+          "usage": "Emphasizes direction and results",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "vision2results-icon.svg",
+          "format": "SVG",
+          "usage": "Performance dashboards, reports",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "white": {
+          "file": "vision2results-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds, presentations",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    },
+    "multimedia-junkie": {
+      "name": "Multimedia Junkie",
+      "brand_colors": ["#E91E63", "#9C27B0", "#FF5722"],
+      "variants": {
+        "primary": {
+          "file": "multimedia-junkie-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main creative logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 210,
+            "height": 65,
+            "max_email_width": 230
+          }
+        },
+        "creative": {
+          "file": "multimedia-junkie-logo-creative.svg",
+          "format": "SVG",
+          "usage": "Emphasizes creative and multimedia aspects",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "multimedia-junkie-icon.svg",
+          "format": "SVG",
+          "usage": "Media players, creative tools",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "neon": {
+          "file": "multimedia-junkie-logo-neon.svg",
+          "format": "SVG",
+          "usage": "Special creative applications",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    },
+    "ikidedventures": {
+      "name": "IkidEdventures",
+      "brand_colors": ["#FF6B6B", "#4ECDC4", "#FFE66D"],
+      "variants": {
+        "primary": {
+          "file": "ikidedventures-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main kid-friendly logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 190,
+            "height": 70,
+            "max_email_width": 210
+          }
+        },
+        "playful": {
+          "file": "ikidedventures-logo-playful.svg",
+          "format": "SVG",
+          "usage": "Extra playful version for kids",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "ikidedventures-icon.svg",
+          "format": "SVG",
+          "usage": "Educational apps, games",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "adventure": {
+          "file": "ikidedventures-logo-adventure.svg",
+          "format": "SVG",
+          "usage": "Adventure-themed applications",
+          "background": "light",
+          "email_optimized": true
+        }
+      }
+    },
+    "epicquesthub": {
+      "name": "EpicQuestHub",
+      "brand_colors": ["#8B5CF6", "#06B6D4", "#F59E0B"],
+      "variants": {
+        "primary": {
+          "file": "epicquesthub-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main gaming logo",
+          "background": "dark",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 200,
+            "height": 65,
+            "max_email_width": 220
+          }
+        },
+        "epic": {
+          "file": "epicquesthub-logo-epic.svg",
+          "format": "SVG",
+          "usage": "Emphasizes epic and adventure themes",
+          "background": "dark",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "epicquesthub-icon.svg",
+          "format": "SVG",
+          "usage": "Gaming platforms, quest markers",
+          "background": "dark",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "light": {
+          "file": "epicquesthub-logo-light.svg",
+          "format": "SVG",
+          "usage": "Light backgrounds when needed",
+          "background": "light",
+          "email_optimized": true
+        }
+      }
+    },
+    "lyriclines": {
+      "name": "LyricLines",
+      "brand_colors": ["#EC4899", "#8B5CF6", "#F59E0B"],
+      "variants": {
+        "primary": {
+          "file": "lyriclines-logo-primary.svg",
+          "format": "SVG",
+          "usage": "Main musical logo",
+          "background": "light",
+          "email_optimized": true,
+          "dimensions": {
+            "width": 180,
+            "height": 65,
+            "max_email_width": 200
+          }
+        },
+        "musical": {
+          "file": "lyriclines-logo-musical.svg",
+          "format": "SVG",
+          "usage": "Emphasizes musical and lyrical elements",
+          "background": "light",
+          "email_optimized": true
+        },
+        "icon": {
+          "file": "lyriclines-icon.svg",
+          "format": "SVG",
+          "usage": "Music apps, audio players",
+          "background": "light",
+          "dimensions": {
+            "width": 64,
+            "height": 64
+          }
+        },
+        "white": {
+          "file": "lyriclines-logo-white.svg",
+          "format": "SVG",
+          "usage": "Dark backgrounds, album covers",
+          "background": "dark",
+          "email_optimized": true
+        }
+      }
+    }
+  },
+  "email_specifications": {
+    "recommended_sizes": {
+      "header_logo": {
+        "max_width": 200,
+        "max_height": 80,
+        "recommended_width": 180,
+        "format": "PNG or SVG"
+      },
+      "footer_logo": {
+        "max_width": 120,
+        "max_height": 40,
+        "recommended_width": 100,
+        "format": "PNG"
+      },
+      "signature_logo": {
+        "max_width": 150,
+        "max_height": 50,
+        "recommended_width": 120,
+        "format": "PNG"
+      }
+    },
+    "technical_requirements": {
+      "file_formats": ["SVG", "PNG", "JPG"],
+      "max_file_size": "100KB",
+      "resolution": "72-144 DPI",
+      "color_space": "RGB",
+      "transparency": "Supported in PNG and SVG"
+    },
+    "accessibility": {
+      "alt_text_required": true,
+      "contrast_ratio": "Minimum 3:1 with background",
+      "scalability": "Must be readable at 50% size"
+    }
+  },
+  "usage_guidelines": {
+    "do": [
+      "Use appropriate variant for background color",
+      "Maintain minimum clear space around logo",
+      "Use email-optimized versions for email templates",
+      "Include alt text for accessibility",
+      "Test logo visibility across email clients"
+    ],
+    "dont": [
+      "Stretch or distort logo proportions",
+      "Use low-resolution versions",
+      "Place logo on busy backgrounds",
+      "Use colors outside brand palette",
+      "Make logo smaller than minimum size"
+    ],
+    "clear_space": {
+      "minimum": "Logo height × 0.5",
+      "recommended": "Logo height × 1"
+    }
+  }
+}

@@ -1,0 +1,176 @@
+Let me create a slide that showcases Phase 1: Attraction (Marketing Channels) of the Venture Forge Customer Acquisition Funnel. This will serve as the section header template for the presentation.
+
+From the funnel diagram, Phase 1 includes:
+
+TikTok / YouTube Shorts as a marketing channel
+Microsoft Ads (with LinkedIn Targeting) as another channel
+These lead to "The Hook" where the Partner Persona sees "The Cipher" Ad and clicks on it
+I'll design this slide with:
+
+Clear phase number and title
+Visual representation of the marketing channels
+Highlight "The Cipher" ad campaign
+Consistent branding with the cover slide (blue accents, clean typography)
+Icons or visual elements for TikTok, YouTube Shorts, and LinkedIn
+Let me create the HTML code for this slide:
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phase 1: Attraction (Marketing Channels)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: white;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+        .phase-number {
+            font-size: 120px;
+            font-weight: 900;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: 50px;
+            z-index: 0;
+        }
+        .accent-line {
+            width: 80px;
+            height: 6px;
+            background-color: #3B82F6;
+            margin-bottom: 20px;
+        }
+        .channel-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        .channel-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .arrow-connector {
+            color: #3B82F6;
+            font-size: 24px;
+        }
+        .cipher-badge {
+            background-color: #3B82F6;
+            border-radius: 24px;
+            padding: 6px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-16">
+<!-- Phase number background -->
+<div class="phase-number">01</div>
+<!-- Header section -->
+<div class="z-10 mb-8">
+<div class="text-sm text-blue-500 font-semibold tracking-widest uppercase mb-2">Phase 1</div>
+<div class="accent-line"></div>
+<h1 class="text-5xl font-bold tracking-tight">Attraction <span class="text-blue-500">(Marketing Channels)</span></h1>
+<p class="text-xl text-gray-400 mt-4 max-w-2xl">Capturing high-quality leads through targeted content and precise audience targeting</p>
+</div>
+<!-- Main content -->
+<div class="flex flex-col items-center mt-8 z-10">
+<!-- Channel boxes -->
+<div class="flex justify-center items-center w-full">
+<!-- TikTok/YouTube Shorts Channel -->
+<div class="channel-card p-6 w-80 mx-4">
+<div class="flex items-center mb-4">
+<div class="channel-icon bg-pink-600 mr-4">
+<i class="fab fa-tiktok"></i>
+</div>
+<div>
+<h3 class="font-bold text-xl">TikTok</h3>
+<p class="text-gray-400 text-sm">Short-form video</p>
+</div>
+</div>
+<p class="text-gray-300 mb-3">Engaging, high-impact content targeting entrepreneurial creators and tech-savvy professionals</p>
+<div class="bg-slate-800 p-3 rounded-lg">
+<div class="flex items-center">
+<i class="fab fa-youtube text-red-600 text-xl mr-2"></i>
+<span class="font-medium">YouTube Shorts</span>
+</div>
+<p class="text-gray-400 text-sm mt-1">Alternative platform with similar audience demographics</p>
+</div>
+</div>
+<div class="arrow-connector mx-6">
+<i class="fas fa-arrow-right"></i>
+</div>
+<!-- Microsoft Ads Channel -->
+<div class="channel-card p-6 w-80 mx-4">
+<div class="flex items-center mb-4">
+<div class="channel-icon bg-blue-900 mr-4">
+<i class="fab fa-microsoft"></i>
+</div>
+<div>
+<h3 class="font-bold text-xl">Microsoft Ads</h3>
+<p class="text-gray-400 text-sm">B2B targeting</p>
+</div>
+</div>
+<p class="text-gray-300 mb-3">Precision targeting of business professionals with entrepreneurial mindset and technical aptitude</p>
+<div class="bg-slate-800 p-3 rounded-lg">
+<div class="flex items-center">
+<i class="fab fa-linkedin text-blue-500 text-xl mr-2"></i>
+<span class="font-medium">LinkedIn Targeting</span>
+</div>
+<p class="text-gray-400 text-sm mt-1">Professional role, company size, and industry targeting</p>
+</div>
+</div>
+</div>
+<!-- The Hook section -->
+<div class="mt-12 flex flex-col items-center">
+<div class="arrow-connector mb-4">
+<i class="fas fa-arrow-down"></i>
+</div>
+<div class="bg-slate-800 p-6 rounded-xl border border-blue-500/30 max-w-lg">
+<h3 class="font-bold text-xl mb-2 text-center">The Hook</h3>
+<div class="flex items-center justify-center mb-4">
+<span class="cipher-badge mr-2">The Cipher</span>
+<span class="text-gray-300">Ad Campaign</span>
+</div>
+<p class="text-center text-gray-300">Partner Persona engages with our innovative ad concept demonstrating AI business partnership potential</p>
+<div class="flex items-center justify-center mt-6 text-blue-500">
+<i class="fas fa-mouse-pointer mr-2"></i>
+<span class="font-medium">Clicks through to Venture Forge Platform</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer with navigation hint -->
+<div class="absolute bottom-8 right-8 text-sm text-gray-400 flex items-center">
+<span>Next: Phase 2 - Engagement &amp; Filtering</span>
+<i class="fas fa-arrow-right ml-2"></i>
+</div>
+<!-- Logo -->
+<div class="absolute top-8 right-8 opacity-70">
+<div class="flex items-center">
+<span class="text-lg font-bold text-blue-500">371</span>
+<span class="text-lg font-medium ml-1 text-gray-300">MINDS</span>
+</div>
+</div>
+</div>
+</body>
+</html>

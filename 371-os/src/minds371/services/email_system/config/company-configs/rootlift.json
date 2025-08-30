@@ -1,0 +1,87 @@
+{
+  "company": {
+    "name": "Rootlift Digital",
+    "tagline": "Elevating Your Digital Presence from the Ground Up",
+    "description": "Comprehensive digital transformation and growth strategies for businesses of all sizes",
+    "industry": "Digital Marketing & Transformation",
+    "founded": "2023",
+    "website": "https://rootlift.digital",
+    "email": "grow@rootlift.digital",
+    "phone": "+1 (555) ROOT-LIFT"
+  },
+  "branding": {
+    "primary_color": "#22C55E",
+    "secondary_color": "#059669",
+    "accent_color": "#84CC16",
+    "text_color": "#1F2937",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/rootlift-logo.png",
+    "logo_alt": "Rootlift Digital Logo",
+    "favicon": "/assets/favicons/rootlift.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "7890 Growth Avenue",
+      "city": "Digital Heights",
+      "state": "DH",
+      "zip": "13579",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/rootlift-digital",
+      "twitter": "https://twitter.com/rootliftdigital",
+      "facebook": "https://facebook.com/rootliftdigital",
+      "instagram": "https://instagram.com/rootliftdigital"
+    }
+  },
+  "email_settings": {
+    "from_name": "Rootlift Digital Team",
+    "from_email": "noreply@rootlift.digital",
+    "reply_to": "support@rootlift.digital",
+    "signature": "Best regards,<br>The Rootlift Digital Team<br>Elevating Your Digital Presence from the Ground Up",
+    "unsubscribe_url": "https://rootlift.digital/unsubscribe",
+    "privacy_policy": "https://rootlift.digital/privacy"
+  },
+  "services": [
+    {
+      "name": "Digital Strategy",
+      "description": "Comprehensive digital transformation roadmaps and strategies",
+      "icon": "🎯"
+    },
+    {
+      "name": "SEO & Content Marketing",
+      "description": "Search engine optimization and content marketing campaigns",
+      "icon": "📈"
+    },
+    {
+      "name": "Social Media Management",
+      "description": "Full-service social media strategy and management",
+      "icon": "📱"
+    },
+    {
+      "name": "Web Development",
+      "description": "Modern, responsive website development and optimization",
+      "icon": "💻"
+    }
+  ],
+  "key_metrics": {
+    "clients_grown": "180+",
+    "avg_traffic_increase": "250%",
+    "conversion_improvement": "65%",
+    "campaigns_managed": "500+"
+  },
+  "email_templates": {
+    "welcome": "rootlift-welcome",
+    "newsletter": "rootlift-newsletter",
+    "growth_report": "rootlift-growth-report",
+    "strategy_proposal": "rootlift-strategy"
+  },
+  "automation_tags": [
+    "digital-marketing",
+    "seo",
+    "social-media",
+    "web-development",
+    "growth",
+    "transformation"
+  ]
+}

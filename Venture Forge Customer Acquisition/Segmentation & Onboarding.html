@@ -1,0 +1,317 @@
+Alright, let me understand what I need to create here. I need to design slide 4, which is about "Phase 3: Segmentation & Onboarding" in the Venture Forge Customer Acquisition Funnel. This slide should showcase the three-tier segmentation system:
+
+Architect (Tier 1) - Users who submit the co-founder assessment
+Weaver (Tier 2) - Users with high engagement (>3 visits)
+Apprentice (Tier 3) - Users with lower engagement
+I need to follow the design style of the master slide "content_diagram" as shown in the raw HTML template content provided. This means I need to maintain the same visual style, colors, typography, spacing, and general layout approach, while adapting it to the specific content needs of this slide.
+
+Let me analyze the template structure first:
+
+Dark blue background (#0F172A)
+Phase number (large, semi-transparent) in the background
+Header section with phase number, accent line, title, and subtitle
+Split layout with:
+Left column (1/3 width) for description
+Right column (2/3 width) for visual diagram
+Platform cards with light blue accents
+Connected flow diagram
+Logo in top right corner
+Now, I'll adapt this structure for the Phase 3 slide about segmentation:
+
+Update the phase number to "03"
+Change the title to "Segmentation & Onboarding"
+Create a description for the three-tier segmentation system
+Design a visual representation of the three tiers with their characteristics
+Show the flow/decision points that determine which tier a user falls into
+Let me create the HTML for this slide.
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phase 3: Segmentation &amp; Onboarding</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: white;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+        .phase-number {
+            font-size: 120px;
+            font-weight: 900;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: 50px;
+            z-index: 0;
+        }
+        .accent-line {
+            width: 80px;
+            height: 6px;
+            background-color: #3B82F6;
+            margin-bottom: 20px;
+        }
+        .platform-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+        }
+        .tier-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 16px;
+        }
+        .connector-line {
+            border-left: 2px dashed rgba(59, 130, 246, 0.5);
+            height: 30px;
+        }
+        .decision-node {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(59, 130, 246, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tier-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .tier-1 {
+            border-left: 4px solid #3B82F6;
+        }
+        .tier-2 {
+            border-left: 4px solid #10B981;
+        }
+        .tier-3 {
+            border-left: 4px solid #F59E0B;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-12">
+<!-- Phase number background -->
+<div class="phase-number">03</div>
+<!-- Header section -->
+<div class="z-10 mb-6">
+<div class="text-sm text-blue-500 font-semibold tracking-widest uppercase mb-2">Phase 3</div>
+<div class="accent-line"></div>
+<h1 class="text-4xl font-bold tracking-tight">Segmentation &amp; Onboarding <span class="text-blue-500">(Three-Tier System)</span></h1>
+<p class="text-lg text-gray-400 mt-2 max-w-2xl">Strategic user categorization based on engagement level and assessment completion</p>
+</div>
+<!-- Main content: Segmentation visualization -->
+<div class="flex mt-4 z-10">
+<!-- Left column: Description -->
+<div class="w-1/3 pr-8">
+<div class="bg-blue-500/10 p-4 rounded-lg border border-blue-500/30 mb-6">
+<div class="flex items-center mb-2">
+<i class="fas fa-layer-group text-blue-500 mr-2"></i>
+<h3 class="font-bold text-lg">Tiered Partner Strategy</h3>
+</div>
+<p class="text-gray-300 text-sm">
+                    Users are segmented into three tiers based on their engagement level and assessment completion, enabling personalized nurturing paths and appropriate product offerings for each segment.
+                </p>
+</div>
+<div class="bg-slate-800/50 p-4 rounded-lg mb-6">
+<h4 class="font-semibold text-blue-400 mb-2">Key Benefits</h4>
+<ul class="text-sm text-gray-300 space-y-2">
+<li class="flex items-start">
+<i class="fas fa-bullseye text-blue-500 mt-1 mr-2"></i>
+<span>Personalized user experiences</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-funnel-dollar text-blue-500 mt-1 mr-2"></i>
+<span>Optimized monetization paths</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-users text-blue-500 mt-1 mr-2"></i>
+<span>Community-based value delivery</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-chart-pie text-blue-500 mt-1 mr-2"></i>
+<span>Resource allocation by segment value</span>
+</li>
+</ul>
+</div>
+<div class="bg-slate-900 p-4 rounded-lg">
+<h4 class="font-semibold text-blue-400 mb-2">Segmentation Metrics</h4>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between items-center">
+<span class="text-gray-300">Assessment Completion</span>
+<span class="text-blue-500 font-medium">Primary Factor</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-300">Platform Visit Frequency</span>
+<span class="text-blue-500 font-medium">Secondary Factor</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-300">Tool Engagement Depth</span>
+<span class="text-blue-500 font-medium">Tertiary Factor</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right column: Diagram -->
+<div class="w-2/3">
+<div class="relative platform-card p-5 h-full">
+<!-- Segmentation flow diagram -->
+<div class="flex flex-col items-center">
+<!-- Decision point -->
+<div class="platform-card bg-blue-900/30 p-4 w-4/5 text-center mb-3">
+<div class="font-bold mb-1 text-center">User Completes Journey from Phase 2</div>
+</div>
+<div class="connector-line"></div>
+<!-- Decision Node 1 -->
+<div class="decision-node mb-1">
+<i class="fas fa-question text-blue-500"></i>
+</div>
+<div class="text-center text-sm text-blue-400 mb-3">User Submits Co-Founder Assessment?</div>
+<!-- Branching paths -->
+<div class="flex w-full justify-between">
+<!-- Yes path -->
+<div class="flex flex-col items-center w-1/3">
+<div class="text-blue-500 text-sm font-medium mb-1">Yes</div>
+<div class="connector-line"></div>
+<!-- Tier 1 -->
+<div class="tier-card tier-1 w-full p-4">
+<div class="flex items-center mb-3">
+<div class="tier-icon bg-blue-700">
+<i class="fas fa-crown"></i>
+</div>
+<div>
+<div class="font-bold text-lg">Tier 1</div>
+<div class="text-blue-500 font-medium">The Architect</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 mb-3">Highest value segment with demonstrated commitment to partnership</div>
+<ul class="text-xs text-gray-400 space-y-1">
+<li class="flex items-start">
+<i class="fas fa-check text-blue-500 mt-1 mr-1"></i>
+<span>Completed assessment</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-blue-500 mt-1 mr-1"></i>
+<span>Ready for co-founder partnership</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-blue-500 mt-1 mr-1"></i>
+<span>High qualification level</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- No path -->
+<div class="flex flex-col items-center w-1/2">
+<div class="text-amber-500 text-sm font-medium mb-1">No</div>
+<div class="connector-line"></div>
+<!-- Decision Node 2 -->
+<div class="decision-node mb-1">
+<i class="fas fa-question text-amber-500"></i>
+</div>
+<div class="text-center text-sm text-amber-400 mb-3">High Engagement? (&gt;3 visits)</div>
+<!-- Tier 2/3 branching -->
+<div class="flex w-full justify-between">
+<!-- Yes path (Tier 2) -->
+<div class="flex flex-col items-center w-1/2">
+<div class="text-green-500 text-sm font-medium mb-1">Yes</div>
+<div class="connector-line"></div>
+<div class="tier-card tier-2 w-full p-4">
+<div class="flex items-center mb-3">
+<div class="tier-icon bg-green-700">
+<i class="fas fa-hammer"></i>
+</div>
+<div>
+<div class="font-bold text-lg">Tier 2</div>
+<div class="text-green-500 font-medium">The Weaver</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 mb-3">Engaged users with strong interest but not yet committed</div>
+<ul class="text-xs text-gray-400 space-y-1">
+<li class="flex items-start">
+<i class="fas fa-check text-green-500 mt-1 mr-1"></i>
+<span>Multiple platform visits</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-green-500 mt-1 mr-1"></i>
+<span>Active tool usage</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-green-500 mt-1 mr-1"></i>
+<span>Community participation potential</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- No path (Tier 3) -->
+<div class="flex flex-col items-center w-1/2">
+<div class="text-amber-500 text-sm font-medium mb-1">No</div>
+<div class="connector-line"></div>
+<div class="tier-card tier-3 w-full p-4">
+<div class="flex items-center mb-3">
+<div class="tier-icon bg-amber-700">
+<i class="fas fa-graduation-cap"></i>
+</div>
+<div>
+<div class="font-bold text-lg">Tier 3</div>
+<div class="text-amber-500 font-medium">The Apprentice</div>
+</div>
+</div>
+<div class="text-sm text-gray-300 mb-3">Early-stage users needing education and nurturing</div>
+<ul class="text-xs text-gray-400 space-y-1">
+<li class="flex items-start">
+<i class="fas fa-check text-amber-500 mt-1 mr-1"></i>
+<span>Limited platform engagement</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-amber-500 mt-1 mr-1"></i>
+<span>Nurturing candidate</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-check text-amber-500 mt-1 mr-1"></i>
+<span>Future growth potential</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- To Phase 4 indicator -->
+<div class="absolute bottom-2 right-4 text-xs text-gray-400 flex items-center">
+<span>To Phase 4: Product Suites</span>
+<i class="fas fa-arrow-right ml-1"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Logo -->
+<div class="absolute top-8 right-8 opacity-70">
+<div class="flex items-center">
+<span class="text-lg font-bold text-blue-500">371</span>
+<span class="text-lg font-medium ml-1 text-gray-300">MINDS</span>
+</div>
+</div>
+</div>
+</div></body>
+</html>

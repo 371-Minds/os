@@ -1,0 +1,88 @@
+{
+  "company": {
+    "name": "IkidEdventures",
+    "tagline": "Where Learning Meets Adventure",
+    "description": "Interactive educational experiences and adventure-based learning programs for children",
+    "industry": "Educational Technology",
+    "founded": "2023",
+    "website": "https://ikidedventures.com",
+    "email": "adventure@ikidedventures.com",
+    "phone": "+1 (555) IKID-FUN"
+  },
+  "branding": {
+    "primary_color": "#FF6B6B",
+    "secondary_color": "#4ECDC4",
+    "accent_color": "#FFE66D",
+    "text_color": "#2C3E50",
+    "background_color": "#FFFFFF",
+    "logo_url": "/assets/logos/ikidedventures-logo.png",
+    "logo_alt": "IkidEdventures Logo",
+    "favicon": "/assets/favicons/ikidedventures.ico"
+  },
+  "contact": {
+    "headquarters": {
+      "address": "8642 Adventure Way",
+      "city": "Learning Valley",
+      "state": "LV",
+      "zip": "86420",
+      "country": "USA"
+    },
+    "social_media": {
+      "linkedin": "https://linkedin.com/company/ikidedventures",
+      "twitter": "https://twitter.com/ikidedventures",
+      "facebook": "https://facebook.com/ikidedventures",
+      "instagram": "https://instagram.com/ikidedventures",
+      "youtube": "https://youtube.com/c/ikidedventures"
+    }
+  },
+  "email_settings": {
+    "from_name": "IkidEdventures Team",
+    "from_email": "noreply@ikidedventures.com",
+    "reply_to": "support@ikidedventures.com",
+    "signature": "Best regards,<br>The IkidEdventures Team<br>Where Learning Meets Adventure",
+    "unsubscribe_url": "https://ikidedventures.com/unsubscribe",
+    "privacy_policy": "https://ikidedventures.com/privacy"
+  },
+  "services": [
+    {
+      "name": "Interactive Learning Games",
+      "description": "Educational games that make learning fun and engaging",
+      "icon": "🎮"
+    },
+    {
+      "name": "Adventure Camps",
+      "description": "Outdoor adventure camps with educational components",
+      "icon": "🏕️"
+    },
+    {
+      "name": "STEM Programs",
+      "description": "Science, technology, engineering, and math programs",
+      "icon": "🔬"
+    },
+    {
+      "name": "Creative Workshops",
+      "description": "Art, music, and creative expression workshops",
+      "icon": "🎨"
+    }
+  ],
+  "key_metrics": {
+    "kids_engaged": "5000+",
+    "programs_delivered": "150+",
+    "parent_satisfaction": "98%",
+    "learning_improvement": "75%"
+  },
+  "email_templates": {
+    "welcome": "ikidedventures-welcome",
+    "newsletter": "ikidedventures-newsletter",
+    "program_announcement": "ikidedventures-program",
+    "parent_update": "ikidedventures-parent-update"
+  },
+  "automation_tags": [
+    "education",
+    "children",
+    "adventure",
+    "learning",
+    "stem",
+    "creative"
+  ]
+}

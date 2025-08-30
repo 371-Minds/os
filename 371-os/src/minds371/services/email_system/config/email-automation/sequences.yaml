@@ -1,0 +1,339 @@
+# Email Automation Sequences Configuration
+# Defines multi-step email sequences for various user journeys
+
+sequences:
+  # Welcome Sequence
+  welcome_sequence:
+    name: "Welcome Email Sequence"
+    description: "Onboarding sequence for new users"
+    trigger: "user_registration"
+    active: true
+    emails:
+      - step: 1
+        template: "welcome_email"
+        delay: "immediate"
+        subject: "Welcome to {{company.name}}! 🎉"
+        conditions:
+          - field: "user.email_verified"
+            operator: "equals"
+            value: true
+        
+      - step: 2
+        template: "getting_started_guide"
+        delay: "1 day"
+        subject: "Get started with {{company.name}} in 5 minutes"
+        conditions:
+          - field: "user.first_login"
+            operator: "equals"
+            value: false
+        
+      - step: 3
+        template: "feature_highlights"
+        delay: "3 days"
+        subject: "Discover what makes {{company.name}} special"
+        conditions:
+          - field: "user.engagement_score"
+            operator: "less_than"
+            value: 50
+        
+      - step: 4
+        template: "success_stories"
+        delay: "7 days"
+        subject: "See how others succeed with {{company.name}}"
+        
+      - step: 5
+        template: "feedback_request"
+        delay: "14 days"
+        subject: "How are we doing? Your feedback matters"
+
+  # Onboarding Sequence
+  onboarding_sequence:
+    name: "User Onboarding"
+    description: "Detailed onboarding for active users"
+    trigger: "first_login"
+    active: true
+    emails:
+      - step: 1
+        template: "onboarding_welcome"
+        delay: "immediate"
+        subject: "Great to see you! Let's get you set up"
+        
+      - step: 2
+        template: "profile_completion"
+        delay: "2 hours"
+        subject: "Complete your profile for better experience"
+        conditions:
+          - field: "user.profile_completion"
+            operator: "less_than"
+            value: 80
+        
+      - step: 3
+        template: "first_project_guide"
+        delay: "1 day"
+        subject: "Ready to start your first project?"
+        conditions:
+          - field: "user.projects_count"
+            operator: "equals"
+            value: 0
+
+  # Cart Recovery Sequence
+  cart_recovery_sequence:
+    name: "Abandoned Cart Recovery"
+    description: "Recover abandoned shopping carts"
+    trigger: "abandoned_cart"
+    active: true
+    emails:
+      - step: 1
+        template: "cart_reminder"
+        delay: "1 hour"
+        subject: "You left something behind..."
+        
+      - step: 2
+        template: "cart_incentive"
+        delay: "1 day"
+        subject: "Still thinking? Here's 10% off!"
+        conditions:
+          - field: "cart.total_value"
+            operator: "greater_than"
+            value: 50
+        
+      - step: 3
+        template: "cart_final_reminder"
+        delay: "3 days"
+        subject: "Last chance - your cart expires soon"
+
+  # Re-engagement Sequence
+  reengagement_sequence:
+    name: "User Re-engagement"
+    description: "Win back inactive users"
+    trigger: "inactive_user"
+    active: true
+    emails:
+      - step: 1
+        template: "we_miss_you"
+        delay: "immediate"
+        subject: "We miss you! Come back and see what's new"
+        
+      - step: 2
+        template: "whats_new_update"
+        delay: "3 days"
+        subject: "Here's what you've missed"
+        
+      - step: 3
+        template: "special_comeback_offer"
+        delay: "7 days"
+        subject: "A special offer just for you"
+        
+      - step: 4
+        template: "final_goodbye"
+        delay: "14 days"
+        subject: "We hate to see you go..."
+
+  # Educational Sequence
+  educational_sequence:
+    name: "Educational Content Series"
+    description: "Educational content to increase engagement"
+    trigger: "manual"
+    active: true
+    emails:
+      - step: 1
+        template: "education_intro"
+        delay: "immediate"
+        subject: "Master {{company.industry}} with our expert tips"
+        
+      - step: 2
+        template: "education_basics"
+        delay: "2 days"
+        subject: "The fundamentals you need to know"
+        
+      - step: 3
+        template: "education_intermediate"
+        delay: "5 days"
+        subject: "Taking your skills to the next level"
+        
+      - step: 4
+        template: "education_advanced"
+        delay: "8 days"
+        subject: "Advanced strategies from the pros"
+        
+      - step: 5
+        template: "education_resources"
+        delay: "12 days"
+        subject: "Your complete resource library"
+
+  # Company-Specific Sequences
+  
+  # ReadySetBuild Project Sequence
+  construction_project_sequence:
+    name: "Construction Project Updates"
+    description: "Keep clients informed about construction progress"
+    trigger: "project_started"
+    companies: ["readysetbuild"]
+    active: true
+    emails:
+      - step: 1
+        template: "project_kickoff"
+        delay: "immediate"
+        subject: "Your construction project has begun!"
+        
+      - step: 2
+        template: "project_milestone_25"
+        delay: "variable" # Based on project timeline
+        subject: "25% Complete - Foundation laid!"
+        conditions:
+          - field: "project.progress"
+            operator: "equals"
+            value: 25
+        
+      - step: 3
+        template: "project_milestone_50"
+        delay: "variable"
+        subject: "Halfway there - Framing complete!"
+        conditions:
+          - field: "project.progress"
+            operator: "equals"
+            value: 50
+        
+      - step: 4
+        template: "project_milestone_75"
+        delay: "variable"
+        subject: "75% Complete - Interior work underway!"
+        conditions:
+          - field: "project.progress"
+            operator: "equals"
+            value: 75
+        
+      - step: 5
+        template: "project_completion"
+        delay: "variable"
+        subject: "Project Complete - Welcome home!"
+        conditions:
+          - field: "project.status"
+            operator: "equals"
+            value: "completed"
+
+  # StackSense Audit Sequence
+  tech_audit_sequence:
+    name: "Technology Audit Process"
+    description: "Guide clients through tech stack audit"
+    trigger: "audit_requested"
+    companies: ["stacksense"]
+    active: true
+    emails:
+      - step: 1
+        template: "audit_confirmation"
+        delay: "immediate"
+        subject: "Your tech audit request confirmed"
+        
+      - step: 2
+        template: "audit_preparation"
+        delay: "1 day"
+        subject: "Preparing for your tech audit"
+        
+      - step: 3
+        template: "audit_in_progress"
+        delay: "3 days"
+        subject: "Your audit is underway"
+        
+      - step: 4
+        template: "audit_preliminary_findings"
+        delay: "7 days"
+        subject: "Preliminary audit findings"
+        
+      - step: 5
+        template: "audit_final_report"
+        delay: "10 days"
+        subject: "Your complete tech audit report"
+
+  # Multimedia Junkie Creative Sequence
+  creative_project_sequence:
+    name: "Creative Project Journey"
+    description: "Guide clients through creative projects"
+    trigger: "creative_project_started"
+    companies: ["multimedia-junkie"]
+    active: true
+    emails:
+      - step: 1
+        template: "creative_brief_confirmation"
+        delay: "immediate"
+        subject: "Let's bring your vision to life!"
+        
+      - step: 2
+        template: "concept_development"
+        delay: "2 days"
+        subject: "Concept development in progress"
+        
+      - step: 3
+        template: "first_draft_ready"
+        delay: "5 days"
+        subject: "First draft ready for your review"
+        
+      - step: 4
+        template: "revisions_incorporated"
+        delay: "variable"
+        subject: "Revisions complete - almost there!"
+        
+      - step: 5
+        template: "final_delivery"
+        delay: "variable"
+        subject: "Your project is complete! 🎉"
+
+  # Newsletter Sequences
+  monthly_newsletter_sequence:
+    name: "Monthly Newsletter"
+    description: "Regular monthly updates and insights"
+    trigger: "schedule_monthly"
+    active: true
+    emails:
+      - step: 1
+        template: "monthly_newsletter"
+        delay: "immediate"
+        subject: "{{company.name}} Monthly Update - {{current_month}}"
+
+  weekly_digest_sequence:
+    name: "Weekly Digest"
+    description: "Weekly roundup of important updates"
+    trigger: "schedule_weekly"
+    active: true
+    emails:
+      - step: 1
+        template: "weekly_digest"
+        delay: "immediate"
+        subject: "This week at {{company.name}}"
+
+# Sequence Settings
+settings:
+  # Global sequence settings
+  max_active_sequences_per_user: 3
+  sequence_cooldown_period: "7 days"
+  auto_stop_on_unsubscribe: true
+  auto_stop_on_bounce: true
+  
+  # Timing settings
+  respect_send_time_preferences: true
+  default_send_time: "09:00"
+  timezone_aware: true
+  
+  # Personalization
+  enable_dynamic_content: true
+  fallback_personalization: "there"
+  
+  # Analytics
+  track_sequence_performance: true
+  track_conversion_goals: true
+  
+  # A/B Testing
+  enable_ab_testing: true
+  ab_test_sample_size: 0.1 # 10% of users
+  
+  # Exit conditions
+  global_exit_conditions:
+    - field: "user.unsubscribed"
+      operator: "equals"
+      value: true
+    - field: "user.email_bounced"
+      operator: "equals"
+      value: true
+    - field: "user.status"
+      operator: "equals"
+      value: "inactive"

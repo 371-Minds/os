@@ -1,0 +1,41 @@
+# Base Agent Prompt Template
+# This template serves as the foundation for all agent-specific prompts
+
+template: |
+  # Agent Context
+  - **Agent Type**: {agent_type}
+  - **Domain**: {domain_expertise}
+  - **Capabilities**: {capabilities_list}
+  - **Response Format**: {response_format}
+
+  # Task Processing
+  **Task Description**: {task_description}
+
+  {delegation_logic}
+
+  # Response Requirements
+  - **Status**: {status_requirement}
+  - **Structure**: {structure_requirement}
+  - **Metadata**: Include agent information and task context
+
+  # Agent Metadata
+  - **Agent ID**: {agent_agent_id}
+  - **Timestamp**: {timestamp}
+  - **Session ID**: {session_id}
+  - **Task ID**: {task_id}
+
+variables:
+  agent_type: "AGENT_TYPE"
+  domain_expertise: "DOMAIN_EXPERTISE"
+  capabilities_list: "CAPABILITIES_LIST"
+  response_format: "RESPONSE_FORMAT"
+  task_description: "TASK_DESCRIPTION"
+  delegation_logic: "DELEGATION_LOGIC"
+  status_requirement: "STATUS_REQUIREMENT"
+  structure_requirement: "STRUCTURE_REQUIREMENT"
+  agent_id: "AGENT_ID"
+  timestamp: "TIMESTAMP"
+  session_id: "SESSION_ID"
+  task_id: "TASK_ID"
+
+usage: "Use as the base for all agent-specific prompt templates"

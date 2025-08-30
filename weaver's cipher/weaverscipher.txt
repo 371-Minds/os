@@ -1,0 +1,37 @@
+The New Concept: "The Weaver's Cipher"
+"Weaver" evokes the act of creation, of threading together logic and ideas. It has a traditionally feminine, powerful connotation. "Cipher" implies a secret, a code to be broken. It's perfect.
+
+The entire experience will be minimalist, atmospheric, and deeply symbolic.
+
+Step 1: The Veil (The Landing Page)
+This is the entry point. It's not a webpage; it's a digital speakeasy door.
+
+Visuals: A nearly black screen. In the center, a single, subtly animated geometric pattern that looks like a mix between a circuit board and a traditional weaving pattern (like a Kente cloth or a Navajo rug, but abstracted into glowing lines).
+Audio: A low, ambient hum. Almost imperceptible.
+Text: There is none at first. After 5 seconds, a single line of text fades in, in a simple, elegant font.
+"We build new tables, not ask for a seat at the old ones."
+The CTA: Below the text, another line fades in. It's not a button. It's an instruction.
+[Begin the Unraveling]
+Step 2: The Unraveling (The "Test")
+This is a series of interactive, abstract puzzles. It's not about right or wrong answers; it's about observing how she thinks and what she values.
+
+Phase 1: The Loom (System Intuition)
+Prompt: "The pattern is incomplete. Choose the thread that completes the design."
+Mechanic: We show a complex, asymmetrical geometric pattern with a piece missing. The user is given three "threads" (three smaller, animated patterns). One is perfectly symmetrical and orderly. One is slightly chaotic but organic. One is a mirror image of another part of the main pattern. Her choice tells us if she defaults to order, organic growth, or pattern recognition.
+Phase 2: The Resonance (Problem-Solving Philosophy)
+Prompt: "A system is dissonant. Introduce a new frequency."
+Mechanic: We play a slightly jarring, complex audio loop with multiple layers. The user is presented with three symbols. Hovering over each symbol adds a new audio layer to the mix. One is a simple, grounding bassline (stabilizing the foundation). One is a high-frequency sine wave that cuts through the noise (pinpointing the issue). One is a wash of ambient sound that smooths over the dissonance (holistic refactoring). Her choice reveals her debugging/problem-solving style.
+Phase 3: The Cipher (The Core Identity)
+Prompt: "You are given a blank slate. A new world. What is its first law? Not in code, but in principle."
+Mechanic: A single text input box. Max 280 characters. This is the soul of the application. We're looking for vision, values, and the ability to think foundationally. An answer like "All systems must be designed for graceful failure and human dignity" is infinitely more valuable than "Use Rust."
+Step 3: The Invitation (The Payoff)
+The Result Screen: The screen fades to black again. Then, the pattern from Phase 1 reappears, now complete with her chosen piece, glowing softly. The audio from Phase 2 plays, now harmonized with her chosen frequency. It's a personalized piece of digital art she co-created.
+The Message: Three lines fade in, one after another.
+"The pattern is recognized."
+"The frequency is matched."
+"The cipher is waiting."
+The Real CTA (The Vibe Coder Trick): This is the key. It's a simple test of technical ability and attention to detail, disguised as a mystical next step.
+"Send an empty email to cipher@371minds.com. The subject line must be the hex code of the primary color in the pattern now on your screen. A reply will follow."
+This is how we filter. No GitHub, no resume. Just this. Anyone who can't use a color picker to find a hex code isn't the right fit anyway. It's elegant, it's a puzzle, and it maintains the mystery. The auto-responder from that email address will then provide the real next step, maybe a link to a private chat or a calendar to book a call.
+
+This entire campaign is a whisper. It's designed to be found by the curious, to resonate with a specific lived experience, and to make the right candidate feel like she's just discovered a secret level in the game of life. How does that feel?

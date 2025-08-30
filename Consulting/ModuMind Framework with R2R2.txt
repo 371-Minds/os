@@ -1,0 +1,37 @@
+ModuMind Framework with R2R
+Of course. This is an excellent evolution. Integrating your personal "Discover, Space, Flow" methodology with the BMAD agent framework creates a proprietary, high-value system that is unique to 371 Minds.
+You are essentially creating your own customized, branded version of an agile development lifecycle, powered by a specialized team of AI agents. Let's formalize how this new, integrated model will work.
+### **The Integrated Framework: BMAD + Discover, Space, Flow**
+The BMAD agent personas we've defined (`Analyst`, `PM`, `Architect`, etc.) will be the "specialists" who execute the tasks within each phase of your "Discover, Space, Flow" lifecycle. Your new bots (`SPACE Bot`, `FLOW Bot`) will act as coordinators for those phases.
+Here is the phase-by-phase mapping:
+#### **1. The "Discover" Phase (Lead Agent: Analyst)**
+* **Goal:** To understand the problem space, gather context, and define the "what" and "why." This aligns perfectly with the "Problem Definition" and "MVP Scope" sections of our planning.
+* **Executing Agents:**
+* **Analyst (Mary):** She is the primary agent for this phase. [cite_start]She will execute her "Project Briefing" and "Deep Research" tasks to perform the initial analysis, competitive scans, and pain-point mapping[cite: 88, 91, 107, 118].
+* [cite_start]**Product Manager (John):** He will be brought in by the Analyst to translate the initial findings into a formal **Project Requirements Document (PRD)**[cite: 91, 108, 250].
+#### **2. The "Space" Phase (Lead Agent: SPACE Bot)**
+* **Goal:** To create the "Collaboration Playbook" by designing the solution and creating a shared space for all artifacts. This aligns with the architecture and design phases of our plan.
+* **Executing Agents:**
+* **SPACE Bot (Kimberly):** This agent acts as the coordinator for this phase. [cite_start]Its "Tactical Playbook Composition" task will be used to structure the work for the other agents[cite: 100, 3139].
+* [cite_start]**Architect (Fred):** He will take the PRD and create the detailed **System Architecture Document**[cite: 92, 109, 2101].
+* [cite_start]**Design Architect (Jane):** She will create the **UI/UX Specification** and the **Frontend Architecture Document**[cite: 92, 111, 2142].
+* [cite_start]**Product Owner (Sarah):** She will review all the architectural documents against the PRD using the `po-master-checklist` to ensure everything is aligned before development begins[cite: 93, 1745].
+#### **3. The "Flow" Phase (Lead Agent: FLOW Bot)**
+* **Goal:** To manage the continuous cycle of building, testing, and improving the product. This aligns with the agile development and post-launch operations phases of our plan.
+* **Executing Agents:**
+* **FLOW Bot (Louis):** This agent coordinates the development flow. [cite_start]Its "Task Prioritization & Focus" task will be used to manage the development backlog[cite: 99, 3137].
+* [cite_start]**Scrum Master (Bob):** He will take the approved epics and use the `story-draft-task` to create detailed, actionable stories for the developer agents[cite: 94, 1727].
+* [cite_start]**Developer Agents:** They will execute the stories one by one, following the technical guidance and adhering to the `story-dod-checklist` upon completion[cite: 1766].
+* **Your Role (The 20%):** The "Flow" phase is where your 80/20 rule comes into full effect. The FLOW Bot and SM will queue up work, the Dev Agents will build it, and your primary role will be to provide the final "approval" and strategic guidance, and to use the "Flow Dashboard" to monitor progress.
+### **Next Step: Create the "Tactical Playbook"**
+As your framework suggests, the next logical step is to create the **Tactical Playbook**. This will be our master guide that formally documents how these agents and phases work together.
+This playbook will become the core IP of your `ModuMind` offering and the standard operating procedure for `Rootlift Digital`. It will detail the inputs, outputs, and agent responsibilities for each step, creating a predictable, scalable process for building any product in your portfolio
+### **Proposal: The ModuMind Root-to-Rise Cycle (R2R)**
+I propose we call the RCRC process: **The ModuMind Root-to-Rise Cycle (R2R)**.
+**Rationale:**
+1. **Honors the Original Intent:** It keeps the concept of **"Root"** from your "Rapid Cycle Root Cause" analysis, acknowledging that the process starts with finding the fundamental source of an issue.
+2. **Forward-Looking & Positive:** It reframes the process from just "finding a cause" to "using that root understanding to **rise** and improve." This is more aspirational and aligns perfectly with our brand's focus on growth, solutions, and continuous improvement.
+3. **Unique & Brandable:** "Root-to-Rise" is a memorable and unique phrase that we can own. It also gives us a great internal acronym: the **R2R Cycle**.
+### **How It Fits into Our System**
+The **R2R Cycle** will be a specific, named procedure within the **"Flow"** phase of **The ModuMind Method**.
+When a significant problem or opportunity for improvement is identified, our `FLOW Bot (Louis)` or `Scrum Master (Bob)` will initiate the "R2R Cycle," using the detailed, five-phase framework we created to guide the resolution process. 

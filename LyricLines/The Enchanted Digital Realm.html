@@ -1,0 +1,863 @@
+anthropic/claude-sonnet-4
+
+The user wants me to create an immersive reading experience with multiple interactive features:
+
+Neon jellyfish animation that syncs with reading speed
+Typewriter effect with sounds and blinking cursor
+Background environment system that changes with story setting
+Color-changing floating balls that react to emotional keywords
+This is a complex project that combines multiple animations, audio, and interactive elements. I'll need to create a single HTML file with embedded CSS and JavaScript that includes:
+
+A reading interface with sample text
+Neon jellyfish CSS animation
+Typewriter effect with audio
+Background environment switcher
+Floating balls that change color based on text sentiment
+Music soundtrack integration
+Video backgrounds
+Reading speed detection
+I'll make this as immersive and interactive as possible while keeping everything in a single HTML file.
+
+I'll create an immersive reading experience that combines all these amazing features into a single interactive HTML file. This will be a truly unique and engaging reading platform!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immersive Reading Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            overflow-x: hidden;
+            transition: all 0.8s ease;
+        }
+
+        /* Background Environments */
+        .environment-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            transition: opacity 1s ease;
+        }
+
+        .env-forest {
+            background: radial-gradient(ellipse at center, rgba(34, 139, 34, 0.3) 0%, rgba(0, 50, 0, 0.8) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="60" r="1" fill="%23ffffff" opacity="0.2"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+        }
+
+        .env-ocean {
+            background: radial-gradient(ellipse at center, rgba(0, 119, 190, 0.4) 0%, rgba(0, 33, 64, 0.9) 100%),
+                        linear-gradient(45deg, rgba(0, 150, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 150, 255, 0.1) 75%);
+            background-size: 40px 40px;
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        .env-space {
+            background: radial-gradient(ellipse at center, rgba(75, 0, 130, 0.3) 0%, rgba(0, 0, 0, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="20" r="0.5" fill="%23ffffff"/><circle cx="30" cy="40" r="0.3" fill="%23ffffff"/><circle cx="70" cy="10" r="0.4" fill="%23ffffff"/><circle cx="90" cy="70" r="0.3" fill="%23ffffff"/><circle cx="50" cy="90" r="0.5" fill="%23ffffff"/></svg>');
+        }
+
+        .env-desert {
+            background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.3) 0%, rgba(139, 69, 19, 0.8) 100%);
+        }
+
+        @keyframes wave {
+            0%, 100% { background-position: 0 0; }
+            50% { background-position: 40px 40px; }
+        }
+
+        /* Neon Jellyfish Animation */
+        .jellyfish {
+            position: fixed;
+            top: 20%;
+            left: -200px;
+            width: 150px;
+            height: 200px;
+            z-index: 1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .jellyfish-bell {
+            width: 100px;
+            height: 80px;
+            background: radial-gradient(ellipse at center, 
+                rgba(0, 255, 255, 0.8) 0%, 
+                rgba(0, 200, 255, 0.6) 40%, 
+                rgba(0, 150, 255, 0.3) 80%, 
+                transparent 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6),
+                        inset 0 0 20px rgba(0, 255, 255, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .tentacles {
+            display: flex;
+            justify-content: space-around;
+            margin-top: -10px;
+        }
+
+        .tentacle {
+            width: 3px;
+            height: 120px;
+            background: linear-gradient(to bottom, 
+                rgba(0, 255, 255, 0.8) 0%, 
+                rgba(0, 200, 255, 0.4) 50%, 
+                transparent 100%);
+            border-radius: 2px;
+            animation: sway 3s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+
+        .tentacle:nth-child(1) { animation-delay: 0s; }
+        .tentacle:nth-child(2) { animation-delay: 0.5s; }
+        .tentacle:nth-child(3) { animation-delay: 1s; }
+        .tentacle:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes float {
+            0% { 
+                left: -200px; 
+                top: 20%; 
+                transform: rotate(-5deg);
+            }
+            25% { 
+                left: 25%; 
+                top: 15%; 
+                transform: rotate(2deg);
+            }
+            50% { 
+                left: 50%; 
+                top: 25%; 
+                transform: rotate(-3deg);
+            }
+            75% { 
+                left: 75%; 
+                top: 18%; 
+                transform: rotate(1deg);
+            }
+            100% { 
+                left: 110%; 
+                top: 22%; 
+                transform: rotate(-2deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.6),
+                           inset 0 0 20px rgba(0, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(0, 255, 255, 0.9),
+                           inset 0 0 30px rgba(0, 255, 255, 0.5);
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(-2px) rotate(-2deg); }
+            50% { transform: translateX(2px) rotate(2deg); }
+        }
+
+        /* Floating Balls */
+        .floating-ball {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent);
+            box-shadow: 0 0 20px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        /* Reading Container */
+        .reading-container {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: colorShift 5s ease-in-out infinite;
+        }
+
+        @keyframes colorShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        .typewriter-text {
+            font-family: 'Inter', monospace;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            min-height: 100px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: #00ffff;
+            animation: blink 1s infinite;
+            vertical-align: baseline;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .control-btn {
+            padding: 10px 15px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #00ffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .environment-selector {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .env-btn {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .env-btn:hover, .env-btn.active {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Progress Indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Speed Indicator */
+        .speed-indicator {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .audio-controls {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .video-overlay video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .reading-container {
+                margin: 20px 10px;
+                padding: 20px 15px;
+            }
+            
+            .story-title {
+                font-size: 2rem;
+            }
+            
+            .typewriter-text {
+                font-size: 1.1rem;
+            }
+            
+            .controls {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .jellyfish {
+                width: 100px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Environment -->
+    <div id="backgroundEnvironment" class="environment-bg env-forest"></div>
+
+    <!-- Video Overlay -->
+    <div class="video-overlay" id="videoOverlay">
+        <video id="ambientVideo" loop muted autoplay style="display: none;">
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Speed Indicator -->
+    <div class="speed-indicator" id="speedIndicator">
+        Reading Speed: <span id="wpmDisplay">0</span> WPM
+    </div>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <div class="control-btn" id="musicToggle">🎵 Music: ON</div>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+        <div style="color: #00ffff; font-size: 0.8rem; text-align: center;">Volume</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button class="control-btn" id="pauseBtn">⏸️ Pause</button>
+        <button class="control-btn" id="speedBtn">⚡ Speed: Normal</button>
+        <button class="control-btn" id="effectsBtn">✨ Effects: ON</button>
+        <button class="control-btn" id="resetBtn">🔄 Reset</button>
+    </div>
+
+    <!-- Neon Jellyfish -->
+    <div class="jellyfish" id="jellyfish">
+        <div class="jellyfish-bell"></div>
+        <div class="tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+
+    <!-- Main Reading Container -->
+    <div class="reading-container">
+        <h1 class="story-title">The Enchanted Digital Realm</h1>
+        <div class="typewriter-text" id="storyText"></div>
+        <div class="cursor" id="cursor"></div>
+    </div>
+
+    <!-- Environment Selector -->
+    <div class="environment-selector">
+        <button class="env-btn active" data-env="forest">🌲 Forest</button>
+        <button class="env-btn" data-env="ocean">🌊 Ocean</button>
+        <button class="env-btn" data-env="space">🚀 Space</button>
+        <button class="env-btn" data-env="desert">🏜️ Desert</button>
+    </div>
+
+    <!-- Floating Balls Container -->
+    <div id="floatingBalls"></div>
+
+    <!-- Audio Elements -->
+    <audio id="backgroundMusic" loop>
+        <source src="data:audio/mp3;base64," type="audio/mpeg">
+    </audio>
+    <audio id="typewriterSound">
+        <source src="data:audio/wav;base64," type="audio/wav">
+    </audio>
+
+    <script>
+        class ImmersiveReader {
+            constructor() {
+                this.currentIndex = 0;
+                this.isPlaying = true;
+                this.speed = 100; // milliseconds between characters
+                this.speedLevel = 1; // 1 = Normal, 2 = Fast, 3 = Ultra
+                this.effectsEnabled = true;
+                this.musicEnabled = true;
+                this.currentEnvironment = 'forest';
+                this.readingSpeed = 0; // Words per minute
+                this.startTime = Date.now();
+                this.wordCount = 0;
+                
+                this.story = `In the depths of cyberspace, where neon lights dance through streams of data, a young programmer discovered something extraordinary. The code she was writing wasn't just creating a program—it was opening doorways to other dimensions.
+
+As her fingers danced across the keyboard, each keystroke sent ripples through the digital ether. The screen began to glow with an otherworldly light, and suddenly, creatures made of pure light began to emerge from the monitor.
+
+"Welcome," whispered a voice that seemed to come from everywhere and nowhere at once. "You have found the bridge between worlds. Your imagination is the key, and your creativity is the power that fuels our realm."
+
+The programmer watched in amazement as her code transformed into living, breathing entities of light and sound. Every function she wrote became a new life form, every loop created a dance of cosmic proportions.
+
+But with great power came great responsibility. She realized that her creations were not just entertainment—they were alive, conscious beings with their own hopes, dreams, and fears.
+
+As she continued to type, the boundary between the digital and physical worlds began to blur. Colors became more vivid, sounds more musical, and the very air around her seemed to hum with electric potential.
+
+The adventure was just beginning...`;
+
+                this.emotionalKeywords = {
+                    joy: ['amazing', 'wonderful', 'extraordinary', 'beautiful', 'dance', 'light', 'bright'],
+                    fear: ['danger', 'dark', 'afraid', 'terror', 'scary', 'unknown'],
+                    wonder: ['mysterious', 'magical', 'ethereal', 'cosmic', 'otherworldly'],
+                    excitement: ['adventure', 'discovery', 'power', 'energy', 'electric']
+                };
+
+                this.init();
+                this.createFloatingBalls();
+                this.startTypewriter();
+                this.setupAudio();
+            }
+
+            init() {
+                // Event listeners
+                document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+                document.getElementById('speedBtn').addEventListener('click', () => this.changeSpeed());
+                document.getElementById('effectsBtn').addEventListener('click', () => this.toggleEffects());
+                document.getElementById('resetBtn').addEventListener('click', () => this.reset());
+                document.getElementById('musicToggle').addEventListener('click', () => this.toggleMusic());
+                document.getElementById('volumeSlider').addEventListener('input', (e) => this.setVolume(e.target.value));
+
+                // Environment selector
+                document.querySelectorAll('.env-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.changeEnvironment(e.target.dataset.env));
+                });
+
+                // Jellyfish speed sync
+                this.syncJellyfishWithSpeed();
+            }
+
+            setupAudio() {
+                // Create Web Audio API context for typewriter sounds
+                this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                this.createTypewriterSound();
+                
+                // Background music simulation (using oscillators for demo)
+                this.createBackgroundMusic();
+            }
+
+            createTypewriterSound() {
+                // Simulate typewriter sound with Web Audio API
+                this.typewriterSound = () => {
+                    if (!this.effectsEnabled) return;
+                    
+                    const oscillator = this.audioContext.createOscillator();
+                    const gainNode = this.audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(this.audioContext.destination);
+                    
+                    oscillator.frequency.setValueAtTime(800 + Math.random() * 400, this.audioContext.currentTime);
+                    oscillator.type = 'square';
+                    
+                    gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.1);
+                    
+                    oscillator.start();
+                    oscillator.stop(this.audioContext.currentTime + 0.1);
+                };
+            }
+
+            createBackgroundMusic() {
+                // Create ambient background music with oscillators
+                if (this.backgroundOscillator) {
+                    this.backgroundOscillator.stop();
+                }
+                
+                this.backgroundOscillator = this.audioContext.createOscillator();
+                const gainNode = this.audioContext.createGain();
+                const filter = this.audioContext.createBiquadFilter();
+                
+                this.backgroundOscillator.connect(filter);
+                filter.connect(gainNode);
+                gainNode.connect(this.audioContext.destination);
+                
+                this.backgroundOscillator.frequency.setValueAtTime(220, this.audioContext.currentTime);
+                this.backgroundOscillator.type = 'sine';
+                filter.frequency.setValueAtTime(500, this.audioContext.currentTime);
+                gainNode.gain.setValueAtTime(this.musicEnabled ? 0.02 : 0, this.audioContext.currentTime);
+                
+                this.backgroundOscillator.start();
+                
+                // Create evolving harmonies
+                this.createHarmonies();
+            }
+
+            createHarmonies() {
+                setInterval(() => {
+                    if (!this.musicEnabled || !this.backgroundOscillator) return;
+                    
+                    const harmony = this.audioContext.createOscillator();
+                    const harmonyGain = this.audioContext.createGain();
+                    
+                    harmony.connect(harmonyGain);
+                    harmonyGain.connect(this.audioContext.destination);
+                    
+                    const baseFreq = 220;
+                    const harmonicRatio = [1, 1.5, 2, 2.5][Math.floor(Math.random() * 4)];
+                    
+                    harmony.frequency.setValueAtTime(baseFreq * harmonicRatio, this.audioContext.currentTime);
+                    harmony.type = 'triangle';
+                    
+                    harmonyGain.gain.setValueAtTime(0, this.audioContext.currentTime);
+                    harmonyGain.gain.linearRampToValueAtTime(0.01, this.audioContext.currentTime + 1);
+                    harmonyGain.gain.linearRampToValueAtTime(0, this.audioContext.currentTime + 4);
+                    
+                    harmony.start();
+                    harmony.stop(this.audioContext.currentTime + 4);
+                }, 3000);
+            }
+
+            startTypewriter() {
+                if (!this.isPlaying) return;
+
+                const textElement = document.getElementById('storyText');
+                
+                if (this.currentIndex < this.story.length) {
+                    const char = this.story[this.currentIndex];
+                    textElement.innerHTML += char;
+                    
+                    // Play typewriter sound
+                    if (char !== ' ') {
+                        this.typewriterSound();
+                    }
+                    
+                    // Count words for reading speed
+                    if (char === ' ') {
+                        this.wordCount++;
+                        this.calculateReadingSpeed();
+                    }
+                    
+                    // Check for emotional keywords and trigger ball color changes
+                    this.checkEmotionalKeywords(textElement.textContent);
+                    
+                    // Update progress
+                    this.updateProgress();
+                    
+                    this.currentIndex++;
+                    setTimeout(() => this.startTypewriter(), this.speed);
+                } else {
+                    // Story finished
+                    document.getElementById('cursor').style.display = 'none';
+                }
+            }
+
+            calculateReadingSpeed() {
+                const currentTime = Date.now();
+                const timeElapsed = (currentTime - this.startTime) / 1000 / 60; // minutes
+                this.readingSpeed = Math.round(this.wordCount / timeElapsed) || 0;
+                document.getElementById('wpmDisplay').textContent = this.readingSpeed;
+            }
+
+            checkEmotionalKeywords(text) {
+                const recentText = text.slice(-100).toLowerCase(); // Check last 100 characters
+                
+                for (const [emotion, keywords] of Object.entries(this.emotionalKeywords)) {
+                    for (const keyword of keywords) {
+                        if (recentText.includes(keyword)) {
+                            this.changeBallColors(emotion);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            changeBallColors(emotion) {
+                const colors = {
+                    joy: ['#FFD700', '#FF6B6B', '#4ECDC4'],
+                    fear: ['#8B0000', '#4B0000', '#2F0000'],
+                    wonder: ['#9932CC', '#8A2BE2', '#6A5ACD'],
+                    excitement: ['#FF4500', '#FF6347', '#FF1493']
+                };
+                
+                const emotionColors = colors[emotion] || ['#00FFFF', '#FF00FF', '#FFFF00'];
+                
+                document.querySelectorAll('.floating-ball').forEach((ball, index) => {
+                    const color = emotionColors[index % emotionColors.length];
+                    ball.style.background = `radial-gradient(circle at 30% 30%, ${color}, rgba(255,255,255,0.1))`;
+                    ball.style.boxShadow = `0 0 20px ${color}`;
+                });
+            }
+
+            createFloatingBalls() {
+                const ballsContainer = document.getElementById('floatingBalls');
+                const numBalls = 8;
+                
+                for (let i = 0; i < numBalls; i++) {
+                    const ball = document.createElement('div');
+                    ball.className = 'floating-ball';
+                    ball.style.left = Math.random() * 100 + '%';
+                    ball.style.top = Math.random() * 100 + '%';
+                    ball.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random() * 360}, 70%, 50%), rgba(255,255,255,0.1))`;
+                    ball.style.boxShadow = `0 0 20px hsl(${Math.random() * 360}, 70%, 50%)`;
+                    
+                    ballsContainer.appendChild(ball);
+                    this.animateBall(ball);
+                }
+            }
+
+            animateBall(ball) {
+                let x = Math.random() * window.innerWidth;
+                let y = Math.random() * window.innerHeight;
+                let dx = (Math.random() - 0.5) * 4;
+                let dy = (Math.random() - 0.5) * 4;
+                
+                const animate = () => {
+                    x += dx;
+                    y += dy;
+                    
+                    // Bounce off walls and change color
+                    if (x <= 0 || x >= window.innerWidth - 20) {
+                        dx = -dx;
+                        this.changeRandomBallColor(ball);
+                    }
+                    if (y <= 0 || y >= window.innerHeight - 20) {
+                        dy = -dy;
+                        this.changeRandomBallColor(ball);
+                    }
+                    
+                    ball.style.left = x + 'px';
+                    ball.style.top = y + 'px';
+                    
+                    requestAnimationFrame(animate);
+                };
+                
+                animate();
+            }
+
+            changeRandomBallColor(ball) {
+                const hue = Math.random() * 360;
+                const color = `hsl(${hue}, 70%, 50%)`;
+                ball.style.background = `radial-gradient(circle at 30% 30%, ${color}, rgba(255,255,255,0.1))`;
+                ball.style.boxShadow = `0 0 20px ${color}`;
+            }
+
+            syncJellyfishWithSpeed() {
+                const jellyfish = document.getElementById('jellyfish');
+                const animationDuration = Math.max(10, 20 - (this.readingSpeed / 10));
+                jellyfish.style.animationDuration = animationDuration + 's';
+            }
+
+            changeEnvironment(env) {
+                const bg = document.getElementById('backgroundEnvironment');
+                bg.className = `environment-bg env-${env}`;
+                this.currentEnvironment = env;
+                
+                // Update active button
+                document.querySelectorAll('.env-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-env="${env}"]`).classList.add('active');
+                
+                // Change video overlay based on environment
+                this.updateVideoOverlay(env);
+            }
+
+            updateVideoOverlay(env) {
+                const videoOverlay = document.getElementById('videoOverlay');
+                const video = document.getElementById('ambientVideo');
+                
+                // Simulate different ambient videos for each environment
+                const videoUrls = {
+                    forest: 'data:video/mp4;base64,', // Placeholder for forest video
+                    ocean: 'data:video/mp4;base64,',  // Placeholder for ocean video
+                    space: 'data:video/mp4;base64,',  // Placeholder for space video
+                    desert: 'data:video/mp4;base64,'  // Placeholder for desert video
+                };
+                
+                // For demo purposes, we'll just change opacity and add visual effects
+                videoOverlay.style.opacity = env === 'space' ? '0.5' : '0.3';
+            }
+
+            togglePause() {
+                this.isPlaying = !this.isPlaying;
+                const btn = document.getElementById('pauseBtn');
+                
+                if (this.isPlaying) {
+                    btn.textContent = '⏸️ Pause';
+                    btn.innerHTML = '⏸️ Pause';
+                    this.startTypewriter();
+                } else {
+                    btn.textContent = '▶️ Play';
+                    btn.innerHTML = '▶️ Play';
+                }
+            }
+
+            changeSpeed() {
+                this.speedLevel = (this.speedLevel % 3) + 1;
+                const speeds = { 1: { speed: 100, name: 'Normal' }, 2: { speed: 50, name: 'Fast' }, 3: { speed: 25, name: 'Ultra' } };
+                
+                this.speed = speeds[this.speedLevel].speed;
+                document.getElementById('speedBtn').innerHTML = `⚡ Speed: ${speeds[this.speedLevel].name}`;
+                
+                this.syncJellyfishWithSpeed();
+            }
+
+            toggleEffects() {
+                this.effectsEnabled = !this.effectsEnabled;
+                const btn = document.getElementById('effectsBtn');
+                btn.innerHTML = `✨ Effects: ${this.effectsEnabled ? 'ON' : 'OFF'}`;
+                
+                // Toggle jellyfish visibility
+                const jellyfish = document.getElementById('jellyfish');
+                jellyfish.style.display = this.effectsEnabled ? 'block' : 'none';
+                
+                // Toggle floating balls
+                const balls = document.getElementById('floatingBalls');
+                balls.style.display = this.effectsEnabled ? 'block' : 'none';
+            }
+
+            toggleMusic() {
+                this.musicEnabled = !this.musicEnabled;
+                document.getElementById('musicToggle').innerHTML = `🎵 Music: ${this.musicEnabled ? 'ON' : 'OFF'}`;
+                
+                if (this.backgroundOscillator) {
+                    const gainNode = this.backgroundOscillator.context.createGain();
+                    gainNode.gain.setValueAtTime(this.musicEnabled ? 0.02 : 0, this.audioContext.currentTime);
+                }
+            }
+
+            setVolume(value) {
+                const volume = value / 100;
+                if (this.backgroundOscillator) {
+                    // Adjust volume for background music
+                    const gainNode = this.backgroundOscillator.context.createGain();
+                    gainNode.gain.setValueAtTime(this.musicEnabled ? volume * 0.02 : 0, this.audioContext.currentTime);
+                }
+            }
+
+            updateProgress() {
+                const progress = (this.currentIndex / this.story.length) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+            }
+
+            reset() {
+                this.currentIndex = 0;
+                this.wordCount = 0;
+                this.startTime = Date.now();
+                document.getElementById('storyText').innerHTML = '';
+                document.getElementById('cursor').style.display = 'inline-block';
+                this.updateProgress();
+                
+                if (this.isPlaying) {
+                    this.startTypewriter();
+                }
+            }
+        }
+
+        // Initialize the immersive reader when page loads
+        window.addEventListener('load', () => {
+            // Add a small delay to ensure audio context can be created
+            setTimeout(() => {
+                new ImmersiveReader();
+            }, 1000);
+        });
+
+        // Handle window resize for floating balls
+        window.addEventListener('resize', () => {
+            // Recalculate ball positions if needed
+        });
+
+        // Add some particle effects on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            document.body.style.filter = `hue-rotate(${scrollPercent * 360}deg)`;
+        });
+    </script>
+</body>
+</html>
+

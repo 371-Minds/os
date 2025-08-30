@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immersive Reading Experience: Enchanted Depths</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            overflow: hidden; /* Prevent scroll issues with animations */
+            transition: background-image 1s ease-in-out;
+        }
+        #jellyfish {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 200px;
+            animation: float 10s infinite ease-in-out;
+            filter: drop-shadow(0 0 10px #00ffff);
+        }
+        #jellyfish::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #00ffff, transparent);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: pulse 2s infinite;
+        }
+        #jellyfish::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #00ffff);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            animation: tentacle-pulse 2s infinite;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(100vw, 50vh); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        @keyframes tentacle-pulse {
+            0% { height: 100px; opacity: 0.5; }
+            50% { height: 150px; opacity: 1; }
+            100% { height: 100px; opacity: 0.5; }
+        }
+        #typewriter {
+            font-family: monospace;
+            font-size: 1.2rem;
+            white-space: pre-wrap;
+            border-right: 2px solid #000;
+            animation: blink 0.75s step-end infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        #ballsCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind content */
+            opacity: 0.5;
+        }
+        #change-bg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2; /* Behind everything else */
+            opacity: 0.3;
+            display: none; /* Shown based on emotions */
+        }
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-[url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/23aec64a-3078-4596-ba72-febb8c4e084a.png')] flex items-center justify-center" id="background-container">
+
+    <!-- Neon Jellyfish Animation -->
+    <div id="jellyfish"></div>
+
+    <!-- Main Reading Container with Typewriter Effect -->
+    <div class="container mx-auto p-8 bg-white bg-opacity-80 rounded-lg shadow-lg max-w-3xl z-10">
+        <h1 class="text-4xl font-bold mb-4 text-center">Enchanted Depths: A Tale of Oceanic Wonders</h1>
+        <div id="typewriter" class="min-h-[400px]"></div>
+    </div>
+
+    <!-- Bouncing Balls Canvas -->
+    <canvas id="ballsCanvas"></canvas>
+
+    <!-- Background Change Button -->
+    <button id="change-bg" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Change Scene</button>
+
+    <!-- Immersive Soundtrack Audio -->
+    <audio id="soundtrack" loop autoplay>
+        <source src="https://example.com/placeholder-soundtrack.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Immersive Video Element (plays on emotional triggers like 'adventure') -->
+    <div class="video-container" id="video-container">
+        <video autoplay loop muted>
+            <source src="https://example.com/placeholder-ocean-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Interactive Visual: Example Image for Story Scene (placeholder with detailed alt) -->
+    <div class="absolute top-10 right-10 w-48 h-48 hidden md:block">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5fb16eba-12f2-4ef1-8d98-8954c703800a.png" alt="Mystical underwater cave with glowing bioluminescent creatures, shafts of light piercing through deep blue water, ancient ruins in the background, in a vibrant neon color palette with high contrast and ethereal glow effects" onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/abf7723a-b8db-445c-8b70-f25acc89a5cc.png'; this.onerror=null;" />
+    </div>
+
+    <script>
+        // Typewriter Effect
+        const text = "In the depths of the ocean, where light fades into mystery, our hero discovers a hidden world. Happiness blooms as colorful fish dance around ancient ruins. But sadness lurks in the shadows, where forgotten treasures whisper tales of loss. Adventure calls with every wave, pulling deeper into the unknown. Fear grips the heart during stormy tempests, yet joy returns with the calm after the storm.";
+        const typewriter = document.getElementById('typewriter');
+        let i = 0;
+        const typingSpeed = 50; // ms per character
+        const typewriterSound = new Audio('https://example.com/placeholder-typewriter-sound.mp3');
+
+        function typeWriter() {
+            if (i < text.length) {
+                typewriter.innerHTML += text.charAt(i);
+                typewriterSound.play();
+                i++;
+                // Sync jellyfish pulse with reading speed (adjust animation duration)
+                const jellyfish = document.getElementById('jellyfish');
+                jellyfish.style.animationDuration = `${Math.max(5, 10 - (i / text.length) * 5)}s`; // Speed up as reading progresses
+                setTimeout(typeWriter, typingSpeed);
+            }
+            checkEmotionalKeywords(typewriter.innerHTML);
+        }
+        typeWriter();
+
+        // Blinking cursor already in CSS
+
+        // Background Environment Changer
+        const backgrounds = [
+            'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15054c52-991e-4b38-89a3-f28fc7278274.png', // Alt: Deep blue ocean floor with bioluminescent jellyfish and coral reefs in a mysterious, dimly lit underwater environment with subtle bubble effects and soft lighting
+            'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8fbebb5b-fa66-41f3-8506-402865f36d03.png', // Alt: Turbulent stormy seas with crashing waves, dark clouds, and lightning flashes over a vast ocean horizon in dramatic grayscale tones with high contrast and dynamic motion blur
+            'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7257cd91-98dc-4d9f-a4e4-bff1532df376.png', // Alt: Vibrant sunny coral reef teeming with colorful tropical fish, bright sunlight filtering through clear turquoise water, in a lively and warm color scheme with detailed marine life compositions
+            'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fbf9c65-7025-4b54-8d90-5d863dc9385a.png' // Alt: Sunken ancient ruins overgrown with seaweed and inhabited by mystical sea creatures, in an adventurous archaeological style with earthy tones, intricate stone carvings, and ethereal underwater haze
+        ];
+        let bgIndex = 0;
+        document.getElementById('change-bg').addEventListener('click', () => {
+            bgIndex = (bgIndex + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
+        });
+
+        // Color-Changing Floating Balls
+        const canvas = document.getElementById('ballsCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const balls = [];
+        for (let i = 0; i < 10; i++) {
+            balls.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 4,
+                vy: (Math.random() - 0.5) * 4,
+                radius: 20 + Math.random() * 20,
+                color: '#00ffff'
+            });
+        }
+        function animateBalls() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            balls.forEach(ball => {
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+                if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+                    ball.vx = -ball.vx;
+                    changeBallColor(ball); // Change color on edge hit
+                }
+                if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+                    ball.vy = -ball.vy;
+                    changeBallColor(ball);
+                }
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.fillStyle = ball.color;
+                ctx.fill();
+            });
+            requestAnimationFrame(animateBalls);
+        }
+        animateBalls();
+
+        // Emotional Keywords to Change Ball Colors and Trigger Video/Music
+        const emotions = {
+            happy: '#ffff00', // Yellow for happiness
+            sad: '#0000ff', // Blue for sadness
+            adventure: '#00ff00', // Green for adventure
+            fear: '#ff0000', // Red for fear
+            joy: '#ff69b4' // Pink for joy
+        };
+        function checkEmotionalKeywords(currentText) {
+            Object.keys(emotions).forEach(emotion => {
+                if (currentText.toLowerCase().includes(emotion)) {
+                    balls.forEach(ball => ball.color = emotions[emotion]);
+                    // Trigger video for intense emotions like adventure or fear
+                    if (['adventure', 'fear'].includes(emotion)) {
+                        document.getElementById('video-container').style.display = 'block';
+                        document.getElementById('soundtrack').volume = 0.8; // Amp up music
+                    } else {
+                        document.getElementById('video-container').style.display = 'none';
+                        document.getElementById('soundtrack').volume = 0.3;
+                    }
+                }
+            });
+        }
+
+        function changeBallColor(ball) {
+            const colors = Object.values(emotions);
+            ball.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+

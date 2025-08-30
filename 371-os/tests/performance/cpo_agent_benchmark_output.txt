@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.11, pytest-8.4.1, pluggy-1.6.0
+benchmark: 5.1.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /app/371-os
+configfile: pytest.ini
+plugins: anyio-4.10.0, asyncio-1.1.0, benchmark-5.1.0, mock-3.14.1
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 2 items
+
+371-os/tests/performance/test_cpo_agent_benchmark.py ..                  [100%]
+
+
+-------------------------------------------------------------------------------------------------------- benchmark: 2 tests -------------------------------------------------------------------------------------------------------
+Name (time in us)                                             Min                 Max                Mean             StdDev              Median                IQR            Outliers  OPS (Kops/s)            Rounds  Iterations
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_cpo_agent_analyze_feature_requests_performance      163.4710 (1.0)      798.0160 (1.71)     190.1615 (1.0)      45.5252 (1.38)     175.7220 (1.0)      32.2142 (1.0)         81;63        5.2587 (1.0)        1161           1
+test_cpo_agent_manage_mini_app_lifecycle_performance     174.5230 (1.07)     465.6310 (1.0)      202.2658 (1.06)     32.9097 (1.0)      189.4050 (1.08)     44.3350 (1.38)       250;58        4.9440 (0.94)       1798           1
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+============================== 2 passed in 5.94s ===============================

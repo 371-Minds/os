@@ -19,7 +19,7 @@
   "author": "371 Minds",
   "license": "MIT",
   "peerDependencies": {
-    "@elizaos/core": "^0.1.0"
+    "@ai16z/eliza": "^0.1.7"
   },
   "dependencies": {
     "@nx/devkit": "^21.0.0",

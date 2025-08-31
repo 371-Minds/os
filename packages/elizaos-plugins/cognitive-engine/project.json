@@ -1,0 +1,33 @@
+{
+  "name": "cognitive-engine",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugins/cognitive-engine/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/elizaos-plugins/cognitive-engine",
+        "main": "packages/elizaos-plugins/cognitive-engine/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/cognitive-engine/tsconfig.lib.json",
+        "assets": ["packages/elizaos-plugins/cognitive-engine/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/elizaos-plugins/cognitive-engine/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/elizaos-plugins/cognitive-engine/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["elizaos", "plugin", "cognitive-engine", "ui"]
+}

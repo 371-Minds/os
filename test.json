@@ -1,0 +1,121 @@
+{
+  "graph": {
+    "nodes": {
+      "elizaos-plugin-nx-workspace": {
+        "name": "elizaos-plugin-nx-workspace",
+        "type": "lib",
+        "data": {
+          "root": "packages/elizaos-plugins/nx-workspace",
+          "name": "elizaos-plugin-nx-workspace",
+          "projectType": "library",
+          "tags": [
+            "npm:public",
+            "npm:elizaos",
+            "npm:plugin",
+            "npm:nx",
+            "npm:workspace",
+            "npm:self-aware-agents",
+            "scope:elizaos",
+            "type:plugin",
+            "platform:node"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "description": "ElizaOS plugin that enables agents to understand and manipulate their own Nx workspace",
+            "js": {
+              "packageName": "@elizaos/plugin-nx-workspace",
+              "packageMain": "dist/index.js",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "packages/elizaos-plugins/nx-workspace/dist",
+                "tsConfig": "packages/elizaos-plugins/nx-workspace/tsconfig.lib.json",
+                "packageJson": "packages/elizaos-plugins/nx-workspace/package.json",
+                "main": "packages/elizaos-plugins/nx-workspace/src/index.ts",
+                "assets": [
+                  "packages/elizaos-plugins/nx-workspace/*.md"
+                ]
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "test": {
+              "executor": "@nx/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+              ],
+              "options": {
+                "jestConfig": "packages/elizaos-plugins/nx-workspace/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "configurations": {
+                "ci": {
+                  "ci": true,
+                  "coverageReporters": [
+                    "text"
+                  ]
+                }
+              },
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
+            },
+            "lint": {
+              "executor": "@nx/eslint:lint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "packages/elizaos-plugins/nx-workspace/**/*.ts"
+                ]
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore"
+              ]
+            }
+          },
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "packages/elizaos-plugins/nx-workspace/src",
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "elizaos-plugin-nx-workspace": []
+    }
+  }
+}

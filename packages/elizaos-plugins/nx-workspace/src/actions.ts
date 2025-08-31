@@ -38,10 +38,10 @@ export const getDependencyGraphAction: Action = {
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const focus = options?.focus || null;
@@ -65,16 +65,16 @@ export const getDependencyGraphAction: Action = {
         });
       }
       
-      return true;
+      return;
     } catch (error) {
       console.error('Failed to get dependency graph:', error);
       if (callback) {
         callback({
-          text: `Failed to retrieve dependency graph: ${error.message}`,
-          content: { error: error.message }
+          text: `Failed to retrieve dependency graph: ${(error as Error).message}`,
+          content: { error: (error as Error).message }
         });
       }
-      return false;
+      return;
     }
   }
 };
@@ -101,10 +101,10 @@ export const findAffectedProjectsAction: Action = {
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const base = options?.base || 'main';
@@ -125,16 +125,16 @@ export const findAffectedProjectsAction: Action = {
         });
       }
       
-      return true;
+      return;
     } catch (error) {
       console.error('Failed to find affected projects:', error);
       if (callback) {
         callback({
-          text: `Failed to find affected projects: ${error.message}`,
-          content: { error: error.message }
+          text: `Failed to find affected projects: ${(error as Error).message}`,
+          content: { error: (error as Error).message }
         });
       }
-      return false;
+      return;
     }
   }
 };
@@ -160,10 +160,10 @@ export const runTestsForAffectedAction: Action = {
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const base = options?.base || 'main';
@@ -193,11 +193,11 @@ export const runTestsForAffectedAction: Action = {
       console.error('Failed to run tests for affected projects:', error);
       if (callback) {
         callback({
-          text: `Failed to run tests: ${error.message}`,
+          text: `Failed to run tests: ${(error as Error).message}`,
           content: { error: error.message }
         });
       }
-      return false;
+      return;
     }
   }
 };
@@ -223,10 +223,10 @@ export const buildProjectAction: Action = {
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const project = options?.project;
@@ -256,11 +256,11 @@ export const buildProjectAction: Action = {
       console.error('Failed to build project:', error);
       if (callback) {
         callback({
-          text: `Failed to build project: ${error.message}`,
+          text: `Failed to build project: ${(error as Error).message}`,
           content: { error: error.message }
         });
       }
-      return false;
+      return;
     }
   }
 };
@@ -283,17 +283,17 @@ export const generateScaffoldAction: Action = {
   validate: async (runtime: IAgentRuntime, message: Memory) => {
     const content = message.content;
     if (!content.type || !content.name) {
-      return false;
+      return;
     }
     return true;
   },
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const generateOptions: NxGenerateOptions = {
@@ -323,11 +323,11 @@ export const generateScaffoldAction: Action = {
       console.error('Failed to generate scaffold:', error);
       if (callback) {
         callback({
-          text: `Failed to generate scaffold: ${error.message}`,
+          text: `Failed to generate scaffold: ${(error as Error).message}`,
           content: { error: error.message }
         });
       }
-      return false;
+      return;
     }
   }
 };
@@ -353,10 +353,10 @@ export const analyzeWorkspaceAction: Action = {
   handler: async (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: any,
+    state?: State,
+    options: any = {},
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<void> => {
     try {
       const provider = new NxWorkspaceProvider();
       const analysis: WorkspaceAnalysis = await provider.analyzeWorkspace();
@@ -376,16 +376,16 @@ export const analyzeWorkspaceAction: Action = {
         });
       }
       
-      return true;
+      return;
     } catch (error) {
       console.error('Failed to analyze workspace:', error);
       if (callback) {
         callback({
-          text: `Failed to analyze workspace: ${error.message}`,
+          text: `Failed to analyze workspace: ${(error as Error).message}`,
           content: { error: error.message }
         });
       }
-      return false;
+      return;
     }
   }
 };

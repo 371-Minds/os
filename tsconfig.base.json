@@ -15,9 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@371-minds/shared-ui": ["packages/shared-ui/src/index.ts"],
       "@371-minds/cognitive-layer": ["packages/cognitive-layer/src/index.ts"],
-      "@elizaos/plugin-nx-workspace": ["packages/elizaos-plugins/nx-workspace/src/index.ts"]
+      "@371-minds/shared-ui": ["packages/shared-ui/src/index.ts"],
+      "@elizaos/plugin-nx-workspace": [
+        "packages/elizaos-plugins/nx-workspace/src/index.ts"
+      ],
+      "cognitive-engine": ["packages/elizaos-plugins/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

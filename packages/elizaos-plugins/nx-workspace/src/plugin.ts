@@ -56,7 +56,7 @@ export const NxWorkspacePlugin: Plugin = {
       
       return true;
     } catch (error) {
-      console.error('❌ Failed to load Nx Workspace Plugin:', error.message);
+      console.error('❌ Failed to load Nx Workspace Plugin:', (error as Error).message);
       console.error('   Make sure you are in a valid Nx workspace directory');
       return false;
     }

@@ -1,0 +1,398 @@
+/**
+ * AdaptiveLayout.css - Styling for Adaptive Cognitive Interface Layout
+ * 
+ * Core styling for the revolutionary cognitive-aware interface system that
+ * dynamically adapts between cognitive modes with smooth transitions.
+ */
+
+.adaptive-layout {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Dynamic backgrounds based on cognitive mode */
+.adaptive-layout.executive {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.adaptive-layout.technical {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
+}
+
+.adaptive-layout.creative {
+  background: linear-gradient(135deg, #1a0b2e 0%, #2d1b3d 100%);
+}
+
+.adaptive-layout.analytical {
+  background: linear-gradient(135deg, #0a1628 0%, #164e63 100%);
+}
+
+.adaptive-layout.collaborative {
+  background: linear-gradient(135deg, #14532d 0%, #166534 100%);
+}
+
+.adaptive-layout.learning {
+  background: linear-gradient(135deg, #7c2d12 0%, #9a3412 100%);
+}
+
+/* Main Content Area */
+.content-area {
+  width: 100%;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.content-area.transitioning {
+  opacity: 0.7;
+  transform: scale(0.98);
+  filter: blur(1px);
+}
+
+/* Transition Overlay */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.transition-content {
+  text-align: center;
+  color: #f1f5f9;
+}
+
+.transition-content p {
+  margin: 1rem 0 0 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.transition-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(59, 130, 246, 0.2);
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mode Placeholders (for future cognitive modes) */
+.mode-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  color: #e2e8f0;
+}
+
+.mode-placeholder h2 {
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.mode-placeholder p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.mode-placeholder.analytical {
+  background: linear-gradient(135deg, rgba(6, 95, 70, 0.1) 0%, rgba(4, 120, 87, 0.1) 100%);
+}
+
+.mode-placeholder.collaborative {
+  background: linear-gradient(135deg, rgba(20, 83, 45, 0.1) 0%, rgba(22, 101, 52, 0.1) 100%);
+}
+
+.mode-placeholder.learning {
+  background: linear-gradient(135deg, rgba(124, 45, 18, 0.1) 0%, rgba(154, 52, 18, 0.1) 100%);
+}
+
+/* Cognitive State Indicator */
+.cognitive-state-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.state-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 0 0 currentColor;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px transparent;
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Debug Analytics Panel (Development Only) */
+.debug-analytics {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-width: 280px;
+  max-width: 350px;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  z-index: 998;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.debug-analytics:hover {
+  opacity: 1;
+}
+
+.debug-analytics h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.analytics-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.analytics-item label {
+  font-size: 0.625rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.analytics-item span {
+  font-size: 0.75rem;
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.patterns-list {
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.patterns-list strong {
+  display: block;
+  font-size: 0.625rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.pattern-tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.625rem;
+  margin-right: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .debug-analytics {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+    min-width: auto;
+    max-width: none;
+  }
+  
+  .cognitive-state-indicator {
+    bottom: 70px;
+    right: 15px;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* High-DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .transition-spinner {
+    border-width: 2px;
+  }
+  
+  .state-pulse {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .debug-analytics {
+    backdrop-filter: blur(30px);
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .adaptive-layout,
+  .content-area,
+  .transition-spinner,
+  .state-pulse {
+    animation: none;
+    transition: none;
+  }
+  
+  .content-area.transitioning {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Focus management for cognitive transitions */
+.adaptive-layout:focus-within .cognitive-state-indicator .state-pulse {
+  animation-duration: 1s;
+}
+
+/* Print styles */
+@media print {
+  .transition-overlay,
+  .debug-analytics,
+  .cognitive-state-indicator {
+    display: none;
+  }
+  
+  .adaptive-layout {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Dark mode enhancement (if system preference changes) */
+@media (prefers-color-scheme: light) {
+  .debug-analytics {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e293b;
+  }
+  
+  .debug-analytics h4,
+  .analytics-item span {
+    color: #1e293b;
+  }
+  
+  .analytics-item label,
+  .patterns-list strong {
+    color: #64748b;
+  }
+}
+
+/* Performance optimization for large screens */
+@media (min-width: 1920px) {
+  .adaptive-layout {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+
+/* Animation performance optimization */
+.adaptive-layout * {
+  will-change: auto;
+}
+
+.adaptive-layout.transitioning *,
+.transition-overlay *,
+.state-pulse {
+  will-change: transform, opacity;
+}
+
+/* Cognitive mode specific enhancements */
+.adaptive-layout.executive .debug-analytics {
+  border-left: 3px solid #3b82f6;
+}
+
+.adaptive-layout.technical .debug-analytics {
+  border-left: 3px solid #7c3aed;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.adaptive-layout.creative .debug-analytics {
+  border-left: 3px solid #ec4899;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+}
+
+/* Smooth scrolling for mode transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance hints for browsers */
+.adaptive-layout {
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+.content-area {
+  contain: layout style;
+}

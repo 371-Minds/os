@@ -1,0 +1,37 @@
+{
+  "name": "@elizaos/plugin-cognitive-engine",
+  "version": "1.0.0",
+  "description": "Revolutionary cognitive state engine for adaptive user interfaces - the heart of the Galaxy Engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "elizaos",
+    "cognitive-engine",
+    "adaptive-ui",
+    "galaxy-engine",
+    "cognitive-state",
+    "371os"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "dependencies": {
+    "@elizaos/core": "^1.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ]
+}

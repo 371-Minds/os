@@ -28,7 +28,7 @@ export async function getWorkspaceConfig(workspaceRoot: string = process.cwd()):
     const nxConfig = await fs.readFile(nxJsonPath, 'utf-8');
     return JSON.parse(nxConfig);
   } catch (error) {
-    throw new Error(`Failed to read workspace configuration: ${error.message}`);
+    throw new Error(`Failed to read workspace configuration: ${(error as Error).message}`);
   }
 }
 

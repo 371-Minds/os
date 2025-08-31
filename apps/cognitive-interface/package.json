@@ -1,0 +1,24 @@
+{
+  "name": "@371minds/cognitive-interface",
+  "version": "1.0.0",
+  "description": "Revolutionary cognitive-aware interface system for 371 OS",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nx build cognitive-interface",
+    "dev": "nx serve cognitive-interface",
+    "test": "nx test cognitive-interface",
+    "lint": "nx lint cognitive-interface"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["cognitive-ui", "adaptive-interface", "galaxy-engine", "371-os"],
+  "author": "371 Minds",
+  "license": "MIT"
+}

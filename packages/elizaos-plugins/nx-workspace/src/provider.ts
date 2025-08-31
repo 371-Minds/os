@@ -59,7 +59,7 @@ export class NxWorkspaceProvider {
       return graph;
     } catch (error) {
       console.error('Error generating dependency graph:', error);
-      throw new Error(`Failed to generate dependency graph: ${error.message}`);
+      throw new Error(`Failed to generate dependency graph: ${(error as Error).message}`);
     }
   }
 
@@ -108,7 +108,7 @@ export class NxWorkspaceProvider {
       };
     } catch (error) {
       console.error('Error finding affected projects:', error);
-      throw new Error(`Failed to find affected projects: ${error.message}`);
+      throw new Error(`Failed to find affected projects: ${(error as Error).message}`);
     }
   }
 
@@ -157,7 +157,7 @@ export class NxWorkspaceProvider {
             success: false,
             tests: 0,
             failures: 1,
-            output: error.message
+            output: (error as Error).message
           };
         }
       }
@@ -168,7 +168,7 @@ export class NxWorkspaceProvider {
       };
     } catch (error) {
       console.error('Error running tests for affected projects:', error);
-      throw new Error(`Failed to run tests: ${error.message}`);
+      throw new Error(`Failed to run tests: ${(error as Error).message}`);
     }
   }
 
@@ -236,7 +236,7 @@ export class NxWorkspaceProvider {
       };
     } catch (error) {
       console.error('Error building project:', error);
-      throw new Error(`Failed to build project: ${error.message}`);
+      throw new Error(`Failed to build project: ${(error as Error).message}`);
     }
   }
 
@@ -360,7 +360,7 @@ export class NxWorkspaceProvider {
       };
     } catch (error) {
       console.error('Error analyzing workspace:', error);
-      throw new Error(`Failed to analyze workspace: ${error.message}`);
+      throw new Error(`Failed to analyze workspace: ${(error as Error).message}`);
     }
   }
 }

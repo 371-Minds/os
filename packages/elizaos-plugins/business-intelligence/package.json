@@ -1,0 +1,47 @@
+{
+  "name": "@elizaos/plugin-business-intelligence",
+  "version": "1.0.0",
+  "description": "Revolutionary business intelligence plugin for ElizaOS enabling real-time CEO's Orrery data integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "elizaos",
+    "plugin",
+    "business-intelligence",
+    "ai-agents",
+    "ceo-orrery",
+    "real-time-analytics",
+    "autonomous-agents"
+  ],
+  "author": "371 OS Team",
+  "license": "MIT",
+  "dependencies": {
+    "@elizaos/core": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@elizaos/core": ">=1.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

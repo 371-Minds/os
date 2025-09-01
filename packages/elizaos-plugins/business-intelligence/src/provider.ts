@@ -53,7 +53,7 @@ export const BusinessDataProvider: Provider = {
       return {
         text: 'Business context temporarily unavailable',
         data: {
-          error: error.message,
+          error: (error as Error).message,
           lastUpdated: new Date()
         }
       };

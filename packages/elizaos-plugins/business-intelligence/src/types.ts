@@ -5,7 +5,7 @@
  * system that transforms static dashboards into living business universes.
  */
 
-import { Action, Provider, Evaluator, IAgentRuntime, Memory, State } from '@elizaos/core';
+import { Action, Provider, Evaluator, IAgentRuntime, Memory, State, ActionResult, ProviderResult } from '@elizaos/core';
 
 // Core Business Intelligence Types
 export interface BusinessMetric {
@@ -102,13 +102,15 @@ export interface BusinessDataCollectionAction extends Action {
   handler: (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
+    state?: State,
     options?: {
       department?: string;
       metricTypes?: string[];
       timeRange?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year';
-    }
-  ) => Promise<BusinessSnapshot>;
+    },
+    callback?: any,
+    responses?: Memory[]
+  ) => Promise<ActionResult | void | undefined>;
 }
 
 export interface AlertGenerationAction extends Action {
@@ -117,14 +119,16 @@ export interface AlertGenerationAction extends Action {
   handler: (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: {
-      metricId: string;
-      threshold: number;
-      operator: '>' | '<' | '=' | '>=' | '<=';
-      severity: 'info' | 'warning' | 'critical';
-    }
-  ) => Promise<BusinessAlert>;
+    state?: State,
+    options?: {
+      metricId?: string;
+      threshold?: number;
+      operator?: '>' | '<' | '=' | '>=' | '<=';
+      severity?: 'info' | 'warning' | 'critical';
+    },
+    callback?: any,
+    responses?: Memory[]
+  ) => Promise<ActionResult | void | undefined>;
 }
 
 export interface PredictiveAnalysisAction extends Action {
@@ -133,13 +137,15 @@ export interface PredictiveAnalysisAction extends Action {
   handler: (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
+    state?: State,
     options?: {
       lookbackPeriod?: number; // days
       forecastPeriod?: number; // days
       departments?: string[];
-    }
-  ) => Promise<AgentInsight[]>;
+    },
+    callback?: any,
+    responses?: Memory[]
+  ) => Promise<ActionResult | void | undefined>;
 }
 
 export interface DepartmentAnalysisAction extends Action {
@@ -148,17 +154,14 @@ export interface DepartmentAnalysisAction extends Action {
   handler: (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    options: {
-      departmentId: string;
-      analysisType: 'performance' | 'efficiency' | 'budget' | 'risk' | 'comprehensive';
-    }
-  ) => Promise<{
-    department: Department;
-    insights: AgentInsight[];
-    recommendations: string[];
-    score: number;
-  }>;
+    state?: State,
+    options?: {
+      departmentId?: string;
+      analysisType?: 'performance' | 'efficiency' | 'budget' | 'risk' | 'comprehensive';
+    },
+    callback?: any,
+    responses?: Memory[]
+  ) => Promise<ActionResult | void | undefined>;
 }
 
 // Business Data Provider
@@ -169,13 +172,7 @@ export interface BusinessDataProvider extends Provider {
     runtime: IAgentRuntime,
     message: Memory,
     state?: State
-  ) => Promise<{
-    currentMetrics: BusinessMetric[];
-    activeAlerts: BusinessAlert[];
-    departmentStatus: Department[];
-    marketConditions: string;
-    lastUpdated: Date;
-  }>;
+  ) => Promise<ProviderResult>;
 }
 
 // Business Metrics Evaluator
@@ -185,15 +182,11 @@ export interface BusinessMetricsEvaluator extends Evaluator {
   handler: (
     runtime: IAgentRuntime,
     message: Memory,
-    state: State,
-    response: string
-  ) => Promise<{
-    quality: number; // 0-100
-    businessRelevance: number; // 0-100
-    actionability: number; // 0-100
-    insights: AgentInsight[];
-    suggestedFollowups: string[];
-  }>;
+    state?: State,
+    options?: any,
+    callback?: any,
+    responses?: Memory[]
+  ) => Promise<ActionResult | void | undefined>;
 }
 
 // Configuration Types

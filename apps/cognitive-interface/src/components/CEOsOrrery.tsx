@@ -10,6 +10,11 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './CEOsOrrery.css';
+import FinancialPlanets from './FinancialPlanets';
+import DepartmentSolarSystems from './DepartmentSolarSystems';
+import BusinessUniverseControls from './BusinessUniverseControls';
+import BusinessIntelligenceIntegration from './BusinessIntelligenceIntegration';
+import { SpatialBusinessData, BusinessMetric, AgentInsight } from '../types/business-intelligence';
 
 // Mock React types for development
 declare global {
@@ -124,28 +129,38 @@ interface UniverseControls {
 
 interface CEOsOrreryProps {
   userId?: string;
-  initialTimeRange?: 'week' | 'month' | 'quarter' | 'year';
+  initialTimeRange?: 'day' | 'week' | 'month' | 'quarter' | 'year';
   realTimeMode?: boolean;
+  agentEndpoint?: string;
   onPlanetSelect?: (planet: FinancialPlanet) => void;
   onDepartmentSelect?: (department: DepartmentSolarSystem) => void;
   onInsightCapture?: (planetId: string, insight: string) => void;
   onAlertAction?: (alert: BusinessAlert) => void;
   onDataDrillDown?: (planetId: string, timeRange: string) => void;
+  onDataExport?: () => void;
 }
 
 export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
   userId = 'ceo-user',
   initialTimeRange = 'quarter',
-  realTimeMode = false,
+  realTimeMode = true,
+  agentEndpoint,
   onPlanetSelect,
   onDepartmentSelect,
   onInsightCapture,
   onAlertAction,
-  onDataDrillDown
+  onDataDrillDown,
+  onDataExport
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
+  const financialPlanetsRef = useRef<any>(null);
+  const departmentSystemsRef = useRef<any>(null);
+  const biIntegrationRef = useRef<any>(null);
+  
   const [orbitTime, setOrbitTime] = useState(0);
+  const [spatialBusinessData, setSpatialBusinessData] = useState<SpatialBusinessData | null>(null);
+  const [connectionError, setConnectionError] = useState<string | null>(null);
   const [universeControls, setUniverseControls] = useState<UniverseControls>({
     timeRange: initialTimeRange,
     viewMode: 'overview',
@@ -153,7 +168,10 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     animationSpeed: 1.0,
     showSatellites: true,
     showAlerts: true,
-    showTrends: true
+    showTrends: true,
+    showProjections: false,
+    zoomLevel: 1.0,
+    cameraPosition: { x: 0, y: 0, z: 0 }
   });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null);
@@ -228,48 +246,110 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     ]
   });
 
-  // Missing function implementations
-  const handleDataRefresh = useCallback(() => {
-    // Simulate real-time business data updates
-    const updatedUniverse = {
-      ...businessUniverse,
-      totalRevenue: businessUniverse.totalRevenue * (1 + (Math.random() - 0.5) * 0.02),
-      netProfit: businessUniverse.netProfit * (1 + (Math.random() - 0.5) * 0.03),
-      cashFlow: businessUniverse.cashFlow * (1 + (Math.random() - 0.5) * 0.05),
-      lastUpdated: new Date()
-    };
-    setBusinessUniverse(updatedUniverse);
-    console.log('🔄 Business data refreshed', updatedUniverse);
-  }, [businessUniverse]);
-
-  const handleTimeRangeChange = useCallback((newTimeRange: UniverseControls['timeRange']) => {
-    setUniverseControls((prev: UniverseControls) => ({ ...prev, timeRange: newTimeRange }));
-    handleDataRefresh();
-    console.log('📅 Time range changed to:', newTimeRange);
-  }, [handleDataRefresh]);
-
-  const handleMouseMove = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+  // Handle real-time business intelligence data updates
+  const handleBusinessDataUpdate = useCallback((data: SpatialBusinessData) => {
+    console.log('🌌 Business universe data updated:', data);
+    setSpatialBusinessData(data);
+    setConnectionError(null);
     
-    setMousePosition({ x, y });
+    // Update business universe state
+    if (data.metrics.length > 0) {
+      const totalRevenue = data.metrics
+        .filter(m => m.category === 'revenue')
+        .reduce((sum, m) => sum + m.value, 0);
+      
+      const totalExpenses = data.metrics
+        .filter(m => m.category === 'expense')
+        .reduce((sum, m) => sum + m.value, 0);
+        
+      setBusinessUniverse(prev => ({
+        ...prev,
+        totalRevenue,
+        totalExpenses,
+        netProfit: totalRevenue - totalExpenses,
+        lastUpdated: data.lastUpdated,
+        globalAlerts: data.alerts.map(alert => ({
+          id: alert.id,
+          type: alert.severity === 'critical' ? 'critical' : 'warning',
+          title: alert.title,
+          message: alert.message,
+          timestamp: alert.timestamp,
+          actionRequired: alert.actionRequired,
+          priority: alert.priority
+        })),
+        departments: data.departments
+      }));
+    }
+  }, []);
 
-    // Check if hovering over a planet
-    const hoveredPlanet = planets.find((planet: FinancialPlanet) => {
-      const distance = Math.sqrt(
-        Math.pow(x - planet.position.x, 2) + Math.pow(y - planet.position.y, 2)
-      );
-      return distance <= planet.size + 5;
-    });
+  // Handle connection errors
+  const handleConnectionError = useCallback((error: string) => {
+    console.error('💥 Business Intelligence connection error:', error);
+    setConnectionError(error);
+  }, []);
 
-    setHoveredPlanet(hoveredPlanet ? hoveredPlanet.id : null);
-  }, [planets]);
+  // Manual data refresh
+  const handleDataRefresh = useCallback(() => {
+    if (biIntegrationRef.current) {
+      biIntegrationRef.current.refreshData();
+    }
+  }, []);
+  
+  // Export business data
+  const handleDataExport = useCallback(() => {
+    if (spatialBusinessData) {
+      const exportData = {
+        timestamp: new Date().toISOString(),
+        metrics: spatialBusinessData.metrics,
+        insights: spatialBusinessData.insights,
+        alerts: spatialBusinessData.alerts,
+        departments: spatialBusinessData.departments
+      };
+      
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `business-intelligence-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      if (onDataExport) onDataExport();
+    }
+  }, [spatialBusinessData, onDataExport]);
+  
+  // Time travel functionality
+  const handleTimeTravel = useCallback((direction: 'past' | 'future', amount: number) => {
+    console.log(`⏰ Time travel: ${direction} ${amount} days`);
+    // Implementation would integrate with historical data API
+  }, []);
+  
+  // Reset view to default position
+  const handleResetView = useCallback(() => {
+    setUniverseControls(prev => ({
+      ...prev,
+      zoomLevel: 1.0,
+      cameraPosition: { x: 0, y: 0, z: 0 }
+    }));
+  }, []);
 
-  // Animation functions
+  // Handle mouse interactions with spatial components
+  const handleMouseMove = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
+    if (financialPlanetsRef.current) {
+      financialPlanetsRef.current.handleMouseMove(event);
+    }
+  }, []);
+
+  const handleCanvasClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
+    if (financialPlanetsRef.current) {
+      financialPlanetsRef.current.handleClick(event);
+    }
+    if (departmentSystemsRef.current) {
+      departmentSystemsRef.current.handleClick(event);
+    }
+  }, []);
+
+  // Enhanced animation with spatial components
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -277,17 +357,31 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Clear and draw universe
+    // Clear and set transforms
+    ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Draw background, planets, departments
-    drawUniverseBackground(ctx, canvas);
-    updatePlanetPositions();
-    drawBusinessElements(ctx);
+    // Apply zoom and camera position
+    ctx.scale(universeControls.zoomLevel, universeControls.zoomLevel);
+    ctx.translate(-universeControls.cameraPosition.x, -universeControls.cameraPosition.y);
     
-    setOrbitTime((prev: number) => prev + 0.01);
+    // Draw universe background
+    drawUniverseBackground(ctx, canvas);
+    
+    // Render spatial components
+    if (financialPlanetsRef.current && spatialBusinessData?.metrics) {
+      financialPlanetsRef.current.renderPlanets(ctx);
+    }
+    
+    if (departmentSystemsRef.current && spatialBusinessData?.departments) {
+      departmentSystemsRef.current.renderDepartments(ctx);
+    }
+    
+    ctx.restore();
+    
+    setOrbitTime(prev => prev + 0.01 * universeControls.animationSpeed);
     animationFrameRef.current = requestAnimationFrame(animate);
-  }, [planets, businessUniverse, orbitTime]);
+  }, [spatialBusinessData, universeControls]);
 
   const drawUniverseBackground = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     const gradient = ctx.createRadialGradient(
@@ -471,55 +565,102 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     };
   }, [animate]);
 
-  const selectedPlanetData = planets.find((p: FinancialPlanet) => p.id === selectedPlanet);
-
   return (
     <div className="ceo-orrery">
-      <div className="orrery-header">
-        <div>
-          <h1>🏢 CEO's Orrery</h1>
-          <p>Revolutionary Business Intelligence Universe - Transform data into explorable space</p>
+      {/* Business Intelligence Integration */}
+      <BusinessIntelligenceIntegration
+        ref={biIntegrationRef}
+        onDataUpdate={handleBusinessDataUpdate}
+        onError={handleConnectionError}
+        realTimeMode={realTimeMode}
+        refreshInterval={universeControls.dataRefreshRate * 1000}
+        agentEndpoint={agentEndpoint}
+      />
+      
+      {/* Spatial Components */}
+      {spatialBusinessData && (
+        <>
+          <FinancialPlanets
+            ref={financialPlanetsRef}
+            businessData={spatialBusinessData.metrics}
+            agentInsights={spatialBusinessData.insights}
+            onPlanetSelect={onPlanetSelect!}
+            onDrillDown={onDataDrillDown!}
+            onAlertAction={onAlertAction!}
+            animationSpeed={universeControls.animationSpeed}
+            showSatellites={universeControls.showSatellites}
+            realTimeMode={realTimeMode}
+            canvasRef={canvasRef}
+            orbitTime={orbitTime}
+          />
+          
+          <DepartmentSolarSystems
+            ref={departmentSystemsRef}
+            departments={spatialBusinessData.departments}
+            agentInsights={spatialBusinessData.insights}
+            onDepartmentSelect={onDepartmentSelect!}
+            onTeamSelect={(team) => console.log('Team selected:', team)}
+            onProjectSelect={(project) => console.log('Project selected:', project)}
+            animationSpeed={universeControls.animationSpeed}
+            showProjects={true}
+            showTeamDetails={universeControls.viewMode === 'detailed'}
+            canvasRef={canvasRef}
+            orbitTime={orbitTime}
+          />
+        </>
+      )}
+      {/* Universe Controls */}
+      <BusinessUniverseControls
+        controls={universeControls}
+        onControlsChange={setUniverseControls}
+        onTimeTravel={handleTimeTravel}
+        onDataRefresh={handleDataRefresh}
+        onExportData={handleDataExport}
+        onResetView={handleResetView}
+        isRealTimeMode={realTimeMode}
+        onRealTimeModeToggle={(enabled) => console.log('Real-time mode:', enabled)}
+        lastUpdated={spatialBusinessData?.lastUpdated || new Date()}
+        connectionStatus={spatialBusinessData?.syncStatus || 'disconnected'}
+      />
+      
+      {/* Connection Error Display */}
+      {connectionError && (
+        <div className="connection-error">
+          <div className="error-content">
+            <h4>🚨 Connection Error</h4>
+            <p>{connectionError}</p>
+            <button onClick={handleDataRefresh} className="retry-btn">
+              🔄 Retry Connection
+            </button>
+          </div>
         </div>
-        <div className="orrery-controls">
-          <button 
-            className="control-btn refresh" 
-            onClick={handleDataRefresh}
-            disabled={!realTimeMode}
-          >
-            🔄 Refresh Data
-          </button>
-          <select 
-            className="time-selector" 
-            value={universeControls.timeRange}
-            onChange={(e: any) => handleTimeRangeChange(e.target.value as UniverseControls['timeRange'])}
-          >
-            <option value="week">This Week</option>
-            <option value="month">This Month</option>
-            <option value="quarter">This Quarter</option>
-            <option value="year">This Year</option>
-          </select>
-          <select 
-            className="time-selector"
-            value={universeControls.viewMode}
-            onChange={(e: any) => setUniverseControls((prev: UniverseControls) => ({ 
-              ...prev, 
-              viewMode: e.target.value as UniverseControls['viewMode'] 
-            }))}
-          >
-            <option value="overview">Overview</option>
-            <option value="detailed">Detailed</option>
-            <option value="strategic">Strategic</option>
-          </select>
-        </div>
-      </div>
+      )}
 
+      {/* Main Universe Canvas */}
       <div className="orrery-container">
+        <div className="orrery-header">
+          <h1>🌌 CEO's Orrery - Spatial Business Intelligence</h1>
+          <p>
+            Revolutionary AI-powered business universe powered by ElizaOS agents
+            {spatialBusinessData && (
+              <span className="data-status">
+                • {spatialBusinessData.metrics.length} metrics 
+                • {spatialBusinessData.insights.length} insights 
+                • {spatialBusinessData.alerts.length} alerts
+              </span>
+            )}
+          </p>
+        </div>
+        
         <canvas
           ref={canvasRef}
           className="orrery-canvas"
           onClick={handleCanvasClick}
           onMouseMove={handleMouseMove}
+          width={1200}
+          height={800}
         />
+      </div>
         
         {selectedPlanetData && (
           <div className="planet-details-panel">

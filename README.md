@@ -202,6 +202,60 @@ elizaos:stake-reputation       # Manage reputation staking
 
 ---
 
+## 🔧 Troubleshooting & Development Support
+
+### **Quick Issue Resolution**
+
+**TypeScript Compilation Errors**:
+```bash
+# Check for interface compatibility issues
+bun run tsc --noEmit
+
+# Common ElizaOS plugin fixes documented in:
+# troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md
+```
+
+**Dependency Installation Issues (Windows)**:
+```bash
+# Bun lockfile conflicts - use no-save flag
+bun install --force --no-save
+
+# Detailed Windows resolution guide:
+# troubleshooting/dependency-issues/bun-lockfile-conflicts-windows.md
+```
+
+**Build System Problems**:
+```bash
+# Validate build configuration
+bun run build
+
+# Comprehensive build troubleshooting:
+# troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md
+```
+
+### **Comprehensive Troubleshooting Resources**
+- 📚 **[Complete Troubleshooting Guide](troubleshooting/README.md)**: Systematic error resolution
+- 🔧 **[ElizaOS Plugin Issues](troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md)**: TypeScript & build problems
+- 🏗️ **[Dependency Issues](troubleshooting/dependency-issues/)**: Package management solutions
+- 💻 **[Windows Development](troubleshooting/dependency-issues/bun-lockfile-conflicts-windows.md)**: Platform-specific fixes
+
+### **Development Validation Checklist**
+```bash
+# Pre-deployment validation
+bun run tsc --noEmit    # TypeScript validation
+bun run build           # Build system check
+bun run test            # Test execution
+bun run lint            # Code quality
+```
+
+**Success Indicators**:
+- ✅ **TypeScript**: 0 compilation errors
+- ✅ **Build**: ESM, CJS, DTS outputs generated (~38KB bundles)
+- ✅ **Performance**: Build completion in 3-4 seconds
+- ✅ **Dependencies**: 538+ packages installed successfully
+
+---
+
 ## 🌐 Deployment Options
 
 ### **Option 1: Akash Network (97.6% Cost Reduction)**

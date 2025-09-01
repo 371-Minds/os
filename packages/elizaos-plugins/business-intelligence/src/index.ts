@@ -13,9 +13,39 @@
  * - Seamless CEO's Orrery integration
  */
 
+// Main plugin export
 export { BusinessIntelligencePlugin as default } from './plugin';
 export * from './plugin';
-export * from './types';
-export * from './actions';
-export * from './provider';
-export * from './evaluator';
+
+// Type definitions (interfaces and types only)
+export type {
+  BusinessMetric,
+  BusinessAlert,
+  Department,
+  BusinessSnapshot,
+  AgentInsight,
+  BusinessDataCollectionAction,
+  AlertGenerationAction,
+  PredictiveAnalysisAction,
+  DepartmentAnalysisAction,
+  BusinessIntelligenceConfig,
+  BusinessDataUpdateEvent,
+  OrreryUpdatePayload,
+  BlockchainCoordinationData,
+  BusinessIntelligenceActionType
+} from './types';
+
+// Constants from types (using explicit import to avoid conflicts)
+export { BusinessIntelligenceActions as BusinessIntelligenceActionNames } from './types';
+
+// Actual implementations (actions, provider, evaluator)
+export { 
+  collectBusinessDataAction,
+  generateBusinessAlertAction,
+  analyzeBusinessTrendsAction,
+  analyzeDepartmentPerformanceAction,
+  BusinessIntelligenceActions
+} from './actions';
+
+export { BusinessDataProvider } from './provider';
+export { BusinessMetricsEvaluator } from './evaluator';

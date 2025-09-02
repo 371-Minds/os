@@ -1,0 +1,528 @@
+/**
+ * CommunicationsUniverse.css - Spatial Email Management Universe Styling
+ * 
+ * Professional styling for the revolutionary communications universe interface
+ * with cosmic email themes, engagement visualization, and communication flow effects.
+ */
+
+.communications-universe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 25% 25%, 
+    rgba(139, 92, 246, 0.12) 0%, 
+    rgba(59, 130, 246, 0.08) 30%, 
+    rgba(16, 185, 129, 0.06) 60%, 
+    rgba(15, 23, 42, 0.96) 100%);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.universe-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background: transparent;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+}
+
+.universe-canvas:hover {
+  filter: brightness(1.03) contrast(1.02);
+}
+
+/* Email Entity HUD */
+.email-entity-hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  padding: 18px;
+  min-width: 320px;
+  z-index: 100;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.email-header {
+  color: #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.email-subject {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  line-height: 1.3;
+}
+
+.email-type {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.email-status {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.status-draft { color: #64748b; }
+.status-scheduled { color: #06b6d4; }
+.status-sent { color: #3b82f6; }
+.status-delivered { color: #10b981; }
+.status-opened { color: #059669; }
+.status-clicked { color: #065f46; }
+.status-bounced { color: #dc2626; }
+.status-failed { color: #991b1b; }
+
+/* Email Metrics */
+.email-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.metric-item {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(71, 85, 105, 0.4);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.metric-delivery { color: #10b981; }
+.metric-open { color: #3b82f6; }
+.metric-click { color: #8b5cf6; }
+.metric-engagement { color: #ec4899; }
+.metric-recipients { color: #f59e0b; }
+
+/* Communication Flow Indicators */
+.flow-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 16px;
+  padding: 18px;
+  z-index: 100;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.flow-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flow-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flow-stage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.flow-stage.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.stage-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #64748b;
+  transition: all 0.3s ease;
+}
+
+.stage-indicator.pending { background: #64748b; }
+.stage-indicator.active { 
+  background: #10b981; 
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+  animation: flowPulse 2s ease-in-out infinite;
+}
+.stage-indicator.complete { background: #059669; }
+.stage-indicator.skipped { background: #f59e0b; }
+
+@keyframes flowPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.3); }
+}
+
+.stage-name {
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* Engagement Streams */
+.engagement-stream {
+  position: absolute;
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: engagementWave 5s ease-out infinite;
+}
+
+@keyframes engagementWave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Communication Analytics Overlay */
+.analytics-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 16px;
+  padding: 18px;
+  z-index: 100;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.analytics-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 14px;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.analytics-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.analytics-metric {
+  text-align: center;
+  padding: 12px;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  transition: all 0.3s ease;
+}
+
+.analytics-metric:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.analytics-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+}
+
+.analytics-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* Cosmic Communication Effects */
+.cosmic-streams {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cosmic-stream {
+  position: absolute;
+  background: linear-gradient(90deg, 
+    rgba(139, 92, 246, 0) 0%, 
+    rgba(139, 92, 246, 0.3) 50%, 
+    rgba(139, 92, 246, 0) 100%);
+  height: 1px;
+  animation: streamFlow 8s linear infinite;
+}
+
+@keyframes streamFlow {
+  0% { transform: translateX(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+/* Email Entity Tooltips */
+.email-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: 10px;
+  padding: 14px;
+  max-width: 280px;
+  z-index: 200;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.tooltip-subject {
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.tooltip-description {
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+.tooltip-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.tooltip-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.tooltip-stat-label {
+  color: #94a3b8;
+}
+
+.tooltip-stat-value {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* Schedule Indicators */
+.schedule-pulse {
+  position: absolute;
+  border: 2px solid rgba(6, 182, 212, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: schedulePulse 3s ease-in-out infinite;
+}
+
+@keyframes schedulePulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.5); 
+    opacity: 0.3; 
+  }
+}
+
+/* Delivery Status Rings */
+.delivery-ring {
+  position: absolute;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: deliveryProgress 4s ease-in-out infinite;
+}
+
+.delivery-ring.delivered {
+  border-color: rgba(16, 185, 129, 0.7);
+}
+
+.delivery-ring.opened {
+  border-color: rgba(59, 130, 246, 0.7);
+}
+
+.delivery-ring.clicked {
+  border-color: rgba(139, 92, 246, 0.7);
+}
+
+@keyframes deliveryProgress {
+  0% { 
+    transform: scale(0.8) rotate(0deg); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: scale(1.2) rotate(360deg); 
+    opacity: 0.3; 
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .email-entity-hud {
+    min-width: 280px;
+    padding: 14px;
+  }
+  
+  .email-metrics {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .analytics-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .email-entity-hud,
+  .flow-indicator {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .analytics-overlay {
+    position: relative;
+    margin-top: 16px;
+  }
+  
+  .analytics-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .engagement-stream,
+  .cosmic-stream,
+  .schedule-pulse,
+  .delivery-ring,
+  .flow-indicator.active {
+    animation: none;
+  }
+  
+  * {
+    transition: none !important;
+  }
+}
+
+/* Focus States */
+.universe-canvas:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 4px;
+}
+
+/* Selection States */
+.email-selected {
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.9));
+}
+
+.constellation-selected {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .communications-universe {
+    border-color: #8b5cf6;
+    background: rgba(15, 23, 42, 0.98);
+  }
+  
+  .email-entity-hud,
+  .flow-indicator,
+  .analytics-overlay {
+    background: rgba(15, 23, 42, 0.95);
+    border-color: #8b5cf6;
+  }
+}
+
+/* Performance Optimizations */
+.communications-universe * {
+  will-change: auto;
+}
+
+.universe-canvas {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Email Type Specific Styling */
+.email-campaign {
+  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
+}
+
+.email-automation {
+  filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.5));
+}
+
+.email-broadcast {
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+}
+
+.email-transactional {
+  filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5));
+}
+
+.email-personal {
+  filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5));
+}

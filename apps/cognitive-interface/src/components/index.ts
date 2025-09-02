@@ -8,43 +8,33 @@
 export { ExecutiveMode } from './ExecutiveMode';
 export { TechnicalMode } from './TechnicalMode';
 export { CreativeMode } from './CreativeMode';
-export { CognitiveModeSwicher } from './CognitiveModeSwicher';
+export { default as CognitiveModeSwither } from './CognitiveModeSwither';
 export { AdaptiveLayout } from './AdaptiveLayout';
 export { default as ReadersConstellation } from './ReaderConstellation';
+export { CEOsOrrery } from './CEOsOrrery';
+export { default as FinancialPlanets } from './FinancialPlanets';
+export { default as DepartmentSolarSystems } from './DepartmentSolarSystems';
+export { default as BusinessUniverseControls } from './BusinessUniverseControls';
+export { default as BusinessIntelligenceIntegration } from './BusinessIntelligenceIntegration';
 
-// Type exports for component props and interfaces
-export type {
-  KPIMetric,
-  AgentStatus,
-  StrategicAlert
-} from './ExecutiveMode';
+// Developer's Galaxy - Spatial Development Environment
+export { default as DeveloperUniverse } from './DeveloperUniverse';
+export { default as DevelopersGalaxy } from './DevelopersGalaxy';
+export { default as DeveloperGalaxyControls } from './DeveloperGalaxyControls';
 
-export type {
-  SystemMetric,
-  BuildStatus,
-  QualityMetric,
-  DevelopmentTool
-} from './TechnicalMode';
+// Creator's Cosmos - Spatial Creative Environment
+export { default as CreatorsCosmos } from './CreatorsCosmos';
+export { default as CreativeCosmosControls } from './CreativeCosmosControls';
 
-export type {
-  CreativeProject,
-  ContentMetric,
-  CreativeInsight,
-  CreativeTool
-} from './CreativeMode';
+// Communications Universe - Spatial Email Management System (C3 Universal Template)
+export { default as CommunicationsUniverse } from './CommunicationsUniverse';
+export { default as CommunicationsUniverseController } from './CommunicationsUniverseController';
+export { default as C3UniversalTemplate } from './C3UniversalTemplate';
 
-export type {
-  CognitiveMode,
-  CognitiveContext,
-  CognitiveTransition
-} from './CognitiveModeSwicher';
-
-// Galaxy Engine Universe Prototypes
-export type {
-  Book,
-  Constellation,
-  UniverseState
-} from './ReaderConstellation';
+// Galaxy Engine - Universal Template System (C3 Completion)
+export { default as UniverseFactory } from '../engine/UniverseFactory';
+export { GalaxyEngineTemplate, DomainTemplates } from '../engine/GalaxyEngineTemplate';
+export type { UniverseConfiguration, UniverseEntity } from '../engine/GalaxyEngineTemplate';
 
 // Re-export AdaptiveLayout as default for main app integration
 export { AdaptiveLayout as default } from './AdaptiveLayout';

@@ -50,10 +50,14 @@ interface PlanetAlert {
 
 interface FinancialPlanetsProps {
   businessData: any[];
+  agentInsights?: any[];
   onPlanetSelect: (planet: FinancialPlanet) => void;
+  onDrillDown: (planetId: string, timeRange: string) => void;
+  onAlertAction: (alert: PlanetAlert) => void;
   animationSpeed: number;
   showSatellites: boolean;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  realTimeMode: boolean;
+  canvasRef: React.RefObject<HTMLCanvasElement | null>;
   orbitTime: number;
 }
 
@@ -273,14 +277,6 @@ export const FinancialPlanets: React.FC<FinancialPlanetsProps> = ({
       isSelected: planet.id === selectedPlanet
     })));
   }, [selectedPlanet]);
-
-  // Expose methods for parent component
-  React.useImperativeHandle(React.forwardRef((props, ref) => ({
-    renderPlanets,
-    handleMouseMove,
-    handleClick,
-    planets
-  })), [renderPlanets, handleMouseMove, handleClick, planets]);
 
   return null;
 };

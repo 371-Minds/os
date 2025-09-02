@@ -118,13 +118,16 @@ interface BusinessAlert {
 }
 
 interface UniverseControls {
-  timeRange: 'week' | 'month' | 'quarter' | 'year';
-  viewMode: 'overview' | 'detailed' | 'strategic';
-  dataRefreshRate: number; // seconds
+  timeRange: 'day' | 'week' | 'month' | 'quarter' | 'year';
+  viewMode: 'overview' | 'detailed' | 'strategic' | 'tactical';
+  dataRefreshRate: number;
   animationSpeed: number;
   showSatellites: boolean;
   showAlerts: boolean;
   showTrends: boolean;
+  showProjections: boolean;
+  zoomLevel: number;
+  cameraPosition: { x: number; y: number; z: number };
 }
 
 interface CEOsOrreryProps {
@@ -335,18 +338,13 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
 
   // Handle mouse interactions with spatial components
   const handleMouseMove = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    if (financialPlanetsRef.current) {
-      financialPlanetsRef.current.handleMouseMove(event);
-    }
+    // Mouse interactions now handled by individual spatial components
+    console.log('Mouse move at:', event.clientX, event.clientY);
   }, []);
 
   const handleCanvasClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    if (financialPlanetsRef.current) {
-      financialPlanetsRef.current.handleClick(event);
-    }
-    if (departmentSystemsRef.current) {
-      departmentSystemsRef.current.handleClick(event);
-    }
+    // Click interactions now handled by individual spatial components
+    console.log('Canvas clicked at:', event.clientX, event.clientY);
   }, []);
 
   // Enhanced animation with spatial components
@@ -362,20 +360,15 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // Apply zoom and camera position
-    ctx.scale(universeControls.zoomLevel, universeControls.zoomLevel);
-    ctx.translate(-universeControls.cameraPosition.x, -universeControls.cameraPosition.y);
+    const zoom = universeControls.zoomLevel || 1.0;
+    const camera = universeControls.cameraPosition || { x: 0, y: 0 };
+    ctx.scale(zoom, zoom);
+    ctx.translate(-camera.x, -camera.y);
     
     // Draw universe background
     drawUniverseBackground(ctx, canvas);
     
-    // Render spatial components
-    if (financialPlanetsRef.current && spatialBusinessData?.metrics) {
-      financialPlanetsRef.current.renderPlanets(ctx);
-    }
-    
-    if (departmentSystemsRef.current && spatialBusinessData?.departments) {
-      departmentSystemsRef.current.renderDepartments(ctx);
-    }
+    // Note: Spatial components will render themselves when implemented
     
     ctx.restore();
     
@@ -396,159 +389,24 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
 
-  const updatePlanetPositions = () => {
-    setPlanets((prev: FinancialPlanet[]) => prev.map((planet: FinancialPlanet) => {
-      const department = businessUniverse.departments.find((d: DepartmentSolarSystem) => d.planets.includes(planet.id));
-      const center = department ? department.centerPosition : { x: 400, y: 300 };
-      
-      const angle = orbitTime * planet.orbitSpeed;
-      const newX = center.x + Math.cos(angle) * planet.orbitRadius;
-      const newY = center.y + Math.sin(angle) * planet.orbitRadius;
-      
-      return { ...planet, position: { x: newX, y: newY } };
-    }));
-  };
+  // Remove duplicate old functions that conflict
+  // Animation and interaction are now handled by spatial components
 
-  const drawBusinessElements = (ctx: CanvasRenderingContext2D) => {
-    // Draw department centers
-    businessUniverse.departments.forEach((dept: DepartmentSolarSystem) => {
-      ctx.fillStyle = selectedDepartment === dept.id ? '#3b82f6' : '#1e40af';
-      ctx.shadowColor = '#3b82f6';
-      ctx.shadowBlur = 10;
-      
-      ctx.beginPath();
-      ctx.arc(dept.centerPosition.x, dept.centerPosition.y, 8, 0, Math.PI * 2);
-      ctx.fill();
-    });
-
-    // Draw planets
-    planets.forEach((planet: FinancialPlanet) => {
-      ctx.fillStyle = planet.color;
-      ctx.shadowColor = planet.color;
-      ctx.shadowBlur = selectedPlanet === planet.id ? 25 : 15;
-      
-      ctx.beginPath();
-      ctx.arc(planet.position.x, planet.position.y, planet.size, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Draw satellites
-      planet.satellites.forEach((satellite: FinancialSatellite) => {
-        ctx.fillStyle = satellite.color;
-        ctx.shadowBlur = 8;
-        ctx.beginPath();
-        ctx.arc(satellite.position.x, satellite.position.y, satellite.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
-    });
-    
-    ctx.shadowBlur = 0;
-  };
-
-  const handleCanvasClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
+  // Canvas setup and animation
+  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    canvas.width = 1200;
+    canvas.height = 800;
+    animate();
 
-    // Check planet clicks with enhanced interaction
-    const clickedPlanet = planets.find((planet: FinancialPlanet) => {
-      const distance = Math.sqrt(
-        Math.pow(x - planet.position.x, 2) + Math.pow(y - planet.position.y, 2)
-      );
-      return distance <= planet.size + 10;
-    });
-
-    if (clickedPlanet) {
-      setSelectedPlanet((prev: string | null) => prev === clickedPlanet.id ? null : clickedPlanet.id);
-      if (onPlanetSelect) onPlanetSelect(clickedPlanet);
-      return;
-    }
-    
-    // Check department clicks
-    const clickedDepartment = businessUniverse.departments.find((dept: DepartmentSolarSystem) => {
-      const distance = Math.sqrt(
-        Math.pow(x - dept.centerPosition.x, 2) + Math.pow(y - dept.centerPosition.y, 2)
-      );
-      return distance <= 20;
-    });
-    
-    if (clickedDepartment) {
-      setSelectedDepartment((prev: string | null) => prev === clickedDepartment.id ? null : clickedDepartment.id);
-      if (onDepartmentSelect) onDepartmentSelect(clickedDepartment);
-    }
-  };
-
-  // Initialize demo planets data
-  useEffect(() => {
-    const demoPlanets: FinancialPlanet[] = [
-      {
-        id: '1',
-        name: 'SaaS Revenue',
-        type: 'revenue',
-        value: 8200000,
-        previousValue: 7850000,
-        target: 9000000,
-        currency: 'USD',
-        growth: 4.5,
-        volatility: 0.8,
-        position: { x: 400, y: 300 },
-        velocity: { x: 0, y: 0 },
-        orbitRadius: 120,
-        orbitSpeed: 0.02,
-        orbitAngle: 0,
-        size: 15,
-        mass: 1.2,
-        color: '#10b981',
-        glowIntensity: 0.8,
-        satellites: [],
-        insights: ['Enterprise segment growing 45% YoY', 'New product features driving adoption'],
-        alerts: [],
-        trend: 'ascending',
-        priority: 'critical',
-        lastUpdated: new Date(),
-        dataPoints: []
-      },
-      {
-        id: '2',
-        name: 'Operating Expenses',
-        type: 'expense',
-        value: 5200000,
-        previousValue: 4950000,
-        growth: 5.1,
-        volatility: 0.6,
-        position: { x: 500, y: 200 },
-        velocity: { x: 0, y: 0 },
-        orbitRadius: 100,
-        orbitSpeed: 0.018,
-        orbitAngle: Math.PI,
-        size: 12,
-        mass: 1.0,
-        color: '#ef4444',
-        glowIntensity: 0.6,
-        satellites: [],
-        insights: ['R&D spending increased for innovation', 'Marketing efficiency improved 12%'],
-        alerts: [],
-        trend: 'ascending',
-        priority: 'high',
-        lastUpdated: new Date(),
-        dataPoints: []
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
       }
-    ];
-    setPlanets(demoPlanets);
-  }, []);
-
-  // Real-time data simulation
-  useEffect(() => {
-    if (!realTimeMode) return;
-    
-    const interval = setInterval(() => {
-      handleDataRefresh();
-    }, universeControls.dataRefreshRate * 1000);
-    
-    return () => clearInterval(interval);
-  }, [realTimeMode, universeControls.dataRefreshRate, handleDataRefresh]);
+    };
+  }, [animate]);
   
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -569,7 +427,6 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     <div className="ceo-orrery">
       {/* Business Intelligence Integration */}
       <BusinessIntelligenceIntegration
-        ref={biIntegrationRef}
         onDataUpdate={handleBusinessDataUpdate}
         onError={handleConnectionError}
         realTimeMode={realTimeMode}
@@ -581,12 +438,11 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
       {spatialBusinessData && (
         <>
           <FinancialPlanets
-            ref={financialPlanetsRef}
             businessData={spatialBusinessData.metrics}
             agentInsights={spatialBusinessData.insights}
-            onPlanetSelect={onPlanetSelect!}
-            onDrillDown={onDataDrillDown!}
-            onAlertAction={onAlertAction!}
+            onPlanetSelect={(planet) => onPlanetSelect && onPlanetSelect(planet as any)}
+            onDrillDown={(planetId, timeRange) => onDataDrillDown && onDataDrillDown(planetId, timeRange)}
+            onAlertAction={(alert) => onAlertAction && onAlertAction(alert as any)}
             animationSpeed={universeControls.animationSpeed}
             showSatellites={universeControls.showSatellites}
             realTimeMode={realTimeMode}
@@ -595,12 +451,11 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
           />
           
           <DepartmentSolarSystems
-            ref={departmentSystemsRef}
             departments={spatialBusinessData.departments}
             agentInsights={spatialBusinessData.insights}
-            onDepartmentSelect={onDepartmentSelect!}
-            onTeamSelect={(team) => console.log('Team selected:', team)}
-            onProjectSelect={(project) => console.log('Project selected:', project)}
+            onDepartmentSelect={(dept) => onDepartmentSelect && onDepartmentSelect(dept as any)}
+            onTeamSelect={(team: any) => console.log('Team selected:', team)}
+            onProjectSelect={(project: any) => console.log('Project selected:', project)}
             animationSpeed={universeControls.animationSpeed}
             showProjects={true}
             showTeamDetails={universeControls.viewMode === 'detailed'}
@@ -661,54 +516,65 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
           height={800}
         />
       </div>
-        
-        {selectedPlanetData && (
-          <div className="planet-details-panel">
-            <div className="panel-header">
-              <h3>{selectedPlanetData.name}</h3>
-              <button onClick={() => setSelectedPlanet(null)}>×</button>
+      {/* Real-time Business Summary */}
+      {spatialBusinessData && (
+        <div className="business-summary enhanced">
+          <div className="summary-header">
+            <h3>📊 Live Business Intelligence Dashboard</h3>
+            <div className="agent-status">
+              {Object.entries(spatialBusinessData.agentStatus).map(([role, status]) => (
+                <span key={role} className={`agent-indicator ${status}`}>
+                  {role}: {status === 'active' ? '✓' : '✗'}
+                </span>
+              ))}
             </div>
-            <div className="panel-content">
-              <div className="metric-highlight">
-                <span className="current-value">
-                  ${(selectedPlanetData.value / 1000000).toFixed(2)}M
-                </span>
-                <span className={`growth-indicator ${selectedPlanetData.growth > 0 ? 'positive' : 'negative'}`}>
-                  {selectedPlanetData.growth > 0 ? '↗' : '↘'} {Math.abs(selectedPlanetData.growth).toFixed(1)}%
-                </span>
-              </div>
-              
-              <div className="insights-section">
-                <h4>💡 Key Insights</h4>
-                {selectedPlanetData.insights.map((insight: string, index: number) => (
-                  <div key={index} className="insight-item">"{insight}"</div>
+          </div>
+          
+          <div className="summary-metrics">
+            <div className="metric-card revenue">
+              <h4>Total Revenue</h4>
+              <span>${(businessUniverse.totalRevenue / 1000000).toFixed(1)}M</span>
+              <small>+{businessUniverse.growthRate.toFixed(1)}% growth</small>
+            </div>
+            <div className="metric-card profit">
+              <h4>Net Profit</h4>
+              <span>${(businessUniverse.netProfit / 1000000).toFixed(1)}M</span>
+              <small>{businessUniverse.operatingMargin.toFixed(1)}% margin</small>
+            </div>
+            <div className="metric-card alerts">
+              <h4>Active Alerts</h4>
+              <span>{spatialBusinessData.alerts.length}</span>
+              <small>{spatialBusinessData.alerts.filter(a => a.severity === 'critical').length} critical</small>
+            </div>
+            <div className="metric-card insights">
+              <h4>AI Insights</h4>
+              <span>{spatialBusinessData.insights.length}</span>
+              <small>{spatialBusinessData.insights.filter(i => i.actionable).length} actionable</small>
+            </div>
+          </div>
+          
+          {/* Latest Insights Preview */}
+          {spatialBusinessData.insights.length > 0 && (
+            <div className="insights-preview">
+              <h4>🧠 Latest AI Insights</h4>
+              <div className="insights-list">
+                {spatialBusinessData.insights.slice(0, 3).map(insight => (
+                  <div key={insight.id} className={`insight-item ${insight.impact}`}>
+                    <div className="insight-header">
+                      <span className="agent-role">{insight.agentRole}</span>
+                      <span className="insight-type">{insight.type.replace('_', ' ')}</span>
+                    </div>
+                    <div className="insight-content">
+                      <strong>{insight.title}</strong>
+                      <p>{insight.content}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-        )}
-      </div>
-
-      <div className="business-summary">
-        <div className="summary-metrics">
-          <div className="metric-card revenue">
-            <h4>Total Revenue</h4>
-            <span>${(businessUniverse.totalRevenue / 1000000).toFixed(1)}M</span>
-          </div>
-          <div className="metric-card profit">
-            <h4>Net Profit</h4>
-            <span>${(businessUniverse.netProfit / 1000000).toFixed(1)}M</span>
-          </div>
-          <div className="metric-card growth">
-            <h4>Growth Rate</h4>
-            <span>{businessUniverse.growthRate.toFixed(1)}%</span>
-          </div>
-          <div className="metric-card cash">
-            <h4>Cash Flow</h4>
-            <span>${(businessUniverse.cashFlow / 1000000).toFixed(1)}M</span>
-          </div>
+          )}
         </div>
-      </div>
+      )}
     </div>
   );
 };

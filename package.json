@@ -29,7 +29,12 @@
     "install:fast": "bun install",
     "install:npm-fallback": "npm install --legacy-peer-deps",
     "cognitive-engine:build": "bun nx build cognitive-engine",
-    "cognitive-engine:test": "bun nx test cognitive-engine"
+    "cognitive-engine:test": "bun nx test cognitive-engine",
+    "mongodb:start": "powershell -ExecutionPolicy Bypass -File ./scripts/start-mongodb.ps1",
+    "mongodb:deploy-akash": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-mongodb-akash.ps1",
+    "mongodb:connect": "node ./scripts/test-mongodb-connection.js",
+    "system:start": "concurrently \"bun run mongodb:start\" \"bun run start:dev\"",
+    "system:full-start": "powershell -ExecutionPolicy Bypass -File ./scripts/full-system-start.ps1"
   },
   "keywords": [
     "ai-agents",
@@ -58,6 +63,8 @@
     "fs-extra": "^11.3.1",
     "helmet": "^7.0.0",
     "ipfs-http-client": "^60.0.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.3",
     "web3.storage": "^4.5.5",
     "winston": "^3.10.0"
   },

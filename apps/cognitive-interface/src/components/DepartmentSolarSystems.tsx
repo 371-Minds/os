@@ -68,11 +68,14 @@ interface TeamSatellite {
 
 interface DepartmentSolarSystemsProps {
   departments: DepartmentSolarSystem[];
+  agentInsights?: any[];
   onDepartmentSelect: (department: DepartmentSolarSystem) => void;
   onTeamSelect: (team: Team) => void;
+  onProjectSelect?: (project: Project) => void;
   animationSpeed: number;
   showProjects: boolean;
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  showTeamDetails?: boolean;
+  canvasRef: React.RefObject<HTMLCanvasElement | null>;
   orbitTime: number;
 }
 
@@ -323,13 +326,6 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
       isSelected: dept.id === selectedDepartment
     })));
   }, [selectedDepartment]);
-
-  // Expose methods
-  React.useImperativeHandle(React.forwardRef((props, ref) => ({
-    renderDepartments,
-    handleClick,
-    departments: enhancedDepartments
-  })), [renderDepartments, handleClick, enhancedDepartments]);
 
   return null;
 };

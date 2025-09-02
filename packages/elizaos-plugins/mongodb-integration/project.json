@@ -1,0 +1,41 @@
+{
+  "name": "mongodb-integration",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/elizaos-plugins/mongodb-integration/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "packages/elizaos-plugins/mongodb-integration/dist",
+        "main": "packages/elizaos-plugins/mongodb-integration/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/mongodb-integration/tsconfig.json",
+        "assets": []
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/packages/elizaos-plugins/mongodb-integration"
+      ],
+      "options": {
+        "jestConfig": "packages/elizaos-plugins/mongodb-integration/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elizaos-plugins/mongodb-integration/src/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": ["plugin", "database", "mongodb"]
+}

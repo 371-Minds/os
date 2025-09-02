@@ -1,0 +1,839 @@
+/**
+ * CreatorsCosmos.css - Spatial Creative Environment Styling
+ * 
+ * Professional styling for the revolutionary creative cosmos interface
+ * with cosmic themes, particle effects, and creative workflow visualization.
+ */
+
+.creators-cosmos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, 
+    rgba(139, 92, 246, 0.15) 0%, 
+    rgba(16, 185, 129, 0.1) 25%, 
+    rgba(236, 72, 153, 0.1) 50%, 
+    rgba(15, 23, 42, 0.95) 100%);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cosmos-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background: transparent;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+}
+
+.cosmos-canvas:hover {
+  filter: brightness(1.05);
+}
+
+/* Creative Universe HUD */
+.creative-universe-hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 280px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.creative-project-info {
+  color: #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.project-type {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.project-status {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.status-idea { color: #fbbf24; }
+.status-draft { color: #60a5fa; }
+.status-review { color: #a78bfa; }
+.status-published { color: #34d399; }
+.status-archived { color: #9ca3af; }
+
+/* Creative Metrics */
+.creative-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.metric-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.metric-progress { color: #60a5fa; }
+.metric-engagement { color: #34d399; }
+.metric-creativity { color: #f472b6; }
+.metric-impact { color: #fbbf24; }
+
+/* Particle Effects */
+.particle-cloud {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+.particle-idea {
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+}
+
+.particle-asset {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.8) 0%, rgba(96, 165, 250, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
+}
+
+.particle-feedback {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.8) 0%, rgba(52, 211, 153, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+}
+
+.particle-inspiration {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.8) 0%, rgba(244, 114, 182, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(244, 114, 182, 0.6);
+}
+
+/* Creative Flow Visualizations */
+.creative-flow-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.flow-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ec4899;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.flow-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flow-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.flow-stage.active {
+  background: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+}
+
+.stage-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+.stage-indicator.pending { background: #64748b; }
+.stage-indicator.active { 
+  background: #ec4899; 
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
+  animation: stagePulse 2s ease-in-out infinite;
+}
+.stage-indicator.complete { background: #10b981; }
+.stage-indicator.blocked { background: #ef4444; }
+
+@keyframes stagePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.stage-name {
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* Inspiration Waves */
+.inspiration-wave {
+  position: absolute;
+  border: 2px solid rgba(244, 114, 182, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: inspirationWave 4s ease-out infinite;
+}
+
+@keyframes inspirationWave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Engagement Metrics Overlay */
+.engagement-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.engagement-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.engagement-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.engagement-metric {
+  text-align: center;
+  padding: 8px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.engagement-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.engagement-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Cosmic Background Effects */
+.cosmic-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cosmic-star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Creative Project Tooltips */
+.project-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
+  padding: 12px;
+  max-width: 200px;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.tooltip-title {
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 6px;
+}
+
+.tooltip-description {
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.tooltip-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  font-size: 10px;
+}
+
+.tooltip-stat {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .creative-universe-hud {
+    min-width: 240px;
+    padding: 12px;
+  }
+  
+  .creative-metrics {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .engagement-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .creative-universe-hud,
+  .creative-flow-indicator {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .engagement-overlay {
+    position: relative;
+    margin-top: 16px;
+  }
+  
+  .engagement-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .particle-cloud,
+  .inspiration-wave,
+  .cosmic-star,
+  .stage-indicator.active {
+    animation: none;
+  }
+  
+  .cosmos-canvas {
+    transition: none;
+  }
+}
+
+/* Focus States */
+.cosmos-canvas:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Selection States */
+.project-selected {
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8));
+}
+
+.particle-selected {
+  filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.8));
+}/**
+ * CreatorsCosmos.css - Spatial Creative Environment Styling
+ * 
+ * Professional styling for the revolutionary creative cosmos interface
+ * with cosmic themes, particle effects, and creative workflow visualization.
+ */
+
+.creators-cosmos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, 
+    rgba(139, 92, 246, 0.15) 0%, 
+    rgba(16, 185, 129, 0.1) 25%, 
+    rgba(236, 72, 153, 0.1) 50%, 
+    rgba(15, 23, 42, 0.95) 100%);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cosmos-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background: transparent;
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+}
+
+.cosmos-canvas:hover {
+  filter: brightness(1.05);
+}
+
+/* Creative Universe HUD */
+.creative-universe-hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 280px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.creative-project-info {
+  color: #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.project-type {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.project-status {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.status-idea { color: #fbbf24; }
+.status-draft { color: #60a5fa; }
+.status-review { color: #a78bfa; }
+.status-published { color: #34d399; }
+.status-archived { color: #9ca3af; }
+
+/* Creative Metrics */
+.creative-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.metric-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.metric-progress { color: #60a5fa; }
+.metric-engagement { color: #34d399; }
+.metric-creativity { color: #f472b6; }
+.metric-impact { color: #fbbf24; }
+
+/* Particle Effects */
+.particle-cloud {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+}
+
+.particle-idea {
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+}
+
+.particle-asset {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.8) 0%, rgba(96, 165, 250, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
+}
+
+.particle-feedback {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.8) 0%, rgba(52, 211, 153, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.6);
+}
+
+.particle-inspiration {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.8) 0%, rgba(244, 114, 182, 0.2) 70%);
+  box-shadow: 0 0 15px rgba(244, 114, 182, 0.6);
+}
+
+/* Creative Flow Visualizations */
+.creative-flow-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.flow-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ec4899;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.flow-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flow-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.flow-stage.active {
+  background: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+}
+
+.stage-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+.stage-indicator.pending { background: #64748b; }
+.stage-indicator.active { 
+  background: #ec4899; 
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
+  animation: stagePulse 2s ease-in-out infinite;
+}
+.stage-indicator.complete { background: #10b981; }
+.stage-indicator.blocked { background: #ef4444; }
+
+@keyframes stagePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.stage-name {
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+/* Inspiration Waves */
+.inspiration-wave {
+  position: absolute;
+  border: 2px solid rgba(244, 114, 182, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: inspirationWave 4s ease-out infinite;
+}
+
+@keyframes inspirationWave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Engagement Metrics Overlay */
+.engagement-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 100;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.engagement-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.engagement-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.engagement-metric {
+  text-align: center;
+  padding: 8px;
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.engagement-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.engagement-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Cosmic Background Effects */
+.cosmic-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cosmic-star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Creative Project Tooltips */
+.project-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
+  padding: 12px;
+  max-width: 200px;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.tooltip-title {
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 6px;
+}
+
+.tooltip-description {
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.tooltip-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  font-size: 10px;
+}
+
+.tooltip-stat {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .creative-universe-hud {
+    min-width: 240px;
+    padding: 12px;
+  }
+  
+  .creative-metrics {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .engagement-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .creative-universe-hud,
+  .creative-flow-indicator {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .engagement-overlay {
+    position: relative;
+    margin-top: 16px;
+  }
+  
+  .engagement-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .particle-cloud,
+  .inspiration-wave,
+  .cosmic-star,
+  .stage-indicator.active {
+    animation: none;
+  }
+  
+  .cosmos-canvas {
+    transition: none;
+  }
+}
+
+/* Focus States */
+.cosmos-canvas:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Selection States */
+.project-selected {
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.8));
+}
+
+.particle-selected {
+  filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.8));
+}

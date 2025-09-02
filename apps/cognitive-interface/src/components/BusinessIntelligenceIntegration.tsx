@@ -437,13 +437,6 @@ export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceInteg
     }
   }, [isConnected, collectBusinessData, initializePlugin]);
 
-  // Expose methods to parent component
-  React.useImperativeHandle(React.forwardRef((props, ref) => ({
-    refreshData,
-    isConnected,
-    lastSyncTime
-  })), [refreshData, isConnected, lastSyncTime]);
-
   return null; // This component only handles data integration
 };
 

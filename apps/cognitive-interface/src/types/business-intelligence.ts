@@ -39,7 +39,7 @@ export interface AgentInsight {
 
 export interface BusinessAlert {
   id: string;
-  type: 'threshold' | 'anomaly' | 'trend' | 'prediction' | 'system';
+  type: 'threshold' | 'anomaly' | 'trend' | 'prediction' | 'system' | 'warning' | 'critical' | 'info' | 'success';
   severity: 'info' | 'warning' | 'critical' | 'emergency';
   title: string;
   message: string;
@@ -50,7 +50,7 @@ export interface BusinessAlert {
   estimatedImpact?: number;
   suggestedActions?: string[];
   priority: number;
-  resolved: boolean;
+  resolved?: boolean;
   resolvedAt?: Date;
 }
 

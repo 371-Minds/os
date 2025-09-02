@@ -16,7 +16,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "./src",
+    "paths": {},
+    "typeRoots": ["../../../node_modules/@types"]
   },
   "include": [
     "src/**/*"
@@ -28,6 +31,12 @@
     "**/*.spec.ts",
     "../nx-workspace/**/*",
     "../cognitive-engine/**/*",
-    "../universal-tool-server/**/*"
+    "../universal-tool-server/**/*",
+    "../../../packages/elizaos-plugins/nx-workspace/**/*",
+    "../../../packages/elizaos-plugins/cognitive-engine/**/*",
+    "../../../packages/elizaos-plugins/universal-tool-server/**/*",
+    "../../../apps/**/*",
+    "../../../packages/cognitive-layer/**/*",
+    "../../../packages/shared-ui/**/*"
   ]
 }

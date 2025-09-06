@@ -80,7 +80,7 @@ interface DevelopersGalaxyProps {
   buildPipelines?: BuildPipeline[];
   onProjectSelect: (project: CodeProject) => void;
   onModuleSelect?: (module: CodeModule) => void;
-  canvasRef: React.RefObject<HTMLCanvasElement | null>;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
 }
 
 export const DevelopersGalaxy: React.FC<DevelopersGalaxyProps> = ({

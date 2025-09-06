@@ -100,7 +100,7 @@ interface CommunicationsUniverseProps {
   onConstellationSelect?: (constellation: ContactConstellation) => void;
   onFlowAction?: (flow: CommunicationFlow, action: string) => void;
   onUniverseAction?: (action: string, data: any) => void;
-  canvasRef: React.RefObject<HTMLCanvasElement | null>;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
 }
 
 export const CommunicationsUniverse: React.FC<CommunicationsUniverseProps> = ({

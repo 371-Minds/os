@@ -15,22 +15,6 @@ import { CreativeMode } from './CreativeMode';
 import { CognitiveModeSwither } from './CognitiveModeSwither';
 import './AdaptiveLayout.css';
 
-// Mock React types for development
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      div: any;
-      main: any;
-      h2: any;
-      h4: any;
-      p: any;
-      span: any;
-      label: any;
-      strong: any;
-    }
-  }
-}
-
 interface CognitiveState {
   mode: 'executive' | 'technical' | 'creative' | 'analytical' | 'collaborative' | 'learning';
   confidence: number;

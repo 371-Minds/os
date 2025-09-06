@@ -341,7 +341,7 @@ export const UniverseFactory: React.FC<UniverseFactoryProps> = ({
   enableRealTimeSync = false,
   className = ''
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [galaxyEngine] = useState(() => new GalaxyEngineTemplate(configuration));
   const [selectedEntity, setSelectedEntity] = useState<UniverseEntity | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);

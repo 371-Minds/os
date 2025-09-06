@@ -18,7 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "./src",
-    "paths": {},
+    "paths": {
+      "@elizaos/plugin-nx-workspace": ["../../nx-workspace/src/index.ts"]
+    },
     "typeRoots": ["../../../node_modules/@types"]
   },
   "include": [

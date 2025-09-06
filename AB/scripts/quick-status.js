@@ -3,9 +3,9 @@
 // AB/scripts/quick-status.js - Instant 371 OS System Health Check
 // Usage: node AB/scripts/quick-status.js
 
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
 console.log('\n🚀 371 OS System Health Check\n');
 console.log('═'.repeat(50));

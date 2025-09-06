@@ -16,7 +16,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@elizaos/plugin-nx-workspace": ["../../nx-workspace/src/index.ts"]
+    },
+    "typeRoots": ["../../../node_modules/@types"]
   },
   "include": [
     "src/**/*"
@@ -25,6 +30,15 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "../nx-workspace/**/*",
+    "../cognitive-engine/**/*",
+    "../universal-tool-server/**/*",
+    "../../../packages/elizaos-plugins/nx-workspace/**/*",
+    "../../../packages/elizaos-plugins/cognitive-engine/**/*",
+    "../../../packages/elizaos-plugins/universal-tool-server/**/*",
+    "../../../apps/**/*",
+    "../../../packages/cognitive-layer/**/*",
+    "../../../packages/shared-ui/**/*"
   ]
 }

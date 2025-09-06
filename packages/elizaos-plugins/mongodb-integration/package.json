@@ -14,14 +14,14 @@
   },
   "dependencies": {
     "@elizaos/core": "^1.5.2",
+    "dotenv": "^16.6.1",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.3",
-    "winston": "^3.10.0",
-    "dotenv": "^16.6.1"
+    "winston": "^3.10.0"
   },
   "devDependencies": {
     "@types/node": "^22.18.0",
-    "tsup": "^8.0.0",
+    "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   },
   "keywords": [

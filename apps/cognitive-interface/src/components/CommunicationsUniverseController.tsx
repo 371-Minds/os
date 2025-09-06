@@ -98,7 +98,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   enableRealTimeSync = true,
   enableAgentCoordination = true
 }) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [emails, setEmails] = useState<EmailEntity[]>([]);
   const [constellations, setConstellations] = useState<ContactConstellation[]>([]);
   const [flows, setFlows] = useState<CommunicationFlow[]>([]);
@@ -660,7 +660,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
           <div className="universe-stats">
             <span className="stat">📧 {stats.totalEmails}</span>
             <span className="stat">👥 {stats.totalRecipients.toLocaleString()}</span>
-            <span className="stat">📈 {stats.avgEngagementScore?.toFixed(1)}%</span>
+            <span className="stat">📈 {stats.totalEngagement.toFixed(1)}%</span>
             <span className="stat">⚡ {stats.activeFlows}</span>
           </div>
         </div>
@@ -675,7 +675,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
             </button>
             <button 
               className="agent-action-btn"
-              onClick={() => triggerBusinessAlert('performance', { metric: 'email_engagement', value: stats.avgEngagementScore })}
+              onClick={() => triggerBusinessAlert('performance', { metric: 'email_engagement', value: stats.totalEngagement })}
             >
               🚨 Trigger Alert
             </button>

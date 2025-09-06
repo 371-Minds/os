@@ -75,7 +75,7 @@ interface DepartmentSolarSystemsProps {
   animationSpeed: number;
   showProjects: boolean;
   showTeamDetails?: boolean;
-  canvasRef: React.RefObject<HTMLCanvasElement | null>;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
   orbitTime: number;
 }
 

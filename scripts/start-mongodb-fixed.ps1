@@ -3,7 +3,6 @@
 
 param(
     [switch]$Docker = $true,
-    [switch]$Install = $false,
     [string]$DataPath = "./data/mongodb",
     [int]$Port = 27017
 )
@@ -11,7 +10,6 @@ param(
 Write-Host "🍃 371 OS - MongoDB Local Startup Script" -ForegroundColor Green
 Write-Host "=========================================" -ForegroundColor Green
 
-# Check if Docker is preferred and available
 if ($Docker) {
     if (Get-Command "docker" -ErrorAction SilentlyContinue) {
         Write-Host "🐳 Using Docker for MongoDB..." -ForegroundColor Cyan
@@ -40,7 +38,7 @@ if ($Docker) {
                 Write-Host "📁 Created data directory: $DataPath" -ForegroundColor Green
             }
             
-            # Run MongoDB container with proper escaping
+            # Run MongoDB container
             docker run -d --name mongodb-371 --restart unless-stopped -p "${Port}:27017" -v "${PWD}/${DataPath}:/data/db" -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=rootpassword371 -e MONGO_INITDB_DATABASE=os371 mongo:7.0
                 
             if ($LASTEXITCODE -eq 0) {
@@ -148,7 +146,6 @@ MONGODB_PASSWORD=os371pass
         Write-Host "🔗 Connection URI: $mongoUri" -ForegroundColor Yellow
         Write-Host "🐳 Container Name: mongodb-371" -ForegroundColor Cyan
         Write-Host "=================================" -ForegroundColor Green
-        
     } else {
         Write-Host "❌ Docker not found. Please install Docker" -ForegroundColor Red
         Write-Host "📥 Download Docker: https://docker.com/get-started" -ForegroundColor Yellow

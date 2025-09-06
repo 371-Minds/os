@@ -93,7 +93,7 @@ interface CreatorsCosmosProps {
   onProjectSelect: (project: CreativeProject) => void;
   onParticleSelect?: (particle: CreativeParticle) => void;
   onCreativeAction?: (action: string, data: any) => void;
-  canvasRef: React.RefObject<HTMLCanvasElement | null>;
+  canvasRef: React.RefObject<HTMLCanvasElement>;
 }
 
 export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({

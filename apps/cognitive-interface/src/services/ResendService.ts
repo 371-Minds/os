@@ -24,7 +24,7 @@ export interface ResendEmail {
   delivered_at?: string;
   opened_at?: string;
   clicked_at?: string;
-  status: 'queued' | 'sent' | 'delivered' | 'delivery_delayed' | 'bounced' | 'failed' | 'opened' | 'clicked' | 'complained';
+  status: 'queued' | 'sent' | 'delivered' | 'delivery_delayed' | 'bounced' | 'failed' | 'opened' | 'clicked' | 'complained' | 'scheduled';
   tags?: string[];
   reply_to?: string;
   cc?: string[];

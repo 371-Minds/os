@@ -5,9 +5,10 @@
 import { expect, test, beforeEach, describe, spyOn, mock } from "bun:test";
 import { NxWorkspaceProvider } from './provider';
 import type { NxDependencyGraph } from './types';
+import { execSync } from 'child_process';
 
 // Mock child_process for testing
-const mockExecSync = spyOn(import("child_process"), "execSync");
+const mockExecSync = spyOn({ execSync }, "execSync").mockImplementation(execSync);
 
 // Mock fs-extra
 mock.module("fs-extra", () => ({
@@ -18,7 +19,7 @@ mock.module("fs-extra", () => ({
 // Mock fs/promises
 mock.module("fs", () => ({
   promises: {
-    readFile: () => Promise.resolve(),
+    readFile: () => Promise.resolve('{"nodes":{},"dependencies":{},"version":"1.0.0"}'),
     unlink: () => Promise.resolve(undefined),
   },
 }));
@@ -70,7 +71,7 @@ describe('NxWorkspaceProvider', () => {
       };
 
       mockReadFile.mockResolvedValue(JSON.stringify(mockGraph));
-      mockExecSync.mockReturnValue(undefined); // Mock successful execution
+      mockExecSync.mockReturnValue(Buffer.from('')); // Mock successful execution
 
       const result = await provider.getDependencyGraph();
 
@@ -95,7 +96,7 @@ describe('NxWorkspaceProvider', () => {
       };
 
       mockReadFile.mockResolvedValue(JSON.stringify(mockGraph));
-      mockExecSync.mockReturnValue(undefined); // Mock successful execution
+      mockExecSync.mockReturnValue(Buffer.from('')); // Mock successful execution
 
       await provider.getDependencyGraph('app1');
 
@@ -113,8 +114,12 @@ describe('NxWorkspaceProvider', () => {
       try {
         await provider.getDependencyGraph();
         expect(true).toBe(false); // Should not reach here
-      } catch (error) {
-        expect(error.message).toBe('Failed to generate dependency graph: Graph generation failed');
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          expect(error.message).toBe('Failed to generate dependency graph: Graph generation failed');
+        } else {
+          expect(true).toBe(false); // Should not reach here
+        }
       }
     });
   });
@@ -122,9 +127,9 @@ describe('NxWorkspaceProvider', () => {
   describe('findAffectedProjects', () => {
     test('should find affected projects', async () => {
       mockExecSync
-        .mockReturnValueOnce('app1\napp2\n') // affected apps
-        .mockReturnValueOnce('lib1\n') // affected libs
-        .mockReturnValueOnce('task output'); // dry-run output
+        .mockReturnValueOnce(Buffer.from('app1\napp2\n')) // affected apps
+        .mockReturnValueOnce(Buffer.from('lib1\n')) // affected libs
+        .mockReturnValueOnce(Buffer.from('task output')); // dry-run output
 
       const result = await provider.findAffectedProjects('main');
 
@@ -135,9 +140,9 @@ describe('NxWorkspaceProvider', () => {
 
     test('should handle empty results', async () => {
       mockExecSync
-        .mockReturnValueOnce('') // no affected apps
-        .mockReturnValueOnce('') // no affected libs
-        .mockReturnValueOnce(''); // no tasks
+        .mockReturnValueOnce(Buffer.from('')) // no affected apps
+        .mockReturnValueOnce(Buffer.from('')) // no affected libs
+        .mockReturnValueOnce(Buffer.from('')); // no tasks
 
       const result = await provider.findAffectedProjects('main');
 
@@ -154,7 +159,7 @@ describe('NxWorkspaceProvider', () => {
         tasks: [],
       });
 
-      mockExecSync.mockReturnValue('Tests passed');
+      mockExecSync.mockReturnValue(Buffer.from('Tests passed'));
 
       const result = await provider.runTestsForAffected('main');
 
@@ -195,7 +200,7 @@ describe('NxWorkspaceProvider', () => {
 
   describe('buildProject', () => {
     test('should build specific project successfully', async () => {
-      mockExecSync.mockReturnValue('Build successful');
+      mockExecSync.mockReturnValue(Buffer.from('Build successful'));
 
       const result = await provider.buildProject('app1');
 
@@ -213,7 +218,7 @@ describe('NxWorkspaceProvider', () => {
         tasks: [],
       });
 
-      mockExecSync.mockReturnValue('Build successful');
+      mockExecSync.mockReturnValue(Buffer.from('Build successful'));
 
       const result = await provider.buildProject();
 
@@ -246,11 +251,11 @@ describe('NxWorkspaceProvider', () => {
         tags: ['frontend'],
       };
 
-      mockExecSync.mockReturnValue('');
+      mockExecSync.mockReturnValue(Buffer.from(''));
       // Mock the fs.unlink to avoid actual file system operations
       mock.module("fs", () => ({
         promises: {
-          readFile: () => Promise.resolve(),
+          readFile: () => Promise.resolve('{"nodes":{},"dependencies":{},"version":"1.0.0"}'),
           unlink: () => Promise.resolve(undefined),
         },
       }));
@@ -270,11 +275,11 @@ describe('NxWorkspaceProvider', () => {
         name: 'shared-utils',
       };
 
-      mockExecSync.mockReturnValue('');
+      mockExecSync.mockReturnValue(Buffer.from(''));
       // Mock the fs.unlink to avoid actual file system operations
       mock.module("fs", () => ({
         promises: {
-          readFile: () => Promise.resolve(),
+          readFile: () => Promise.resolve('{"nodes":{},"dependencies":{},"version":"1.0.0"}'),
           unlink: () => Promise.resolve(undefined),
         },
       }));
@@ -360,8 +365,12 @@ describe('NxWorkspaceProvider', () => {
       try {
         await provider.analyzeWorkspace();
         expect(true).toBe(false); // Should not reach here
-      } catch (error) {
-        expect(error.message).toBe('Failed to analyze workspace: Graph error');
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          expect(error.message).toBe('Failed to analyze workspace: Graph error');
+        } else {
+          expect(true).toBe(false); // Should not reach here
+        }
       }
     });
   });

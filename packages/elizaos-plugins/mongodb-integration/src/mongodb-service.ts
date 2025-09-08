@@ -382,6 +382,14 @@ class MongoDB371Service {
       return null;
     }
   }
+
+  /**
+   * Get the database instance
+   * @returns The database instance or null if not connected
+   */
+  getDatabase(): Db | null {
+    return this.db;
+  }
 }
 
 // Singleton instance

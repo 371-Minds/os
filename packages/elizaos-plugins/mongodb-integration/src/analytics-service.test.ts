@@ -46,7 +46,10 @@ async function testAnalyticsWithPostHog() {
     const sessionId = await analyticsService.trackSessionStart({
       userId: 'test_user_123',
       sessionId: 'test_session_456',
+      modeTransitions: 0,
       mostUsedMode: 'executive',
+      productivityScore: 0.85,
+      cognitivePatterns: ['focused', 'analytical'],
     });
 
     console.log(

@@ -131,7 +131,12 @@ We've significantly reduced our dependency count by replacing heavy toolchains w
   - Orders of magnitude faster test execution
   - Simplified test configuration
 
-For more details, see [BIOME_MIGRATION.md](./BIOME_MIGRATION.md) and [JEST_MIGRATION.md](./JEST_MIGRATION.md).
+- **Runtime Migration**: Replaced nodemon and ts-node with Bun's built-in watcher
+  - Eliminated runtime dependencies
+  - Faster hot reloading
+  - Simplified runtime configuration
+
+For more details, see [BIOME_MIGRATION.md](./BIOME_MIGRATION.md), [JEST_MIGRATION.md](./JEST_MIGRATION.md), and [BUN_WATCH_MIGRATION.md](./BUN_WATCH_MIGRATION.md).
 
 
 
@@ -271,6 +276,17 @@ bun run test
 bun run test path/to/test-file.test.ts
 
 # For more details on the Jest migration, see JEST_MIGRATION.md
+```
+
+**Runtime Issues**:
+```bash
+# Run with hot reloading
+bun --watch path/to/script.js
+
+# Run with hot reloading and disable screen clearing
+bun --watch --no-clear-screen path/to/script.js
+
+# For more details on the Bun watch migration, see BUN_WATCH_MIGRATION.md
 ```
 
 ### **Comprehensive Troubleshooting Resources**

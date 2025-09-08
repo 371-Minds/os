@@ -1,6 +1,6 @@
 /**
  * C3UniversalTemplate.css - Complete C3 Demo Styling
- * 
+ *
  * Professional styling for the revolutionary C3 Universal Template
  * demonstrating complete Resend dashboard integration with spatial email management.
  */
@@ -9,13 +9,16 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, 
-    rgba(15, 23, 42, 0.95) 0%, 
-    rgba(30, 41, 59, 0.9) 25%, 
-    rgba(51, 65, 85, 0.85) 50%, 
-    rgba(71, 85, 105, 0.8) 75%, 
-    rgba(15, 23, 42, 0.95) 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 25%,
+    rgba(51, 65, 85, 0.85) 50%,
+    rgba(71, 85, 105, 0.8) 75%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -96,8 +99,15 @@
 }
 
 @keyframes statusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
 }
 
 .workflow-btn {
@@ -345,10 +355,18 @@
   border-left: 3px solid;
 }
 
-.notification-item.success { border-left-color: #10b981; }
-.notification-item.info { border-left-color: #3b82f6; }
-.notification-item.warning { border-left-color: #f59e0b; }
-.notification-item.error { border-left-color: #ef4444; }
+.notification-item.success {
+  border-left-color: #10b981;
+}
+.notification-item.info {
+  border-left-color: #3b82f6;
+}
+.notification-item.warning {
+  border-left-color: #f59e0b;
+}
+.notification-item.error {
+  border-left-color: #ef4444;
+}
 
 .notification-header {
   display: flex;
@@ -462,19 +480,39 @@
   color: #3b82f6;
 }
 
-.share-btn:hover { border-color: rgba(16, 185, 129, 0.6); color: #10b981; }
-.logs-btn:hover { border-color: rgba(139, 92, 246, 0.6); color: #8b5cf6; }
-.cancel-btn:hover { border-color: rgba(239, 68, 68, 0.6); color: #ef4444; }
-.preview-btn:hover { border-color: rgba(245, 158, 11, 0.6); color: #f59e0b; }
+.share-btn:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  color: #10b981;
+}
+.logs-btn:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+  color: #8b5cf6;
+}
+.cancel-btn:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #ef4444;
+}
+.preview-btn:hover {
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #f59e0b;
+}
 
 .export-btn {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
   border-color: rgba(16, 185, 129, 0.4);
   color: #10b981;
 }
 
 .export-btn:hover {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.3) 0%,
+    rgba(59, 130, 246, 0.3) 100%
+  );
   transform: translateY(-1px);
 }
 
@@ -526,8 +564,12 @@
   transition: width 0.3s ease;
 }
 
-.stat-fill.delivery { background: #10b981; }
-.stat-fill.interaction { background: #8b5cf6; }
+.stat-fill.delivery {
+  background: #10b981;
+}
+.stat-fill.interaction {
+  background: #8b5cf6;
+}
 
 .stat-value {
   font-size: 12px;
@@ -590,7 +632,7 @@
   .c3-side-panel {
     width: 300px;
   }
-  
+
   .metrics-grid {
     grid-template-columns: 1fr;
   }
@@ -600,18 +642,18 @@
   .c3-content {
     flex-direction: column;
   }
-  
+
   .c3-side-panel {
     width: 100%;
     height: 40vh;
     border-left: none;
     border-top: 1px solid rgba(71, 85, 105, 0.3);
   }
-  
+
   .demo-navigation {
     flex-wrap: wrap;
   }
-  
+
   .header-content {
     flex-direction: column;
     gap: 12px;
@@ -625,7 +667,7 @@
   .status-dot.live {
     animation: none;
   }
-  
+
   .workflow-btn:hover {
     transform: none;
   }

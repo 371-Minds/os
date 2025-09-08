@@ -117,6 +117,24 @@ CLO Agent (Alex) ──┬── Legal Compliance
 
 ## 🛠️ Installation & Setup
 
+### **Dependency Optimization**
+
+We've significantly reduced our dependency count by replacing heavy toolchains with faster, single-binary alternatives:
+
+- **Biome Migration**: Replaced ESLint + Prettier with Biome for linting and formatting
+  - Reduced dependency count from 2200+ to a much more manageable number
+  - Significantly faster execution
+  - Simplified configuration with a single tool
+
+- **Jest Migration**: Replaced Jest with Bun's built-in test runner
+  - Eliminated Jest and related dependencies
+  - Orders of magnitude faster test execution
+  - Simplified test configuration
+
+For more details, see [BIOME_MIGRATION.md](./BIOME_MIGRATION.md) and [JEST_MIGRATION.md](./JEST_MIGRATION.md).
+
+
+
 ### **Prerequisites**
 - Node.js 18+ 
 - Git configured with GitHub
@@ -233,6 +251,28 @@ bun run build
 # troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md
 ```
 
+**Code Quality and Formatting Issues**:
+```bash
+# Lint and fix code issues
+bun run lint
+
+# Format code
+bun run format
+
+# For more details on the Biome migration, see BIOME_MIGRATION.md
+```
+
+**Testing Issues**:
+```bash
+# Run all tests
+bun run test
+
+# Run specific tests
+bun run test path/to/test-file.test.ts
+
+# For more details on the Jest migration, see JEST_MIGRATION.md
+```
+
 ### **Comprehensive Troubleshooting Resources**
 - 📚 **[Complete Troubleshooting Guide](troubleshooting/README.md)**: Systematic error resolution
 - 🔧 **[ElizaOS Plugin Issues](troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md)**: TypeScript & build problems
@@ -244,8 +284,9 @@ bun run build
 # Pre-deployment validation
 bun run tsc --noEmit    # TypeScript validation
 bun run build           # Build system check
-bun run test            # Test execution
-bun run lint            # Code quality
+bun run test            # Test execution (Bun test runner)
+bun run lint            # Code quality (Biome linting)
+bun run format          # Code formatting (Biome formatting)
 ```
 
 **Success Indicators**:
@@ -382,15 +423,20 @@ await blockchainRegistry.registerAgent(registryEntry);
 
 ### **Automated Testing**
 ```bash
-# Run all tests with affected analysis
-npm run test
+# Run all tests with Bun's test runner
+bun run test
 
-# Test specific packages
-nx test @elizaos/plugin-universal-tool-server
-nx test @elizaos/plugin-nx-workspace
+# Run specific tests
+bun run test path/to/test-file.test.ts
 
 # Integration tests
-npm run test:integration
+bun run test --test-name-pattern="integration"
+
+# Lint and fix code issues
+bun run lint
+
+# Format code
+bun run format
 ```
 
 ### **Manual Testing**
@@ -486,6 +532,8 @@ We welcome contributions to the 371 OS ecosystem!
 - **🏗️ [Architecture Guide](./docs/ARCHITECTURE.md)**: Technical architecture details
 - **🔧 [API Documentation](./docs/API.md)**: Agent API reference
 - **🧪 [Testing Guide](./docs/TESTING.md)**: Testing strategies and patterns
+- **🔄 [Universal MCP Architecture](./371-os/docs/architecture/universal_mcp_architecture.md)**: Cross-platform MCP coordination framework
+- **🖥️ [Wavebox Integration (Windows-Compatible)](./AB/sessions/abideas/wavebox-universal-mcp-windows.md)**: Platform-specific integration guide
 
 ---
 

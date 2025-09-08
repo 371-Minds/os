@@ -1,16 +1,17 @@
 /**
  * CreatorsCosmos.tsx - Revolutionary Spatial Creative Environment
- * 
+ *
  * Transform creative workflows into an explorable cosmos where:
  * - Creative projects become nebulae with ideation particles
  * - Content pieces transform into artistic constellations
  * - Brand campaigns become galactic formations
  * - Creators navigate through their creative universe
- * 
+ *
  * Part of the Galaxy Engine cognitive-aware interface revolution.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './CreatorsCosmos.css';
 
 interface CreativeProject {
@@ -103,7 +104,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   onProjectSelect,
   onParticleSelect,
   onCreativeAction,
-  canvasRef
+  canvasRef,
 }) => {
   const [cosmosProjects, setCosmosProjects] = useState<CreativeProject[]>([]);
   const [controls, setControls] = useState<CosmosControls>({
@@ -115,7 +116,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
     showFlows: true,
     showInspiration: true,
     showEngagement: true,
-    animationSpeed: 1.0
+    animationSpeed: 1.0,
   });
   const [orbitTime, setOrbitTime] = useState(0);
   const animationFrameRef = useRef<number | undefined>(undefined);
@@ -141,7 +142,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
           color: '#8b5cf6',
           particles: generateParticles('galaxy-campaign'),
           isSelected: false,
-          lastUpdated: new Date(Date.now() - 2 * 60 * 60 * 1000)
+          lastUpdated: new Date(Date.now() - 2 * 60 * 60 * 1000),
         },
         {
           id: 'cosmic-content',
@@ -160,7 +161,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
           color: '#10b981',
           particles: generateParticles('cosmic-content'),
           isSelected: false,
-          lastUpdated: new Date(Date.now() - 4 * 60 * 60 * 1000)
+          lastUpdated: new Date(Date.now() - 4 * 60 * 60 * 1000),
         },
         {
           id: 'stellar-design',
@@ -179,7 +180,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
           color: '#ec4899',
           particles: generateParticles('stellar-design'),
           isSelected: false,
-          lastUpdated: new Date(Date.now() - 1 * 60 * 60 * 1000)
+          lastUpdated: new Date(Date.now() - 1 * 60 * 60 * 1000),
         },
         {
           id: 'nebula-videos',
@@ -198,7 +199,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
           color: '#f59e0b',
           particles: generateParticles('nebula-videos'),
           isSelected: false,
-          lastUpdated: new Date(Date.now() - 30 * 60 * 1000)
+          lastUpdated: new Date(Date.now() - 30 * 60 * 1000),
         },
         {
           id: 'social-stars',
@@ -217,8 +218,8 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
           color: '#3b82f6',
           particles: generateParticles('social-stars'),
           isSelected: false,
-          lastUpdated: new Date(Date.now() - 6 * 60 * 60 * 1000)
-        }
+          lastUpdated: new Date(Date.now() - 6 * 60 * 60 * 1000),
+        },
       ];
       setCosmosProjects(sampleProjects);
     } else {
@@ -229,43 +230,55 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   const generateParticles = (projectId: string): CreativeParticle[] => {
     const particleCount = Math.floor(Math.random() * 6) + 4;
     const particles: CreativeParticle[] = [];
-    
+
     for (let i = 0; i < particleCount; i++) {
       const angle = (i / particleCount) * Math.PI * 2;
-      const orbitRadius = 35 + (i * 10);
-      
+      const orbitRadius = 35 + i * 10;
+
       particles.push({
         id: `${projectId}-particle-${i}`,
         name: getParticleName(i),
         type: getParticleType(i),
         position: { x: 0, y: 0 },
         orbitRadius,
-        orbitSpeed: 0.015 + (Math.random() * 0.01),
+        orbitSpeed: 0.015 + Math.random() * 0.01,
         size: 2 + Math.random() * 2,
         quality: 70 + Math.random() * 30,
-        color: getParticleColor(getParticleType(i))
+        color: getParticleColor(getParticleType(i)),
       });
     }
-    
+
     return particles;
   };
 
   const getParticleName = (index: number): string => {
-    const names = ['Inspiration', 'Concept', 'Asset', 'Feedback', 'Iteration', 'Innovation'];
+    const names = [
+      'Inspiration',
+      'Concept',
+      'Asset',
+      'Feedback',
+      'Iteration',
+      'Innovation',
+    ];
     return names[index % names.length];
   };
 
   const getParticleType = (index: number): CreativeParticle['type'] => {
-    const types: CreativeParticle['type'][] = ['idea', 'asset', 'feedback', 'inspiration'];
+    const types: CreativeParticle['type'][] = [
+      'idea',
+      'asset',
+      'feedback',
+      'inspiration',
+    ];
     return types[index % types.length];
   };
 
   const getParticleColor = (type: CreativeParticle['type']): string => {
     const colors = {
-      'idea': '#fbbf24',
-      'asset': '#3b82f6', 
-      'feedback': '#10b981',
-      'inspiration': '#ec4899'
+      idea: '#fbbf24',
+      asset: '#3b82f6',
+      feedback: '#10b981',
+      inspiration: '#ec4899',
     };
     return colors[type];
   };
@@ -273,14 +286,14 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   const getProjectColor = (type: string, status: string): string => {
     if (status === 'idea') return '#6366f1';
     if (status === 'archived') return '#6b7280';
-    
+
     const colors = {
-      'campaign': '#8b5cf6',
-      'content': '#10b981',
-      'design': '#ec4899',
-      'video': '#f59e0b',
-      'social': '#3b82f6',
-      'brand': '#ef4444'
+      campaign: '#8b5cf6',
+      content: '#10b981',
+      design: '#ec4899',
+      video: '#f59e0b',
+      social: '#3b82f6',
+      brand: '#ef4444',
     };
     return colors[type as keyof typeof colors] || '#6b7280';
   };
@@ -288,7 +301,7 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   // Animation loop
   useEffect(() => {
     const animate = () => {
-      setOrbitTime(prev => prev + 0.016 * controls.animationSpeed);
+      setOrbitTime((prev) => prev + 0.016 * controls.animationSpeed);
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
@@ -302,58 +315,67 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
 
   // Update project positions
   useEffect(() => {
-    setCosmosProjects(prev => prev.map(project => {
-      if (project.orbitRadius === 0) {
-        return project; // Central projects don't orbit
-      }
+    setCosmosProjects((prev) =>
+      prev.map((project) => {
+        if (project.orbitRadius === 0) {
+          return project; // Central projects don't orbit
+        }
 
-      const angle = orbitTime * project.orbitSpeed;
-      const newX = controls.centerPosition.x + Math.cos(angle + project.orbitAngle) * project.orbitRadius;
-      const newY = controls.centerPosition.y + Math.sin(angle + project.orbitAngle) * project.orbitRadius;
+        const angle = orbitTime * project.orbitSpeed;
+        const newX =
+          controls.centerPosition.x +
+          Math.cos(angle + project.orbitAngle) * project.orbitRadius;
+        const newY =
+          controls.centerPosition.y +
+          Math.sin(angle + project.orbitAngle) * project.orbitRadius;
 
-      const updatedParticles = project.particles.map(particle => {
-        const particleAngle = orbitTime * particle.orbitSpeed;
+        const updatedParticles = project.particles.map((particle) => {
+          const particleAngle = orbitTime * particle.orbitSpeed;
+          return {
+            ...particle,
+            position: {
+              x: newX + Math.cos(particleAngle) * particle.orbitRadius,
+              y: newY + Math.sin(particleAngle) * particle.orbitRadius,
+            },
+          };
+        });
+
         return {
-          ...particle,
-          position: {
-            x: newX + Math.cos(particleAngle) * particle.orbitRadius,
-            y: newY + Math.sin(particleAngle) * particle.orbitRadius
-          }
+          ...project,
+          position: { x: newX, y: newY },
+          particles: updatedParticles,
+          color: getProjectColor(project.type, project.status),
         };
-      });
-
-      return {
-        ...project,
-        position: { x: newX, y: newY },
-        particles: updatedParticles,
-        color: getProjectColor(project.type, project.status)
-      };
-    }));
+      }),
+    );
   }, [orbitTime, controls.centerPosition]);
 
   // Render cosmos
-  const renderCosmos = useCallback((ctx: CanvasRenderingContext2D) => {
-    const canvas = ctx.canvas;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const renderCosmos = useCallback(
+    (ctx: CanvasRenderingContext2D) => {
+      const canvas = ctx.canvas;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Background cosmic dust
-    renderCosmicDust(ctx);
+      // Background cosmic dust
+      renderCosmicDust(ctx);
 
-    // Inspiration waves
-    if (controls.showInspiration) {
-      renderInspirationWaves(ctx);
-    }
+      // Inspiration waves
+      if (controls.showInspiration) {
+        renderInspirationWaves(ctx);
+      }
 
-    // Creative flows
-    if (controls.showFlows) {
-      renderCreativeFlows(ctx);
-    }
+      // Creative flows
+      if (controls.showFlows) {
+        renderCreativeFlows(ctx);
+      }
 
-    // Projects as nebulae
-    cosmosProjects.forEach(project => {
-      renderProject(ctx, project);
-    });
-  }, [cosmosProjects, controls]);
+      // Projects as nebulae
+      cosmosProjects.forEach((project) => {
+        renderProject(ctx, project);
+      });
+    },
+    [cosmosProjects, controls],
+  );
 
   const renderCosmicDust = (ctx: CanvasRenderingContext2D) => {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
@@ -370,9 +392,9 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   const renderInspirationWaves = (ctx: CanvasRenderingContext2D) => {
     const centerX = controls.centerPosition.x;
     const centerY = controls.centerPosition.y;
-    
+
     for (let i = 0; i < 3; i++) {
-      const radius = 50 + (i * 80) + Math.sin(orbitTime * 0.5 + i) * 20;
+      const radius = 50 + i * 80 + Math.sin(orbitTime * 0.5 + i) * 20;
       ctx.strokeStyle = `rgba(139, 92, 246, ${0.1 - i * 0.02})`;
       ctx.lineWidth = 2;
       ctx.setLineDash([10, 10]);
@@ -384,17 +406,19 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   };
 
   const renderCreativeFlows = (ctx: CanvasRenderingContext2D) => {
-    creativeFlows.forEach(flow => {
+    creativeFlows.forEach((flow) => {
       if (flow.status === 'creation') {
         ctx.strokeStyle = '#ec4899';
         ctx.lineWidth = 3;
         ctx.shadowColor = '#ec4899';
         ctx.shadowBlur = 15;
-        
+
         flow.projects.forEach((projectId, index) => {
-          const project = cosmosProjects.find(p => p.id === projectId);
+          const project = cosmosProjects.find((p) => p.id === projectId);
           if (project && index > 0) {
-            const prevProject = cosmosProjects.find(p => p.id === flow.projects[index - 1]);
+            const prevProject = cosmosProjects.find(
+              (p) => p.id === flow.projects[index - 1],
+            );
             if (prevProject) {
               ctx.beginPath();
               ctx.moveTo(prevProject.position.x, prevProject.position.y);
@@ -403,21 +427,31 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
             }
           }
         });
-        
+
         ctx.shadowBlur = 0;
       }
     });
   };
 
-  const renderProject = (ctx: CanvasRenderingContext2D, project: CreativeProject) => {
+  const renderProject = (
+    ctx: CanvasRenderingContext2D,
+    project: CreativeProject,
+  ) => {
     const { x, y } = project.position;
 
     // Project nebula effect
-    const gradient = ctx.createRadialGradient(x, y, 0, x, y, project.size * 1.5);
+    const gradient = ctx.createRadialGradient(
+      x,
+      y,
+      0,
+      x,
+      y,
+      project.size * 1.5,
+    );
     gradient.addColorStop(0, project.color + '80');
     gradient.addColorStop(0.5, project.color + '40');
     gradient.addColorStop(1, project.color + '10');
-    
+
     ctx.fillStyle = gradient;
     ctx.beginPath();
     ctx.arc(x, y, project.size * 1.5, 0, Math.PI * 2);
@@ -427,31 +461,51 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
     ctx.fillStyle = project.color;
     ctx.shadowColor = project.color;
     ctx.shadowBlur = project.isSelected ? 25 : 15;
-    
+
     ctx.beginPath();
     ctx.arc(x, y, project.size, 0, Math.PI * 2);
     ctx.fill();
 
     // Progress ring
     if (controls.showEngagement && project.progress > 0) {
-      ctx.strokeStyle = project.engagement > 80 ? '#10b981' : project.engagement > 60 ? '#f59e0b' : '#ef4444';
+      ctx.strokeStyle =
+        project.engagement > 80
+          ? '#10b981'
+          : project.engagement > 60
+            ? '#f59e0b'
+            : '#ef4444';
       ctx.lineWidth = 3;
       ctx.shadowBlur = 8;
       ctx.beginPath();
-      ctx.arc(x, y, project.size + 8, -Math.PI / 2, (-Math.PI / 2) + (project.progress / 100) * Math.PI * 2);
+      ctx.arc(
+        x,
+        y,
+        project.size + 8,
+        -Math.PI / 2,
+        -Math.PI / 2 + (project.progress / 100) * Math.PI * 2,
+      );
       ctx.stroke();
     }
 
     // Render particles if enabled
-    if (controls.showParticles && (controls.viewMode === 'cosmos' || project.isSelected)) {
-      project.particles.forEach(particle => {
+    if (
+      controls.showParticles &&
+      (controls.viewMode === 'cosmos' || project.isSelected)
+    ) {
+      project.particles.forEach((particle) => {
         ctx.fillStyle = particle.color;
         ctx.shadowColor = particle.color;
         ctx.shadowBlur = 5;
         ctx.beginPath();
-        ctx.arc(particle.position.x, particle.position.y, particle.size, 0, Math.PI * 2);
+        ctx.arc(
+          particle.position.x,
+          particle.position.y,
+          particle.size,
+          0,
+          Math.PI * 2,
+        );
         ctx.fill();
-        
+
         // Particle trail
         if (particle.type === 'inspiration') {
           ctx.strokeStyle = particle.color + '40';
@@ -470,13 +524,18 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
     ctx.shadowBlur = 0;
   };
 
-  const renderStatusIndicator = (ctx: CanvasRenderingContext2D, x: number, y: number, project: CreativeProject) => {
+  const renderStatusIndicator = (
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    project: CreativeProject,
+  ) => {
     const statusColors = {
-      'idea': '#6366f1',
-      'draft': '#f59e0b', 
-      'review': '#8b5cf6',
-      'published': '#10b981',
-      'archived': '#6b7280'
+      idea: '#6366f1',
+      draft: '#f59e0b',
+      review: '#8b5cf6',
+      published: '#10b981',
+      archived: '#6b7280',
     };
 
     if (project.status === 'idea') {
@@ -502,54 +561,68 @@ export const CreatorsCosmos: React.FC<CreatorsCosmosProps> = ({
   };
 
   // Handle canvas interactions
-  const handleCanvasClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  const handleCanvasClick = useCallback(
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-    // Check project clicks
-    const clickedProject = cosmosProjects.find(project => {
-      const distance = Math.sqrt(
-        Math.pow(x - project.position.x, 2) + Math.pow(y - project.position.y, 2)
-      );
-      return distance <= project.size + 15;
-    });
+      // Check project clicks
+      const clickedProject = cosmosProjects.find((project) => {
+        const distance = Math.sqrt(
+          (x - project.position.x) ** 2 + (y - project.position.y) ** 2,
+        );
+        return distance <= project.size + 15;
+      });
 
-    if (clickedProject) {
-      setControls(prev => ({
-        ...prev,
-        selectedProject: prev.selectedProject === clickedProject.id ? null : clickedProject.id
-      }));
-      
-      setCosmosProjects(prev => prev.map(p => ({
-        ...p,
-        isSelected: p.id === clickedProject.id
-      })));
-      
-      onProjectSelect(clickedProject);
-      return;
-    }
+      if (clickedProject) {
+        setControls((prev) => ({
+          ...prev,
+          selectedProject:
+            prev.selectedProject === clickedProject.id
+              ? null
+              : clickedProject.id,
+        }));
 
-    // Check particle clicks if in detailed view
-    if (controls.viewMode === 'particle') {
-      for (const project of cosmosProjects) {
-        const clickedParticle = project.particles.find(particle => {
-          const distance = Math.sqrt(
-            Math.pow(x - particle.position.x, 2) + Math.pow(y - particle.position.y, 2)
-          );
-          return distance <= particle.size + 3;
-        });
-        
-        if (clickedParticle && onParticleSelect) {
-          onParticleSelect(clickedParticle);
-          return;
+        setCosmosProjects((prev) =>
+          prev.map((p) => ({
+            ...p,
+            isSelected: p.id === clickedProject.id,
+          })),
+        );
+
+        onProjectSelect(clickedProject);
+        return;
+      }
+
+      // Check particle clicks if in detailed view
+      if (controls.viewMode === 'particle') {
+        for (const project of cosmosProjects) {
+          const clickedParticle = project.particles.find((particle) => {
+            const distance = Math.sqrt(
+              (x - particle.position.x) ** 2 + (y - particle.position.y) ** 2,
+            );
+            return distance <= particle.size + 3;
+          });
+
+          if (clickedParticle && onParticleSelect) {
+            onParticleSelect(clickedParticle);
+            return;
+          }
         }
       }
-    }
-  }, [cosmosProjects, controls.viewMode, onProjectSelect, onParticleSelect, canvasRef]);
+    },
+    [
+      cosmosProjects,
+      controls.viewMode,
+      onProjectSelect,
+      onParticleSelect,
+      canvasRef,
+    ],
+  );
 
   // Render to canvas
   useEffect(() => {

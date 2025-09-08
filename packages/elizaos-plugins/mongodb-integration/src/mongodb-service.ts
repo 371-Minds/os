@@ -1,13 +1,13 @@
 /**
  * MongoDB Configuration for 371 OS
- * 
+ *
  * Central database configuration for the revolutionary autonomous agent operating system.
  * Supports both local MongoDB and Akash Network deployed instances.
  */
 
-import { MongoClient, Db, Collection } from 'mongodb';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { Collection, type Db, MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 import winston from 'winston';
 
 // Load environment variables
@@ -52,7 +52,11 @@ interface AgentData {
 interface BusinessIntelligence {
   timestamp: Date;
   agentId: string;
-  eventType: 'data_collection' | 'alert_generation' | 'trend_analysis' | 'department_analysis';
+  eventType:
+    | 'data_collection'
+    | 'alert_generation'
+    | 'trend_analysis'
+    | 'department_analysis';
   data: Record<string, any>;
   insights: string[];
   confidence: number;
@@ -61,7 +65,11 @@ interface BusinessIntelligence {
 interface CommunicationEvent {
   eventId: string;
   timestamp: Date;
-  type: 'email_sent' | 'notification_triggered' | 'agent_coordination' | 'system_alert';
+  type:
+    | 'email_sent'
+    | 'notification_triggered'
+    | 'agent_coordination'
+    | 'system_alert';
   agentId: string;
   recipientId?: string;
   data: Record<string, any>;
@@ -73,59 +81,63 @@ class MongoDB371Service {
   private db: Db | null = null;
   private logger: winston.Logger;
   private config: MongoDB371Config;
-  
+
   constructor() {
     this.logger = winston.createLogger({
       level: 'info',
       format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.json()
+        winston.format.json(),
       ),
       transports: [
         new winston.transports.Console(),
-        new winston.transports.File({ filename: 'logs/mongodb-371.log' })
-      ]
+        new winston.transports.File({ filename: 'logs/mongodb-371.log' }),
+      ],
     });
 
     this.config = {
       local: {
         uri: process.env.MONGODB_LOCAL_URI || 'mongodb://localhost:27017',
-        database: process.env.MONGODB_DATABASE || 'os371'
+        database: process.env.MONGODB_DATABASE || 'os371',
       },
       akash: {
-        uri: process.env.MONGODB_AKASH_URI || 'mongodb://root:rootpassword@akash-mongodb:27017',
+        uri:
+          process.env.MONGODB_AKASH_URI ||
+          'mongodb://root:rootpassword@akash-mongodb:27017',
         database: process.env.MONGODB_DATABASE || 'os371',
         username: process.env.MONGODB_USERNAME || 'root',
-        password: process.env.MONGODB_PASSWORD || 'rootpassword'
+        password: process.env.MONGODB_PASSWORD || 'rootpassword',
       },
       options: {
         maxPoolSize: 10,
         serverSelectionTimeoutMS: 5000,
         socketTimeoutMS: 45000,
-        family: 4
-      }
+        family: 4,
+      },
     };
   }
 
   async connect(useAkash: boolean = false): Promise<boolean> {
     try {
       const connectionConfig = useAkash ? this.config.akash : this.config.local;
-      
-      this.logger.info(`Connecting to MongoDB: ${useAkash ? 'Akash Network' : 'Local'}`);
-      
+
+      this.logger.info(
+        `Connecting to MongoDB: ${useAkash ? 'Akash Network' : 'Local'}`,
+      );
+
       this.client = new MongoClient(connectionConfig.uri, this.config.options);
       await this.client.connect();
-      
+
       this.db = this.client.db(connectionConfig.database);
-      
+
       // Test the connection
       await this.db.admin().ping();
-      
+
       this.logger.info('MongoDB connection established successfully');
-      
+
       // Initialize collections and indexes
       await this.initializeCollections();
-      
+
       return true;
     } catch (error) {
       this.logger.error('Failed to connect to MongoDB:', error);
@@ -146,15 +158,24 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     // Create collections with proper indexes
-    const collections = ['agents', 'business_intelligence', 'communication_events', 'system_metrics'];
-    
+    const collections = [
+      'agents',
+      'business_intelligence',
+      'communication_events',
+      'system_metrics',
+    ];
+
     for (const collectionName of collections) {
       try {
         await this.db.createCollection(collectionName);
         this.logger.info(`Collection '${collectionName}' created/verified`);
       } catch (error: any) {
-        if (error.code !== 48) { // Collection already exists
-          this.logger.warn(`Collection creation warning for '${collectionName}':`, error);
+        if (error.code !== 48) {
+          // Collection already exists
+          this.logger.warn(
+            `Collection creation warning for '${collectionName}':`,
+            error,
+          );
         }
       }
     }
@@ -168,20 +189,34 @@ class MongoDB371Service {
 
     try {
       // Agent collection indexes
-      await this.db.collection('agents').createIndex({ agentId: 1 }, { unique: true });
+      await this.db
+        .collection('agents')
+        .createIndex({ agentId: 1 }, { unique: true });
       await this.db.collection('agents').createIndex({ type: 1 });
       await this.db.collection('agents').createIndex({ status: 1 });
       await this.db.collection('agents').createIndex({ lastActivity: 1 });
 
       // Business intelligence indexes
-      await this.db.collection('business_intelligence').createIndex({ timestamp: 1 });
-      await this.db.collection('business_intelligence').createIndex({ agentId: 1 });
-      await this.db.collection('business_intelligence').createIndex({ eventType: 1 });
+      await this.db
+        .collection('business_intelligence')
+        .createIndex({ timestamp: 1 });
+      await this.db
+        .collection('business_intelligence')
+        .createIndex({ agentId: 1 });
+      await this.db
+        .collection('business_intelligence')
+        .createIndex({ eventType: 1 });
 
       // Communication events indexes
-      await this.db.collection('communication_events').createIndex({ eventId: 1 }, { unique: true });
-      await this.db.collection('communication_events').createIndex({ timestamp: 1 });
-      await this.db.collection('communication_events').createIndex({ agentId: 1 });
+      await this.db
+        .collection('communication_events')
+        .createIndex({ eventId: 1 }, { unique: true });
+      await this.db
+        .collection('communication_events')
+        .createIndex({ timestamp: 1 });
+      await this.db
+        .collection('communication_events')
+        .createIndex({ agentId: 1 });
       await this.db.collection('communication_events').createIndex({ type: 1 });
 
       this.logger.info('Database indexes created successfully');
@@ -195,11 +230,11 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const result = await this.db.collection<AgentData>('agents').replaceOne(
-        { agentId: agentData.agentId },
-        agentData,
-        { upsert: true }
-      );
+      const result = await this.db
+        .collection<AgentData>('agents')
+        .replaceOne({ agentId: agentData.agentId }, agentData, {
+          upsert: true,
+        });
 
       this.logger.info(`Agent data saved for ${agentData.agentId}`);
       return result.acknowledged;
@@ -213,7 +248,9 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const agent = await this.db.collection<AgentData>('agents').findOne({ agentId });
+      const agent = await this.db
+        .collection<AgentData>('agents')
+        .findOne({ agentId });
       return agent;
     } catch (error) {
       this.logger.error('Error retrieving agent data:', error);
@@ -225,7 +262,10 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const agents = await this.db.collection<AgentData>('agents').find({}).toArray();
+      const agents = await this.db
+        .collection<AgentData>('agents')
+        .find({})
+        .toArray();
       return agents;
     } catch (error) {
       this.logger.error('Error retrieving all agents:', error);
@@ -238,7 +278,9 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const result = await this.db.collection<BusinessIntelligence>('business_intelligence').insertOne(data);
+      const result = await this.db
+        .collection<BusinessIntelligence>('business_intelligence')
+        .insertOne(data);
       this.logger.info(`Business intelligence data saved for ${data.agentId}`);
       return result.acknowledged;
     } catch (error) {
@@ -247,11 +289,15 @@ class MongoDB371Service {
     }
   }
 
-  async getBusinessIntelligence(agentId: string, limit: number = 100): Promise<BusinessIntelligence[]> {
+  async getBusinessIntelligence(
+    agentId: string,
+    limit: number = 100,
+  ): Promise<BusinessIntelligence[]> {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const data = await this.db.collection<BusinessIntelligence>('business_intelligence')
+      const data = await this.db
+        .collection<BusinessIntelligence>('business_intelligence')
         .find({ agentId })
         .sort({ timestamp: -1 })
         .limit(limit)
@@ -268,7 +314,9 @@ class MongoDB371Service {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const result = await this.db.collection<CommunicationEvent>('communication_events').insertOne(event);
+      const result = await this.db
+        .collection<CommunicationEvent>('communication_events')
+        .insertOne(event);
       this.logger.info(`Communication event saved: ${event.eventId}`);
       return result.acknowledged;
     } catch (error) {
@@ -277,11 +325,15 @@ class MongoDB371Service {
     }
   }
 
-  async getCommunicationEvents(agentId: string, limit: number = 100): Promise<CommunicationEvent[]> {
+  async getCommunicationEvents(
+    agentId: string,
+    limit: number = 100,
+  ): Promise<CommunicationEvent[]> {
     if (!this.db) throw new Error('Database not connected');
 
     try {
-      const events = await this.db.collection<CommunicationEvent>('communication_events')
+      const events = await this.db
+        .collection<CommunicationEvent>('communication_events')
         .find({ agentId })
         .sort({ timestamp: -1 })
         .limit(limit)
@@ -294,7 +346,11 @@ class MongoDB371Service {
   }
 
   // Health Check Methods
-  async healthCheck(): Promise<{ status: string; database: string; collections: number }> {
+  async healthCheck(): Promise<{
+    status: string;
+    database: string;
+    collections: number;
+  }> {
     if (!this.db) {
       return { status: 'disconnected', database: 'unknown', collections: 0 };
     }
@@ -302,11 +358,11 @@ class MongoDB371Service {
     try {
       await this.db.admin().ping();
       const collections = await this.db.listCollections().toArray();
-      
+
       return {
         status: 'connected',
         database: this.db.databaseName,
-        collections: collections.length
+        collections: collections.length,
       };
     } catch (error) {
       this.logger.error('Health check failed:', error);
@@ -336,7 +392,7 @@ export type {
   AgentData,
   BusinessIntelligence,
   CommunicationEvent,
-  MongoDB371Config
+  MongoDB371Config,
 };
 
 // Export the service class

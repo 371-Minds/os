@@ -1,6 +1,6 @@
 /**
  * DevelopersGalaxy.css - Spatial Development Environment Styling
- * 
+ *
  * Revolutionary CSS for the Developer's Galaxy universe interface,
  * transforming development workflows into cosmic exploration.
  */
@@ -11,7 +11,8 @@
   height: 100vh;
   background: radial-gradient(ellipse at center, #0f1419 0%, #050a0e 100%);
   overflow: hidden;
-  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .galaxy-canvas {
@@ -348,7 +349,8 @@
 
 /* Animation effects */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -388,13 +390,13 @@
     width: 250px;
     padding: 16px;
   }
-  
+
   .galaxy-controls {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
-  
+
   .control-group {
     padding: 6px 10px;
   }

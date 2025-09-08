@@ -38,7 +38,9 @@ export const AnalysisCompleteEmail = ({
 }: AnalysisCompleteEmailProps) => (
   <Html>
     <Head />
-    <Preview>✅ Analysis complete for {repositoryName} - {issuesFound} issues found</Preview>
+    <Preview>
+      ✅ Analysis complete for {repositoryName} - {issuesFound} issues found
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -50,24 +52,31 @@ export const AnalysisCompleteEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={completeBanner}>
           <Text style={completeIcon}>✅</Text>
           <Heading style={h1}>Analysis Complete!</Heading>
         </Section>
 
         <Text style={heroText}>
-          Hi {userFirstName}, we've finished analyzing <strong>{repositoryName}</strong>. 
-          The analysis took {analysisTime} and uncovered some interesting insights about your codebase.
+          Hi {userFirstName}, we've finished analyzing{' '}
+          <strong>{repositoryName}</strong>. The analysis took {analysisTime}{' '}
+          and uncovered some interesting insights about your codebase.
         </Text>
-        
+
         <Section style={summarySection}>
           <Text style={summaryTitle}>Analysis Summary</Text>
-          
+
           <Section style={scoreSection}>
             <Text style={scoreLabel}>Code Quality Score</Text>
             <Section style={scoreBar}>
-              <Section style={{...scoreFill, width: `${codeQualityScore}%`, backgroundColor: getScoreColor(codeQualityScore)}} />
+              <Section
+                style={{
+                  ...scoreFill,
+                  width: `${codeQualityScore}%`,
+                  backgroundColor: getScoreColor(codeQualityScore),
+                }}
+              />
             </Section>
             <Text style={scoreText}>{codeQualityScore}/100</Text>
           </Section>
@@ -90,15 +99,17 @@ export const AnalysisCompleteEmail = ({
 
         <Section style={issuesSection}>
           <Text style={issuesTitle}>Key Findings:</Text>
-          
+
           {securityIssues > 0 && (
             <Section style={issueGroup}>
               <Text style={issueIcon}>🔒</Text>
               <Section style={issueContent}>
-                <Text style={issueTitle}>Security Issues ({securityIssues})</Text>
+                <Text style={issueTitle}>
+                  Security Issues ({securityIssues})
+                </Text>
                 <Text style={issueDesc}>
-                  Found potential vulnerabilities including SQL injection risks and 
-                  insecure dependencies. Immediate attention recommended.
+                  Found potential vulnerabilities including SQL injection risks
+                  and insecure dependencies. Immediate attention recommended.
                 </Text>
               </Section>
             </Section>
@@ -108,10 +119,12 @@ export const AnalysisCompleteEmail = ({
             <Section style={issueGroup}>
               <Text style={issueIcon}>⚡</Text>
               <Section style={issueContent}>
-                <Text style={issueTitle}>Performance Issues ({performanceIssues})</Text>
+                <Text style={issueTitle}>
+                  Performance Issues ({performanceIssues})
+                </Text>
                 <Text style={issueDesc}>
-                  Identified inefficient database queries and memory leaks that could 
-                  impact application performance under load.
+                  Identified inefficient database queries and memory leaks that
+                  could impact application performance under load.
                 </Text>
               </Section>
             </Section>
@@ -122,8 +135,8 @@ export const AnalysisCompleteEmail = ({
             <Section style={issueContent}>
               <Text style={issueTitle}>Architecture Insights</Text>
               <Text style={issueDesc}>
-                Detected circular dependencies and suggested refactoring opportunities 
-                to improve code maintainability.
+                Detected circular dependencies and suggested refactoring
+                opportunities to improve code maintainability.
               </Text>
             </Section>
           </Section>
@@ -133,7 +146,7 @@ export const AnalysisCompleteEmail = ({
             <Section style={issueContent}>
               <Text style={issueTitle}>Code Quality</Text>
               <Text style={issueDesc}>
-                Found areas with high complexity and low test coverage. Consider 
+                Found areas with high complexity and low test coverage. Consider
                 breaking down large functions and adding unit tests.
               </Text>
             </Section>
@@ -141,7 +154,10 @@ export const AnalysisCompleteEmail = ({
         </Section>
 
         <Section style={buttonContainer}>
-          <Button style={primaryButton} href={`https://stacksense.com/analysis/${repositoryName}`}>
+          <Button
+            style={primaryButton}
+            href={`https://stacksense.com/analysis/${repositoryName}`}
+          >
             View Detailed Report
           </Button>
         </Section>
@@ -149,7 +165,8 @@ export const AnalysisCompleteEmail = ({
         <Section style={actionsSection}>
           <Text style={actionsTitle}>Recommended Next Steps:</Text>
           <Text style={actionItem}>
-            1. 🔍 Review the detailed security findings and apply suggested fixes
+            1. 🔍 Review the detailed security findings and apply suggested
+            fixes
           </Text>
           <Text style={actionItem}>
             2. ⚡ Optimize the identified performance bottlenecks
@@ -165,14 +182,15 @@ export const AnalysisCompleteEmail = ({
         <Section style={insightSection}>
           <Text style={insightTitle}>💡 Pro Tip</Text>
           <Text style={insightText}>
-            Enable automatic analysis on every commit to catch issues before they 
-            reach production. This can reduce debugging time by up to 60%.
+            Enable automatic analysis on every commit to catch issues before
+            they reach production. This can reduce debugging time by up to 60%.
           </Text>
         </Section>
 
         <Text style={text}>
-          Want to dive deeper? The full report includes line-by-line recommendations, 
-          code examples, and priority rankings for all findings.
+          Want to dive deeper? The full report includes line-by-line
+          recommendations, code examples, and priority rankings for all
+          findings.
         </Text>
 
         <Text style={text}>

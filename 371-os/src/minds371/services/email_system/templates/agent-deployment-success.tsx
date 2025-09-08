@@ -32,7 +32,9 @@ export const ModuMindAgentDeploymentSuccessEmail = ({
 }: ModuMindAgentDeploymentSuccessEmailProps) => (
   <Html>
     <Head />
-    <Preview>🚀 Your {agentName} has been successfully deployed and is now active!</Preview>
+    <Preview>
+      🚀 Your {agentName} has been successfully deployed and is now active!
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -44,17 +46,18 @@ export const ModuMindAgentDeploymentSuccessEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={successBanner}>
           <Text style={successIcon}>🚀</Text>
           <Heading style={h1}>Deployment Successful!</Heading>
         </Section>
 
         <Text style={heroText}>
-          Great news, {userFirstName}! Your <strong>{agentName}</strong> has been successfully 
-          deployed and is now actively running in your environment.
+          Great news, {userFirstName}! Your <strong>{agentName}</strong> has
+          been successfully deployed and is now actively running in your
+          environment.
         </Text>
-        
+
         <Section style={deploymentDetails}>
           <Text style={detailsTitle}>Deployment Summary:</Text>
           <Section style={detailRow}>
@@ -77,29 +80,37 @@ export const ModuMindAgentDeploymentSuccessEmail = ({
 
         <Section style={featuresSection}>
           <Text style={featuresTitle}>Your Agent is Now:</Text>
-          
+
           <Section style={featureGroup}>
             <Text style={featureIcon}>⚡</Text>
             <Text style={featureTitle}>Processing Requests</Text>
-            <Text style={featureDesc}>Actively handling incoming tasks and workflows</Text>
+            <Text style={featureDesc}>
+              Actively handling incoming tasks and workflows
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>📊</Text>
             <Text style={featureTitle}>Collecting Analytics</Text>
-            <Text style={featureDesc}>Gathering performance metrics and usage data</Text>
+            <Text style={featureDesc}>
+              Gathering performance metrics and usage data
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>🔄</Text>
             <Text style={featureTitle}>Auto-Learning</Text>
-            <Text style={featureDesc}>Continuously improving based on interactions</Text>
+            <Text style={featureDesc}>
+              Continuously improving based on interactions
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>🛡️</Text>
             <Text style={featureTitle}>Monitoring Health</Text>
-            <Text style={featureDesc}>Self-monitoring for optimal performance</Text>
+            <Text style={featureDesc}>
+              Self-monitoring for optimal performance
+            </Text>
           </Section>
         </Section>
 
@@ -111,10 +122,18 @@ export const ModuMindAgentDeploymentSuccessEmail = ({
 
         <Section style={nextStepsSection}>
           <Text style={nextStepsTitle}>What's Next?</Text>
-          <Text style={nextStep}>1. 📈 Monitor your agent's performance in real-time</Text>
-          <Text style={nextStep}>2. ⚙️ Fine-tune settings based on initial results</Text>
-          <Text style={nextStep}>3. 📋 Review analytics and optimization suggestions</Text>
-          <Text style={nextStep}>4. 🔄 Scale or replicate successful agent configurations</Text>
+          <Text style={nextStep}>
+            1. 📈 Monitor your agent's performance in real-time
+          </Text>
+          <Text style={nextStep}>
+            2. ⚙️ Fine-tune settings based on initial results
+          </Text>
+          <Text style={nextStep}>
+            3. 📋 Review analytics and optimization suggestions
+          </Text>
+          <Text style={nextStep}>
+            4. 🔄 Scale or replicate successful agent configurations
+          </Text>
         </Section>
 
         <Text style={text}>
@@ -126,7 +145,8 @@ export const ModuMindAgentDeploymentSuccessEmail = ({
         </Text>
 
         <Text style={text}>
-          Questions about your deployment? Our agent specialists are standing by:{' '}
+          Questions about your deployment? Our agent specialists are standing
+          by:{' '}
           <Link href="mailto:agents@modumind.com" style={link}>
             agents@modumind.com
           </Link>

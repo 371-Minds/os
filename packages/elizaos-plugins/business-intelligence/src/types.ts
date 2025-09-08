@@ -1,17 +1,32 @@
 /**
  * Business Intelligence Plugin Types
- * 
+ *
  * Comprehensive type definitions for the revolutionary business intelligence
  * system that transforms static dashboards into living business universes.
  */
 
-import { Action, Provider, Evaluator, IAgentRuntime, Memory, State, ActionResult, ProviderResult } from '@elizaos/core';
+import type {
+  Action,
+  ActionResult,
+  Evaluator,
+  IAgentRuntime,
+  Memory,
+  Provider,
+  ProviderResult,
+  State,
+} from '@elizaos/core';
 
 // Core Business Intelligence Types
 export interface BusinessMetric {
   id: string;
   name: string;
-  category: 'revenue' | 'expense' | 'asset' | 'liability' | 'kpi' | 'operational';
+  category:
+    | 'revenue'
+    | 'expense'
+    | 'asset'
+    | 'liability'
+    | 'kpi'
+    | 'operational';
   value: number;
   previousValue?: number;
   target?: number;
@@ -49,7 +64,14 @@ export interface BusinessAlert {
 export interface Department {
   id: string;
   name: string;
-  type: 'sales' | 'engineering' | 'operations' | 'finance' | 'marketing' | 'hr' | 'legal';
+  type:
+    | 'sales'
+    | 'engineering'
+    | 'operations'
+    | 'finance'
+    | 'marketing'
+    | 'hr'
+    | 'legal';
   headcount: number;
   budget: number;
   budgetUtilization: number;
@@ -83,7 +105,12 @@ export interface AgentInsight {
   id: string;
   agentId: string;
   agentRole: 'CEO' | 'CTO' | 'CFO' | 'CLO' | 'CMO';
-  type: 'trend_analysis' | 'anomaly_detection' | 'prediction' | 'recommendation' | 'alert';
+  type:
+    | 'trend_analysis'
+    | 'anomaly_detection'
+    | 'prediction'
+    | 'recommendation'
+    | 'alert';
   title: string;
   description: string;
   confidence: number; // 0-100
@@ -109,7 +136,7 @@ export interface BusinessDataCollectionAction extends Action {
       timeRange?: 'hour' | 'day' | 'week' | 'month' | 'quarter' | 'year';
     },
     callback?: any,
-    responses?: Memory[]
+    responses?: Memory[],
   ) => Promise<ActionResult | void | undefined>;
 }
 
@@ -127,7 +154,7 @@ export interface AlertGenerationAction extends Action {
       severity?: 'info' | 'warning' | 'critical';
     },
     callback?: any,
-    responses?: Memory[]
+    responses?: Memory[],
   ) => Promise<ActionResult | void | undefined>;
 }
 
@@ -144,7 +171,7 @@ export interface PredictiveAnalysisAction extends Action {
       departments?: string[];
     },
     callback?: any,
-    responses?: Memory[]
+    responses?: Memory[],
   ) => Promise<ActionResult | void | undefined>;
 }
 
@@ -157,10 +184,15 @@ export interface DepartmentAnalysisAction extends Action {
     state?: State,
     options?: {
       departmentId?: string;
-      analysisType?: 'performance' | 'efficiency' | 'budget' | 'risk' | 'comprehensive';
+      analysisType?:
+        | 'performance'
+        | 'efficiency'
+        | 'budget'
+        | 'risk'
+        | 'comprehensive';
     },
     callback?: any,
-    responses?: Memory[]
+    responses?: Memory[],
   ) => Promise<ActionResult | void | undefined>;
 }
 
@@ -171,7 +203,7 @@ export interface BusinessDataProvider extends Provider {
   get: (
     runtime: IAgentRuntime,
     message: Memory,
-    state?: State
+    state?: State,
   ) => Promise<ProviderResult>;
 }
 
@@ -185,7 +217,7 @@ export interface BusinessMetricsEvaluator extends Evaluator {
     state?: State,
     options?: any,
     callback?: any,
-    responses?: Memory[]
+    responses?: Memory[],
   ) => Promise<ActionResult | void | undefined>;
 }
 
@@ -209,7 +241,11 @@ export interface BusinessIntelligenceConfig {
 
 // Event Types for Real-time Updates
 export interface BusinessDataUpdateEvent {
-  type: 'METRIC_UPDATE' | 'ALERT_GENERATED' | 'DEPARTMENT_STATUS_CHANGE' | 'INSIGHT_CREATED';
+  type:
+    | 'METRIC_UPDATE'
+    | 'ALERT_GENERATED'
+    | 'DEPARTMENT_STATUS_CHANGE'
+    | 'INSIGHT_CREATED';
   timestamp: Date;
   data: BusinessMetric | BusinessAlert | Department | AgentInsight;
   agentId?: string;
@@ -256,7 +292,8 @@ export const BusinessIntelligenceActions = [
   'COLLECT_BUSINESS_DATA',
   'GENERATE_BUSINESS_ALERT',
   'ANALYZE_BUSINESS_TRENDS',
-  'ANALYZE_DEPARTMENT_PERFORMANCE'
+  'ANALYZE_DEPARTMENT_PERFORMANCE',
 ] as const;
 
-export type BusinessIntelligenceActionType = typeof BusinessIntelligenceActions[number];
+export type BusinessIntelligenceActionType =
+  (typeof BusinessIntelligenceActions)[number];

@@ -1,9 +1,9 @@
 /**
  * Business Intelligence Plugin for ElizaOS
- * 
+ *
  * Revolutionary real-time business intelligence integration that transforms
  * the CEO's Orrery into a living business universe powered by autonomous agents.
- * 
+ *
  * Features:
  * - Real-time business data collection and analysis
  * - Intelligent alert generation and threshold monitoring
@@ -13,39 +13,35 @@
  * - Seamless CEO's Orrery integration
  */
 
-// Main plugin export
-export { BusinessIntelligencePlugin as default } from './plugin';
-export * from './plugin';
-
-// Type definitions (interfaces and types only)
-export type {
-  BusinessMetric,
-  BusinessAlert,
-  Department,
-  BusinessSnapshot,
-  AgentInsight,
-  BusinessDataCollectionAction,
-  AlertGenerationAction,
-  PredictiveAnalysisAction,
-  DepartmentAnalysisAction,
-  BusinessIntelligenceConfig,
-  BusinessDataUpdateEvent,
-  OrreryUpdatePayload,
-  BlockchainCoordinationData,
-  BusinessIntelligenceActionType
-} from './types';
-
-// Constants from types (using explicit import to avoid conflicts)
-export { BusinessIntelligenceActions as BusinessIntelligenceActionNames } from './types';
-
 // Actual implementations (actions, provider, evaluator)
-export { 
-  collectBusinessDataAction,
-  generateBusinessAlertAction,
+export {
   analyzeBusinessTrendsAction,
   analyzeDepartmentPerformanceAction,
-  BusinessIntelligenceActions
+  BusinessIntelligenceActions,
+  collectBusinessDataAction,
+  generateBusinessAlertAction,
 } from './actions';
-
-export { BusinessDataProvider } from './provider';
 export { BusinessMetricsEvaluator } from './evaluator';
+export * from './plugin';
+// Main plugin export
+export { BusinessIntelligencePlugin as default } from './plugin';
+export { BusinessDataProvider } from './provider';
+// Type definitions (interfaces and types only)
+export type {
+  AgentInsight,
+  AlertGenerationAction,
+  BlockchainCoordinationData,
+  BusinessAlert,
+  BusinessDataCollectionAction,
+  BusinessDataUpdateEvent,
+  BusinessIntelligenceActionType,
+  BusinessIntelligenceConfig,
+  BusinessMetric,
+  BusinessSnapshot,
+  Department,
+  DepartmentAnalysisAction,
+  OrreryUpdatePayload,
+  PredictiveAnalysisAction,
+} from './types';
+// Constants from types (using explicit import to avoid conflicts)
+export { BusinessIntelligenceActions as BusinessIntelligenceActionNames } from './types';

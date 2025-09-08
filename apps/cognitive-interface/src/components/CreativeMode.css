@@ -1,6 +1,6 @@
 /**
  * CreativeMode.css - Styling for Creative Cognitive Mode
- * 
+ *
  * Optimized for content creation, marketing campaigns, and creative workflows.
  * Emphasizes visual elements, inspiration, and creative collaboration.
  */
@@ -9,7 +9,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #1a0b2e 0%, #2d1b3d 100%);
   color: #f1f5f9;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 2rem;
 }
 
@@ -75,13 +75,18 @@
 }
 
 .create-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -173,7 +178,7 @@
 }
 
 .metric-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -218,8 +223,12 @@
   gap: 0.25rem;
 }
 
-.metric-change.positive { color: #10b981; }
-.metric-change.negative { color: #ef4444; }
+.metric-change.positive {
+  color: #10b981;
+}
+.metric-change.negative {
+  color: #ef4444;
+}
 
 /* Projects Section */
 .projects-section {
@@ -291,11 +300,26 @@
   letter-spacing: 0.05em;
 }
 
-.status-badge.idea { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
-.status-badge.draft { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
-.status-badge.review { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-.status-badge.published { background: rgba(16, 185, 129, 0.2); color: #34d399; }
-.status-badge.archived { background: rgba(107, 114, 128, 0.2); color: #9ca3af; }
+.status-badge.idea {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+}
+.status-badge.draft {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+.status-badge.review {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+.status-badge.published {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+.status-badge.archived {
+  background: rgba(107, 114, 128, 0.2);
+  color: #9ca3af;
+}
 
 .type-badge {
   padding: 0.25rem 0.5rem;
@@ -435,9 +459,16 @@
   transform: translateY(-1px);
 }
 
-.tool-card.premium { border-left: 3px solid #f59e0b; }
-.tool-card.coming-soon { border-left: 3px solid #6b7280; opacity: 0.7; }
-.tool-card.available { border-left: 3px solid #10b981; }
+.tool-card.premium {
+  border-left: 3px solid #f59e0b;
+}
+.tool-card.coming-soon {
+  border-left: 3px solid #6b7280;
+  opacity: 0.7;
+}
+.tool-card.available {
+  border-left: 3px solid #10b981;
+}
 
 .tool-header {
   display: flex;
@@ -546,9 +577,15 @@
   transform: translateY(-1px);
 }
 
-.insight-card.trend { border-left: 3px solid #10b981; }
-.insight-card.opportunity { border-left: 3px solid #f59e0b; }
-.insight-card.performance { border-left: 3px solid #3b82f6; }
+.insight-card.trend {
+  border-left: 3px solid #10b981;
+}
+.insight-card.opportunity {
+  border-left: 3px solid #f59e0b;
+}
+.insight-card.performance {
+  border-left: 3px solid #3b82f6;
+}
 
 .insight-header {
   display: flex;
@@ -655,7 +692,7 @@
 }
 
 .inspiration-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -735,7 +772,7 @@
   .creative-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .projects-section,
   .tools-section,
   .insights-section,
@@ -748,33 +785,33 @@
   .creative-mode {
     padding: 1rem;
   }
-  
+
   .creative-header {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .quick-create {
     width: 100%;
     justify-content: stretch;
   }
-  
+
   .create-btn {
     flex: 1;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .metrics-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .tools-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .inspiration-grid {
     grid-template-columns: 1fr;
   }

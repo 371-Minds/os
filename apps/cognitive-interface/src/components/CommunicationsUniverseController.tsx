@@ -1,21 +1,35 @@
 /**
  * CommunicationsUniverseController.tsx - Resend Integration Controller
- * 
+ *
  * Orchestrates the Communications Universe with real-time Resend API data,
  * agent coordination, and email workflow automation. Serves as the main
  * controller for the C3 Universal Template demonstration.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  type CommunicationCoordinationEvent,
+  type ResendEmail,
+  type ResendEmailStats,
+  resendService,
+} from '../services/ResendService';
 import CommunicationsUniverse from './CommunicationsUniverse';
-import { resendService, ResendEmail, ResendEmailStats, CommunicationCoordinationEvent } from '../services/ResendService';
 import './CommunicationsUniverseController.css';
 
 interface EmailEntity {
   id: string;
   subject: string;
   type: 'campaign' | 'transactional' | 'automation' | 'broadcast' | 'personal';
-  status: 'draft' | 'scheduled' | 'sent' | 'delivered' | 'opened' | 'clicked' | 'bounced' | 'failed';
+  status:
+    | 'draft'
+    | 'scheduled'
+    | 'sent'
+    | 'delivered'
+    | 'opened'
+    | 'clicked'
+    | 'bounced'
+    | 'failed';
   position: { x: number; y: number };
   orbitRadius: number;
   orbitSpeed: number;
@@ -60,7 +74,12 @@ interface ContactConstellation {
 interface CommunicationFlow {
   id: string;
   name: string;
-  type: 'drip_campaign' | 'welcome_series' | 'nurture_sequence' | 're_engagement' | 'agent_coordination';
+  type:
+    | 'drip_campaign'
+    | 'welcome_series'
+    | 'nurture_sequence'
+    | 're_engagement'
+    | 'agent_coordination';
   stages: FlowStage[];
   emails: string[];
   status: 'active' | 'paused' | 'completed' | 'draft';
@@ -93,14 +112,18 @@ interface CommunicationsUniverseControllerProps {
   enableAgentCoordination?: boolean;
 }
 
-export const CommunicationsUniverseController: React.FC<CommunicationsUniverseControllerProps> = ({
+export const CommunicationsUniverseController: React.FC<
+  CommunicationsUniverseControllerProps
+> = ({
   onUniverseAction,
   enableRealTimeSync = true,
-  enableAgentCoordination = true
+  enableAgentCoordination = true,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [emails, setEmails] = useState<EmailEntity[]>([]);
-  const [constellations, setConstellations] = useState<ContactConstellation[]>([]);
+  const [constellations, setConstellations] = useState<ContactConstellation[]>(
+    [],
+  );
   const [flows, setFlows] = useState<CommunicationFlow[]>([]);
   const [stats, setStats] = useState<UniverseStats>({
     totalEmails: 0,
@@ -110,18 +133,22 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
     avgClickRate: 0,
     totalEngagement: 0,
     activeFlows: 0,
-    scheduledEmails: 0
+    scheduledEmails: 0,
   });
   const [selectedEmail, setSelectedEmail] = useState<EmailEntity | null>(null);
-  const [coordinationEvents, setCoordinationEvents] = useState<CommunicationCoordinationEvent[]>([]);
+  const [coordinationEvents, setCoordinationEvents] = useState<
+    CommunicationCoordinationEvent[]
+  >([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [syncStatus, setSyncStatus] = useState<'connected' | 'disconnected' | 'syncing'>('disconnected');
+  const [syncStatus, setSyncStatus] = useState<
+    'connected' | 'disconnected' | 'syncing'
+  >('disconnected');
   const syncIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Initialize universe and sync with Resend
   useEffect(() => {
     initializeUniverse();
-    
+
     if (enableRealTimeSync) {
       startRealTimeSync();
     }
@@ -140,7 +167,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const initializeUniverse = async () => {
     setIsLoading(true);
     setSyncStatus('syncing');
-    
+
     try {
       // Load initial email data from Resend
       const emailsResponse = await resendService.getEmails({ limit: 50 });
@@ -151,7 +178,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         resendEmails.map(async (resendEmail, index) => {
           const stats = await resendService.getEmailStats(resendEmail.id);
           return transformResendEmailToEntity(resendEmail, stats, index);
-        })
+        }),
       );
 
       setEmails(universeEmails);
@@ -165,7 +192,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
     } catch (error) {
       console.error('Failed to initialize Communications Universe:', error);
       setSyncStatus('disconnected');
-      
+
       // Fall back to demo data
       initializeDemoData();
     } finally {
@@ -174,11 +201,11 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   };
 
   const transformResendEmailToEntity = (
-    resendEmail: ResendEmail, 
-    stats: ResendEmailStats, 
-    index: number
+    resendEmail: ResendEmail,
+    stats: ResendEmailStats,
+    index: number,
   ): EmailEntity => {
-    const orbitRadius = index === 0 ? 0 : 120 + (index * 40);
+    const orbitRadius = index === 0 ? 0 : 120 + index * 40;
     const size = 15 + Math.min((stats.sent / 1000) * 10, 25);
     const engagementScore = Math.min(stats.open_rate + stats.click_rate, 100);
 
@@ -189,7 +216,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
       status: mapResendStatusToUniverseStatus(resendEmail.status),
       position: { x: 400, y: 300 },
       orbitRadius,
-      orbitSpeed: 0.003 + (index * 0.001),
+      orbitSpeed: 0.003 + index * 0.001,
       orbitAngle: (index / 6) * Math.PI * 2,
       size,
       deliveryRate: stats.delivery_rate,
@@ -201,45 +228,65 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
       satellites: generateEmailSatellites(resendEmail, stats),
       isSelected: false,
       sentAt: resendEmail.sent_at ? new Date(resendEmail.sent_at) : undefined,
-      scheduledFor: undefined
+      scheduledFor: undefined,
     };
   };
 
-  const determineEmailType = (resendEmail: ResendEmail): EmailEntity['type'] => {
+  const determineEmailType = (
+    resendEmail: ResendEmail,
+  ): EmailEntity['type'] => {
     if (resendEmail.tags?.includes('campaign')) return 'campaign';
     if (resendEmail.tags?.includes('automation')) return 'automation';
     if (resendEmail.tags?.includes('broadcast')) return 'broadcast';
     if (resendEmail.tags?.includes('agent-coordination')) return 'automation';
-    if (resendEmail.from.includes('noreply') || resendEmail.from.includes('system')) return 'transactional';
+    if (
+      resendEmail.from.includes('noreply') ||
+      resendEmail.from.includes('system')
+    )
+      return 'transactional';
     return 'personal';
   };
 
-  const mapResendStatusToUniverseStatus = (status: ResendEmail['status']): EmailEntity['status'] => {
+  const mapResendStatusToUniverseStatus = (
+    status: ResendEmail['status'],
+  ): EmailEntity['status'] => {
     switch (status) {
-      case 'queued': return 'scheduled';
-      case 'sent': return 'sent';
-      case 'delivered': return 'delivered';
-      case 'opened': return 'opened';
-      case 'clicked': return 'clicked';
-      case 'bounced': return 'bounced';
-      case 'failed': return 'failed';
-      case 'delivery_delayed': return 'sent';
-      default: return 'sent';
+      case 'queued':
+        return 'scheduled';
+      case 'sent':
+        return 'sent';
+      case 'delivered':
+        return 'delivered';
+      case 'opened':
+        return 'opened';
+      case 'clicked':
+        return 'clicked';
+      case 'bounced':
+        return 'bounced';
+      case 'failed':
+        return 'failed';
+      case 'delivery_delayed':
+        return 'sent';
+      default:
+        return 'sent';
     }
   };
 
   const getEmailTypeColor = (type: EmailEntity['type']): string => {
     const colors = {
-      'campaign': '#8b5cf6',
-      'automation': '#10b981',
-      'broadcast': '#3b82f6',
-      'transactional': '#f59e0b',
-      'personal': '#ec4899'
+      campaign: '#8b5cf6',
+      automation: '#10b981',
+      broadcast: '#3b82f6',
+      transactional: '#f59e0b',
+      personal: '#ec4899',
     };
     return colors[type] || '#6b7280';
   };
 
-  const generateEmailSatellites = (resendEmail: ResendEmail, stats: ResendEmailStats): EmailSatellite[] => {
+  const generateEmailSatellites = (
+    resendEmail: ResendEmail,
+    stats: ResendEmailStats,
+  ): EmailSatellite[] => {
     const satellites: EmailSatellite[] = [];
     let index = 0;
 
@@ -249,11 +296,11 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
       name: 'Recipients',
       type: 'recipient',
       position: { x: 0, y: 0 },
-      orbitRadius: 20 + (index * 8),
+      orbitRadius: 20 + index * 8,
       orbitSpeed: 0.02,
       size: 2 + Math.min(stats.sent / 5000, 4),
       value: stats.sent,
-      color: '#3b82f6'
+      color: '#3b82f6',
     });
     index++;
 
@@ -264,11 +311,11 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         name: 'Opens',
         type: 'metric',
         position: { x: 0, y: 0 },
-        orbitRadius: 20 + (index * 8),
+        orbitRadius: 20 + index * 8,
         orbitSpeed: 0.015,
         size: 2 + Math.min(stats.open_rate / 20, 4),
         value: stats.opened,
-        color: '#10b981'
+        color: '#10b981',
       });
       index++;
     }
@@ -280,28 +327,29 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         name: 'Clicks',
         type: 'metric',
         position: { x: 0, y: 0 },
-        orbitRadius: 20 + (index * 8),
+        orbitRadius: 20 + index * 8,
         orbitSpeed: 0.018,
         size: 2 + Math.min(stats.click_rate / 10, 4),
         value: stats.clicked,
-        color: '#8b5cf6'
+        color: '#8b5cf6',
       });
       index++;
     }
 
     // Tags satellites
     resendEmail.tags?.forEach((tag, tagIndex) => {
-      if (tagIndex < 3) { // Limit to 3 tag satellites
+      if (tagIndex < 3) {
+        // Limit to 3 tag satellites
         satellites.push({
           id: `${resendEmail.id}-tag-${tagIndex}`,
           name: tag,
           type: 'tag',
           position: { x: 0, y: 0 },
-          orbitRadius: 20 + (index * 8),
-          orbitSpeed: 0.012 + (tagIndex * 0.003),
+          orbitRadius: 20 + index * 8,
+          orbitSpeed: 0.012 + tagIndex * 0.003,
           size: 1.5,
           value: 1,
-          color: '#f59e0b'
+          color: '#f59e0b',
         });
         index++;
       }
@@ -321,7 +369,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         connectionStrength: 85,
         engagementLevel: 92,
         size: 30,
-        memberCount: 1250
+        memberCount: 1250,
       },
       {
         id: 'developer-community',
@@ -332,7 +380,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         connectionStrength: 78,
         engagementLevel: 87,
         size: 25,
-        memberCount: 8500
+        memberCount: 8500,
       },
       {
         id: 'creative-professionals',
@@ -343,8 +391,8 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         connectionStrength: 72,
         engagementLevel: 81,
         size: 22,
-        memberCount: 3200
-      }
+        memberCount: 3200,
+      },
     ];
 
     setConstellations(sampleConstellations);
@@ -359,12 +407,12 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         stages: [
           { id: 'trigger', name: 'Alert Trigger', status: 'complete' },
           { id: 'notify', name: 'Notify Agents', status: 'active' },
-          { id: 'followup', name: 'Follow-up Check', status: 'pending' }
+          { id: 'followup', name: 'Follow-up Check', status: 'pending' },
         ],
         emails: ['agent-coordination-alerts'],
         status: 'active',
         progress: 65,
-        effectiveness: 94
+        effectiveness: 94,
       },
       {
         id: 'welcome-series',
@@ -374,12 +422,12 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
           { id: 'welcome', name: 'Welcome Email', status: 'complete' },
           { id: 'features', name: 'Feature Overview', status: 'complete' },
           { id: 'tutorial', name: 'Tutorial Guide', status: 'active' },
-          { id: 'feedback', name: 'Feedback Request', status: 'pending' }
+          { id: 'feedback', name: 'Feedback Request', status: 'pending' },
         ],
         emails: ['welcome-series-automation'],
         status: 'active',
         progress: 75,
-        effectiveness: 89
+        effectiveness: 89,
       },
       {
         id: 'product-launch-sequence',
@@ -389,13 +437,17 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
           { id: 'teaser', name: 'Teaser Announcement', status: 'complete' },
           { id: 'launch', name: 'Launch Email', status: 'complete' },
           { id: 'features', name: 'Feature Deep Dive', status: 'active' },
-          { id: 'case-studies', name: 'Case Studies', status: 'pending' }
+          { id: 'case-studies', name: 'Case Studies', status: 'pending' },
         ],
-        emails: ['galaxy-launch-campaign', 'developer-galaxy-announcement', 'creators-cosmos-preview'],
+        emails: [
+          'galaxy-launch-campaign',
+          'developer-galaxy-announcement',
+          'creators-cosmos-preview',
+        ],
         status: 'active',
         progress: 80,
-        effectiveness: 91
-      }
+        effectiveness: 91,
+      },
     ];
 
     setFlows(sampleFlows);
@@ -422,8 +474,8 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         color: '#8b5cf6',
         satellites: [],
         isSelected: false,
-        sentAt: new Date(Date.now() - 4 * 60 * 60 * 1000)
-      }
+        sentAt: new Date(Date.now() - 4 * 60 * 60 * 1000),
+      },
     ];
 
     setEmails(demoEmails);
@@ -435,7 +487,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
     syncIntervalRef.current = setInterval(async () => {
       try {
         setSyncStatus('syncing');
-        
+
         // Fetch latest email data
         const emailsResponse = await resendService.getEmails({ limit: 20 });
         const latestEmails = emailsResponse.data;
@@ -445,17 +497,19 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
           latestEmails.map(async (resendEmail, index) => {
             const stats = await resendService.getEmailStats(resendEmail.id);
             return transformResendEmailToEntity(resendEmail, stats, index);
-          })
+          }),
         );
 
-        setEmails(prevEmails => {
-          const existingIds = new Set(prevEmails.map(e => e.id));
-          const newEmails = updates.filter(email => !existingIds.has(email.id));
-          const updatedEmails = prevEmails.map(existingEmail => {
-            const update = updates.find(u => u.id === existingEmail.id);
+        setEmails((prevEmails) => {
+          const existingIds = new Set(prevEmails.map((e) => e.id));
+          const newEmails = updates.filter(
+            (email) => !existingIds.has(email.id),
+          );
+          const updatedEmails = prevEmails.map((existingEmail) => {
+            const update = updates.find((u) => u.id === existingEmail.id);
             return update || existingEmail;
           });
-          
+
           return [...updatedEmails, ...newEmails];
         });
 
@@ -470,7 +524,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const setupAgentCoordination = () => {
     // Set up agent coordination event listeners
     resendService.onCoordinationEvent((event) => {
-      setCoordinationEvents(prev => [event, ...prev.slice(0, 9)]); // Keep last 10 events
+      setCoordinationEvents((prev) => [event, ...prev.slice(0, 9)]); // Keep last 10 events
     });
 
     // Set up universe update listeners
@@ -481,23 +535,37 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   };
 
   const handleUniverseUpdate = (updateData: any) => {
-    setEmails(prevEmails => 
-      prevEmails.map(email => 
-        email.id === updateData.emailId 
+    setEmails((prevEmails) =>
+      prevEmails.map((email) =>
+        email.id === updateData.emailId
           ? { ...email, status: updateData.status as EmailEntity['status'] }
-          : email
-      )
+          : email,
+      ),
     );
   };
 
   const updateUniverseStats = (emailList: EmailEntity[]) => {
     const totalEmails = emailList.length;
-    const totalRecipients = emailList.reduce((sum, email) => sum + email.recipientCount, 0);
-    const avgDeliveryRate = emailList.reduce((sum, email) => sum + email.deliveryRate, 0) / totalEmails || 0;
-    const avgOpenRate = emailList.reduce((sum, email) => sum + email.openRate, 0) / totalEmails || 0;
-    const avgClickRate = emailList.reduce((sum, email) => sum + email.clickRate, 0) / totalEmails || 0;
-    const totalEngagement = emailList.reduce((sum, email) => sum + email.engagementScore, 0);
-    const scheduledEmails = emailList.filter(email => email.status === 'scheduled').length;
+    const totalRecipients = emailList.reduce(
+      (sum, email) => sum + email.recipientCount,
+      0,
+    );
+    const avgDeliveryRate =
+      emailList.reduce((sum, email) => sum + email.deliveryRate, 0) /
+        totalEmails || 0;
+    const avgOpenRate =
+      emailList.reduce((sum, email) => sum + email.openRate, 0) / totalEmails ||
+      0;
+    const avgClickRate =
+      emailList.reduce((sum, email) => sum + email.clickRate, 0) /
+        totalEmails || 0;
+    const totalEngagement = emailList.reduce(
+      (sum, email) => sum + email.engagementScore,
+      0,
+    );
+    const scheduledEmails = emailList.filter(
+      (email) => email.status === 'scheduled',
+    ).length;
 
     setStats({
       totalEmails,
@@ -506,45 +574,71 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
       avgOpenRate,
       avgClickRate,
       totalEngagement,
-      activeFlows: flows.filter(flow => flow.status === 'active').length,
-      scheduledEmails
+      activeFlows: flows.filter((flow) => flow.status === 'active').length,
+      scheduledEmails,
     });
   };
 
-  const handleEmailSelect = useCallback((email: EmailEntity) => {
-    setSelectedEmail(email);
-    onUniverseAction?.('email_selected', { email });
-  }, [onUniverseAction]);
+  const handleEmailSelect = useCallback(
+    (email: EmailEntity) => {
+      setSelectedEmail(email);
+      onUniverseAction?.('email_selected', { email });
+    },
+    [onUniverseAction],
+  );
 
-  const handleConstellationSelect = useCallback((constellation: ContactConstellation) => {
-    onUniverseAction?.('constellation_selected', { constellation });
-  }, [onUniverseAction]);
+  const handleConstellationSelect = useCallback(
+    (constellation: ContactConstellation) => {
+      onUniverseAction?.('constellation_selected', { constellation });
+    },
+    [onUniverseAction],
+  );
 
-  const handleFlowAction = useCallback((flow: CommunicationFlow, action: string) => {
-    onUniverseAction?.('flow_action', { flow, action });
-  }, [onUniverseAction]);
+  const handleFlowAction = useCallback(
+    (flow: CommunicationFlow, action: string) => {
+      onUniverseAction?.('flow_action', { flow, action });
+    },
+    [onUniverseAction],
+  );
 
-  const triggerAgentNotification = async (agentType: string, message: string) => {
+  const triggerAgentNotification = async (
+    agentType: string,
+    message: string,
+  ) => {
     try {
       const notificationId = await resendService.sendAgentNotification(
         agentType as any,
         message,
-        'medium'
+        'medium',
       );
-      
+
       console.log(`Agent notification sent: ${notificationId}`);
-      onUniverseAction?.('agent_notification_sent', { agentType, message, notificationId });
+      onUniverseAction?.('agent_notification_sent', {
+        agentType,
+        message,
+        notificationId,
+      });
     } catch (error) {
       console.error('Failed to send agent notification:', error);
     }
   };
 
-  const triggerBusinessAlert = async (alertType: string, data: Record<string, any>) => {
+  const triggerBusinessAlert = async (
+    alertType: string,
+    data: Record<string, any>,
+  ) => {
     try {
-      const alertId = await resendService.triggerBusinessAlert(alertType as any, data);
-      
+      const alertId = await resendService.triggerBusinessAlert(
+        alertType as any,
+        data,
+      );
+
       console.log(`Business alert triggered: ${alertId}`);
-      onUniverseAction?.('business_alert_triggered', { alertType, data, alertId });
+      onUniverseAction?.('business_alert_triggered', {
+        alertType,
+        data,
+        alertId,
+      });
     } catch (error) {
       console.error('Failed to trigger business alert:', error);
     }
@@ -554,13 +648,13 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const shareEmailLink = async (emailId: string) => {
     try {
       const shareResult = await resendService.shareEmailLink(emailId);
-      
+
       // Copy to clipboard
       await navigator.clipboard.writeText(shareResult.link);
-      
+
       console.log(`Email link shared: ${shareResult.link}`);
       onUniverseAction?.('email_link_shared', { emailId, ...shareResult });
-      
+
       return shareResult;
     } catch (error) {
       console.error('Failed to share email link:', error);
@@ -571,10 +665,10 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const viewEmailLogs = async (emailId: string) => {
     try {
       const logs = await resendService.getEmailLogs(emailId);
-      
+
       console.log(`Retrieved ${logs.length} logs for email ${emailId}`);
       onUniverseAction?.('email_logs_viewed', { emailId, logs });
-      
+
       return logs;
     } catch (error) {
       console.error('Failed to get email logs:', error);
@@ -585,10 +679,10 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const exportEmailData = async (filters?: any) => {
     try {
       const exportResult = await resendService.exportEmailData(filters);
-      
+
       console.log(`Email export initiated: ${exportResult.id}`);
       onUniverseAction?.('email_export_initiated', { exportResult, filters });
-      
+
       return exportResult;
     } catch (error) {
       console.error('Failed to export email data:', error);
@@ -598,20 +692,26 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
 
   const scheduleEmail = async (emailData: any, scheduledAt: Date) => {
     try {
-      const scheduledEmail = await resendService.scheduleEmail(emailData, scheduledAt);
-      
+      const scheduledEmail = await resendService.scheduleEmail(
+        emailData,
+        scheduledAt,
+      );
+
       // Add to universe
       const newEmailEntity = transformResendEmailToEntity(
-        scheduledEmail, 
+        scheduledEmail,
         await resendService.getEmailStats(scheduledEmail.id),
-        emails.length
+        emails.length,
       );
-      
-      setEmails(prev => [...prev, newEmailEntity]);
-      
+
+      setEmails((prev) => [...prev, newEmailEntity]);
+
       console.log(`Email scheduled: ${scheduledEmail.id}`);
-      onUniverseAction?.('email_scheduled', { email: scheduledEmail, scheduledAt });
-      
+      onUniverseAction?.('email_scheduled', {
+        email: scheduledEmail,
+        scheduledAt,
+      });
+
       return scheduledEmail;
     } catch (error) {
       console.error('Failed to schedule email:', error);
@@ -622,17 +722,17 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
   const cancelScheduledEmail = async (emailId: string) => {
     try {
       const result = await resendService.cancelScheduledEmail(emailId);
-      
+
       // Update universe
-      setEmails(prev => prev.map(email => 
-        email.id === emailId 
-          ? { ...email, status: 'draft' }
-          : email
-      ));
-      
+      setEmails((prev) =>
+        prev.map((email) =>
+          email.id === emailId ? { ...email, status: 'draft' } : email,
+        ),
+      );
+
       console.log(`Scheduled email canceled: ${emailId}`);
       onUniverseAction?.('scheduled_email_canceled', { emailId, result });
-      
+
       return result;
     } catch (error) {
       console.error('Failed to cancel scheduled email:', error);
@@ -653,38 +753,57 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
           <div className="sync-status">
             <span className={`status-indicator ${syncStatus}`}></span>
             <span className="status-text">
-              {syncStatus === 'connected' ? 'Live Sync' : 
-               syncStatus === 'syncing' ? 'Syncing...' : 'Offline Mode'}
+              {syncStatus === 'connected'
+                ? 'Live Sync'
+                : syncStatus === 'syncing'
+                  ? 'Syncing...'
+                  : 'Offline Mode'}
             </span>
           </div>
           <div className="universe-stats">
             <span className="stat">📧 {stats.totalEmails}</span>
-            <span className="stat">👥 {stats.totalRecipients.toLocaleString()}</span>
+            <span className="stat">
+              👥 {stats.totalRecipients.toLocaleString()}
+            </span>
             <span className="stat">📈 {stats.totalEngagement.toFixed(1)}%</span>
             <span className="stat">⚡ {stats.activeFlows}</span>
           </div>
         </div>
-        
+
         {enableAgentCoordination && (
           <div className="agent-controls">
-            <button 
+            <button
               className="agent-action-btn"
-              onClick={() => triggerAgentNotification('CEO', 'Communications universe status update')}
+              onClick={() =>
+                triggerAgentNotification(
+                  'CEO',
+                  'Communications universe status update',
+                )
+              }
             >
               🤖 Notify CEO
             </button>
-            <button 
+            <button
               className="agent-action-btn"
-              onClick={() => triggerBusinessAlert('performance', { metric: 'email_engagement', value: stats.totalEngagement })}
+              onClick={() =>
+                triggerBusinessAlert('performance', {
+                  metric: 'email_engagement',
+                  value: stats.totalEngagement,
+                })
+              }
             >
               🚨 Trigger Alert
             </button>
-            <button 
+            <button
               className="agent-action-btn export-btn"
-              onClick={() => exportEmailData({ 
-                startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days ago
-                endDate: new Date().toISOString().split('T')[0] 
-              })}
+              onClick={() =>
+                exportEmailData({
+                  startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+                    .toISOString()
+                    .split('T')[0], // 30 days ago
+                  endDate: new Date().toISOString().split('T')[0],
+                })
+              }
               title="Export email data (last 30 days)"
             >
               📄 Export Data
@@ -719,7 +838,7 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         <div className="selected-email-panel">
           <div className="panel-header">
             <h3>{selectedEmail.subject}</h3>
-            <button 
+            <button
               className="close-btn"
               onClick={() => setSelectedEmail(null)}
             >
@@ -740,49 +859,59 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
               </div>
               <div className="detail-row">
                 <span className="label">Recipients:</span>
-                <span className="value">{selectedEmail.recipientCount.toLocaleString()}</span>
+                <span className="value">
+                  {selectedEmail.recipientCount.toLocaleString()}
+                </span>
               </div>
               <div className="detail-row">
                 <span className="label">Engagement:</span>
-                <span className="value">{selectedEmail.engagementScore.toFixed(1)}%</span>
+                <span className="value">
+                  {selectedEmail.engagementScore.toFixed(1)}%
+                </span>
               </div>
             </div>
-            
+
             <div className="email-metrics">
               <div className="metric">
                 <span className="metric-label">Delivery Rate</span>
-                <span className="metric-value">{selectedEmail.deliveryRate.toFixed(1)}%</span>
+                <span className="metric-value">
+                  {selectedEmail.deliveryRate.toFixed(1)}%
+                </span>
               </div>
               <div className="metric">
                 <span className="metric-label">Open Rate</span>
-                <span className="metric-value">{selectedEmail.openRate.toFixed(1)}%</span>
+                <span className="metric-value">
+                  {selectedEmail.openRate.toFixed(1)}%
+                </span>
               </div>
               <div className="metric">
                 <span className="metric-label">Click Rate</span>
-                <span className="metric-value">{selectedEmail.clickRate.toFixed(1)}%</span>
+                <span className="metric-value">
+                  {selectedEmail.clickRate.toFixed(1)}%
+                </span>
               </div>
             </div>
 
             {/* Dashboard Actions */}
             <div className="email-actions">
-              <button 
+              <button
                 className="action-btn share-btn"
                 onClick={() => shareEmailLink(selectedEmail.id)}
                 title="Share email link (48h expiry)"
               >
                 🔗 Share Link
               </button>
-              
-              <button 
+
+              <button
                 className="action-btn logs-btn"
                 onClick={() => viewEmailLogs(selectedEmail.id)}
                 title="View email logs and events"
               >
                 📋 View Logs
               </button>
-              
+
               {selectedEmail.status === 'scheduled' && (
-                <button 
+                <button
                   className="action-btn cancel-btn"
                   onClick={() => cancelScheduledEmail(selectedEmail.id)}
                   title="Cancel scheduled email"
@@ -790,10 +919,12 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
                   ⏹️ Cancel
                 </button>
               )}
-              
-              <button 
+
+              <button
                 className="action-btn preview-btn"
-                onClick={() => window.open(`/email-preview/${selectedEmail.id}`, '_blank')}
+                onClick={() =>
+                  window.open(`/email-preview/${selectedEmail.id}`, '_blank')
+                }
                 title="Preview email content"
               >
                 👁️ Preview
@@ -807,34 +938,40 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
                 <div className="stat-item">
                   <span className="stat-label">Engagement Score</span>
                   <div className="stat-bar">
-                    <div 
+                    <div
                       className="stat-fill"
                       style={{ width: `${selectedEmail.engagementScore}%` }}
                     ></div>
                   </div>
-                  <span className="stat-value">{selectedEmail.engagementScore.toFixed(1)}%</span>
+                  <span className="stat-value">
+                    {selectedEmail.engagementScore.toFixed(1)}%
+                  </span>
                 </div>
-                
+
                 <div className="stat-item">
                   <span className="stat-label">Delivery Success</span>
                   <div className="stat-bar">
-                    <div 
+                    <div
                       className="stat-fill delivery"
                       style={{ width: `${selectedEmail.deliveryRate}%` }}
                     ></div>
                   </div>
-                  <span className="stat-value">{selectedEmail.deliveryRate.toFixed(1)}%</span>
+                  <span className="stat-value">
+                    {selectedEmail.deliveryRate.toFixed(1)}%
+                  </span>
                 </div>
-                
+
                 <div className="stat-item">
                   <span className="stat-label">Interaction Rate</span>
                   <div className="stat-bar">
-                    <div 
+                    <div
                       className="stat-fill interaction"
                       style={{ width: `${selectedEmail.clickRate}%` }}
                     ></div>
                   </div>
-                  <span className="stat-value">{selectedEmail.clickRate.toFixed(1)}%</span>
+                  <span className="stat-value">
+                    {selectedEmail.clickRate.toFixed(1)}%
+                  </span>
                 </div>
               </div>
             </div>
@@ -852,7 +989,9 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
                   <div className="timeline-event">
                     <span className="event-icon">🚀</span>
                     <span className="event-label">Sent</span>
-                    <span className="event-time">{selectedEmail.sentAt.toLocaleString()}</span>
+                    <span className="event-time">
+                      {selectedEmail.sentAt.toLocaleString()}
+                    </span>
                   </div>
                   {selectedEmail.status === 'delivered' && (
                     <div className="timeline-event">
@@ -887,8 +1026,11 @@ export const CommunicationsUniverseController: React.FC<CommunicationsUniverseCo
         <div className="coordination-events">
           <h4>Recent Agent Coordination</h4>
           <div className="events-list">
-            {coordinationEvents.slice(0, 5).map(event => (
-              <div key={event.id} className={`event-item priority-${event.priority}`}>
+            {coordinationEvents.slice(0, 5).map((event) => (
+              <div
+                key={event.id}
+                className={`event-item priority-${event.priority}`}
+              >
                 <div className="event-header">
                   <span className="agent-type">{event.agentType}</span>
                   <span className="event-time">

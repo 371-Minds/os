@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface UpgradeButtonProps {
   text?: string;
@@ -32,15 +32,17 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
   variant = 'primary',
   size = 'medium',
   className = '',
-  trackingId
+  trackingId,
 }) => {
   const buttonClasses = [
     'upgrade-button',
     `upgrade-button--${variant}`,
     `upgrade-button--${size}`,
     urgency?.limitedOffer ? 'upgrade-button--urgent' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const getUpgradeIcon = () => {
     switch (variant) {
@@ -55,15 +57,15 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
 
   const formatDiscount = () => {
     if (!discount) return null;
-    
+
     if (discount.percentage) {
       return `${discount.percentage}% OFF`;
     }
-    
+
     if (discount.amount && discount.currency) {
       return `${discount.currency}${discount.amount} OFF`;
     }
-    
+
     return null;
   };
 
@@ -76,7 +78,7 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
         current_plan: currentPlan,
         target_plan: targetPlan,
         has_discount: !!discount,
-        value: text
+        value: text,
       });
     }
   };
@@ -88,7 +90,7 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
           <span className="urgency-text">⏰ {urgency.timeLeft} left!</span>
         </div>
       )}
-      
+
       <a
         href={href}
         className={buttonClasses}
@@ -107,13 +109,11 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
             </span>
           )}
           {discount && (
-            <span className="upgrade-button__discount">
-              {formatDiscount()}
-            </span>
+            <span className="upgrade-button__discount">{formatDiscount()}</span>
           )}
         </div>
       </a>
-      
+
       {benefits && benefits.length > 0 && (
         <div className="upgrade-benefits">
           <p className="upgrade-benefits__title">Upgrade benefits:</p>
@@ -126,7 +126,7 @@ export const UpgradeButton: React.FC<UpgradeButtonProps> = ({
           </ul>
         </div>
       )}
-      
+
       {urgency?.limitedOffer && (
         <div className="limited-offer-notice">
           <span className="limited-offer-text">

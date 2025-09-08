@@ -1,6 +1,6 @@
 /**
  * TechnicalMode.css - Styling for Technical Cognitive Mode
- * 
+ *
  * Optimized for development work, system monitoring, and technical analysis.
  * Emphasizes detailed information, tools access, and development workflows.
  */
@@ -9,7 +9,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
   color: #e2e8f0;
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
   padding: 1.5rem;
   font-size: 0.875rem;
 }
@@ -135,9 +135,15 @@
   transform: translateY(-1px);
 }
 
-.metric-card.healthy { border-left: 3px solid #10b981; }
-.metric-card.warning { border-left: 3px solid #f59e0b; }
-.metric-card.critical { border-left: 3px solid #ef4444; }
+.metric-card.healthy {
+  border-left: 3px solid #10b981;
+}
+.metric-card.warning {
+  border-left: 3px solid #f59e0b;
+}
+.metric-card.critical {
+  border-left: 3px solid #ef4444;
+}
 
 .metric-header {
   display: flex;
@@ -161,9 +167,15 @@
   border-radius: 50%;
 }
 
-.status-dot.healthy { background: #10b981; }
-.status-dot.warning { background: #f59e0b; }
-.status-dot.critical { background: #ef4444; }
+.status-dot.healthy {
+  background: #10b981;
+}
+.status-dot.warning {
+  background: #f59e0b;
+}
+.status-dot.critical {
+  background: #ef4444;
+}
 
 .metric-value {
   font-size: 1.25rem;
@@ -186,9 +198,15 @@
   font-weight: bold;
 }
 
-.trend-arrow.up { color: #10b981; }
-.trend-arrow.down { color: #ef4444; }
-.trend-arrow.stable { color: #f59e0b; }
+.trend-arrow.up {
+  color: #10b981;
+}
+.trend-arrow.down {
+  color: #ef4444;
+}
+.trend-arrow.stable {
+  color: #f59e0b;
+}
 
 /* Build Status */
 .builds-section {
@@ -213,10 +231,18 @@
   border-color: rgba(100, 116, 139, 0.4);
 }
 
-.build-card.success { border-left: 3px solid #10b981; }
-.build-card.failed { border-left: 3px solid #ef4444; }
-.build-card.building { border-left: 3px solid #3b82f6; }
-.build-card.pending { border-left: 3px solid #64748b; }
+.build-card.success {
+  border-left: 3px solid #10b981;
+}
+.build-card.failed {
+  border-left: 3px solid #ef4444;
+}
+.build-card.building {
+  border-left: 3px solid #3b82f6;
+}
+.build-card.pending {
+  border-left: 3px solid #64748b;
+}
 
 .build-header {
   display: flex;
@@ -252,8 +278,12 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .build-time {
@@ -287,9 +317,15 @@
   padding: 1rem;
 }
 
-.quality-card.good { border-left: 3px solid #10b981; }
-.quality-card.warning { border-left: 3px solid #f59e0b; }
-.quality-card.poor { border-left: 3px solid #ef4444; }
+.quality-card.good {
+  border-left: 3px solid #10b981;
+}
+.quality-card.warning {
+  border-left: 3px solid #f59e0b;
+}
+.quality-card.poor {
+  border-left: 3px solid #ef4444;
+}
 
 .quality-card h4 {
   margin: 0 0 0.5rem 0;
@@ -337,9 +373,15 @@
   transition: width 0.3s ease;
 }
 
-.quality-fill.good { background: #10b981; }
-.quality-fill.warning { background: #f59e0b; }
-.quality-fill.poor { background: #ef4444; }
+.quality-fill.good {
+  background: #10b981;
+}
+.quality-fill.warning {
+  background: #f59e0b;
+}
+.quality-fill.poor {
+  background: #ef4444;
+}
 
 /* Development Tools */
 .tools-section {
@@ -365,9 +407,15 @@
   transform: translateY(-1px);
 }
 
-.tool-card.available { border-left: 3px solid #64748b; }
-.tool-card.running { border-left: 3px solid #10b981; }
-.tool-card.disabled { border-left: 3px solid #374151; }
+.tool-card.available {
+  border-left: 3px solid #64748b;
+}
+.tool-card.running {
+  border-left: 3px solid #10b981;
+}
+.tool-card.disabled {
+  border-left: 3px solid #374151;
+}
 
 .tool-header {
   display: flex;
@@ -462,9 +510,15 @@
   border-radius: 50%;
 }
 
-.terminal-btn.close { background: #ef4444; }
-.terminal-btn.minimize { background: #f59e0b; }
-.terminal-btn.maximize { background: #10b981; }
+.terminal-btn.close {
+  background: #ef4444;
+}
+.terminal-btn.minimize {
+  background: #f59e0b;
+}
+.terminal-btn.maximize {
+  background: #10b981;
+}
 
 .terminal-title {
   flex: 1;
@@ -476,7 +530,7 @@
 
 .terminal-content {
   padding: 1rem;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.75rem;
   line-height: 1.4;
   max-height: 300px;
@@ -506,8 +560,14 @@
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Responsive Design */
@@ -515,23 +575,23 @@
   .technical-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .metrics-section {
     grid-column: 1 / -1;
   }
-  
+
   .builds-section {
     grid-column: 1;
   }
-  
+
   .quality-section {
     grid-column: 2;
   }
-  
+
   .tools-section {
     grid-column: 1;
   }
-  
+
   .terminal-section {
     grid-column: 2;
   }
@@ -541,25 +601,25 @@
   .technical-mode {
     padding: 1rem;
   }
-  
+
   .technical-header {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .quick-commands {
     width: 100%;
     justify-content: stretch;
   }
-  
+
   .command-btn {
     flex: 1;
   }
-  
+
   .technical-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .metrics-section,
   .builds-section,
   .quality-section,
@@ -567,11 +627,11 @@
   .terminal-section {
     grid-column: 1;
   }
-  
+
   .metrics-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .tools-grid {
     grid-template-columns: 1fr;
   }

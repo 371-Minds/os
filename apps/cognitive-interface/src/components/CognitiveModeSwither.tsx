@@ -1,17 +1,24 @@
 /**
  * CognitiveModeSwither.tsx - Manual Cognitive State Transition Component
- * 
+ *
  * This component enables manual switching between cognitive modes (Executive, Technical, Creative)
  * and serves as the foundation for automatic cognitive state detection in Phase 4.
- * 
+ *
  * Part of the revolutionary Galaxy Engine cognitive-aware interface system.
  */
 
-import React, { useState, useEffect } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import './CognitiveModeSwither.css';
 
 interface CognitiveState {
-  id: 'executive' | 'technical' | 'creative' | 'analytical' | 'collaborative' | 'learning';
+  id:
+    | 'executive'
+    | 'technical'
+    | 'creative'
+    | 'analytical'
+    | 'collaborative'
+    | 'learning';
   name: string;
   description: string;
   icon: string;
@@ -41,10 +48,12 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
   onModeChange,
   onStateDetection,
   showDetectionInsights = true,
-  enableShortcuts = true
+  enableShortcuts = true,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [recentTransitions, setRecentTransitions] = useState<ModeTransition[]>([]);
+  const [recentTransitions, setRecentTransitions] = useState<ModeTransition[]>(
+    [],
+  );
   const [detectionContext, setDetectionContext] = useState<any>(null);
   const [autoDetectionEnabled, setAutoDetectionEnabled] = useState(false);
 
@@ -56,16 +65,26 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       icon: '👔',
       color: '#3b82f6',
       shortcut: 'Ctrl+E',
-      optimizedFor: ['KPIs', 'Strategy', 'Team Coordination', 'Decision Making']
+      optimizedFor: [
+        'KPIs',
+        'Strategy',
+        'Team Coordination',
+        'Decision Making',
+      ],
     },
     {
       id: 'technical',
-      name: 'Technical Mode', 
+      name: 'Technical Mode',
       description: 'Development, debugging, and system operations',
       icon: '⚡',
       color: '#7c3aed',
       shortcut: 'Ctrl+T',
-      optimizedFor: ['Code Development', 'System Monitoring', 'Debugging', 'Architecture']
+      optimizedFor: [
+        'Code Development',
+        'System Monitoring',
+        'Debugging',
+        'Architecture',
+      ],
     },
     {
       id: 'creative',
@@ -74,7 +93,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       icon: '🎨',
       color: '#ec4899',
       shortcut: 'Ctrl+C',
-      optimizedFor: ['Content Creation', 'Marketing', 'Design', 'Ideation']
+      optimizedFor: ['Content Creation', 'Marketing', 'Design', 'Ideation'],
     },
     {
       id: 'analytical',
@@ -83,7 +102,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       icon: '📊',
       color: '#f59e0b',
       shortcut: 'Ctrl+A',
-      optimizedFor: ['Data Analysis', 'Research', 'Reports', 'Investigation']
+      optimizedFor: ['Data Analysis', 'Research', 'Reports', 'Investigation'],
     },
     {
       id: 'collaborative',
@@ -92,7 +111,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       icon: '👥',
       color: '#10b981',
       shortcut: 'Ctrl+L',
-      optimizedFor: ['Team Work', 'Communication', 'Meetings', 'Coordination']
+      optimizedFor: ['Team Work', 'Communication', 'Meetings', 'Coordination'],
     },
     {
       id: 'learning',
@@ -101,25 +120,36 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       icon: '📚',
       color: '#6366f1',
       shortcut: 'Ctrl+Shift+L',
-      optimizedFor: ['Learning', 'Documentation', 'Skill Building', 'Knowledge']
-    }
+      optimizedFor: [
+        'Learning',
+        'Documentation',
+        'Skill Building',
+        'Knowledge',
+      ],
+    },
   ];
 
   const getCurrentState = (): CognitiveState => {
-    return cognitiveStates.find(state => state.id === currentMode) || cognitiveStates[0];
+    return (
+      cognitiveStates.find((state) => state.id === currentMode) ||
+      cognitiveStates[0]
+    );
   };
 
-  const handleModeSwitch = (newMode: string, trigger: 'manual' | 'shortcut' = 'manual') => {
+  const handleModeSwitch = (
+    newMode: string,
+    trigger: 'manual' | 'shortcut' = 'manual',
+  ) => {
     const transition: ModeTransition = {
       fromState: currentMode,
       toState: newMode,
       timestamp: new Date(),
       trigger,
-      confidence: trigger === 'manual' ? 1.0 : undefined
+      confidence: trigger === 'manual' ? 1.0 : undefined,
     };
 
     // Update recent transitions
-    setRecentTransitions(prev => [transition, ...prev.slice(0, 4)]);
+    setRecentTransitions((prev) => [transition, ...prev.slice(0, 4)]);
 
     // Call parent handler
     onModeChange(newMode, transition);
@@ -132,7 +162,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
   };
 
   const showTransitionFeedback = (fromMode: string, toMode: string) => {
-    const newState = cognitiveStates.find(s => s.id === toMode);
+    const newState = cognitiveStates.find((s) => s.id === toMode);
     if (newState) {
       // Create a temporary notification
       const notification = document.createElement('div');
@@ -174,11 +204,11 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
 
     const shortcutMappings: { [key: string]: string } = {
       'Control+KeyE': 'executive',
-      'Control+KeyT': 'technical', 
+      'Control+KeyT': 'technical',
       'Control+KeyC': 'creative',
       'Control+KeyA': 'analytical',
       'Control+KeyL': 'collaborative',
-      'Control+Shift+KeyL': 'learning'
+      'Control+Shift+KeyL': 'learning',
     };
 
     const shortcutKey = `${event.ctrlKey ? 'Control+' : ''}${event.shiftKey ? 'Shift+' : ''}${event.code}`;
@@ -199,7 +229,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
       focusLevel: 'high',
       multitasking: false,
       sessionDuration: Math.floor(Math.random() * 120) + 30, // 30-150 minutes
-      workType: 'development'
+      workType: 'development',
     };
 
     setDetectionContext(mockContext);
@@ -212,10 +242,14 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
     let suggestedState = 'executive';
     let confidence = 0.7;
 
-    if (currentTime >= 14 && currentTime <= 17 && mockContext.recentActions.some(a => a.includes('BUILD'))) {
+    if (
+      currentTime >= 14 &&
+      currentTime <= 17 &&
+      mockContext.recentActions.some((a) => a.includes('BUILD'))
+    ) {
       suggestedState = 'technical';
       confidence = 0.9;
-    } else if (mockContext.recentActions.some(a => a.includes('CREATE'))) {
+    } else if (mockContext.recentActions.some((a) => a.includes('CREATE'))) {
       suggestedState = 'creative';
       confidence = 0.8;
     }
@@ -227,7 +261,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
     const diffMinutes = Math.floor(diffMs / (1000 * 60));
-    
+
     if (diffMinutes < 1) return 'Just now';
     if (diffMinutes < 60) return `${diffMinutes}m ago`;
     const diffHours = Math.floor(diffMinutes / 60);
@@ -237,7 +271,8 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
   useEffect(() => {
     if (enableShortcuts) {
       document.addEventListener('keydown', handleKeyboardShortcut);
-      return () => document.removeEventListener('keydown', handleKeyboardShortcut);
+      return () =>
+        document.removeEventListener('keydown', handleKeyboardShortcut);
     }
   }, [enableShortcuts, currentMode]);
 
@@ -285,7 +320,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
   return (
     <div className="cognitive-mode-switcher">
       {/* Current Mode Display */}
-      <div 
+      <div
         className={`current-mode ${isExpanded ? 'expanded' : ''}`}
         onClick={() => setIsExpanded(!isExpanded)}
         style={{ borderLeftColor: currentState.color }}
@@ -311,7 +346,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
             <h3>Switch Cognitive Mode</h3>
             <div className="auto-detection-toggle">
               <label>
-                <input 
+                <input
                   type="checkbox"
                   checked={autoDetectionEnabled}
                   onChange={(e) => setAutoDetectionEnabled(e.target.checked)}
@@ -344,10 +379,14 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
                   <div className="optimization-label">Optimized for:</div>
                   <div className="optimization-tags">
                     {state.optimizedFor.slice(0, 2).map((item, index) => (
-                      <span key={index} className="optimization-tag">{item}</span>
+                      <span key={index} className="optimization-tag">
+                        {item}
+                      </span>
                     ))}
                     {state.optimizedFor.length > 2 && (
-                      <span className="more-tag">+{state.optimizedFor.length - 2}</span>
+                      <span className="more-tag">
+                        +{state.optimizedFor.length - 2}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -359,7 +398,7 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
             <div className="detection-section">
               <div className="section-header">
                 <h4>Cognitive Detection (Demo)</h4>
-                <button 
+                <button
                   className="detect-btn"
                   onClick={simulateContextDetection}
                 >
@@ -372,23 +411,30 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
                   <div className="context-info">
                     <div className="context-item">
                       <span className="context-label">Time:</span>
-                      <span className="context-value">{detectionContext.timeOfDay}:00</span>
+                      <span className="context-value">
+                        {detectionContext.timeOfDay}:00
+                      </span>
                     </div>
                     <div className="context-item">
                       <span className="context-label">Focus:</span>
-                      <span className="context-value">{detectionContext.focusLevel}</span>
+                      <span className="context-value">
+                        {detectionContext.focusLevel}
+                      </span>
                     </div>
                     <div className="context-item">
                       <span className="context-label">Session:</span>
-                      <span className="context-value">{detectionContext.sessionDuration}m</span>
+                      <span className="context-value">
+                        {detectionContext.sessionDuration}m
+                      </span>
                     </div>
                   </div>
-                  
+
                   <div className="detection-suggestion">
                     <div className="suggestion-text">
-                      AI suggests: <strong>Technical Mode</strong> (90% confidence)
+                      AI suggests: <strong>Technical Mode</strong> (90%
+                      confidence)
                     </div>
-                    <button 
+                    <button
                       className="apply-suggestion"
                       onClick={() => handleModeSwitch('technical', 'manual')}
                     >
@@ -405,9 +451,13 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
               <h4>Recent Transitions</h4>
               <div className="transitions-list">
                 {recentTransitions.map((transition, index) => {
-                  const fromState = cognitiveStates.find(s => s.id === transition.fromState);
-                  const toState = cognitiveStates.find(s => s.id === transition.toState);
-                  
+                  const fromState = cognitiveStates.find(
+                    (s) => s.id === transition.fromState,
+                  );
+                  const toState = cognitiveStates.find(
+                    (s) => s.id === transition.toState,
+                  );
+
                   return (
                     <div key={index} className="transition-item">
                       <div className="transition-flow">
@@ -420,8 +470,12 @@ export const CognitiveModeSwither: React.FC<CognitiveModeSwithcerProps> = ({
                         </span>
                       </div>
                       <div className="transition-meta">
-                        <span className="transition-time">{formatTransitionTime(transition.timestamp)}</span>
-                        <span className={`transition-trigger ${transition.trigger}`}>
+                        <span className="transition-time">
+                          {formatTransitionTime(transition.timestamp)}
+                        </span>
+                        <span
+                          className={`transition-trigger ${transition.trigger}`}
+                        >
                           {transition.trigger}
                         </span>
                       </div>

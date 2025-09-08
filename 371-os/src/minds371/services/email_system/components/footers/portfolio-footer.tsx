@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface PortfolioFooterProps {
   portfolioName: string;
@@ -25,7 +25,7 @@ export const PortfolioFooter: React.FC<PortfolioFooterProps> = ({
   skills,
   contactEmail,
   socialLinks,
-  className = ''
+  className = '',
 }) => {
   return (
     <footer className={`portfolio-footer ${className}`}>
@@ -40,7 +40,7 @@ export const PortfolioFooter: React.FC<PortfolioFooterProps> = ({
               </p>
             )}
           </div>
-          
+
           {projects && projects.length > 0 && (
             <div className="featured-projects">
               <h4>Featured Projects</h4>
@@ -55,7 +55,7 @@ export const PortfolioFooter: React.FC<PortfolioFooterProps> = ({
               </ul>
             </div>
           )}
-          
+
           {skills && skills.length > 0 && (
             <div className="skills-section">
               <h4>Skills</h4>
@@ -68,28 +68,42 @@ export const PortfolioFooter: React.FC<PortfolioFooterProps> = ({
               </div>
             </div>
           )}
-          
+
           {socialLinks && (
             <div className="social-links">
               <h4>Connect</h4>
               <div className="social-icons">
                 {socialLinks.github && (
-                  <a href={socialLinks.github} className="social-link github">GitHub</a>
+                  <a href={socialLinks.github} className="social-link github">
+                    GitHub
+                  </a>
                 )}
                 {socialLinks.linkedin && (
-                  <a href={socialLinks.linkedin} className="social-link linkedin">LinkedIn</a>
+                  <a
+                    href={socialLinks.linkedin}
+                    className="social-link linkedin"
+                  >
+                    LinkedIn
+                  </a>
                 )}
                 {socialLinks.twitter && (
-                  <a href={socialLinks.twitter} className="social-link twitter">Twitter</a>
+                  <a href={socialLinks.twitter} className="social-link twitter">
+                    Twitter
+                  </a>
                 )}
                 {socialLinks.portfolio && (
-                  <a href={socialLinks.portfolio} className="social-link portfolio">Portfolio</a>
+                  <a
+                    href={socialLinks.portfolio}
+                    className="social-link portfolio"
+                  >
+                    Portfolio
+                  </a>
                 )}
               </div>
             </div>
           )}
         </div>
-        
+
         <div className="footer-bottom">
           <p className="copyright">
             © {new Date().getFullYear()} {portfolioName}. Built with passion.

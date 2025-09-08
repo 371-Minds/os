@@ -1,6 +1,6 @@
 /**
  * Cognitive Engine Integration - ElizaOS Plugin Bridge
- * 
+ *
  * This module creates the bridge between the React cognitive interface
  * and the ElizaOS cognitive engine plugin for real-time cognitive state detection.
  */
@@ -29,13 +29,13 @@ interface CognitiveEngineActions {
     description: string;
     handler: (runtime: ElizaOSRuntime, message: ElizaOSMessage) => Promise<any>;
   };
-  
+
   adaptInterface: {
     name: 'ADAPT_INTERFACE';
     description: string;
     handler: (runtime: ElizaOSRuntime, message: ElizaOSMessage) => Promise<any>;
   };
-  
+
   analyzeProductivity: {
     name: 'ANALYZE_PRODUCTIVITY';
     description: string;
@@ -67,69 +67,94 @@ export class CognitiveEngineIntegration {
     return {
       detectCognitiveState: {
         name: 'DETECT_COGNITIVE_STATE',
-        description: 'Analyzes user behavior patterns and context to detect optimal cognitive mode',
+        description:
+          'Analyzes user behavior patterns and context to detect optimal cognitive mode',
         handler: async (runtime: ElizaOSRuntime, message: ElizaOSMessage) => {
-          console.log('🧠 ElizaOS: Detecting cognitive state for user:', message.userId);
-          
+          console.log(
+            '🧠 ElizaOS: Detecting cognitive state for user:',
+            message.userId,
+          );
+
           // Analyze user message content and context
           const context = await this.analyzeUserContext(runtime, message);
           const cognitiveState = await this.predictCognitiveMode(context);
-          
+
           // Update UI if instance exists
           if (this.uiInstance) {
-            console.log('🎯 Automatically adapting interface to:', cognitiveState.mode);
+            console.log(
+              '🎯 Automatically adapting interface to:',
+              cognitiveState.mode,
+            );
             // Future: Trigger UI mode change
           }
-          
+
           return {
             suggestedMode: cognitiveState.mode,
             confidence: cognitiveState.confidence,
             reasoning: cognitiveState.reasoning,
-            context: context
+            context: context,
           };
-        }
+        },
       },
-      
+
       adaptInterface: {
         name: 'ADAPT_INTERFACE',
-        description: 'Dynamically adapts the cognitive interface based on detected user state',
+        description:
+          'Dynamically adapts the cognitive interface based on detected user state',
         handler: async (runtime: ElizaOSRuntime, message: ElizaOSMessage) => {
-          console.log('🔄 ElizaOS: Adapting interface for user:', message.userId);
-          
-          const detectionResult = await this.cognitiveActions.detectCognitiveState.handler(runtime, message);
-          
+          console.log(
+            '🔄 ElizaOS: Adapting interface for user:',
+            message.userId,
+          );
+
+          const detectionResult =
+            await this.cognitiveActions.detectCognitiveState.handler(
+              runtime,
+              message,
+            );
+
           // Trigger interface adaptation
           if (this.uiInstance && detectionResult.confidence > 80) {
-            console.log('✅ High confidence adaptation:', detectionResult.suggestedMode);
+            console.log(
+              '✅ High confidence adaptation:',
+              detectionResult.suggestedMode,
+            );
             // Future: Call UI adaptation method
           }
-          
+
           return {
             adapted: true,
             newMode: detectionResult.suggestedMode,
             confidence: detectionResult.confidence,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
           };
-        }
+        },
       },
-      
+
       analyzeProductivity: {
         name: 'ANALYZE_PRODUCTIVITY',
-        description: 'Analyzes user productivity patterns and suggests cognitive optimizations',
+        description:
+          'Analyzes user productivity patterns and suggests cognitive optimizations',
         handler: async (runtime: ElizaOSRuntime, message: ElizaOSMessage) => {
-          console.log('📊 ElizaOS: Analyzing productivity patterns for user:', message.userId);
-          
+          console.log(
+            '📊 ElizaOS: Analyzing productivity patterns for user:',
+            message.userId,
+          );
+
           // Future: Analyze session data, mode transitions, task completion rates
-          const productivityMetrics = await this.calculateProductivityMetrics(runtime, message);
-          
+          const productivityMetrics = await this.calculateProductivityMetrics(
+            runtime,
+            message,
+          );
+
           return {
             productivityScore: productivityMetrics.score,
             insights: productivityMetrics.insights,
             recommendations: productivityMetrics.recommendations,
-            cognitivePatterns: productivityMetrics.patterns
+            cognitivePatterns: productivityMetrics.patterns,
           };
-        }
-      }
+        },
+      },
     };
   }
 
@@ -138,11 +163,17 @@ export class CognitiveEngineIntegration {
    */
   private initializeCognitiveProvider(): CognitiveEngineProvider {
     return {
-      get: async (runtime: ElizaOSRuntime, message: ElizaOSMessage): Promise<string> => {
-        console.log('🔍 ElizaOS Provider: Getting cognitive context for user:', message.userId);
-        
+      get: async (
+        runtime: ElizaOSRuntime,
+        message: ElizaOSMessage,
+      ): Promise<string> => {
+        console.log(
+          '🔍 ElizaOS Provider: Getting cognitive context for user:',
+          message.userId,
+        );
+
         const context = await this.analyzeUserContext(runtime, message);
-        
+
         return `Current cognitive context for ${message.userId}:
 - Detected Mode: ${context.predictedMode || 'Unknown'}
 - Confidence: ${context.confidence || 0}%
@@ -150,27 +181,34 @@ export class CognitiveEngineIntegration {
 - Time Context: ${context.timeOfDay}
 - Work Pattern: ${context.workPattern}
 - Recent Actions: ${context.lastActions?.join(', ') || 'None'}`;
-      }
+      },
     };
   }
 
   /**
    * Analyze user context from ElizaOS runtime and message
    */
-  private async analyzeUserContext(runtime: ElizaOSRuntime, message: ElizaOSMessage) {
+  private async analyzeUserContext(
+    runtime: ElizaOSRuntime,
+    message: ElizaOSMessage,
+  ) {
     // Simulate cognitive context analysis
     const now = new Date();
     const hour = now.getHours();
-    
+
     return {
       userId: message.userId,
       messageContent: message.content.text,
       timeOfDay: hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening',
       workPattern: this.detectWorkPattern(message.content.text),
       activeApps: ['cognitive-interface'],
-      lastActions: [message.content.text.toLowerCase().includes('code') ? 'coding' : 'general'],
+      lastActions: [
+        message.content.text.toLowerCase().includes('code')
+          ? 'coding'
+          : 'general',
+      ],
       confidence: 75 + Math.random() * 20, // Simulate confidence calculation
-      predictedMode: this.predictModeFromContent(message.content.text)
+      predictedMode: this.predictModeFromContent(message.content.text),
     };
   }
 
@@ -179,21 +217,45 @@ export class CognitiveEngineIntegration {
    */
   private predictModeFromContent(content: string): string {
     const text = content.toLowerCase();
-    
-    if (text.includes('strategy') || text.includes('decision') || text.includes('overview')) {
+
+    if (
+      text.includes('strategy') ||
+      text.includes('decision') ||
+      text.includes('overview')
+    ) {
       return 'executive';
-    } else if (text.includes('code') || text.includes('debug') || text.includes('technical')) {
+    } else if (
+      text.includes('code') ||
+      text.includes('debug') ||
+      text.includes('technical')
+    ) {
       return 'technical';
-    } else if (text.includes('create') || text.includes('design') || text.includes('content')) {
+    } else if (
+      text.includes('create') ||
+      text.includes('design') ||
+      text.includes('content')
+    ) {
       return 'creative';
-    } else if (text.includes('analyze') || text.includes('data') || text.includes('research')) {
+    } else if (
+      text.includes('analyze') ||
+      text.includes('data') ||
+      text.includes('research')
+    ) {
       return 'analytical';
-    } else if (text.includes('team') || text.includes('collaborate') || text.includes('meeting')) {
+    } else if (
+      text.includes('team') ||
+      text.includes('collaborate') ||
+      text.includes('meeting')
+    ) {
       return 'collaborative';
-    } else if (text.includes('learn') || text.includes('tutorial') || text.includes('study')) {
+    } else if (
+      text.includes('learn') ||
+      text.includes('tutorial') ||
+      text.includes('study')
+    ) {
       return 'learning';
     }
-    
+
     return 'executive'; // Default mode
   }
 
@@ -203,11 +265,11 @@ export class CognitiveEngineIntegration {
   private async predictCognitiveMode(context: any) {
     const baseConfidence = context.confidence || 75;
     const mode = context.predictedMode;
-    
+
     // Enhanced prediction logic
     let adjustedConfidence = baseConfidence;
     let reasoning = `Based on message content analysis`;
-    
+
     // Time-based adjustments
     if (context.timeOfDay === 'morning' && mode === 'executive') {
       adjustedConfidence += 10;
@@ -216,12 +278,12 @@ export class CognitiveEngineIntegration {
       adjustedConfidence += 15;
       reasoning += ', afternoon deep work patterns';
     }
-    
+
     return {
       mode,
       confidence: Math.min(adjustedConfidence, 95),
       reasoning,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
   }
 
@@ -230,36 +292,40 @@ export class CognitiveEngineIntegration {
    */
   private detectWorkPattern(content: string): string {
     const text = content.toLowerCase();
-    
+
     if (text.includes('focus') || text.includes('deep work')) return 'focused';
-    if (text.includes('multitask') || text.includes('switch')) return 'multitasking';
+    if (text.includes('multitask') || text.includes('switch'))
+      return 'multitasking';
     if (text.includes('quick') || text.includes('brief')) return 'rapid';
-    
+
     return 'standard';
   }
 
   /**
    * Calculate productivity metrics (placeholder for future implementation)
    */
-  private async calculateProductivityMetrics(runtime: ElizaOSRuntime, message: ElizaOSMessage) {
+  private async calculateProductivityMetrics(
+    runtime: ElizaOSRuntime,
+    message: ElizaOSMessage,
+  ) {
     // Future: Implement real productivity analysis
     return {
       score: 75 + Math.random() * 20,
       insights: [
         'High focus during technical mode sessions',
         'Frequent context switching in creative mode',
-        'Optimal performance in morning executive sessions'
+        'Optimal performance in morning executive sessions',
       ],
       recommendations: [
         'Schedule technical deep work for afternoon sessions',
         'Minimize interruptions during creative flow states',
-        'Use executive mode for strategic planning in mornings'
+        'Use executive mode for strategic planning in mornings',
       ],
       patterns: [
         'executive-to-technical',
         'technical-deep-work',
-        'creative-burst-sessions'
-      ]
+        'creative-burst-sessions',
+      ],
     };
   }
 
@@ -294,7 +360,7 @@ export class CognitiveEngineIntegration {
       description: 'Bridge between ElizaOS cognitive engine and React UI',
       actions: this.getCognitiveActions(),
       providers: [this.getCognitiveProvider()],
-      version: '1.0.0'
+      version: '1.0.0',
     };
   }
 }
@@ -317,6 +383,6 @@ export const EnhancedCognitiveInterface = (props: any) => {
   return CognitiveInterface({
     ...props,
     cognitiveEnginePlugin: cognitiveEngineIntegration.createElizaOSPlugin(),
-    onMount: handleUIMount
+    onMount: handleUIMount,
   });
 };

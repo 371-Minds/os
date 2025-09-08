@@ -1,9 +1,9 @@
 /**
  * C3UniversalTemplate.tsx - Complete Communications Universe Demo
- * 
+ *
  * Revolutionary demonstration of the C3 (Communications Coordination Control) system
  * integrating Resend dashboard functionality with spatial email management.
- * 
+ *
  * Features:
  * - Real-time email tracking with Resend API integration
  * - Spatial visualization of communication flows
@@ -12,12 +12,17 @@
  * - Live demonstration of revolutionary email management paradigm
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { CommunicationsUniverseController } from './CommunicationsUniverseController';
 import './C3UniversalTemplate.css';
 
 interface C3DemoState {
-  currentDemo: 'spatial-email' | 'agent-coordination' | 'dashboard-features' | 'export-analytics';
+  currentDemo:
+    | 'spatial-email'
+    | 'agent-coordination'
+    | 'dashboard-features'
+    | 'export-analytics';
   realTimeSync: boolean;
   agentCoordination: boolean;
   notifications: C3Notification[];
@@ -46,7 +51,7 @@ export const C3UniversalTemplate: React.FC = () => {
     currentDemo: 'spatial-email',
     realTimeSync: true,
     agentCoordination: true,
-    notifications: []
+    notifications: [],
   });
 
   const [metrics, setMetrics] = useState<C3Metrics>({
@@ -54,7 +59,7 @@ export const C3UniversalTemplate: React.FC = () => {
     universeEngagement: 0,
     agentCoordination: 0,
     dashboardActions: 0,
-    dataExports: 0
+    dataExports: 0,
   });
 
   const [isLiveMode, setIsLiveMode] = useState(false);
@@ -71,45 +76,60 @@ export const C3UniversalTemplate: React.FC = () => {
       message: getActionMessage(action, data),
       timestamp: new Date(),
       action,
-      data
+      data,
     };
 
-    setDemoState(prev => ({
+    setDemoState((prev) => ({
       ...prev,
-      notifications: [notification, ...prev.notifications.slice(0, 9)]
+      notifications: [notification, ...prev.notifications.slice(0, 9)],
     }));
 
     // Update metrics
-    setMetrics(prev => ({
+    setMetrics((prev) => ({
       ...prev,
-      totalEmails: action === 'email_selected' ? prev.totalEmails + 1 : prev.totalEmails,
-      universeEngagement: action.includes('email') ? prev.universeEngagement + 1 : prev.universeEngagement,
-      agentCoordination: action.includes('agent') ? prev.agentCoordination + 1 : prev.agentCoordination,
-      dashboardActions: ['email_link_shared', 'email_logs_viewed', 'email_scheduled'].includes(action) 
-        ? prev.dashboardActions + 1 : prev.dashboardActions,
-      dataExports: action === 'email_export_initiated' ? prev.dataExports + 1 : prev.dataExports
+      totalEmails:
+        action === 'email_selected' ? prev.totalEmails + 1 : prev.totalEmails,
+      universeEngagement: action.includes('email')
+        ? prev.universeEngagement + 1
+        : prev.universeEngagement,
+      agentCoordination: action.includes('agent')
+        ? prev.agentCoordination + 1
+        : prev.agentCoordination,
+      dashboardActions: [
+        'email_link_shared',
+        'email_logs_viewed',
+        'email_scheduled',
+      ].includes(action)
+        ? prev.dashboardActions + 1
+        : prev.dashboardActions,
+      dataExports:
+        action === 'email_export_initiated'
+          ? prev.dataExports + 1
+          : prev.dataExports,
     }));
   }, []);
 
   const getNotificationType = (action: string): C3Notification['type'] => {
     if (action.includes('error') || action.includes('failed')) return 'error';
-    if (action.includes('warning') || action.includes('alert')) return 'warning';
-    if (action.includes('export') || action.includes('shared')) return 'success';
+    if (action.includes('warning') || action.includes('alert'))
+      return 'warning';
+    if (action.includes('export') || action.includes('shared'))
+      return 'success';
     return 'info';
   };
 
   const getActionTitle = (action: string): string => {
     const titles: Record<string, string> = {
-      'email_selected': 'Email Selected',
-      'email_link_shared': 'Link Shared Successfully',
-      'email_logs_viewed': 'Logs Retrieved',
-      'email_export_initiated': 'Data Export Started',
-      'email_scheduled': 'Email Scheduled',
-      'scheduled_email_canceled': 'Schedule Canceled',
-      'agent_notification_sent': 'Agent Notified',
-      'business_alert_triggered': 'Business Alert',
-      'constellation_selected': 'Contact Group Selected',
-      'flow_action': 'Workflow Action'
+      email_selected: 'Email Selected',
+      email_link_shared: 'Link Shared Successfully',
+      email_logs_viewed: 'Logs Retrieved',
+      email_export_initiated: 'Data Export Started',
+      email_scheduled: 'Email Scheduled',
+      scheduled_email_canceled: 'Schedule Canceled',
+      agent_notification_sent: 'Agent Notified',
+      business_alert_triggered: 'Business Alert',
+      constellation_selected: 'Contact Group Selected',
+      flow_action: 'Workflow Action',
     };
     return titles[action] || 'Universe Action';
   };
@@ -136,29 +156,29 @@ export const C3UniversalTemplate: React.FC = () => {
   };
 
   const switchDemo = (demo: C3DemoState['currentDemo']) => {
-    setDemoState(prev => ({ ...prev, currentDemo: demo }));
+    setDemoState((prev) => ({ ...prev, currentDemo: demo }));
   };
 
   const toggleLiveMode = () => {
-    setIsLiveMode(prev => !prev);
+    setIsLiveMode((prev) => !prev);
     const notification: C3Notification = {
       id: `live_${Date.now()}`,
       type: 'info',
       title: isLiveMode ? 'Demo Mode Activated' : 'Live Mode Activated',
-      message: isLiveMode 
-        ? 'Switched to demo mode with mock data' 
+      message: isLiveMode
+        ? 'Switched to demo mode with mock data'
         : 'Connected to live Resend API for real-time data',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-    
-    setDemoState(prev => ({
+
+    setDemoState((prev) => ({
       ...prev,
-      notifications: [notification, ...prev.notifications.slice(0, 9)]
+      notifications: [notification, ...prev.notifications.slice(0, 9)],
     }));
   };
 
   const clearNotifications = () => {
-    setDemoState(prev => ({ ...prev, notifications: [] }));
+    setDemoState((prev) => ({ ...prev, notifications: [] }));
   };
 
   const simulateEmailWorkflow = async () => {
@@ -167,7 +187,7 @@ export const C3UniversalTemplate: React.FC = () => {
       { action: 'Scheduling delivery...', delay: 1500 },
       { action: 'Coordinating with agents...', delay: 1200 },
       { action: 'Monitoring engagement...', delay: 1800 },
-      { action: 'Generating analytics...', delay: 1000 }
+      { action: 'Generating analytics...', delay: 1000 },
     ];
 
     for (const step of steps) {
@@ -176,15 +196,15 @@ export const C3UniversalTemplate: React.FC = () => {
         type: 'info',
         title: 'Email Workflow',
         message: step.action,
-        timestamp: new Date()
+        timestamp: new Date(),
       };
 
-      setDemoState(prev => ({
+      setDemoState((prev) => ({
         ...prev,
-        notifications: [notification, ...prev.notifications.slice(0, 9)]
+        notifications: [notification, ...prev.notifications.slice(0, 9)],
       }));
 
-      await new Promise(resolve => setTimeout(resolve, step.delay));
+      await new Promise((resolve) => setTimeout(resolve, step.delay));
     }
 
     // Final success notification
@@ -193,12 +213,12 @@ export const C3UniversalTemplate: React.FC = () => {
       type: 'success',
       title: 'Workflow Complete',
       message: 'Email campaign launched successfully with agent coordination!',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setDemoState(prev => ({
+    setDemoState((prev) => ({
       ...prev,
-      notifications: [successNotif, ...prev.notifications.slice(0, 9)]
+      notifications: [successNotif, ...prev.notifications.slice(0, 9)],
     }));
   };
 
@@ -211,20 +231,17 @@ export const C3UniversalTemplate: React.FC = () => {
             <h1>C3 Universal Template</h1>
             <p>Communications Coordination Control • Resend Integration Demo</p>
           </div>
-          
+
           <div className="header-controls">
-            <button 
+            <button
               className={`mode-toggle ${isLiveMode ? 'live' : 'demo'}`}
               onClick={toggleLiveMode}
             >
               <span className="mode-indicator"></span>
               {isLiveMode ? 'Live Mode' : 'Demo Mode'}
             </button>
-            
-            <button 
-              className="workflow-btn"
-              onClick={simulateEmailWorkflow}
-            >
+
+            <button className="workflow-btn" onClick={simulateEmailWorkflow}>
               🚀 Run Workflow
             </button>
           </div>
@@ -237,8 +254,8 @@ export const C3UniversalTemplate: React.FC = () => {
           { id: 'spatial-email', label: 'Spatial Email Universe', icon: '🌌' },
           { id: 'agent-coordination', label: 'Agent Coordination', icon: '🤖' },
           { id: 'dashboard-features', label: 'Dashboard Features', icon: '📊' },
-          { id: 'export-analytics', label: 'Export & Analytics', icon: '📈' }
-        ].map(demo => (
+          { id: 'export-analytics', label: 'Export & Analytics', icon: '📈' },
+        ].map((demo) => (
           <button
             key={demo.id}
             className={`demo-tab ${demoState.currentDemo === demo.id ? 'active' : ''}`}
@@ -272,11 +289,15 @@ export const C3UniversalTemplate: React.FC = () => {
                 <span className="metric-label">Emails Tracked</span>
               </div>
               <div className="metric-card">
-                <span className="metric-value">{metrics.universeEngagement}</span>
+                <span className="metric-value">
+                  {metrics.universeEngagement}
+                </span>
                 <span className="metric-label">Universe Actions</span>
               </div>
               <div className="metric-card">
-                <span className="metric-value">{metrics.agentCoordination}</span>
+                <span className="metric-value">
+                  {metrics.agentCoordination}
+                </span>
                 <span className="metric-label">Agent Events</span>
               </div>
               <div className="metric-card">
@@ -345,23 +366,32 @@ export const C3UniversalTemplate: React.FC = () => {
                 </button>
               )}
             </div>
-            
+
             <div className="notifications-list">
               {demoState.notifications.length === 0 ? (
                 <div className="no-notifications">
                   <span className="placeholder-icon">🔔</span>
-                  <span className="placeholder-text">Activity will appear here</span>
+                  <span className="placeholder-text">
+                    Activity will appear here
+                  </span>
                 </div>
               ) : (
-                demoState.notifications.map(notification => (
-                  <div key={notification.id} className={`notification-item ${notification.type}`}>
+                demoState.notifications.map((notification) => (
+                  <div
+                    key={notification.id}
+                    className={`notification-item ${notification.type}`}
+                  >
                     <div className="notification-header">
-                      <span className="notification-title">{notification.title}</span>
+                      <span className="notification-title">
+                        {notification.title}
+                      </span>
                       <span className="notification-time">
                         {notification.timestamp.toLocaleTimeString()}
                       </span>
                     </div>
-                    <div className="notification-message">{notification.message}</div>
+                    <div className="notification-message">
+                      {notification.message}
+                    </div>
                   </div>
                 ))
               )}
@@ -377,21 +407,19 @@ export const C3UniversalTemplate: React.FC = () => {
             C3 Universal Template • Revolutionary Communications Management
           </span>
           <span className="connection-status">
-            <span className={`status-dot ${isLiveMode ? 'live' : 'demo'}`}></span>
+            <span
+              className={`status-dot ${isLiveMode ? 'live' : 'demo'}`}
+            ></span>
             {isLiveMode ? 'Connected to Resend API' : 'Demo Mode Active'}
           </span>
         </div>
-        
+
         <div className="action-stats">
-          <span className="stat">
-            📧 {metrics.totalEmails} emails
-          </span>
+          <span className="stat">📧 {metrics.totalEmails} emails</span>
           <span className="stat">
             🤖 {metrics.agentCoordination} agent actions
           </span>
-          <span className="stat">
-            📊 {metrics.dataExports} exports
-          </span>
+          <span className="stat">📊 {metrics.dataExports} exports</span>
         </div>
       </div>
     </div>

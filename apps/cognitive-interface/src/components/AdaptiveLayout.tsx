@@ -1,22 +1,29 @@
 /**
  * AdaptiveLayout.tsx - Main Adaptive Layout for Cognitive Interface
- * 
+ *
  * This is the revolutionary core component that orchestrates the entire
  * cognitive-aware interface system. It dynamically switches between cognitive
  * modes based on user state and provides seamless transitions.
- * 
+ *
  * Part of the Galaxy Engine - World's first cognitive-aware interface system.
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { CognitiveModeSwither } from './CognitiveModeSwither';
+import { CreativeMode } from './CreativeMode';
 import { ExecutiveMode } from './ExecutiveMode';
 import { TechnicalMode } from './TechnicalMode';
-import { CreativeMode } from './CreativeMode';
-import { CognitiveModeSwither } from './CognitiveModeSwither';
 import './AdaptiveLayout.css';
 
 interface CognitiveState {
-  mode: 'executive' | 'technical' | 'creative' | 'analytical' | 'collaborative' | 'learning';
+  mode:
+    | 'executive'
+    | 'technical'
+    | 'creative'
+    | 'analytical'
+    | 'collaborative'
+    | 'learning';
   confidence: number;
   context: {
     activeApps: string[];
@@ -49,7 +56,10 @@ interface AdaptiveLayoutProps {
   userId?: string;
   initialMode?: CognitiveState['mode'];
   enableAutoDetection?: boolean;
-  onModeChange?: (mode: CognitiveState['mode'], transition: CognitiveTransition) => void;
+  onModeChange?: (
+    mode: CognitiveState['mode'],
+    transition: CognitiveTransition,
+  ) => void;
   onAnalyticsUpdate?: (analytics: SessionAnalytics) => void;
 }
 
@@ -58,19 +68,23 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
   initialMode = 'executive',
   enableAutoDetection = false,
   onModeChange,
-  onAnalyticsUpdate
+  onAnalyticsUpdate,
 }: AdaptiveLayoutProps) => {
   const [cognitiveState, setCognitiveState] = useState<CognitiveState>({
     mode: initialMode,
     confidence: 95,
     context: {
       activeApps: ['cognitive-interface'],
-      timeOfDay: new Date().getHours() < 12 ? 'morning' : 
-                 new Date().getHours() < 17 ? 'afternoon' : 'evening',
+      timeOfDay:
+        new Date().getHours() < 12
+          ? 'morning'
+          : new Date().getHours() < 17
+            ? 'afternoon'
+            : 'evening',
       workPattern: 'focused',
-      lastActions: ['system-startup']
+      lastActions: ['system-startup'],
     },
-    transitions: []
+    transitions: [],
   });
 
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -80,20 +94,21 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
     averageSessionDuration: 0,
     mostUsedMode: initialMode,
     productivityScore: 85,
-    cognitivePatterns: ['executive-start', 'technical-deep-work']
+    cognitivePatterns: ['executive-start', 'technical-deep-work'],
   });
 
-  const [autoDetectionEnabled, setAutoDetectionEnabled] = useState(enableAutoDetection);
-  const [modeHistory, setModeHistory] = useState<Array<{ mode: string; duration: number; timestamp: Date }>>([
-    { mode: initialMode, duration: 0, timestamp: new Date() }
-  ]);
+  const [autoDetectionEnabled, setAutoDetectionEnabled] =
+    useState(enableAutoDetection);
+  const [modeHistory, setModeHistory] = useState<
+    Array<{ mode: string; duration: number; timestamp: Date }>
+  >([{ mode: initialMode, duration: 0, timestamp: new Date() }]);
 
   // Cognitive Engine Integration - Simulated for Phase 3
   const detectCognitiveState = useCallback(() => {
     // Simulate cognitive state detection based on context
     const context = cognitiveState.context;
     const currentHour = new Date().getHours();
-    
+
     let suggestedMode: CognitiveState['mode'] = cognitiveState.mode;
     let confidence = 75;
 
@@ -110,13 +125,27 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
     }
 
     // Activity pattern analysis
-    if (context.lastActions.some((action: string) => action.includes('code') || action.includes('debug'))) {
+    if (
+      context.lastActions.some(
+        (action: string) => action.includes('code') || action.includes('debug'),
+      )
+    ) {
       suggestedMode = 'technical';
       confidence += 20;
-    } else if (context.lastActions.some((action: string) => action.includes('design') || action.includes('content'))) {
+    } else if (
+      context.lastActions.some(
+        (action: string) =>
+          action.includes('design') || action.includes('content'),
+      )
+    ) {
       suggestedMode = 'creative';
       confidence += 18;
-    } else if (context.lastActions.some((action: string) => action.includes('meeting') || action.includes('strategy'))) {
+    } else if (
+      context.lastActions.some(
+        (action: string) =>
+          action.includes('meeting') || action.includes('strategy'),
+      )
+    ) {
       suggestedMode = 'executive';
       confidence += 15;
     }
@@ -125,117 +154,155 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
   }, [cognitiveState.context]);
 
   // Handle cognitive mode transitions
-  const handleModeTransition = useCallback((
-    newMode: CognitiveState['mode'],
-    trigger: CognitiveTransition['trigger'] = 'manual'
-  ) => {
-    if (newMode === cognitiveState.mode || isTransitioning) return;
+  const handleModeTransition = useCallback(
+    (
+      newMode: CognitiveState['mode'],
+      trigger: CognitiveTransition['trigger'] = 'manual',
+    ) => {
+      if (newMode === cognitiveState.mode || isTransitioning) return;
 
-    setIsTransitioning(true);
+      setIsTransitioning(true);
 
-    const transition: CognitiveTransition = {
-      id: `transition-${Date.now()}`,
-      fromMode: cognitiveState.mode,
-      toMode: newMode,
-      trigger,
-      timestamp: new Date(),
-      confidence: cognitiveState.confidence,
-      context: { ...cognitiveState.context }
-    };
+      const transition: CognitiveTransition = {
+        id: `transition-${Date.now()}`,
+        fromMode: cognitiveState.mode,
+        toMode: newMode,
+        trigger,
+        timestamp: new Date(),
+        confidence: cognitiveState.confidence,
+        context: { ...cognitiveState.context },
+      };
 
-    // Update mode history
-    const currentTime = new Date();
-    const lastEntry = modeHistory[modeHistory.length - 1];
-    if (lastEntry) {
-      const duration = currentTime.getTime() - lastEntry.timestamp.getTime();
-      setModeHistory((prev: typeof modeHistory) => [
-        ...prev.slice(0, -1),
-        { ...lastEntry, duration },
-        { mode: newMode, duration: 0, timestamp: currentTime }
-      ]);
-    }
-
-    // Update cognitive state
-    setTimeout(() => {
-      setCognitiveState((prev: CognitiveState) => ({
-        ...prev,
-        mode: newMode,
-        confidence: trigger === 'automatic' ? 90 : 95,
-        transitions: [...prev.transitions, transition].slice(-10), // Keep last 10 transitions
-        context: {
-          ...prev.context,
-          lastActions: [`mode-switch-${newMode}`, ...prev.context.lastActions].slice(0, 5)
-        }
-      }));
-
-      // Update session analytics
-      setSessionAnalytics((prev: SessionAnalytics) => {
-        const updatedAnalytics = {
-          ...prev,
-          totalTransitions: prev.totalTransitions + 1,
-          averageSessionDuration: (currentTime.getTime() - sessionStartTime.getTime()) / (1000 * 60),
-          mostUsedMode: calculateMostUsedMode(modeHistory),
-          productivityScore: calculateProductivityScore(modeHistory, cognitiveState.transitions),
-          cognitivePatterns: updateCognitivePatterns(prev.cognitivePatterns, transition)
-        };
-        
-        if (onAnalyticsUpdate) {
-          onAnalyticsUpdate(updatedAnalytics);
-        }
-        
-        return updatedAnalytics;
-      });
-
-      if (onModeChange) {
-        onModeChange(newMode, transition);
+      // Update mode history
+      const currentTime = new Date();
+      const lastEntry = modeHistory[modeHistory.length - 1];
+      if (lastEntry) {
+        const duration = currentTime.getTime() - lastEntry.timestamp.getTime();
+        setModeHistory((prev: typeof modeHistory) => [
+          ...prev.slice(0, -1),
+          { ...lastEntry, duration },
+          { mode: newMode, duration: 0, timestamp: currentTime },
+        ]);
       }
 
-      setIsTransitioning(false);
-    }, 300); // Smooth transition delay
-  }, [cognitiveState, isTransitioning, modeHistory, sessionStartTime, onModeChange, onAnalyticsUpdate]);
+      // Update cognitive state
+      setTimeout(() => {
+        setCognitiveState((prev: CognitiveState) => ({
+          ...prev,
+          mode: newMode,
+          confidence: trigger === 'automatic' ? 90 : 95,
+          transitions: [...prev.transitions, transition].slice(-10), // Keep last 10 transitions
+          context: {
+            ...prev.context,
+            lastActions: [
+              `mode-switch-${newMode}`,
+              ...prev.context.lastActions,
+            ].slice(0, 5),
+          },
+        }));
+
+        // Update session analytics
+        setSessionAnalytics((prev: SessionAnalytics) => {
+          const updatedAnalytics = {
+            ...prev,
+            totalTransitions: prev.totalTransitions + 1,
+            averageSessionDuration:
+              (currentTime.getTime() - sessionStartTime.getTime()) /
+              (1000 * 60),
+            mostUsedMode: calculateMostUsedMode(modeHistory),
+            productivityScore: calculateProductivityScore(
+              modeHistory,
+              cognitiveState.transitions,
+            ),
+            cognitivePatterns: updateCognitivePatterns(
+              prev.cognitivePatterns,
+              transition,
+            ),
+          };
+
+          if (onAnalyticsUpdate) {
+            onAnalyticsUpdate(updatedAnalytics);
+          }
+
+          return updatedAnalytics;
+        });
+
+        if (onModeChange) {
+          onModeChange(newMode, transition);
+        }
+
+        setIsTransitioning(false);
+      }, 300); // Smooth transition delay
+    },
+    [
+      cognitiveState,
+      isTransitioning,
+      modeHistory,
+      sessionStartTime,
+      onModeChange,
+      onAnalyticsUpdate,
+    ],
+  );
 
   // Calculate most used mode
   const calculateMostUsedMode = (history: typeof modeHistory): string => {
-    const modeCounts = history.reduce((acc: Record<string, number>, entry: typeof modeHistory[0]) => {
-      acc[entry.mode] = (acc[entry.mode] || 0) + entry.duration;
-      return acc;
-    }, {} as Record<string, number>);
+    const modeCounts = history.reduce(
+      (acc: Record<string, number>, entry: (typeof modeHistory)[0]) => {
+        acc[entry.mode] = (acc[entry.mode] || 0) + entry.duration;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
 
-    return Object.entries(modeCounts).reduce((a: [string, number], b: [string, number]) => 
-      ((modeCounts[a[0]] || 0) as number) > ((modeCounts[b[0]] || 0) as number) ? a : b
+    return Object.entries(modeCounts).reduce(
+      (a: [string, number], b: [string, number]) =>
+        ((modeCounts[a[0]] || 0) as number) >
+        ((modeCounts[b[0]] || 0) as number)
+          ? a
+          : b,
     )[0] as string;
   };
 
   // Calculate productivity score based on transitions and patterns
   const calculateProductivityScore = (
-    history: typeof modeHistory, 
-    transitions: CognitiveTransition[]
+    history: typeof modeHistory,
+    transitions: CognitiveTransition[],
   ): number => {
     const baseScore = 70;
     let adjustments = 0;
 
     // Reward focused sessions (longer durations in single mode)
-    const avgDuration = history.reduce((sum: number, entry: typeof modeHistory[0]) => sum + entry.duration, 0) / history.length;
+    const avgDuration =
+      history.reduce(
+        (sum: number, entry: (typeof modeHistory)[0]) => sum + entry.duration,
+        0,
+      ) / history.length;
     if (avgDuration > 30 * 60 * 1000) adjustments += 15; // 30+ minutes
-    
+
     // Penalize excessive transitions
     const transitionRate = transitions.length / (history.length || 1);
     if (transitionRate > 0.5) adjustments -= 10;
-    
+
     // Reward appropriate mode usage patterns
-    const technicalSessions = history.filter((h: typeof modeHistory[0]) => h.mode === 'technical' && h.duration > 20 * 60 * 1000);
+    const technicalSessions = history.filter(
+      (h: (typeof modeHistory)[0]) =>
+        h.mode === 'technical' && h.duration > 20 * 60 * 1000,
+    );
     if (technicalSessions.length > 0) adjustments += 10;
-    
+
     return Math.min(Math.max(baseScore + adjustments, 0), 100);
   };
 
   // Update cognitive patterns
   const updateCognitivePatterns = (
-    currentPatterns: string[], 
-    transition: CognitiveTransition
+    currentPatterns: string[],
+    transition: CognitiveTransition,
   ): string[] => {
     const newPattern = `${transition.fromMode}-to-${transition.toMode}`;
-    const updatedPatterns = [newPattern, ...currentPatterns.filter(p => p !== newPattern)];
+    const updatedPatterns = [
+      newPattern,
+      ...currentPatterns.filter((p) => p !== newPattern),
+    ];
     return updatedPatterns.slice(0, 5); // Keep top 5 patterns
   };
 
@@ -246,12 +313,12 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
       if (!event.ctrlKey || !event.shiftKey) return;
 
       const keyModeMap: Record<string, CognitiveState['mode']> = {
-        'E': 'executive',
-        'T': 'technical', 
-        'C': 'creative',
-        'A': 'analytical',
-        'O': 'collaborative',
-        'L': 'learning'
+        E: 'executive',
+        T: 'technical',
+        C: 'creative',
+        A: 'analytical',
+        O: 'collaborative',
+        L: 'learning',
       };
 
       const mode = keyModeMap[event.key.toUpperCase()];
@@ -271,16 +338,23 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
 
     const detectionInterval = setInterval(() => {
       const { suggestedMode, confidence } = detectCognitiveState();
-      
+
       // Only auto-switch if confidence is high and mode is different
       if (confidence > 85 && suggestedMode !== cognitiveState.mode) {
-        console.log(`Auto-detected cognitive state: ${suggestedMode} (${confidence}% confidence)`);
+        console.log(
+          `Auto-detected cognitive state: ${suggestedMode} (${confidence}% confidence)`,
+        );
         handleModeTransition(suggestedMode, 'automatic');
       }
     }, 30000); // Check every 30 seconds
 
     return () => clearInterval(detectionInterval);
-  }, [autoDetectionEnabled, detectCognitiveState, cognitiveState.mode, handleModeTransition]);
+  }, [
+    autoDetectionEnabled,
+    detectCognitiveState,
+    cognitiveState.mode,
+    handleModeTransition,
+  ]);
 
   // Update context periodically
   useEffect(() => {
@@ -289,9 +363,13 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
         ...prev,
         context: {
           ...prev.context,
-          timeOfDay: new Date().getHours() < 12 ? 'morning' : 
-                     new Date().getHours() < 17 ? 'afternoon' : 'evening'
-        }
+          timeOfDay:
+            new Date().getHours() < 12
+              ? 'morning'
+              : new Date().getHours() < 17
+                ? 'afternoon'
+                : 'evening',
+        },
       }));
     }, 60000); // Update every minute
 
@@ -302,7 +380,8 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
   const renderCurrentMode = () => {
     const commonProps = {
       userId,
-      onModeSwitch: (mode: string) => handleModeTransition(mode as CognitiveState['mode'])
+      onModeSwitch: (mode: string) =>
+        handleModeTransition(mode as CognitiveState['mode']),
     };
 
     switch (cognitiveState.mode) {
@@ -323,7 +402,9 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
         return (
           <div className="mode-placeholder collaborative">
             <h2>🤝 Collaborative Mode</h2>
-            <p>Team coordination and communication interface coming in Phase 4</p>
+            <p>
+              Team coordination and communication interface coming in Phase 4
+            </p>
           </div>
         );
       case 'learning':
@@ -339,11 +420,19 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
   };
 
   return (
-    <div className={`adaptive-layout ${cognitiveState.mode}`} data-cognitive-mode={cognitiveState.mode}>
+    <div
+      className={`adaptive-layout ${cognitiveState.mode}`}
+      data-cognitive-mode={cognitiveState.mode}
+    >
       {/* Cognitive Mode Switcher */}
       <CognitiveModeSwither
         currentMode={cognitiveState.mode}
-        onModeChange={(mode: string, transition: any) => handleModeTransition(mode as CognitiveState['mode'], transition?.trigger || 'manual')}
+        onModeChange={(mode: string, transition: any) =>
+          handleModeTransition(
+            mode as CognitiveState['mode'],
+            transition?.trigger || 'manual',
+          )
+        }
         showDetectionInsights={true}
         enableShortcuts={true}
       />
@@ -359,7 +448,9 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
       )}
 
       {/* Main Content Area */}
-      <main className={`content-area ${isTransitioning ? 'transitioning' : ''}`}>
+      <main
+        className={`content-area ${isTransitioning ? 'transitioning' : ''}`}
+      >
         {renderCurrentMode()}
       </main>
 
@@ -374,7 +465,9 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
             </div>
             <div className="analytics-item">
               <label>Session Duration:</label>
-              <span>{Math.round(sessionAnalytics.averageSessionDuration)} min</span>
+              <span>
+                {Math.round(sessionAnalytics.averageSessionDuration)} min
+              </span>
             </div>
             <div className="analytics-item">
               <label>Most Used Mode:</label>
@@ -395,20 +488,32 @@ export const AdaptiveLayout: React.FC<AdaptiveLayoutProps> = ({
           </div>
           <div className="patterns-list">
             <strong>Patterns:</strong>
-            {sessionAnalytics.cognitivePatterns.map((pattern: string, index: number) => (
-              <span key={index} className="pattern-tag">{pattern}</span>
-            ))}
+            {sessionAnalytics.cognitivePatterns.map(
+              (pattern: string, index: number) => (
+                <span key={index} className="pattern-tag">
+                  {pattern}
+                </span>
+              ),
+            )}
           </div>
         </div>
       )}
 
       {/* Cognitive State Indicator */}
       <div className="cognitive-state-indicator">
-        <div className="state-pulse" style={{ 
-          background: cognitiveState.mode === 'executive' ? '#3b82f6' :
-                     cognitiveState.mode === 'technical' ? '#7c3aed' :
-                     cognitiveState.mode === 'creative' ? '#ec4899' : '#10b981'
-        }}></div>
+        <div
+          className="state-pulse"
+          style={{
+            background:
+              cognitiveState.mode === 'executive'
+                ? '#3b82f6'
+                : cognitiveState.mode === 'technical'
+                  ? '#7c3aed'
+                  : cognitiveState.mode === 'creative'
+                    ? '#ec4899'
+                    : '#10b981',
+          }}
+        ></div>
       </div>
     </div>
   );

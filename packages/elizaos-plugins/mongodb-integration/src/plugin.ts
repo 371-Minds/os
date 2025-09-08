@@ -1,12 +1,24 @@
 /**
  * MongoDB Integration ElizaOS Plugin
- * 
+ *
  * Enables autonomous agents to persist and coordinate through MongoDB
  */
 
-import { Plugin, Action, Handler, IAgentRuntime, Memory, State, ActionResult } from '@elizaos/core';
+import {
+  type Action,
+  ActionResult,
+  Handler,
+  type IAgentRuntime,
+  type Memory,
+  type Plugin,
+  type State,
+} from '@elizaos/core';
+import type {
+  AgentData,
+  BusinessIntelligence,
+  CommunicationEvent,
+} from './mongodb-service.js';
 import { mongodb371 } from './mongodb-service.js';
-import type { AgentData, BusinessIntelligence, CommunicationEvent } from './mongodb-service.js';
 
 interface MongoDBActionContext {
   runtime: IAgentRuntime;
@@ -29,9 +41,9 @@ const saveAgentDataAction: Action = {
         metrics: {
           tasksCompleted: state?.data?.tasksCompleted || 0,
           coordinationEvents: state?.data?.coordinationEvents || 0,
-          uptime: state?.data?.uptime || 0
+          uptime: state?.data?.uptime || 0,
         },
-        blockchainData: state?.data?.blockchainData
+        blockchainData: state?.data?.blockchainData,
       };
 
       const success = await mongodb371.saveAgentData(agentData);
@@ -47,14 +59,14 @@ const saveAgentDataAction: Action = {
         name: 'user',
         content: {
           text: 'Save my current status to database',
-          action: 'SAVE_AGENT_DATA'
-        }
-      }
-    ]
+          action: 'SAVE_AGENT_DATA',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Save Business Intelligence Action
@@ -69,7 +81,7 @@ const saveBusinessIntelligenceAction: Action = {
         eventType: state?.data?.eventType || 'data_collection',
         data: state?.data?.analysisData || {},
         insights: state?.data?.insights || [],
-        confidence: state?.data?.confidence || 0.5
+        confidence: state?.data?.confidence || 0.5,
       };
 
       const success = await mongodb371.saveBusinessIntelligence(biData);
@@ -85,14 +97,14 @@ const saveBusinessIntelligenceAction: Action = {
         name: 'user',
         content: {
           text: 'Save business analysis results',
-          action: 'SAVE_BUSINESS_INTELLIGENCE'
-        }
-      }
-    ]
+          action: 'SAVE_BUSINESS_INTELLIGENCE',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Save Communication Event Action
@@ -102,13 +114,15 @@ const saveCommunicationEventAction: Action = {
   handler: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     try {
       const eventData: CommunicationEvent = {
-        eventId: state?.data?.eventId || `event_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        eventId:
+          state?.data?.eventId ||
+          `event_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
         timestamp: new Date(),
         type: state?.data?.type || 'system_alert',
         agentId: runtime.agentId,
         recipientId: state?.data?.recipientId,
         data: state?.data?.eventData || {},
-        status: state?.data?.status || 'pending'
+        status: state?.data?.status || 'pending',
       };
 
       const success = await mongodb371.saveCommunicationEvent(eventData);
@@ -124,14 +138,14 @@ const saveCommunicationEventAction: Action = {
         name: 'user',
         content: {
           text: 'Log this communication event',
-          action: 'SAVE_COMMUNICATION_EVENT'
-        }
-      }
-    ]
+          action: 'SAVE_COMMUNICATION_EVENT',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Get Agent Status Action
@@ -153,14 +167,14 @@ const getAgentStatusAction: Action = {
         name: 'user',
         content: {
           text: 'What is my current status?',
-          action: 'GET_AGENT_STATUS'
-        }
-      }
-    ]
+          action: 'GET_AGENT_STATUS',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Get All Agents Action
@@ -182,14 +196,14 @@ const getAllAgentsAction: Action = {
         name: 'user',
         content: {
           text: 'Show me all active agents',
-          action: 'GET_ALL_AGENTS'
-        }
-      }
-    ]
+          action: 'GET_ALL_AGENTS',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Database Health Check Action
@@ -211,14 +225,14 @@ const mongoHealthCheckAction: Action = {
         name: 'user',
         content: {
           text: 'Check database health',
-          action: 'MONGODB_HEALTH_CHECK'
-        }
-      }
-    ]
+          action: 'MONGODB_HEALTH_CHECK',
+        },
+      },
+    ],
   ],
   validate: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     return true; // Always allow for now
-  }
+  },
 };
 
 // Export actions array
@@ -228,7 +242,7 @@ export const mongodbActions = [
   saveCommunicationEventAction,
   getAgentStatusAction,
   getAllAgentsAction,
-  mongoHealthCheckAction
+  mongoHealthCheckAction,
 ];
 
 // MongoDB Integration Plugin
@@ -237,5 +251,5 @@ export const mongodbIntegrationPlugin: Plugin = {
   description: 'MongoDB persistence and coordination for 371 OS agents',
   actions: mongodbActions,
   evaluators: [],
-  providers: []
+  providers: [],
 };

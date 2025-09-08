@@ -3,9 +3,9 @@
 // AB/scripts/quick-status.js - Instant 371 OS System Health Check
 // Usage: node AB/scripts/quick-status.js
 
+import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
 
 console.log('\n🚀 371 OS System Health Check\n');
 console.log('═'.repeat(50));
@@ -50,14 +50,14 @@ try {
 console.log('\n🏗️ Architecture Status:');
 const criticalPaths = [
   'packages/elizaos-plugins/business-intelligence',
-  'packages/elizaos-plugins/cognitive-engine', 
+  'packages/elizaos-plugins/cognitive-engine',
   'packages/elizaos-plugins/nx-workspace',
   'agents/test-agent',
   'AB',
-  'troubleshooting'
+  'troubleshooting',
 ];
 
-criticalPaths.forEach(dir => {
+criticalPaths.forEach((dir) => {
   if (fs.existsSync(dir)) {
     console.log(`✅ ${dir}/`);
   } else {
@@ -70,22 +70,22 @@ console.log('\n🔧 Plugin Build Status:');
 const plugins = [
   'packages/elizaos-plugins/business-intelligence',
   'packages/elizaos-plugins/cognitive-engine',
-  'packages/elizaos-plugins/nx-workspace'
+  'packages/elizaos-plugins/nx-workspace',
 ];
 
-plugins.forEach(plugin => {
+plugins.forEach((plugin) => {
   const distPath = path.join(plugin, 'dist');
   const packagePath = path.join(plugin, 'package.json');
-  
+
   if (fs.existsSync(packagePath)) {
     const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
     const pluginName = pkg.name || path.basename(plugin);
-    
+
     if (fs.existsSync(distPath)) {
       const files = fs.readdirSync(distPath);
-      const hasJS = files.some(f => f.endsWith('.js'));
-      const hasDTS = files.some(f => f.endsWith('.d.ts'));
-      
+      const hasJS = files.some((f) => f.endsWith('.js'));
+      const hasDTS = files.some((f) => f.endsWith('.d.ts'));
+
       if (hasJS && hasDTS) {
         console.log(`✅ ${pluginName} - Built (${files.length} files)`);
       } else {
@@ -104,10 +104,10 @@ const docs = [
   'troubleshooting/solutions/elizaos-plugin-typescript-build-issues.md',
   'troubleshooting/dependency-issues/bun-lockfile-conflicts-windows.md',
   'AB/sessions/session-2025-09-01.md',
-  'AB/milestone-tracker.md'
+  'AB/milestone-tracker.md',
 ];
 
-docs.forEach(doc => {
+docs.forEach((doc) => {
   if (fs.existsSync(doc)) {
     const stats = fs.statSync(doc);
     const size = (stats.size / 1024).toFixed(1);
@@ -121,10 +121,10 @@ docs.forEach(doc => {
 console.log('\n🔍 TypeScript Status:');
 const tsConfigPaths = [
   'packages/elizaos-plugins/business-intelligence/tsconfig.json',
-  'packages/elizaos-plugins/cognitive-engine/tsconfig.json'
+  'packages/elizaos-plugins/cognitive-engine/tsconfig.json',
 ];
 
-tsConfigPaths.forEach(config => {
+tsConfigPaths.forEach((config) => {
   if (fs.existsSync(config)) {
     const pluginName = config.split('/')[2];
     console.log(`✅ ${pluginName} - TypeScript configured`);
@@ -157,12 +157,14 @@ if (!fs.existsSync('node_modules')) {
 }
 
 if (!fs.existsSync(biDist)) {
-  console.log('2. Build Business Intelligence Plugin: cd packages/elizaos-plugins/business-intelligence && bun run build');
+  console.log(
+    '2. Build Business Intelligence Plugin: cd packages/elizaos-plugins/business-intelligence && bun run build',
+  );
 }
 
 console.log('3. Review latest session: cat AB/sessions/session-2025-09-01.md');
 console.log('4. Check milestone progress: cat AB/milestone-tracker.md');
 console.log('5. Test plugin integration with ElizaOS runtime');
 
-console.log('\n🌌 Status: Ready for CEO\'s Orrery development! 🚀');
+console.log("\n🌌 Status: Ready for CEO's Orrery development! 🚀");
 console.log('═'.repeat(50));

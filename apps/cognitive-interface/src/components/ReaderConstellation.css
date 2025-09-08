@@ -1,6 +1,6 @@
 /**
  * ReaderConstellation.css - Styling for Galaxy Engine Universe Prototype
- * 
+ *
  * Revolutionary styling for the Reader's Constellation demo showcasing how
  * applications transform into explorable universes in the Galaxy Engine paradigm.
  */
@@ -9,7 +9,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
   color: #f1f5f9;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 1rem;
   overflow: hidden;
 }
@@ -74,7 +74,7 @@
   border-radius: 1rem;
   background: radial-gradient(circle at center, #0f172a 0%, #000000 100%);
   cursor: grab;
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(59, 130, 246, 0.2),
     inset 0 0 60px rgba(0, 0, 0, 0.5);
 }
@@ -357,7 +357,7 @@
     border-radius: 1rem;
     z-index: 1000;
   }
-  
+
   .universe-canvas {
     max-width: 100%;
     height: auto;
@@ -368,27 +368,27 @@
   .readers-constellation {
     padding: 0.5rem;
   }
-  
+
   .universe-header h1 {
     font-size: 2rem;
   }
-  
+
   .universe-stats {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .universe-controls {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .control-actions {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .book-details-panel {
     width: 95%;
     height: 90%;
@@ -416,8 +416,13 @@
 
 /* Animation for universe elements */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .universe-canvas {
@@ -426,12 +431,12 @@
 
 @keyframes subtle-glow {
   from {
-    box-shadow: 
+    box-shadow:
       0 0 40px rgba(59, 130, 246, 0.2),
       inset 0 0 60px rgba(0, 0, 0, 0.5);
   }
   to {
-    box-shadow: 
+    box-shadow:
       0 0 60px rgba(59, 130, 246, 0.3),
       inset 0 0 80px rgba(0, 0, 0, 0.6);
   }
@@ -453,7 +458,7 @@
     background: rgba(0, 0, 0, 0.9);
     border-color: rgba(255, 255, 255, 0.5);
   }
-  
+
   .universe-canvas {
     border-color: rgba(255, 255, 255, 0.7);
   }
@@ -464,11 +469,11 @@
   .universe-canvas {
     animation: none;
   }
-  
+
   .book-details-panel {
     animation: none;
   }
-  
+
   .action-btn,
   .control-btn {
     transition: none;
@@ -481,7 +486,7 @@
     background: white;
     color: black;
   }
-  
+
   .universe-controls,
   .book-details-panel {
     display: none;

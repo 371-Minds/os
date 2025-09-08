@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 // Color scheme definitions
 export const COLOR_SCHEMES = {
@@ -13,10 +13,10 @@ export const COLOR_SCHEMES = {
     success: '#10b981',
     warning: '#f59e0b',
     error: '#ef4444',
-    gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)'
+    gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
   },
-  
-  'readysetbuild': {
+
+  readysetbuild: {
     primary: '#f97316',
     secondary: '#ea580c',
     accent: '#84cc16',
@@ -27,10 +27,10 @@ export const COLOR_SCHEMES = {
     success: '#22c55e',
     warning: '#eab308',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)'
+    gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
   },
-  
-  'stacksense': {
+
+  stacksense: {
     primary: '#0ea5e9',
     secondary: '#0284c7',
     accent: '#06b6d4',
@@ -41,9 +41,9 @@ export const COLOR_SCHEMES = {
     success: '#059669',
     warning: '#d97706',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)'
+    gradient: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
   },
-  
+
   'legacy-archaeologist': {
     primary: '#92400e',
     secondary: '#a16207',
@@ -55,10 +55,10 @@ export const COLOR_SCHEMES = {
     success: '#16a34a',
     warning: '#ea580c',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #92400e 0%, #a16207 100%)'
+    gradient: 'linear-gradient(135deg, #92400e 0%, #a16207 100%)',
   },
-  
-  'modumind': {
+
+  modumind: {
     primary: '#7c3aed',
     secondary: '#6d28d9',
     accent: '#a855f7',
@@ -69,10 +69,10 @@ export const COLOR_SCHEMES = {
     success: '#059669',
     warning: '#d97706',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)'
+    gradient: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
   },
-  
-  'rootlift': {
+
+  rootlift: {
     primary: '#059669',
     secondary: '#047857',
     accent: '#10b981',
@@ -83,10 +83,10 @@ export const COLOR_SCHEMES = {
     success: '#22c55e',
     warning: '#f59e0b',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #059669 0%, #047857 100%)'
+    gradient: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
   },
-  
-  'vision2results': {
+
+  vision2results: {
     primary: '#dc2626',
     secondary: '#b91c1c',
     accent: '#f87171',
@@ -97,9 +97,9 @@ export const COLOR_SCHEMES = {
     success: '#16a34a',
     warning: '#ea580c',
     error: '#ef4444',
-    gradient: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'
+    gradient: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
   },
-  
+
   'multimedia-junkie': {
     primary: '#ec4899',
     secondary: '#db2777',
@@ -111,10 +111,10 @@ export const COLOR_SCHEMES = {
     success: '#10b981',
     warning: '#f59e0b',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)'
+    gradient: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
   },
-  
-  'ikid': {
+
+  ikid: {
     primary: '#facc15',
     secondary: '#eab308',
     accent: '#fde047',
@@ -125,10 +125,10 @@ export const COLOR_SCHEMES = {
     success: '#22c55e',
     warning: '#f97316',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #facc15 0%, #eab308 100%)'
+    gradient: 'linear-gradient(135deg, #facc15 0%, #eab308 100%)',
   },
-  
-  'epicquest': {
+
+  epicquest: {
     primary: '#7c2d12',
     secondary: '#9a3412',
     accent: '#ea580c',
@@ -139,10 +139,10 @@ export const COLOR_SCHEMES = {
     success: '#16a34a',
     warning: '#d97706',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #7c2d12 0%, #9a3412 100%)'
+    gradient: 'linear-gradient(135deg, #7c2d12 0%, #9a3412 100%)',
   },
-  
-  'lyriclines': {
+
+  lyriclines: {
     primary: '#1d4ed8',
     secondary: '#1e40af',
     accent: '#3b82f6',
@@ -153,8 +153,8 @@ export const COLOR_SCHEMES = {
     success: '#059669',
     warning: '#d97706',
     error: '#dc2626',
-    gradient: 'linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)'
-  }
+    gradient: 'linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%)',
+  },
 } as const;
 
 // Theme variants
@@ -162,7 +162,7 @@ export const THEME_VARIANTS = {
   light: 'light',
   dark: 'dark',
   corporate: 'corporate',
-  creative: 'creative'
+  creative: 'creative',
 } as const;
 
 // Color scheme component props
@@ -178,23 +178,26 @@ export const ColorSchemeProvider: React.FC<ColorSchemeProps> = ({
   company,
   variant = 'light',
   children,
-  className = ''
+  className = '',
 }) => {
   const scheme = COLOR_SCHEMES[company];
-  
+
   if (!scheme) {
     console.warn(`Color scheme not found for company: ${company}`);
     return <div className={className}>{children}</div>;
   }
 
   // Adjust colors based on variant
-  const adjustedScheme = variant === 'dark' ? {
-    ...scheme,
-    background: '#1a1a1a',
-    surface: '#2d2d2d',
-    text: '#ffffff',
-    textSecondary: '#a1a1aa'
-  } : scheme;
+  const adjustedScheme =
+    variant === 'dark'
+      ? {
+          ...scheme,
+          background: '#1a1a1a',
+          surface: '#2d2d2d',
+          text: '#ffffff',
+          textSecondary: '#a1a1aa',
+        }
+      : scheme;
 
   const cssVariables = {
     '--color-primary': adjustedScheme.primary,
@@ -207,21 +210,20 @@ export const ColorSchemeProvider: React.FC<ColorSchemeProps> = ({
     '--color-success': adjustedScheme.success,
     '--color-warning': adjustedScheme.warning,
     '--color-error': adjustedScheme.error,
-    '--gradient-primary': adjustedScheme.gradient
+    '--gradient-primary': adjustedScheme.gradient,
   } as React.CSSProperties;
 
   const providerClasses = [
     'color-scheme-provider',
     `color-scheme--${company}`,
     `color-scheme--${variant}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div 
-      className={providerClasses}
-      style={cssVariables}
-    >
+    <div className={providerClasses} style={cssVariables}>
       {children}
     </div>
   );
@@ -241,10 +243,10 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
   showLabels = true,
   size = 'medium',
   layout = 'horizontal',
-  className = ''
+  className = '',
 }) => {
   const scheme = COLOR_SCHEMES[company];
-  
+
   if (!scheme) {
     return null;
   }
@@ -253,8 +255,10 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
     'color-palette',
     `color-palette--${size}`,
     `color-palette--${layout}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const colors = [
     { name: 'Primary', value: scheme.primary },
@@ -262,14 +266,14 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
     { name: 'Accent', value: scheme.accent },
     { name: 'Success', value: scheme.success },
     { name: 'Warning', value: scheme.warning },
-    { name: 'Error', value: scheme.error }
+    { name: 'Error', value: scheme.error },
   ];
 
   return (
     <div className={paletteClasses}>
       {colors.map((color) => (
         <div key={color.name} className="color-swatch">
-          <div 
+          <div
             className="color-swatch__color"
             style={{ backgroundColor: color.value }}
           />
@@ -299,10 +303,10 @@ export const GradientBackground: React.FC<GradientBackgroundProps> = ({
   opacity = 1,
   overlay = false,
   children,
-  className = ''
+  className = '',
 }) => {
   const scheme = COLOR_SCHEMES[company];
-  
+
   if (!scheme) {
     return <div className={className}>{children}</div>;
   }
@@ -311,21 +315,21 @@ export const GradientBackground: React.FC<GradientBackgroundProps> = ({
     'gradient-background',
     `gradient-background--${company}`,
     overlay ? 'gradient-background--with-overlay' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const backgroundStyle: React.CSSProperties = {
     background: scheme.gradient,
-    opacity
+    opacity,
   };
 
   return (
     <div className={backgroundClasses} style={backgroundStyle}>
       {overlay && <div className="gradient-background__overlay" />}
       {children && (
-        <div className="gradient-background__content">
-          {children}
-        </div>
+        <div className="gradient-background__content">{children}</div>
       )}
     </div>
   );
@@ -343,7 +347,7 @@ export const getContrastColor = (backgroundColor: string): string => {
   const g = parseInt(hex.substr(2, 2), 16);
   const b = parseInt(hex.substr(4, 2), 16);
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-  
+
   return brightness > 128 ? '#000000' : '#ffffff';
 };
 
@@ -353,12 +357,20 @@ export const lightenColor = (color: string, amount: number): string => {
   const num = parseInt(hex, 16);
   const amt = Math.round(2.55 * amount);
   const R = (num >> 16) + amt;
-  const G = (num >> 8 & 0x00FF) + amt;
-  const B = (num & 0x0000FF) + amt;
-  
-  return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
-    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
-    (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+  const G = ((num >> 8) & 0x00ff) + amt;
+  const B = (num & 0x0000ff) + amt;
+
+  return (
+    '#' +
+    (
+      0x1000000 +
+      (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+      (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+      (B < 255 ? (B < 1 ? 0 : B) : 255)
+    )
+      .toString(16)
+      .slice(1)
+  );
 };
 
 export const darkenColor = (color: string, amount: number): string => {
@@ -375,5 +387,5 @@ export default {
   getColorScheme,
   getContrastColor,
   lightenColor,
-  darkenColor
+  darkenColor,
 };

@@ -1,11 +1,11 @@
 /**
  * Cognitive Interface - Main Entry Point
- * 
+ *
  * Revolutionary cognitive-aware interface system for 371 OS.
  * Exports the main components and integration utilities.
  */
 
-export { default as App, CognitiveInterface } from './App';
+export { CognitiveInterface, default as App } from './App';
 export * from './components';
 
 // Re-export for easy integration with ElizaOS
@@ -15,11 +15,11 @@ export { AdaptiveLayout as CognitiveUI } from './components/AdaptiveLayout';
 export const VERSION = '1.0.0';
 export const COGNITIVE_MODES = [
   'executive',
-  'technical', 
+  'technical',
   'creative',
   'analytical',
   'collaborative',
-  'learning'
+  'learning',
 ] as const;
 
-export type CognitiveModeType = typeof COGNITIVE_MODES[number];
+export type CognitiveModeType = (typeof COGNITIVE_MODES)[number];

@@ -1,6 +1,6 @@
 /**
  * AdaptiveLayout.css - Styling for Adaptive Cognitive Interface Layout
- * 
+ *
  * Core styling for the revolutionary cognitive-aware interface system that
  * dynamically adapts between cognitive modes with smooth transitions.
  */
@@ -9,7 +9,7 @@
   min-height: 100vh;
   width: 100%;
   position: relative;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   transition: all 0.4s ease;
   overflow-x: hidden;
 }
@@ -71,8 +71,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .transition-content {
@@ -97,8 +101,12 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Mode Placeholders (for future cognitive modes) */
@@ -127,15 +135,27 @@
 }
 
 .mode-placeholder.analytical {
-  background: linear-gradient(135deg, rgba(6, 95, 70, 0.1) 0%, rgba(4, 120, 87, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 95, 70, 0.1) 0%,
+    rgba(4, 120, 87, 0.1) 100%
+  );
 }
 
 .mode-placeholder.collaborative {
-  background: linear-gradient(135deg, rgba(20, 83, 45, 0.1) 0%, rgba(22, 101, 52, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 83, 45, 0.1) 0%,
+    rgba(22, 101, 52, 0.1) 100%
+  );
 }
 
 .mode-placeholder.learning {
-  background: linear-gradient(135deg, rgba(124, 45, 18, 0.1) 0%, rgba(154, 52, 18, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 45, 18, 0.1) 0%,
+    rgba(154, 52, 18, 0.1) 100%
+  );
 }
 
 /* Cognitive State Indicator */
@@ -267,12 +287,12 @@
     min-width: auto;
     max-width: none;
   }
-  
+
   .cognitive-state-indicator {
     bottom: 70px;
     right: 15px;
   }
-  
+
   .analytics-grid {
     grid-template-columns: 1fr;
   }
@@ -283,12 +303,12 @@
   .transition-spinner {
     border-width: 2px;
   }
-  
+
   .state-pulse {
     width: 10px;
     height: 10px;
   }
-  
+
   .debug-analytics {
     backdrop-filter: blur(30px);
   }
@@ -303,7 +323,7 @@
     animation: none;
     transition: none;
   }
-  
+
   .content-area.transitioning {
     opacity: 1;
     transform: none;
@@ -323,7 +343,7 @@
   .cognitive-state-indicator {
     display: none;
   }
-  
+
   .adaptive-layout {
     background: white !important;
     color: black !important;
@@ -336,12 +356,12 @@
     background: rgba(255, 255, 255, 0.95);
     color: #1e293b;
   }
-  
+
   .debug-analytics h4,
   .analytics-item span {
     color: #1e293b;
   }
-  
+
   .analytics-item label,
   .patterns-list strong {
     color: #64748b;
@@ -374,12 +394,16 @@
 
 .adaptive-layout.technical .debug-analytics {
   border-left: 3px solid #7c3aed;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 
 .adaptive-layout.creative .debug-analytics {
   border-left: 3px solid #ec4899;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.95) 100%
+  );
 }
 
 /* Smooth scrolling for mode transitions */

@@ -3,7 +3,8 @@
  * Departments as star systems with team planets and project asteroids
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface DepartmentSolarSystem {
   id: string;
@@ -86,48 +87,56 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
   animationSpeed = 1.0,
   showProjects = true,
   canvasRef,
-  orbitTime
+  orbitTime,
 }) => {
-  const [enhancedDepartments, setEnhancedDepartments] = useState<DepartmentSolarSystem[]>([]);
-  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [enhancedDepartments, setEnhancedDepartments] = useState<
+    DepartmentSolarSystem[]
+  >([]);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
+    null,
+  );
 
   // Generate teams for departments
   const generateTeams = (department: DepartmentSolarSystem): Team[] => {
     const teamCount = Math.max(2, Math.floor(department.headcount / 8));
     const teams: Team[] = [];
-    
+
     for (let i = 0; i < teamCount; i++) {
       const angle = (i / teamCount) * Math.PI * 2;
-      const orbitRadius = 60 + (i * 25);
-      
+      const orbitRadius = 60 + i * 25;
+
       teams.push({
         id: `${department.id}-team-${i}`,
         name: `Team ${String.fromCharCode(65 + i)}`,
         size: Math.floor(department.headcount / teamCount),
         position: { x: 0, y: 0 },
         orbitRadius,
-        orbitSpeed: 0.015 + (Math.random() * 0.01),
+        orbitSpeed: 0.015 + Math.random() * 0.01,
         orbitAngle: angle,
         performance: 70 + Math.random() * 30,
         velocity: 50 + Math.random() * 50,
         satisfaction: 60 + Math.random() * 40,
         planetSize: 6 + Math.random() * 4,
         planetColor: getTeamColor(i),
-        satellites: generateSatellites(`${department.id}-team-${i}`)
+        satellites: generateSatellites(`${department.id}-team-${i}`),
       });
     }
-    
+
     return teams;
   };
 
   const generateProjects = (department: DepartmentSolarSystem): Project[] => {
     const projectCount = Math.floor(department.headcount / 5);
     const projects: Project[] = [];
-    
+
     for (let i = 0; i < projectCount; i++) {
-      const status = ['planning', 'active', 'on-hold', 'completed'][Math.floor(Math.random() * 4)] as Project['status'];
-      const priority = ['low', 'medium', 'high', 'critical'][Math.floor(Math.random() * 4)] as Project['priority'];
-      
+      const status = ['planning', 'active', 'on-hold', 'completed'][
+        Math.floor(Math.random() * 4)
+      ] as Project['status'];
+      const priority = ['low', 'medium', 'high', 'critical'][
+        Math.floor(Math.random() * 4)
+      ] as Project['priority'];
+
       projects.push({
         id: `${department.id}-project-${i}`,
         name: `Project ${String.fromCharCode(65 + i)}`,
@@ -137,10 +146,10 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
         position: { x: 0, y: 0 },
         size: 3 + Math.random() * 3,
         color: getProjectColor(status),
-        assignedTeamId: `${department.id}-team-${Math.floor(Math.random() * Math.max(1, Math.floor(department.headcount / 8)))}`
+        assignedTeamId: `${department.id}-team-${Math.floor(Math.random() * Math.max(1, Math.floor(department.headcount / 8)))}`,
       });
     }
-    
+
     return projects;
   };
 
@@ -152,10 +161,10 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
       type: 'skill' as const,
       value: 60 + Math.random() * 40,
       position: { x: 0, y: 0 },
-      orbitRadius: 15 + (index * 5),
-      orbitSpeed: 0.1 + (Math.random() * 0.05),
+      orbitRadius: 15 + index * 5,
+      orbitSpeed: 0.1 + Math.random() * 0.05,
       size: 2,
-      color: '#60a5fa'
+      color: '#60a5fa',
     }));
   };
 
@@ -166,11 +175,16 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
 
   const getProjectColor = (status: string): string => {
     switch (status) {
-      case 'active': return '#10b981';
-      case 'planning': return '#3b82f6';
-      case 'on-hold': return '#f59e0b';
-      case 'completed': return '#6b7280';
-      default: return '#ef4444';
+      case 'active':
+        return '#10b981';
+      case 'planning':
+        return '#3b82f6';
+      case 'on-hold':
+        return '#f59e0b';
+      case 'completed':
+        return '#6b7280';
+      default:
+        return '#ef4444';
     }
   };
 
@@ -183,135 +197,175 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
 
   // Update positions
   const updatePositions = useCallback(() => {
-    setEnhancedDepartments(prev => prev.map(dept => {
-      const updatedTeams = dept.teams.map(team => {
-        const angle = orbitTime * team.orbitSpeed * animationSpeed;
-        const newX = dept.centerPosition.x + Math.cos(angle + team.orbitAngle) * team.orbitRadius;
-        const newY = dept.centerPosition.y + Math.sin(angle + team.orbitAngle) * team.orbitRadius;
-        
-        const updatedSatellites = team.satellites.map(satellite => {
-          const satAngle = orbitTime * satellite.orbitSpeed * animationSpeed;
+    setEnhancedDepartments((prev) =>
+      prev.map((dept) => {
+        const updatedTeams = dept.teams.map((team) => {
+          const angle = orbitTime * team.orbitSpeed * animationSpeed;
+          const newX =
+            dept.centerPosition.x +
+            Math.cos(angle + team.orbitAngle) * team.orbitRadius;
+          const newY =
+            dept.centerPosition.y +
+            Math.sin(angle + team.orbitAngle) * team.orbitRadius;
+
+          const updatedSatellites = team.satellites.map((satellite) => {
+            const satAngle = orbitTime * satellite.orbitSpeed * animationSpeed;
+            return {
+              ...satellite,
+              position: {
+                x: newX + Math.cos(satAngle) * satellite.orbitRadius,
+                y: newY + Math.sin(satAngle) * satellite.orbitRadius,
+              },
+            };
+          });
+
           return {
-            ...satellite,
-            position: {
-              x: newX + Math.cos(satAngle) * satellite.orbitRadius,
-              y: newY + Math.sin(satAngle) * satellite.orbitRadius
-            }
+            ...team,
+            position: { x: newX, y: newY },
+            satellites: updatedSatellites,
           };
         });
-        
-        return { ...team, position: { x: newX, y: newY }, satellites: updatedSatellites };
-      });
-      
-      const updatedProjects = dept.projects.map((project, index) => {
-        const angle = orbitTime * 0.008 * animationSpeed + (index * 0.5);
-        const radius = 100 + (index * 15);
-        return {
-          ...project,
-          position: {
-            x: dept.centerPosition.x + Math.cos(angle) * radius,
-            y: dept.centerPosition.y + Math.sin(angle) * radius
-          }
-        };
-      });
-      
-      return { ...dept, teams: updatedTeams, projects: updatedProjects };
-    }));
+
+        const updatedProjects = dept.projects.map((project, index) => {
+          const angle = orbitTime * 0.008 * animationSpeed + index * 0.5;
+          const radius = 100 + index * 15;
+          return {
+            ...project,
+            position: {
+              x: dept.centerPosition.x + Math.cos(angle) * radius,
+              y: dept.centerPosition.y + Math.sin(angle) * radius,
+            },
+          };
+        });
+
+        return { ...dept, teams: updatedTeams, projects: updatedProjects };
+      }),
+    );
   }, [orbitTime, animationSpeed]);
 
   // Render departments
-  const renderDepartments = useCallback((ctx: CanvasRenderingContext2D) => {
-    enhancedDepartments.forEach(dept => {
-      const { x, y } = dept.centerPosition;
-      
-      // Draw department star
-      ctx.fillStyle = dept.starColor;
-      ctx.shadowColor = dept.starColor;
-      ctx.shadowBlur = dept.isSelected ? 30 : 20;
-      ctx.beginPath();
-      ctx.arc(x, y, dept.starSize, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Draw teams as planets
-      dept.teams.forEach(team => {
-        ctx.fillStyle = team.planetColor;
-        ctx.shadowColor = team.planetColor;
-        ctx.shadowBlur = 10;
+  const renderDepartments = useCallback(
+    (ctx: CanvasRenderingContext2D) => {
+      enhancedDepartments.forEach((dept) => {
+        const { x, y } = dept.centerPosition;
+
+        // Draw department star
+        ctx.fillStyle = dept.starColor;
+        ctx.shadowColor = dept.starColor;
+        ctx.shadowBlur = dept.isSelected ? 30 : 20;
         ctx.beginPath();
-        ctx.arc(team.position.x, team.position.y, team.planetSize, 0, Math.PI * 2);
+        ctx.arc(x, y, dept.starSize, 0, Math.PI * 2);
         ctx.fill();
-        
-        // Draw team satellites
-        team.satellites.forEach(satellite => {
-          ctx.fillStyle = satellite.color;
-          ctx.shadowBlur = 3;
+
+        // Draw teams as planets
+        dept.teams.forEach((team) => {
+          ctx.fillStyle = team.planetColor;
+          ctx.shadowColor = team.planetColor;
+          ctx.shadowBlur = 10;
           ctx.beginPath();
-          ctx.arc(satellite.position.x, satellite.position.y, satellite.size, 0, Math.PI * 2);
+          ctx.arc(
+            team.position.x,
+            team.position.y,
+            team.planetSize,
+            0,
+            Math.PI * 2,
+          );
           ctx.fill();
+
+          // Draw team satellites
+          team.satellites.forEach((satellite) => {
+            ctx.fillStyle = satellite.color;
+            ctx.shadowBlur = 3;
+            ctx.beginPath();
+            ctx.arc(
+              satellite.position.x,
+              satellite.position.y,
+              satellite.size,
+              0,
+              Math.PI * 2,
+            );
+            ctx.fill();
+          });
         });
+
+        // Draw projects as asteroids
+        if (showProjects) {
+          dept.projects.forEach((project) => {
+            ctx.fillStyle = project.color;
+            ctx.shadowBlur = 5;
+            ctx.beginPath();
+            ctx.arc(
+              project.position.x,
+              project.position.y,
+              project.size,
+              0,
+              Math.PI * 2,
+            );
+            ctx.fill();
+          });
+        }
+
+        ctx.shadowBlur = 0;
       });
-      
-      // Draw projects as asteroids
-      if (showProjects) {
-        dept.projects.forEach(project => {
-          ctx.fillStyle = project.color;
-          ctx.shadowBlur = 5;
-          ctx.beginPath();
-          ctx.arc(project.position.x, project.position.y, project.size, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      }
-      
-      ctx.shadowBlur = 0;
-    });
-  }, [enhancedDepartments, showProjects]);
+    },
+    [enhancedDepartments, showProjects],
+  );
 
   // Handle interactions
-  const handleClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
 
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-    // Check department clicks
-    const clickedDepartment = enhancedDepartments.find(dept => {
-      const distance = Math.sqrt(Math.pow(x - dept.centerPosition.x, 2) + Math.pow(y - dept.centerPosition.y, 2));
-      return distance <= dept.starSize + 10;
-    });
-
-    if (clickedDepartment) {
-      setSelectedDepartment(prev => prev === clickedDepartment.id ? null : clickedDepartment.id);
-      onDepartmentSelect(clickedDepartment);
-      return;
-    }
-
-    // Check team clicks
-    for (const dept of enhancedDepartments) {
-      const clickedTeam = dept.teams.find(team => {
-        const distance = Math.sqrt(Math.pow(x - team.position.x, 2) + Math.pow(y - team.position.y, 2));
-        return distance <= team.planetSize + 5;
+      // Check department clicks
+      const clickedDepartment = enhancedDepartments.find((dept) => {
+        const distance = Math.sqrt(
+          (x - dept.centerPosition.x) ** 2 + (y - dept.centerPosition.y) ** 2,
+        );
+        return distance <= dept.starSize + 10;
       });
-      
-      if (clickedTeam) {
-        onTeamSelect(clickedTeam);
+
+      if (clickedDepartment) {
+        setSelectedDepartment((prev) =>
+          prev === clickedDepartment.id ? null : clickedDepartment.id,
+        );
+        onDepartmentSelect(clickedDepartment);
         return;
       }
-    }
-  }, [enhancedDepartments, onDepartmentSelect, onTeamSelect, canvasRef]);
+
+      // Check team clicks
+      for (const dept of enhancedDepartments) {
+        const clickedTeam = dept.teams.find((team) => {
+          const distance = Math.sqrt(
+            (x - team.position.x) ** 2 + (y - team.position.y) ** 2,
+          );
+          return distance <= team.planetSize + 5;
+        });
+
+        if (clickedTeam) {
+          onTeamSelect(clickedTeam);
+          return;
+        }
+      }
+    },
+    [enhancedDepartments, onDepartmentSelect, onTeamSelect, canvasRef],
+  );
 
   // Initialize enhanced departments
   useEffect(() => {
-    const enhanced = departments.map(dept => ({
+    const enhanced = departments.map((dept) => ({
       ...dept,
       teams: generateTeams(dept),
       projects: generateProjects(dept),
       starSize: Math.max(12, Math.min(30, dept.performance / 3)),
       starColor: getStarColor(dept.performance),
-      gravitationalPull: 1.0 + (dept.strategicImportance / 10),
+      gravitationalPull: 1.0 + dept.strategicImportance / 10,
       isSelected: false,
-      isExpanded: false
+      isExpanded: false,
     }));
     setEnhancedDepartments(enhanced);
   }, [departments]);
@@ -321,10 +375,12 @@ export const DepartmentSolarSystems: React.FC<DepartmentSolarSystemsProps> = ({
   }, [updatePositions]);
 
   useEffect(() => {
-    setEnhancedDepartments(prev => prev.map(dept => ({
-      ...dept,
-      isSelected: dept.id === selectedDepartment
-    })));
+    setEnhancedDepartments((prev) =>
+      prev.map((dept) => ({
+        ...dept,
+        isSelected: dept.id === selectedDepartment,
+      })),
+    );
   }, [selectedDepartment]);
 
   return null;

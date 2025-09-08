@@ -1,9 +1,9 @@
 /**
  * CEO's Orrery Integration Bridge
- * 
+ *
  * Revolutionary integration layer that connects the CEO's Orrery visualization
  * with ElizaOS business intelligence agents for real-time data synchronization.
- * 
+ *
  * This bridge enables:
  * - Real-time business data updates from autonomous agents
  * - Intelligent alert propagation to the visual universe
@@ -11,14 +11,14 @@
  * - Bidirectional communication between UI and agents
  */
 
-import { IAgentRuntime } from '@elizaos/core';
-import { 
-  BusinessSnapshot, 
-  BusinessMetric, 
-  BusinessAlert, 
-  Department,
+import type { IAgentRuntime } from '@elizaos/core';
+import type {
   AgentInsight,
-  OrreryUpdatePayload 
+  BusinessAlert,
+  BusinessMetric,
+  BusinessSnapshot,
+  Department,
+  OrreryUpdatePayload,
 } from '../../../../packages/elizaos-plugins/business-intelligence/src/types';
 
 interface OrreryIntegrationConfig {
@@ -45,17 +45,17 @@ export class CEOsOrreryIntegration {
    * Initialize the integration bridge
    */
   async initialize(): Promise<void> {
-    console.log('🌌 Initializing CEO\'s Orrery Integration Bridge...');
-    
+    console.log("🌌 Initializing CEO's Orrery Integration Bridge...");
+
     // Start real-time data updates if enabled
     if (this.config.enableRealTime) {
       this.startRealTimeUpdates();
     }
-    
+
     // Register agent event listeners
     this.setupAgentEventListeners();
-    
-    console.log('✅ CEO\'s Orrery Integration Bridge active');
+
+    console.log("✅ CEO's Orrery Integration Bridge active");
   }
 
   /**
@@ -63,7 +63,7 @@ export class CEOsOrreryIntegration {
    */
   subscribe(callback: (data: OrreryUpdatePayload) => void): () => void {
     this.subscribers.add(callback);
-    
+
     // Return unsubscribe function
     return () => {
       this.subscribers.delete(callback);
@@ -81,15 +81,20 @@ export class CEOsOrreryIntegration {
     try {
       // Use business intelligence plugin to collect data
       const snapshot = await this.runtime.plugins
-        ?.find(p => p.name === 'business-intelligence')
-        ?.actions?.find(a => a.name === 'COLLECT_BUSINESS_DATA')
-        ?.handler(this.runtime, {
-          id: 'manual-collection' as any,
-          content: { text: 'Manual business data collection' },
-          roomId: 'orrery-integration' as any,
-          agentId: this.runtime.agentId || 'system',
-          createdAt: Date.now()
-        } as any, { values: {}, data: {}, text: '' } as any, options);
+        ?.find((p) => p.name === 'business-intelligence')
+        ?.actions?.find((a) => a.name === 'COLLECT_BUSINESS_DATA')
+        ?.handler(
+          this.runtime,
+          {
+            id: 'manual-collection' as any,
+            content: { text: 'Manual business data collection' },
+            roomId: 'orrery-integration' as any,
+            agentId: this.runtime.agentId || 'system',
+            createdAt: Date.now(),
+          } as any,
+          { values: {}, data: {}, text: '' } as any,
+          options,
+        );
 
       if (snapshot) {
         this.lastSnapshot = snapshot as unknown as BusinessSnapshot;
@@ -107,9 +112,9 @@ export class CEOsOrreryIntegration {
    * Generate business alert and propagate to orrery
    */
   async generateAlert(
-    metricId: string, 
-    threshold: number, 
-    message: string
+    metricId: string,
+    threshold: number,
+    message: string,
   ): Promise<BusinessAlert> {
     const alert: BusinessAlert = {
       id: `alert-${Date.now()}`,
@@ -120,17 +125,17 @@ export class CEOsOrreryIntegration {
       threshold: {
         operator: '>',
         value: threshold,
-        breachedAt: new Date()
+        breachedAt: new Date(),
       },
       actionRequired: true,
       priority: 7,
       agentGenerated: true,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
     // Broadcast alert to orrery subscribers
     await this.broadcastAlert(alert);
-    
+
     return alert;
   }
 
@@ -138,17 +143,19 @@ export class CEOsOrreryIntegration {
    * Update department performance in real-time
    */
   async updateDepartmentPerformance(
-    departmentId: string, 
-    performance: number, 
-    efficiency: number
+    departmentId: string,
+    performance: number,
+    efficiency: number,
   ): Promise<void> {
     if (this.lastSnapshot) {
-      const dept = this.lastSnapshot.departments.find((d: any) => d.id === departmentId);
+      const dept = this.lastSnapshot.departments.find(
+        (d: any) => d.id === departmentId,
+      );
       if (dept) {
         dept.performance = performance;
         dept.efficiency = efficiency;
         dept.lastReview = new Date();
-        
+
         await this.broadcastUpdate();
       }
     }
@@ -193,8 +200,10 @@ export class CEOsOrreryIntegration {
     // this.runtime.on?.('department_updated', (department: Department) => {
     //   this.updateDepartment(department);
     // });
-    
-    console.log('🎧 Agent event listeners would be set up with proper ElizaOS runtime');
+
+    console.log(
+      '🎧 Agent event listeners would be set up with proper ElizaOS runtime',
+    );
   }
 
   /**
@@ -202,13 +211,15 @@ export class CEOsOrreryIntegration {
    */
   private async updateMetric(metric: BusinessMetric): Promise<void> {
     if (this.lastSnapshot) {
-      const existingIndex = this.lastSnapshot.metrics.findIndex((m: any) => m.id === metric.id);
+      const existingIndex = this.lastSnapshot.metrics.findIndex(
+        (m: any) => m.id === metric.id,
+      );
       if (existingIndex >= 0) {
         this.lastSnapshot.metrics[existingIndex] = metric;
       } else {
         this.lastSnapshot.metrics.push(metric);
       }
-      
+
       await this.broadcastUpdate();
     }
   }
@@ -218,13 +229,15 @@ export class CEOsOrreryIntegration {
    */
   private async updateDepartment(department: Department): Promise<void> {
     if (this.lastSnapshot) {
-      const existingIndex = this.lastSnapshot.departments.findIndex((d: any) => d.id === department.id);
+      const existingIndex = this.lastSnapshot.departments.findIndex(
+        (d: any) => d.id === department.id,
+      );
       if (existingIndex >= 0) {
         this.lastSnapshot.departments[existingIndex] = department;
       } else {
         this.lastSnapshot.departments.push(department);
       }
-      
+
       await this.broadcastUpdate();
     }
   }
@@ -241,22 +254,25 @@ export class CEOsOrreryIntegration {
         value: metric.value,
         growth: this.calculateGrowth(metric),
         trend: metric.trend,
-        alerts: this.lastSnapshot?.alerts.filter((a: any) => a.metricId === metric.id) || [],
-        lastUpdated: metric.timestamp
+        alerts:
+          this.lastSnapshot?.alerts.filter(
+            (a: any) => a.metricId === metric.id,
+          ) || [],
+        lastUpdated: metric.timestamp,
       })),
       departments: this.lastSnapshot.departments.map((dept: any) => ({
         id: dept.id,
         performance: dept.performance,
         efficiency: dept.efficiency,
-        riskLevel: dept.riskLevel
+        riskLevel: dept.riskLevel,
       })),
       universe: this.lastSnapshot.summary,
       insights: this.lastSnapshot.agentInsights,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
     // Notify all subscribers
-    this.subscribers.forEach(callback => {
+    this.subscribers.forEach((callback) => {
       try {
         callback(payload);
       } catch (error) {
@@ -269,16 +285,16 @@ export class CEOsOrreryIntegration {
    * Broadcast alert to orrery
    */
   private async broadcastAlert(alert: BusinessAlert): Promise<void> {
-    this.subscribers.forEach(callback => {
+    this.subscribers.forEach((callback) => {
       try {
         // Send alert as special update
         callback({
           planets: [],
           departments: [],
-          universe: this.lastSnapshot?.summary || {} as any,
+          universe: this.lastSnapshot?.summary || ({} as any),
           insights: [],
           timestamp: new Date(),
-          alert // Special alert field
+          alert, // Special alert field
         } as any);
       } catch (error) {
         console.error('Alert broadcast failed:', error);
@@ -291,7 +307,9 @@ export class CEOsOrreryIntegration {
    */
   private calculateGrowth(metric: BusinessMetric): number {
     if (metric.previousValue && metric.previousValue !== 0) {
-      return ((metric.value - metric.previousValue) / metric.previousValue) * 100;
+      return (
+        ((metric.value - metric.previousValue) / metric.previousValue) * 100
+      );
     }
     return 0;
   }
@@ -312,8 +330,8 @@ export class CEOsOrreryIntegration {
           priority: 'critical',
           confidence: 60,
           source: 'manual',
-          timestamp: new Date()
-        }
+          timestamp: new Date(),
+        },
       ],
       departments: [
         {
@@ -329,8 +347,8 @@ export class CEOsOrreryIntegration {
           riskLevel: 'medium',
           strategicImportance: 1,
           managedMetrics: [],
-          lastReview: new Date()
-        }
+          lastReview: new Date(),
+        },
       ],
       alerts: [
         {
@@ -341,8 +359,8 @@ export class CEOsOrreryIntegration {
           actionRequired: false,
           priority: 5,
           agentGenerated: false,
-          timestamp: new Date()
-        }
+          timestamp: new Date(),
+        },
       ],
       summary: {
         totalRevenue: 12500000,
@@ -351,9 +369,9 @@ export class CEOsOrreryIntegration {
         growthRate: 0,
         cashFlow: 4200000,
         operatingMargin: 28.8,
-        marketConditions: 'neutral'
+        marketConditions: 'neutral',
       },
-      agentInsights: []
+      agentInsights: [],
     };
   }
 
@@ -364,26 +382,26 @@ export class CEOsOrreryIntegration {
     if (this.updateTimer) {
       clearInterval(this.updateTimer);
     }
-    
+
     this.subscribers.clear();
-    console.log('🌌 CEO\'s Orrery Integration Bridge stopped');
+    console.log("🌌 CEO's Orrery Integration Bridge stopped");
   }
 }
 
 // Factory function for easy integration
 export function createOrreryIntegration(
   runtime: IAgentRuntime,
-  config: Partial<OrreryIntegrationConfig> = {}
+  config: Partial<OrreryIntegrationConfig> = {},
 ): CEOsOrreryIntegration {
   const defaultConfig: OrreryIntegrationConfig = {
     updateInterval: 30000, // 30 seconds
     enableRealTime: true,
     agentRoles: ['CEO', 'CFO', 'CTO', 'CLO'],
     alertThresholds: {
-      revenue: 0.1,  // 10% change
-      profit: 0.15,  // 15% change
-      cashFlow: 0.2  // 20% change
-    }
+      revenue: 0.1, // 10% change
+      profit: 0.15, // 15% change
+      cashFlow: 0.2, // 20% change
+    },
   };
 
   return new CEOsOrreryIntegration(runtime, { ...defaultConfig, ...config });

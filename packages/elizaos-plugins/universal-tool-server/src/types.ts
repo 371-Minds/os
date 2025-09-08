@@ -1,6 +1,6 @@
 /**
  * Type definitions for Universal Tool Server Plugin
- * 
+ *
  * Implements the next-generation architecture beyond MCP limitations
  */
 
@@ -89,7 +89,11 @@ export interface CostModel {
 }
 
 export interface ScalingFactor {
-  metric: 'complexity' | 'data-size' | 'processing-time' | 'accuracy-requirement';
+  metric:
+    | 'complexity'
+    | 'data-size'
+    | 'processing-time'
+    | 'accuracy-requirement';
   multiplier: number;
   threshold?: number;
 }
@@ -134,7 +138,12 @@ export interface DeploymentInfo {
 }
 
 export interface PlatformDeployment {
-  platform: 'browser-extension' | 'vscode-extension' | 'slack-bot' | 'discord-bot' | 'telegram-bot';
+  platform:
+    | 'browser-extension'
+    | 'vscode-extension'
+    | 'slack-bot'
+    | 'discord-bot'
+    | 'telegram-bot';
   endpoint: string;
   authentication: PlatformAuth;
   capabilities: string[];
@@ -168,7 +177,12 @@ export interface ReputationScore {
 }
 
 export interface CategoryScore {
-  category: 'reliability' | 'accuracy' | 'speed' | 'cost-effectiveness' | 'security';
+  category:
+    | 'reliability'
+    | 'accuracy'
+    | 'speed'
+    | 'cost-effectiveness'
+    | 'security';
   score: number;
   confidence: number;
   sampleSize: number;
@@ -223,7 +237,11 @@ export interface GovernanceProposal {
   proposer: string;
   title: string;
   description: string;
-  proposalType: 'tool-update' | 'economic-parameter' | 'security-policy' | 'platform-integration';
+  proposalType:
+    | 'tool-update'
+    | 'economic-parameter'
+    | 'security-policy'
+    | 'platform-integration';
   parameters: any;
   votingPeriod: VotingPeriod;
   status: 'pending' | 'active' | 'passed' | 'rejected' | 'executed';

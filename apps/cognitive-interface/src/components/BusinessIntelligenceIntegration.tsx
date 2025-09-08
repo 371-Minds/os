@@ -3,8 +3,16 @@
  * Connects spatial business universe with ElizaOS Business Intelligence Plugin
  */
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { BusinessMetric, AgentInsight, BusinessAlert, SpatialBusinessData, AgentAction, AgentResponse } from '../types/business-intelligence';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type {
+  AgentAction,
+  AgentInsight,
+  AgentResponse,
+  BusinessAlert,
+  BusinessMetric,
+  SpatialBusinessData,
+} from '../types/business-intelligence';
 
 interface BusinessIntelligenceIntegrationProps {
   onDataUpdate: (data: SpatialBusinessData) => void;
@@ -29,10 +37,10 @@ class BusinessIntelligencePlugin {
     try {
       // Simulate connection to ElizaOS runtime
       console.log('🔌 Connecting to ElizaOS Business Intelligence Plugin...');
-      
+
       // Mock connection delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       this.isConnected = true;
       this.retryCount = 0;
       console.log('✅ Connected to ElizaOS Business Intelligence Plugin');
@@ -51,10 +59,12 @@ class BusinessIntelligencePlugin {
 
     try {
       console.log(`🤖 Executing action: ${action.action}`);
-      
+
       // Simulate agent processing time
-      await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000));
-      
+      await new Promise((resolve) =>
+        setTimeout(resolve, 500 + Math.random() * 1000),
+      );
+
       // Generate mock response based on action type
       return this.generateMockResponse(action);
     } catch (error) {
@@ -67,7 +77,7 @@ class BusinessIntelligencePlugin {
     const baseResponse: AgentResponse = {
       success: true,
       executionTime: 500 + Math.random() * 1000,
-      confidence: 0.8 + Math.random() * 0.2
+      confidence: 0.8 + Math.random() * 0.2,
     };
 
     switch (action.action) {
@@ -77,7 +87,7 @@ class BusinessIntelligencePlugin {
           agentRole: 'CFO',
           data: this.generateMockBusinessData(),
           metrics: this.generateMockMetrics(),
-          insights: [this.generateMockInsight('CFO', 'trend_analysis')]
+          insights: [this.generateMockInsight('CFO', 'trend_analysis')],
         };
 
       case 'ANALYZE_BUSINESS_TRENDS':
@@ -86,8 +96,8 @@ class BusinessIntelligencePlugin {
           agentRole: 'CEO',
           insights: [
             this.generateMockInsight('CEO', 'trend_analysis'),
-            this.generateMockInsight('CEO', 'prediction')
-          ]
+            this.generateMockInsight('CEO', 'prediction'),
+          ],
         };
 
       case 'ANALYZE_DEPARTMENT_PERFORMANCE':
@@ -95,14 +105,14 @@ class BusinessIntelligencePlugin {
           ...baseResponse,
           agentRole: 'CTO',
           data: this.generateMockDepartmentData(),
-          insights: [this.generateMockInsight('CTO', 'recommendation')]
+          insights: [this.generateMockInsight('CTO', 'recommendation')],
         };
 
       case 'GENERATE_BUSINESS_ALERT':
         return {
           ...baseResponse,
           agentRole: 'CFO',
-          alerts: [this.generateMockAlert()]
+          alerts: [this.generateMockAlert()],
         };
 
       default:
@@ -117,7 +127,9 @@ class BusinessIntelligencePlugin {
       netProfit: 3600000 + (Math.random() - 0.5) * 300000,
       cashFlow: 4200000 + (Math.random() - 0.5) * 400000,
       growthRate: 23.4 + (Math.random() - 0.5) * 5,
-      marketConditions: ['bull', 'bear', 'neutral', 'volatile'][Math.floor(Math.random() * 4)]
+      marketConditions: ['bull', 'bear', 'neutral', 'volatile'][
+        Math.floor(Math.random() * 4)
+      ],
     };
   }
 
@@ -137,7 +149,7 @@ class BusinessIntelligencePlugin {
         volatility: 0.3,
         source: 'agent',
         lastUpdated: new Date(),
-        agentRole: 'CFO'
+        agentRole: 'CFO',
       },
       {
         id: 'expense-operations',
@@ -152,7 +164,7 @@ class BusinessIntelligencePlugin {
         volatility: 0.2,
         source: 'agent',
         lastUpdated: new Date(),
-        agentRole: 'CFO'
+        agentRole: 'CFO',
       },
       {
         id: 'kpi-customer-satisfaction',
@@ -168,42 +180,52 @@ class BusinessIntelligencePlugin {
         volatility: 0.4,
         source: 'agent',
         lastUpdated: new Date(),
-        agentRole: 'CMO'
-      }
+        agentRole: 'CMO',
+      },
     ];
 
     return metrics;
   }
 
-  private generateMockInsight(agentRole: AgentInsight['agentRole'], type: AgentInsight['type']): AgentInsight {
-    const insights: Record<string, Record<string, { title: string; content: string }>> = {
+  private generateMockInsight(
+    agentRole: AgentInsight['agentRole'],
+    type: AgentInsight['type'],
+  ): AgentInsight {
+    const insights: Record<
+      string,
+      Record<string, { title: string; content: string }>
+    > = {
       CEO: {
         trend_analysis: {
           title: 'Strategic Growth Acceleration',
-          content: 'Revenue growth momentum indicates 28% YoY expansion potential with current market conditions and operational efficiency improvements.'
+          content:
+            'Revenue growth momentum indicates 28% YoY expansion potential with current market conditions and operational efficiency improvements.',
         },
         prediction: {
           title: 'Q4 Performance Forecast',
-          content: 'Predictive models suggest 15.2% revenue growth in Q4, driven by enterprise segment expansion and product-market fit optimization.'
-        }
+          content:
+            'Predictive models suggest 15.2% revenue growth in Q4, driven by enterprise segment expansion and product-market fit optimization.',
+        },
       },
       CFO: {
         trend_analysis: {
           title: 'Cash Flow Optimization',
-          content: 'Free cash flow trends show 12% improvement opportunity through accounts receivable acceleration and expense timing optimization.'
-        }
+          content:
+            'Free cash flow trends show 12% improvement opportunity through accounts receivable acceleration and expense timing optimization.',
+        },
       },
       CTO: {
         recommendation: {
           title: 'Engineering Efficiency Enhancement',
-          content: 'Technical debt reduction initiative could improve development velocity by 23% and reduce infrastructure costs by $180K annually.'
-        }
-      }
+          content:
+            'Technical debt reduction initiative could improve development velocity by 23% and reduce infrastructure costs by $180K annually.',
+        },
+      },
     };
 
     const insight = insights[agentRole]?.[type] || {
       title: 'Business Intelligence Update',
-      content: `${agentRole} agent has analyzed current business metrics and identified optimization opportunities.`
+      content: `${agentRole} agent has analyzed current business metrics and identified optimization opportunities.`,
     };
 
     return {
@@ -213,13 +235,17 @@ class BusinessIntelligencePlugin {
       title: insight.title,
       content: insight.content,
       confidence: 0.8 + Math.random() * 0.2,
-      impact: ['low', 'medium', 'high', 'critical'][Math.floor(Math.random() * 4)] as AgentInsight['impact'],
+      impact: ['low', 'medium', 'high', 'critical'][
+        Math.floor(Math.random() * 4)
+      ] as AgentInsight['impact'],
       priority: Math.floor(Math.random() * 10) + 1,
       timestamp: new Date(),
       actionable: Math.random() > 0.3,
       estimatedValue: Math.random() * 500000,
-      timeframe: ['1 week', '1 month', '1 quarter', '1 year'][Math.floor(Math.random() * 4)],
-      riskLevel: Math.random() * 10
+      timeframe: ['1 week', '1 month', '1 quarter', '1 year'][
+        Math.floor(Math.random() * 4)
+      ],
+      riskLevel: Math.random() * 10,
     };
   }
 
@@ -229,20 +255,23 @@ class BusinessIntelligencePlugin {
         type: 'threshold',
         severity: 'warning',
         title: 'Revenue Target Alert',
-        message: 'Monthly revenue is 8% below target with 5 days remaining in period'
+        message:
+          'Monthly revenue is 8% below target with 5 days remaining in period',
       },
       {
         type: 'anomaly',
         severity: 'critical',
         title: 'Expense Anomaly Detected',
-        message: 'Operating expenses increased 15% above normal range in the last 3 days'
+        message:
+          'Operating expenses increased 15% above normal range in the last 3 days',
       },
       {
         type: 'trend',
         severity: 'info',
         title: 'Positive Growth Trend',
-        message: 'Customer acquisition rate has increased 22% over the last 2 weeks'
-      }
+        message:
+          'Customer acquisition rate has increased 22% over the last 2 weeks',
+      },
     ];
 
     const alert = alertTypes[Math.floor(Math.random() * alertTypes.length)];
@@ -253,7 +282,9 @@ class BusinessIntelligencePlugin {
       severity: alert.severity as BusinessAlert['severity'],
       title: alert.title,
       message: alert.message,
-      agentRole: ['CEO', 'CFO', 'CTO'][Math.floor(Math.random() * 3)] as BusinessAlert['agentRole'],
+      agentRole: ['CEO', 'CFO', 'CTO'][
+        Math.floor(Math.random() * 3)
+      ] as BusinessAlert['agentRole'],
       timestamp: new Date(),
       actionRequired: Math.random() > 0.5,
       estimatedImpact: Math.random() * 100000,
@@ -261,10 +292,10 @@ class BusinessIntelligencePlugin {
         'Review expense allocation',
         'Analyze customer feedback',
         'Optimize marketing spend',
-        'Accelerate product development'
+        'Accelerate product development',
       ].slice(0, Math.floor(Math.random() * 3) + 1),
       priority: Math.floor(Math.random() * 10) + 1,
-      resolved: false
+      resolved: false,
     };
   }
 
@@ -276,7 +307,7 @@ class BusinessIntelligencePlugin {
         budgetUtilization: 93 + Math.random() * 7,
         headcount: 72,
         efficiency: 87 + Math.random() * 8,
-        productivity: 89000 + Math.random() * 10000
+        productivity: 89000 + Math.random() * 10000,
       },
       sales: {
         performance: 92 + Math.random() * 8,
@@ -284,8 +315,8 @@ class BusinessIntelligencePlugin {
         budgetUtilization: 87 + Math.random() * 10,
         headcount: 45,
         efficiency: 94 + Math.random() * 6,
-        productivity: 156000 + Math.random() * 20000
-      }
+        productivity: 156000 + Math.random() * 20000,
+      },
     };
   }
 
@@ -299,14 +330,18 @@ class BusinessIntelligencePlugin {
   }
 }
 
-export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceIntegrationProps> = ({
+export const BusinessIntelligenceIntegration: React.FC<
+  BusinessIntelligenceIntegrationProps
+> = ({
   onDataUpdate,
   onError,
   realTimeMode,
   refreshInterval,
-  agentEndpoint
+  agentEndpoint,
 }) => {
-  const [plugin] = useState(() => new BusinessIntelligencePlugin(agentEndpoint));
+  const [plugin] = useState(
+    () => new BusinessIntelligencePlugin(agentEndpoint),
+  );
   const [isConnected, setIsConnected] = useState(false);
   const [lastSyncTime, setLastSyncTime] = useState<Date>(new Date());
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -316,7 +351,7 @@ export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceInteg
     try {
       const connected = await plugin.connect();
       setIsConnected(connected);
-      
+
       if (connected) {
         console.log('🚀 Business Intelligence Plugin initialized successfully');
         await collectBusinessData();
@@ -335,44 +370,54 @@ export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceInteg
 
     try {
       console.log('📊 Collecting comprehensive business intelligence...');
-      
+
       // Execute multiple agent actions in parallel
-      const [dataResponse, trendsResponse, departmentResponse] = await Promise.all([
-        plugin.executeAction({ action: 'COLLECT_BUSINESS_DATA', parameters: {} }),
-        plugin.executeAction({ action: 'ANALYZE_BUSINESS_TRENDS', parameters: { timeRange: 'quarter' } }),
-        plugin.executeAction({ action: 'ANALYZE_DEPARTMENT_PERFORMANCE', parameters: {} })
-      ]);
+      const [dataResponse, trendsResponse, departmentResponse] =
+        await Promise.all([
+          plugin.executeAction({
+            action: 'COLLECT_BUSINESS_DATA',
+            parameters: {},
+          }),
+          plugin.executeAction({
+            action: 'ANALYZE_BUSINESS_TRENDS',
+            parameters: { timeRange: 'quarter' },
+          }),
+          plugin.executeAction({
+            action: 'ANALYZE_DEPARTMENT_PERFORMANCE',
+            parameters: {},
+          }),
+        ]);
 
       // Combine responses into spatial business data
       const spatialData: SpatialBusinessData = {
         metrics: [
           ...(dataResponse.metrics || []),
           ...(trendsResponse.metrics || []),
-          ...(departmentResponse.metrics || [])
+          ...(departmentResponse.metrics || []),
         ],
         insights: [
           ...(dataResponse.insights || []),
           ...(trendsResponse.insights || []),
-          ...(departmentResponse.insights || [])
+          ...(departmentResponse.insights || []),
         ],
         alerts: [
           ...(dataResponse.alerts || []),
           ...(trendsResponse.alerts || []),
-          ...(departmentResponse.alerts || [])
+          ...(departmentResponse.alerts || []),
         ],
         departments: [
           {
             id: 'engineering',
             name: 'Engineering',
             centerPosition: { x: 500, y: 300 },
-            ...(departmentResponse.data?.engineering || {})
+            ...(departmentResponse.data?.engineering || {}),
           },
           {
             id: 'sales',
             name: 'Sales & Marketing',
             centerPosition: { x: 300, y: 200 },
-            ...(departmentResponse.data?.sales || {})
-          }
+            ...(departmentResponse.data?.sales || {}),
+          },
         ],
         lastUpdated: new Date(),
         syncStatus: 'connected',
@@ -381,13 +426,13 @@ export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceInteg
           CFO: 'active',
           CTO: 'active',
           CLO: 'active',
-          CMO: 'active'
-        }
+          CMO: 'active',
+        },
       };
 
       setLastSyncTime(new Date());
       onDataUpdate(spatialData);
-      
+
       console.log('✅ Business intelligence data synchronized successfully');
     } catch (error) {
       console.error('💥 Data collection error:', error);
@@ -399,7 +444,7 @@ export const BusinessIntelligenceIntegration: React.FC<BusinessIntelligenceInteg
   useEffect(() => {
     if (realTimeMode && isConnected) {
       console.log(`🔄 Starting real-time sync every ${refreshInterval}ms`);
-      
+
       intervalRef.current = setInterval(() => {
         collectBusinessData();
       }, refreshInterval);

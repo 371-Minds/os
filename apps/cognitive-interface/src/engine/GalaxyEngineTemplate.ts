@@ -1,13 +1,13 @@
 /**
  * GalaxyEngineTemplate.ts - Universal Galaxy Engine Template System
- * 
+ *
  * The revolutionary abstraction layer that enables infinite vertical scaling.
  * This template system demonstrates how ANY domain can be transformed into
  * a spatial universe interface using our proven Galaxy Engine paradigm.
- * 
+ *
  * Completes C3 milestone by proving universal scalability across domains:
  * - Business Intelligence → CEO's Orrery ✅
- * - Development → Developer's Galaxy ✅  
+ * - Development → Developer's Galaxy ✅
  * - Creative → Creator's Cosmos ✅
  * - Communications → Communications Universe ✅
  * - ANY DOMAIN → Spatial Universe 🌌
@@ -193,7 +193,7 @@ export interface UniverseStats {
 
 /**
  * Universal Galaxy Engine Template Class
- * 
+ *
  * Transforms any domain into a spatial universe using our proven patterns.
  * This is the core abstraction that enables infinite vertical scaling.
  */
@@ -219,7 +219,7 @@ export class GalaxyEngineTemplate {
       showConnections: true,
       animationSpeed: 1.0,
       timeRange: '7d',
-      ...config.defaultControls
+      ...config.defaultControls,
     };
     this.stats = this.initializeStats();
   }
@@ -234,7 +234,7 @@ export class GalaxyEngineTemplate {
   }
 
   updateEntity(entityId: string, updates: Partial<UniverseEntity>): void {
-    const index = this.entities.findIndex(e => e.id === entityId);
+    const index = this.entities.findIndex((e) => e.id === entityId);
     if (index !== -1) {
       this.entities[index] = { ...this.entities[index], ...updates };
       this.updateStats();
@@ -243,7 +243,7 @@ export class GalaxyEngineTemplate {
   }
 
   removeEntity(entityId: string): void {
-    const index = this.entities.findIndex(e => e.id === entityId);
+    const index = this.entities.findIndex((e) => e.id === entityId);
     if (index !== -1) {
       const entity = this.entities[index];
       this.entities.splice(index, 1);
@@ -272,16 +272,26 @@ export class GalaxyEngineTemplate {
   private transformToEntity(rawData: Record<string, any>): UniverseEntity {
     const entityType = this.determineEntityType(rawData);
     const typeConfig = this.config.entityTypes[entityType];
-    
+
     if (!typeConfig) {
       throw new Error(`Unknown entity type: ${entityType}`);
     }
 
     const size = this.calculateSize(rawData, typeConfig.sizeRange);
     const color = typeConfig.color;
-    const orbitConfig = this.calculateOrbitConfig(rawData, typeConfig.orbitConfig);
-    const metrics = this.extractMetrics(rawData, typeConfig.requiredMetrics, typeConfig.optionalMetrics);
-    const satellites = this.generateSatellites(rawData, typeConfig.satelliteTypes);
+    const orbitConfig = this.calculateOrbitConfig(
+      rawData,
+      typeConfig.orbitConfig,
+    );
+    const metrics = this.extractMetrics(
+      rawData,
+      typeConfig.requiredMetrics,
+      typeConfig.optionalMetrics,
+    );
+    const satellites = this.generateSatellites(
+      rawData,
+      typeConfig.satelliteTypes,
+    );
 
     return {
       id: rawData.id || this.generateId('entity'),
@@ -298,14 +308,16 @@ export class GalaxyEngineTemplate {
       metrics,
       metadata: rawData,
       isSelected: false,
-      timestamp: rawData.timestamp ? new Date(rawData.timestamp) : new Date()
+      timestamp: rawData.timestamp ? new Date(rawData.timestamp) : new Date(),
     };
   }
 
-  private transformToConstellation(rawData: Record<string, any>): UniverseConstellation {
+  private transformToConstellation(
+    rawData: Record<string, any>,
+  ): UniverseConstellation {
     const constellationType = this.determineConstellationType(rawData);
     const typeConfig = this.config.constellationTypes[constellationType];
-    
+
     if (!typeConfig) {
       throw new Error(`Unknown constellation type: ${constellationType}`);
     }
@@ -319,14 +331,14 @@ export class GalaxyEngineTemplate {
       connectionStrength: rawData.connectionStrength || 50,
       size: this.calculateSize(rawData, typeConfig.sizeRange),
       memberCount: rawData.memberCount || rawData.entities?.length || 0,
-      metadata: rawData
+      metadata: rawData,
     };
   }
 
   private transformToFlow(rawData: Record<string, any>): UniverseFlow {
     const flowType = this.determineFlowType(rawData);
     const typeConfig = this.config.flowTypes[flowType];
-    
+
     if (!typeConfig) {
       throw new Error(`Unknown flow type: ${flowType}`);
     }
@@ -340,7 +352,7 @@ export class GalaxyEngineTemplate {
       status: rawData.status || 'active',
       progress: rawData.progress || 0,
       effectiveness: rawData.effectiveness || 0,
-      metadata: rawData
+      metadata: rawData,
     };
   }
 
@@ -359,36 +371,51 @@ export class GalaxyEngineTemplate {
   }
 
   // Calculation Helpers
-  private calculateSize(rawData: Record<string, any>, sizeRange: [number, number]): number {
+  private calculateSize(
+    rawData: Record<string, any>,
+    sizeRange: [number, number],
+  ): number {
     const [min, max] = sizeRange;
     const value = rawData.size || rawData.value || rawData.count || 1;
     const normalized = Math.min(value / 1000, 1); // Normalize to 0-1
-    return min + (normalized * (max - min));
+    return min + normalized * (max - min);
   }
 
-  private calculateOrbitConfig(rawData: Record<string, any>, orbitConfig: EntityTypeConfig['orbitConfig']): { radius: number; speed: number } {
+  private calculateOrbitConfig(
+    rawData: Record<string, any>,
+    orbitConfig: EntityTypeConfig['orbitConfig'],
+  ): { radius: number; speed: number } {
     const index = this.entities.length;
-    const radius = index === 0 ? 0 : orbitConfig.radiusRange[0] + (index * 40);
-    const speed = orbitConfig.speedRange[0] + (Math.random() * (orbitConfig.speedRange[1] - orbitConfig.speedRange[0]));
-    
+    const radius = index === 0 ? 0 : orbitConfig.radiusRange[0] + index * 40;
+    const speed =
+      orbitConfig.speedRange[0] +
+      Math.random() * (orbitConfig.speedRange[1] - orbitConfig.speedRange[0]);
+
     return { radius, speed };
   }
 
-  private extractMetrics(rawData: Record<string, any>, required: string[], optional: string[]): Record<string, number> {
+  private extractMetrics(
+    rawData: Record<string, any>,
+    required: string[],
+    optional: string[],
+  ): Record<string, number> {
     const metrics: Record<string, number> = {};
-    
-    [...required, ...optional].forEach(metric => {
+
+    [...required, ...optional].forEach((metric) => {
       if (rawData[metric] !== undefined) {
         metrics[metric] = Number(rawData[metric]) || 0;
       }
     });
-    
+
     return metrics;
   }
 
-  private generateSatellites(rawData: Record<string, any>, satelliteTypes: string[]): UniverseSatellite[] {
+  private generateSatellites(
+    rawData: Record<string, any>,
+    satelliteTypes: string[],
+  ): UniverseSatellite[] {
     const satellites: UniverseSatellite[] = [];
-    
+
     satelliteTypes.forEach((satelliteType, index) => {
       const typeConfig = this.config.satelliteTypes[satelliteType];
       if (typeConfig && rawData[satelliteType]) {
@@ -397,88 +424,109 @@ export class GalaxyEngineTemplate {
           name: typeConfig.name,
           type: satelliteType,
           position: { x: 0, y: 0 },
-          orbitRadius: 20 + (index * 8),
-          orbitSpeed: typeConfig.orbitConfig.speedRange[0] + (Math.random() * 0.01),
+          orbitRadius: 20 + index * 8,
+          orbitSpeed:
+            typeConfig.orbitConfig.speedRange[0] + Math.random() * 0.01,
           size: this.calculateSize(rawData, typeConfig.sizeRange),
           value: Number(rawData[satelliteType]) || 0,
           color: typeConfig.color,
-          metadata: { [satelliteType]: rawData[satelliteType] }
+          metadata: { [satelliteType]: rawData[satelliteType] },
         });
       }
     });
-    
+
     return satellites;
   }
 
   // Integration Management
   async syncWithIntegration(integrationName: string): Promise<void> {
-    const integration = this.config.integrations.find(i => i.name === integrationName);
+    const integration = this.config.integrations.find(
+      (i) => i.name === integrationName,
+    );
     if (!integration) {
       throw new Error(`Integration not found: ${integrationName}`);
     }
 
     try {
       const rawData = await this.fetchIntegrationData(integration);
-      const transformedData = this.applyTransformations(rawData, integration.transformations);
-      
+      const transformedData = this.applyTransformations(
+        rawData,
+        integration.transformations,
+      );
+
       transformedData.forEach((item: Record<string, any>) => {
         this.addEntity(item);
       });
-      
-      this.emit('integration_synced', { integration: integrationName, count: transformedData.length });
+
+      this.emit('integration_synced', {
+        integration: integrationName,
+        count: transformedData.length,
+      });
     } catch (error) {
       this.emit('integration_error', { integration: integrationName, error });
       throw error;
     }
   }
 
-  private async fetchIntegrationData(integration: IntegrationConfig): Promise<any[]> {
+  private async fetchIntegrationData(
+    integration: IntegrationConfig,
+  ): Promise<any[]> {
     switch (integration.type) {
-      case 'api':
+      case 'api': {
         if (!integration.endpoint) throw new Error('API endpoint required');
         const response = await fetch(integration.endpoint, {
-          headers: integration.apiKey ? { 'Authorization': `Bearer ${integration.apiKey}` } : {}
+          headers: integration.apiKey
+            ? { Authorization: `Bearer ${integration.apiKey}` }
+            : {},
         });
         return response.json();
-      
+      }
+
       case 'database':
         // Implement database connection logic
         throw new Error('Database integration not implemented');
-      
+
       case 'webhook':
         // Return cached webhook data
         return [];
-      
+
       default:
         throw new Error(`Unsupported integration type: ${integration.type}`);
     }
   }
 
-  private applyTransformations(data: any[], transformations: DataTransformation[]): any[] {
-    return data.map(item => {
-      let transformed = { ...item };
-      
-      transformations.forEach(transform => {
+  private applyTransformations(
+    data: any[],
+    transformations: DataTransformation[],
+  ): any[] {
+    return data.map((item) => {
+      const transformed = { ...item };
+
+      transformations.forEach((transform) => {
         switch (transform.operation) {
           case 'map':
             if (transform.parameters.from && transform.parameters.to) {
-              transformed[transform.parameters.to] = transformed[transform.parameters.from];
+              transformed[transform.parameters.to] =
+                transformed[transform.parameters.from];
             }
             break;
-          
+
           case 'calculate':
             if (transform.parameters.formula) {
               // Simple calculation implementation
-              transformed[transform.field] = this.evaluateFormula(transform.parameters.formula, transformed);
+              transformed[transform.field] = this.evaluateFormula(
+                transform.parameters.formula,
+                transformed,
+              );
             }
             break;
-          
+
           case 'filter':
             // Apply filter logic
             break;
         }
       });
-      
+
       return transformed;
     });
   }
@@ -503,44 +551,50 @@ export class GalaxyEngineTemplate {
       avgMetricValues: {},
       totalConnections: 0,
       activeFlows: 0,
-      lastUpdate: new Date()
+      lastUpdate: new Date(),
     };
   }
 
   private updateStats(): void {
     this.stats = {
       totalEntities: this.entities.length,
-      totalSatellites: this.entities.reduce((sum, entity) => sum + entity.satellites.length, 0),
+      totalSatellites: this.entities.reduce(
+        (sum, entity) => sum + entity.satellites.length,
+        0,
+      ),
       avgMetricValues: this.calculateAverageMetrics(),
       totalConnections: this.calculateTotalConnections(),
-      activeFlows: this.flows.filter(flow => flow.status === 'active').length,
-      lastUpdate: new Date()
+      activeFlows: this.flows.filter((flow) => flow.status === 'active').length,
+      lastUpdate: new Date(),
     };
-    
+
     this.emit('stats_updated', this.stats);
   }
 
   private calculateAverageMetrics(): Record<string, number> {
     const metricSums: Record<string, number> = {};
     const metricCounts: Record<string, number> = {};
-    
-    this.entities.forEach(entity => {
+
+    this.entities.forEach((entity) => {
       Object.entries(entity.metrics).forEach(([metric, value]) => {
         metricSums[metric] = (metricSums[metric] || 0) + value;
         metricCounts[metric] = (metricCounts[metric] || 0) + 1;
       });
     });
-    
+
     const avgMetrics: Record<string, number> = {};
-    Object.keys(metricSums).forEach(metric => {
+    Object.keys(metricSums).forEach((metric) => {
       avgMetrics[metric] = metricSums[metric] / metricCounts[metric];
     });
-    
+
     return avgMetrics;
   }
 
   private calculateTotalConnections(): number {
-    return this.constellations.reduce((sum, constellation) => sum + constellation.entities.length, 0);
+    return this.constellations.reduce(
+      (sum, constellation) => sum + constellation.entities.length,
+      0,
+    );
   }
 
   // Event System
@@ -554,7 +608,7 @@ export class GalaxyEngineTemplate {
   emit(event: string, data?: any): void {
     const listeners = this.eventListeners.get(event);
     if (listeners) {
-      listeners.forEach(listener => listener(data));
+      listeners.forEach((listener) => listener(data));
     }
   }
 
@@ -600,7 +654,7 @@ export const DomainTemplates = {
   // Business Intelligence Template
   BusinessIntelligence: (): UniverseConfiguration => ({
     domain: 'business-intelligence',
-    title: 'CEO\'s Orrery',
+    title: "CEO's Orrery",
     description: 'Spatial business intelligence universe',
     entityTypes: {
       financial_metric: {
@@ -612,17 +666,35 @@ export const DomainTemplates = {
         statusOptions: ['healthy', 'warning', 'critical'],
         requiredMetrics: ['value', 'change'],
         optionalMetrics: ['target', 'forecast'],
-        satelliteTypes: ['kpi', 'trend', 'alert']
-      }
+        satelliteTypes: ['kpi', 'trend', 'alert'],
+      },
     },
     satelliteTypes: {
-      kpi: { name: 'KPI', description: 'Key performance indicator', color: '#10b981', sizeRange: [2, 6], orbitConfig: { speedRange: [0.015, 0.025], radiusRange: [20, 40] } }
+      kpi: {
+        name: 'KPI',
+        description: 'Key performance indicator',
+        color: '#10b981',
+        sizeRange: [2, 6],
+        orbitConfig: { speedRange: [0.015, 0.025], radiusRange: [20, 40] },
+      },
     },
     constellationTypes: {
-      department: { name: 'Department', description: 'Team performance cluster', connectionColor: '#3b82f6', sizeRange: [20, 35], maxEntities: 10 }
+      department: {
+        name: 'Department',
+        description: 'Team performance cluster',
+        connectionColor: '#3b82f6',
+        sizeRange: [20, 35],
+        maxEntities: 10,
+      },
     },
     flowTypes: {
-      analysis: { name: 'Analysis Flow', description: 'Business analysis pipeline', color: '#ec4899', maxStages: 5, stageTypes: ['collect', 'analyze', 'report'] }
+      analysis: {
+        name: 'Analysis Flow',
+        description: 'Business analysis pipeline',
+        color: '#ec4899',
+        maxStages: 5,
+        stageTypes: ['collect', 'analyze', 'report'],
+      },
     },
     colorScheme: {
       primary: '#8b5cf6',
@@ -632,17 +704,28 @@ export const DomainTemplates = {
       surface: '#1e293b',
       entityColors: { financial_metric: '#8b5cf6' },
       satelliteColors: { kpi: '#10b981' },
-      statusColors: { healthy: '#10b981', warning: '#f59e0b', critical: '#ef4444' }
+      statusColors: {
+        healthy: '#10b981',
+        warning: '#f59e0b',
+        critical: '#ef4444',
+      },
     },
     defaultControls: { viewMode: 'universe', showMetrics: true },
-    canvasConfig: { width: 800, height: 600, backgroundEffects: true, particleEffects: true, glowEffects: true, animationFrameRate: 60 },
-    integrations: []
+    canvasConfig: {
+      width: 800,
+      height: 600,
+      backgroundEffects: true,
+      particleEffects: true,
+      glowEffects: true,
+      animationFrameRate: 60,
+    },
+    integrations: [],
   }),
 
   // Development Template
   Development: (): UniverseConfiguration => ({
     domain: 'development',
-    title: 'Developer\'s Galaxy',
+    title: "Developer's Galaxy",
     description: 'Spatial development environment',
     entityTypes: {
       project: {
@@ -654,17 +737,35 @@ export const DomainTemplates = {
         statusOptions: ['building', 'success', 'failed', 'pending'],
         requiredMetrics: ['health', 'coverage'],
         optionalMetrics: ['complexity', 'activity'],
-        satelliteTypes: ['module', 'test', 'dependency']
-      }
+        satelliteTypes: ['module', 'test', 'dependency'],
+      },
     },
     satelliteTypes: {
-      module: { name: 'Module', description: 'Code module', color: '#10b981', sizeRange: [2, 5], orbitConfig: { speedRange: [0.02, 0.03], radiusRange: [25, 45] } }
+      module: {
+        name: 'Module',
+        description: 'Code module',
+        color: '#10b981',
+        sizeRange: [2, 5],
+        orbitConfig: { speedRange: [0.02, 0.03], radiusRange: [25, 45] },
+      },
     },
     constellationTypes: {
-      repository: { name: 'Repository', description: 'Related projects', connectionColor: '#8b5cf6', sizeRange: [25, 40], maxEntities: 8 }
+      repository: {
+        name: 'Repository',
+        description: 'Related projects',
+        connectionColor: '#8b5cf6',
+        sizeRange: [25, 40],
+        maxEntities: 8,
+      },
     },
     flowTypes: {
-      build_pipeline: { name: 'Build Pipeline', description: 'CI/CD workflow', color: '#f59e0b', maxStages: 6, stageTypes: ['build', 'test', 'deploy'] }
+      build_pipeline: {
+        name: 'Build Pipeline',
+        description: 'CI/CD workflow',
+        color: '#f59e0b',
+        maxStages: 6,
+        stageTypes: ['build', 'test', 'deploy'],
+      },
     },
     colorScheme: {
       primary: '#3b82f6',
@@ -674,11 +775,23 @@ export const DomainTemplates = {
       surface: '#1e293b',
       entityColors: { project: '#3b82f6' },
       satelliteColors: { module: '#10b981' },
-      statusColors: { success: '#10b981', building: '#f59e0b', failed: '#ef4444', pending: '#64748b' }
+      statusColors: {
+        success: '#10b981',
+        building: '#f59e0b',
+        failed: '#ef4444',
+        pending: '#64748b',
+      },
     },
     defaultControls: { viewMode: 'galaxy', showSatellites: true },
-    canvasConfig: { width: 800, height: 600, backgroundEffects: true, particleEffects: true, glowEffects: true, animationFrameRate: 60 },
-    integrations: []
+    canvasConfig: {
+      width: 800,
+      height: 600,
+      backgroundEffects: true,
+      particleEffects: true,
+      glowEffects: true,
+      animationFrameRate: 60,
+    },
+    integrations: [],
   }),
 
   // Communications Template
@@ -693,20 +806,45 @@ export const DomainTemplates = {
         color: '#8b5cf6',
         sizeRange: [15, 40],
         orbitConfig: { speedRange: [0.003, 0.009], radiusRange: [100, 250] },
-        statusOptions: ['draft', 'sent', 'delivered', 'opened', 'clicked', 'bounced'],
+        statusOptions: [
+          'draft',
+          'sent',
+          'delivered',
+          'opened',
+          'clicked',
+          'bounced',
+        ],
         requiredMetrics: ['deliveryRate', 'openRate'],
         optionalMetrics: ['clickRate', 'engagementScore'],
-        satelliteTypes: ['recipient', 'attachment', 'link']
-      }
+        satelliteTypes: ['recipient', 'attachment', 'link'],
+      },
     },
     satelliteTypes: {
-      recipient: { name: 'Recipient', description: 'Email recipient', color: '#3b82f6', sizeRange: [2, 4], orbitConfig: { speedRange: [0.015, 0.025], radiusRange: [20, 35] } }
+      recipient: {
+        name: 'Recipient',
+        description: 'Email recipient',
+        color: '#3b82f6',
+        sizeRange: [2, 4],
+        orbitConfig: { speedRange: [0.015, 0.025], radiusRange: [20, 35] },
+      },
     },
     constellationTypes: {
-      audience: { name: 'Audience', description: 'Contact list', connectionColor: '#10b981', sizeRange: [20, 30], maxEntities: 15 }
+      audience: {
+        name: 'Audience',
+        description: 'Contact list',
+        connectionColor: '#10b981',
+        sizeRange: [20, 30],
+        maxEntities: 15,
+      },
     },
     flowTypes: {
-      campaign: { name: 'Email Campaign', description: 'Email marketing flow', color: '#ec4899', maxStages: 4, stageTypes: ['compose', 'send', 'track'] }
+      campaign: {
+        name: 'Email Campaign',
+        description: 'Email marketing flow',
+        color: '#ec4899',
+        maxStages: 4,
+        stageTypes: ['compose', 'send', 'track'],
+      },
     },
     colorScheme: {
       primary: '#8b5cf6',
@@ -716,12 +854,24 @@ export const DomainTemplates = {
       surface: '#1e293b',
       entityColors: { email: '#8b5cf6' },
       satelliteColors: { recipient: '#3b82f6' },
-      statusColors: { delivered: '#10b981', opened: '#059669', clicked: '#065f46', bounced: '#ef4444' }
+      statusColors: {
+        delivered: '#10b981',
+        opened: '#059669',
+        clicked: '#065f46',
+        bounced: '#ef4444',
+      },
     },
     defaultControls: { viewMode: 'universe', showConnections: true },
-    canvasConfig: { width: 800, height: 600, backgroundEffects: true, particleEffects: true, glowEffects: true, animationFrameRate: 60 },
-    integrations: []
-  })
+    canvasConfig: {
+      width: 800,
+      height: 600,
+      backgroundEffects: true,
+      particleEffects: true,
+      glowEffects: true,
+      animationFrameRate: 60,
+    },
+    integrations: [],
+  }),
 };
 
 export default GalaxyEngineTemplate;

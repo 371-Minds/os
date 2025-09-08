@@ -9,6 +9,6 @@ export default defineConfig({
   minify: false,
   external: ['@elizaos/core'],
   banner: {
-    js: '// Business Intelligence Plugin for ElizaOS - Revolutionary AI-powered business analytics'
-  }
+    js: '// Business Intelligence Plugin for ElizaOS - Revolutionary AI-powered business analytics',
+  },
 });

@@ -3,7 +3,7 @@
 /**
  * 371 OS Comprehensive System Validation Report
  * ==============================================
- * 
+ *
  * This comprehensive test validates all aspects of the 371 OS implementation
  * and provides actionable next steps for complete deployment.
  */
@@ -32,7 +32,9 @@ function getFileSize(filePath) {
 
 function readJsonFile(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), filePath), 'utf8'));
+    return JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), filePath), 'utf8'),
+    );
   } catch {
     return null;
   }
@@ -56,14 +58,16 @@ const foundationFiles = [
   { file: 'nx.json', critical: true },
   { file: 'tsconfig.base.json', critical: true },
   { file: '.gitignore', critical: false },
-  { file: 'README.md', critical: false }
+  { file: 'README.md', critical: false },
 ];
 
 let foundationScore = 0;
 foundationFiles.forEach(({ file, critical }) => {
   const exists = fileExists(file);
   const size = exists ? getFileSize(file) : 0;
-  console.log(`   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB)` : ''} ${critical ? '[CRITICAL]' : ''}`);
+  console.log(
+    `   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB)` : ''} ${critical ? '[CRITICAL]' : ''}`,
+  );
   if (exists && critical) foundationScore += 20;
   if (exists && !critical) foundationScore += 5;
 });
@@ -77,12 +81,20 @@ console.log('===============================');
 const nxJson = readJsonFile('nx.json');
 if (nxJson) {
   console.log('   ✅ Nx configuration valid');
-  console.log(`      - Apps directory: ${nxJson.workspaceLayout?.appsDir || 'apps'}`);
-  console.log(`      - Libs directory: ${nxJson.workspaceLayout?.libsDir || 'libs'}`);
+  console.log(
+    `      - Apps directory: ${nxJson.workspaceLayout?.appsDir || 'apps'}`,
+  );
+  console.log(
+    `      - Libs directory: ${nxJson.workspaceLayout?.libsDir || 'libs'}`,
+  );
   console.log(`      - Plugins configured: ${nxJson.plugins?.length || 0}`);
-  console.log(`      - Target defaults: ${Object.keys(nxJson.targetDefaults || {}).join(', ')}`);
-  
-  const cacheConfig = nxJson.targetDefaults?.build?.cache ? 'Enabled' : 'Disabled';
+  console.log(
+    `      - Target defaults: ${Object.keys(nxJson.targetDefaults || {}).join(', ')}`,
+  );
+
+  const cacheConfig = nxJson.targetDefaults?.build?.cache
+    ? 'Enabled'
+    : 'Disabled';
   console.log(`      - Build caching: ${cacheConfig}`);
 } else {
   console.log('   ❌ Nx configuration invalid or missing');
@@ -96,22 +108,24 @@ const pluginBasePath = 'packages/elizaos-plugins/nx-workspace';
 const pluginFiles = [
   'package.json',
   'src/index.ts',
-  'src/plugin.ts', 
+  'src/plugin.ts',
   'src/actions.ts',
   'src/provider.ts',
   'src/types.ts',
   'src/utils.ts',
-  'src/provider.spec.ts'
+  'src/provider.spec.ts',
 ];
 
 let pluginScore = 0;
-pluginFiles.forEach(file => {
+pluginFiles.forEach((file) => {
   const fullPath = `${pluginBasePath}/${file}`;
   const exists = fileExists(fullPath);
   const size = exists ? getFileSize(fullPath) : 0;
   const lines = exists ? countLines(fullPath) : 0;
-  
-  console.log(`   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB, ${lines} lines)` : ''}`);
+
+  console.log(
+    `   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB, ${lines} lines)` : ''}`,
+  );
   if (exists) pluginScore += 12.5;
 });
 
@@ -119,27 +133,34 @@ console.log(`   Plugin Score: ${pluginScore}/100`);
 
 // Analyze plugin content
 if (fileExists(`${pluginBasePath}/src/actions.ts`)) {
-  const actionsContent = fs.readFileSync(`${pluginBasePath}/src/actions.ts`, 'utf8');
+  const actionsContent = fs.readFileSync(
+    `${pluginBasePath}/src/actions.ts`,
+    'utf8',
+  );
   const actionMatches = actionsContent.match(/export const \w+Action:/g) || [];
   console.log(`   📊 Actions implemented: ${actionMatches.length}`);
-  
+
   const expectedActions = [
     'getDependencyGraphAction',
-    'findAffectedProjectsAction', 
+    'findAffectedProjectsAction',
     'runTestsForAffectedAction',
     'buildProjectAction',
     'generateScaffoldAction',
-    'analyzeWorkspaceAction'
+    'analyzeWorkspaceAction',
   ];
-  
-  const implementedActions = expectedActions.filter(action => 
-    actionsContent.includes(action)
+
+  const implementedActions = expectedActions.filter((action) =>
+    actionsContent.includes(action),
   );
-  
-  console.log(`   🎯 Core actions coverage: ${implementedActions.length}/${expectedActions.length}`);
-  
+
+  console.log(
+    `   🎯 Core actions coverage: ${implementedActions.length}/${expectedActions.length}`,
+  );
+
   if (implementedActions.length < expectedActions.length) {
-    const missing = expectedActions.filter(action => !implementedActions.includes(action));
+    const missing = expectedActions.filter(
+      (action) => !implementedActions.includes(action),
+    );
     console.log(`      Missing: ${missing.join(', ')}`);
   }
 }
@@ -152,12 +173,14 @@ const agentPath = 'agents/test-agent';
 const agentFiles = ['character.json', 'index.js'];
 let agentScore = 0;
 
-agentFiles.forEach(file => {
+agentFiles.forEach((file) => {
   const fullPath = `${agentPath}/${file}`;
   const exists = fileExists(fullPath);
   const size = exists ? getFileSize(fullPath) : 0;
-  
-  console.log(`   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB)` : ''}`);
+
+  console.log(
+    `   ${exists ? '✅' : '❌'} ${file} ${exists ? `(${size}KB)` : ''}`,
+  );
   if (exists) agentScore += 50;
 });
 
@@ -165,10 +188,16 @@ const characterConfig = readJsonFile(`${agentPath}/character.json`);
 if (characterConfig) {
   console.log(`   📋 Agent name: ${characterConfig.name}`);
   console.log(`   📖 Bio entries: ${characterConfig.bio?.length || 0}`);
-  console.log(`   🧠 Knowledge entries: ${characterConfig.knowledge?.length || 0}`);
-  console.log(`   💬 Message examples: ${characterConfig.messageExamples?.length || 0}`);
+  console.log(
+    `   🧠 Knowledge entries: ${characterConfig.knowledge?.length || 0}`,
+  );
+  console.log(
+    `   💬 Message examples: ${characterConfig.messageExamples?.length || 0}`,
+  );
   console.log(`   🏷️ Topics: ${characterConfig.topics?.length || 0}`);
-  console.log(`   🎭 Style definitions: ${Object.keys(characterConfig.style || {}).length}`);
+  console.log(
+    `   🎭 Style definitions: ${Object.keys(characterConfig.style || {}).length}`,
+  );
 }
 
 console.log(`   Agent Score: ${agentScore}/100`);
@@ -180,16 +209,18 @@ console.log('====================================');
 const scripts = [
   'scripts/quick-start.ps1',
   'scripts/deploy-akash.ps1',
-  'scripts/test-setup.ps1'
+  'scripts/test-setup.ps1',
 ];
 
 let scriptsScore = 0;
-scripts.forEach(script => {
+scripts.forEach((script) => {
   const exists = fileExists(script);
   const lines = exists ? countLines(script) : 0;
   const size = exists ? getFileSize(script) : 0;
-  
-  console.log(`   ${exists ? '✅' : '❌'} ${script} ${exists ? `(${size}KB, ${lines} lines)` : ''}`);
+
+  console.log(
+    `   ${exists ? '✅' : '❌'} ${script} ${exists ? `(${size}KB, ${lines} lines)` : ''}`,
+  );
   if (exists) scriptsScore += 33.33;
 });
 
@@ -200,35 +231,31 @@ console.log('\n📦 6. DEPENDENCY VALIDATION');
 console.log('=============================');
 
 const packageJson = readJsonFile('package.json');
-let depScore = 0;
+const depScore = 0;
 if (packageJson) {
-  const criticalDeps = [
-    '@elizaos/core',
-    'ethers',
-    'web3.storage',
-    'express'
-  ];
-  
-  const criticalDevDeps = [
-    'nx',
-    '@nx/js',
-    'typescript'
-  ];
-  
+  const criticalDeps = ['@elizaos/core', 'ethers', 'web3.storage', 'express'];
+
+  const criticalDevDeps = ['nx', '@nx/js', 'typescript'];
+
   let depScore = 0;
-  criticalDeps.forEach(dep => {
+  criticalDeps.forEach((dep) => {
     const exists = packageJson.dependencies && packageJson.dependencies[dep];
-    console.log(`      ${exists ? '✅' : '❌'} ${dep} ${exists ? packageJson.dependencies[dep] : ''}`);
+    console.log(
+      `      ${exists ? '✅' : '❌'} ${dep} ${exists ? packageJson.dependencies[dep] : ''}`,
+    );
     if (exists) depScore += 25;
   });
-  
+
   console.log('   Development Dependencies:');
-  criticalDevDeps.forEach(dep => {
-    const exists = packageJson.devDependencies && packageJson.devDependencies[dep];
-    console.log(`      ${exists ? '✅' : '❌'} ${dep} ${exists ? packageJson.devDependencies[dep] : ''}`);
-    if (exists) depScore += 25/3;
+  criticalDevDeps.forEach((dep) => {
+    const exists =
+      packageJson.devDependencies && packageJson.devDependencies[dep];
+    console.log(
+      `      ${exists ? '✅' : '❌'} ${dep} ${exists ? packageJson.devDependencies[dep] : ''}`,
+    );
+    if (exists) depScore += 25 / 3;
   });
-  
+
   console.log(`   Dependency Score: ${Math.round(depScore)}/100`);
 }
 
@@ -246,10 +273,12 @@ if (gitExists) {
     const gitConfig = fs.readFileSync('.git/config', 'utf8');
     const hasOrigin = gitConfig.includes('origin');
     const has371Origin = gitConfig.includes('371-Minds/os');
-    
+
     console.log(`   ${hasOrigin ? '✅' : '❌'} Remote origin configured`);
-    console.log(`   ${has371Origin ? '✅' : '❌'} Connected to 371-Minds/os repository`);
-    
+    console.log(
+      `   ${has371Origin ? '✅' : '❌'} Connected to 371-Minds/os repository`,
+    );
+
     if (hasOrigin) repoScore += 25;
     if (has371Origin) repoScore += 25;
   } catch (error) {
@@ -268,24 +297,34 @@ let blockchainScore = 0;
 // Check for universal-tool-server plugin
 const utsPath = 'packages/elizaos-plugins/universal-tool-server';
 const utsExists = fileExists(utsPath);
-console.log(`   ${utsExists ? '✅' : '⚠️'} Universal Tool Server plugin ${utsExists ? 'exists' : 'not implemented'}`);
+console.log(
+  `   ${utsExists ? '✅' : '⚠️'} Universal Tool Server plugin ${utsExists ? 'exists' : 'not implemented'}`,
+);
 if (utsExists) blockchainScore += 25;
 
 // Check for environment template
 const envExists = fileExists('.env') || fileExists('.env.example');
-console.log(`   ${envExists ? '✅' : '⚠️'} Environment configuration ${envExists ? 'ready' : 'template needed'}`);
+console.log(
+  `   ${envExists ? '✅' : '⚠️'} Environment configuration ${envExists ? 'ready' : 'template needed'}`,
+);
 if (envExists) blockchainScore += 25;
 
 // Check package.json for blockchain deps
 if (packageJson) {
-  const hasBcDeps = packageJson.dependencies?.ethers && packageJson.dependencies?.['web3.storage'];
-  console.log(`   ${hasBcDeps ? '✅' : '⚠️'} Blockchain dependencies ${hasBcDeps ? 'configured' : 'missing'}`);
+  const hasBcDeps =
+    packageJson.dependencies?.ethers &&
+    packageJson.dependencies?.['web3.storage'];
+  console.log(
+    `   ${hasBcDeps ? '✅' : '⚠️'} Blockchain dependencies ${hasBcDeps ? 'configured' : 'missing'}`,
+  );
   if (hasBcDeps) blockchainScore += 25;
 }
 
 // Check for smart contract directory
 const contractsExist = fileExists('contracts');
-console.log(`   ${contractsExist ? '✅' : '⚠️'} Smart contracts directory ${contractsExist ? 'exists' : 'needs creation'}`);
+console.log(
+  `   ${contractsExist ? '✅' : '⚠️'} Smart contracts directory ${contractsExist ? 'exists' : 'needs creation'}`,
+);
 if (contractsExist) blockchainScore += 25;
 
 console.log(`   Blockchain Score: ${blockchainScore}/100`);
@@ -294,7 +333,16 @@ console.log(`   Blockchain Score: ${blockchainScore}/100`);
 console.log('\n🎯 9. OVERALL SYSTEM ASSESSMENT');
 console.log('=================================');
 
-const overallScore = Math.round((foundationScore + pluginScore + agentScore + scriptsScore + Math.round(depScore || 0) + repoScore + blockchainScore) / 7);
+const overallScore = Math.round(
+  (foundationScore +
+    pluginScore +
+    agentScore +
+    scriptsScore +
+    Math.round(depScore || 0) +
+    repoScore +
+    blockchainScore) /
+    7,
+);
 
 console.log(`   Overall System Score: ${overallScore}/100`);
 console.log('');
@@ -370,22 +418,42 @@ console.log('   💰 Cost optimization fine-tuning');
 console.log('\n📊 12. SUCCESS METRICS DASHBOARD');
 console.log('==================================');
 
-console.log(`Foundation Stability:    ${foundationScore}/85    ${foundationScore >= 70 ? '✅' : '⚠️'}`);
-console.log(`Plugin Architecture:     ${pluginScore}/100   ${pluginScore >= 80 ? '✅' : '⚠️'}`);
-console.log(`Agent Configuration:     ${agentScore}/100   ${agentScore >= 70 ? '✅' : '⚠️'}`);
-console.log(`Deployment Scripts:      ${Math.round(scriptsScore)}/100   ${scriptsScore >= 70 ? '✅' : '⚠️'}`);
-console.log(`Repository Integration:  ${repoScore}/100   ${repoScore >= 70 ? '✅' : '⚠️'}`);
-console.log(`Blockchain Readiness:    ${blockchainScore}/100   ${blockchainScore >= 50 ? '⚠️' : '❌'}`);
+console.log(
+  `Foundation Stability:    ${foundationScore}/85    ${foundationScore >= 70 ? '✅' : '⚠️'}`,
+);
+console.log(
+  `Plugin Architecture:     ${pluginScore}/100   ${pluginScore >= 80 ? '✅' : '⚠️'}`,
+);
+console.log(
+  `Agent Configuration:     ${agentScore}/100   ${agentScore >= 70 ? '✅' : '⚠️'}`,
+);
+console.log(
+  `Deployment Scripts:      ${Math.round(scriptsScore)}/100   ${scriptsScore >= 70 ? '✅' : '⚠️'}`,
+);
+console.log(
+  `Repository Integration:  ${repoScore}/100   ${repoScore >= 70 ? '✅' : '⚠️'}`,
+);
+console.log(
+  `Blockchain Readiness:    ${blockchainScore}/100   ${blockchainScore >= 50 ? '⚠️' : '❌'}`,
+);
 
 console.log('\n🎊 CONCLUSION');
 console.log('==============');
-console.log('The 371 OS implementation shows EXCEPTIONAL architectural quality.');
-console.log('The self-aware agent plugin system is revolutionary and well-implemented.');
-console.log('Primary blockers are dependency installation and testing - both easily resolved.');
+console.log(
+  'The 371 OS implementation shows EXCEPTIONAL architectural quality.',
+);
+console.log(
+  'The self-aware agent plugin system is revolutionary and well-implemented.',
+);
+console.log(
+  'Primary blockers are dependency installation and testing - both easily resolved.',
+);
 console.log('');
 console.log('🚀 READY FOR: Advanced testing and blockchain integration');
 console.log('⏱️ ESTIMATED TIME TO FULL DEPLOYMENT: 2-3 days');
 console.log('💰 PROJECTED COST SAVINGS: 97.6% (as designed)');
 console.log('🤖 AGENT AUTONOMY LEVEL: 95%+ potential (architecture complete)');
 console.log('');
-console.log('This is a PRODUCTION-QUALITY implementation of revolutionary technology.');
+console.log(
+  'This is a PRODUCTION-QUALITY implementation of revolutionary technology.',
+);

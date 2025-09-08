@@ -2,120 +2,129 @@
  * Tests for Nx Workspace Provider
  */
 
+import { expect, test, beforeEach, describe, spyOn, mock } from "bun:test";
 import { NxWorkspaceProvider } from './provider';
-import { NxDependencyGraph } from './types';
+import type { NxDependencyGraph } from './types';
 
 // Mock child_process for testing
-jest.mock('child_process', () => ({
-  execSync: jest.fn()
-}));
+const mockExecSync = spyOn(import("child_process"), "execSync");
 
 // Mock fs-extra
-jest.mock('fs-extra', () => ({
-  ensureDir: jest.fn().mockResolvedValue(undefined),
-  unlink: jest.fn().mockResolvedValue(undefined)
+mock.module("fs-extra", () => ({
+  ensureDir: () => Promise.resolve(undefined),
+  unlink: () => Promise.resolve(undefined),
 }));
 
 // Mock fs/promises
-jest.mock('fs', () => ({
+mock.module("fs", () => ({
   promises: {
-    readFile: jest.fn(),
-    unlink: jest.fn().mockResolvedValue(undefined)
-  }
+    readFile: () => Promise.resolve(),
+    unlink: () => Promise.resolve(undefined),
+  },
 }));
 
-import { execSync } from 'child_process';
 import { promises as fs } from 'fs';
 
 describe('NxWorkspaceProvider', () => {
   let provider: NxWorkspaceProvider;
-  const mockExecSync = execSync as jest.MockedFunction<typeof execSync>;
-  const mockReadFile = fs.readFile as jest.MockedFunction<typeof fs.readFile>;
+  const mockReadFile = spyOn(fs, "readFile");
 
   beforeEach(() => {
     provider = new NxWorkspaceProvider('/test/workspace');
-    jest.clearAllMocks();
+    mockExecSync.mockClear();
+    mockReadFile.mockClear();
   });
 
   describe('getDependencyGraph', () => {
-    it('should generate and parse dependency graph', async () => {
+    test('should generate and parse dependency graph', async () => {
       const mockGraph: NxDependencyGraph = {
         nodes: {
-          'app1': {
+          app1: {
             name: 'app1',
             type: 'app',
             data: {
               root: 'apps/app1',
-              projectType: 'application'
-            }
+              projectType: 'application',
+            },
           },
-          'lib1': {
-            name: 'lib1', 
+          lib1: {
+            name: 'lib1',
             type: 'lib',
             data: {
               root: 'packages/lib1',
-              projectType: 'library'
-            }
-          }
+              projectType: 'library',
+            },
+          },
         },
         dependencies: {
-          'app1': [
+          app1: [
             {
               source: 'app1',
               target: 'lib1',
-              type: 'static'
-            }
+              type: 'static',
+            },
           ],
-          'lib1': []
+          lib1: [],
         },
-        version: '1.0.0'
+        version: '1.0.0',
       };
 
       mockReadFile.mockResolvedValue(JSON.stringify(mockGraph));
+      mockExecSync.mockReturnValue(undefined); // Mock successful execution
 
       const result = await provider.getDependencyGraph();
 
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('npx nx graph --file='),
-        expect.any(Object)
+        expect.any(Object),
       );
       expect(result).toEqual(mockGraph);
     });
 
-    it('should handle focus parameter', async () => {
+    test('should handle focus parameter', async () => {
       const mockGraph: NxDependencyGraph = {
-        nodes: { 'app1': { name: 'app1', type: 'app', data: { root: 'apps/app1', projectType: 'application' } } },
-        dependencies: { 'app1': [] },
-        version: '1.0.0'
+        nodes: {
+          app1: {
+            name: 'app1',
+            type: 'app',
+            data: { root: 'apps/app1', projectType: 'application' },
+          },
+        },
+        dependencies: { app1: [] },
+        version: '1.0.0',
       };
 
       mockReadFile.mockResolvedValue(JSON.stringify(mockGraph));
+      mockExecSync.mockReturnValue(undefined); // Mock successful execution
 
       await provider.getDependencyGraph('app1');
 
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('--focus=app1'),
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
-    it('should handle errors gracefully', async () => {
+    test('should handle errors gracefully', async () => {
       mockExecSync.mockImplementation(() => {
         throw new Error('Graph generation failed');
       });
 
-      await expect(provider.getDependencyGraph()).rejects.toThrow(
-        'Failed to generate dependency graph: Graph generation failed'
-      );
+      try {
+        await provider.getDependencyGraph();
+        expect(true).toBe(false); // Should not reach here
+      } catch (error) {
+        expect(error.message).toBe('Failed to generate dependency graph: Graph generation failed');
+      }
     });
   });
 
   describe('findAffectedProjects', () => {
-    it('should find affected projects', async () => {
+    test('should find affected projects', async () => {
       mockExecSync
         .mockReturnValueOnce('app1\napp2\n') // affected apps
-        .mockReturnValueOnce('lib1\n')        // affected libs
-        .mockReturnValueOnce('task output');  // dry-run output
+        .mockReturnValueOnce('lib1\n') // affected libs
+        .mockReturnValueOnce('task output'); // dry-run output
 
       const result = await provider.findAffectedProjects('main');
 
@@ -124,10 +133,10 @@ describe('NxWorkspaceProvider', () => {
       expect(mockExecSync).toHaveBeenCalledTimes(3);
     });
 
-    it('should handle empty results', async () => {
+    test('should handle empty results', async () => {
       mockExecSync
-        .mockReturnValueOnce('')  // no affected apps
-        .mockReturnValueOnce('')  // no affected libs
+        .mockReturnValueOnce('') // no affected apps
+        .mockReturnValueOnce('') // no affected libs
         .mockReturnValueOnce(''); // no tasks
 
       const result = await provider.findAffectedProjects('main');
@@ -138,11 +147,11 @@ describe('NxWorkspaceProvider', () => {
   });
 
   describe('runTestsForAffected', () => {
-    it('should run tests successfully', async () => {
+    test('should run tests successfully', async () => {
       // Mock findAffectedProjects
-      jest.spyOn(provider, 'findAffectedProjects').mockResolvedValue({
+      spyOn(provider, 'findAffectedProjects').mockResolvedValue({
         projects: ['app1', 'lib1'],
-        tasks: []
+        tasks: [],
       });
 
       mockExecSync.mockReturnValue('Tests passed');
@@ -155,10 +164,10 @@ describe('NxWorkspaceProvider', () => {
       expect(result.projects['lib1'].success).toBe(true);
     });
 
-    it('should handle test failures', async () => {
-      jest.spyOn(provider, 'findAffectedProjects').mockResolvedValue({
+    test('should handle test failures', async () => {
+      spyOn(provider, 'findAffectedProjects').mockResolvedValue({
         projects: ['app1'],
-        tasks: []
+        tasks: [],
       });
 
       mockExecSync.mockImplementation(() => {
@@ -171,10 +180,10 @@ describe('NxWorkspaceProvider', () => {
       expect(result.projects['app1'].success).toBe(false);
     });
 
-    it('should handle no affected projects', async () => {
-      jest.spyOn(provider, 'findAffectedProjects').mockResolvedValue({
+    test('should handle no affected projects', async () => {
+      spyOn(provider, 'findAffectedProjects').mockResolvedValue({
         projects: [],
-        tasks: []
+        tasks: [],
       });
 
       const result = await provider.runTestsForAffected('main');
@@ -185,7 +194,7 @@ describe('NxWorkspaceProvider', () => {
   });
 
   describe('buildProject', () => {
-    it('should build specific project successfully', async () => {
+    test('should build specific project successfully', async () => {
       mockExecSync.mockReturnValue('Build successful');
 
       const result = await provider.buildProject('app1');
@@ -194,14 +203,14 @@ describe('NxWorkspaceProvider', () => {
       expect(result.projects['app1'].success).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         'npx nx build app1',
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
-    it('should build all affected projects when no project specified', async () => {
-      jest.spyOn(provider, 'findAffectedProjects').mockResolvedValue({
+    test('should build all affected projects when no project specified', async () => {
+      spyOn(provider, 'findAffectedProjects').mockResolvedValue({
         projects: ['app1', 'lib1'],
-        tasks: []
+        tasks: [],
       });
 
       mockExecSync.mockReturnValue('Build successful');
@@ -212,11 +221,11 @@ describe('NxWorkspaceProvider', () => {
       expect(Object.keys(result.projects)).toHaveLength(2);
       expect(mockExecSync).toHaveBeenCalledWith(
         'npx nx affected --target=build',
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
-    it('should handle build failures', async () => {
+    test('should handle build failures', async () => {
       mockExecSync.mockImplementation(() => {
         throw new Error('Build failed');
       });
@@ -229,46 +238,60 @@ describe('NxWorkspaceProvider', () => {
   });
 
   describe('generateScaffold', () => {
-    it('should generate React application', async () => {
+    test('should generate React application', async () => {
       const options = {
         type: 'app' as const,
         name: 'new-app',
         directory: 'apps',
-        tags: ['frontend']
+        tags: ['frontend'],
       };
 
       mockExecSync.mockReturnValue('');
+      // Mock the fs.unlink to avoid actual file system operations
+      mock.module("fs", () => ({
+        promises: {
+          readFile: () => Promise.resolve(),
+          unlink: () => Promise.resolve(undefined),
+        },
+      }));
 
       const result = await provider.generateScaffold(options);
 
       expect(result).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         'npx nx generate @nx/react:application new-app --directory=apps --tags=frontend',
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
-    it('should generate library', async () => {
+    test('should generate library', async () => {
       const options = {
         type: 'lib' as const,
-        name: 'shared-utils'
+        name: 'shared-utils',
       };
 
       mockExecSync.mockReturnValue('');
+      // Mock the fs.unlink to avoid actual file system operations
+      mock.module("fs", () => ({
+        promises: {
+          readFile: () => Promise.resolve(),
+          unlink: () => Promise.resolve(undefined),
+        },
+      }));
 
       const result = await provider.generateScaffold(options);
 
       expect(result).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         'npx nx generate @nx/js:library shared-utils',
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
-    it('should handle unsupported generator types', async () => {
+    test('should handle unsupported generator types', async () => {
       const options = {
         type: 'unknown' as any,
-        name: 'test'
+        name: 'test',
       };
 
       const result = await provider.generateScaffold(options);
@@ -276,10 +299,10 @@ describe('NxWorkspaceProvider', () => {
       expect(result).toBe(false);
     });
 
-    it('should handle generation failures', async () => {
+    test('should handle generation failures', async () => {
       const options = {
         type: 'app' as const,
-        name: 'new-app'
+        name: 'new-app',
       };
 
       mockExecSync.mockImplementation(() => {
@@ -293,22 +316,34 @@ describe('NxWorkspaceProvider', () => {
   });
 
   describe('analyzeWorkspace', () => {
-    it('should analyze workspace successfully', async () => {
+    test('should analyze workspace successfully', async () => {
       const mockGraph: NxDependencyGraph = {
         nodes: {
-          'app1': { name: 'app1', type: 'app', data: { root: 'apps/app1', projectType: 'application' } },
-          'lib1': { name: 'lib1', type: 'lib', data: { root: 'packages/lib1', projectType: 'library' } },
-          'orphan': { name: 'orphan', type: 'lib', data: { root: 'packages/orphan', projectType: 'library' } }
+          app1: {
+            name: 'app1',
+            type: 'app',
+            data: { root: 'apps/app1', projectType: 'application' },
+          },
+          lib1: {
+            name: 'lib1',
+            type: 'lib',
+            data: { root: 'packages/lib1', projectType: 'library' },
+          },
+          orphan: {
+            name: 'orphan',
+            type: 'lib',
+            data: { root: 'packages/orphan', projectType: 'library' },
+          },
         },
         dependencies: {
-          'app1': [{ source: 'app1', target: 'lib1', type: 'static' }],
-          'lib1': [],
-          'orphan': []
+          app1: [{ source: 'app1', target: 'lib1', type: 'static' }],
+          lib1: [],
+          orphan: [],
         },
-        version: '1.0.0'
+        version: '1.0.0',
       };
 
-      jest.spyOn(provider, 'getDependencyGraph').mockResolvedValue(mockGraph);
+      spyOn(provider, 'getDependencyGraph').mockResolvedValue(mockGraph);
 
       const result = await provider.analyzeWorkspace();
 
@@ -319,12 +354,15 @@ describe('NxWorkspaceProvider', () => {
       expect(result.recommendations.length).toBeGreaterThan(0);
     });
 
-    it('should handle analysis errors', async () => {
-      jest.spyOn(provider, 'getDependencyGraph').mockRejectedValue(new Error('Graph error'));
+    test('should handle analysis errors', async () => {
+      spyOn(provider, 'getDependencyGraph').mockRejectedValue(new Error('Graph error'));
 
-      await expect(provider.analyzeWorkspace()).rejects.toThrow(
-        'Failed to analyze workspace: Graph error'
-      );
+      try {
+        await provider.analyzeWorkspace();
+        expect(true).toBe(false); // Should not reach here
+      } catch (error) {
+        expect(error.message).toBe('Failed to analyze workspace: Graph error');
+      }
     });
   });
 });

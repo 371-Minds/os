@@ -1,16 +1,17 @@
 /**
  * DeveloperUniverse.tsx - Complete Developer's Galaxy Experience
- * 
+ *
  * Revolutionary spatial development environment that transforms the Technical Mode
  * into an explorable universe where code becomes celestial bodies and development
  * workflows become cosmic journeys.
- * 
+ *
  * The technical counterpart to CEO's Orrery for the Galaxy Engine paradigm.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import DevelopersGalaxy from './DevelopersGalaxy';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import DeveloperGalaxyControls from './DeveloperGalaxyControls';
+import DevelopersGalaxy from './DevelopersGalaxy';
 import './DeveloperUniverse.css';
 
 interface CodeProject {
@@ -96,12 +97,16 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
   onProjectSelect,
   onModuleSelect,
   onBuildTrigger,
-  onToolLaunch
+  onToolLaunch,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [selectedProject, setSelectedProject] = useState<CodeProject | null>(null);
+  const [selectedProject, setSelectedProject] = useState<CodeProject | null>(
+    null,
+  );
   const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
-  const [buildStatus, setBuildStatus] = useState<'idle' | 'running' | 'success' | 'failed'>('idle');
+  const [buildStatus, setBuildStatus] = useState<
+    'idle' | 'running' | 'success' | 'failed'
+  >('idle');
   const [lastBuildTime, setLastBuildTime] = useState<Date | undefined>();
   const [buildPipelines, setBuildPipelines] = useState<BuildPipeline[]>([]);
 
@@ -114,7 +119,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
     showTests: false,
     filterByType: [],
     filterByStatus: [],
-    animationSpeed: 1.0
+    animationSpeed: 1.0,
   });
 
   // Sample projects for the Developer's Galaxy
@@ -136,7 +141,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       buildStatus: 'success',
       lastUpdated: new Date(Date.now() - 5 * 60 * 1000),
       color: '#3b82f6',
-      isSelected: false
+      isSelected: false,
     },
     {
       id: 'elizaos-plugins',
@@ -155,7 +160,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       buildStatus: 'success',
       lastUpdated: new Date(Date.now() - 2 * 60 * 1000),
       color: '#10b981',
-      isSelected: false
+      isSelected: false,
     },
     {
       id: 'nx-workspace',
@@ -174,7 +179,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       buildStatus: 'success',
       lastUpdated: new Date(Date.now() - 8 * 60 * 1000),
       color: '#8b5cf6',
-      isSelected: false
+      isSelected: false,
     },
     {
       id: 'universal-tool-server',
@@ -193,7 +198,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       buildStatus: 'success',
       lastUpdated: new Date(Date.now() - 10 * 60 * 1000),
       color: '#f59e0b',
-      isSelected: false
+      isSelected: false,
     },
     {
       id: 'business-intelligence',
@@ -202,7 +207,7 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       size: 16,
       position: { x: 150, y: 150 },
       orbitRadius: 160,
-      orbitSpeed: 0.010,
+      orbitSpeed: 0.01,
       orbitAngle: Math.PI / 3,
       health: 95,
       coverage: 91,
@@ -212,8 +217,8 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
       buildStatus: 'success',
       lastUpdated: new Date(Date.now() - 3 * 60 * 1000),
       color: '#ec4899',
-      isSelected: false
-    }
+      isSelected: false,
+    },
   ]);
 
   // Initialize sample build pipelines
@@ -227,12 +232,12 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
           { id: 'lint', name: 'Lint', status: 'success', duration: 2.1 },
           { id: 'test', name: 'Test', status: 'success', duration: 8.7 },
           { id: 'build', name: 'Build', status: 'success', duration: 12.4 },
-          { id: 'deploy', name: 'Deploy', status: 'success', duration: 5.2 }
+          { id: 'deploy', name: 'Deploy', status: 'success', duration: 5.2 },
         ],
         status: 'success',
         progress: 100,
         startTime: new Date(Date.now() - 15 * 60 * 1000),
-        duration: 28.4
+        duration: 28.4,
       },
       {
         id: 'plugin-pipeline',
@@ -241,95 +246,124 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
         stages: [
           { id: 'lint', name: 'Lint', status: 'success', duration: 1.8 },
           { id: 'test', name: 'Test', status: 'success', duration: 15.2 },
-          { id: 'build', name: 'Build', status: 'success', duration: 6.9 }
+          { id: 'build', name: 'Build', status: 'success', duration: 6.9 },
         ],
         status: 'success',
         progress: 100,
         startTime: new Date(Date.now() - 8 * 60 * 1000),
-        duration: 23.9
-      }
+        duration: 23.9,
+      },
     ]);
   }, []);
 
-  const handleProjectSelect = useCallback((project: CodeProject) => {
-    setSelectedProject(project);
-    
-    // Toggle selection in multi-select mode
-    setSelectedProjects(prev => {
-      const isSelected = prev.includes(project.id);
-      if (isSelected) {
-        return prev.filter(id => id !== project.id);
-      } else {
-        return [...prev, project.id];
-      }
-    });
+  const handleProjectSelect = useCallback(
+    (project: CodeProject) => {
+      setSelectedProject(project);
 
-    if (onProjectSelect) {
-      onProjectSelect(project);
-    }
-
-    // Simulate project analysis
-    console.log('Developer Universe: Project selected:', project.name);
-    console.log('Health:', project.health, 'Coverage:', project.coverage, 'Complexity:', project.complexity);
-  }, [onProjectSelect]);
-
-  const handleModuleSelect = useCallback((module: CodeModule) => {
-    if (onModuleSelect) {
-      onModuleSelect(module);
-    }
-
-    console.log('Developer Universe: Module selected:', module.name, 'Quality:', module.quality);
-  }, [onModuleSelect]);
-
-  const handleBuildAction = useCallback((buildControl: BuildControl) => {
-    console.log('Developer Universe: Build action triggered:', buildControl);
-    
-    setBuildStatus('running');
-    setLastBuildTime(new Date());
-
-    // Simulate build process
-    const mockBuildTime = buildControl.action === 'test' ? 8000 : 3000;
-    
-    setTimeout(() => {
-      const success = Math.random() > 0.1; // 90% success rate
-      setBuildStatus(success ? 'success' : 'failed');
-      
-      // Update project statuses
-      setProjects(prev => prev.map(project => {
-        if (buildControl.targets.includes(project.id) || buildControl.targets.includes('all')) {
-          return {
-            ...project,
-            buildStatus: success ? 'success' : 'failed',
-            lastUpdated: new Date()
-          };
+      // Toggle selection in multi-select mode
+      setSelectedProjects((prev) => {
+        const isSelected = prev.includes(project.id);
+        if (isSelected) {
+          return prev.filter((id) => id !== project.id);
+        } else {
+          return [...prev, project.id];
         }
-        return project;
-      }));
-    }, mockBuildTime);
+      });
 
-    if (onBuildTrigger) {
-      onBuildTrigger(buildControl);
-    }
-  }, [onBuildTrigger]);
-
-  const handleNavigation = useCallback((direction: 'zoom-in' | 'zoom-out' | 'center' | 'fit') => {
-    setControls(prev => {
-      switch (direction) {
-        case 'zoom-in':
-          return { ...prev, zoomLevel: Math.min(5.0, prev.zoomLevel + 0.3) };
-        case 'zoom-out':
-          return { ...prev, zoomLevel: Math.max(0.1, prev.zoomLevel - 0.3) };
-        case 'center':
-          // Reset to center view
-          return { ...prev, zoomLevel: 1.0 };
-        case 'fit':
-          // Fit all projects in view
-          return { ...prev, zoomLevel: 0.8 };
-        default:
-          return prev;
+      if (onProjectSelect) {
+        onProjectSelect(project);
       }
-    });
-  }, []);
+
+      // Simulate project analysis
+      console.log('Developer Universe: Project selected:', project.name);
+      console.log(
+        'Health:',
+        project.health,
+        'Coverage:',
+        project.coverage,
+        'Complexity:',
+        project.complexity,
+      );
+    },
+    [onProjectSelect],
+  );
+
+  const handleModuleSelect = useCallback(
+    (module: CodeModule) => {
+      if (onModuleSelect) {
+        onModuleSelect(module);
+      }
+
+      console.log(
+        'Developer Universe: Module selected:',
+        module.name,
+        'Quality:',
+        module.quality,
+      );
+    },
+    [onModuleSelect],
+  );
+
+  const handleBuildAction = useCallback(
+    (buildControl: BuildControl) => {
+      console.log('Developer Universe: Build action triggered:', buildControl);
+
+      setBuildStatus('running');
+      setLastBuildTime(new Date());
+
+      // Simulate build process
+      const mockBuildTime = buildControl.action === 'test' ? 8000 : 3000;
+
+      setTimeout(() => {
+        const success = Math.random() > 0.1; // 90% success rate
+        setBuildStatus(success ? 'success' : 'failed');
+
+        // Update project statuses
+        setProjects((prev) =>
+          prev.map((project) => {
+            if (
+              buildControl.targets.includes(project.id) ||
+              buildControl.targets.includes('all')
+            ) {
+              return {
+                ...project,
+                buildStatus: success ? 'success' : 'failed',
+                lastUpdated: new Date(),
+              };
+            }
+            return project;
+          }),
+        );
+      }, mockBuildTime);
+
+      if (onBuildTrigger) {
+        onBuildTrigger(buildControl);
+      }
+    },
+    [onBuildTrigger],
+  );
+
+  const handleNavigation = useCallback(
+    (direction: 'zoom-in' | 'zoom-out' | 'center' | 'fit') => {
+      setControls((prev) => {
+        switch (direction) {
+          case 'zoom-in':
+            return { ...prev, zoomLevel: Math.min(5.0, prev.zoomLevel + 0.3) };
+          case 'zoom-out':
+            return { ...prev, zoomLevel: Math.max(0.1, prev.zoomLevel - 0.3) };
+          case 'center':
+            // Reset to center view
+            return { ...prev, zoomLevel: 1.0 };
+          case 'fit':
+            // Fit all projects in view
+            return { ...prev, zoomLevel: 0.8 };
+          default:
+            return prev;
+        }
+      });
+    },
+    [],
+  );
 
   const handleProjectFilter = useCallback((filter: string) => {
     console.log('Developer Universe: Filter applied:', filter);
@@ -364,15 +398,19 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
         <div className="project-details-panel">
           <div className="panel-header">
             <div className="project-icon">
-              {selectedProject.type === 'application' ? '🚀' : 
-               selectedProject.type === 'library' ? '📚' :
-               selectedProject.type === 'plugin' ? '🧩' : '⚙️'}
+              {selectedProject.type === 'application'
+                ? '🚀'
+                : selectedProject.type === 'library'
+                  ? '📚'
+                  : selectedProject.type === 'plugin'
+                    ? '🧩'
+                    : '⚙️'}
             </div>
             <div className="project-info">
               <h3 className="project-name">{selectedProject.name}</h3>
               <span className="project-type">{selectedProject.type}</span>
             </div>
-            <button 
+            <button
               className="close-btn"
               onClick={() => setSelectedProject(null)}
             >
@@ -384,13 +422,17 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
             <div className="metric-row">
               <div className="metric">
                 <span className="metric-label">Health</span>
-                <span className={`metric-value ${selectedProject.health > 90 ? 'excellent' : selectedProject.health > 70 ? 'good' : 'warning'}`}>
+                <span
+                  className={`metric-value ${selectedProject.health > 90 ? 'excellent' : selectedProject.health > 70 ? 'good' : 'warning'}`}
+                >
                   {selectedProject.health}%
                 </span>
               </div>
               <div className="metric">
                 <span className="metric-label">Coverage</span>
-                <span className={`metric-value ${selectedProject.coverage > 85 ? 'excellent' : selectedProject.coverage > 70 ? 'good' : 'warning'}`}>
+                <span
+                  className={`metric-value ${selectedProject.coverage > 85 ? 'excellent' : selectedProject.coverage > 70 ? 'good' : 'warning'}`}
+                >
                   {selectedProject.coverage}%
                 </span>
               </div>
@@ -398,35 +440,56 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
             <div className="metric-row">
               <div className="metric">
                 <span className="metric-label">Complexity</span>
-                <span className={`metric-value ${selectedProject.complexity < 5 ? 'excellent' : selectedProject.complexity < 8 ? 'good' : 'warning'}`}>
+                <span
+                  className={`metric-value ${selectedProject.complexity < 5 ? 'excellent' : selectedProject.complexity < 8 ? 'good' : 'warning'}`}
+                >
                   {selectedProject.complexity.toFixed(1)}
                 </span>
               </div>
               <div className="metric">
                 <span className="metric-label">Dependencies</span>
-                <span className="metric-value">{selectedProject.dependencies.length}</span>
+                <span className="metric-value">
+                  {selectedProject.dependencies.length}
+                </span>
               </div>
             </div>
           </div>
 
           <div className="project-actions">
-            <button 
+            <button
               className="action-btn primary"
-              onClick={() => handleBuildAction({ action: 'build', targets: [selectedProject.id], parallel: false, watch: false })}
+              onClick={() =>
+                handleBuildAction({
+                  action: 'build',
+                  targets: [selectedProject.id],
+                  parallel: false,
+                  watch: false,
+                })
+              }
               disabled={buildStatus === 'running'}
             >
               🔨 Build
             </button>
-            <button 
+            <button
               className="action-btn secondary"
-              onClick={() => handleBuildAction({ action: 'test', targets: [selectedProject.id], parallel: false, watch: false })}
+              onClick={() =>
+                handleBuildAction({
+                  action: 'test',
+                  targets: [selectedProject.id],
+                  parallel: false,
+                  watch: false,
+                })
+              }
               disabled={buildStatus === 'running'}
             >
               🧪 Test
             </button>
-            <button 
+            <button
               className="action-btn secondary"
-              onClick={() => onToolLaunch && onToolLaunch('open_editor', { project: selectedProject.id })}
+              onClick={() =>
+                onToolLaunch &&
+                onToolLaunch('open_editor', { project: selectedProject.id })
+              }
             >
               📝 Edit
             </button>
@@ -434,8 +497,10 @@ export const DeveloperUniverse: React.FC<DeveloperUniverseProps> = ({
 
           <div className="dependencies-list">
             <h4>Dependencies</h4>
-            {selectedProject.dependencies.map(dep => (
-              <span key={dep} className="dependency-chip">{dep}</span>
+            {selectedProject.dependencies.map((dep) => (
+              <span key={dep} className="dependency-chip">
+                {dep}
+              </span>
             ))}
           </div>
         </div>

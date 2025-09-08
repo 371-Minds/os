@@ -1,7 +1,5 @@
 // agent-coordinator-extension.js
-(function() {
-  'use strict';
-
+(() => {
   // Extension for TypingMind to coordinate with Electron agents
   class ElectronBridge {
     constructor() {
@@ -22,7 +20,7 @@
 
     initializeWebSocketBridge() {
       const ws = new WebSocket('ws://localhost:8080/agent-bridge');
-      
+
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
         this.handleElectronMessage(data);
@@ -37,7 +35,7 @@
               callback(data.payload);
             }
           });
-        }
+        },
       };
     }
 
@@ -55,18 +53,18 @@
       try {
         // Execute task within TypingMind context
         const result = await this.processTask(task);
-        
+
         // Send result back to Electron
         this.electronChannel.send({
           type: 'task-result',
           taskId: task.id,
-          result: result
+          result: result,
         });
       } catch (error) {
         this.electronChannel.send({
           type: 'task-error',
           taskId: task.id,
-          error: error.message
+          error: error.message,
         });
       }
     }
@@ -83,6 +81,4 @@
   window.addEventListener('load', () => {
     window.electronBridge = new ElectronBridge();
   });
-
 })();
-

@@ -1,6 +1,6 @@
 /**
  * CreativeCosmosControls.css - Creative Universe Control Interface Styling
- * 
+ *
  * Professional styling for the Creator's Cosmos control interface
  * with creative themes, workflow visualization, and action management.
  */
@@ -14,7 +14,8 @@
   width: 380px;
   max-height: 80vh;
   overflow-y: auto;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   color: #e2e8f0;
 }
@@ -62,8 +63,15 @@
 }
 
 @keyframes statusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
 }
 
 .status-text {
@@ -291,7 +299,7 @@
 }
 
 .checkbox-label input[type="checkbox"]:checked::after {
-  content: '✓';
+  content: "✓";
   display: block;
   color: white;
   font-size: 10px;
@@ -308,7 +316,11 @@
 .reset-view-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(236, 72, 153, 0.2) 100%
+  );
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
   color: #e2e8f0;
@@ -319,7 +331,11 @@
 }
 
 .reset-view-btn:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.3) 0%,
+    rgba(236, 72, 153, 0.3) 100%
+  );
   border-color: rgba(139, 92, 246, 0.5);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
 }
@@ -477,11 +493,26 @@
   font-weight: 600;
 }
 
-.status-idea { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-.status-draft { background: rgba(96, 165, 250, 0.2); color: #60a5fa; }
-.status-review { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
-.status-published { background: rgba(52, 211, 153, 0.2); color: #34d399; }
-.status-archived { background: rgba(156, 163, 175, 0.2); color: #9ca3af; }
+.status-idea {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+.status-draft {
+  background: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+}
+.status-review {
+  background: rgba(167, 139, 250, 0.2);
+  color: #a78bfa;
+}
+.status-published {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
+.status-archived {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+}
 
 .project-metrics {
   display: grid;
@@ -560,10 +591,22 @@
   font-weight: 600;
 }
 
-.status-ideation { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-.status-creation { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
-.status-review { background: rgba(96, 165, 250, 0.2); color: #60a5fa; }
-.status-publication { background: rgba(52, 211, 153, 0.2); color: #34d399; }
+.status-ideation {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+.status-creation {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+}
+.status-review {
+  background: rgba(96, 165, 250, 0.2);
+  color: #60a5fa;
+}
+.status-publication {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
 
 .workflow-progress {
   display: flex;
@@ -700,10 +743,22 @@
   font-weight: 600;
 }
 
-.status-available { background: rgba(71, 85, 105, 0.3); color: #94a3b8; }
-.status-running { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-.status-completed { background: rgba(52, 211, 153, 0.2); color: #34d399; }
-.status-failed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.status-available {
+  background: rgba(71, 85, 105, 0.3);
+  color: #94a3b8;
+}
+.status-running {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+.status-completed {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
+.status-failed {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
 
 .action-description {
   font-size: 12px;
@@ -729,7 +784,11 @@
 .action-btn {
   width: 100%;
   padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(236, 72, 153, 0.2) 100%
+  );
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 6px;
   color: #e2e8f0;
@@ -742,7 +801,11 @@
 }
 
 .action-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.3) 0%,
+    rgba(236, 72, 153, 0.3) 100%
+  );
   border-color: rgba(139, 92, 246, 0.5);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
 }
@@ -761,7 +824,11 @@
 .export-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(52, 211, 153, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(52, 211, 153, 0.2) 100%
+  );
   border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 8px;
   color: #e2e8f0;
@@ -772,7 +839,11 @@
 }
 
 .export-btn:hover {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(52, 211, 153, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.3) 0%,
+    rgba(52, 211, 153, 0.3) 100%
+  );
   border-color: rgba(16, 185, 129, 0.5);
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
 }
@@ -801,11 +872,11 @@
   .creative-cosmos-controls {
     width: 320px;
   }
-  
+
   .panel-navigation {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .filter-checkboxes {
     grid-template-columns: 1fr;
   }
@@ -817,12 +888,12 @@
     max-width: 300px;
     padding: 16px;
   }
-  
+
   .project-stats,
   .workflow-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .display-options {
     grid-template-columns: 1fr;
   }
@@ -835,7 +906,7 @@
   .progress-fill {
     animation: none;
   }
-  
+
   * {
     transition: none !important;
   }
@@ -855,7 +926,7 @@
     border-color: #8b5cf6;
     background: rgba(15, 23, 42, 0.98);
   }
-  
+
   .panel-tab.active,
   .view-mode-btn.active {
     background: #8b5cf6;

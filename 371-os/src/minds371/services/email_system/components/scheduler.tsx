@@ -1,7 +1,18 @@
+import {
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageHeader,
+  EuiPanel,
+  EuiProvider,
+  EuiTitle,
+} from '@elastic/eui';
 import React, { useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { EuiProvider, EuiPage, EuiPageBody, EuiPageContent, EuiPageContentBody, EuiPageHeader, EuiTitle, EuiFlexGroup, EuiFlexItem, EuiPanel } from '@elastic/eui';
 import '@elastic/eui/dist/eui_theme_light.css';
 
 const ItemType = 'EMAIL';

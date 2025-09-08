@@ -16,6 +16,7 @@ Solutions for package management and dependency installation problems.
 Comprehensive resolution guides for complex technical issues.
 
 - **[elizaos-plugin-typescript-build-issues.md](solutions/elizaos-plugin-typescript-build-issues.md)**: Complete TypeScript and build system issue resolution for ElizaOS plugins
+- **[cross-platform-mcp-development.md](solutions/cross-platform-mcp-development.md)**: Cross-platform MCP development issues and solutions
 
 ### `npm-optimization/`
 Performance optimization guides for dependency management.
@@ -42,6 +43,11 @@ Performance optimization guides for dependency management.
 **Issue**: Missing TypeScript configuration files
 **Solution**: [Configuration Issues](solutions/elizaos-plugin-typescript-build-issues.md#4-missing-test-configuration)
 
+### Cross-Platform MCP Development Issues
+
+**Issue**: Platform-specific automation in MCP servers
+**Solution**: [Cross-Platform MCP Development](solutions/cross-platform-mcp-development.md)
+
 ## 🎯 Resolution Success Rates
 
 | Issue Type | Resolution Rate | Average Time |
@@ -50,6 +56,7 @@ Performance optimization guides for dependency management.
 | Bun Lockfile Conflicts | 95% | 2-5 min |
 | Build System Issues | 100% | 5-10 min |
 | Configuration Problems | 100% | 5-10 min |
+| Cross-Platform MCP Issues | 90% | 30-60 min |
 
 ## 🛠️ Troubleshooting Workflow
 
@@ -58,6 +65,7 @@ Performance optimization guides for dependency management.
 - **Dependencies**: Installation failures, lockfile conflicts
 - **Build System**: Missing modules, configuration errors
 - **Environment**: Windows-specific, PowerShell issues
+- **MCP Development**: Cross-platform compatibility, platform-specific automation
 
 ### 2. Apply Quick Fixes
 ```bash
@@ -107,6 +115,12 @@ bun run lint            # Code quality
 - [ ] Module isolation configured
 - [ ] Build outputs generated
 
+### MCP Development Validation
+- [ ] Cross-platform compatibility verified
+- [ ] No platform-specific automation used
+- [ ] PowerShell scripts handle ExecutionPolicy
+- [ ] URL schemes used for cross-platform automation
+
 ## 🔮 Prevention Strategies
 
 ### Development Standards
@@ -115,6 +129,8 @@ bun run lint            # Code quality
 3. **Test build system** after configuration changes
 4. **Implement proper module isolation** in multi-plugin workspaces
 5. **Document Windows-specific workarounds**
+6. **Ensure MCP servers are cross-platform compatible**
+7. **Avoid platform-specific automation in MCP implementations**
 
 ### Automated Validation
 ```bash
@@ -127,6 +143,9 @@ bun run tsc --noEmit
 
 echo "🏗️ Testing build system..."
 bun run build
+
+echo "🔄 Checking cross-platform compatibility..."
+# Add MCP cross-platform validation here
 
 echo "✅ Validation complete!"
 ```
@@ -151,12 +170,18 @@ Document new issues and create additional troubleshooting guides.
 ### 371 OS Architecture
 - [Integration Roadmap](../INTEGRATION_ROADMAP.md)
 - [Milestone Tracker](../AB/milestone-tracker.md)
-- [Session Logs](../AB/sessions/)
+- [Session Logs](../AB/sessions)
 
 ### Development Environment
 - [Getting Started Guide](../GETTING_STARTED.md)
 - [Commands Reference](../COMMANDS.md)
 - [AB Scripts](../AB/scripts/)
+
+### MCP Development
+- [Universal MCP Architecture](../371-os/docs/architecture/universal_mcp_architecture.md)
+- [MCP Integration Guide](../docs/mcp_integration.md)
+- [Wavebox Integration (Windows)](../AB/sessions/abideas/wavebox-universal-mcp-windows.md)
+- [Cross-Platform MCP Development](solutions/cross-platform-mcp-development.md)
 
 ---
 

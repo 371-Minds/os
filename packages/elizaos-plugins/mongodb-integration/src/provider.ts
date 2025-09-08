@@ -1,10 +1,10 @@
 /**
  * MongoDB Provider for 371 OS ElizaOS Integration
- * 
+ *
  * Provides database context and connection status to agents
  */
 
-import { Provider, IAgentRuntime, Memory, State } from '@elizaos/core';
+import type { IAgentRuntime, Memory, Provider, State } from '@elizaos/core';
 import { mongodb371 } from './mongodb-service.js';
 
 export const MongoDBProvider: Provider = {
@@ -14,32 +14,34 @@ export const MongoDBProvider: Provider = {
     try {
       const health = await mongodb371.healthCheck();
       const stats = await mongodb371.getDatabaseStats();
-      
+
       return {
         values: {
           database: {
             status: health.status,
             database: health.database,
             collections: health.collections,
-            stats: stats ? {
-              dataSize: stats.dataSize,
-              indexSize: stats.indexSize,
-              collections: stats.collections
-            } : null
+            stats: stats
+              ? {
+                  dataSize: stats.dataSize,
+                  indexSize: stats.indexSize,
+                  collections: stats.collections,
+                }
+              : null,
           },
-          timestamp: new Date().toISOString()
-        }
+          timestamp: new Date().toISOString(),
+        },
       };
     } catch (error: any) {
       return {
         values: {
           database: {
             status: 'error',
-            error: error.message
+            error: error.message,
           },
-          timestamp: new Date().toISOString()
-        }
+          timestamp: new Date().toISOString(),
+        },
       };
     }
-  }
+  },
 };

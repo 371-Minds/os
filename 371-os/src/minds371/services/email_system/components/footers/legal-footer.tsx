@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface LegalFooterProps {
   companyName: string;
@@ -21,7 +21,7 @@ export const LegalFooter: React.FC<LegalFooterProps> = ({
   unsubscribeUrl,
   contactEmail,
   physicalAddress,
-  className = ''
+  className = '',
 }) => {
   return (
     <footer className={`legal-footer ${className}`}>
@@ -53,7 +53,7 @@ export const LegalFooter: React.FC<LegalFooterProps> = ({
               )}
             </ul>
           </div>
-          
+
           {(contactEmail || physicalAddress) && (
             <div className="contact-info">
               <h4>Contact Information</h4>
@@ -63,13 +63,11 @@ export const LegalFooter: React.FC<LegalFooterProps> = ({
                 </p>
               )}
               {physicalAddress && (
-                <p className="physical-address">
-                  Address: {physicalAddress}
-                </p>
+                <p className="physical-address">Address: {physicalAddress}</p>
               )}
             </div>
           )}
-          
+
           {unsubscribeUrl && (
             <div className="email-preferences">
               <h4>Email Preferences</h4>
@@ -80,24 +78,26 @@ export const LegalFooter: React.FC<LegalFooterProps> = ({
               </p>
             </div>
           )}
-          
+
           {gdprCompliant && (
             <div className="gdpr-notice">
               <p className="gdpr-text">
-                We are committed to protecting your privacy and complying with GDPR regulations.
-                Your data is processed in accordance with our Privacy Policy.
+                We are committed to protecting your privacy and complying with
+                GDPR regulations. Your data is processed in accordance with our
+                Privacy Policy.
               </p>
             </div>
           )}
         </div>
-        
+
         <div className="footer-bottom">
           <p className="copyright">
             © {new Date().getFullYear()} {companyName}. All rights reserved.
           </p>
           <p className="disclaimer">
-            This email was sent to you because you subscribed to our mailing list.
-            If you no longer wish to receive these emails, you can unsubscribe at any time.
+            This email was sent to you because you subscribed to our mailing
+            list. If you no longer wish to receive these emails, you can
+            unsubscribe at any time.
           </p>
         </div>
       </div>

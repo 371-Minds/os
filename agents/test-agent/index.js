@@ -12,9 +12,14 @@ console.log('🚀 Starting 371 OS Test Agent...');
 async function startTestAgent() {
   try {
     // Load character configuration
-    const characterPath = path.join(process.cwd(), 'agents', 'test-agent', 'character.json');
+    const characterPath = path.join(
+      process.cwd(),
+      'agents',
+      'test-agent',
+      'character.json',
+    );
     let character;
-    
+
     if (fs.existsSync(characterPath)) {
       const characterData = JSON.parse(fs.readFileSync(characterPath, 'utf8'));
       character = characterData;
@@ -29,8 +34,8 @@ async function startTestAgent() {
         postExamples: [],
         topics: ['testing', 'ai', 'agents'],
         style: {
-          all: ['helpful', 'technical', 'brief']
-        }
+          all: ['helpful', 'technical', 'brief'],
+        },
       };
     }
 
@@ -39,18 +44,18 @@ async function startTestAgent() {
       // Basic configuration
       character,
       modelProvider: 'ollama', // Using local model for testing
-      
+
       // Plugin configuration (commented out until we fix the plugins)
       // plugins: [
       //   NxWorkspacePlugin,
       //   CognitiveEnginePlugin
       // ],
-      
+
       // Environment configuration
       env: {
         NODE_ENV: process.env.NODE_ENV || 'development',
-        ELIZAOS_LOG_LEVEL: process.env.ELIZAOS_LOG_LEVEL || 'debug'
-      }
+        ELIZAOS_LOG_LEVEL: process.env.ELIZAOS_LOG_LEVEL || 'debug',
+      },
     });
 
     console.log('✅ AgentRuntime created successfully');
@@ -58,20 +63,20 @@ async function startTestAgent() {
     console.log(`   Name: ${character.name}`);
     console.log(`   Model Provider: ollama`);
     console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`);
-    
+
     // Test basic agent functionality
     console.log('🧪 Testing basic agent functionality...');
-    
+
     // Simulate a simple interaction
     const testMessage = {
       userId: 'test-user',
       content: {
-        text: 'Hello, can you analyze the workspace?'
-      }
+        text: 'Hello, can you analyze the workspace?',
+      },
     };
 
     console.log('📨 Test message:', testMessage.content.text);
-    
+
     // For now, just log that we would process this
     console.log('✅ Agent is ready to process messages');
     console.log('🎯 Next steps:');
@@ -84,12 +89,11 @@ async function startTestAgent() {
 
     // Keep the process alive for testing
     console.log('🔄 Agent running... Press Ctrl+C to stop');
-    
+
     // Heartbeat to show the agent is alive
     setInterval(() => {
       console.log(`💓 Agent heartbeat: ${new Date().toISOString()}`);
     }, 30000);
-
   } catch (error) {
     console.error('❌ Failed to start test agent:', error);
     console.error('📋 Error details:', error.message);

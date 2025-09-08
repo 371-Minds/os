@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface EnterpriseLayoutProps {
   children: React.ReactNode;
@@ -21,46 +21,41 @@ export const EnterpriseLayout: React.FC<EnterpriseLayoutProps> = ({
   theme = 'corporate',
   maxWidth = '1200px',
   backgroundColor = '#ffffff',
-  className = ''
+  className = '',
 }) => {
   const layoutClasses = [
     'enterprise-layout',
     `enterprise-layout--${theme}`,
     sidebar ? 'enterprise-layout--with-sidebar' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div 
+    <div
       className={layoutClasses}
-      style={{ 
-        backgroundColor,
-        '--max-width': maxWidth 
-      } as React.CSSProperties}
+      style={
+        {
+          backgroundColor,
+          '--max-width': maxWidth,
+        } as React.CSSProperties
+      }
     >
       {/* Email Container */}
       <div className="enterprise-layout__container">
-        
         {/* Header Section */}
-        {header && (
-          <div className="enterprise-layout__header">
-            {header}
-          </div>
-        )}
-        
+        {header && <div className="enterprise-layout__header">{header}</div>}
+
         {/* Main Content Area */}
         <div className="enterprise-layout__main">
-          
           {/* Sidebar (if provided) */}
           {sidebar && (
-            <aside className="enterprise-layout__sidebar">
-              {sidebar}
-            </aside>
+            <aside className="enterprise-layout__sidebar">{sidebar}</aside>
           )}
-          
+
           {/* Content Area */}
           <main className="enterprise-layout__content">
-            
             {/* Company Branding Bar */}
             {companyName && (
               <div className="enterprise-layout__branding">
@@ -70,22 +65,15 @@ export const EnterpriseLayout: React.FC<EnterpriseLayoutProps> = ({
                 </div>
               </div>
             )}
-            
+
             {/* Main Content */}
-            <div className="enterprise-layout__body">
-              {children}
-            </div>
-            
+            <div className="enterprise-layout__body">{children}</div>
           </main>
         </div>
-        
+
         {/* Footer Section */}
-        {footer && (
-          <div className="enterprise-layout__footer">
-            {footer}
-          </div>
-        )}
-        
+        {footer && <div className="enterprise-layout__footer">{footer}</div>}
+
         {/* Enterprise Footer Bar */}
         <div className="enterprise-layout__enterprise-footer">
           <div className="enterprise-footer-content">
@@ -96,7 +84,6 @@ export const EnterpriseLayout: React.FC<EnterpriseLayoutProps> = ({
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
@@ -118,7 +105,7 @@ export const EnterpriseHeader: React.FC<EnterpriseHeaderProps> = ({
   companyLogo,
   companyName,
   accountManager,
-  supportLevel = 'enterprise'
+  supportLevel = 'enterprise',
 }) => {
   return (
     <header className="enterprise-header">
@@ -130,22 +117,31 @@ export const EnterpriseHeader: React.FC<EnterpriseHeaderProps> = ({
           <div className="company-info">
             <h1 className="company-name">{companyName}</h1>
             <span className={`support-level support-level--${supportLevel}`}>
-              {supportLevel.charAt(0).toUpperCase() + supportLevel.slice(1)} Account
+              {supportLevel.charAt(0).toUpperCase() + supportLevel.slice(1)}{' '}
+              Account
             </span>
           </div>
         </div>
-        
+
         {accountManager && (
           <div className="enterprise-header__account-manager">
             <div className="account-manager-info">
-              <span className="account-manager-label">Your Account Manager</span>
+              <span className="account-manager-label">
+                Your Account Manager
+              </span>
               <div className="account-manager-details">
                 <span className="manager-name">{accountManager.name}</span>
-                <a href={`mailto:${accountManager.email}`} className="manager-email">
+                <a
+                  href={`mailto:${accountManager.email}`}
+                  className="manager-email"
+                >
                   {accountManager.email}
                 </a>
                 {accountManager.phone && (
-                  <a href={`tel:${accountManager.phone}`} className="manager-phone">
+                  <a
+                    href={`tel:${accountManager.phone}`}
+                    className="manager-phone"
+                  >
                     {accountManager.phone}
                   </a>
                 )}
@@ -179,11 +175,10 @@ interface EnterpriseSidebarProps {
 export const EnterpriseSidebar: React.FC<EnterpriseSidebarProps> = ({
   quickLinks,
   announcements,
-  metrics
+  metrics,
 }) => {
   return (
     <div className="enterprise-sidebar">
-      
       {quickLinks && quickLinks.length > 0 && (
         <div className="sidebar-section">
           <h3 className="sidebar-title">Quick Links</h3>
@@ -199,7 +194,7 @@ export const EnterpriseSidebar: React.FC<EnterpriseSidebarProps> = ({
           </ul>
         </div>
       )}
-      
+
       {metrics && metrics.length > 0 && (
         <div className="sidebar-section">
           <h3 className="sidebar-title">Key Metrics</h3>
@@ -210,8 +205,14 @@ export const EnterpriseSidebar: React.FC<EnterpriseSidebarProps> = ({
                 <div className="metric-value-container">
                   <span className="metric-value">{metric.value}</span>
                   {metric.trend && (
-                    <span className={`metric-trend metric-trend--${metric.trend}`}>
-                      {metric.trend === 'up' ? '↗️' : metric.trend === 'down' ? '↘️' : '➡️'}
+                    <span
+                      className={`metric-trend metric-trend--${metric.trend}`}
+                    >
+                      {metric.trend === 'up'
+                        ? '↗️'
+                        : metric.trend === 'down'
+                          ? '↘️'
+                          : '➡️'}
                     </span>
                   )}
                 </div>
@@ -220,15 +221,19 @@ export const EnterpriseSidebar: React.FC<EnterpriseSidebarProps> = ({
           </div>
         </div>
       )}
-      
+
       {announcements && announcements.length > 0 && (
         <div className="sidebar-section">
           <h3 className="sidebar-title">Announcements</h3>
           <div className="announcements-list">
             {announcements.map((announcement, index) => (
               <div key={index} className="announcement-item">
-                <div className={`announcement-priority priority--${announcement.priority || 'medium'}`}>
-                  <span className="announcement-title">{announcement.title}</span>
+                <div
+                  className={`announcement-priority priority--${announcement.priority || 'medium'}`}
+                >
+                  <span className="announcement-title">
+                    {announcement.title}
+                  </span>
                   <span className="announcement-date">{announcement.date}</span>
                 </div>
               </div>
@@ -236,7 +241,6 @@ export const EnterpriseSidebar: React.FC<EnterpriseSidebarProps> = ({
           </div>
         </div>
       )}
-      
     </div>
   );
 };

@@ -1,20 +1,25 @@
 /**
  * CEOsOrrery.tsx - Business Intelligence Universe
- * 
+ *
  * Revolutionary business intelligence interface where financial data becomes
  * an explorable orrery (mechanical solar system). Revenue streams are planets,
  * departments are star systems, and KPIs orbit around business units.
- * 
+ *
  * This transforms boring dashboards into an immersive business universe.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './CEOsOrrery.css';
-import FinancialPlanets from './FinancialPlanets';
-import DepartmentSolarSystems from './DepartmentSolarSystems';
-import BusinessUniverseControls from './BusinessUniverseControls';
+import {
+  AgentInsight,
+  BusinessMetric,
+  type SpatialBusinessData,
+} from '../types/business-intelligence';
 import BusinessIntelligenceIntegration from './BusinessIntelligenceIntegration';
-import { SpatialBusinessData, BusinessMetric, AgentInsight } from '../types/business-intelligence';
+import BusinessUniverseControls from './BusinessUniverseControls';
+import DepartmentSolarSystems from './DepartmentSolarSystems';
+import FinancialPlanets from './FinancialPlanets';
 
 // Mock React types for development
 declare global {
@@ -28,7 +33,14 @@ declare global {
 interface FinancialPlanet {
   id: string;
   name: string;
-  type: 'revenue' | 'expense' | 'asset' | 'liability' | 'kpi' | 'department' | 'operational';
+  type:
+    | 'revenue'
+    | 'expense'
+    | 'asset'
+    | 'liability'
+    | 'kpi'
+    | 'department'
+    | 'operational';
   value: number;
   target?: number;
   previousValue?: number;
@@ -153,16 +165,17 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
   onInsightCapture,
   onAlertAction,
   onDataDrillDown,
-  onDataExport
+  onDataExport,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | undefined>(undefined);
   const financialPlanetsRef = useRef<any>(null);
   const departmentSystemsRef = useRef<any>(null);
   const biIntegrationRef = useRef<any>(null);
-  
+
   const [orbitTime, setOrbitTime] = useState(0);
-  const [spatialBusinessData, setSpatialBusinessData] = useState<SpatialBusinessData | null>(null);
+  const [spatialBusinessData, setSpatialBusinessData] =
+    useState<SpatialBusinessData | null>(null);
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const [universeControls, setUniverseControls] = useState<UniverseControls>({
     timeRange: initialTimeRange,
@@ -174,13 +187,15 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     showTrends: true,
     showProjections: false,
     zoomLevel: 1.0,
-    cameraPosition: { x: 0, y: 0, z: 0 }
+    cameraPosition: { x: 0, y: 0, z: 0 },
   });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null);
   const [activeAlerts, setActiveAlerts] = useState<BusinessAlert[]>([]);
   const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);
-  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
+    null,
+  );
   const [planets, setPlanets] = useState<FinancialPlanet[]>([]);
 
   // Enhanced business universe with comprehensive financial data
@@ -210,8 +225,8 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         message: 'Free cash flow decreased 8% this month',
         timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
         actionRequired: true,
-        priority: 8
-      }
+        priority: 8,
+      },
     ],
     departments: [
       {
@@ -228,7 +243,7 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         productivity: 156000,
         riskLevel: 'low',
         strategicImportance: 9,
-        lastReview: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        lastReview: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
       },
       {
         id: 'engineering',
@@ -244,9 +259,9 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         productivity: 89000,
         riskLevel: 'medium',
         strategicImportance: 10,
-        lastReview: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
-      }
-    ]
+        lastReview: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
+      },
+    ],
   });
 
   // Handle real-time business intelligence data updates
@@ -254,33 +269,33 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     console.log('🌌 Business universe data updated:', data);
     setSpatialBusinessData(data);
     setConnectionError(null);
-    
+
     // Update business universe state
     if (data.metrics.length > 0) {
       const totalRevenue = data.metrics
-        .filter(m => m.category === 'revenue')
+        .filter((m) => m.category === 'revenue')
         .reduce((sum, m) => sum + m.value, 0);
-      
+
       const totalExpenses = data.metrics
-        .filter(m => m.category === 'expense')
+        .filter((m) => m.category === 'expense')
         .reduce((sum, m) => sum + m.value, 0);
-        
-      setBusinessUniverse(prev => ({
+
+      setBusinessUniverse((prev) => ({
         ...prev,
         totalRevenue,
         totalExpenses,
         netProfit: totalRevenue - totalExpenses,
         lastUpdated: data.lastUpdated,
-        globalAlerts: data.alerts.map(alert => ({
+        globalAlerts: data.alerts.map((alert) => ({
           id: alert.id,
           type: alert.severity === 'critical' ? 'critical' : 'warning',
           title: alert.title,
           message: alert.message,
           timestamp: alert.timestamp,
           actionRequired: alert.actionRequired,
-          priority: alert.priority
+          priority: alert.priority,
         })),
-        departments: data.departments
+        departments: data.departments,
       }));
     }
   }, []);
@@ -297,7 +312,7 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
       biIntegrationRef.current.refreshData();
     }
   }, []);
-  
+
   // Export business data
   const handleDataExport = useCallback(() => {
     if (spatialBusinessData) {
@@ -306,46 +321,57 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         metrics: spatialBusinessData.metrics,
         insights: spatialBusinessData.insights,
         alerts: spatialBusinessData.alerts,
-        departments: spatialBusinessData.departments
+        departments: spatialBusinessData.departments,
       };
-      
-      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], {
+        type: 'application/json',
+      });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `business-intelligence-${new Date().toISOString().split('T')[0]}.json`;
       a.click();
       URL.revokeObjectURL(url);
-      
+
       if (onDataExport) onDataExport();
     }
   }, [spatialBusinessData, onDataExport]);
-  
+
   // Time travel functionality
-  const handleTimeTravel = useCallback((direction: 'past' | 'future', amount: number) => {
-    console.log(`⏰ Time travel: ${direction} ${amount} days`);
-    // Implementation would integrate with historical data API
-  }, []);
-  
+  const handleTimeTravel = useCallback(
+    (direction: 'past' | 'future', amount: number) => {
+      console.log(`⏰ Time travel: ${direction} ${amount} days`);
+      // Implementation would integrate with historical data API
+    },
+    [],
+  );
+
   // Reset view to default position
   const handleResetView = useCallback(() => {
-    setUniverseControls(prev => ({
+    setUniverseControls((prev) => ({
       ...prev,
       zoomLevel: 1.0,
-      cameraPosition: { x: 0, y: 0, z: 0 }
+      cameraPosition: { x: 0, y: 0, z: 0 },
     }));
   }, []);
 
   // Handle mouse interactions with spatial components
-  const handleMouseMove = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    // Mouse interactions now handled by individual spatial components
-    console.log('Mouse move at:', event.clientX, event.clientY);
-  }, []);
+  const handleMouseMove = useCallback(
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
+      // Mouse interactions now handled by individual spatial components
+      console.log('Mouse move at:', event.clientX, event.clientY);
+    },
+    [],
+  );
 
-  const handleCanvasClick = useCallback((event: React.MouseEvent<HTMLCanvasElement>) => {
-    // Click interactions now handled by individual spatial components
-    console.log('Canvas clicked at:', event.clientX, event.clientY);
-  }, []);
+  const handleCanvasClick = useCallback(
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
+      // Click interactions now handled by individual spatial components
+      console.log('Canvas clicked at:', event.clientX, event.clientY);
+    },
+    [],
+  );
 
   // Enhanced animation with spatial components
   const animate = useCallback(() => {
@@ -358,33 +384,40 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
     // Clear and set transforms
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
     // Apply zoom and camera position
     const zoom = universeControls.zoomLevel || 1.0;
     const camera = universeControls.cameraPosition || { x: 0, y: 0 };
     ctx.scale(zoom, zoom);
     ctx.translate(-camera.x, -camera.y);
-    
+
     // Draw universe background
     drawUniverseBackground(ctx, canvas);
-    
+
     // Note: Spatial components will render themselves when implemented
-    
+
     ctx.restore();
-    
-    setOrbitTime(prev => prev + 0.01 * universeControls.animationSpeed);
+
+    setOrbitTime((prev) => prev + 0.01 * universeControls.animationSpeed);
     animationFrameRef.current = requestAnimationFrame(animate);
   }, [spatialBusinessData, universeControls]);
 
-  const drawUniverseBackground = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  const drawUniverseBackground = (
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+  ) => {
     const gradient = ctx.createRadialGradient(
-      canvas.width / 2, canvas.height / 2, 0,
-      canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height)
+      canvas.width / 2,
+      canvas.height / 2,
+      0,
+      canvas.width / 2,
+      canvas.height / 2,
+      Math.max(canvas.width, canvas.height),
     );
     gradient.addColorStop(0, '#1e293b');
     gradient.addColorStop(0.5, '#0f172a');
     gradient.addColorStop(1, '#020617');
-    
+
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   };
@@ -407,7 +440,7 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
       }
     };
   }, [animate]);
-  
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -433,29 +466,39 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         refreshInterval={universeControls.dataRefreshRate * 1000}
         agentEndpoint={agentEndpoint}
       />
-      
+
       {/* Spatial Components */}
       {spatialBusinessData && (
         <>
           <FinancialPlanets
             businessData={spatialBusinessData.metrics}
             agentInsights={spatialBusinessData.insights}
-            onPlanetSelect={(planet) => onPlanetSelect && onPlanetSelect(planet as any)}
-            onDrillDown={(planetId, timeRange) => onDataDrillDown && onDataDrillDown(planetId, timeRange)}
-            onAlertAction={(alert) => onAlertAction && onAlertAction(alert as any)}
+            onPlanetSelect={(planet) =>
+              onPlanetSelect && onPlanetSelect(planet as any)
+            }
+            onDrillDown={(planetId, timeRange) =>
+              onDataDrillDown && onDataDrillDown(planetId, timeRange)
+            }
+            onAlertAction={(alert) =>
+              onAlertAction && onAlertAction(alert as any)
+            }
             animationSpeed={universeControls.animationSpeed}
             showSatellites={universeControls.showSatellites}
             realTimeMode={realTimeMode}
             canvasRef={canvasRef}
             orbitTime={orbitTime}
           />
-          
+
           <DepartmentSolarSystems
             departments={spatialBusinessData.departments}
             agentInsights={spatialBusinessData.insights}
-            onDepartmentSelect={(dept) => onDepartmentSelect && onDepartmentSelect(dept as any)}
+            onDepartmentSelect={(dept) =>
+              onDepartmentSelect && onDepartmentSelect(dept as any)
+            }
             onTeamSelect={(team: any) => console.log('Team selected:', team)}
-            onProjectSelect={(project: any) => console.log('Project selected:', project)}
+            onProjectSelect={(project: any) =>
+              console.log('Project selected:', project)
+            }
             animationSpeed={universeControls.animationSpeed}
             showProjects={true}
             showTeamDetails={universeControls.viewMode === 'detailed'}
@@ -473,11 +516,13 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
         onExportData={handleDataExport}
         onResetView={handleResetView}
         isRealTimeMode={realTimeMode}
-        onRealTimeModeToggle={(enabled) => console.log('Real-time mode:', enabled)}
+        onRealTimeModeToggle={(enabled) =>
+          console.log('Real-time mode:', enabled)
+        }
         lastUpdated={spatialBusinessData?.lastUpdated || new Date()}
         connectionStatus={spatialBusinessData?.syncStatus || 'disconnected'}
       />
-      
+
       {/* Connection Error Display */}
       {connectionError && (
         <div className="connection-error">
@@ -499,14 +544,14 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
             Revolutionary AI-powered business universe powered by ElizaOS agents
             {spatialBusinessData && (
               <span className="data-status">
-                • {spatialBusinessData.metrics.length} metrics 
-                • {spatialBusinessData.insights.length} insights 
-                • {spatialBusinessData.alerts.length} alerts
+                • {spatialBusinessData.metrics.length} metrics •{' '}
+                {spatialBusinessData.insights.length} insights •{' '}
+                {spatialBusinessData.alerts.length} alerts
               </span>
             )}
           </p>
         </div>
-        
+
         <canvas
           ref={canvasRef}
           className="orrery-canvas"
@@ -522,47 +567,71 @@ export const CEOsOrrery: React.FC<CEOsOrreryProps> = ({
           <div className="summary-header">
             <h3>📊 Live Business Intelligence Dashboard</h3>
             <div className="agent-status">
-              {Object.entries(spatialBusinessData.agentStatus).map(([role, status]) => (
-                <span key={role} className={`agent-indicator ${status}`}>
-                  {role}: {status === 'active' ? '✓' : '✗'}
-                </span>
-              ))}
+              {Object.entries(spatialBusinessData.agentStatus).map(
+                ([role, status]) => (
+                  <span key={role} className={`agent-indicator ${status}`}>
+                    {role}: {status === 'active' ? '✓' : '✗'}
+                  </span>
+                ),
+              )}
             </div>
           </div>
-          
+
           <div className="summary-metrics">
             <div className="metric-card revenue">
               <h4>Total Revenue</h4>
-              <span>${(businessUniverse.totalRevenue / 1000000).toFixed(1)}M</span>
+              <span>
+                ${(businessUniverse.totalRevenue / 1000000).toFixed(1)}M
+              </span>
               <small>+{businessUniverse.growthRate.toFixed(1)}% growth</small>
             </div>
             <div className="metric-card profit">
               <h4>Net Profit</h4>
               <span>${(businessUniverse.netProfit / 1000000).toFixed(1)}M</span>
-              <small>{businessUniverse.operatingMargin.toFixed(1)}% margin</small>
+              <small>
+                {businessUniverse.operatingMargin.toFixed(1)}% margin
+              </small>
             </div>
             <div className="metric-card alerts">
               <h4>Active Alerts</h4>
               <span>{spatialBusinessData.alerts.length}</span>
-              <small>{spatialBusinessData.alerts.filter(a => a.severity === 'critical').length} critical</small>
+              <small>
+                {
+                  spatialBusinessData.alerts.filter(
+                    (a) => a.severity === 'critical',
+                  ).length
+                }{' '}
+                critical
+              </small>
             </div>
             <div className="metric-card insights">
               <h4>AI Insights</h4>
               <span>{spatialBusinessData.insights.length}</span>
-              <small>{spatialBusinessData.insights.filter(i => i.actionable).length} actionable</small>
+              <small>
+                {
+                  spatialBusinessData.insights.filter((i) => i.actionable)
+                    .length
+                }{' '}
+                actionable
+              </small>
             </div>
           </div>
-          
+
           {/* Latest Insights Preview */}
           {spatialBusinessData.insights.length > 0 && (
             <div className="insights-preview">
               <h4>🧠 Latest AI Insights</h4>
               <div className="insights-list">
-                {spatialBusinessData.insights.slice(0, 3).map(insight => (
-                  <div key={insight.id} className={`insight-item ${insight.impact}`}>
+                {spatialBusinessData.insights.slice(0, 3).map((insight) => (
+                  <div
+                    key={insight.id}
+                    className={`insight-item ${insight.impact}`}
+                  >
                     <div className="insight-header">
                       <span className="agent-role">{insight.agentRole}</span>
-                      <span className="insight-type">{insight.type.replace('_', ' ')}</span>
+                      <span className="insight-type">
+                        {insight.type.replace('_', ' ')}
+                      </span>
                     </div>
                     <div className="insight-content">
                       <strong>{insight.title}</strong>

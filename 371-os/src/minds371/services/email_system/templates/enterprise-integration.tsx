@@ -34,7 +34,10 @@ export const ModuMindEnterpriseIntegrationEmail = ({
 }: ModuMindEnterpriseIntegrationEmailProps) => (
   <Html>
     <Head />
-    <Preview>🔗 Enterprise Integration {integrationStatus} - {systemsConnected} systems now connected</Preview>
+    <Preview>
+      🔗 Enterprise Integration {integrationStatus} - {systemsConnected} systems
+      now connected
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -46,18 +49,27 @@ export const ModuMindEnterpriseIntegrationEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={integrationBanner}>
           <Text style={integrationIcon}>🔗</Text>
-          <Heading style={h1}>Enterprise Integration {integrationStatus}</Heading>
+          <Heading style={h1}>
+            Enterprise Integration {integrationStatus}
+          </Heading>
         </Section>
 
         <Text style={heroText}>
-          Excellent news, {userFirstName}! The ModuMind enterprise integration for {companyName} 
-          has been {integrationStatus.toLowerCase()} successfully. We've connected <strong>{systemsConnected} 
-          enterprise systems</strong> and your unified AI platform is now operational as of {completionDate}.
+          Excellent news, {userFirstName}! The ModuMind enterprise integration
+          for {companyName}
+          has been {integrationStatus.toLowerCase()} successfully. We've
+          connected{' '}
+          <strong>
+            {systemsConnected}
+            enterprise systems
+          </strong>{' '}
+          and your unified AI platform is now operational as of {completionDate}
+          .
         </Text>
-        
+
         <Section style={statusSection}>
           <Text style={statusTitle}>Integration Summary:</Text>
           <Section style={statusGrid}>
@@ -81,52 +93,68 @@ export const ModuMindEnterpriseIntegrationEmail = ({
 
         <Section style={systemsSection}>
           <Text style={systemsTitle}>Connected Enterprise Systems:</Text>
-          
+
           <Section style={systemGroup}>
             <Text style={systemIcon}>💼</Text>
             <Text style={systemTitle}>ERP Integration</Text>
-            <Text style={systemDesc}>SAP, Oracle, Microsoft Dynamics - Real-time data synchronization</Text>
+            <Text style={systemDesc}>
+              SAP, Oracle, Microsoft Dynamics - Real-time data synchronization
+            </Text>
           </Section>
 
           <Section style={systemGroup}>
             <Text style={systemIcon}>👥</Text>
             <Text style={systemTitle}>CRM Connectivity</Text>
-            <Text style={systemDesc}>Salesforce, HubSpot, Pipedrive - Customer data unification</Text>
+            <Text style={systemDesc}>
+              Salesforce, HubSpot, Pipedrive - Customer data unification
+            </Text>
           </Section>
 
           <Section style={systemGroup}>
             <Text style={systemIcon}>📊</Text>
             <Text style={systemTitle}>Analytics Platforms</Text>
-            <Text style={systemDesc}>Tableau, Power BI, Looker - Advanced reporting capabilities</Text>
+            <Text style={systemDesc}>
+              Tableau, Power BI, Looker - Advanced reporting capabilities
+            </Text>
           </Section>
 
           <Section style={systemGroup}>
             <Text style={systemIcon}>☁️</Text>
             <Text style={systemTitle}>Cloud Infrastructure</Text>
-            <Text style={systemDesc}>AWS, Azure, GCP - Scalable computing resources</Text>
+            <Text style={systemDesc}>
+              AWS, Azure, GCP - Scalable computing resources
+            </Text>
           </Section>
 
           <Section style={systemGroup}>
             <Text style={systemIcon}>🔒</Text>
             <Text style={systemTitle}>Security & Compliance</Text>
-            <Text style={systemDesc}>Active Directory, Okta, Compliance monitoring</Text>
+            <Text style={systemDesc}>
+              Active Directory, Okta, Compliance monitoring
+            </Text>
           </Section>
         </Section>
 
         <Section style={buttonContainer}>
-          <Button style={button} href="https://modumind.com/enterprise/dashboard">
+          <Button
+            style={button}
+            href="https://modumind.com/enterprise/dashboard"
+          >
             Access Enterprise Dashboard
           </Button>
         </Section>
 
         <Section style={capabilitiesSection}>
-          <Text style={capabilitiesTitle}>Now Available - Enterprise Capabilities:</Text>
-          
+          <Text style={capabilitiesTitle}>
+            Now Available - Enterprise Capabilities:
+          </Text>
+
           <Section style={capabilityItem}>
             <Text style={capabilityIcon}>🔄</Text>
             <Text style={capabilityTitle}>Unified Data Flow</Text>
             <Text style={capabilityDesc}>
-              Seamless data exchange between all connected systems with real-time synchronization
+              Seamless data exchange between all connected systems with
+              real-time synchronization
             </Text>
           </Section>
 
@@ -134,7 +162,8 @@ export const ModuMindEnterpriseIntegrationEmail = ({
             <Text style={capabilityIcon}>🤖</Text>
             <Text style={capabilityTitle}>Cross-System AI</Text>
             <Text style={capabilityDesc}>
-              AI agents can now access and process data from multiple enterprise systems
+              AI agents can now access and process data from multiple enterprise
+              systems
             </Text>
           </Section>
 
@@ -142,7 +171,8 @@ export const ModuMindEnterpriseIntegrationEmail = ({
             <Text style={capabilityIcon}>📈</Text>
             <Text style={capabilityTitle}>Enterprise Analytics</Text>
             <Text style={capabilityDesc}>
-              Comprehensive insights across all business functions and departments
+              Comprehensive insights across all business functions and
+              departments
             </Text>
           </Section>
 
@@ -150,31 +180,47 @@ export const ModuMindEnterpriseIntegrationEmail = ({
             <Text style={capabilityIcon}>🛡️</Text>
             <Text style={capabilityTitle}>Enterprise Security</Text>
             <Text style={capabilityDesc}>
-              Advanced security protocols with role-based access and audit trails
+              Advanced security protocols with role-based access and audit
+              trails
             </Text>
           </Section>
         </Section>
 
         <Section style={nextStepsSection}>
           <Text style={nextStepsTitle}>Recommended Next Steps:</Text>
-          <Text style={nextStep}>1. 🎯 Configure user roles and permissions for team access</Text>
-          <Text style={nextStep}>2. 📊 Set up custom dashboards for different departments</Text>
-          <Text style={nextStep}>3. 🤖 Deploy AI workflows across integrated systems</Text>
-          <Text style={nextStep}>4. 📈 Schedule training sessions for key stakeholders</Text>
-          <Text style={nextStep}>5. 🔍 Review integration performance and optimization opportunities</Text>
+          <Text style={nextStep}>
+            1. 🎯 Configure user roles and permissions for team access
+          </Text>
+          <Text style={nextStep}>
+            2. 📊 Set up custom dashboards for different departments
+          </Text>
+          <Text style={nextStep}>
+            3. 🤖 Deploy AI workflows across integrated systems
+          </Text>
+          <Text style={nextStep}>
+            4. 📈 Schedule training sessions for key stakeholders
+          </Text>
+          <Text style={nextStep}>
+            5. 🔍 Review integration performance and optimization opportunities
+          </Text>
         </Section>
 
         <Section style={supportSection}>
           <Text style={supportTitle}>Enterprise Support Available:</Text>
           <Text style={supportItem}>📞 24/7 Enterprise Support Hotline</Text>
-          <Text style={supportItem}>👨‍💼 Dedicated Customer Success Manager</Text>
+          <Text style={supportItem}>
+            👨‍💼 Dedicated Customer Success Manager
+          </Text>
           <Text style={supportItem}>🎓 Comprehensive Training Programs</Text>
           <Text style={supportItem}>📚 Enterprise Documentation Portal</Text>
         </Section>
 
         <Text style={text}>
           Ready to maximize your integration? Schedule a{' '}
-          <Link href="https://modumind.com/enterprise/optimization" style={link}>
+          <Link
+            href="https://modumind.com/enterprise/optimization"
+            style={link}
+          >
             post-integration optimization session
           </Link>{' '}
           with our enterprise specialists.

@@ -5,7 +5,13 @@
 export interface BusinessMetric {
   id: string;
   name: string;
-  category: 'revenue' | 'expense' | 'asset' | 'liability' | 'kpi' | 'operational';
+  category:
+    | 'revenue'
+    | 'expense'
+    | 'asset'
+    | 'liability'
+    | 'kpi'
+    | 'operational';
   value: number;
   target?: number;
   previousValue?: number;
@@ -23,7 +29,12 @@ export interface BusinessMetric {
 export interface AgentInsight {
   id: string;
   agentRole: 'CEO' | 'CTO' | 'CFO' | 'CLO' | 'CMO';
-  type: 'trend_analysis' | 'anomaly_detection' | 'prediction' | 'recommendation' | 'alert';
+  type:
+    | 'trend_analysis'
+    | 'anomaly_detection'
+    | 'prediction'
+    | 'recommendation'
+    | 'alert';
   title: string;
   content: string;
   confidence: number;
@@ -39,7 +50,16 @@ export interface AgentInsight {
 
 export interface BusinessAlert {
   id: string;
-  type: 'threshold' | 'anomaly' | 'trend' | 'prediction' | 'system' | 'warning' | 'critical' | 'info' | 'success';
+  type:
+    | 'threshold'
+    | 'anomaly'
+    | 'trend'
+    | 'prediction'
+    | 'system'
+    | 'warning'
+    | 'critical'
+    | 'info'
+    | 'success';
   severity: 'info' | 'warning' | 'critical' | 'emergency';
   title: string;
   message: string;
@@ -55,7 +75,11 @@ export interface BusinessAlert {
 }
 
 export interface AgentAction {
-  action: 'COLLECT_BUSINESS_DATA' | 'GENERATE_BUSINESS_ALERT' | 'ANALYZE_BUSINESS_TRENDS' | 'ANALYZE_DEPARTMENT_PERFORMANCE';
+  action:
+    | 'COLLECT_BUSINESS_DATA'
+    | 'GENERATE_BUSINESS_ALERT'
+    | 'ANALYZE_BUSINESS_TRENDS'
+    | 'ANALYZE_DEPARTMENT_PERFORMANCE';
   parameters: any;
   context?: any;
 }

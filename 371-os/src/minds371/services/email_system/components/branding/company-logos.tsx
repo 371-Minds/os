@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface LogoProps {
   size?: 'small' | 'medium' | 'large' | 'xlarge';
@@ -8,11 +8,11 @@ interface LogoProps {
 }
 
 // 371 Minds Logo
-export const MindLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const MindLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -20,12 +20,14 @@ export const MindLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/371minds-${variant}-${theme}.svg`}
         alt="371 Minds"
         className="logo-image"
@@ -35,11 +37,11 @@ export const MindLogo: React.FC<LogoProps> = ({
 };
 
 // ReadySetBuild Logo
-export const ReadySetBuildLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const ReadySetBuildLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -47,12 +49,14 @@ export const ReadySetBuildLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/readysetbuild-${variant}-${theme}.svg`}
         alt="ReadySetBuild"
         className="logo-image"
@@ -62,11 +66,11 @@ export const ReadySetBuildLogo: React.FC<LogoProps> = ({
 };
 
 // StackSense Logo
-export const StackSenseLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const StackSenseLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -74,12 +78,14 @@ export const StackSenseLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/stacksense-${variant}-${theme}.svg`}
         alt="StackSense"
         className="logo-image"
@@ -89,11 +95,11 @@ export const StackSenseLogo: React.FC<LogoProps> = ({
 };
 
 // Legacy Code Archaeologist Logo
-export const LegacyArchaeologistLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const LegacyArchaeologistLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -101,12 +107,14 @@ export const LegacyArchaeologistLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/legacy-archaeologist-${variant}-${theme}.svg`}
         alt="Legacy Code Archaeologist"
         className="logo-image"
@@ -116,11 +124,11 @@ export const LegacyArchaeologistLogo: React.FC<LogoProps> = ({
 };
 
 // ModuMind Logo
-export const ModuMindLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const ModuMindLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -128,12 +136,14 @@ export const ModuMindLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/modumind-${variant}-${theme}.svg`}
         alt="ModuMind"
         className="logo-image"
@@ -143,11 +153,11 @@ export const ModuMindLogo: React.FC<LogoProps> = ({
 };
 
 // Rootlift Digital Logo
-export const RootliftLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const RootliftLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -155,12 +165,14 @@ export const RootliftLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/rootlift-${variant}-${theme}.svg`}
         alt="Rootlift Digital"
         className="logo-image"
@@ -170,11 +182,11 @@ export const RootliftLogo: React.FC<LogoProps> = ({
 };
 
 // Vision2Results Logo
-export const Vision2ResultsLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const Vision2ResultsLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -182,12 +194,14 @@ export const Vision2ResultsLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/vision2results-${variant}-${theme}.svg`}
         alt="Vision2Results"
         className="logo-image"
@@ -197,11 +211,11 @@ export const Vision2ResultsLogo: React.FC<LogoProps> = ({
 };
 
 // Multimedia Junkie Logo
-export const MultimediaJunkieLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const MultimediaJunkieLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -209,12 +223,14 @@ export const MultimediaJunkieLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/multimedia-junkie-${variant}-${theme}.svg`}
         alt="Multimedia Junkie"
         className="logo-image"
@@ -224,11 +240,11 @@ export const MultimediaJunkieLogo: React.FC<LogoProps> = ({
 };
 
 // Ikid Edventures Logo
-export const IkidLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const IkidLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -236,12 +252,14 @@ export const IkidLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/ikid-${variant}-${theme}.svg`}
         alt="Ikid Edventures"
         className="logo-image"
@@ -251,11 +269,11 @@ export const IkidLogo: React.FC<LogoProps> = ({
 };
 
 // EpicQuest Hub Logo
-export const EpicQuestLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const EpicQuestLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -263,12 +281,14 @@ export const EpicQuestLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/epicquest-${variant}-${theme}.svg`}
         alt="EpicQuest Hub"
         className="logo-image"
@@ -278,11 +298,11 @@ export const EpicQuestLogo: React.FC<LogoProps> = ({
 };
 
 // LyricLines Logo
-export const LyricLinesLogo: React.FC<LogoProps> = ({ 
-  size = 'medium', 
-  variant = 'full', 
+export const LyricLinesLogo: React.FC<LogoProps> = ({
+  size = 'medium',
+  variant = 'full',
   theme = 'color',
-  className = '' 
+  className = '',
 }) => {
   const logoClasses = [
     'company-logo',
@@ -290,12 +310,14 @@ export const LyricLinesLogo: React.FC<LogoProps> = ({
     `company-logo--${size}`,
     `company-logo--${variant}`,
     `company-logo--${theme}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={logoClasses}>
-      <img 
+      <img
         src={`/assets/logos/lyriclines-${variant}-${theme}.svg`}
         alt="LyricLines"
         className="logo-image"
@@ -307,16 +329,16 @@ export const LyricLinesLogo: React.FC<LogoProps> = ({
 // Logo Registry for dynamic loading
 export const COMPANY_LOGOS = {
   '371minds': MindLogo,
-  'readysetbuild': ReadySetBuildLogo,
-  'stacksense': StackSenseLogo,
+  readysetbuild: ReadySetBuildLogo,
+  stacksense: StackSenseLogo,
   'legacy-archaeologist': LegacyArchaeologistLogo,
-  'modumind': ModuMindLogo,
-  'rootlift': RootliftLogo,
-  'vision2results': Vision2ResultsLogo,
+  modumind: ModuMindLogo,
+  rootlift: RootliftLogo,
+  vision2results: Vision2ResultsLogo,
   'multimedia-junkie': MultimediaJunkieLogo,
-  'ikid': IkidLogo,
-  'epicquest': EpicQuestLogo,
-  'lyriclines': LyricLinesLogo
+  ikid: IkidLogo,
+  epicquest: EpicQuestLogo,
+  lyriclines: LyricLinesLogo,
 } as const;
 
 // Dynamic Logo Component
@@ -324,17 +346,17 @@ interface DynamicLogoProps extends LogoProps {
   company: keyof typeof COMPANY_LOGOS;
 }
 
-export const DynamicLogo: React.FC<DynamicLogoProps> = ({ 
-  company, 
-  ...props 
+export const DynamicLogo: React.FC<DynamicLogoProps> = ({
+  company,
+  ...props
 }) => {
   const LogoComponent = COMPANY_LOGOS[company];
-  
+
   if (!LogoComponent) {
     console.warn(`Logo not found for company: ${company}`);
     return null;
   }
-  
+
   return <LogoComponent {...props} />;
 };
 
@@ -354,13 +376,15 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({
   variant = 'full',
   theme = 'color',
   layout = 'horizontal',
-  className = ''
+  className = '',
 }) => {
   const showcaseClasses = [
     'logo-showcase',
     `logo-showcase--${layout}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={showcaseClasses}>
@@ -391,5 +415,5 @@ export default {
   LyricLinesLogo,
   DynamicLogo,
   LogoShowcase,
-  COMPANY_LOGOS
+  COMPANY_LOGOS,
 };

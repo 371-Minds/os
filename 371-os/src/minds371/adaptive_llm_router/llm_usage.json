@@ -5,7 +5,7 @@
     "model": "qwen2-72b",
     "tokens_in": 10,
     "tokens_out": 20,
-    "cost": 5e-05,
+    "cost": 5e-5,
     "task_id": null,
     "agent": "test_agent",
     "status": "ok"
@@ -16,7 +16,7 @@
     "model": "gpt-4o-mini",
     "tokens_in": 10,
     "tokens_out": 20,
-    "cost": 1.7999999999999997e-05,
+    "cost": 1.7999999999999997e-5,
     "task_id": null,
     "agent": "test_agent",
     "status": "ok"
@@ -38,7 +38,7 @@
     "model": "qwen2-72b",
     "tokens_in": 10,
     "tokens_out": 20,
-    "cost": 5e-05,
+    "cost": 5e-5,
     "task_id": null,
     "agent": "test_agent",
     "status": "ok"

@@ -44,28 +44,32 @@ export const TrialReminderEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={reminderBanner}>
           <Text style={reminderIcon}>⏰</Text>
           <Heading style={h1}>Trial Ending Soon</Heading>
         </Section>
 
         <Text style={heroText}>
-          Hi {userFirstName}, your ReadySetBuild trial expires in <strong>{daysRemaining} days</strong>.
-          Don't lose access to your seamless deployment experience!
+          Hi {userFirstName}, your ReadySetBuild trial expires in{' '}
+          <strong>{daysRemaining} days</strong>. Don't lose access to your
+          seamless deployment experience!
         </Text>
-        
+
         <Section style={usageStats}>
           <Text style={statsTitle}>Your Trial Usage:</Text>
           <Section style={progressBar}>
-            <Section style={{...progressFill, width: `${(deploymentsUsed / totalDeployments) * 100}%`}} />
+            <Section
+              style={{
+                ...progressFill,
+                width: `${(deploymentsUsed / totalDeployments) * 100}%`,
+              }}
+            />
           </Section>
           <Text style={statsText}>
             {deploymentsUsed} of {totalDeployments} deployments used
           </Text>
-          <Text style={statsText}>
-            {daysRemaining} days remaining
-          </Text>
+          <Text style={statsText}>{daysRemaining} days remaining</Text>
         </Section>
 
         <Section style={benefitsSection}>
@@ -79,7 +83,10 @@ export const TrialReminderEmail = ({
         </Section>
 
         <Section style={buttonContainer}>
-          <Button style={upgradeButton} href="https://readysetbuild.com/upgrade">
+          <Button
+            style={upgradeButton}
+            href="https://readysetbuild.com/upgrade"
+          >
             Upgrade Now - 20% Off
           </Button>
         </Section>
@@ -93,13 +100,15 @@ export const TrialReminderEmail = ({
             <strong>Pro:</strong> $49/month - Great for growing teams
           </Text>
           <Text style={pricingItem}>
-            <strong>Enterprise:</strong> Custom pricing - For large organizations
+            <strong>Enterprise:</strong> Custom pricing - For large
+            organizations
           </Text>
         </Section>
 
         <Text style={urgencyText}>
-          ⚠️ <strong>Important:</strong> After your trial expires, your deployments will be paused. 
-          Upgrade now to keep your applications running smoothly.
+          ⚠️ <strong>Important:</strong> After your trial expires, your
+          deployments will be paused. Upgrade now to keep your applications
+          running smoothly.
         </Text>
 
         <Text style={text}>

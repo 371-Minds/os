@@ -1,6 +1,6 @@
 /**
  * UniverseFactory.css - Universal Galaxy Engine Factory Styling
- * 
+ *
  * Professional styling for the revolutionary Universe Factory that can create
  * spatial universes for any domain using the Galaxy Engine Template system.
  */
@@ -9,11 +9,14 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(135deg, 
-    rgba(15, 23, 42, 0.95) 0%, 
-    rgba(30, 41, 59, 0.9) 50%, 
-    rgba(15, 23, 42, 0.95) 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #e2e8f0;
   position: relative;
 }
@@ -211,29 +214,80 @@
 }
 
 /* Business Intelligence Status Colors */
-.value.status-healthy { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-.value.status-warning { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-.value.status-critical { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.value.status-healthy {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.value.status-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+.value.status-critical {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
 
 /* Development Status Colors */
-.value.status-success { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-.value.status-building { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-.value.status-failed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-.value.status-pending { background: rgba(100, 116, 139, 0.2); color: #64748b; }
+.value.status-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.value.status-building {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+.value.status-failed {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+.value.status-pending {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
 
 /* Communications Status Colors */
-.value.status-draft { background: rgba(100, 116, 139, 0.2); color: #64748b; }
-.value.status-sent { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-.value.status-delivered { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-.value.status-opened { background: rgba(5, 150, 105, 0.2); color: #059669; }
-.value.status-clicked { background: rgba(6, 95, 70, 0.2); color: #065f46; }
-.value.status-bounced { background: rgba(220, 38, 38, 0.2); color: #dc2626; }
+.value.status-draft {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
+.value.status-sent {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+.value.status-delivered {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.value.status-opened {
+  background: rgba(5, 150, 105, 0.2);
+  color: #059669;
+}
+.value.status-clicked {
+  background: rgba(6, 95, 70, 0.2);
+  color: #065f46;
+}
+.value.status-bounced {
+  background: rgba(220, 38, 38, 0.2);
+  color: #dc2626;
+}
 
 /* General Status Colors */
-.value.status-active { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-.value.status-inactive { background: rgba(100, 116, 139, 0.2); color: #64748b; }
-.value.status-paused { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-.value.status-completed { background: rgba(6, 95, 70, 0.2); color: #065f46; }
+.value.status-active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+.value.status-inactive {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
+.value.status-paused {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+.value.status-completed {
+  background: rgba(6, 95, 70, 0.2);
+  color: #065f46;
+}
 
 .entity-metrics {
   display: grid;
@@ -276,11 +330,11 @@
   .selected-entity-panel {
     width: 280px;
   }
-  
+
   .universe-stats {
     gap: 12px;
   }
-  
+
   .stat {
     font-size: 12px;
     padding: 5px 10px;
@@ -291,25 +345,25 @@
   .universe-header {
     padding: 16px 20px;
   }
-  
+
   .universe-title {
     font-size: 20px;
   }
-  
+
   .universe-stats {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .stat {
     width: 100%;
     text-align: center;
   }
-  
+
   .universe-canvas-container {
     padding: 10px;
   }
-  
+
   .selected-entity-panel {
     position: relative;
     width: calc(100% - 20px);
@@ -318,7 +372,7 @@
     top: auto;
     animation: none;
   }
-  
+
   .universe-canvas {
     width: 100%;
     height: auto;
@@ -331,7 +385,7 @@
   .selected-entity-panel {
     animation: none;
   }
-  
+
   .stat,
   .metric,
   .close-btn {
@@ -344,13 +398,13 @@
   .universe-factory {
     background: rgba(15, 23, 42, 0.98);
   }
-  
+
   .universe-header,
   .selected-entity-panel {
     background: rgba(15, 23, 42, 0.95);
     border-color: #8b5cf6;
   }
-  
+
   .universe-canvas {
     border-color: #8b5cf6;
   }
@@ -396,8 +450,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-text {

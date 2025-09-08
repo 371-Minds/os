@@ -1,6 +1,6 @@
 /**
  * Cognitive Engine Types - Core type definitions for cognitive state management
- * 
+ *
  * These types define the foundation of the Galaxy Engine's cognitive awareness system
  */
 
@@ -8,13 +8,13 @@
  * Core cognitive states that users can exist in
  * Each state requires different interface optimizations and agent behaviors
  */
-export type CognitiveState = 
-  | 'executive'     // Strategic thinking, high-level decisions, KPIs
-  | 'technical'     // Development work, debugging, system operations  
-  | 'creative'      // Content creation, design, marketing
-  | 'analytical'    // Data analysis, research, investigation
+export type CognitiveState =
+  | 'executive' // Strategic thinking, high-level decisions, KPIs
+  | 'technical' // Development work, debugging, system operations
+  | 'creative' // Content creation, design, marketing
+  | 'analytical' // Data analysis, research, investigation
   | 'collaborative' // Team coordination, communication, management
-  | 'learning';     // Education, documentation, skill development
+  | 'learning'; // Education, documentation, skill development
 
 /**
  * Cognitive context information that influences state detection

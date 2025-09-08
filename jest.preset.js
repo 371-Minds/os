@@ -14,7 +14,7 @@ module.exports = {
     '!**/*.spec.{ts,tsx}',
     '!**/*.test.{ts,tsx}',
     '!**/node_modules/**',
-    '!**/vendor/**'
+    '!**/vendor/**',
   ],
   coverageReporters: ['html', 'text-summary'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {

@@ -30,7 +30,9 @@ export const StackSenseUpsellEmail = ({
 }: StackSenseUpsellEmailProps) => (
   <Html>
     <Head />
-    <Preview>Supercharge your deployments with StackSense code analysis</Preview>
+    <Preview>
+      Supercharge your deployments with StackSense code analysis
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -42,58 +44,91 @@ export const StackSenseUpsellEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={partnershipBanner}>
           <Text style={partnershipText}>ReadySetBuild + StackSense</Text>
           <Heading style={h1}>Deploy Smarter, Not Harder</Heading>
         </Section>
 
         <Text style={heroText}>
-          Hi {userFirstName}, you've deployed {projectsDeployed} projects with ReadySetBuild. 
-          That's awesome! But what if we told you there might be hidden issues in your code 
-          that could affect performance and security?
+          Hi {userFirstName}, you've deployed {projectsDeployed} projects with
+          ReadySetBuild. That's awesome! But what if we told you there might be
+          hidden issues in your code that could affect performance and security?
         </Text>
-        
+
         <Section style={insightBox}>
           <Text style={insightIcon}>🔍</Text>
           <Text style={insightTitle}>Code Analysis Insight</Text>
           <Text style={insightText}>
-            Based on similar projects, we estimate your codebase might have 
-            <strong> {potentialIssues} potential optimization opportunities</strong> that 
-            StackSense could identify and help you fix.
+            Based on similar projects, we estimate your codebase might have
+            <strong>
+              {' '}
+              {potentialIssues} potential optimization opportunities
+            </strong>{' '}
+            that StackSense could identify and help you fix.
           </Text>
         </Section>
 
         <Section style={benefitsSection}>
-          <Text style={benefitsTitle}>What StackSense brings to your deployments:</Text>
-          <Text style={benefitItem}>🔒 <strong>Security Analysis:</strong> Identify vulnerabilities before they go live</Text>
-          <Text style={benefitItem}>⚡ <strong>Performance Optimization:</strong> Find bottlenecks and inefficiencies</Text>
-          <Text style={benefitItem}>📊 <strong>Code Quality Metrics:</strong> Track technical debt and maintainability</Text>
-          <Text style={benefitItem}>🏗️ <strong>Architecture Insights:</strong> Understand your codebase structure</Text>
-          <Text style={benefitItem}>🔄 <strong>Legacy Code Detection:</strong> Identify outdated patterns and dependencies</Text>
+          <Text style={benefitsTitle}>
+            What StackSense brings to your deployments:
+          </Text>
+          <Text style={benefitItem}>
+            🔒 <strong>Security Analysis:</strong> Identify vulnerabilities
+            before they go live
+          </Text>
+          <Text style={benefitItem}>
+            ⚡ <strong>Performance Optimization:</strong> Find bottlenecks and
+            inefficiencies
+          </Text>
+          <Text style={benefitItem}>
+            📊 <strong>Code Quality Metrics:</strong> Track technical debt and
+            maintainability
+          </Text>
+          <Text style={benefitItem}>
+            🏗️ <strong>Architecture Insights:</strong> Understand your codebase
+            structure
+          </Text>
+          <Text style={benefitItem}>
+            🔄 <strong>Legacy Code Detection:</strong> Identify outdated
+            patterns and dependencies
+          </Text>
         </Section>
 
         <Section style={integrationSection}>
           <Text style={integrationTitle}>Seamless Integration</Text>
-          <Text style={integrationStep}>1. Connect your ReadySetBuild account</Text>
-          <Text style={integrationStep}>2. StackSense analyzes your code during deployment</Text>
-          <Text style={integrationStep}>3. Get detailed reports and recommendations</Text>
+          <Text style={integrationStep}>
+            1. Connect your ReadySetBuild account
+          </Text>
+          <Text style={integrationStep}>
+            2. StackSense analyzes your code during deployment
+          </Text>
+          <Text style={integrationStep}>
+            3. Get detailed reports and recommendations
+          </Text>
           <Text style={integrationStep}>4. Deploy with confidence</Text>
         </Section>
 
         <Section style={buttonContainer}>
-          <Button style={primaryButton} href="https://stacksense.com/readysetbuild-integration">
+          <Button
+            style={primaryButton}
+            href="https://stacksense.com/readysetbuild-integration"
+          >
             Try StackSense Free for 14 Days
           </Button>
         </Section>
 
         <Section style={pricingSection}>
-          <Text style={pricingTitle}>Special ReadySetBuild Customer Pricing:</Text>
-          <Text style={pricingItem}>
-            <strong>Starter:</strong> $29/month (reg. $39) - Up to 5 repositories
+          <Text style={pricingTitle}>
+            Special ReadySetBuild Customer Pricing:
           </Text>
           <Text style={pricingItem}>
-            <strong>Professional:</strong> $79/month (reg. $99) - Up to 25 repositories
+            <strong>Starter:</strong> $29/month (reg. $39) - Up to 5
+            repositories
+          </Text>
+          <Text style={pricingItem}>
+            <strong>Professional:</strong> $79/month (reg. $99) - Up to 25
+            repositories
           </Text>
           <Text style={pricingItem}>
             <strong>Enterprise:</strong> Custom pricing - Unlimited repositories
@@ -102,8 +137,9 @@ export const StackSenseUpsellEmail = ({
 
         <Section style={testimonialSection}>
           <Text style={testimonialQuote}>
-            "StackSense helped us identify 15 security vulnerabilities and improved our 
-            deployment performance by 40%. It's now an essential part of our workflow."
+            "StackSense helped us identify 15 security vulnerabilities and
+            improved our deployment performance by 40%. It's now an essential
+            part of our workflow."
           </Text>
           <Text style={testimonialAuthor}>
             - Sarah Chen, Lead Developer at TechCorp
@@ -111,8 +147,8 @@ export const StackSenseUpsellEmail = ({
         </Section>
 
         <Text style={text}>
-          Ready to take your deployments to the next level? Start your free trial today 
-          and see what StackSense can discover in your code.
+          Ready to take your deployments to the next level? Start your free
+          trial today and see what StackSense can discover in your code.
         </Text>
 
         <Text style={text}>

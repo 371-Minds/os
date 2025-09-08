@@ -28,7 +28,10 @@ export const ModuMindAIPlatformWelcomeEmail = ({
 }: ModuMindAIPlatformWelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>Welcome to ModuMind AI Platform - Transform your business with intelligent automation!</Preview>
+    <Preview>
+      Welcome to ModuMind AI Platform - Transform your business with intelligent
+      automation!
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -40,49 +43,62 @@ export const ModuMindAIPlatformWelcomeEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={welcomeBanner}>
           <Text style={welcomeIcon}>🧠</Text>
-          <Heading style={h1}>Welcome to ModuMind AI Platform, {userFirstName}!</Heading>
+          <Heading style={h1}>
+            Welcome to ModuMind AI Platform, {userFirstName}!
+          </Heading>
         </Section>
 
         <Text style={heroText}>
-          You've just joined the future of intelligent business automation. ModuMind's AI Platform 
-          will help you streamline operations, enhance decision-making, and unlock new possibilities 
-          for {companyName} through cutting-edge artificial intelligence.
+          You've just joined the future of intelligent business automation.
+          ModuMind's AI Platform will help you streamline operations, enhance
+          decision-making, and unlock new possibilities for {companyName}{' '}
+          through cutting-edge artificial intelligence.
         </Text>
-        
+
         <Section style={featuresSection}>
           <Text style={featuresTitle}>Your AI-Powered Toolkit:</Text>
-          
+
           <Section style={featureGroup}>
             <Text style={featureIcon}>🤖</Text>
             <Text style={featureTitle}>Intelligent Automation</Text>
-            <Text style={featureDesc}>Automate complex workflows with AI-driven decision making</Text>
+            <Text style={featureDesc}>
+              Automate complex workflows with AI-driven decision making
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>📊</Text>
             <Text style={featureTitle}>Predictive Analytics</Text>
-            <Text style={featureDesc}>Forecast trends and make data-driven decisions with confidence</Text>
+            <Text style={featureDesc}>
+              Forecast trends and make data-driven decisions with confidence
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>💬</Text>
             <Text style={featureTitle}>Natural Language Processing</Text>
-            <Text style={featureDesc}>Extract insights from text, automate customer interactions</Text>
+            <Text style={featureDesc}>
+              Extract insights from text, automate customer interactions
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>🔍</Text>
             <Text style={featureTitle}>Computer Vision</Text>
-            <Text style={featureDesc}>Analyze images and videos for quality control and insights</Text>
+            <Text style={featureDesc}>
+              Analyze images and videos for quality control and insights
+            </Text>
           </Section>
 
           <Section style={featureGroup}>
             <Text style={featureIcon}>⚡</Text>
             <Text style={featureTitle}>Real-time Processing</Text>
-            <Text style={featureDesc}>Get instant AI-powered responses and recommendations</Text>
+            <Text style={featureDesc}>
+              Get instant AI-powered responses and recommendations
+            </Text>
           </Section>
         </Section>
 
@@ -94,10 +110,18 @@ export const ModuMindAIPlatformWelcomeEmail = ({
 
         <Section style={quickStartSection}>
           <Text style={quickStartTitle}>Getting Started with AI:</Text>
-          <Text style={quickStartStep}>1. 🎯 Define your AI use cases and business objectives</Text>
-          <Text style={quickStartStep}>2. 📋 Configure your first AI workflow or model</Text>
-          <Text style={quickStartStep}>3. 🔗 Connect your data sources and integrations</Text>
-          <Text style={quickStartStep}>4. 🚀 Deploy and monitor your AI solutions</Text>
+          <Text style={quickStartStep}>
+            1. 🎯 Define your AI use cases and business objectives
+          </Text>
+          <Text style={quickStartStep}>
+            2. 📋 Configure your first AI workflow or model
+          </Text>
+          <Text style={quickStartStep}>
+            3. 🔗 Connect your data sources and integrations
+          </Text>
+          <Text style={quickStartStep}>
+            4. 🚀 Deploy and monitor your AI solutions
+          </Text>
         </Section>
 
         <Text style={text}>
@@ -109,7 +133,8 @@ export const ModuMindAIPlatformWelcomeEmail = ({
         </Text>
 
         <Text style={text}>
-          Questions about AI implementation? Our AI specialists are here to help:{' '}
+          Questions about AI implementation? Our AI specialists are here to
+          help:{' '}
           <Link href="mailto:ai-support@modumind.com" style={link}>
             ai-support@modumind.com
           </Link>

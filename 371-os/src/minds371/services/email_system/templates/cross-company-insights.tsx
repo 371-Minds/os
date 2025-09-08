@@ -32,7 +32,10 @@ export const ModuMindCrossCompanyInsightsEmail = ({
 }: ModuMindCrossCompanyInsightsEmailProps) => (
   <Html>
     <Head />
-    <Preview>📊 Cross-Company Insights Report - {insightsCount} key findings for {companyName}</Preview>
+    <Preview>
+      📊 Cross-Company Insights Report - {insightsCount} key findings for{' '}
+      {companyName}
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
@@ -44,18 +47,19 @@ export const ModuMindCrossCompanyInsightsEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={insightsBanner}>
           <Text style={insightsIcon}>📊</Text>
           <Heading style={h1}>Cross-Company Insights Report</Heading>
         </Section>
 
         <Text style={heroText}>
-          Hello {userFirstName}, we've analyzed performance data across our network and 
-          identified <strong>{insightsCount} key insights</strong> that could benefit {companyName} 
+          Hello {userFirstName}, we've analyzed performance data across our
+          network and identified <strong>{insightsCount} key insights</strong>{' '}
+          that could benefit {companyName}
           based on industry trends and peer comparisons from {reportPeriod}.
         </Text>
-        
+
         <Section style={summarySection}>
           <Text style={summaryTitle}>Executive Summary:</Text>
           <Section style={summaryStats}>
@@ -76,58 +80,92 @@ export const ModuMindCrossCompanyInsightsEmail = ({
 
         <Section style={insightsSection}>
           <Text style={insightsTitle}>Top Strategic Insights:</Text>
-          
+
           <Section style={insightGroup}>
             <Text style={insightIcon}>🚀</Text>
             <Text style={insightTitle}>Market Opportunity</Text>
-            <Text style={insightDesc}>Companies in your sector are seeing 40% growth in AI automation adoption</Text>
+            <Text style={insightDesc}>
+              Companies in your sector are seeing 40% growth in AI automation
+              adoption
+            </Text>
           </Section>
 
           <Section style={insightGroup}>
             <Text style={insightIcon}>⚡</Text>
             <Text style={insightTitle}>Operational Efficiency</Text>
-            <Text style={insightDesc}>Peer companies reduced processing time by 60% using similar AI workflows</Text>
+            <Text style={insightDesc}>
+              Peer companies reduced processing time by 60% using similar AI
+              workflows
+            </Text>
           </Section>
 
           <Section style={insightGroup}>
             <Text style={insightIcon}>💰</Text>
             <Text style={insightTitle}>Cost Optimization</Text>
-            <Text style={insightDesc}>Industry leaders save $2.3M annually through intelligent resource allocation</Text>
+            <Text style={insightDesc}>
+              Industry leaders save $2.3M annually through intelligent resource
+              allocation
+            </Text>
           </Section>
 
           <Section style={insightGroup}>
             <Text style={insightIcon}>📈</Text>
             <Text style={insightTitle}>Competitive Advantage</Text>
-            <Text style={insightDesc}>Early AI adopters in your industry report 25% higher customer satisfaction</Text>
+            <Text style={insightDesc}>
+              Early AI adopters in your industry report 25% higher customer
+              satisfaction
+            </Text>
           </Section>
 
           <Section style={insightGroup}>
             <Text style={insightIcon}>🎯</Text>
             <Text style={insightTitle}>Strategic Focus</Text>
-            <Text style={insightDesc}>Top performers prioritize predictive analytics and customer intelligence</Text>
+            <Text style={insightDesc}>
+              Top performers prioritize predictive analytics and customer
+              intelligence
+            </Text>
           </Section>
         </Section>
 
         <Section style={buttonContainer}>
-          <Button style={button} href="https://modumind.com/insights/full-report">
+          <Button
+            style={button}
+            href="https://modumind.com/insights/full-report"
+          >
             View Complete Report
           </Button>
         </Section>
 
         <Section style={benchmarkSection}>
           <Text style={benchmarkTitle}>Industry Benchmarks:</Text>
-          <Text style={benchmarkItem}>📊 AI Implementation Rate: 73% (Industry Average: 45%)</Text>
-          <Text style={benchmarkItem}>⏱️ Process Automation: 68% (Industry Average: 52%)</Text>
-          <Text style={benchmarkItem}>🔍 Data Analytics Maturity: 81% (Industry Average: 59%)</Text>
-          <Text style={benchmarkItem}>🤖 AI-Driven Decision Making: 64% (Industry Average: 38%)</Text>
+          <Text style={benchmarkItem}>
+            📊 AI Implementation Rate: 73% (Industry Average: 45%)
+          </Text>
+          <Text style={benchmarkItem}>
+            ⏱️ Process Automation: 68% (Industry Average: 52%)
+          </Text>
+          <Text style={benchmarkItem}>
+            🔍 Data Analytics Maturity: 81% (Industry Average: 59%)
+          </Text>
+          <Text style={benchmarkItem}>
+            🤖 AI-Driven Decision Making: 64% (Industry Average: 38%)
+          </Text>
         </Section>
 
         <Section style={recommendationsSection}>
           <Text style={recommendationsTitle}>Recommended Actions:</Text>
-          <Text style={recommendation}>1. 🎯 Prioritize AI automation in customer service operations</Text>
-          <Text style={recommendation}>2. 📊 Implement predictive analytics for demand forecasting</Text>
-          <Text style={recommendation}>3. 🔄 Optimize workflow automation based on peer best practices</Text>
-          <Text style={recommendation}>4. 💡 Explore cross-functional AI applications for competitive edge</Text>
+          <Text style={recommendation}>
+            1. 🎯 Prioritize AI automation in customer service operations
+          </Text>
+          <Text style={recommendation}>
+            2. 📊 Implement predictive analytics for demand forecasting
+          </Text>
+          <Text style={recommendation}>
+            3. 🔄 Optimize workflow automation based on peer best practices
+          </Text>
+          <Text style={recommendation}>
+            4. 💡 Explore cross-functional AI applications for competitive edge
+          </Text>
         </Section>
 
         <Text style={text}>

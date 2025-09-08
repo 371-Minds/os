@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface ConsumerLayoutProps {
   children: React.ReactNode;
@@ -21,55 +21,43 @@ export const ConsumerLayout: React.FC<ConsumerLayoutProps> = ({
   maxWidth = '600px',
   backgroundColor = '#ffffff',
   accentColor = '#007bff',
-  className = ''
+  className = '',
 }) => {
   const layoutClasses = [
     'consumer-layout',
     `consumer-layout--${theme}`,
     hero ? 'consumer-layout--with-hero' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div 
+    <div
       className={layoutClasses}
-      style={{ 
-        backgroundColor,
-        '--max-width': maxWidth,
-        '--accent-color': accentColor
-      } as React.CSSProperties}
+      style={
+        {
+          backgroundColor,
+          '--max-width': maxWidth,
+          '--accent-color': accentColor,
+        } as React.CSSProperties
+      }
     >
       {/* Email Container */}
       <div className="consumer-layout__container">
-        
         {/* Header Section */}
-        {header && (
-          <div className="consumer-layout__header">
-            {header}
-          </div>
-        )}
-        
+        {header && <div className="consumer-layout__header">{header}</div>}
+
         {/* Hero Section */}
-        {hero && (
-          <div className="consumer-layout__hero">
-            {hero}
-          </div>
-        )}
-        
+        {hero && <div className="consumer-layout__hero">{hero}</div>}
+
         {/* Main Content */}
         <main className="consumer-layout__main">
-          <div className="consumer-layout__content">
-            {children}
-          </div>
+          <div className="consumer-layout__content">{children}</div>
         </main>
-        
+
         {/* Footer Section */}
-        {footer && (
-          <div className="consumer-layout__footer">
-            {footer}
-          </div>
-        )}
-        
+        {footer && <div className="consumer-layout__footer">{footer}</div>}
       </div>
     </div>
   );
@@ -97,7 +85,7 @@ export const ConsumerHero: React.FC<ConsumerHeroProps> = ({
   backgroundColor = '#f8f9fa',
   textColor = '#333333',
   ctaButton,
-  overlay = false
+  overlay = false,
 }) => {
   const heroStyle: React.CSSProperties = {
     backgroundColor,
@@ -106,8 +94,8 @@ export const ConsumerHero: React.FC<ConsumerHeroProps> = ({
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    })
+      backgroundRepeat: 'no-repeat',
+    }),
   };
 
   return (
@@ -115,17 +103,15 @@ export const ConsumerHero: React.FC<ConsumerHeroProps> = ({
       {overlay && backgroundImage && (
         <div className="consumer-hero__overlay"></div>
       )}
-      
+
       <div className="consumer-hero__content">
         <h1 className="consumer-hero__title">{title}</h1>
-        
-        {subtitle && (
-          <p className="consumer-hero__subtitle">{subtitle}</p>
-        )}
-        
+
+        {subtitle && <p className="consumer-hero__subtitle">{subtitle}</p>}
+
         {ctaButton && (
           <div className="consumer-hero__cta">
-            <a 
+            <a
               href={ctaButton.href}
               className={`consumer-hero__button consumer-hero__button--${ctaButton.variant || 'primary'}`}
             >
@@ -158,50 +144,45 @@ export const ConsumerCard: React.FC<ConsumerCardProps> = ({
   imagePosition = 'top',
   variant = 'default',
   ctaButton,
-  className = ''
+  className = '',
 }) => {
   const cardClasses = [
     'consumer-card',
     `consumer-card--${variant}`,
     image ? `consumer-card--image-${imagePosition}` : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={cardClasses}>
-      
       {image && imagePosition === 'background' && (
-        <div 
+        <div
           className="consumer-card__background"
           style={{ backgroundImage: `url(${image})` }}
         />
       )}
-      
+
       <div className="consumer-card__content">
-        
         {image && imagePosition === 'top' && (
           <div className="consumer-card__image consumer-card__image--top">
             <img src={image} alt={title || ''} />
           </div>
         )}
-        
+
         <div className="consumer-card__body">
-          
           {image && imagePosition === 'left' && (
             <div className="consumer-card__image consumer-card__image--left">
               <img src={image} alt={title || ''} />
             </div>
           )}
-          
+
           <div className="consumer-card__text">
-            {title && (
-              <h3 className="consumer-card__title">{title}</h3>
-            )}
-            
-            <div className="consumer-card__content-body">
-              {content}
-            </div>
-            
+            {title && <h3 className="consumer-card__title">{title}</h3>}
+
+            <div className="consumer-card__content-body">{content}</div>
+
             {ctaButton && (
               <div className="consumer-card__cta">
                 <a href={ctaButton.href} className="consumer-card__button">
@@ -210,13 +191,12 @@ export const ConsumerCard: React.FC<ConsumerCardProps> = ({
               </div>
             )}
           </div>
-          
+
           {image && imagePosition === 'right' && (
             <div className="consumer-card__image consumer-card__image--right">
               <img src={image} alt={title || ''} />
             </div>
           )}
-          
         </div>
       </div>
     </div>
@@ -234,20 +214,18 @@ export const ConsumerGrid: React.FC<ConsumerGridProps> = ({
   children,
   columns = 2,
   gap = 'medium',
-  className = ''
+  className = '',
 }) => {
   const gridClasses = [
     'consumer-grid',
     `consumer-grid--${columns}-columns`,
     `consumer-grid--gap-${gap}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  return (
-    <div className={gridClasses}>
-      {children}
-    </div>
-  );
+  return <div className={gridClasses}>{children}</div>;
 };
 
 interface ConsumerSectionProps {
@@ -267,37 +245,30 @@ export const ConsumerSection: React.FC<ConsumerSectionProps> = ({
   backgroundColor,
   textAlign = 'left',
   padding = 'medium',
-  className = ''
+  className = '',
 }) => {
   const sectionClasses = [
     'consumer-section',
     `consumer-section--text-${textAlign}`,
     `consumer-section--padding-${padding}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <section 
-      className={sectionClasses}
-      style={{ backgroundColor }}
-    >
+    <section className={sectionClasses} style={{ backgroundColor }}>
       <div className="consumer-section__content">
-        
         {(title || subtitle) && (
           <div className="consumer-section__header">
-            {title && (
-              <h2 className="consumer-section__title">{title}</h2>
-            )}
+            {title && <h2 className="consumer-section__title">{title}</h2>}
             {subtitle && (
               <p className="consumer-section__subtitle">{subtitle}</p>
             )}
           </div>
         )}
-        
-        <div className="consumer-section__body">
-          {children}
-        </div>
-        
+
+        <div className="consumer-section__body">{children}</div>
       </div>
     </section>
   );

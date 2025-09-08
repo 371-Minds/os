@@ -1,6 +1,21 @@
+import {
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageHeader,
+  EuiProvider,
+  EuiTitle,
+} from '@elastic/eui';
+import {
+  Paging,
+  Results,
+  SearchBox,
+  SearchProvider,
+} from '@elastic/react-search-ui';
 import React, { useState } from 'react';
-import { SearchProvider, SearchBox, Results, Paging } from '@elastic/react-search-ui';
-import { EuiProvider, EuiPage, EuiPageBody, EuiPageContent, EuiPageContentBody, EuiPageHeader, EuiTitle, EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
 import '@elastic/eui/dist/eui_theme_light.css';
 
 const SearchPanel = () => {

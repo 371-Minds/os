@@ -1,6 +1,6 @@
 /**
  * CommunicationsUniverseController.css - Controller Interface Styling
- * 
+ *
  * Professional styling for the Communications Universe controller interface
  * with real-time status indicators, agent coordination, and email management.
  */
@@ -9,11 +9,14 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(135deg, 
-    rgba(15, 23, 42, 0.95) 0%, 
-    rgba(30, 41, 59, 0.9) 50%, 
-    rgba(15, 23, 42, 0.95) 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #e2e8f0;
 }
 
@@ -66,13 +69,27 @@
 }
 
 @keyframes connectedPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
 }
 
 @keyframes syncingPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
 }
 
 .status-text {
@@ -103,7 +120,11 @@
 
 .agent-action-btn {
   padding: 8px 16px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
   color: #e2e8f0;
@@ -116,7 +137,11 @@
 }
 
 .agent-action-btn:hover {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.3) 0%,
+    rgba(59, 130, 246, 0.3) 100%
+  );
   border-color: rgba(139, 92, 246, 0.5);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
   transform: translateY(-1px);
@@ -149,8 +174,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .universe-loading p {
@@ -240,14 +269,30 @@
   font-weight: 600;
 }
 
-.value.status-draft { color: #64748b; }
-.value.status-scheduled { color: #06b6d4; }
-.value.status-sent { color: #3b82f6; }
-.value.status-delivered { color: #10b981; }
-.value.status-opened { color: #059669; }
-.value.status-clicked { color: #065f46; }
-.value.status-bounced { color: #dc2626; }
-.value.status-failed { color: #991b1b; }
+.value.status-draft {
+  color: #64748b;
+}
+.value.status-scheduled {
+  color: #06b6d4;
+}
+.value.status-sent {
+  color: #3b82f6;
+}
+.value.status-delivered {
+  color: #10b981;
+}
+.value.status-opened {
+  color: #059669;
+}
+.value.status-clicked {
+  color: #065f46;
+}
+.value.status-bounced {
+  color: #dc2626;
+}
+.value.status-failed {
+  color: #991b1b;
+}
 
 .email-metrics {
   display: grid;
@@ -347,8 +392,13 @@
 }
 
 @keyframes urgentPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .event-header {
@@ -383,15 +433,15 @@
   .selected-email-panel {
     width: 300px;
   }
-  
+
   .coordination-events {
     width: 350px;
   }
-  
+
   .universe-stats {
     gap: 12px;
   }
-  
+
   .stat {
     font-size: 12px;
     padding: 3px 6px;
@@ -404,23 +454,23 @@
     gap: 12px;
     padding: 12px 16px;
   }
-  
+
   .status-section {
     flex-direction: column;
     gap: 12px;
     width: 100%;
   }
-  
+
   .universe-stats {
     flex-wrap: wrap;
     gap: 8px;
   }
-  
+
   .agent-controls {
     width: 100%;
     justify-content: center;
   }
-  
+
   .selected-email-panel {
     position: relative;
     width: 100%;
@@ -428,7 +478,7 @@
     right: auto;
     top: auto;
   }
-  
+
   .coordination-events {
     position: relative;
     width: calc(100% - 32px);
@@ -446,7 +496,7 @@
   .event-item.priority-urgent {
     animation: none;
   }
-  
+
   * {
     transition: none !important;
   }
@@ -487,14 +537,14 @@
   .communications-universe-controller {
     background: rgba(15, 23, 42, 0.98);
   }
-  
+
   .universe-status-bar,
   .selected-email-panel,
   .coordination-events {
     background: rgba(15, 23, 42, 0.95);
     border-color: #8b5cf6;
   }
-  
+
   .agent-action-btn {
     background: #8b5cf6;
     color: #000;

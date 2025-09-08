@@ -1,6 +1,6 @@
 /**
  * DeveloperGalaxyControls.css - Advanced Controls Styling
- * 
+ *
  * Professional control interface styling for the Developer's Galaxy,
  * optimized for development workflow efficiency.
  */
@@ -16,7 +16,8 @@
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
   max-width: 350px;
   min-width: 280px;
 }
@@ -142,9 +143,14 @@
   gap: 8px;
 }
 
-.build-btn, .test-btn {
+.build-btn,
+.test-btn {
   flex: 1;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(37, 99, 235, 0.1)
+  );
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 8px;
   padding: 10px 16px;
@@ -155,13 +161,19 @@
   transition: all 0.2s ease;
 }
 
-.build-btn:hover, .test-btn:hover {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+.build-btn:hover,
+.test-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(37, 99, 235, 0.2)
+  );
   border-color: rgba(59, 130, 246, 0.5);
   transform: translateY(-1px);
 }
 
-.build-btn.disabled, .test-btn.disabled {
+.build-btn.disabled,
+.test-btn.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
@@ -502,7 +514,8 @@
 
 /* Animation */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -523,11 +536,11 @@
     max-width: none;
     min-width: auto;
   }
-  
+
   .build-actions-extended {
     grid-template-columns: 1fr;
   }
-  
+
   .zoom-buttons {
     flex-direction: column;
     gap: 4px;

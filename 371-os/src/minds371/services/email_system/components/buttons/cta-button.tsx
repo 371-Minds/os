@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface CTAButtonProps {
   text: string;
@@ -21,7 +21,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
   disabled = false,
   onClick,
   className = '',
-  trackingId
+  trackingId,
 }) => {
   const buttonClasses = [
     'cta-button',
@@ -29,20 +29,22 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
     `cta-button--${size}`,
     fullWidth ? 'cta-button--full-width' : '',
     disabled ? 'cta-button--disabled' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const handleClick = () => {
     if (onClick) {
       onClick();
     }
-    
+
     // Track button click if tracking ID is provided
     if (trackingId && typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'click', {
         event_category: 'CTA Button',
         event_label: trackingId,
-        value: text
+        value: text,
       });
     }
   };

@@ -1,6 +1,6 @@
 /**
  * CEOsOrrery.css - Styling for Business Intelligence Universe
- * 
+ *
  * Executive-focused styling for the CEO's Orrery where business data
  * becomes an explorable mechanical solar system. Professional, clean,
  * and optimized for strategic decision-making.
@@ -10,7 +10,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #020617 0%, #1e293b 100%);
   color: #f1f5f9;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 2rem;
   overflow: hidden;
   position: relative;
@@ -135,7 +135,7 @@
   border-radius: 1rem;
   background: radial-gradient(circle at center, #020617 0%, #000000 100%);
   cursor: crosshair;
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(59, 130, 246, 0.2),
     inset 0 0 60px rgba(0, 0, 0, 0.5);
   animation: subtle-glow 4s ease-in-out infinite alternate;
@@ -143,12 +143,12 @@
 
 @keyframes subtle-glow {
   from {
-    box-shadow: 
+    box-shadow:
       0 0 40px rgba(59, 130, 246, 0.2),
       inset 0 0 60px rgba(0, 0, 0, 0.5);
   }
   to {
-    box-shadow: 
+    box-shadow:
       0 0 60px rgba(59, 130, 246, 0.3),
       inset 0 0 80px rgba(0, 0, 0, 0.6);
   }
@@ -187,7 +187,11 @@
   align-items: center;
   padding: 1.5rem;
   border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 41, 59, 0.6));
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(30, 41, 59, 0.6)
+  );
 }
 
 .panel-header h3 {
@@ -224,7 +228,11 @@
   align-items: center;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1),
+    rgba(16, 185, 129, 0.1)
+  );
   border-radius: 0.75rem;
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
@@ -295,7 +303,11 @@
 }
 
 .metric-card {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.6),
+    rgba(15, 23, 42, 0.8)
+  );
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 0.75rem;
   padding: 1.5rem;
@@ -306,7 +318,7 @@
 }
 
 .metric-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -371,7 +383,7 @@
     height: 70%;
     z-index: 1000;
   }
-  
+
   .orrery-canvas {
     max-width: 100%;
     height: auto;
@@ -382,26 +394,26 @@
   .ceo-orrery {
     padding: 1rem;
   }
-  
+
   .orrery-header {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .orrery-header h1 {
     font-size: 2rem;
   }
-  
+
   .orrery-controls {
     width: 100%;
     justify-content: center;
   }
-  
+
   .summary-metrics {
     grid-template-columns: 1fr;
   }
-  
+
   .planet-details-panel {
     width: 95%;
     height: 80%;
@@ -441,7 +453,7 @@
     background: rgba(0, 0, 0, 0.9);
     border-color: rgba(255, 255, 255, 0.5);
   }
-  
+
   .orrery-canvas {
     border-color: rgba(255, 255, 255, 0.7);
   }
@@ -452,11 +464,11 @@
   .orrery-canvas {
     animation: none;
   }
-  
+
   .planet-details-panel {
     animation: none;
   }
-  
+
   .control-btn,
   .metric-card {
     transition: none;
@@ -469,7 +481,7 @@
     background: white;
     color: black;
   }
-  
+
   .orrery-controls,
   .planet-details-panel {
     display: none;

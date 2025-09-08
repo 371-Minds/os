@@ -115,6 +115,7 @@ cat AB/milestone-tracker.md         # Review current milestone
 
 # 3. Review last session
 cat AB/sessions/session-2025-08-30.md  # Latest session context
+cat AB//sessions/abideas/ # Ideas for discussion
 
 # 4. Continue from current milestone
 # Current: B1 - Dependency Resolution

@@ -1,41 +1,38 @@
 /**
  * Business Data Provider
- * 
+ *
  * Provides comprehensive business context and real-time metrics to ElizaOS agents,
  * enabling intelligent decision-making based on current business state.
  */
 
-import { Provider, IAgentRuntime, Memory, State } from '@elizaos/core';
-import { BusinessMetric, BusinessAlert, Department } from './types';
+import type { IAgentRuntime, Memory, Provider, State } from '@elizaos/core';
+import type { BusinessAlert, BusinessMetric, Department } from './types';
 
 export const BusinessDataProvider: Provider = {
   name: 'business-context',
-  description: 'Provides current business context, metrics, and departmental status for agent decision-making',
-  
-  get: async (
-    runtime: IAgentRuntime,
-    message: Memory,
-    state?: State
-  ) => {
+  description:
+    'Provides current business context, metrics, and departmental status for agent decision-making',
+
+  get: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
     try {
       // Get current business metrics
       const currentMetrics = await getCurrentBusinessMetrics();
-      
+
       // Get active alerts
       const activeAlerts = await getActiveBusinessAlerts();
-      
+
       // Get department status
       const departmentStatus = await getDepartmentStatus();
-      
+
       // Determine market conditions
       const marketConditions = analyzeMarketConditions(currentMetrics);
-      
+
       // Format business context for LLM
       const businessContext = formatBusinessContext({
         currentMetrics,
         activeAlerts,
         departmentStatus,
-        marketConditions
+        marketConditions,
       });
 
       return {
@@ -45,8 +42,8 @@ export const BusinessDataProvider: Provider = {
           activeAlerts,
           departmentStatus,
           marketConditions,
-          lastUpdated: new Date()
-        }
+          lastUpdated: new Date(),
+        },
       };
     } catch (error) {
       console.error('Failed to provide business context:', error);
@@ -54,11 +51,11 @@ export const BusinessDataProvider: Provider = {
         text: 'Business context temporarily unavailable',
         data: {
           error: (error as Error).message,
-          lastUpdated: new Date()
-        }
+          lastUpdated: new Date(),
+        },
       };
     }
-  }
+  },
 };
 
 // Helper functions
@@ -77,7 +74,7 @@ async function getCurrentBusinessMetrics(): Promise<BusinessMetric[]> {
       priority: 'critical',
       confidence: 95,
       source: 'api',
-      timestamp: new Date()
+      timestamp: new Date(),
     },
     {
       id: 'net-profit',
@@ -91,7 +88,7 @@ async function getCurrentBusinessMetrics(): Promise<BusinessMetric[]> {
       priority: 'critical',
       confidence: 92,
       source: 'calculated',
-      timestamp: new Date()
+      timestamp: new Date(),
     },
     {
       id: 'cash-flow',
@@ -105,7 +102,7 @@ async function getCurrentBusinessMetrics(): Promise<BusinessMetric[]> {
       priority: 'high',
       confidence: 88,
       source: 'api',
-      timestamp: new Date()
+      timestamp: new Date(),
     },
     {
       id: 'customer-satisfaction',
@@ -119,8 +116,8 @@ async function getCurrentBusinessMetrics(): Promise<BusinessMetric[]> {
       priority: 'high',
       confidence: 90,
       source: 'agent',
-      timestamp: new Date()
-    }
+      timestamp: new Date(),
+    },
   ];
 }
 
@@ -136,12 +133,12 @@ async function getActiveBusinessAlerts(): Promise<BusinessAlert[]> {
       threshold: {
         operator: '<',
         value: 4500000,
-        breachedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+        breachedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
       },
       actionRequired: true,
       priority: 7,
       agentGenerated: true,
-      timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000)
+      timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
     },
     {
       id: 'customer-growth-alert',
@@ -152,8 +149,8 @@ async function getActiveBusinessAlerts(): Promise<BusinessAlert[]> {
       actionRequired: false,
       priority: 5,
       agentGenerated: true,
-      timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000)
-    }
+      timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
+    },
   ];
 }
 
@@ -173,7 +170,7 @@ async function getDepartmentStatus(): Promise<Department[]> {
       riskLevel: 'low',
       strategicImportance: 9,
       managedMetrics: ['total-revenue'],
-      lastReview: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+      lastReview: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
     },
     {
       id: 'engineering',
@@ -188,7 +185,7 @@ async function getDepartmentStatus(): Promise<Department[]> {
       riskLevel: 'medium',
       strategicImportance: 10,
       managedMetrics: ['customer-satisfaction'],
-      lastReview: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000)
+      lastReview: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000),
     },
     {
       id: 'operations',
@@ -203,7 +200,7 @@ async function getDepartmentStatus(): Promise<Department[]> {
       riskLevel: 'low',
       strategicImportance: 7,
       managedMetrics: ['cash-flow'],
-      lastReview: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000)
+      lastReview: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
     },
     {
       id: 'finance',
@@ -218,23 +215,32 @@ async function getDepartmentStatus(): Promise<Department[]> {
       riskLevel: 'low',
       strategicImportance: 8,
       managedMetrics: ['net-profit'],
-      lastReview: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
-    }
+      lastReview: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000),
+    },
   ];
 }
 
 function analyzeMarketConditions(metrics: BusinessMetric[]): string {
-  const revenueMetric = metrics.find(m => m.id === 'total-revenue');
-  const profitMetric = metrics.find(m => m.id === 'net-profit');
-  
-  if (revenueMetric?.trend === 'ascending' && profitMetric?.trend === 'ascending') {
+  const revenueMetric = metrics.find((m) => m.id === 'total-revenue');
+  const profitMetric = metrics.find((m) => m.id === 'net-profit');
+
+  if (
+    revenueMetric?.trend === 'ascending' &&
+    profitMetric?.trend === 'ascending'
+  ) {
     return 'bull';
-  } else if (revenueMetric?.trend === 'descending' && profitMetric?.trend === 'descending') {
+  } else if (
+    revenueMetric?.trend === 'descending' &&
+    profitMetric?.trend === 'descending'
+  ) {
     return 'bear';
-  } else if (revenueMetric?.trend === 'volatile' || profitMetric?.trend === 'volatile') {
+  } else if (
+    revenueMetric?.trend === 'volatile' ||
+    profitMetric?.trend === 'volatile'
+  ) {
     return 'volatile';
   }
-  
+
   return 'neutral';
 }
 
@@ -244,29 +250,30 @@ function formatBusinessContext(data: {
   departmentStatus: Department[];
   marketConditions: string;
 }): string {
-  const { currentMetrics, activeAlerts, departmentStatus, marketConditions } = data;
-  
+  const { currentMetrics, activeAlerts, departmentStatus, marketConditions } =
+    data;
+
   // Format key metrics
   const keyMetrics = currentMetrics
-    .filter(m => m.priority === 'critical')
-    .map(m => `${m.name}: ${formatMetricValue(m)}`)
+    .filter((m) => m.priority === 'critical')
+    .map((m) => `${m.name}: ${formatMetricValue(m)}`)
     .join(', ');
-  
+
   // Format active alerts
   const criticalAlerts = activeAlerts
-    .filter(a => a.type === 'critical' || a.type === 'warning')
-    .map(a => `${a.title}: ${a.message}`)
+    .filter((a) => a.type === 'critical' || a.type === 'warning')
+    .map((a) => `${a.title}: ${a.message}`)
     .join('; ');
-  
+
   // Format department performance
   const topPerformers = departmentStatus
-    .filter(d => d.performance > 100)
-    .map(d => `${d.name} (${d.performance}%)`)
+    .filter((d) => d.performance > 100)
+    .map((d) => `${d.name} (${d.performance}%)`)
     .join(', ');
-  
+
   const underPerformers = departmentStatus
-    .filter(d => d.performance < 95)
-    .map(d => `${d.name} (${d.performance}%)`)
+    .filter((d) => d.performance < 95)
+    .map((d) => `${d.name} (${d.performance}%)`)
     .join(', ');
 
   return `CURRENT BUSINESS CONTEXT:
@@ -286,20 +293,24 @@ This business context should inform all strategic decisions and recommendations.
 
 function formatMetricValue(metric: BusinessMetric): string {
   if (metric.currency) {
-    const value = metric.value >= 1000000 
-      ? `$${(metric.value / 1000000).toFixed(1)}M`
-      : `$${(metric.value / 1000).toFixed(0)}K`;
-    
-    const change = metric.previousValue 
-      ? ((metric.value - metric.previousValue) / metric.previousValue * 100).toFixed(1)
+    const value =
+      metric.value >= 1000000
+        ? `$${(metric.value / 1000000).toFixed(1)}M`
+        : `$${(metric.value / 1000).toFixed(0)}K`;
+
+    const change = metric.previousValue
+      ? (
+          ((metric.value - metric.previousValue) / metric.previousValue) *
+          100
+        ).toFixed(1)
       : '0';
-    
+
     return `${value} (${change > '0' ? '+' : ''}${change}%)`;
   }
-  
+
   if (metric.unit) {
     return `${metric.value}${metric.unit}`;
   }
-  
+
   return metric.value.toString();
 }

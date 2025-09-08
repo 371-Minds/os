@@ -1,12 +1,12 @@
 /**
  * ResendService.ts - Resend API Integration for Communications Universe
- * 
+ *
  * Provides real-time email data synchronization with Resend API for the
  * Communications Universe spatial email management system.
- * 
+ *
  * Features:
  * - Real-time email tracking and analytics
- * - Campaign performance monitoring  
+ * - Campaign performance monitoring
  * - Contact list management
  * - Email flow automation
  * - Agent coordination via email workflows
@@ -24,7 +24,17 @@ export interface ResendEmail {
   delivered_at?: string;
   opened_at?: string;
   clicked_at?: string;
-  status: 'queued' | 'sent' | 'delivered' | 'delivery_delayed' | 'bounced' | 'failed' | 'opened' | 'clicked' | 'complained' | 'scheduled';
+  status:
+    | 'queued'
+    | 'sent'
+    | 'delivered'
+    | 'delivery_delayed'
+    | 'bounced'
+    | 'failed'
+    | 'opened'
+    | 'clicked'
+    | 'complained'
+    | 'scheduled';
   tags?: string[];
   reply_to?: string;
   cc?: string[];
@@ -65,7 +75,15 @@ export interface ResendEmailStats {
 }
 
 export interface ResendWebhookEvent {
-  type: 'email.sent' | 'email.delivered' | 'email.delivery_delayed' | 'email.bounced' | 'email.failed' | 'email.opened' | 'email.clicked' | 'email.complained';
+  type:
+    | 'email.sent'
+    | 'email.delivered'
+    | 'email.delivery_delayed'
+    | 'email.bounced'
+    | 'email.failed'
+    | 'email.opened'
+    | 'email.clicked'
+    | 'email.complained';
   created_at: string;
   data: {
     email_id: string;
@@ -105,7 +123,11 @@ export interface ExportResponse {
 
 export interface CommunicationCoordinationEvent {
   id: string;
-  type: 'agent_notification' | 'status_update' | 'alert_trigger' | 'coordination_request';
+  type:
+    | 'agent_notification'
+    | 'status_update'
+    | 'alert_trigger'
+    | 'coordination_request';
   agentType: 'CEO' | 'CFO' | 'CTO' | 'CMO' | 'CLO' | 'CCO';
   priority: 'low' | 'medium' | 'high' | 'urgent';
   message: string;
@@ -116,8 +138,12 @@ export interface CommunicationCoordinationEvent {
 class ResendService {
   private apiKey: string;
   private baseUrl = 'https://api.resend.com';
-  private webhookListeners: Map<string, (event: ResendWebhookEvent) => void> = new Map();
-  private coordinationListeners: Map<string, (event: CommunicationCoordinationEvent) => void> = new Map();
+  private webhookListeners: Map<string, (event: ResendWebhookEvent) => void> =
+    new Map();
+  private coordinationListeners: Map<
+    string,
+    (event: CommunicationCoordinationEvent) => void
+  > = new Map();
 
   constructor(apiKey: string = process.env.RESEND_API_KEY || 'demo_key') {
     this.apiKey = apiKey;
@@ -132,7 +158,7 @@ class ResendService {
     const response = await fetch(`${this.baseUrl}/emails`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(email),
@@ -146,18 +172,20 @@ class ResendService {
   }
 
   // Dashboard Email Management Functions
-  async shareEmailLink(emailId: string): Promise<{ link: string; expiresAt: Date }> {
+  async shareEmailLink(
+    emailId: string,
+  ): Promise<{ link: string; expiresAt: Date }> {
     if (this.apiKey === 'demo_key') {
       return {
         link: `https://resend.com/share/${emailId}`,
-        expiresAt: new Date(Date.now() + 48 * 60 * 60 * 1000) // 48 hours from now
+        expiresAt: new Date(Date.now() + 48 * 60 * 60 * 1000), // 48 hours from now
       };
     }
 
     const response = await fetch(`${this.baseUrl}/emails/${emailId}/share`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -175,7 +203,7 @@ class ResendService {
 
     const response = await fetch(`${this.baseUrl}/emails/${emailId}/logs`, {
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -194,7 +222,7 @@ class ResendService {
     const response = await fetch(`${this.baseUrl}/exports/emails`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(filters || {}),
@@ -207,20 +235,23 @@ class ResendService {
     return response.json();
   }
 
-  async scheduleEmail(email: Partial<ResendEmail>, scheduledAt: Date): Promise<ResendEmail> {
+  async scheduleEmail(
+    email: Partial<ResendEmail>,
+    scheduledAt: Date,
+  ): Promise<ResendEmail> {
     if (this.apiKey === 'demo_key') {
       return this.mockScheduleEmail(email, scheduledAt);
     }
 
     const emailWithSchedule = {
       ...email,
-      scheduled_at: scheduledAt.toISOString()
+      scheduled_at: scheduledAt.toISOString(),
     };
 
     const response = await fetch(`${this.baseUrl}/emails`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(emailWithSchedule),
@@ -241,12 +272,14 @@ class ResendService {
     const response = await fetch(`${this.baseUrl}/emails/${emailId}/cancel`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to cancel scheduled email: ${response.statusText}`);
+      throw new Error(
+        `Failed to cancel scheduled email: ${response.statusText}`,
+      );
     }
 
     return response.json();
@@ -259,7 +292,7 @@ class ResendService {
 
     const response = await fetch(`${this.baseUrl}/emails/${emailId}`, {
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -270,7 +303,10 @@ class ResendService {
     return response.json();
   }
 
-  async getEmails(params?: { limit?: number; offset?: number }): Promise<{ data: ResendEmail[] }> {
+  async getEmails(params?: {
+    limit?: number;
+    offset?: number;
+  }): Promise<{ data: ResendEmail[] }> {
     if (this.apiKey === 'demo_key') {
       return this.mockGetEmails(params);
     }
@@ -281,7 +317,7 @@ class ResendService {
 
     const response = await fetch(`${this.baseUrl}/emails?${queryParams}`, {
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -301,7 +337,7 @@ class ResendService {
     const response = await fetch(`${this.baseUrl}/audiences`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
+        Authorization: `Bearer ${this.apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name }),
@@ -314,19 +350,25 @@ class ResendService {
     return response.json();
   }
 
-  async addContact(audienceId: string, contact: Partial<ResendContact>): Promise<ResendContact> {
+  async addContact(
+    audienceId: string,
+    contact: Partial<ResendContact>,
+  ): Promise<ResendContact> {
     if (this.apiKey === 'demo_key') {
       return this.mockAddContact(audienceId, contact);
     }
 
-    const response = await fetch(`${this.baseUrl}/audiences/${audienceId}/contacts`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `${this.baseUrl}/audiences/${audienceId}/contacts`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contact),
       },
-      body: JSON.stringify(contact),
-    });
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to add contact: ${response.statusText}`);
@@ -348,11 +390,11 @@ class ResendService {
 
   async getBulkEmailStats(emailIds: string[]): Promise<ResendEmailStats[]> {
     if (this.apiKey === 'demo_key') {
-      return emailIds.map(id => this.mockGetEmailStats(id));
+      return emailIds.map((id) => this.mockGetEmailStats(id));
     }
 
-    const emails = await Promise.all(emailIds.map(id => this.getEmail(id)));
-    return emails.map(email => this.calculateStats([email]));
+    const emails = await Promise.all(emailIds.map((id) => this.getEmail(id)));
+    return emails.map((email) => this.calculateStats([email]));
   }
 
   // Agent Communication Coordination
@@ -360,7 +402,7 @@ class ResendService {
     agentType: CommunicationCoordinationEvent['agentType'],
     message: string,
     priority: CommunicationCoordinationEvent['priority'] = 'medium',
-    metadata?: Record<string, any>
+    metadata?: Record<string, any>,
   ): Promise<string> {
     const event: CommunicationCoordinationEvent = {
       id: `coord_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -369,7 +411,7 @@ class ResendService {
       priority,
       message,
       metadata,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
     // Send email to agent coordination system
@@ -381,24 +423,24 @@ class ResendService {
       from: 'system@371minds.com',
       subject: emailSubject,
       html: emailHtml,
-      tags: ['agent-coordination', agentType.toLowerCase(), priority]
+      tags: ['agent-coordination', agentType.toLowerCase(), priority],
     });
 
     // Notify coordination listeners
-    this.coordinationListeners.forEach(listener => listener(event));
+    this.coordinationListeners.forEach((listener) => listener(event));
 
     return event.id;
   }
 
   async triggerBusinessAlert(
     alertType: 'performance' | 'threshold' | 'anomaly' | 'opportunity',
-    data: Record<string, any>
+    data: Record<string, any>,
   ): Promise<string> {
     const message = this.generateBusinessAlertMessage(alertType, data);
-    
+
     // Determine which agents should be notified
     const relevantAgents: CommunicationCoordinationEvent['agentType'][] = [];
-    
+
     if (alertType === 'performance' || alertType === 'threshold') {
       relevantAgents.push('CEO', 'CFO');
     }
@@ -410,20 +452,28 @@ class ResendService {
     }
 
     const notificationIds = await Promise.all(
-      relevantAgents.map(agent => 
-        this.sendAgentNotification(agent, message, 'high', { alertType, ...data })
-      )
+      relevantAgents.map((agent) =>
+        this.sendAgentNotification(agent, message, 'high', {
+          alertType,
+          ...data,
+        }),
+      ),
     );
 
     return notificationIds[0];
   }
 
   // Webhook Management
-  onEmailEvent(eventType: ResendWebhookEvent['type'], callback: (event: ResendWebhookEvent) => void): void {
+  onEmailEvent(
+    eventType: ResendWebhookEvent['type'],
+    callback: (event: ResendWebhookEvent) => void,
+  ): void {
     this.webhookListeners.set(eventType, callback);
   }
 
-  onCoordinationEvent(callback: (event: CommunicationCoordinationEvent) => void): void {
+  onCoordinationEvent(
+    callback: (event: CommunicationCoordinationEvent) => void,
+  ): void {
     const listenerId = `coord_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     this.coordinationListeners.set(listenerId, callback);
   }
@@ -446,13 +496,15 @@ class ResendService {
       emailId: event.data.email_id,
       status: event.type.replace('email.', ''),
       timestamp: event.created_at,
-      metadata: event.data
+      metadata: event.data,
     };
 
     // Emit universe update event
-    window.dispatchEvent(new CustomEvent('communications-universe-update', { 
-      detail: universeEvent 
-    }));
+    window.dispatchEvent(
+      new CustomEvent('communications-universe-update', {
+        detail: universeEvent,
+      }),
+    );
   }
 
   // Demo/Mock Methods for Development
@@ -469,7 +521,7 @@ class ResendService {
       tags: email.tags || [],
       reply_to: email.reply_to,
       cc: email.cc,
-      bcc: email.bcc
+      bcc: email.bcc,
     };
   }
 
@@ -484,11 +536,13 @@ class ResendService {
       sent_at: new Date(Date.now() - 30000).toISOString(),
       delivered_at: new Date(Date.now() - 15000).toISOString(),
       status: 'delivered',
-      tags: ['demo']
+      tags: ['demo'],
     };
   }
 
-  private mockGetEmails(params?: { limit?: number; offset?: number }): { data: ResendEmail[] } {
+  private mockGetEmails(params?: { limit?: number; offset?: number }): {
+    data: ResendEmail[];
+  } {
     const limit = params?.limit || 10;
     const mockEmails: ResendEmail[] = [];
 
@@ -498,9 +552,9 @@ class ResendService {
         to: [`user${i}@example.com`],
         from: 'system@371minds.com',
         subject: `Demo Email ${i + 1}`,
-        created_at: new Date(Date.now() - (i * 60000)).toISOString(),
+        created_at: new Date(Date.now() - i * 60000).toISOString(),
         status: ['sent', 'delivered', 'opened', 'clicked'][i % 4] as any,
-        tags: ['demo', 'batch']
+        tags: ['demo', 'batch'],
       });
     }
 
@@ -512,11 +566,14 @@ class ResendService {
       id: `audience_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       name,
       created_at: new Date().toISOString(),
-      object: 'audience'
+      object: 'audience',
     };
   }
 
-  private mockAddContact(audienceId: string, contact: Partial<ResendContact>): ResendContact {
+  private mockAddContact(
+    audienceId: string,
+    contact: Partial<ResendContact>,
+  ): ResendContact {
     return {
       id: `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       email: contact.email || 'demo@example.com',
@@ -524,7 +581,7 @@ class ResendService {
       last_name: contact.last_name,
       created_at: new Date().toISOString(),
       unsubscribed: false,
-      audience_id: audienceId
+      audience_id: audienceId,
     };
   }
 
@@ -548,7 +605,7 @@ class ResendService {
       delivery_rate: (delivered / sent) * 100,
       open_rate: (opened / delivered) * 100,
       click_rate: (clicked / opened) * 100,
-      bounce_rate: (bounced / sent) * 100
+      bounce_rate: (bounced / sent) * 100,
     };
   }
 
@@ -561,7 +618,7 @@ class ResendService {
         timestamp: new Date(Date.now() - 300000).toISOString(),
         level: 'info',
         message: 'Email successfully sent to recipient',
-        metadata: { recipientCount: 1, from: 'system@371minds.com' }
+        metadata: { recipientCount: 1, from: 'system@371minds.com' },
       },
       {
         id: `log_${emailId}_2`,
@@ -569,7 +626,7 @@ class ResendService {
         timestamp: new Date(Date.now() - 240000).toISOString(),
         level: 'info',
         message: 'Email delivered to recipient mail server',
-        metadata: { deliveryTime: '4.2s' }
+        metadata: { deliveryTime: '4.2s' },
       },
       {
         id: `log_${emailId}_3`,
@@ -577,8 +634,11 @@ class ResendService {
         timestamp: new Date(Date.now() - 120000).toISOString(),
         level: 'info',
         message: 'Email opened by recipient',
-        metadata: { userAgent: 'Mozilla/5.0...', openTime: '2 minutes after delivery' }
-      }
+        metadata: {
+          userAgent: 'Mozilla/5.0...',
+          openTime: '2 minutes after delivery',
+        },
+      },
     ];
   }
 
@@ -589,11 +649,14 @@ class ResendService {
       downloadUrl: 'https://resend.com/exports/emails/demo-export.csv',
       createdAt: new Date().toISOString(),
       expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days
-      itemCount: 2547
+      itemCount: 2547,
     };
   }
 
-  private mockScheduleEmail(email: Partial<ResendEmail>, scheduledAt: Date): ResendEmail {
+  private mockScheduleEmail(
+    email: Partial<ResendEmail>,
+    scheduledAt: Date,
+  ): ResendEmail {
     return {
       id: `scheduled_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       to: email.to || ['demo@example.com'],
@@ -606,35 +669,42 @@ class ResendService {
       tags: [...(email.tags || []), 'scheduled'],
       reply_to: email.reply_to,
       cc: email.cc,
-      bcc: email.bcc
+      bcc: email.bcc,
     };
   }
 
   private calculateStats(emails: ResendEmail[]): ResendEmailStats {
     const totalSent = emails.length;
-    const delivered = emails.filter(e => ['delivered', 'opened', 'clicked'].includes(e.status)).length;
-    const opened = emails.filter(e => ['opened', 'clicked'].includes(e.status)).length;
-    const clicked = emails.filter(e => e.status === 'clicked').length;
-    const bounced = emails.filter(e => e.status === 'bounced').length;
+    const delivered = emails.filter((e) =>
+      ['delivered', 'opened', 'clicked'].includes(e.status),
+    ).length;
+    const opened = emails.filter((e) =>
+      ['opened', 'clicked'].includes(e.status),
+    ).length;
+    const clicked = emails.filter((e) => e.status === 'clicked').length;
+    const bounced = emails.filter((e) => e.status === 'bounced').length;
 
     return {
       id: 'aggregate',
       sent: totalSent,
       delivered,
-      delivery_delayed: emails.filter(e => e.status === 'delivery_delayed').length,
+      delivery_delayed: emails.filter((e) => e.status === 'delivery_delayed')
+        .length,
       bounced,
-      failed: emails.filter(e => e.status === 'failed').length,
+      failed: emails.filter((e) => e.status === 'failed').length,
       opened,
       clicked,
-      complained: emails.filter(e => e.status === 'complained').length,
+      complained: emails.filter((e) => e.status === 'complained').length,
       delivery_rate: totalSent > 0 ? (delivered / totalSent) * 100 : 0,
       open_rate: delivered > 0 ? (opened / delivered) * 100 : 0,
       click_rate: opened > 0 ? (clicked / opened) * 100 : 0,
-      bounce_rate: totalSent > 0 ? (bounced / totalSent) * 100 : 0
+      bounce_rate: totalSent > 0 ? (bounced / totalSent) * 100 : 0,
     };
   }
 
-  private generateAgentNotificationEmail(event: CommunicationCoordinationEvent): string {
+  private generateAgentNotificationEmail(
+    event: CommunicationCoordinationEvent,
+  ): string {
     return `
       <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%); padding: 20px; color: white; border-radius: 8px 8px 0 0;">
@@ -646,12 +716,16 @@ class ResendService {
             <h2 style="margin: 0 0 12px 0; color: #1e293b; font-size: 18px;">Priority: ${event.priority.toUpperCase()}</h2>
             <p style="margin: 0; color: #475569; line-height: 1.5;">${event.message}</p>
           </div>
-          ${event.metadata ? `
+          ${
+            event.metadata
+              ? `
             <div style="margin-top: 16px; background: white; padding: 16px; border-radius: 6px;">
               <h3 style="margin: 0 0 8px 0; color: #1e293b; font-size: 14px;">Additional Data:</h3>
               <pre style="margin: 0; font-size: 12px; color: #64748b; background: #f1f5f9; padding: 8px; border-radius: 4px; overflow-x: auto;">${JSON.stringify(event.metadata, null, 2)}</pre>
             </div>
-          ` : ''}
+          `
+              : ''
+          }
           <div style="margin-top: 16px; font-size: 12px; color: #64748b;">
             <p style="margin: 0;">Event ID: ${event.id}</p>
             <p style="margin: 4px 0 0 0;">Timestamp: ${event.timestamp.toISOString()}</p>
@@ -661,7 +735,10 @@ class ResendService {
     `;
   }
 
-  private generateBusinessAlertMessage(alertType: string, data: Record<string, any>): string {
+  private generateBusinessAlertMessage(
+    alertType: string,
+    data: Record<string, any>,
+  ): string {
     switch (alertType) {
       case 'performance':
         return `Performance alert: ${data.metric} has ${data.trend === 'up' ? 'increased' : 'decreased'} by ${data.change}% to ${data.value}`;

@@ -439,11 +439,11 @@
     min-width: 240px;
     max-width: 280px;
   }
-  
+
   .quick-controls {
     flex-direction: column;
   }
-  
+
   .time-selector,
   .view-selector {
     min-width: unset;

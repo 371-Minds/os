@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 interface DemoButtonProps {
   text?: string;
@@ -21,15 +21,17 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
   duration,
   features,
   className = '',
-  trackingId
+  trackingId,
 }) => {
   const buttonClasses = [
     'demo-button',
     `demo-button--${variant}`,
     `demo-button--${size}`,
     `demo-button--${demoType}`,
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const getDemoIcon = () => {
     switch (demoType) {
@@ -64,7 +66,7 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
         event_category: 'Demo Button',
         event_label: trackingId,
         demo_type: demoType,
-        value: text
+        value: text,
       });
     }
   };
@@ -82,13 +84,15 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
         <span className="demo-button__icon">{getDemoIcon()}</span>
         <div className="demo-button__content">
           <span className="demo-button__text">{text}</span>
-          <span className="demo-button__description">{getDemoDescription()}</span>
+          <span className="demo-button__description">
+            {getDemoDescription()}
+          </span>
           {duration && (
             <span className="demo-button__duration">Duration: {duration}</span>
           )}
         </div>
       </a>
-      
+
       {features && features.length > 0 && (
         <div className="demo-features">
           <p className="demo-features__title">What you'll see:</p>

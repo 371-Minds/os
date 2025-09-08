@@ -1,14 +1,15 @@
 /**
  * TechnicalMode.tsx - Development-Focused Interface
- * 
+ *
  * This component implements the Technical cognitive mode for development operations,
  * system diagnostics, code analysis, and technical decision-making. It emphasizes
  * detailed information, tools access, and development workflows.
- * 
+ *
  * Part of the revolutionary Galaxy Engine cognitive-aware interface system.
  */
 
-import React, { useState, useEffect } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import './TechnicalMode.css';
 
 interface SystemMetric {
@@ -53,95 +54,158 @@ interface TechnicalModeProps {
 export const TechnicalMode: React.FC<TechnicalModeProps> = ({
   userId = 'developer-user',
   onModeSwitch,
-  onToolLaunch
+  onToolLaunch,
 }) => {
   const [systemMetrics, setSystemMetrics] = useState<SystemMetric[]>([
-    { name: 'CPU Usage', value: '23%', status: 'healthy', details: '8-core utilization', trend: 'stable' },
-    { name: 'Memory', value: '4.2GB', status: 'healthy', details: '16GB available', trend: 'up' },
-    { name: 'Build Cache', value: '89%', status: 'healthy', details: 'Nx cache efficiency', trend: 'up' },
-    { name: 'Node Version', value: 'v24.6.0', status: 'healthy', details: 'LTS compatible' },
-    { name: 'Bun Package Manager', value: '1.2.18', status: 'healthy', details: 'Lightning fast' },
-    { name: 'TypeScript', value: '5.9.2', status: 'healthy', details: 'Strict mode enabled' }
+    {
+      name: 'CPU Usage',
+      value: '23%',
+      status: 'healthy',
+      details: '8-core utilization',
+      trend: 'stable',
+    },
+    {
+      name: 'Memory',
+      value: '4.2GB',
+      status: 'healthy',
+      details: '16GB available',
+      trend: 'up',
+    },
+    {
+      name: 'Build Cache',
+      value: '89%',
+      status: 'healthy',
+      details: 'Nx cache efficiency',
+      trend: 'up',
+    },
+    {
+      name: 'Node Version',
+      value: 'v24.6.0',
+      status: 'healthy',
+      details: 'LTS compatible',
+    },
+    {
+      name: 'Bun Package Manager',
+      value: '1.2.18',
+      status: 'healthy',
+      details: 'Lightning fast',
+    },
+    {
+      name: 'TypeScript',
+      value: '5.9.2',
+      status: 'healthy',
+      details: 'Strict mode enabled',
+    },
   ]);
 
   const [buildInfo, setBuildInfo] = useState<BuildInfo[]>([
-    { 
-      project: 'cognitive-engine', 
-      status: 'success', 
-      duration: '206ms', 
+    {
+      project: 'cognitive-engine',
+      status: 'success',
+      duration: '206ms',
       timestamp: new Date(Date.now() - 1000 * 60 * 5),
       details: 'ElizaOS plugin compilation',
-      coverage: 94
+      coverage: 94,
     },
-    { 
-      project: 'nx-workspace', 
-      status: 'success', 
-      duration: '1.2s', 
+    {
+      project: 'nx-workspace',
+      status: 'success',
+      duration: '1.2s',
       timestamp: new Date(Date.now() - 1000 * 60 * 15),
       details: 'Self-awareness plugin build',
-      coverage: 87
+      coverage: 87,
     },
-    { 
-      project: 'universal-tool-server', 
-      status: 'building', 
-      duration: '...', 
+    {
+      project: 'universal-tool-server',
+      status: 'building',
+      duration: '...',
       timestamp: new Date(),
-      details: 'Blockchain integration'
-    }
+      details: 'Blockchain integration',
+    },
   ]);
 
   const [codeMetrics, setCodeMetrics] = useState<CodeMetric[]>([
-    { name: 'Test Coverage', value: 89, unit: '%', threshold: 80, status: 'good' },
-    { name: 'Type Safety', value: 98, unit: '%', threshold: 95, status: 'good' },
-    { name: 'Cyclomatic Complexity', value: 6, unit: '', threshold: 10, status: 'good' },
-    { name: 'Tech Debt Ratio', value: 12, unit: '%', threshold: 20, status: 'good' },
-    { name: 'Bundle Size', value: 2.4, unit: 'MB', threshold: 5, status: 'good' },
-    { name: 'Load Time', value: 1.2, unit: 's', threshold: 3, status: 'good' }
+    {
+      name: 'Test Coverage',
+      value: 89,
+      unit: '%',
+      threshold: 80,
+      status: 'good',
+    },
+    {
+      name: 'Type Safety',
+      value: 98,
+      unit: '%',
+      threshold: 95,
+      status: 'good',
+    },
+    {
+      name: 'Cyclomatic Complexity',
+      value: 6,
+      unit: '',
+      threshold: 10,
+      status: 'good',
+    },
+    {
+      name: 'Tech Debt Ratio',
+      value: 12,
+      unit: '%',
+      threshold: 20,
+      status: 'good',
+    },
+    {
+      name: 'Bundle Size',
+      value: 2.4,
+      unit: 'MB',
+      threshold: 5,
+      status: 'good',
+    },
+    { name: 'Load Time', value: 1.2, unit: 's', threshold: 3, status: 'good' },
   ]);
 
   const [devTools, setDevTools] = useState<DevTool[]>([
-    { 
-      name: 'Nx Graph', 
-      description: 'Visualize project dependencies', 
-      status: 'available', 
+    {
+      name: 'Nx Graph',
+      description: 'Visualize project dependencies',
+      status: 'available',
       action: 'generate_graph',
-      icon: '🕸️'
+      icon: '🕸️',
     },
-    { 
-      name: 'ElizaOS Plugin Builder', 
-      description: 'Build and test cognitive engine', 
-      status: 'available', 
+    {
+      name: 'ElizaOS Plugin Builder',
+      description: 'Build and test cognitive engine',
+      status: 'available',
       action: 'build_plugin',
-      icon: '🧠'
+      icon: '🧠',
     },
-    { 
-      name: 'Agent Debugger', 
-      description: 'Debug agent runtime and actions', 
-      status: 'running', 
+    {
+      name: 'Agent Debugger',
+      description: 'Debug agent runtime and actions',
+      status: 'running',
       action: 'debug_agent',
-      icon: '🤖'
+      icon: '🤖',
     },
-    { 
-      name: 'Blockchain Simulator', 
-      description: 'Test smart contracts locally', 
-      status: 'available', 
+    {
+      name: 'Blockchain Simulator',
+      description: 'Test smart contracts locally',
+      status: 'available',
       action: 'start_blockchain',
-      icon: '⛓️'
+      icon: '⛓️',
     },
-    { 
-      name: 'Performance Profiler', 
-      description: 'Analyze system performance', 
-      status: 'available', 
+    {
+      name: 'Performance Profiler',
+      description: 'Analyze system performance',
+      status: 'available',
       action: 'profile_system',
-      icon: '📊'
+      icon: '📊',
     },
-    { 
-      name: 'Code Generator', 
-      description: 'Generate ElizaOS scaffolds', 
-      status: 'available', 
+    {
+      name: 'Code Generator',
+      description: 'Generate ElizaOS scaffolds',
+      status: 'available',
       action: 'generate_code',
-      icon: '⚡'
-    }
+      icon: '⚡',
+    },
   ]);
 
   const [terminalOutput, setTerminalOutput] = useState<string[]>([
@@ -157,7 +221,7 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
 
   const handleToolLaunch = (tool: DevTool) => {
     console.log('TechnicalMode: Launching tool:', tool.name);
-    
+
     if (onToolLaunch) {
       onToolLaunch(tool.action, { tool: tool.name, user: userId });
     }
@@ -205,16 +269,18 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
     setTerminalOutput(newOutput);
 
     // Update tool status
-    setDevTools(prev => prev.map(t => 
-      t.action === tool.action 
-        ? { ...t, status: t.status === 'running' ? 'available' : 'running' }
-        : t
-    ));
+    setDevTools((prev) =>
+      prev.map((t) =>
+        t.action === tool.action
+          ? { ...t, status: t.status === 'running' ? 'available' : 'running' }
+          : t,
+      ),
+    );
   };
 
   const handleQuickCommand = (command: string) => {
     const newOutput = [...terminalOutput, `$ ${command}`];
-    
+
     switch (command) {
       case 'bun nx affected:test':
         newOutput.push('🧪 Running affected tests...');
@@ -226,7 +292,7 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
         break;
       case 'git status':
         newOutput.push('On branch main');
-        newOutput.push('Your branch is up to date with \'origin/main\'');
+        newOutput.push("Your branch is up to date with 'origin/main'");
         newOutput.push('nothing to commit, working tree clean');
         break;
       case 'bun --version':
@@ -242,10 +308,10 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
   };
 
   const formatTimestamp = (date: Date) => {
-    return date.toLocaleTimeString('en-US', { 
-      hour12: false, 
-      hour: '2-digit', 
-      minute: '2-digit' 
+    return date.toLocaleTimeString('en-US', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
     });
   };
 
@@ -262,17 +328,19 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
   useEffect(() => {
     // Simulate real-time system metrics updates
     const interval = setInterval(() => {
-      setSystemMetrics(prev => prev.map(metric => {
-        if (metric.name === 'CPU Usage') {
-          const newValue = Math.floor(20 + Math.random() * 15);
-          return {
-            ...metric,
-            value: `${newValue}%`,
-            status: newValue > 80 ? 'warning' : 'healthy'
-          };
-        }
-        return metric;
-      }));
+      setSystemMetrics((prev) =>
+        prev.map((metric) => {
+          if (metric.name === 'CPU Usage') {
+            const newValue = Math.floor(20 + Math.random() * 15);
+            return {
+              ...metric,
+              value: `${newValue}%`,
+              status: newValue > 80 ? 'warning' : 'healthy',
+            };
+          }
+          return metric;
+        }),
+      );
     }, 5000);
 
     return () => clearInterval(interval);
@@ -283,22 +351,24 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
       <div className="technical-header">
         <div className="mode-indicator">
           <span className="mode-badge technical">Technical Mode</span>
-          <p className="mode-description">Development Environment - Tools & Diagnostics</p>
+          <p className="mode-description">
+            Development Environment - Tools & Diagnostics
+          </p>
         </div>
         <div className="quick-commands">
-          <button 
+          <button
             className="command-btn"
             onClick={() => handleQuickCommand('bun nx affected:test')}
           >
             Run Tests
           </button>
-          <button 
+          <button
             className="command-btn"
             onClick={() => handleQuickCommand('bun nx affected:build')}
           >
             Build Projects
           </button>
-          <button 
+          <button
             className="command-btn"
             onClick={() => handleQuickCommand('git status')}
           >
@@ -322,7 +392,11 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                 <div className="metric-details">{metric.details}</div>
                 {metric.trend && (
                   <span className={`trend-arrow ${metric.trend}`}>
-                    {metric.trend === 'up' ? '↗' : metric.trend === 'down' ? '↘' : '→'}
+                    {metric.trend === 'up'
+                      ? '↗'
+                      : metric.trend === 'down'
+                        ? '↘'
+                        : '→'}
                   </span>
                 )}
               </div>
@@ -345,8 +419,13 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                     <span className={`status-badge ${build.status}`}>
                       {build.status === 'building' ? (
                         <span className="spinner">⚡</span>
-                      ) : build.status === 'success' ? '✅' : 
-                        build.status === 'failed' ? '❌' : '⏳'}
+                      ) : build.status === 'success' ? (
+                        '✅'
+                      ) : build.status === 'failed' ? (
+                        '❌'
+                      ) : (
+                        '⏳'
+                      )}
                     </span>
                     <span className="build-time">
                       {formatTimestamp(build.timestamp)}
@@ -354,9 +433,13 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                   </div>
                 </div>
                 <div className="build-footer">
-                  <span className="duration">Duration: {formatDuration(build.duration)}</span>
+                  <span className="duration">
+                    Duration: {formatDuration(build.duration)}
+                  </span>
                   {build.coverage && (
-                    <span className="coverage">Coverage: {build.coverage}%</span>
+                    <span className="coverage">
+                      Coverage: {build.coverage}%
+                    </span>
                   )}
                 </div>
               </div>
@@ -376,13 +459,14 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                   <span className="unit">{metric.unit}</span>
                 </div>
                 <div className="quality-threshold">
-                  Threshold: {metric.threshold}{metric.unit}
+                  Threshold: {metric.threshold}
+                  {metric.unit}
                 </div>
                 <div className="quality-bar">
-                  <div 
+                  <div
                     className={`quality-fill ${metric.status}`}
-                    style={{ 
-                      width: `${Math.min((metric.value / metric.threshold) * 100, 100)}%` 
+                    style={{
+                      width: `${Math.min((metric.value / metric.threshold) * 100, 100)}%`,
                     }}
                   ></div>
                 </div>
@@ -404,13 +488,16 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                     <p>{tool.description}</p>
                   </div>
                 </div>
-                <button 
+                <button
                   className={`tool-launch ${tool.status}`}
                   onClick={() => handleToolLaunch(tool)}
                   disabled={tool.status === 'disabled'}
                 >
-                  {tool.status === 'running' ? 'Stop' : 
-                   tool.status === 'disabled' ? 'Disabled' : 'Launch'}
+                  {tool.status === 'running'
+                    ? 'Stop'
+                    : tool.status === 'disabled'
+                      ? 'Disabled'
+                      : 'Launch'}
                 </button>
               </div>
             ))}
@@ -427,11 +514,16 @@ export const TechnicalMode: React.FC<TechnicalModeProps> = ({
                 <span className="terminal-btn minimize"></span>
                 <span className="terminal-btn maximize"></span>
               </div>
-              <span className="terminal-title">371 OS Development Terminal</span>
+              <span className="terminal-title">
+                371 OS Development Terminal
+              </span>
             </div>
             <div className="terminal-content">
               {terminalOutput.map((line, index) => (
-                <div key={index} className={`terminal-line ${line.startsWith('$') ? 'command' : 'output'}`}>
+                <div
+                  key={index}
+                  className={`terminal-line ${line.startsWith('$') ? 'command' : 'output'}`}
+                >
                   {line}
                 </div>
               ))}

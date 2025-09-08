@@ -1,6 +1,6 @@
 /**
  * CognitiveModeSwither.css - Styling for Cognitive Mode Switcher
- * 
+ *
  * Revolutionary UI component for manual cognitive state transitions.
  * Foundation for automatic cognitive state detection in Phase 4.
  */
@@ -10,7 +10,7 @@
   top: 20px;
   left: 20px;
   z-index: 1000;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Current Mode Display */
@@ -177,7 +177,7 @@
 }
 
 .auto-detection-toggle input[type="checkbox"]:checked::after {
-  content: '✓';
+  content: "✓";
   position: absolute;
   top: -2px;
   left: 1px;
@@ -217,7 +217,7 @@
 }
 
 .mode-option.active::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -260,7 +260,7 @@
 .option-shortcut {
   font-size: 0.625rem;
   color: #64748b;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: "JetBrains Mono", "Courier New", monospace;
   background: rgba(100, 116, 139, 0.1);
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
@@ -366,8 +366,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .context-info {
@@ -471,7 +475,8 @@
   font-size: 0.75rem;
 }
 
-.from-state, .to-state {
+.from-state,
+.to-state {
   color: #cbd5e1;
   white-space: nowrap;
 }
@@ -527,26 +532,26 @@
     left: 0;
     width: 100%;
   }
-  
+
   .current-mode {
     min-width: auto;
   }
-  
+
   .modes-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .context-info {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .detection-suggestion {
     flex-direction: column;
     gap: 0.75rem;
     align-items: stretch;
   }
-  
+
   .apply-suggestion {
     width: 100%;
   }

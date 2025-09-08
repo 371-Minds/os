@@ -44,22 +44,29 @@ export const DeploymentSuccessEmail = ({
             style={logo}
           />
         </Section>
-        
+
         <Section style={successBanner}>
           <Text style={successIcon}>🎉</Text>
           <Heading style={h1}>Deployment Successful!</Heading>
         </Section>
 
         <Text style={heroText}>
-          Great news, {userFirstName}! Your project <strong>{projectName}</strong> has been 
-          successfully deployed and is now live.
+          Great news, {userFirstName}! Your project{' '}
+          <strong>{projectName}</strong> has been successfully deployed and is
+          now live.
         </Text>
-        
+
         <Section style={deploymentInfo}>
           <Text style={infoTitle}>Deployment Details:</Text>
-          <Text style={infoItem}><strong>Project:</strong> {projectName}</Text>
-          <Text style={infoItem}><strong>Deployment Time:</strong> {deploymentTime}</Text>
-          <Text style={infoItem}><strong>Status:</strong> ✅ Live</Text>
+          <Text style={infoItem}>
+            <strong>Project:</strong> {projectName}
+          </Text>
+          <Text style={infoItem}>
+            <strong>Deployment Time:</strong> {deploymentTime}
+          </Text>
+          <Text style={infoItem}>
+            <strong>Status:</strong> ✅ Live
+          </Text>
         </Section>
 
         <Section style={buttonContainer}>
@@ -71,16 +78,28 @@ export const DeploymentSuccessEmail = ({
         <Section style={actionsSection}>
           <Text style={actionsTitle}>What's next?</Text>
           <Text style={actionItem}>
-            📊 <Link href="https://readysetbuild.com/analytics" style={link}>Monitor performance</Link>
+            📊{' '}
+            <Link href="https://readysetbuild.com/analytics" style={link}>
+              Monitor performance
+            </Link>
           </Text>
           <Text style={actionItem}>
-            🔧 <Link href="https://readysetbuild.com/settings" style={link}>Configure settings</Link>
+            🔧{' '}
+            <Link href="https://readysetbuild.com/settings" style={link}>
+              Configure settings
+            </Link>
           </Text>
           <Text style={actionItem}>
-            📈 <Link href="https://readysetbuild.com/scaling" style={link}>Set up auto-scaling</Link>
+            📈{' '}
+            <Link href="https://readysetbuild.com/scaling" style={link}>
+              Set up auto-scaling
+            </Link>
           </Text>
           <Text style={actionItem}>
-            🔔 <Link href="https://readysetbuild.com/alerts" style={link}>Configure alerts</Link>
+            🔔{' '}
+            <Link href="https://readysetbuild.com/alerts" style={link}>
+              Configure alerts
+            </Link>
           </Text>
         </Section>
 

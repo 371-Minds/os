@@ -307,7 +307,7 @@ export class BlockchainRegistryProvider {
    * Analyzes blockchain data to provide network-wide performance metrics,
    * reputation trends, and ecosystem health indicators.
    */
-  async getNetworkMetrics(timeWindow: string = '24h'): Promise<any> {
+  async getNetworkMetrics(timeWindow = '24h'): Promise<any> {
     try {
       const currentBlock = await this.provider.getBlockNumber();
       const blocksBack = this.parseTimeWindow(timeWindow);
@@ -378,7 +378,7 @@ export class BlockchainRegistryProvider {
 
   private parseTimeWindow(timeWindow: string): number {
     const unit = timeWindow.slice(-1);
-    const value = parseInt(timeWindow.slice(0, -1));
+    const value = Number.parseInt(timeWindow.slice(0, -1));
 
     switch (unit) {
       case 'h':

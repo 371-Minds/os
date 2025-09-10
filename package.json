@@ -71,9 +71,8 @@
     "winston": "^3.10.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.0",
     "@nomicfoundation/hardhat-ethers": "^3.0.0",
-    "@nx/eslint": "21.4.1",
-    "@nx/eslint-plugin": "21.4.1",
     "@nx/js": "^21.4.1",
     "@nx/node": "^21.4.1",
     "@nx/react": "^21.0.0",
@@ -103,3 +102,4 @@
   },
   "homepage": "https://github.com/371-Minds/os#readme"
 }
+ 

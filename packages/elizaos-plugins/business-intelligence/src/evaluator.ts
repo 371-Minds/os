@@ -357,7 +357,7 @@ function extractBusinessInsights(
   const percentMatches = response.match(/\d+\.?\d*%/g);
   if (percentMatches) {
     percentMatches.forEach((match, index) => {
-      const value = parseFloat(match.replace('%', ''));
+      const value = Number.parseFloat(match.replace('%', ''));
       let impact: 'low' | 'medium' | 'high' | 'critical' = 'medium';
 
       if (value > 20 || value < -10) impact = 'high';

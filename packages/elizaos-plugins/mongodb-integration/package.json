@@ -24,13 +24,7 @@
     "tsup": "^8.5.0",
     "typescript": "^5.9.2"
   },
-  "keywords": [
-    "elizaos",
-    "mongodb",
-    "database",
-    "agents",
-    "371os"
-  ],
+  "keywords": ["elizaos", "mongodb", "database", "agents", "371os"],
   "author": "371 Minds",
   "license": "MIT"
 }

@@ -5,15 +5,20 @@
  */
 
 import { posthogService } from './posthog-service';
+import { getPostHogConfig } from './posthog-config';
 
 async function testPostHogIntegration() {
   console.log('🧪 Testing PostHog Integration...');
 
   try {
-    // Initialize with mock configuration
+    // Test configuration service
+    const config = getPostHogConfig();
+    console.log('✅ PostHog configuration service:', config ? 'SUCCESS' : 'FAILED');
+    
+    // Initialize with proper configuration (mock mode)
     const initialized = await posthogService.initialize({
       apiKey: 'test-api-key',
-      enable: false, // Disable actual sending for testing
+      enable: true, // Enable but use mock mode
     });
 
     console.log(
@@ -56,10 +61,20 @@ async function testPostHogIntegration() {
     console.log('✅ PostHog shutdown:', shutdown ? 'SUCCESS' : 'FAILED');
 
     console.log('🎉 All PostHog integration tests completed!');
+    return true;
   } catch (error) {
     console.error('❌ PostHog integration test failed:', error);
+    return false;
   }
 }
 
 // Run the test
-testPostHogIntegration();
+if (require.main === module) {
+  testPostHogIntegration().then(success => {
+    if (!success) {
+      process.exit(1);
+    }
+  });
+}
+
+export default testPostHogIntegration;

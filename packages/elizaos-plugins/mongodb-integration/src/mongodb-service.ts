@@ -117,7 +117,7 @@ class MongoDB371Service {
     };
   }
 
-  async connect(useAkash: boolean = false): Promise<boolean> {
+  async connect(useAkash = false): Promise<boolean> {
     try {
       const connectionConfig = useAkash ? this.config.akash : this.config.local;
 
@@ -291,7 +291,7 @@ class MongoDB371Service {
 
   async getBusinessIntelligence(
     agentId: string,
-    limit: number = 100,
+    limit = 100,
   ): Promise<BusinessIntelligence[]> {
     if (!this.db) throw new Error('Database not connected');
 
@@ -327,7 +327,7 @@ class MongoDB371Service {
 
   async getCommunicationEvents(
     agentId: string,
-    limit: number = 100,
+    limit = 100,
   ): Promise<CommunicationEvent[]> {
     if (!this.db) throw new Error('Database not connected');
 

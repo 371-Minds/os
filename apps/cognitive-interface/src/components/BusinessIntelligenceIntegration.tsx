@@ -25,11 +25,11 @@ interface BusinessIntelligenceIntegrationProps {
 // Mock ElizaOS Business Intelligence Plugin integration
 class BusinessIntelligencePlugin {
   private endpoint: string;
-  private isConnected: boolean = false;
-  private retryCount: number = 0;
-  private maxRetries: number = 3;
+  private isConnected = false;
+  private retryCount = 0;
+  private maxRetries = 3;
 
-  constructor(endpoint: string = 'http://localhost:3000/api/elizaos') {
+  constructor(endpoint = 'http://localhost:3000/api/elizaos') {
     this.endpoint = endpoint;
   }
 

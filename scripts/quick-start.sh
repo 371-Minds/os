@@ -123,6 +123,11 @@ ELIZAOS_LOG_LEVEL=debug
 # Development Configuration
 PORT=3000
 HOST=0.0.0.0
+
+# PostHog Configuration (Optional)
+POSTHOG_ENABLE=false
+POSTHOG_API_KEY=your-posthog-api-key-here
+POSTHOG_HOST=https://app.posthog.com
 EOF
 
     chmod 600 .env

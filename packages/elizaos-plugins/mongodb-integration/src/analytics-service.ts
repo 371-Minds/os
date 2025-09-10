@@ -8,6 +8,7 @@
 import { type Collection, type Db, MongoClient } from 'mongodb';
 import { mongodb371 } from './mongodb-service';
 import { type PostHogEvent, posthogService } from './posthog-service';
+import { initializePostHog } from './posthog-init';
 
 export interface UserInteraction {
   id: string;
@@ -96,9 +97,9 @@ class AnalyticsService {
       // Create indexes for performance
       await this.createIndexes();
 
-      // Initialize PostHog service (optional)
-      // This would typically be done in a separate configuration step
-      // For now, we're just ensuring the service is available
+      // Initialize PostHog service
+      await initializePostHog();
+      
       console.log('Analytics service initialized successfully');
       return true;
     } catch (error) {
@@ -320,7 +321,7 @@ class AnalyticsService {
   // Analytics Queries
   async getUserInteractions(
     userId: string,
-    limit: number = 100,
+    limit = 100,
   ): Promise<UserInteraction[]> {
     if (!this.interactionsCollection) {
       console.error('Interactions collection not initialized');
@@ -357,7 +358,7 @@ class AnalyticsService {
 
   async getCognitiveStateHistory(
     userId: string,
-    limit: number = 50,
+    limit = 50,
   ): Promise<CognitiveStateData[]> {
     if (!this.cognitiveStatesCollection) {
       console.error('Cognitive states collection not initialized');
@@ -475,7 +476,7 @@ class AnalyticsService {
   }
 
   // Cleanup
-  async cleanupOldData(days: number = 30): Promise<number> {
+  async cleanupOldData(days = 30): Promise<number> {
     if (!this.interactionsCollection || !this.cognitiveStatesCollection) {
       console.error('Collections not initialized');
       return 0;

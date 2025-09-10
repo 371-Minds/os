@@ -83,6 +83,11 @@ PRIVATE_KEY=your-private-key-here
 AKASH_KEYRING_BACKEND=test
 AKASH_CHAIN_ID=akashnet-2
 AKASH_NODE=https://rpc.akashnet.net:443
+
+# PostHog Configuration (Optional)
+POSTHOG_ENABLE=false
+POSTHOG_API_KEY=your-posthog-api-key-here
+POSTHOG_HOST=https://app.posthog.com
 "@
 
     $defaultEnv | Out-File -FilePath ".env" -Encoding UTF8

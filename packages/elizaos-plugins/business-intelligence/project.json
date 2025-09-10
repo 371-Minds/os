@@ -18,19 +18,15 @@
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/elizaos-plugins/business-intelligence/jest.config.ts"
+        "command": "bun test {projectRoot}"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": [
-          "packages/elizaos-plugins/business-intelligence/**/*.{ts,tsx,js,jsx}"
-        ]
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
       }
     }
   }

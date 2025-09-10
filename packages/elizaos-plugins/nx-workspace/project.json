@@ -8,34 +8,24 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "packages/elizaos-plugins/nx-workspace/dist",
-        "tsConfig": "packages/elizaos-plugins/nx-workspace/tsconfig.lib.json",
-        "packageJson": "packages/elizaos-plugins/nx-workspace/package.json",
+        "outputPath": "dist/packages/elizaos-plugins/nx-workspace",
         "main": "packages/elizaos-plugins/nx-workspace/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/nx-workspace/tsconfig.lib.json",
         "assets": ["packages/elizaos-plugins/nx-workspace/*.md"]
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/elizaos-plugins/nx-workspace/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "coverageReporters": ["text"]
-        }
+        "command": "bun test {projectRoot}"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": ["packages/elizaos-plugins/nx-workspace/**/*.ts"]
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
       }
     }
   },
-  "tags": ["scope:elizaos", "type:plugin", "platform:node"]
+  "tags": ["elizaos", "plugin", "nx-workspace", "self-awareness"]
 }

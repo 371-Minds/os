@@ -15,19 +15,15 @@
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/elizaos-plugins/cognitive-engine/jest.config.ts"
+        "command": "bun test {projectRoot}"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": [
-          "packages/elizaos-plugins/cognitive-engine/**/*.ts"
-        ]
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
       }
     }
   },

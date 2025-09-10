@@ -6,6 +6,7 @@
  */
 
 import { PostHog } from 'posthog-node';
+import { getValidatedPostHogConfig, type PostHogConfig } from './posthog-config';
 
 export interface PostHogConfig {
   apiKey: string;
@@ -30,15 +31,21 @@ export interface PostHogUser {
 class PostHogService {
   private client: PostHog | null = null;
   private config: PostHogConfig | null = null;
-  private isInitialized: boolean = false;
+  private isInitialized = false;
 
   /**
    * Initialize PostHog client with configuration
    * @param config PostHog configuration
    * @returns boolean indicating success
    */
-  async initialize(config: PostHogConfig): Promise<boolean> {
+  async initialize(config?: PostHogConfig): Promise<boolean> {
     try {
+      // If no config provided, get from environment
+      const postHogConfig = config || getValidatedPostHogConfig() || {
+        apiKey: '',
+        enable: false,
+      };
+
       // Check if already initialized
       if (this.isInitialized && this.client) {
         console.log('PostHog service already initialized');
@@ -46,13 +53,13 @@ class PostHogService {
       }
 
       // Check if enabled
-      if (config.enable === false) {
+      if (postHogConfig.enable === false) {
         console.log('PostHog service disabled by configuration');
         return true;
       }
 
       // Validate API key
-      if (!config.apiKey) {
+      if (!postHogConfig.apiKey) {
         console.warn(
           'PostHog API key not provided, service will run in mock mode',
         );
@@ -60,13 +67,13 @@ class PostHogService {
       }
 
       // Create PostHog client
-      this.client = new PostHog(config.apiKey, {
-        host: config.host || 'https://app.posthog.com',
-        flushAt: config.flushAt || 20,
-        flushInterval: config.flushInterval || 10000,
+      this.client = new PostHog(postHogConfig.apiKey, {
+        host: postHogConfig.host || 'https://app.posthog.com',
+        flushAt: postHogConfig.flushAt || 20,
+        flushInterval: postHogConfig.flushInterval || 10000,
       });
 
-      this.config = config;
+      this.config = postHogConfig;
       this.isInitialized = true;
 
       console.log('PostHog service initialized successfully');

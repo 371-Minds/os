@@ -6,11 +6,17 @@
 
 import { analyticsService } from './analytics-service';
 import { posthogService } from './posthog-service';
+import { initializePostHog } from './posthog-init';
 
 async function testAnalyticsWithPostHog() {
   console.log('🧪 Testing Analytics Service with PostHog Integration...');
 
   try {
+    // Test PostHog initialization
+    process.env.POSTHOG_ENABLE = 'false'; // Disable for testing
+    const posthogInitResult = await initializePostHog();
+    console.log('✅ PostHog initialization:', posthogInitResult ? 'SUCCESS' : 'FAILED');
+    
     // Initialize PostHog with mock configuration
     const posthogInitialized = await posthogService.initialize({
       apiKey: 'test-api-key',

@@ -18,6 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "./src",
+    "types": ["bun-types"],
     "paths": {
       "@elizaos/plugin-nx-workspace": ["../../nx-workspace/src/index.ts"]
     },
@@ -27,8 +28,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    "**/*.test.ts",
-    "**/*.spec.ts",
     "../nx-workspace/**/*",
     "../cognitive-engine/**/*",
     "../universal-tool-server/**/*",

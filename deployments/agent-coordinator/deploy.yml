@@ -1,0 +1,43 @@
+---
+version: "2.0"
+
+services:
+  agent-coordinator:
+    image: ghcr.io/371-minds/agent-coordinator:latest
+    env:
+      - NODE_ENV=production
+      - COORDINATION_PORT=3001
+    expose:
+      - port: 3001
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    agent-coordinator:
+      resources:
+        cpu:
+          units: 0.25
+        memory:
+          size: 256Mi
+        storage:
+          size: 512Mi
+          
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        agent-coordinator:
+          denom: uakt
+          amount: 500
+
+deployment:
+  agent-coordinator:
+    dcloud:
+      profile: agent-coordinator
+      count: 1

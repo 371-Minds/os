@@ -214,7 +214,10 @@ export const BusinessUniverseControls: React.FC<
                     step="0.1"
                     value={controls.zoomLevel}
                     onChange={(e) =>
-                      updateControl('zoomLevel', parseFloat(e.target.value))
+                      updateControl(
+                        'zoomLevel',
+                        Number.parseFloat(e.target.value),
+                      )
                     }
                   />
                   <button onClick={() => handleZoomChange(0.2)} title="Zoom In">
@@ -239,7 +242,9 @@ export const BusinessUniverseControls: React.FC<
                   step="0.1"
                   value={controls.animationSpeed}
                   onChange={(e) =>
-                    handleAnimationSpeedChange(parseFloat(e.target.value))
+                    handleAnimationSpeedChange(
+                      Number.parseFloat(e.target.value),
+                    )
                   }
                 />
               </div>
@@ -342,7 +347,10 @@ export const BusinessUniverseControls: React.FC<
                   <select
                     value={controls.dataRefreshRate}
                     onChange={(e) =>
-                      updateControl('dataRefreshRate', parseInt(e.target.value))
+                      updateControl(
+                        'dataRefreshRate',
+                        Number.parseInt(e.target.value),
+                      )
                     }
                     disabled={!isRealTimeMode}
                   >

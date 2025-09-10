@@ -73,3 +73,22 @@ All MCP servers must include:
 For questions about MCP integration, refer to the specific documentation files or consult:
 - [371OS Main Documentation](../README.md)
 - [Implementation Guide](../IMPLEMENTATION_GUIDE.md)
+# 371 OS Documentation
+
+## Table of Contents
+
+1. [MCP Integration](#mcp-integration)
+2. [PostHog Integration](#posthog-integration)
+3. [Getting Started](#getting-started)
+
+## MCP Integration
+
+[Existing MCP integration content...]
+
+## PostHog Integration
+
+For detailed information about PostHog integration for user behavior tracking and analytics, see [PostHog Integration Guide](./posthog_integration.md).
+
+## Getting Started
+
+[Existing getting started content...]

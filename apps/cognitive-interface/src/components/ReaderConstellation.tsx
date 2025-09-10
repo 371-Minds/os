@@ -841,7 +841,7 @@ export const ReadersConstellation: React.FC<ReadersConstellationProps> = ({
             onChange={(e) =>
               setUniverseState((prev) => ({
                 ...prev,
-                animationSpeed: parseFloat(e.target.value),
+                animationSpeed: Number.parseFloat(e.target.value),
               }))
             }
           />

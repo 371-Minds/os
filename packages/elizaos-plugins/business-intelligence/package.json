@@ -36,10 +36,7 @@
   "peerDependencies": {
     "@elizaos/core": ">=1.0.0"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "files": ["dist", "README.md"],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

@@ -137,7 +137,7 @@ The 371 OS implementation is **production-quality revolutionary technology**:
 - [ ] Read latest session log in `AB/sessions/`
 - [ ] Check `AB/milestone-tracker.md` for current status
 - [ ] Review any error messages in `troubleshooting/`
-- [ ] Verify npm install completion status
+- [ ] Verify bun install completion status
 
 ### During Work:
 - [ ] Update milestone tracker with progress

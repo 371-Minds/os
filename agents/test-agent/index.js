@@ -1,7 +1,7 @@
-// 371 OS Test Agent - ElizaOS Integration Test
-import { AgentRuntime, ModelType } from '@elizaos/core';
 import fs from 'fs';
 import path from 'path';
+// 371 OS Test Agent - ElizaOS Integration Test
+import { AgentRuntime, ModelType } from '@elizaos/core';
 
 // Import our custom plugins
 // import { NxWorkspacePlugin } from '../../packages/elizaos-plugins/nx-workspace/src/index.js';

@@ -236,7 +236,10 @@ export const DeveloperGalaxyControls: React.FC<
                       step="0.1"
                       value={controls.zoomLevel}
                       onChange={(e) =>
-                        updateControl('zoomLevel', parseFloat(e.target.value))
+                        updateControl(
+                          'zoomLevel',
+                          Number.parseFloat(e.target.value),
+                        )
                       }
                     />
                     <button
@@ -459,7 +462,7 @@ export const DeveloperGalaxyControls: React.FC<
                     onChange={(e) =>
                       updateControl(
                         'animationSpeed',
-                        parseFloat(e.target.value),
+                        Number.parseFloat(e.target.value),
                       )
                     }
                   />

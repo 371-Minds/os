@@ -1,0 +1,47 @@
+{
+  "name": "elizaos-plugin-universal-tool-server",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugins/universal-tool-server/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/elizaos-plugins/universal-tool-server",
+        "main": "packages/elizaos-plugins/universal-tool-server/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/universal-tool-server/tsconfig.lib.json",
+        "assets": ["packages/elizaos-plugins/universal-tool-server/*.md"]
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun test {projectRoot}"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
+      }
+    },
+    "deploy:github": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "bun nx build elizaos-plugin-universal-tool-server"
+        ]
+      }
+    },
+    "deploy:akash:github": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "bun nx run elizaos-plugin-universal-tool-server:deploy:github"
+        ]
+      }
+    }
+  },
+  "tags": ["elizaos", "plugin", "universal-tool-server", "blockchain"]
+}

@@ -1,0 +1,45 @@
+---
+version: "2.0"
+
+services:
+  universal-tool-server:
+    image: ghcr.io/371-minds/universal-tool-server:latest
+    env:
+      - NODE_ENV=production
+      - ETHEREUM_RPC_URL
+      - REGISTRY_CONTRACT_ADDRESS
+      - IPFS_API_URL
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    universal-tool-server:
+      resources:
+        cpu:
+          units: 0.25
+        memory:
+          size: 256Mi
+        storage:
+          size: 512Mi
+          
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        universal-tool-server:
+          denom: uakt
+          amount: 500
+
+deployment:
+  universal-tool-server:
+    dcloud:
+      profile: universal-tool-server
+      count: 1

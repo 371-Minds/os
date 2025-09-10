@@ -7,8 +7,8 @@
 
 import { execSync } from 'child_process';
 import { promises as fs } from 'fs';
-import * as fsExtra from 'fs-extra';
 import { join } from 'path';
+import * as fsExtra from 'fs-extra';
 import type {
   NxAffectedProjects,
   NxBuildResults,
@@ -74,9 +74,7 @@ export class NxWorkspaceProvider {
    *
    * Executes `nx affected --base=<base>` and returns affected projects
    */
-  async findAffectedProjects(
-    base: string = 'main',
-  ): Promise<NxAffectedProjects> {
+  async findAffectedProjects(base = 'main'): Promise<NxAffectedProjects> {
     try {
       // Get affected projects as plain list
       const projectsOutput = execSync(
@@ -142,7 +140,7 @@ export class NxWorkspaceProvider {
    *
    * Executes `nx affected --target=test` and returns results
    */
-  async runTestsForAffected(base: string = 'main'): Promise<NxTestResults> {
+  async runTestsForAffected(base = 'main'): Promise<NxTestResults> {
     try {
       let overallSuccess = true;
       const projectResults: Record<string, any> = {};

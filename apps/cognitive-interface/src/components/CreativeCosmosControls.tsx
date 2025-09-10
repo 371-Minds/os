@@ -338,7 +338,9 @@ export const CreativeCosmosControls: React.FC<CreativeCosmosControlsProps> = ({
                 step="0.1"
                 value={controls.animationSpeed}
                 onChange={(e) =>
-                  updateControls({ animationSpeed: parseFloat(e.target.value) })
+                  updateControls({
+                    animationSpeed: Number.parseFloat(e.target.value),
+                  })
                 }
                 className="speed-slider"
               />

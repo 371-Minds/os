@@ -14,8 +14,8 @@
   width: 380px;
   max-height: 80vh;
   overflow-y: auto;
-  font-family:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   color: #e2e8f0;
 }

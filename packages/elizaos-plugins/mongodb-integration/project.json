@@ -15,21 +15,15 @@
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/packages/elizaos-plugins/mongodb-integration"
-      ],
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "packages/elizaos-plugins/mongodb-integration/jest.config.ts"
+        "command": "bun test {projectRoot}"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": [
-          "packages/elizaos-plugins/mongodb-integration/src/**/*.ts"
-        ]
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
       }
     }
   },

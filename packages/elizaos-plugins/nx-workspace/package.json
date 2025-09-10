@@ -9,13 +9,7 @@
     "test": "jest",
     "lint": "eslint src/**/*.ts"
   },
-  "keywords": [
-    "elizaos",
-    "plugin",
-    "nx",
-    "workspace",
-    "self-aware-agents"
-  ],
+  "keywords": ["elizaos", "plugin", "nx", "workspace", "self-aware-agents"],
   "author": "371 Minds",
   "license": "MIT",
   "peerDependencies": {

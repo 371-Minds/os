@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "types": ["bun-types"],
     "paths": {
       "@371-minds/cognitive-layer": ["packages/cognitive-layer/src/index.ts"],
       "@371-minds/shared-ui": ["packages/shared-ui/src/index.ts"],

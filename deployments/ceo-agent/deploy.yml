@@ -1,0 +1,44 @@
+---
+version: "2.0"
+
+services:
+  ceo-agent:
+    image: ghcr.io/371-minds/ceo-agent:latest
+    env:
+      - NODE_ENV=production
+      - ELIZAOS_ENVIRONMENT=production
+      - PORT=3000
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    ceo-agent:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 512Mi
+        storage:
+          size: 1Gi
+          
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        ceo-agent:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  ceo-agent:
+    dcloud:
+      profile: ceo-agent
+      count: 1

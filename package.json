@@ -35,7 +35,11 @@
     "mongodb:deploy-akash": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-mongodb-akash.ps1",
     "mongodb:connect": "node ./scripts/test-mongodb-connection.js",
     "system:start": "concurrently \"bun run mongodb:start\" \"bun run start:dev\"",
-    "system:full-start": "powershell -ExecutionPolicy Bypass -File ./scripts/full-system-start.ps1"
+    "system:full-start": "powershell -ExecutionPolicy Bypass -File ./scripts/full-system-start.ps1",
+    "deploy:github:uts": "bun nx run elizaos-plugin-universal-tool-server:deploy:github",
+    "deploy:github:ceo": "bun nx run agents/ceo-mimi:deploy:github",
+    "deploy:github:coordinator": "bun nx run agents/coordinator:deploy:github",
+    "deploy:github:all": "bun nx run-many -t deploy:github --all"
   },
   "keywords": [
     "ai-agents",
@@ -102,4 +106,3 @@
   },
   "homepage": "https://github.com/371-Minds/os#readme"
 }
- 

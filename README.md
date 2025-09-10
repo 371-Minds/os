@@ -54,7 +54,12 @@ npm run start:dev
 npm run deploy:akash
 ```
 
-### 4. **Monitor Your Revolutionary System**
+### 4. **Deploy via GitHub Deploy (Recommended)**
+```bash
+npm run deploy:github:all
+```
+
+### 5. **Monitor Your Revolutionary System**
 ```bash
 npm run health-check
 npm run cost-analysis
@@ -328,7 +333,19 @@ npm run deploy:akash
 # - Global provider network
 ```
 
-### **Option 2: Traditional Cloud (Comparison)**
+### **Option 2: GitHub Deploy to Akash (Recommended)**
+```bash
+# Deploy via GitHub Deploy feature (97.6% Cost Reduction)
+npm run deploy:github:all
+
+# Benefits:
+# - Automatic builds from GitHub repository
+# - No manual Docker image management
+# - Streamlined deployment workflow
+# - Direct integration with Akash Console
+```
+
+### **Option 3: Traditional Cloud (Comparison)**
 ```bash
 # Traditional deployment (for cost comparison)
 docker-compose up -d
@@ -339,7 +356,7 @@ docker-compose up -d
 # - Digital Ocean: $200+/month
 ```
 
-### **Option 3: Hybrid Enterprise**
+### **Option 4: Hybrid Enterprise**
 ```bash
 # Enterprise deployment with security
 ./scripts/deploy-enterprise.sh
@@ -552,6 +569,7 @@ We welcome contributions to the 371 OS ecosystem!
 - **🧪 [Testing Guide](./docs/TESTING.md)**: Testing strategies and patterns
 - **🔄 [Universal MCP Architecture](./371-os/docs/architecture/universal_mcp_architecture.md)**: Cross-platform MCP coordination framework
 - **🖥️ [Wavebox Integration (Windows-Compatible)](./AB/sessions/abideas/wavebox-universal-mcp-windows.md)**: Platform-specific integration guide
+- **🚀 [GitHub Deploy Integration](./docs/GITHUB_DEPLOY_INTEGRATION.md)**: Automated deployment to Akash Network
 
 ---
 

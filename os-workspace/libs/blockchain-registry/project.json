@@ -1,0 +1,23 @@
+{
+  "name": "blockchain-registry",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/blockchain-registry/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun run build",
+        "cwd": "libs/blockchain-registry"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun test",
+        "cwd": "libs/blockchain-registry"
+      }
+    }
+  },
+  "tags": ["library", "blockchain"]
+}

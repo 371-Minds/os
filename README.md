@@ -88,6 +88,29 @@ CLO Agent (Alex) ──┬── Legal Compliance
                    └── Regulatory Oversight
 ```
 
+### **Core Libraries Structure**
+The 371 OS project follows a well-organized Nx workspace structure with dedicated core libraries:
+
+```
+os-workspace/
+├── apps/                    # Applications
+├── agents/                  # Agent configurations
+├── packages/                # ElizaOS plugins and other packages
+├── libs/                    # Core shared libraries
+│   ├── blockchain-registry # Blockchain-based agent coordination
+│   ├── ipfs-storage        # Decentralized storage implementation
+│   └── core-types          # Shared TypeScript interfaces
+└── tools/                   # Development and deployment scripts
+```
+
+These core libraries provide foundational capabilities:
+
+1. **blockchain-registry**: Provides blockchain-based agent coordination and discovery capabilities
+2. **ipfs-storage**: Implements decentralized storage using IPFS
+3. **core-types**: Contains shared TypeScript interfaces used across multiple packages
+
+Each library is fully integrated with the Nx workspace and follows the 371 OS architecture principles of decentralization, modularity, and reusability.
+
 ### **Revolutionary Technology Stack**
 - 🏗️ **Nx Workspace**: Monorepo with affected analysis for 40x efficiency gains
 - 🔌 **ElizaOS Plugins**: Self-aware agent capabilities with workspace manipulation
@@ -570,6 +593,10 @@ We welcome contributions to the 371 OS ecosystem!
 - **🔄 [Universal MCP Architecture](./371-os/docs/architecture/universal_mcp_architecture.md)**: Cross-platform MCP coordination framework
 - **🖥️ [Wavebox Integration (Windows-Compatible)](./AB/sessions/abideas/wavebox-universal-mcp-windows.md)**: Platform-specific integration guide
 - **🚀 [GitHub Deploy Integration](./docs/GITHUB_DEPLOY_INTEGRATION.md)**: Automated deployment to Akash Network
+- **📦 [Core Libraries](./docs/CORE_LIBRARIES.md)**: Documentation for core shared libraries
+- **🔗 [Blockchain Registry](./docs/BLOCKCHAIN_REGISTRY.md)**: Detailed documentation for blockchain registry library
+- **📂 [IPFS Storage](./docs/IPFS_STORAGE.md)**: Detailed documentation for IPFS storage library
+- **🔤 [Core Types](./docs/CORE_TYPES.md)**: Detailed documentation for core types library
 
 ---
 

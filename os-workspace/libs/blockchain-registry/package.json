@@ -1,0 +1,27 @@
+{
+  "name": "@371minds/blockchain-registry",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Blockchain Registry Provider for 371 Minds OS",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "bun test"
+  },
+  "keywords": [
+    "blockchain",
+    "registry",
+    "371-minds",
+    "elizaos"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.15.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}

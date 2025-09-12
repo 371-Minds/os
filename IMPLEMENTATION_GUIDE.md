@@ -78,11 +78,55 @@ EOF
 chmod 600 .env
 ```
 
-### Step 1.3: Build Core Packages
+### Step 1.3: Core Libraries Structure
+
+The 371 OS project includes a set of core libraries that provide essential functionality:
+
+```
+os-workspace/
+├── libs/
+│   ├── blockchain-registry # Blockchain-based agent coordination
+│   ├── ipfs-storage        # Decentralized storage implementation
+│   └── core-types          # Shared TypeScript interfaces
+```
+
+These libraries are designed to be shared across different packages and provide foundational capabilities:
+
+1. **blockchain-registry**: Provides blockchain-based agent coordination and discovery capabilities
+   - Enables agents to register themselves on the blockchain
+   - Allows agents to discover other agents in a decentralized manner
+   - Integrates with Ethereum-based smart contracts
+   - Provides cryptographic verification of agent capabilities
+
+2. **ipfs-storage**: Implements decentralized storage using IPFS
+   - Allows agents to store and retrieve data in a decentralized manner
+   - Uses content addressing for immutable storage
+   - Integrates with IPFS and Web3.Storage
+   - Provides data persistence across the network
+
+3. **core-types**: Contains shared TypeScript interfaces used across multiple packages
+   - Provides consistent type definitions for agent capabilities
+   - Defines registry entries and reputation scores
+   - Ensures type safety across the 371 OS ecosystem
+   - Contains no external dependencies (pure TypeScript types)
+
+Each library includes:
+- Package definition with dependencies
+- TypeScript configuration
+- Build configuration using tsup
+- Nx project configuration for integration with the workspace
+- Documentation and examples
+- Comprehensive test suite
+
+### Step 1.4: Build Core Packages
 
 ```bash
 # Build all packages using Nx affected analysis
 npx nx affected -t build
+
+# Build all core libraries
+cd os-workspace
+bun nx run-many -t build --projects=blockchain-registry,ipfs-storage,core-types
 
 # Verify ElizaOS plugins are built
 ls -la packages/elizaos-plugins/*/dist/

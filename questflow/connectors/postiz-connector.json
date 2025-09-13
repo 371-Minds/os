@@ -1,0 +1,95 @@
+{
+  "name": "postiz-connector",
+  "description": "Connector for Postiz social media management platform",
+  "type": "api",
+  "configuration": {
+    "baseUrl": "https://api.postiz.com",
+    "apiVersion": "v1"
+  },
+  "authentication": {
+    "type": "bearer",
+    "header": "Authorization",
+    "prefix": "Bearer"
+  },
+  "endpoints": [
+    {
+      "name": "createPost",
+      "method": "POST",
+      "path": "/posts",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "platforms",
+          "type": "array",
+          "required": true
+        },
+        {
+          "name": "schedule",
+          "type": "object",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "getPost",
+      "method": "GET",
+      "path": "/posts/{postId}",
+      "parameters": [
+        {
+          "name": "postId",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "listPosts",
+      "method": "GET",
+      "path": "/posts",
+      "parameters": [
+        {
+          "name": "limit",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "schedulePost",
+      "method": "POST",
+      "path": "/posts/schedule",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "platforms",
+          "type": "array",
+          "required": true
+        },
+        {
+          "name": "scheduleTime",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "getAccounts",
+      "method": "GET",
+      "path": "/accounts",
+      "parameters": []
+    }
+  ]
+}

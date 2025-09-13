@@ -1,0 +1,65 @@
+{
+  "name": "social-media-campaign",
+  "description": "Social Media Campaign Workflow Template",
+  "version": "1.0.0",
+  "trigger": {
+    "type": "scheduled",
+    "cron": "0 9 * * 1"
+  },
+  "steps": [
+    {
+      "id": "1",
+      "name": "Generate Content Ideas",
+      "agent": "social-media-manager",
+      "action": "brainstorm_content_ideas",
+      "parameters": {
+        "topic": "{{campaign_topic}}",
+        "count": 5
+      }
+    },
+    {
+      "id": "2",
+      "name": "Create Content",
+      "agent": "social-media-manager",
+      "action": "create_content",
+      "parameters": {
+        "ideas": "{{step_1.output}}",
+        "platforms": "{{platforms}}"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Schedule Posts",
+      "agent": "social-media-manager",
+      "action": "schedule_posts",
+      "parameters": {
+        "content": "{{step_2.output}}",
+        "platforms": "{{platforms}}",
+        "schedule": "{{posting_schedule}}"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Monitor Engagement",
+      "agent": "social-media-manager",
+      "action": "monitor_engagement",
+      "parameters": {
+        "post_ids": "{{step_3.output.post_ids}}",
+        "duration": "7 days"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Generate Report",
+      "agent": "social-media-manager",
+      "action": "generate_report",
+      "parameters": {
+        "engagement_data": "{{step_4.output}}",
+        "campaign_name": "{{campaign_name}}"
+      }
+    }
+  ],
+  "outputs": {
+    "report": "{{step_5.output}}"
+  }
+}

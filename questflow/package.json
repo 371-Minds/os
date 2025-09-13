@@ -13,9 +13,10 @@
     "setup": "bun scripts/setup-371os.js",
     "test:unit": "bun test tests/unit",
     "test:integration": "bun test tests/integration",
-    "docs": "bun scripts/generate-docs.js"
+    "docs": "bun scripts/generate-docs.js",
+    "test:postiz": "bun scripts/test-postiz.js"
   },
-  "keywords": ["ai", "workflow", "automation", "agents", "371os", "elizaos"],
+  "keywords": ["ai", "workflow", "automation", "agents", "371os", "elizaos", "postiz"],
   "author": "QuestFlow Team",
   "license": "MIT",
   "dependencies": {

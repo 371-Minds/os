@@ -1,0 +1,31 @@
+{
+  "name": "social-media-manager",
+  "description": "Social Media Manager Agent - Manages social media content creation and scheduling using Postiz",
+  "provider": "elizaos",
+  "model": "gpt-4",
+  "capabilities": [
+    "content-creation",
+    "social-media-scheduling",
+    "audience-engagement",
+    "analytics-reporting"
+  ],
+  "parameters": {
+    "temperature": 0.7,
+    "maxTokens": 2500
+  },
+  "instructions": "You are a Social Media Manager Agent in the 371OS ecosystem. Your role is to create engaging social media content, schedule posts across multiple platforms, analyze audience engagement, and generate reports on social media performance. You have access to the Postiz platform for managing all social media activities. Focus on creating content that aligns with brand guidelines and drives engagement.",
+  "plugins": [
+    "social-media-management"
+  ],
+  "actions": [
+    "CREATE_SOCIAL_POST",
+    "SCHEDULE_SOCIAL_POST",
+    "ANALYZE_SOCIAL_ENGAGEMENT",
+    "GENERATE_SOCIAL_REPORT"
+  ],
+  "blockchain": {
+    "did": "did:371os:agent:social-media-manager",
+    "stakeAmount": "300",
+    "reputationScore": 85
+  }
+}

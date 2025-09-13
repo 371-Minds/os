@@ -1,8 +1,10 @@
 // QuestFlow Orchestrator - Manages workflow execution and coordination
+import { PostizManager } from './agents/postiz-manager.js';
 
 export class QuestFlowOrchestrator {
-  constructor() {
+  constructor(config) {
     // Initialize orchestrator
+    this.postizManager = new PostizManager(config);
   }
 
   async getActiveWorkflows() {
@@ -21,6 +23,13 @@ export class QuestFlowOrchestrator {
         status: 'pending',
         progress: 0,
         startTime: null
+      },
+      {
+        id: 'workflow-3',
+        name: 'Social Media Campaign',
+        status: 'scheduled',
+        progress: 0,
+        startTime: null
       }
     ];
   }
@@ -35,5 +44,75 @@ export class QuestFlowOrchestrator {
       message: 'Deployment to Akash initiated successfully',
       config: deploymentConfig
     };
+  }
+
+  async createSocialMediaPost(content, platforms) {
+    try {
+      const result = await this.postizManager.createPost(content, platforms);
+      return {
+        success: true,
+        postId: result.id,
+        message: 'Social media post created successfully',
+        details: result
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+        message: 'Failed to create social media post'
+      };
+    }
+  }
+
+  async scheduleSocialMediaPost(content, platforms, scheduleTime) {
+    try {
+      const result = await this.postizManager.schedulePost(content, platforms, scheduleTime);
+      return {
+        success: true,
+        postId: result.id,
+        message: 'Social media post scheduled successfully',
+        details: result
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+        message: 'Failed to schedule social media post'
+      };
+    }
+  }
+
+  async getSocialMediaAccounts() {
+    try {
+      const accounts = await this.postizManager.getAccounts();
+      return {
+        success: true,
+        accounts: accounts,
+        message: 'Social media accounts retrieved successfully'
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+        message: 'Failed to retrieve social media accounts'
+      };
+    }
+  }
+
+  async listSocialMediaPosts(limit = 10, offset = 0) {
+    try {
+      const posts = await this.postizManager.listPosts(limit, offset);
+      return {
+        success: true,
+        posts: posts,
+        message: 'Social media posts retrieved successfully'
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+        message: 'Failed to retrieve social media posts'
+      };
+    }
   }
 }

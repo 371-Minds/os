@@ -2,6 +2,12 @@
 
 QuestFlow is an AI workflow automation platform that enables users to orchestrate multiple AI agents in collaborative workflows, specifically integrated with the 371OS Autonomous Agent Operating System.
 
+## API Server
+
+QuestFlow now includes a RESTful API server for integrating with the 371-Minds/os project. The server provides endpoints for workflow management, C-Suite agent coordination, and Akash Network deployments.
+
+For detailed API documentation, see [API Server Documentation](docs/api-server.md).
+
 ## Folder Structure
 
 ```
@@ -49,9 +55,11 @@ Connectors enable integration with external services and APIs, allowing agents t
 
 ## Development
 
-- Run tests: `npm test`
-- Run unit tests: `npm run test:unit`
-- Run integration tests: `npm run test:integration`
+- Run tests: `bun test`
+- Run unit tests: `bun test:unit`
+- Run integration tests: `bun test:integration`
+- Run API server: `bun run serve`
+- Run API server in development mode: `bun run dev`
 
 ## Examples
 

@@ -1,0 +1,16 @@
+{
+  "name": "data-analyst-agent",
+  "description": "An agent specialized in data analysis tasks",
+  "provider": "openai",
+  "model": "gpt-4",
+  "capabilities": [
+    "data-analysis",
+    "statistical-modeling",
+    "insight-generation"
+  ],
+  "parameters": {
+    "temperature": 0.3,
+    "maxTokens": 2000
+  },
+  "instructions": "You are an expert data analyst. Your role is to analyze data, identify patterns, and generate insights. Always provide clear explanations for your findings and use appropriate statistical methods."
+}

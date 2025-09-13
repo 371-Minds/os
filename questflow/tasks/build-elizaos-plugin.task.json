@@ -1,0 +1,29 @@
+{
+  "name": "build-elizaos-plugin",
+  "description": "Task for building ElizaOS plugins in the 371OS workspace",
+  "agent": "technical-agent",
+  "action": "execute_command",
+  "parameters": {
+    "command": "bun nx build {pluginName}",
+    "workingDirectory": "../os-workspace",
+    "environment": {
+      "NODE_ENV": "production"
+    }
+  },
+  "validation": {
+    "successIndicators": [
+      "Build completed successfully",
+      "Bundle size:"
+    ],
+    "failureIndicators": [
+      "Build failed",
+      "Error:",
+      "Cannot find module"
+    ]
+  },
+  "timeout": 300000,
+  "retry": {
+    "maxAttempts": 3,
+    "backoff": "exponential"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "appName": "QuestFlow-371OS",
+  "version": "1.0.0",
+  "environment": "development",
+  "logging": {
+    "level": "info",
+    "format": "json"
+  },
+  "agents": {
+    "defaultProvider": "elizaos",
+    "timeout": 30000
+  },
+  "workflows": {
+    "executionTimeout": 300000,
+    "maxRetries": 3
+  },
+  "integration": {
+    "elizaos": {
+      "pluginsPath": "../os-workspace/packages",
+      "agentsPath": "../os-workspace/agents"
+    },
+    "blockchain": {
+      "registryAddress": "0x0000000000000000000000000000000000000000",
+      "network": "ethereum"
+    },
+    "akash": {
+      "deploymentUrl": "https://akash.network"
+    }
+  }
+}

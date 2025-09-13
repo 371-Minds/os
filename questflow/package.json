@@ -1,0 +1,23 @@
+{
+  "name": "questflow-371os",
+  "version": "1.0.0",
+  "description": "QuestFlow AI Workflow Automation Platform for 371OS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "setup": "node scripts/setup-371os.js",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "docs": "node scripts/generate-docs.js"
+  },
+  "keywords": ["ai", "workflow", "automation", "agents", "371os", "elizaos"],
+  "author": "QuestFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

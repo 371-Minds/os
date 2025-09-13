@@ -1,0 +1,40 @@
+{
+  "workflowId": "example-workflow-execution-001",
+  "workflowName": "example-workflow",
+  "startTime": "2025-09-13T12:00:00Z",
+  "endTime": "2025-09-13T12:05:00Z",
+  "status": "completed",
+  "steps": [
+    {
+      "id": "step-1",
+      "name": "Data Collection",
+      "status": "completed",
+      "startTime": "2025-09-13T12:00:00Z",
+      "endTime": "2025-09-13T12:01:30Z",
+      "result": {
+        "dataCount": 150
+      }
+    },
+    {
+      "id": "step-2",
+      "name": "Data Analysis",
+      "status": "completed",
+      "startTime": "2025-09-13T12:01:30Z",
+      "endTime": "2025-09-13T12:04:15Z",
+      "result": {
+        "insights": ["Trend A", "Pattern B"]
+      }
+    },
+    {
+      "id": "step-3",
+      "name": "Report Generation",
+      "status": "completed",
+      "startTime": "2025-09-13T12:04:15Z",
+      "endTime": "2025-09-13T12:05:00Z",
+      "result": {
+        "reportId": "report-001",
+        "format": "pdf"
+      }
+    }
+  ]
+}

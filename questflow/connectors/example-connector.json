@@ -1,0 +1,48 @@
+{
+  "name": "elizaos-core-connector",
+  "description": "Connector for ElizaOS core services in 371OS",
+  "type": "library",
+  "configuration": {
+    "basePath": "../os-workspace",
+    "pluginsPath": "../os-workspace/packages",
+    "agentsPath": "../os-workspace/agents"
+  },
+  "endpoints": [
+    {
+      "name": "loadAgent",
+      "method": "GET",
+      "path": "/agents/{agentId}",
+      "parameters": [
+        {
+          "name": "agentId",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "executePlugin",
+      "method": "POST",
+      "path": "/plugins/{pluginName}/execute",
+      "parameters": [
+        {
+          "name": "pluginName",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "buildProject",
+      "method": "POST",
+      "path": "/build",
+      "parameters": [
+        {
+          "name": "projectName",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

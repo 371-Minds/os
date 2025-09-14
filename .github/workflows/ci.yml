@@ -51,6 +51,10 @@ jobs:
       # Run Cucumber BDD feature tests
       - name: Run BDD feature tests
         run: npx cucumber-js specs/tasks.feature --require tests/bdd
+
+      # Run ci/cd validation step - If config is invalid (wrong type, missing env, invalid Mongo URI, etc.), CI will fail before tests.
+      - name: Validate configuration
+        run: npx ts-node -e "require('./libs/agents-core/src/config').loadConfig()"
         
       # Run QA agent in mock mode for speed
       - name: Run QA Agent (mock mode)

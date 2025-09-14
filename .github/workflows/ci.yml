@@ -52,3 +52,13 @@ jobs:
     # Run the post step to save the cache even if another step before fails
     save-always: # optional, default is false
           
+Extend Later
+
+You can enhance this pipeline with:
+
+Contract Validation → check code matches openapi.yaml
+(using swagger-cli validate specs/openapi.yaml)
+
+BDD Tests Execution → run cucumber-js on tasks.feature if you want direct Gherkin-based testing
+
+Security Scans → npm audit or snyk integration

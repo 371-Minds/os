@@ -51,9 +51,30 @@ jobs:
       # Run Cucumber BDD feature tests
       - name: Run BDD feature tests
         run: npx cucumber-js specs/tasks.feature --require tests/bdd
+        
+      # Run QA agent in mock mode for speed
+      - name: Run QA Agent (mock mode)
+        run: QA_USE_MOCKS=true npx nx serve qa-agent
 
+      # And in staging/prod pipelines, run in live mode
+      - name: Run QA Agent (live mode)
+        run: QA_USE_MOCKS=false npx nx serve qa-agent
 
- 
+      # Run QA agent in mock mode-local
+      run: QA_USE_MOCKS=true npx nx serve qa-agent
+
+      # Run against live MongoDB + Akash:-local
+      run: QA_USE_MOCKS=false npx nx serve qa-agent
+        
+ Benefits
+
+Fast CI/CD → QA agent uses mocks, runs entirely offline.
+
+Spec compliance guaranteed → Biome + Cucumber still validate OpenAPI + BDD.
+
+Seamless switch → one env var lets QA agent run against real infra for staging/prod.
+
+No code duplication → agents-core exports both real + mocked services.
 🔁 How It Works
 
 Build step → Nx compiles libs/agents-core first, then API + agents.

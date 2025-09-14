@@ -36,6 +36,10 @@ jobs:
       - name: Run Biome tests
         run: npx nx run-many -t test --all --skip-nx-cache --exclude=api
 
+      - name: Run Agents-Core Biome tests (unit)
+        run: npx nx test agents-core
+
+
       # Run Jest integration tests for API only
       - name: Run API integration tests
         run: npx nx test api
@@ -72,7 +76,15 @@ CI guarantees spec compliance + contract testing + BDD validation.
 
 Scales easily when you add new agents (nx run-many auto-includes them).
 
-             
+Benefits
+
+Mocks → no live MongoDB or Akash needed in CI/CD.
+
+Biome runs unit tests + lint + format in one tool.
+
+Jest still covers API integration (Supertest).
+
+Cucumber covers BDD feature compliance.             
 
 You can enhance this pipeline with:
 

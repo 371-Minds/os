@@ -85,6 +85,17 @@ If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
           NODE_ENV: ci
           MONGO_URI: "mongodb://mongo:27017"
           DB_NAME: "taskdb"
+
+      - name: Run Jest integration tests (API with in-memory DB)
+        run: npx nx test api
+        env:
+          NODE_ENV: test
+
+
+
+
+
+
 Benefits
 
 Unified config system across API + agents.

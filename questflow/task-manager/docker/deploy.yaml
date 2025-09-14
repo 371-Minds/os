@@ -2,6 +2,32 @@
 
 akash tx deployment create docker/deploy.yaml --from your-wallet
 
+///Nx Integration
+
+Add an api app to your workspace with:
+
+npx nx generate @nrwl/node:application api
+
+Copy And Save
+Share
+Ask Copilot
+
+Place Express code in apps/api/.
+
+Specs remain in /specs.
+
+Use Nx for builds, linting, and test orchestration.
+
+6. CI/CD (Nx + Akash)
+
+Extend .github/workflows/ci.yml with:
+
+Nx build/test
+
+Docker build/push to Docker Hub or GHCR
+
+Akash deploy step (akash tx deployment update)
+
 version: "2.0"
 
 services:

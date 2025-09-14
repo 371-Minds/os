@@ -96,6 +96,17 @@ If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
         env:
           NODE_ENV: test
 
+  staging-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy to Akash (staging mode)
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: staging
+          AKASH_WALLET: ${{ secrets.AKASH_STAGING_WALLET }}
 
 
 

@@ -1,0 +1,5 @@
+env: staging
+mongoUri: mongodb://mongo:27017
+dbName: taskdb
+akashWallet: staging-wallet
+qaUseMocks: false

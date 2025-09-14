@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Manager Config",
+  "type": "object",
+  "properties": {
+    "env": {
+      "type": "string",
+      "enum": ["development", "test", "ci", "staging", "production"]
+    },
+    "mongoUri": { "type": "string", "pattern": "^mongodb://" },
+    "dbName": { "type": "string" },
+    "akashWallet": { "type": "string" },
+    "qaUseMocks": { "type": "boolean" },
+    "akashProfile": {
+      "type": "string",
+      "enum": ["minimal", "standard", "high"],
+      "description": "Resource profile for Akash deployment"
+    }
+  },
+  "required": ["env"],
+  "additionalProperties": false
+}

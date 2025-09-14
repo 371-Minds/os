@@ -1,0 +1,4 @@
+resources:
+  cpu: 0.1
+  memory: 0.25Gi
+  disk: 1Gi

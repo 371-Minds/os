@@ -1,5 +1,17 @@
 Nx Project Definitions (workspace.json additions)
 
+How It Works
+
+apps/api → Task Manager API (Express + MongoDB on Akash).
+
+apps/agents/code-mern → AI agent for MERN stack automation.
+
+apps/agents/code-t3 → AI agent for T3 stack automation.
+
+apps/agents/qa → QA/testing agent (runs specs).
+
+apps/agents/deploy → Deployment orchestrator (handles Akash deployments).
+
 Here’s an example you’d add to workspace.json for the API and agents:
 
 {

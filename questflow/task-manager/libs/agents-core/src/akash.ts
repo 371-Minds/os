@@ -3,19 +3,16 @@ import { logInfo, logSuccess, logError } from "./logger.js";
 import { deployToAkashMock } from "./akash-mock.js";
 import { loadConfig } from "./config.js";
 import fs from "fs";
+import yaml from "js-yaml";
 
-function adjustDeployFileForStaging(deployFile: string, profile: string) {
-  const stagingFile = deployFile.replace(".yaml", `.staging.yaml`);
-  let content = fs.readFileSync(deployFile, "utf8");
+function mergeYaml(baseFile: string, overrideFile: string, outFile: string) {
+  const base = yaml.load(fs.readFileSync(baseFile, "utf8"));
+  const override = yaml.load(fs.readFileSync(overrideFile, "utf8"));
 
-  if (profile === "minimal") {
-    content = content.replace(/cpu: \d+/g, "cpu: 0.1");
-    content = content.replace(/memory: \d+Gi/g, "memory: 0.25Gi");
-    content = content.replace(/disk: \d+Gi/g, "disk: 1Gi");
-  }
-
-  fs.writeFileSync(stagingFile, content);
-  return stagingFile;
+  // Deep merge: override resources
+  const merged = { ...base, ...override };
+  fs.writeFileSync(outFile, yaml.dump(merged));
+  return outFile;
 }
 
 export function deployToAkash(deployFile: string, wallet: string) {
@@ -27,9 +24,16 @@ export function deployToAkash(deployFile: string, wallet: string) {
 
   let fileToDeploy = deployFile;
 
-  if (config.env === "staging") {
-    fileToDeploy = adjustDeployFileForStaging(deployFile, config.akashProfile || "minimal");
-    logInfo(`📦 Adjusted deployment file for staging: ${fileToDeploy}`);
+  if (config.akashProfile) {
+    const profileFile = `docker/profiles/${config.akashProfile}.yaml`;
+    if (fs.existsSync(profileFile)) {
+      const stagingFile = deployFile.replace(".yaml", `.${config.akashProfile}.yaml`);
+      fileToDeploy = mergeYaml(deployFile, profileFile, stagingFile);
+      logInfo(`📦 Applied profile '${config.akashProfile}': ${fileToDeploy}`);
+    } else {
+      logError(`Profile file not found: ${profileFile}`);
+      process.exit(1);
+    }
   }
 
   try {
@@ -44,5 +48,3 @@ export function deployToAkash(deployFile: string, wallet: string) {
     throw err;
   }
 }
-
-

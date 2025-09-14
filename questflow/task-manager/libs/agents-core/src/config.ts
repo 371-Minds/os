@@ -1,3 +1,5 @@
+// Modify libs/agents-core/src/config.ts to detect mock:// URIs and load a memory DB.
+
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";

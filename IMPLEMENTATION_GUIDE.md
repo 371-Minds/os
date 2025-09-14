@@ -476,7 +476,7 @@ secretless-broker -f config/security/secretless.yml &
 sleep 5
 
 # Start agents with security context
-npm run start:agents:production
+bun run start:agents:production
 
 echo "🔒 Agents started with enterprise security enabled"
 EOF
@@ -516,12 +516,12 @@ EOF
 
 ```bash
 # Start all agents locally for testing
-npm run start:dev
+bun run start:dev
 
 # Or start individual agents
-npm run start:ceo
-npm run start:cto
-npm run start:coordinator
+bun run start:ceo
+bun run start:cto
+bun run start:coordinator
 ```
 
 ### Step 6.2: Test Agent Coordination
@@ -686,7 +686,7 @@ chmod +x scripts/cost-analysis.sh
 
 ```bash
 # 1. Final system check
-npm run test:integration
+bun run test:integration
 ./scripts/monitor.sh
 ./scripts/cost-analysis.sh
 
@@ -697,7 +697,7 @@ akash tx deployment create deploy.yml --from main --node https://rpc.akashnet.ne
 # Point your domain to the Akash provider URI
 
 # 4. Enable production monitoring
-npm run start:monitoring:production
+bun run start:monitoring:production
 
 # 5. Announce agents are live
 echo "🎉 371 OS is now LIVE with autonomous agents coordinating via blockchain!"

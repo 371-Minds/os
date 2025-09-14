@@ -1,5 +1,3 @@
-///run Biome first, then Jest (integration), then specs:
-
 name: CI - Task Manager API & Agents
 
 on:
@@ -20,137 +18,54 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          bun-version: latest
 
       - name: Install dependencies
-        run: npm install
+        run: bun install
 
       # Lint everything with Biome
       - name: Lint all projects
-        run: npx nx run-many -t lint --all
+        run: bun nx run-many -t lint --all
 
       # Run Biome tests (agents + libs)
       - name: Run Biome tests
-        run: npx nx run-many -t test --all --skip-nx-cache --exclude=api
+        run: bun nx run-many -t test --all --skip-nx-cache --exclude=api
 
       - name: Run Agents-Core Biome tests (unit)
-        run: npx nx test agents-core
+        run: bun nx test agents-core
 
-
-      # Run Jest integration tests for API only
+      # Run Bun integration tests for API only
       - name: Run API integration tests
-        run: npx nx test api
+        run: bun nx test api
 
       # Validate OpenAPI spec
       - name: Validate OpenAPI spec
-        run: npx swagger-cli validate specs/openapi.yaml
+        run: bun swagger-cli validate specs/openapi.yaml
 
       # Run Cucumber BDD feature tests
       - name: Run BDD feature tests
-        run: npx cucumber-js specs/tasks.feature --require tests/bdd
+        run: bun cucumber-js specs/tasks.feature --require tests/bdd
 
       # Run ci/cd validation step - If config is invalid (wrong type, missing env, invalid Mongo URI, etc.), CI will fail before tests.
       - name: Validate configuration
-        run: npx ts-node -e "require('./libs/agents-core/src/config').loadConfig()"
+        run: bun run -e "import('./libs/agents-core/src/config.ts').then(m => m.loadConfig())"
         
       # Run QA agent in mock mode for speed
       - name: Run QA Agent (mock mode)
-        run: QA_USE_MOCKS=true npx nx serve qa-agent
+        run: QA_USE_MOCKS=true bun nx serve qa-agent
 
       # And in staging/prod pipelines, run in live mode
       - name: Run QA Agent (live mode)
-        run: QA_USE_MOCKS=false npx nx serve qa-agent
+        run: QA_USE_MOCKS=false bun nx serve qa-agent
 
-      # Run QA agent in mock mode-local
-      run: QA_USE_MOCKS=true npx nx serve qa-agent
-
-      # Run against live MongoDB + Akash:-local
-      run: QA_USE_MOCKS=false npx nx serve qa-agent
-
-            - name: Deploy to Akash
-        run: npx nx serve deploy-agent
+      - name: Deploy to Akash
+        run: bun nx serve deploy-agent
         env:
           NODE_ENV: production
           AKASH_WALLET: ${{ secrets.AKASH_WALLET }}
-
-This ensures the wallet is passed securely from GitHub Secrets.
-If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
-
-      - name: Start API (with validated config)
-        run: npx nx serve api
-        env:
-          NODE_ENV: ci
-          MONGO_URI: "mongodb://mongo:27017"
-          DB_NAME: "taskdb"
-
-      - name: Run Jest integration tests (API with in-memory DB)
-        run: npx nx test api
-        env:
-          NODE_ENV: test
-
-      - name: Run Deploy Agent in mock mode
-        run: npx nx serve deploy-agent
-        env:
-          NODE_ENV: test
-
-  staging-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm install
-      - name: Deploy to Akash (staging mode)
-        run: npx nx serve deploy-agent
-        env:
-          NODE_ENV: staging
-          AKASH_WALLET: ${{ secrets.AKASH_STAGING_WALLET }}
-
-      - name: Deploy to Akash (staging)
-        run: npx nx serve deploy-agent
-        env:
-          NODE_ENV: staging
-          AKASH_WALLET: ${{ secrets.AKASH_STAGING_WALLET }}
-
-      - name: Deploy to Akash (production)
-        run: npx nx serve deploy-agent
-        env:
-          NODE_ENV: production
-          AKASH_WALLET: ${{ secrets.AKASH_PROD_WALLET }}
-
-      - name: Deploy to Akash (production)
-        run: npx nx serve deploy-agent
-        env:
-          NODE_ENV: production
-          AKASH_WALLET: ${{ secrets.AKASH_PROD_WALLET }}
-
-name: CI - Task Manager API & Agents
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npx nx run-many -t lint --all
-      - run: npx nx run-many -t test --all --exclude=api
-      - run: npx nx test api
-      - run: npx swagger-cli validate specs/openapi.yaml
-      - run: npx cucumber-js specs/tasks.feature --require tests/bdd
 
   deploy:
     runs-on: ubuntu-latest
@@ -170,87 +85,15 @@ jobs:
             akash_profile: high
     steps:
       - uses: actions/checkout@v3
-      - run: npm install
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - run: bun install
 
       - name: Deploy with Deploy Agent
-        run: npx nx serve deploy-agent
+        run: bun nx serve deploy-agent
         env:
           NODE_ENV: ${{ matrix.env }}
           AKASH_WALLET: ${{ matrix.akash_wallet }}
           AKASH_PROFILE: ${{ matrix.akash_profile }}
-
-
-
-Benefits
-
-Unified config system across API + agents.
-
-Schema validation before DB connection (no accidental misconfig).
-
-Fail-fast API startup → prevents silent runtime errors.
-
-Easier ops → same config.yaml/json drives API, QA, and Deploy.
-
-Profiles as YAML templates → no need to edit base deploy.yaml.
-
-Config-driven → set akashProfile: minimal|standard|high.
-
-Safe staging → runs real deploys but with minimal cost.
-
-Production-ready → high resources only when env=production.
-        
- Benefits
-
-Fast CI/CD → QA agent uses mocks, runs entirely offline.
-
-Spec compliance guaranteed → Biome + Cucumber still validate OpenAPI + BDD.
-
-Seamless switch → one env var lets QA agent run against real infra for staging/prod.
-
-No code duplication → agents-core exports both real + mocked services.
-🔁 How It Works
-
-Build step → Nx compiles libs/agents-core first, then API + agents.
-
-This ensures agents can’t run without a valid, built agents-core.
-
-Test step → Runs all tests (API unit/integration, library tests, etc.).
-
-Spec validation → Confirms openapi.yaml is valid.
-
-BDD execution → Runs Cucumber against tasks.feature.
-
-✅ Benefits
-
-No agent can run with a broken agents-core.
-
-agents-core acts as a single source of utilities, tested independently.
-
-CI guarantees spec compliance + contract testing + BDD validation.
-
-Scales easily when you add new agents (nx run-many auto-includes them).
-
-Benefits
-
-Mocks → no live MongoDB or Akash needed in CI/CD.
-
-Biome runs unit tests + lint + format in one tool.
-
-Jest still covers API integration (Supertest).
-
-Cucumber covers BDD feature compliance.             
-
-You can enhance this pipeline with:
-
-Contract Validation → check code matches openapi.yaml
-(using swagger-cli validate specs/openapi.yaml)
-
-BDD Tests Execution → run cucumber-js on tasks.feature if you want direct Gherkin-based testing
-
-Security Scans → npm audit or snyk integration
-
-Nx build/test
-
-Docker build/push to Docker Hub or GHCR
-
-Akash deploy step (akash tx deployment update)

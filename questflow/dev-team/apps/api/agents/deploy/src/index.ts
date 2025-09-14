@@ -1,4 +1,4 @@
-import { deployToAkash, loadConfig, logInfo, logSuccess, logError } from "@myorg/agents-core";
+import { deployToAkash, loadConfig, logInfo, logSuccess, logError } from "../../../../../libs/agents-core/src/index.ts";
 
 function main() {
   logInfo("🤖 Deploy Agent starting...");
@@ -27,4 +27,3 @@ function main() {
 }
 
 main();
-

@@ -13,9 +13,6 @@
     "ignore": ["dist", "coverage"]
   },
   "test": {
-    "include": ["src/**/*.test.ts", "src/**/__tests__/**/*.ts"],
-    "globals": {
-      "ts-jest": true
-    }
+    "include": ["src/**/*.test.ts", "src/**/__tests__/**/*.ts"]
   }
 }

@@ -46,23 +46,23 @@ cd os
 
 ### 2. **Start Agents Locally**
 ```bash
-npm run start:dev
+bun run start:dev
 ```
 
 ### 3. **Deploy to Akash Network (97.6% Cost Reduction)**
 ```bash
-npm run deploy:akash
+bun run deploy:akash
 ```
 
 ### 4. **Deploy via GitHub Deploy (Recommended)**
 ```bash
-npm run deploy:github:all
+bun run deploy:github:all
 ```
 
 ### 5. **Monitor Your Revolutionary System**
 ```bash
-npm run health-check
-npm run cost-analysis
+bun run health-check
+bun run cost-analysis
 ```
 
 ---
@@ -110,6 +110,16 @@ These core libraries provide foundational capabilities:
 3. **core-types**: Contains shared TypeScript interfaces used across multiple packages
 
 Each library is fully integrated with the Nx workspace and follows the 371 OS architecture principles of decentralization, modularity, and reusability.
+
+In addition to the core workspace, the project includes specialized implementations:
+
+```
+questflow/
+├── dev-team/               # Internal development team tools and support
+└── ...                     # Other QuestFlow components
+```
+
+The `dev-team/` directory contains internal tooling and development support for the QuestFlow platform implementation, including agent development frameworks, spec-driven development workflows, and deployment automation tools.
 
 ### **Revolutionary Technology Stack**
 - 🏗️ **Nx Workspace**: Monorepo with affected analysis for 40x efficiency gains
@@ -195,17 +205,17 @@ chmod +x scripts/quick-start.sh
 ### **Manual Setup**
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Build packages
-npm run build
+bun run build
 
 # Setup environment
 cp .env.example .env
 # Edit .env with your configuration
 
 # Start development environment
-npm run start:dev
+bun run start:dev
 ```
 
 ---
@@ -348,7 +358,7 @@ bun run format          # Code formatting (Biome formatting)
 ### **Option 1: Akash Network (97.6% Cost Reduction)**
 ```bash
 # Automated Akash deployment
-npm run deploy:akash
+bun run deploy:akash
 
 # Expected results:
 # - $20/month → $0.48/month (97.6% reduction)
@@ -359,7 +369,7 @@ npm run deploy:akash
 ### **Option 2: GitHub Deploy to Akash (Recommended)**
 ```bash
 # Deploy via GitHub Deploy feature (97.6% Cost Reduction)
-npm run deploy:github:all
+bun run deploy:github:all
 
 # Benefits:
 # - Automatic builds from GitHub repository
@@ -505,10 +515,10 @@ curl -X POST http://localhost:3000/agent/action \
   -d '{"action": "ANALYZE_WORKSPACE"}'
 
 # Test blockchain integration
-npm run test:blockchain
+bun run test:blockchain
 
 # Test Akash deployment
-npm run test:akash-local
+bun run test:akash-local
 ```
 
 ---
@@ -518,13 +528,13 @@ npm run test:akash-local
 ### **Real-Time Monitoring**
 ```bash
 # System health check
-npm run health-check
+bun run health-check
 
 # Cost analysis  
-npm run cost-analysis
+bun run cost-analysis
 
 # Akash deployment monitoring
-npm run monitor:akash
+bun run monitor:akash
 ```
 
 ### **Performance Dashboard**

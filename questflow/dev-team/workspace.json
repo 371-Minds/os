@@ -1,0 +1,130 @@
+{
+  "version": 2,
+  "projects": {
+    "api": {
+      "root": "apps/api",
+      "projectType": "application",
+      "sourceRoot": "apps/api/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:tsc",
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "buildTarget": "api:build",
+            "port": 3000
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test apps/api"
+          }
+        }
+      }
+    },
+    "code-mern-agent": {
+      "root": "apps/agents/code-mern",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/code-mern/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/code-mern/src/index.ts"
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test apps/agents/code-mern"
+          }
+        }
+      }
+    },
+    "code-t3-agent": {
+      "root": "apps/agents/code-t3",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/code-t3/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/code-t3/src/index.ts"
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test apps/agents/code-t3"
+          }
+        }
+      }
+    },
+    "qa-agent": {
+      "root": "apps/agents/qa",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/qa/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/qa/src/index.ts"
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test apps/agents/qa"
+          }
+        }
+      }
+    },
+    "deploy-agent": {
+      "root": "apps/agents/deploy",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/deploy/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/deploy/src/index.ts"
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test apps/agents/deploy"
+          }
+        }
+      }
+    },
+    "agents-core": {
+      "root": "libs/agents-core",
+      "projectType": "library",
+      "sourceRoot": "libs/agents-core/src",
+      "targets": {
+        "lint": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bunx @biomejs/biome check libs/agents-core"
+          }
+        },
+        "format": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bunx @biomejs/biome format libs/agents-core --write"
+          }
+        },
+        "test": {
+          "executor": "nx:run-commands",
+          "options": {
+            "command": "bun test libs/agents-core"
+          }
+        }
+      }
+    }
+  }
+}

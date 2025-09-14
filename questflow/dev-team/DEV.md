@@ -1,4 +1,4 @@
-📘 Developer Guide – Spec-Driven Nx + Akash System
+📘 Developer Guide – Spec-Driven Nx + Akash System for QuestFlow Dev Team
 
 1. Core Idea
 
@@ -13,7 +13,7 @@ Agents (like code-mern, code-t3, qa, deploy) consume these specs to generate, te
 
 2. Repo Layout
 apps/
-  api/                # Task Manager API (Express + MongoDB)
+  api/                # QuestFlow API (Express + MongoDB)
   agents/
     code-mern/        # AI coder for MERN stack
     code-t3/          # AI coder for T3 stack
@@ -55,7 +55,7 @@ Action: Runs tests:
 
 Biome (unit tests for agents/libs, fast).
 
-Jest + Supertest (integration tests for API).
+Bun Test + Supertest (integration tests for API).
 
 Cucumber (executes tasks.feature).
 
@@ -98,7 +98,7 @@ Required: env + optional mongoUri, dbName, akashWallet, akashProfile.
 Example config.staging.yaml
 env: staging
 mongoUri: mongodb://mongo:27017
-dbName: taskdb_staging
+dbName: questflow_staging
 akashWallet: staging-wallet
 akashProfile: minimal
 qaUseMocks: false
@@ -118,13 +118,13 @@ Deploy Agent merges base deploy.yaml with the profile.
 6. CI/CD Workflow
 Pipeline Steps
 
-Lint + Unit Tests → npx nx run-many -t lint test --all
+Lint + Unit Tests → bun nx run-many -t lint test --all
 
-Integration Tests (API) → npx nx test api
+Integration Tests (API) → bun nx test api
 
-OpenAPI Validation → npx swagger-cli validate specs/openapi.yaml
+OpenAPI Validation → bun swagger-cli validate specs/openapi.yaml
 
-BDD Tests → npx cucumber-js specs/tasks.feature --require tests/bdd
+BDD Tests → bun cucumber-js specs/tasks.feature --require tests/bdd
 
 Deploy:
 
@@ -144,20 +144,20 @@ Production → requires GitHub approval (production environment protection).
 
 7. Commands for Agents
 Run API (dev)
-NODE_ENV=development npx nx serve api
+NODE_ENV=development bun nx serve api
 
 Run QA Agent (mock mode for CI)
-QA_USE_MOCKS=true NODE_ENV=test npx nx serve qa-agent
+QA_USE_MOCKS=true NODE_ENV=test bun nx serve qa-agent
 
 Run Deploy Agent (staging)
-NODE_ENV=staging npx nx serve deploy-agent
+NODE_ENV=staging bun nx serve deploy-agent
 
 Run Deploy Agent (production)
-NODE_ENV=production npx nx serve deploy-agent
+NODE_ENV=production bun nx serve deploy-agent
 
 8. Key Guarantees
 
-Config-validated → if config.* fails schema, system won’t run.
+Config-validated → if config.* fails schema, system won't run.
 
 Mocks in CI → fast, isolated test runs (no real Mongo/Akash).
 
@@ -177,22 +177,10 @@ Which commands to run.
 
 What guarantees/tests are enforced.
 
+Akash Code-Server
+Need to install  F:\os-main\questflow\dev-team\akash-console-server
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
 
 👉 Next steps could be adding a rollback job (using Deploy Agent with last good config) to auto-revert production on failure.

@@ -86,14 +86,14 @@ import { Web3Storage } from 'web3.storage';
 ### Command Patterns
 ```bash
 # Nx workspace operations (prefer affected analysis)
-nx affected -t build                    # Build only affected projects
-nx affected -t test                     # Test only affected projects
-nx graph --affected                     # Visualize affected dependency graph
+bun nx affected -t build                    # Build only affected projects
+bun nx affected -t test                     # Test only affected projects
+bun nx graph --affected                     # Visualize affected dependency graph
 
 # ElizaOS plugin development
-nx generate @elizaos/plugin:{generator} # Generate plugin components
-nx build @elizaos/plugin-{name}        # Build specific plugin
-nx test @elizaos/plugin-{name}          # Test specific plugin
+bun nx generate @elizaos/plugin:{generator} # Generate plugin components
+bun nx build @elizaos/plugin-{name}        # Build specific plugin
+bun nx test @elizaos/plugin-{name}          # Test specific plugin
 
 # Akash Network deployment (97.6% cost reduction)
 akash tx deployment create deploy.yml   # Deploy to Akash Network
@@ -265,9 +265,9 @@ describe('Agent Cross-Communication', () => {
       }
     },
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "jest.config.ts"
+        "command": "bun test {projectRoot}"
       }
     }
   }
@@ -732,16 +732,16 @@ git clone https://github.com/ai-agent-studio/vscode-extension
 cd vscode-extension
 
 # Install dependencies
-npm install
+bun install
 
 # Start development
-npm run watch
+bun --watch
 
 # Run tests
-npm test
+bun test
 
 # Build extension
-npm run package
+bun run package
 
 📝 Documentation
 Improve existing documentation

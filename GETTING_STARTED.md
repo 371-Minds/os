@@ -68,8 +68,8 @@ Follow the comprehensive **[IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)*
 ```bash
 git clone https://github.com/371-Minds/os.git
 cd os
-npm install
-npx nx build
+bun install
+bun nx build
 # Configure .env manually
 # Deploy contracts
 # Setup agents
@@ -157,14 +157,14 @@ Follow interactive prompts:
 
 ### **Minutes 16-25: First Run**
 ```bash
-npm run start:dev
+bun run start:dev
 # Your agents are now running locally!
 ```
 
 ### **Minutes 26-30: Verification**
 ```bash
-npm run health-check
-npm run cost-analysis
+bun run health-check
+bun run cost-analysis
 # See your revolutionary system in action!
 ```
 
@@ -183,7 +183,7 @@ npm run cost-analysis
 ### **🎯 Common Success Patterns**
 
 #### **For Business Leaders**
-- Focus on cost analysis: `npm run cost-analysis`
+- Focus on cost analysis: `bun run cost-analysis`
 - Monitor agent decisions and ROI
 - Use CEO agent for strategic planning
 
@@ -219,7 +219,7 @@ DEBUG=* ./scripts/quick-start.sh
 cat .env
 
 # Verify build
-npm run build
+bun run build
 
 # Check ports
 netstat -tulpn | grep :3000

@@ -22,6 +22,7 @@ questflow/
 │   └── executions/         # Execution logs and results
 ├── tasks/                  # Individual task definitions
 ├── connectors/             # Integration connectors for external services
+├── dev-team/               # Internal development team tools and support
 ├── lib/                    # Core library functions
 ├── utils/                  # Utility functions
 ├── tests/                  # Test files
@@ -59,6 +60,17 @@ Workflows define the sequence of steps that agents will execute to accomplish a 
 
 ### Connectors
 Connectors enable integration with external services and APIs, allowing agents to interact with the outside world.
+
+## Development Team Support
+
+The `dev-team/` directory contains internal tooling and development support for the QuestFlow platform implementation. This includes:
+
+- **Agent Development Support**: Tools and frameworks for developing AI agents
+- **Spec-Driven Development**: BDD and API specification workflows
+- **Nx Workspace Integration**: Monorepo structure for efficient development
+- **Akash Deployment Tools**: Automated deployment to decentralized infrastructure
+
+For more details, see [Dev Team Documentation](dev-team/README.md).
 
 ## Integrations
 

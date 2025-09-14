@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Manager Config",
+  "type": "object",
+  "properties": {
+    "env": {
+      "type": "string",
+      "enum": ["development", "test", "ci", "staging", "production"],
+      "description": "Runtime environment"
+    },
+    "mongoUri": {
+      "type": "string",
+      "pattern": "^mongodb://",
+      "description": "MongoDB connection URI"
+    },
+    "dbName": {
+      "type": "string",
+      "description": "MongoDB database name"
+    },
+    "akashWallet": {
+      "type": "string",
+      "description": "Wallet ID to use for Akash deployment"
+    },
+    "qaUseMocks": {
+      "type": "boolean",
+      "description": "Enable mock mode for QA agent"
+    }
+  },
+  "required": ["env"],
+  "additionalProperties": false
+}

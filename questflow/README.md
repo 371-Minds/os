@@ -17,16 +17,16 @@ questflow/
 │   ├── specialized/       # Specialized agents for specific tasks
 │   └── templates/         # Agent templates for common use cases
 ├── workflows/              # Workflow definitions
-│   ├── configs/           # Workflow configuration files
-│   ├── templates/         # Workflow templates
-│   └── executions/        # Execution logs and results
+│   ├── configs/            # Workflow configuration files
+│   ├── templates/          # Workflow templates
+│   └── executions/         # Execution logs and results
 ├── tasks/                  # Individual task definitions
 ├── connectors/             # Integration connectors for external services
 ├── lib/                    # Core library functions
 ├── utils/                  # Utility functions
 ├── tests/                  # Test files
-│   ├── unit/              # Unit tests
-│   └── integration/       # Integration tests
+│   ├── unit/               # Unit tests
+│   └── integration/        # Integration tests
 ├── docs/                   # Documentation
 ├── examples/               # Example workflows and implementations
 ├── config/                 # Global configuration files
@@ -47,6 +47,12 @@ questflow/
 
 ### Agents
 Agents are the building blocks of QuestFlow. Each agent has specific capabilities and can perform tasks based on their configuration.
+
+QuestFlow agents are available in two formats:
+- **Enhanced agents with full backstories** (in `agents/core/`, `agents/specialized/`) - These agents include detailed biographical information, lore, knowledge domains, and communication styles for more sophisticated interactions.
+- **Simple configuration agents** - Basic JSON configuration files with core functionality.
+
+See [Agents Documentation](agents/README.md) for details on creating agents with full backstories.
 
 ### Workflows
 Workflows define the sequence of steps that agents will execute to accomplish a goal. Workflows can be linear or include parallel processing.

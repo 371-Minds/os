@@ -1,0 +1,84 @@
+Nx Project Definitions (workspace.json additions)
+
+Here’s an example you’d add to workspace.json for the API and agents:
+
+{
+  "version": 2,
+  "projects": {
+    "api": {
+      "root": "apps/api",
+      "projectType": "application",
+      "sourceRoot": "apps/api/src",
+      "targets": {
+        "build": {
+          "executor": "@nx/js:tsc",
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "test": {
+          "executor": "@nx/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js"
+          }
+        }
+      }
+    },
+    "code-mern-agent": {
+      "root": "apps/agents/code-mern",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/code-mern/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/code-mern/src/index.ts"
+          }
+        }
+      }
+    },
+    "code-t3-agent": {
+      "root": "apps/agents/code-t3",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/code-t3/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/code-t3/src/index.ts"
+          }
+        }
+      }
+    },
+    "qa-agent": {
+      "root": "apps/agents/qa",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/qa/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/qa/src/index.ts"
+          }
+        }
+      }
+    },
+    "deploy-agent": {
+      "root": "apps/agents/deploy",
+      "projectType": "application",
+      "sourceRoot": "apps/agents/deploy/src",
+      "targets": {
+        "serve": {
+          "executor": "@nx/node:node",
+          "options": {
+            "main": "apps/agents/deploy/src/index.ts"
+          }
+        }
+      }
+    }
+  }
+}

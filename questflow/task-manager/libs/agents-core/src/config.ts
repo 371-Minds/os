@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
+import Ajv from "ajv";
 
 export type Config = {
   env: string;
@@ -34,6 +35,17 @@ export function loadConfig(): Config {
     Object.assign(config, JSON.parse(fs.readFileSync(jsonPath, "utf8")));
   }
 
+  // Validate against schema
+  const schemaPath = path.resolve("config.schema.json");
+  if (fs.existsSync(schemaPath)) {
+    const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
+    const ajv = new Ajv({ allErrors: true });
+    const validate = ajv.compile(schema);
+    if (!validate(config)) {
+      console.error("❌ Config validation failed:", validate.errors);
+      throw new Error("Invalid configuration");
+    }
+  }
   cachedConfig = config;
   return config;
 }

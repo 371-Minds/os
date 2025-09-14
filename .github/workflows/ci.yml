@@ -79,7 +79,23 @@ jobs:
 This ensures the wallet is passed securely from GitHub Secrets.
 If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
 
-      
+      - name: Start API (with validated config)
+        run: npx nx serve api
+        env:
+          NODE_ENV: ci
+          MONGO_URI: "mongodb://mongo:27017"
+          DB_NAME: "taskdb"
+Benefits
+
+Unified config system across API + agents.
+
+Schema validation before DB connection (no accidental misconfig).
+
+Fail-fast API startup → prevents silent runtime errors.
+
+Easier ops → same config.yaml/json drives API, QA, and Deploy.
+
+
         
  Benefits
 

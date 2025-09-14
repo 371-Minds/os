@@ -1,8 +1,14 @@
 import { MongoClient } from "mongodb";
+import { connectToDbMock } from "@myorg/agents-core/mongo-mock";
 
 let db;
 
 export async function connectToDb(uri: string, dbName: string) {
+  if (uri.startsWith("mock://")) {
+    db = await connectToDbMock(uri, dbName);
+    return;
+  }
+
   const client = new MongoClient(uri);
   await client.connect();
   db = client.db(dbName);
@@ -14,10 +20,6 @@ export function getDb() {
   return db;
 }
 
-Copy And Save
-
-Share
-
-Ask Copilot
+ 
 
 

@@ -69,6 +69,17 @@ jobs:
 
       # Run against live MongoDB + Akash:-local
       run: QA_USE_MOCKS=false npx nx serve qa-agent
+
+            - name: Deploy to Akash
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: production
+          AKASH_WALLET: ${{ secrets.AKASH_WALLET }}
+
+This ensures the wallet is passed securely from GitHub Secrets.
+If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
+
+      
         
  Benefits
 

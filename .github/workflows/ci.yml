@@ -29,8 +29,12 @@ jobs:
       - name: Validate OpenAPI spec
         run: npx swagger-cli validate specs/openapi.yaml
 
-      - name: Run Jest tests
-        run: npm test
+      - name: Run Biome lint
+        run: npx nx run-many -t lint --all
+
+      - name: Run Biome tests
+        run: npx nx run-many -t test --all
+
 
       - name: Run BDD feature tests
         run: npx cucumber-js specs/tasks.feature --require tests/bdd

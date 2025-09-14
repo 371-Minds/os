@@ -108,6 +108,76 @@ If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
           NODE_ENV: staging
           AKASH_WALLET: ${{ secrets.AKASH_STAGING_WALLET }}
 
+      - name: Deploy to Akash (staging)
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: staging
+          AKASH_WALLET: ${{ secrets.AKASH_STAGING_WALLET }}
+
+      - name: Deploy to Akash (production)
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: production
+          AKASH_WALLET: ${{ secrets.AKASH_PROD_WALLET }}
+
+      - name: Deploy to Akash (production)
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: production
+          AKASH_WALLET: ${{ secrets.AKASH_PROD_WALLET }}
+
+name: CI - Task Manager API & Agents
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npx nx run-many -t lint --all
+      - run: npx nx run-many -t test --all --exclude=api
+      - run: npx nx test api
+      - run: npx swagger-cli validate specs/openapi.yaml
+      - run: npx cucumber-js specs/tasks.feature --require tests/bdd
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    strategy:
+      matrix:
+        env: [test, staging, production]
+        include:
+          - env: test
+            akash_wallet: mock-wallet
+            akash_profile: minimal
+          - env: staging
+            akash_wallet: ${{ secrets.AKASH_STAGING_WALLET }}
+            akash_profile: minimal
+          - env: production
+            akash_wallet: ${{ secrets.AKASH_PROD_WALLET }}
+            akash_profile: high
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install
+
+      - name: Deploy with Deploy Agent
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: ${{ matrix.env }}
+          AKASH_WALLET: ${{ matrix.akash_wallet }}
+          AKASH_PROFILE: ${{ matrix.akash_profile }}
 
 
 
@@ -121,7 +191,13 @@ Fail-fast API startup → prevents silent runtime errors.
 
 Easier ops → same config.yaml/json drives API, QA, and Deploy.
 
+Profiles as YAML templates → no need to edit base deploy.yaml.
 
+Config-driven → set akashProfile: minimal|standard|high.
+
+Safe staging → runs real deploys but with minimal cost.
+
+Production-ready → high resources only when env=production.
         
  Benefits
 

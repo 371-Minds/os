@@ -26,11 +26,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Validate OpenAPI spec
+        run: npx swagger-cli validate specs/openapi.yaml
+
+      - name: Run Jest tests
         run: npm test
 
-      - name: Lint (optional)
-        run: npx eslint src || true
+      - name: Run BDD feature tests
+        run: npx cucumber-js specs/tasks.feature --require tests/bdd
+
 
               - name: Cache
   uses: actions/cache@v4.2.4

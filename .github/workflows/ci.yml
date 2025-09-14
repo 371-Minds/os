@@ -35,6 +35,13 @@ jobs:
       - name: Run BDD feature tests
         run: npx cucumber-js specs/tasks.feature --require tests/bdd
 
+      - name: Build Docker image
+        run: docker build -t task-manager-api .
+
+      - name: Run tests in Docker
+        run: docker-compose run --rm test
+
+
 
               - name: Cache
   uses: actions/cache@v4.2.4

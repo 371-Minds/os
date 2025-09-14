@@ -1,0 +1,5 @@
+env: test
+mongoUri: mock://memory
+dbName: taskdb_test
+akashWallet: mock-wallet
+qaUseMocks: true

@@ -91,6 +91,10 @@ If it’s missing, the Deploy Agent will fail fast before running Akash CLI.
         env:
           NODE_ENV: test
 
+      - name: Run Deploy Agent in mock mode
+        run: npx nx serve deploy-agent
+        env:
+          NODE_ENV: test
 
 
 

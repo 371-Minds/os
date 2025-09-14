@@ -123,8 +123,58 @@ Here’s an example you’d add to workspace.json for the API and agents:
   }
 }
 
-
-  
+"api": {
+  "root": "apps/api",
+  "projectType": "application",
+  "sourceRoot": "apps/api/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome check apps/api"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "apps/api/jest.config.js"
+      }
+    }
+  }
+},
+"agents-core": {
+  "root": "libs/agents-core",
+  "projectType": "library",
+  "sourceRoot": "libs/agents-core/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome check libs/agents-core"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome test libs/agents-core"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome format libs/agents-core --write"
+      }
+    }
+  }
 }
+Repeat the Biome lint + test pattern for:
+
+code-mern-agent
+
+code-t3-agent
+
+qa-agent
+
+deploy-agent
 
 

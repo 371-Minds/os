@@ -73,3 +73,9 @@ Contract Validation → check code matches openapi.yaml
 BDD Tests Execution → run cucumber-js on tasks.feature if you want direct Gherkin-based testing
 
 Security Scans → npm audit or snyk integration
+
+Nx build/test
+
+Docker build/push to Docker Hub or GHCR
+
+Akash deploy step (akash tx deployment update)

@@ -1,3 +1,7 @@
+///Deploy via Akash CLI:
+
+akash tx deployment create docker/deploy.yaml --from your-wallet
+
 version: "2.0"
 
 services:

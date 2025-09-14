@@ -1,0 +1,7 @@
+{
+  "env": "production",
+  "mongoUri": "mongodb://mongo:27017",
+  "dbName": "taskdb",
+  "akashWallet": "prod-wallet",
+  "qaUseMocks": false
+}

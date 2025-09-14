@@ -12,16 +12,6 @@ apps/agents/qa → QA/testing agent (runs specs).
 
 apps/agents/deploy → Deployment orchestrator (handles Akash deployments).
 
-Agent Integration (with Nx + Specs)
-
-Agents should consume specs from /specs/ (OpenAPI + Gherkin).
-
-Example: QA agent runs cucumber-js on tasks.feature.
-
-Deployment agent reads docker/deploy.yaml and runs Akash CLI.
-
-Agents share common utilities in libs/agents-core.
-
 Here’s an example you’d add to workspace.json for the API and agents:
 
 {
@@ -109,4 +99,5 @@ Here’s an example you’d add to workspace.json for the API and agents:
     }
   }
 }
+
 

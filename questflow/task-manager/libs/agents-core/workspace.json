@@ -1,0 +1,6 @@
+"test": {
+  "executor": "nx:run-commands",
+  "options": {
+    "command": "npx biome test libs/agents-core"
+  }
+}

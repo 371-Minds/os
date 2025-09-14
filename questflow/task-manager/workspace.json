@@ -17,7 +17,8 @@ Here’s an example you’d add to workspace.json for the API and agents:
         "serve": {
           "executor": "@nx/node:node",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "api:build",
+            "port": 3000
           }
         },
         "test": {
@@ -28,6 +29,7 @@ Here’s an example you’d add to workspace.json for the API and agents:
         }
       }
     },
+
     "code-mern-agent": {
       "root": "apps/agents/code-mern",
       "projectType": "application",
@@ -41,6 +43,7 @@ Here’s an example you’d add to workspace.json for the API and agents:
         }
       }
     },
+
     "code-t3-agent": {
       "root": "apps/agents/code-t3",
       "projectType": "application",
@@ -54,6 +57,7 @@ Here’s an example you’d add to workspace.json for the API and agents:
         }
       }
     },
+
     "qa-agent": {
       "root": "apps/agents/qa",
       "projectType": "application",
@@ -67,6 +71,7 @@ Here’s an example you’d add to workspace.json for the API and agents:
         }
       }
     },
+
     "deploy-agent": {
       "root": "apps/agents/deploy",
       "projectType": "application",
@@ -82,3 +87,4 @@ Here’s an example you’d add to workspace.json for the API and agents:
     }
   }
 }
+

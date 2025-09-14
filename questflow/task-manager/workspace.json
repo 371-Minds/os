@@ -97,7 +97,34 @@ Here’s an example you’d add to workspace.json for the API and agents:
         }
       }
     }
+  },"agents-core": {
+  "root": "libs/agents-core",
+  "projectType": "library",
+  "sourceRoot": "libs/agents-core/src",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome check libs/agents-core"
+      }
+    },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome format libs/agents-core --write"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx biome test libs/agents-core"
+      }
+    }
   }
+}
+
+
+  
 }
 
 

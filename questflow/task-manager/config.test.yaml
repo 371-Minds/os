@@ -1,0 +1,4 @@
+env: test
+mongoUri: mock://memory
+dbName: taskdb_test
+qaUseMocks: true

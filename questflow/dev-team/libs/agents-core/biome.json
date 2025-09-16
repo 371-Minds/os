@@ -11,8 +11,5 @@
   },
   "files": {
     "ignore": ["dist", "coverage"]
-  },
-  "test": {
-    "include": ["src/**/*.test.ts", "src/**/__tests__/**/*.ts"]
   }
 }

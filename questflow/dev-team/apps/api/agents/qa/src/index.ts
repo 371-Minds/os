@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { loadConfig, logInfo, logSuccess, logError } from "../../../../../libs/agents-core/src/index.ts";
+import { loadConfig, logInfo, logSuccess, logError } from "../../../../../../libs/agents-core/src/index.ts";
 
 function run(command: string) {
   execSync(command, { stdio: "inherit" });

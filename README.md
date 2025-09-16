@@ -88,6 +88,18 @@ CLO Agent (Alex) ──┬── Legal Compliance
                    └── Regulatory Oversight
 ```
 
+### **Model Context Protocol (MCP) Servers**
+371 OS includes several MCP server configurations for enhanced context awareness:
+
+- **GitHub MCP**: Access to repository data and issues
+- **Playwright MCP**: Browser automation capabilities
+- **Slack MCP**: Team communication integration
+- **Google Drive MCP**: Document and file access
+- **Context7 MCP**: Upstash-powered context storage
+- **Cognition Layer MCP**: Real-time cognitive state awareness
+
+For details on configuring and using these MCP servers, see the [mcp/](./mcp/) directory.
+
 ### **Core Libraries Structure**
 The 371 OS project follows a well-organized Nx workspace structure with dedicated core libraries:
 

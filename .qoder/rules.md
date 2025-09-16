@@ -8,6 +8,7 @@
 - **Self-aware agents** with workspace manipulation capabilities
 - **Akash Network integration** for 97.6% cost reduction
 - **Enterprise security** with Secretless Broker and ACI.dev
+- **Puter.js integration** for cloud storage, AI, and hosting capabilities
 
 ## 📁 Project Structure Conventions
 
@@ -40,6 +41,13 @@
 - **Tests**: `{filename}.spec.ts` or `{filename}.test.ts`
 - **Documentation**: `UPPERCASE.md` for root docs, `README.md` for packages
 
+### Puter.js Integration Patterns
+- **Cloud Storage**: Use `puter.fs` for file operations
+- **AI Capabilities**: Use `puter.ai` for chat, image generation, and OCR
+- **Key-Value Store**: Use `puter.kv` for simple data persistence
+- **Hosting**: Use `puter.hosting` for static website deployment
+- **Authentication**: Use `puter.auth` for user authentication
+
 ### Code Organization
 ```typescript
 // Standard ElizaOS plugin structure
@@ -59,6 +67,15 @@ export interface AgentRegistryEntry {
   reputation: ReputationScore;
   stakeAmount: bigint;
 }
+
+// Puter.js integration patterns
+export interface PuterIntegration {
+  storage: typeof puter.fs;
+  ai: typeof puter.ai;
+  kv: typeof puter.kv;
+  hosting: typeof puter.hosting;
+  auth: typeof puter.auth;
+}
 ```
 
 ### Import Conventions
@@ -72,6 +89,11 @@ import { readProjectConfiguration, workspaceRoot } from '@nx/devkit';
 // Blockchain dependencies
 import { ethers } from 'ethers';
 import { Web3Storage } from 'web3.storage';
+
+// Puter.js integration
+import puter from 'puter';
+// Or for specific modules:
+// import { fs as puterFs, ai as puterAi } from 'puter';
 ```
 
 ## 🤖 Agent-Specific Conventions
@@ -104,6 +126,12 @@ akash tx market lease create {bid}      # Create lease for deployment
 elizaos:register-agent                  # Register in blockchain registry
 elizaos:discover-tools                  # Discover available tools
 elizaos:execute-universal-tool          # Execute cross-network tools
+
+# Puter.js operations
+puter:deploy-app                        # Deploy application to Puter
+puter:publish-website                   # Publish static website
+puter:manage-storage                    # Manage cloud storage
+puter:use-ai                            # Access AI capabilities
 ```
 
 ## 📋 Documentation Standards
@@ -324,6 +352,15 @@ export default {
 - **Use affected analysis** to minimize CI/CD resource usage
 - **Implement intelligent resource allocation** based on workload patterns
 
+### Puter.js Integration
+- **Leverage the User Pays Model** to eliminate infrastructure costs - users cover their own cloud and AI usage
+- **Use cloud storage** for file operations instead of local storage through `puter.fs`
+- **Integrate AI capabilities** for advanced functionality through `puter.ai`
+- **Implement authentication** through Puter's secure system via `puter.auth`
+- **Deploy applications** using Puter's hosting capabilities through `puter.hosting`
+- **Use key-value store** for simple data persistence with `puter.kv`
+- **Create serverless workers** for backend functionality with `puter.workers`
+
 ---
 
 ## 🔄 Migration Guidelines
@@ -339,6 +376,13 @@ export default {
 - **Maintain agent personality** and decision-making patterns
 - **Integrate with Nx workspace** for self-awareness capabilities
 - **Implement blockchain coordination** for autonomous operation
+
+### Puter.js Integration Migration
+- **Replace external cloud services** with Puter.js equivalents
+- **Migrate file storage** to `puter.fs` operations
+- **Integrate AI capabilities** through `puter.ai` functions
+- **Use `puter.kv`** for key-value storage instead of external databases
+- **Deploy applications** using `puter.hosting` instead of custom hosting
 
 ### ALTERNATE ROUTE TO BE USED FOR PARALLEL PROCESSING AND TESTING
 PROMPT or DIE EXTENSION

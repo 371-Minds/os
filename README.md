@@ -5,8 +5,9 @@
 [![Nx](https://img.shields.io/badge/Built_with-Nx-blue.svg)](https://nx.dev/)
 [![ElizaOS](https://img.shields.io/badge/Powered_by-ElizaOS-purple.svg)](https://elizaos.ai/)
 [![Akash Network](https://img.shields.io/badge/Deployed_on-Akash-red.svg)](https://akash.network/)
+[![Puter](https://img.shields.io/badge/Powered_by-Puter-blue.svg)](https://puter.com/)
 
-> **Beyond MCP Limitations**: The next evolution in AI agent coordination through blockchain-based Universal Tool Servers, achieving **97.6% cost reduction** and true agent autonomy.
+> **Beyond MCP Limitations**: The next evolution in AI agent coordination through blockchain-based Universal Tool Servers, achieving **97.6% cost reduction** and true agent autonomy with integrated cloud infrastructure and AI capabilities.
 
 ---
 
@@ -20,6 +21,8 @@
 - **💰 97.6% Cost Reduction**: Through Akash Network decentralized infrastructure
 - **⛓️ Blockchain Registry**: Decentralized agent discovery with cryptographic trust
 - **🏢 Enterprise Security**: Zero-trust integration with Secretless Broker and ACI.dev
+- **☁️ Integrated Cloud Infrastructure**: Puter.js integration for serverless cloud storage, AI, and hosting
+- **🧠 Advanced AI Capabilities**: Integrated Claude, GPT, Gemini, and other AI models through Puter
 - **📊 Economic Incentives**: Stake-based reputation system for reliable agent behavior
 
 ### 🆚 **MCP vs Universal Tool Server**
@@ -32,6 +35,8 @@
 | **Discovery** | Centralized registry | Decentralized blockchain registry |
 | **Economics** | No incentive alignment | Stake-based reputation system |
 | **Agent Autonomy** | Limited to predefined tools | Self-modifying capabilities |
+| **Cloud Infrastructure** | External service integration | Integrated Puter.js cloud services |
+| **AI Capabilities** | Limited model access | Integrated Claude, GPT, Gemini access |
 
 ---
 
@@ -97,6 +102,7 @@ CLO Agent (Alex) ──┬── Legal Compliance
 - **Google Drive MCP**: Document and file access
 - **Context7 MCP**: Upstash-powered context storage
 - **Cognition Layer MCP**: Real-time cognitive state awareness
+- **Puter MCP**: Integrated cloud storage, AI, and hosting capabilities
 
 For details on configuring and using these MCP servers, see the [mcp/](./mcp/) directory.
 
@@ -141,6 +147,8 @@ The `dev-team/` directory contains internal tooling and development support for 
 - 🌐 **Akash Network**: 97.6% cost reduction through decentralized infrastructure
 - 🔐 **Enterprise Security**: Secretless Broker + ACI.dev integration
 - 📊 **Behavior Analytics**: PostHog integration for comprehensive user interaction tracking
+- ☁️ **Puter.js**: Integrated cloud infrastructure for file storage, AI, and hosting
+- 🤖 **AI Integration**: Claude, GPT, Gemini, and other models through Puter.js
 
 ---
 
@@ -151,6 +159,7 @@ The `dev-team/` directory contains internal tooling and development support for 
 - **40x Development Efficiency** (Nx affected analysis)
 - **Zero Waste Deployments** (only affected projects rebuilt)
 - **Dynamic Resource Allocation** (pay-per-use scaling)
+- **User Pays Model**: Users cover their own cloud and AI usage costs
 
 ### 🤖 **Agent Capabilities**
 - **Self-Awareness**: Agents understand their own workspace structure
@@ -158,12 +167,15 @@ The `dev-team/` directory contains internal tooling and development support for 
 - **Cross-Agent Coordination**: Blockchain-verified multi-agent workflows
 - **Economic Incentives**: Stake-based reputation for reliable behavior
 - **Behavior Analytics**: Comprehensive user interaction tracking with PostHog integration
+- **Advanced AI**: Integrated access to Claude, GPT, Gemini, and other AI models
+- **Cloud Storage**: Serverless file storage and management
 
 ### 🔒 **Enterprise Ready**
 - **Zero-Trust Security**: No hardcoded credentials, Secretless Broker integration
 - **Compliance Framework**: SOC2, GDPR automated compliance checking  
 - **Audit Trail**: Immutable blockchain-based activity logging
 - **Enterprise Integration**: Single sign-on and role-based access control
+- **Built-in Security**: Automatic authentication and authorization handling
 
 ---
 
@@ -484,13 +496,57 @@ export const myAction: Action = {
 };
 ```
 
+### **Puter.js Integration**
+```typescript
+// Example Puter.js integration in agent actions
+export const puterAction: Action = {
+  name: 'PUTER_ACTION',
+  description: 'Puter.js cloud storage and AI integration',
+  handler: async (runtime, message, state, options, callback) => {
+    try {
+      // Save data to cloud storage
+      const file = await puter.fs.write('agent-data.json', JSON.stringify({
+        timestamp: Date.now(),
+        message: message.content.text,
+        agentId: runtime.agentId
+      }));
+      
+      // Use AI to analyze the message
+      const aiResponse = await puter.ai.chat(
+        `Analyze this message and provide insights: ${message.content.text}`, 
+        { model: 'gpt-5-nano' }
+      );
+      
+      // Save insights to key-value store
+      await puter.kv.set(`insight_${Date.now()}`, aiResponse.message.content);
+      
+      if (callback) {
+        callback({
+          text: `Analysis complete. File saved at ${file.path}. Key insights: ${aiResponse.message.content}`,
+          content: { 
+            success: true, 
+            file: file.path, 
+            insights: aiResponse.message.content 
+          }
+        });
+      }
+      
+      return true;
+    } catch (error) {
+      console.error('Puter.js integration error:', error);
+      return false;
+    }
+  }
+};
+```
+
 ### **Blockchain Integration**
 ```typescript
 // Register agent capabilities
 const registryEntry: AgentRegistryEntry = {
   agentId: runtime.agentId,
   did: `did:371minds:${agentId}`,
-  capabilities: ['strategic-planning', 'cost-optimization'],
+  capabilities: ['strategic-planning', 'cost-optimization', 'puter-integration'],
   stakeAmount: ethers.parseEther('1.0')
 };
 
@@ -531,7 +587,108 @@ bun run test:blockchain
 
 # Test Akash deployment
 bun run test:akash-local
+
+# Test Puter.js integration
+bun run test:puter-local
 ```
+
+---
+
+## ☁️ Puter.js Integration
+
+371 OS now includes integrated support for Puter.js, providing serverless cloud infrastructure, AI capabilities, and hosting services.
+
+### **Key Features**
+
+- **☁️ Cloud Storage**: File system operations with `puter.fs`
+- **🤖 AI Integration**: Access to Claude, GPT, Gemini, and other models through `puter.ai`
+- **🗄️ Key-Value Store**: Simple NoSQL database with `puter.kv`
+- **🌐 Hosting**: Static website deployment with `puter.hosting`
+- **🔐 Authentication**: Secure user authentication with `puter.auth`
+- **💰 User Pays Model**: Users cover their own cloud and AI usage costs
+
+### **Quick Start with Puter.js**
+
+```html
+<!-- Simple example using Puter.js AI and storage -->
+<html>
+<body>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        // Chat with AI
+        puter.ai.chat(`What is life?`, { model: "gpt-5-nano" }).then(puter.print);
+        
+        // Save user preference
+        puter.kv.set('userPreference', 'darkMode').then(() => {
+            puter.print('Preference saved!');
+        });
+        
+        // Create a file
+        puter.fs.write('hello.txt', 'Hello, world!').then((file) => {
+            puter.print(`File created at: ${file.path}`);
+        });
+    </script>
+</body>
+</html>
+```
+
+### **Advanced AI Capabilities**
+
+```javascript
+// Image generation
+puter.ai.txt2img('A picture of a cat').then((image) => {
+    document.body.appendChild(image);
+});
+
+// OCR (Image to Text)
+puter.ai.img2txt('https://example.com/image.png').then(puter.print);
+
+// Text to Speech
+puter.ai.txt2speech('Hello world!').then((audio) => {
+    audio.play();
+});
+```
+
+### **File Operations**
+
+```javascript
+// Write a file
+puter.fs.write('document.txt', 'Hello, Puter!');
+
+// Read a file
+puter.fs.read('document.txt').then(blob => blob.text()).then(content => {
+    console.log(content);
+});
+
+// Create a directory
+puter.fs.mkdir('my-folder');
+
+// List directory contents
+puter.fs.readdir('./').then(items => {
+    console.log(items);
+});
+```
+
+### **Deployment**
+
+```javascript
+// Deploy a static website
+(async () => {
+    // Create a directory
+    let dir = await puter.fs.mkdir('my-website');
+    
+    // Create index.html
+    await puter.fs.write(`${dir.name}/index.html`, '<h1>Hello, Puter!</h1>');
+    
+    // Deploy the website
+    let subdomain = puter.randName();
+    const site = await puter.hosting.create(subdomain, dir.name);
+    
+    console.log(`Website deployed at: https://${site.subdomain}.puter.site`);
+})();
+```
+
+For more information about Puter.js capabilities, visit [puter.com](https://puter.com/).
 
 ---
 
@@ -619,6 +776,7 @@ We welcome contributions to the 371 OS ecosystem!
 - **🔗 [Blockchain Registry](./docs/BLOCKCHAIN_REGISTRY.md)**: Detailed documentation for blockchain registry library
 - **📂 [IPFS Storage](./docs/IPFS_STORAGE.md)**: Detailed documentation for IPFS storage library
 - **🔤 [Core Types](./docs/CORE_TYPES.md)**: Detailed documentation for core types library
+- **☁️ [Puter.js Integration](./Puter/)**: Comprehensive Puter.js API documentation and examples
 
 ---
 
@@ -638,6 +796,7 @@ We welcome contributions to the 371 OS ecosystem!
 - ✅ Nx workspace with ElizaOS plugins
 - ✅ Universal Tool Server architecture  
 - ✅ Blockchain registry implementation
+- ✅ Puter.js integration for cloud infrastructure
 - 🔄 Akash Network integration
 - 🔄 Enterprise security framework
 
@@ -646,18 +805,21 @@ We welcome contributions to the 371 OS ecosystem!
 - 📋 Advanced multi-agent coordination
 - 📋 Real-time cost optimization
 - 📋 Enterprise production deployments
+- 📋 Advanced Puter.js AI integration
 
 ### **Q3 2025: Ecosystem Expansion**
 - 📋 Third-party tool provider onboarding  
 - 📋 Cross-chain agent coordination
 - 📋 Global decentralized agent network
 - 📋 Advanced AI model integration
+- 📋 Puter.js hosting and deployment platform
 
 ### **Q4 2025: Market Leadership**
 - 📋 Agent marketplace platform
 - 📋 Enterprise partnership program  
 - 📋 Open source community growth
 - 📋 Next-generation agent capabilities
+- 📋 Puter.js-powered autonomous applications
 
 ---
 

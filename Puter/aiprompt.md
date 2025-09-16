@@ -1,4 +1,4 @@
-IMPORTANT: This file contains the concatenated documentation for puter.js, a JavaScript SDK for the Puter Web OS. Use this documentation to answer questions about puter.js, its features, usage, and APIs. 
+IMPORTANT: This file contains the concatenated documentation for puter.js, a JavaScript SDK for the Puter Web OS. Use this documentation to answer questions about puter.js, its features, usage, and APIs. https://puter.com/app/puter-faq
 WAIT FOR MY QUESTIONS BEFORE PROVIDING ANY INFORMATION. DO NOT SAY ANYTHING UNTIL I START ASKING QUESTIONS.
 
 --------------------------------------------

@@ -1,0 +1,21 @@
+{
+  "name": "@371minds/chief-of-staff-agent",
+  "version": "1.0.0",
+  "description": "Chief of Staff Agent (Ortega) - Orchestrates strategic plans into DAO proposals",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "nx build chief-of-staff-agent",
+    "dev": "nx serve chief-of-staff-agent",
+    "test": "nx test chief-of-staff-agent",
+    "lint": "nx lint chief-of-staff-agent"
+  },
+  "dependencies": {
+    "@elizaos/core": "^1.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["chief-of-staff", "dao-proposals", "strategic-orchestration", "371-os"],
+  "author": "371 Minds",
+  "license": "MIT"
+}

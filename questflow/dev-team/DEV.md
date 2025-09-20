@@ -1,5 +1,9 @@
 📘 Developer Guide – Spec-Driven Nx + Akash System for QuestFlow Dev Team
 
+📚 Developer Guide – Spec-Driven Nx + Akash System for QuestFlow Dev Team
+
+**Note**: This guide covers the legacy QuestFlow dev-team workspace. For new agent development, consider using the 371 OS unified architecture with agent definitions in `../../os-workspace/libs/prompts/agent-definitions/` and implementations in `../../os-workspace/apps/`. See the [Chief of Staff Agent (Ortega)](../../os-workspace/apps/chief-of-staff-agent/) for an example.
+
 1. Core Idea
 
 This repo is spec-driven.
@@ -176,6 +180,14 @@ Which files to consume.
 Which commands to run.
 
 What guarantees/tests are enforced.
+
+## Migration to Unified Architecture
+
+For new agents, consider the 371 OS unified architecture:
+- **Agent "Brain"**: Define in `../../os-workspace/libs/prompts/agent-definitions/agent-name.yml`
+- **Agent "Body"**: Implement in `../../os-workspace/apps/agent-name/`
+- **Benefits**: Better separation of concerns, centralized agent definitions, improved maintainability
+- **Example**: See the Chief of Staff Agent (Ortega) implementation
 
 Akash Code-Server
 Need to install  F:\os-main\questflow\dev-team\akash-console-server

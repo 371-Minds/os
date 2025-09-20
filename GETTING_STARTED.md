@@ -33,6 +33,7 @@ You're implementing a **game-changing autonomous agent operating system** that:
 - **💼 CFO Maya**: Financial analysis and budget optimization
 - **⚖️ CLO Alex**: Legal compliance and governance
 - **📈 CMO Jordan**: Marketing and growth strategies
+- **📋 Chief of Staff Ortega**: Strategic orchestration and DAO proposal generation
 
 ---
 
@@ -114,7 +115,13 @@ bun nx build
 
 ### **Revolutionary Technology Stack**
 
-#### **1. Nx Workspace Magic** 🏗️
+#### **1. Unified Agent Architecture** 🧠
+- **Agent "Brain"**: Centralized YAML definitions in `os-workspace/libs/prompts/agent-definitions/`
+- **Agent "Body"**: TypeScript/Node.js applications in `os-workspace/apps/`
+- **Separation of Concerns**: Logic separated from execution runtime
+- **Example**: Chief of Staff Agent (Ortega) demonstrates the unified approach
+
+#### **2. Nx Workspace Magic** 🏗️
 - **Affected Analysis**: Only builds what changed (40x faster)
 - **Dependency Graph**: Understands your entire system
 - **Caching**: Never rebuild the same thing twice
@@ -244,10 +251,10 @@ akash query market provider list
 ## 🌟 **Expected Results**
 
 ### **After 30 Minutes**
-- ✅ 5 autonomous AI agents running
+- ✅ 6 autonomous AI agents running (including Chief of Staff Ortega)
 - ✅ Self-aware workspace manipulation
 - ✅ Local development environment active
-- ✅ Understanding of system architecture
+- ✅ Understanding of unified agent architecture
 
 ### **After 2 Hours (Full Deploy)**
 - ✅ Deployed on Akash Network (97.6% cost reduction)

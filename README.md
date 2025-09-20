@@ -91,6 +91,10 @@ CFO Agent (Maya) ──┬── Financial Analysis
 CLO Agent (Alex) ──┬── Legal Compliance
                    ├── Governance Frameworks
                    └── Regulatory Oversight
+
+Chief of Staff (Ortega) ──┬── Strategic Orchestration
+                          ├── DAO Proposal Generation
+                          └── Process Coordination
 ```
 
 ### **Model Context Protocol (MCP) Servers**
@@ -107,18 +111,22 @@ CLO Agent (Alex) ──┬── Legal Compliance
 For details on configuring and using these MCP servers, see the [mcp/](./mcp/) directory.
 
 ### **Core Libraries Structure**
-The 371 OS project follows a well-organized Nx workspace structure with dedicated core libraries:
+The 371 OS project follows a well-organized Nx workspace structure with dedicated core libraries and unified agent architecture:
 
 ```
 os-workspace/
-├── apps/                    # Applications
-├── agents/                  # Agent configurations
-├── packages/                # ElizaOS plugins and other packages
-├── libs/                    # Core shared libraries
-│   ├── blockchain-registry # Blockchain-based agent coordination
-│   ├── ipfs-storage        # Decentralized storage implementation
-│   └── core-types          # Shared TypeScript interfaces
-└── tools/                   # Development and deployment scripts
+├── apps/                           # Applications
+│   ├── cognitive-interface/        # Cognitive-aware UI system
+│   └── chief-of-staff-agent/      # Ortega - Strategic orchestration
+├── agents/                         # Agent configurations (legacy)
+├── packages/                       # ElizaOS plugins and other packages
+├── libs/                          # Core shared libraries
+│   ├── blockchain-registry/        # Blockchain-based agent coordination
+│   ├── ipfs-storage/              # Decentralized storage implementation
+│   ├── core-types/                # Shared TypeScript interfaces
+│   └── prompts/                   # Centralized agent definitions
+│       └── agent-definitions/      # Agent "brains" (YAML definitions)
+└── tools/                         # Development and deployment scripts
 ```
 
 These core libraries provide foundational capabilities:
@@ -126,6 +134,9 @@ These core libraries provide foundational capabilities:
 1. **blockchain-registry**: Provides blockchain-based agent coordination and discovery capabilities
 2. **ipfs-storage**: Implements decentralized storage using IPFS
 3. **core-types**: Contains shared TypeScript interfaces used across multiple packages
+4. **prompts**: Centralized agent definitions following the unified architecture
+   - **agent-definitions/**: Agent "brains" stored as YAML files (e.g., Ortega Chief of Staff)
+   - Separates agent logic from execution runtime for better maintainability
 
 Each library is fully integrated with the Nx workspace and follows the 371 OS architecture principles of decentralization, modularity, and reusability.
 

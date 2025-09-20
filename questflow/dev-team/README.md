@@ -1,6 +1,6 @@
 # QuestFlow Dev Team - Internal Development Support
 
-The internal development team that supports the QuestFlow implementation, featuring autonomous agent coordination and blockchain-based verification.
+The internal development team that supports the QuestFlow implementation, featuring autonomous agent coordination and blockchain-based verification. This team operates within the broader 371 OS unified architecture.
 
 ## 🚀 Purpose
 
@@ -10,6 +10,9 @@ This directory contains the internal tooling and development support for the Que
 - **Spec-Driven Development**: BDD and API specification workflows
 - **Nx Workspace Integration**: Monorepo structure for efficient development
 - **Akash Deployment Tools**: Automated deployment to decentralized infrastructure
+- **Unified Architecture Compliance**: Follows 371 OS brain/body separation pattern
+
+> **Note**: This dev-team workspace follows legacy patterns. New agents should use the unified architecture in `os-workspace/` with agent definitions in `libs/prompts/agent-definitions/` and implementations in `apps/`.
 
 ## 🏗️ Architecture
 
@@ -77,6 +80,12 @@ The Dev Team tools support agent development for the QuestFlow platform:
 
 ### Deployment Agents
 - Automated deployment to Akash Network
+
+### Migration to Unified Architecture
+For new agent development, consider migrating to the unified architecture pattern:
+1. **Agent "Brain"**: Define in `../../os-workspace/libs/prompts/agent-definitions/agent-name.yml`
+2. **Agent "Body"**: Implement in `../../os-workspace/apps/agent-name/`
+3. Follow the [Chief of Staff Agent (Ortega)](../../os-workspace/apps/chief-of-staff-agent/) example
 
 ## 🔧 Development
 

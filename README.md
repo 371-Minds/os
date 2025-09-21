@@ -98,17 +98,35 @@ Chief of Staff (Ortega) ──┬── Strategic Orchestration
 ```
 
 ### **Model Context Protocol (MCP) Servers**
-371 OS includes several MCP server configurations for enhanced context awareness:
+371 OS includes comprehensive MCP server configurations for enhanced AI assistant capabilities:
 
-- **GitHub MCP**: Access to repository data and issues
-- **Playwright MCP**: Browser automation capabilities
-- **Slack MCP**: Team communication integration
-- **Google Drive MCP**: Document and file access
-- **Context7 MCP**: Upstash-powered context storage
-- **Cognition Layer MCP**: Real-time cognitive state awareness
-- **Puter MCP**: Integrated cloud storage, AI, and hosting capabilities
+#### **🔧 Available MCP Servers**
+- **📚 Documentation MCP (Port 39301)**: Comprehensive searchable access to all project documentation
+  - Document indexing and categorization
+  - Intelligent search with relevance scoring  
+  - Real-time document retrieval with metadata
+  - Integration with Qoder IDE for context-aware development
 
-For details on configuring and using these MCP servers, see the [mcp/](./mcp/) directory.
+- **🧠 Cognition Layer MCP (Port 39300)**: Real-time cognitive state awareness
+  - Executive, Technical, Creative mode transitions
+  - Cognitive load and focus level monitoring
+  - Active agent coordination status
+  - Server-Sent Events for real-time updates
+
+#### **⚡ Quick MCP Setup**
+```bash
+# Start both MCP servers
+cd mcp
+node documentation-mcp-server.js    # Terminal 1 (Documentation)
+node mock-cognition-server.js        # Terminal 2 (Cognition)
+
+# Test servers
+powershell .\mcp-status.ps1 -Test
+
+# Configure Qoder IDE with: mcp/qoder-mcp-config.json
+```
+
+For detailed MCP configuration and usage, see the [**mcp/**](./mcp/) directory.
 
 ### **Core Libraries Structure**
 The 371 OS project follows a well-organized Nx workspace structure with dedicated core libraries and unified agent architecture:

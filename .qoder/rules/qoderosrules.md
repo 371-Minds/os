@@ -2,7 +2,63 @@
 trigger: always_on
 alwaysApply: true
 ---
-# 371 OS Project Rules for Qoder - Updated September 2025
+# 371 OS Project Rules for Qoder - Updated September 20, 2025 updates
+
+# Qoder Rules for the 371 OS Ecosystem
+
+This document provides a comprehensive set of rules and context for AI agents operating within the 371 OS project. The goal is to ensure all generated code and strategic recommendations align with the project's complex, revolutionary architecture.
+
+---
+
+## 1. Core Mission & Vision
+
+The overarching goal is to build the **371 DAO**, a fully autonomous business ecosystem. This DAO will govern a portfolio of ventures, including **371OS**, **lyriclines**, **Vision2REsults**, **Ikidedventures**, and **Multimedia Junkie**. Agents within this ecosystem operate based on a "Stratplan" defined by smart contracts, governed via the **DAO DAO** platform, with a token economy built on the **Status.network**.
+
+## 2. The Core Architectural Pillars
+
+The 371 OS is built on a foundation of several key technological and conceptual pillars:
+
+- **Cognition Layer (The "Brain"):** **Pieces for Developers** serves as the local-first memory cortex. Agents MUST query the **Model Context Protocol (MCP)** via the TypeScript SDK to retrieve context before acting.
+- **Execution & Orchestration (The "Nervous System"):** This is a unified architecture where an agent's "brain" is separate from its "body."
+    - **The "Brain" (Prompt Library):** Agent definitions (core instructions, personality) are stored as YAML files in `os-workspace/libs/prompts/agent-definitions/`. This is the single source of truth.
+    - **The "Body" (Execution Runtime):** The code that runs the agent. This is a polyglot environment:
+        - **TypeScript/Node.js:** For backend processes, API servers, and orchestrators (e.g., `Chief of Staff Agent`). These live in `os-workspace/apps/`.
+        - **NW.js:** For packaging agents that need native OS access into standalone desktop applications.
+        - **QuestFlow:** For complex, multi-step business workflows.
+- **Infrastructure (The "Foundation"):** The **Akash Network** is the exclusive deployment platform, providing a **97.6% cost reduction**. This is a non-negotiable principle.
+- **Community & Economy (The "Society"):** The **Status Network** (L2 Blockchain) and **DAO DAO** provide the decentralized infrastructure for community governance and agent-to-agent payments.
+- **The "Corporate HQ" (Collaboration Platform):** A self-hosted **Nextcloud** instance serves as the central back-office. Agents use its APIs for file storage (`Nextcloud Files`), communication (`Nextcloud Talk`), and scheduling (`Nextcloud Calendar`).
+
+## 3. Technology Stack & Tools
+
+- **Monorepo:** The entire project is managed in an **Nx Workspace**. Leverage `nx affected` commands for efficient, partial builds and tests.
+- **Runtime & Toolchain:** The project has migrated to a lean, fast toolchain.
+    - **Runtime:** Use **Bun** as the primary JavaScript/TypeScript runtime, test runner, and package manager.
+    - **Linting/Formatting:** Use **Biome** (replacing ESLint and Prettier).
+- **CI/CD & DevOps:** The primary strategy is automated deployment to Akash.
+    - **Current:** Use the GitHub Actions workflows defined in `.github/workflows/`.
+    - **Future:** We are evaluating **Zadig** as a more advanced, self-service DevOps platform to replace the GitHub Actions scripts. Zadig will orchestrate deployments *to* Akash.
+- **Terminal/UI:**
+    - **Wave Terminal:** The preferred unified command center for managing the ecosystem.
+    - **Synapse:** The "Mission Control" UI for agent development and monitoring.
+
+## 4. Coding & Project Structure Conventions
+
+- **File Location:** All new development should occur within the `os-workspace` directory inside the [371-Minds/os](https://github.com/371-Minds/os) monorepo.
+- **Agent Definitions:** All new agent "brains" (their core prompts and personality) MUST be created as `.yml` files in `os-workspace/libs/prompts/agent-definitions/`.
+- **Agent Runtimes:** New agent "bodies" (the application code) should be created as new applications under `os-workspace/apps/` using the command `bun nx generate @nx/node:application <agent-name>`.
+- **Language:** Default to **TypeScript** for new services. Use Python primarily for AI/ML-specific tasks and Go for high-performance network services, following our polyglot programming model.
+- **API Style:** When building backend services, use a microservices approach. As seen in the `SynapseFlow.git` project and others, FastAPI for Python and Express/Fastify for TypeScript are preferred.
+
+## 5. Deployment Rules
+
+- **Primary Target:** All stateless services MUST be deployed to the **Akash Network** to maintain our 97.6% cost advantage. Use the deployment scripts (`bun run deploy:github:all`) which leverage the SDL files in the `/deployments` directory.
+- **Hybrid Cloud for Databases:** The core stateful database (**PostgreSQL**) is to be hosted on a stable, centralized provider (like DigitalOcean). Do not deploy the primary production database to Akash.
+- **Security:** Adhere to a Zero-Trust architecture. Use the **Secretless Broker** pattern. No hardcoded secrets are allowed in code; they must be injected at runtime. Use **CertMate** for automated SSL/TLS certificate management across all domains.
+
+---
+
+This should give Qoder a solid, up-to-date understanding of the project's architecture and conventions. Let me know if you want to drill down into any of these rules or add more specific guidelines.
 
 ## 🎉 Current 371 OS Implementation Status
 

@@ -7,15 +7,19 @@
     "build": "nx build chief-of-staff-agent",
     "dev": "nx serve chief-of-staff-agent",
     "test": "nx test chief-of-staff-agent",
-    "lint": "nx lint chief-of-staff-agent"
+    "lint": "nx lint chief-of-staff-agent",
+    "start": "bun src/index.ts",
+    "validate": "bun src/index.ts --validate"
   },
   "dependencies": {
-    "@elizaos/core": "^1.5.2"
+    "@elizaos/core": "^1.5.2",
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   },
-  "keywords": ["chief-of-staff", "dao-proposals", "strategic-orchestration", "371-os"],
+  "keywords": ["chief-of-staff", "dao-proposals", "strategic-orchestration", "371-os", "governance"],
   "author": "371 Minds",
   "license": "MIT"
 }

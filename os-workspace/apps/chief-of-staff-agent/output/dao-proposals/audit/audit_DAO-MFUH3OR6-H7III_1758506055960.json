@@ -1,0 +1,36 @@
+{
+  "workflow_id": "WF-MFUH3ORC-6FOFB",
+  "timestamp": "2025-09-22T01:54:15.960Z",
+  "agent": {
+    "name": "Ortega (Chief of Staff)",
+    "type": "ORCHESTRATION",
+    "version": "1.0.0"
+  },
+  "inputs": {
+    "stratplan_id": "STRAT-PERF-TEST-4-MFUH3OR5",
+    "stratplan_title": "Perf Test 4",
+    "stratplan_phases": 4,
+    "stratplan_resources": 4
+  },
+  "processing": {
+    "analysis_confidence": 0.7678571428571429,
+    "complexity_score": 90,
+    "feasibility_score": 65,
+    "risk_level": "low",
+    "processing_time_ms": 5
+  },
+  "outputs": {
+    "proposal_id": "DAO-MFUH3OR6-H7III",
+    "proposal_type": "financial",
+    "markdown_file": "DAO-MFUH3OR6-H7III_2025-09-22T01-54-15-955Z.md",
+    "json_file": "DAO-MFUH3OR6-H7III_2025-09-22T01-54-15-955Z.json",
+    "budget_requested": 586500
+  },
+  "validation": {
+    "inputs_validated": true,
+    "analysis_complete": true,
+    "proposal_generated": true,
+    "files_saved": true,
+    "governance_ready": true
+  }
+}

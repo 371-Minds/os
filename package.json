@@ -1,0 +1,25 @@
+{
+  "name": "371-minds-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.2.18",
+  "description": "371 Minds OS - Revolutionary AI Agent Operating System",
+  "workspaces": [
+    "os-workspace"
+  ],
+  "scripts": {
+    "nx": "cd os-workspace && bun nx",
+    "start": "cd os-workspace && bun nx serve",
+    "build": "cd os-workspace && bun nx build",
+    "test": "cd os-workspace && bun nx test",
+    "lint": "cd os-workspace && bun nx lint",
+    "affected": "cd os-workspace && bun nx affected",
+    "graph": "cd os-workspace && bun nx graph",
+    "connect": "cd os-workspace && bun nx connect",
+    "view-logs": "cd os-workspace && bun nx view-logs"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}

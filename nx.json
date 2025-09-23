@@ -1,0 +1,39 @@
+{
+  "$schema": "./os-workspace/node_modules/nx/schemas/nx-schema.json",
+  "workspaceLayout": {
+    "appsDir": "os-workspace/apps",
+    "libsDir": "os-workspace/libs"
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["default", "{workspaceRoot}/os-workspace/biome.json"]
+    }
+  },
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/biome.json"
+    ],
+    "sharedGlobals": ["os-workspace/nx.json"]
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/js",
+      "options": {
+        "analyzeSourceFiles": true
+      }
+    }
+  ]
+}

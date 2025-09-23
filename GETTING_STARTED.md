@@ -8,11 +8,13 @@
 
 ```bash
 git clone https://github.com/371-Minds/os.git
-cd os
-./scripts/quick-start.sh
+cd os/os-workspace
+bun install
+bun nx affected -t build
+bun nx connect  # Optional: Connect to Nx Cloud for analytics
 ```
 
-**That's it!** The script handles everything automatically. ☕ Grab coffee while it sets up your revolutionary agent ecosystem.
+**That's it!** The Bun setup is lightning-fast. ☕ No need for coffee breaks with 50x faster dependency installation!
 
 ---
 
@@ -39,8 +41,27 @@ You're implementing a **game-changing autonomous agent operating system** that:
 
 ## 🏁 **Three Ways to Get Started**
 
-### **Option 1: Automated Setup (Recommended)**
-*Perfect for: Everyone who wants it to "just work"*
+### **Option 1: Modern Bun Setup (Recommended)**
+*Perfect for: Fast, modern development workflow*
+
+```bash
+# Clone and setup with Bun (lightning fast)
+git clone https://github.com/371-Minds/os.git
+cd os/os-workspace
+bun install
+bun nx affected -t build
+
+# Optional: Connect to Nx Cloud for analytics
+bun nx connect
+
+# Start development
+bun run start:dev
+```
+
+**Time: 2-5 minutes** ⚡
+
+### **Option 2: Automated Script Setup**
+*Perfect for: One-command setup with legacy compatibility*
 
 ```bash
 # Clone and auto-setup everything
@@ -50,7 +71,7 @@ chmod +x scripts/quick-start.sh
 ./scripts/quick-start.sh
 
 # Follow interactive prompts, then:
-npm run start:dev
+bun run start:dev
 ```
 
 **Time: 10-15 minutes** ⏱️
@@ -68,9 +89,10 @@ Follow the comprehensive **[IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)*
 
 ```bash
 git clone https://github.com/371-Minds/os.git
-cd os
+cd os/os-workspace
 bun install
-bun nx build
+bun nx affected -t build
+bun nx connect  # Connect to Nx Cloud
 # Configure .env manually
 # Deploy contracts
 # Setup agents

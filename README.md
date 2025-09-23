@@ -45,8 +45,9 @@
 ### 1. **One-Command Setup**
 ```bash
 git clone https://github.com/371-Minds/os.git
-cd os
-./scripts/quick-start.sh
+cd os/os-workspace
+bun install
+bun nx affected -t build
 ```
 
 ### 2. **Start Agents Locally**
@@ -54,17 +55,24 @@ cd os
 bun run start:dev
 ```
 
-### 3. **Deploy to Akash Network (97.6% Cost Reduction)**
+### 3. **Connect to Nx Cloud (Enhanced Analytics)**
+```bash
+bun nx connect
+# Follow browser prompts for advanced logging and caching
+bun nx view-logs  # After connection
+```
+
+### 4. **Deploy to Akash Network (97.6% Cost Reduction)**
 ```bash
 bun run deploy:akash
 ```
 
-### 4. **Deploy via GitHub Deploy (Recommended)**
+### 5. **Deploy via GitHub Deploy (Recommended)**
 ```bash
 bun run deploy:github:all
 ```
 
-### 5. **Monitor Your Revolutionary System**
+### 6. **Monitor Your Revolutionary System**
 ```bash
 bun run health-check
 bun run cost-analysis
@@ -170,6 +178,8 @@ The `dev-team/` directory contains internal tooling and development support for 
 
 ### **Revolutionary Technology Stack**
 - 🏗️ **Nx Workspace**: Monorepo with affected analysis for 40x efficiency gains
+- ☁️ **Nx Cloud**: Advanced analytics, distributed caching, and build insights
+- 🚀 **Bun Runtime**: Lightning-fast package manager and test runner
 - 🔌 **ElizaOS Plugins**: Self-aware agent capabilities with workspace manipulation
 - ⛓️ **Ethereum Smart Contracts**: Decentralized agent registry and coordination
 - 📁 **IPFS Storage**: Distributed metadata for agent capabilities
@@ -198,6 +208,64 @@ The `dev-team/` directory contains internal tooling and development support for 
 - **Behavior Analytics**: Comprehensive user interaction tracking with PostHog integration
 - **Advanced AI**: Integrated access to Claude, GPT, Gemini, and other AI models
 - **Cloud Storage**: Serverless file storage and management
+
+---
+
+## 🛠️ Development Workflow
+
+### **Modern Development Stack**
+371 OS uses cutting-edge tooling for maximum developer productivity:
+
+```bash
+# Navigate to workspace
+cd os-workspace
+
+# Install dependencies (lightning fast with Bun)
+bun install
+
+# Build only affected projects (40x faster)
+bun nx affected -t build
+
+# Run tests with Bun's built-in runner
+bun test
+
+# Lint and format with Biome (Rust-powered)
+bun nx affected -t lint
+
+# Start development servers
+bun run start:dev
+```
+
+### **Nx Cloud Integration**
+Connect to Nx Cloud for enhanced development experience:
+
+- **📊 Advanced Analytics**: Detailed build performance insights
+- **🚀 Distributed Caching**: Share build cache across your team
+- **🔍 Build Insights**: Identify bottlenecks and optimization opportunities
+- **📋 Task Logs**: Comprehensive logging for debugging
+
+```bash
+# Connect to Nx Cloud (one-time setup)
+bun nx connect
+
+# View detailed logs and analytics
+bun nx view-logs
+
+# Generate dependency graph
+bun nx graph
+```
+
+### **Workspace Structure**
+```
+371-minds-os/
+├── nx.json              # Root Nx configuration
+├── package.json         # Root dependencies
+└── os-workspace/        # Main development workspace
+    ├── apps/            # Applications (DAO governance, cognitive interface)
+    ├── libs/            # Shared libraries (core-types, blockchain-registry)
+    ├── packages/        # ElizaOS plugins and specialized packages
+    └── agents/          # Agent configurations and runtime
+```
 
 ### 🔒 **Enterprise Ready**
 - **Zero-Trust Security**: No hardcoded credentials, Secretless Broker integration

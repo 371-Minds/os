@@ -10,11 +10,38 @@ This is the main workspace for the 371 OS project, a revolutionary autonomous ag
 
 To get started with the 371 OS project:
 
-1. **Understand the Project Context**: [01-project-context.md](docs/01-project-context.md)
-2. **Review Development Rules**: [02-development-rules.md](docs/02-development-rules.md)
-3. **Learn Code Patterns**: [03-code-patterns.md](docs/03-code-patterns.md)
-4. **Explore Architecture**: [docs/architecture/](docs/architecture/)
-5. **Set Up Development Environment**: [docs/implementation/](docs/implementation/)
+1. **Install Dependencies**: `bun install`
+2. **Build Affected Projects**: `bun nx affected -t build` 
+3. **Connect to Nx Cloud**: `bun nx connect` (optional, for analytics)
+4. **Understand the Project Context**: [01-project-context.md](docs/01-project-context.md)
+5. **Review Development Rules**: [02-development-rules.md](docs/02-development-rules.md)
+6. **Learn Code Patterns**: [03-code-patterns.md](docs/03-code-patterns.md)
+7. **Explore Architecture**: [docs/architecture/](docs/architecture/)
+8. **Set Up Development Environment**: [docs/implementation/](docs/implementation/)
+
+### **Development Commands**
+```bash
+# Install dependencies (lightning fast)
+bun install
+
+# Build only affected projects
+bun nx affected -t build
+
+# Run tests with Bun's built-in runner
+bun test
+
+# Start development servers
+bun run start:dev
+
+# Connect to Nx Cloud for advanced analytics
+bun nx connect
+
+# View detailed logs (after Nx Cloud connection)
+bun nx view-logs
+
+# Generate dependency graph
+bun nx graph
+```
 
 ## 📁 Directory Structure
 
@@ -57,15 +84,16 @@ These documents provide essential context about the project's vision, architectu
 
 ## 🔧 Technology Stack
 
+- **Runtime & Package Manager**: Bun v1.2.18 (50x faster than npm)
+- **Development Framework**: Nx Workspace v21.4.1 with Nx Cloud integration
 - **Frontend**: React v18+
 - **Backend**: Node.js 18+, Express
 - **Database**: MongoDB, Mongoose
 - **Blockchain**: Ethereum (via ethers.js), Hardhat
 - **Storage**: IPFS (via ipfs-http-client), Web3.storage
 - **Infrastructure**: Akash Network
-- **Development Framework**: Nx Workspace v21.4.1
-- **Package Manager**: Bun v1.2.18
-- **Testing**: Bun Test Runner
+- **Testing**: Bun Test Runner (Jest-compatible, built-in)
+- **Linting & Formatting**: Biome (Rust-powered, replaces ESLint + Prettier)
 - **Languages**: TypeScript v5.9.2
 - **Key Libraries**: Ethers.js v6.15.0, IPFS Client v60.0.1, MongoDB v6.10.0, Mongoose v8.8.3
 

@@ -38,44 +38,67 @@ We've now implemented **three revolutionary layers** that perfectly integrate wi
 
 ## 🏗️ Implementation Priority Matrix
 
-### 🔥 IMMEDIATE (This Week): Phase 1 Completion
+### 🔥 IMMEDIATE (This Week): Phase 1 Completion + Nx Cloud Setup
+
+#### 0. Nx Cloud Integration (NEW!)
+```bash
+# Connect workspace to Nx Cloud for enhanced analytics
+cd f:/os-main/os-workspace
+bun nx connect
+
+# Verify connection and access dashboard
+bun nx view-logs
+bun nx cloud
+
+# Enable distributed task execution
+bun nx affected -t build --parallel=3
+```
 
 #### 1. Universal Tool Server Integration
 ```bash
 # In your Nx workspace
-cd /home/user/webapp
-npm install ethers web3 ipfs-http-client @akash-network/akashjs
+cd f:/os-main/os-workspace
+bun install ethers web3 ipfs-http-client @akash-network/akashjs
 
 # Build the plugin
-npx nx build elizaos-plugin-universal-tool-server
+bun nx build elizaos-plugin-universal-tool-server
 
 # Test blockchain integration
-npx nx test elizaos-plugin-universal-tool-server
+bun nx test elizaos-plugin-universal-tool-server
 ```
 
 #### 2. Nx Workspace Enhancement
 ```bash
 # Add Universal Tool Server to workspace dependencies
+bun add ethers web3 ipfs-http-client @akash-network/akashjs
+
 # Update tsconfig.base.json paths
 # Create integration tests between plugins
+bun nx affected -t test
+
+# Connect to Nx Cloud for enhanced analytics
+bun nx connect
 ```
 
-### 🚀 SHORT TERM (Next 2 Weeks): ElizaOS Optimization
+### 🚀 SHORT TERM (Next 2 Weeks): ElizaOS Optimization + Nx Cloud
 
 #### 1. CEO-Router Hybrid Implementation
 - Convert your Python CEO agent to ElizaOS character
 - Integrate routing logic with self-awareness capabilities
 - Connect to Akash Chat API for zero-cost inference
+- Leverage Nx Cloud analytics for performance monitoring
 
-#### 2. GitHub Prompt Warehouse
+#### 2. GitHub Prompt Warehouse + Enhanced Analytics
 - Configure MCP server for `bizbuilderprompts` repo
 - Implement 1-hour caching with auto-refresh
 - Version control for prompt evolution
+- Use Nx Cloud build insights for optimization
 
-#### 3. Cost Optimization Deployment
+#### 3. Cost Optimization Deployment + Monitoring
 - Deploy to Akash Network for 80-90% infrastructure savings
 - Implement budget guards and cost monitoring
 - Set up automatic fallbacks to free Akash Chat API
+- Monitor performance trends via Nx Cloud dashboard
 
 ### 🎯 MEDIUM TERM (Next Month): Security & Enterprise
 
@@ -136,46 +159,60 @@ Your existing Python agents in `371-os/src/minds371/agents/`:
 ### Migration Approach
 **Phase 1**: Convert to ElizaOS Characters
 ```typescript
-// CEO Agent (Mimi) - Strategic Router Hybrid
+// CEO Agent (Mimi) - Strategic Router Hybrid with Nx Cloud Analytics
 const ceoCharacter = {
   name: "CEO Mimi",
   plugins: [
     NxWorkspacePlugin,           // Self-awareness
     UniversalToolServerPlugin,   // Decentralized tools
-    OptimizationSuitePlugin      // Cost & performance
+    OptimizationSuitePlugin,     // Cost & performance
+    NxCloudAnalyticsPlugin       // Build insights & analytics
   ],
   settings: {
-    secrets: ["AKASH_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["AKASH_API_KEY", "GITHUB_TOKEN", "NX_CLOUD_ACCESS_TOKEN"],
     modelProvider: "akash-chat-api", // Zero cost
-    budgetGuard: { maxCostPerHour: 0.10 }
+    budgetGuard: { maxCostPerHour: 0.10 },
+    nxCloud: { 
+      enableAnalytics: true,
+      distributedExecution: true,
+      cacheOptimization: "aggressive"
+    }
   }
 }
 ```
 
-**Phase 2**: Implement Autonomous Capabilities  
+**Phase 2**: Implement Autonomous Capabilities + Nx Cloud Intelligence
 ```typescript
-// Autonomous self-modification workflow
+// Autonomous self-modification workflow with analytics
 async function autonomousEvolution() {
-  // 1. Analyze current architecture
+  // 1. Analyze current architecture with Nx Cloud insights
   const analysis = await agent.analyzeWorkspace();
+  const buildInsights = await agent.getNxCloudAnalytics();
   
   // 2. Discover optimization opportunities  
   const tools = await agent.discoverUniversalTools({
-    requirements: ["code-optimization", "cost-reduction"],
-    minReputation: 0.8
+    requirements: ["code-optimization", "cost-reduction", "build-performance"],
+    minReputation: 0.8,
+    buildMetrics: buildInsights.performanceData
   });
   
-  // 3. Execute improvements autonomously
+  // 3. Execute improvements autonomously with monitoring
   for (const improvement of analysis.recommendations) {
+    const startTime = Date.now();
     await agent.executeUniversalTool({
       tool: improvement.tool,
       parameters: improvement.parameters
     });
     
-    // 4. Validate changes
+    // 4. Validate changes with Nx Cloud analytics
     const testResults = await agent.runTestsForAffected();
-    if (!testResults.success) {
+    const buildMetrics = await agent.trackBuildPerformance(startTime);
+    
+    if (!testResults.success || buildMetrics.performance < threshold) {
       await agent.rollbackChanges();
+      await agent.logToNxCloud("Rollback executed due to performance regression");
+    } else {
+      await agent.logToNxCloud(`Optimization successful: ${buildMetrics.improvement}% faster`);
     }
   }
 }
@@ -189,14 +226,16 @@ Traditional Setup: $15,000/month
 ├── Cloud Infrastructure: $8,000
 ├── AI API Calls: $5,000  
 ├── Tool Integrations: $1,500
-└── Security & Monitoring: $500
+├── CI/CD Pipeline: $500
+└── Build & Analytics: $0 (basic)
 
 371 OS Optimized: $20-45/month (99.7% reduction!)
 ├── Akash Network: $15-35/month
 ├── Akash Chat API: $0 (free)
 ├── GitHub MCP: $0 (free)  
 ├── Blockchain Registry: $5-10/month
-└── Security Baseline: $0 (open source)
+├── Security Baseline: $0 (open source)
+└── Nx Cloud: $0 (free tier, enterprise-grade analytics)
 ```
 
 ### Revenue Generation
@@ -240,10 +279,12 @@ Agent-as-a-Service Revenue:
 ## 🚀 Next Steps (This Week)
 
 1. **✅ Complete PR Merge**: Your revolutionary Nx workspace foundation
-2. **🔄 Implement Universal Tool Server**: Blockchain agent registry
-3. **⏳ Deploy Akash Integration**: 97.6% cost reduction activation
-4. **⏳ Test Cross-Plugin Communication**: Verify self-aware + universal tools
-5. **⏳ Create First Autonomous Agent**: End-to-end self-modifying agent
+2. **🔄 Setup Nx Cloud Integration**: Connect workspace for enhanced analytics (`bun nx connect`)
+3. **🔄 Implement Universal Tool Server**: Blockchain agent registry
+4. **⏳ Deploy Akash Integration**: 97.6% cost reduction activation
+5. **⏳ Test Cross-Plugin Communication**: Verify self-aware + universal tools + Nx Cloud analytics
+6. **⏳ Create First Autonomous Agent**: End-to-end self-modifying agent with build insights
+7. **⏳ Monitor Performance**: Leverage Nx Cloud dashboard for continuous optimization
 
 ---
 
@@ -254,8 +295,10 @@ The 371 OS now represents:
 - **Decentralized Agent Economy** (via blockchain registry)  
 - **Extreme Cost Efficiency** (via Akash optimization)
 - **Enterprise Security** (via zero-trust architecture)
+- **Advanced Build Intelligence** (via Nx Cloud integration)
+- **Distributed Task Execution** (via Nx Cloud's 3x faster CI/CD)
 
-This is not just a development project - it's the **foundation of autonomous business civilization**. 🤖✨
+This is not just a development project - it's the **foundation of autonomous business civilization** with enterprise-grade development analytics. 🤖✨
 
 Custom Akash Workspace Commands
 

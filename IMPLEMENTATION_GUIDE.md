@@ -33,13 +33,19 @@ This guide walks you through implementing the **371 OS** - a revolutionary auton
 ```bash
 # Clone your 371 OS repository
 git clone https://github.com/371-Minds/os.git
-cd os
+cd os/os-workspace
 
-# Install dependencies
-npm install
+# Install dependencies (lightning fast with Bun)
+bun install
+
+# Build affected projects only (40x faster)
+bun nx affected -t build
+
+# Optional: Connect to Nx Cloud for analytics
+bun nx connect
 
 # Verify Nx workspace is working
-npx nx graph
+bun nx graph
 ```
 
 ### Step 1.2: Environment Configuration
@@ -122,10 +128,9 @@ Each library includes:
 
 ```bash
 # Build all packages using Nx affected analysis
-npx nx affected -t build
+bun nx affected -t build
 
 # Build all core libraries
-cd os-workspace
 bun nx run-many -t build --projects=blockchain-registry,ipfs-storage,core-types
 
 # Verify ElizaOS plugins are built
@@ -191,13 +196,13 @@ contract AgentRegistry {
 EOF
 
 # Deploy using Hardhat (install first if needed)
-npm install --save-dev hardhat @nomicfoundation/hardhat-ethers ethers
+bun add -D hardhat @nomicfoundation/hardhat-ethers ethers
 
 # Initialize Hardhat
-npx hardhat init
+bunx hardhat init
 
 # Deploy the contract (update hardhat.config.js with your network)
-npx hardhat run scripts/deploy.js --network sepolia
+bunx hardhat run scripts/deploy.js --network sepolia
 ```
 
 ### Step 2.2: Configure IPFS Storage

@@ -7,5 +7,6 @@
     "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
     "core-types": "os-workspace/libs/core-types",
     "core-libraries": "os-workspace/libs/core-libraries"
-  }
+  },
+  "nxCloudId": "68d2d421573bd22ab7867b0f"
 }

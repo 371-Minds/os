@@ -17,6 +17,16 @@
     "lint": {
       "cache": true,
       "inputs": ["default", "{workspaceRoot}/os-workspace/biome.json"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
@@ -26,7 +36,7 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/biome.json"
     ],
-    "sharedGlobals": ["os-workspace/nx.json"]
+    "sharedGlobals": []
   },
   "plugins": [
     {
@@ -35,5 +45,17 @@
         "analyzeSourceFiles": true
       }
     }
-  ]
+  ],
+  "generators": {
+    "@nx/js:library": {
+      "buildable": true,
+      "publishable": false,
+      "unitTestRunner": "none"
+    }
+  },
+  "release": {
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build"
+    }
+  }
 }

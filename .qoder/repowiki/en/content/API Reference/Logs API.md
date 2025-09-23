@@ -2,11 +2,11 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md)
-- [Clear system logs.md](file://elizaos/API Reference/Logs/Clear system logs.md)
-- [Delete a specific log entry.md](file://elizaos/API Reference/Logs/Delete a specific log entry.md)
-- [Get system logs (POST).md](file://elizaos/API Reference/Logs/Get system logs (POST).md)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md)
+- [Clear system logs.md](file://reference/elizaos/API Reference/Logs/Clear system logs.md)
+- [Delete a specific log entry.md](file://reference/elizaos/API Reference/Logs/Delete a specific log entry.md)
+- [Get system logs (POST).md](file://reference/elizaos/API Reference/Logs/Get system logs (POST).md)
 </cite>
 
 ## Table of Contents
@@ -25,8 +25,8 @@
 The Logs API provides comprehensive access to system and agent-level logging data within the 371OS platform. This API enables administrators and monitoring systems to retrieve, filter, and manage log entries for debugging, auditing, and operational visibility. The API supports multiple retrieval methods, filtering options, and management operations including clearing logs and deleting specific entries.
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L1-L147)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L1-L147)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
 
 ## System Logs Retrieval
 The system logs endpoint allows retrieval of platform-wide log entries with comprehensive filtering capabilities.
@@ -78,7 +78,7 @@ Retrieves system logs with optional filtering parameters.
 ```
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L1-L147)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L1-L147)
 
 ### POST /api/server/logs
 Alternative endpoint for retrieving system logs using POST method, allowing for more complex filtering in the request body.
@@ -101,7 +101,7 @@ Alternative endpoint for retrieving system logs using POST method, allowing for 
 Identical to the GET endpoint response schema.
 
 **Section sources**
-- [Get system logs (POST).md](file://elizaos/API Reference/Logs/Get system logs (POST).md#L1-L159)
+- [Get system logs (POST).md](file://reference/elizaos/API Reference/Logs/Get system logs (POST).md#L1-L159)
 
 ## Agent-Specific Logs Retrieval
 The agent logs endpoint provides access to logs associated with a specific agent.
@@ -179,7 +179,7 @@ Retrieves logs for a specific agent with filtering options.
 ```
 
 **Section sources**
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
 
 ## Clearing System Logs
 The clear logs endpoint allows administrators to remove all system logs.
@@ -211,7 +211,7 @@ No parameters required.
 ```
 
 **Section sources**
-- [Clear system logs.md](file://elizaos/API Reference/Logs/Clear system logs.md#L1-L64)
+- [Clear system logs.md](file://reference/elizaos/API Reference/Logs/Clear system logs.md#L1-L64)
 
 ## Deleting Individual Log Entries
 The delete log entry endpoint allows removal of specific log entries.
@@ -266,7 +266,7 @@ Deletes a specific log entry for an agent.
 ```
 
 **Section sources**
-- [Delete a specific log entry.md](file://elizaos/API Reference/Logs/Delete a specific log entry.md#L1-L123)
+- [Delete a specific log entry.md](file://reference/elizaos/API Reference/Logs/Delete a specific log entry.md#L1-L123)
 
 ## Log Entry Structure
 The LogEntry schema defines the structure of individual log entries returned by the API.
@@ -281,16 +281,16 @@ The LogEntry schema defines the structure of individual log entries returned by 
 This structure is consistent across all log retrieval endpoints and provides essential information for debugging and monitoring system behavior.
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L100-L147)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L130-L186)
-- [Get system logs (POST).md](file://elizaos/API Reference/Logs/Get system logs (POST).md#L110-L159)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L100-L147)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L130-L186)
+- [Get system logs (POST).md](file://reference/elizaos/API Reference/Logs/Get system logs (POST).md#L110-L159)
 
 ## Authentication and Security
 Based on the available documentation, the Logs API endpoints do not specify security requirements in their OpenAPI specifications (security: []). This suggests that authentication mechanisms may be handled at the platform level or through external means. Given the sensitive nature of log data, it is expected that access to these endpoints requires administrative privileges, though specific authentication headers or token requirements are not documented in the provided files.
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L6-L147)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L6-L186)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L6-L147)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L6-L186)
 
 ## Error Handling
 The Logs API implements comprehensive error handling with standardized response formats for different error conditions.
@@ -303,8 +303,8 @@ The Logs API implements comprehensive error handling with standardized response 
 Error responses follow a consistent structure with success status, error code, message, and detailed information to facilitate troubleshooting.
 
 **Section sources**
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L60-L186)
-- [Delete a specific log entry.md](file://elizaos/API Reference/Logs/Delete a specific log entry.md#L6-L123)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L60-L186)
+- [Delete a specific log entry.md](file://reference/elizaos/API Reference/Logs/Delete a specific log entry.md#L6-L123)
 
 ## Performance and Rate Limiting
 While specific rate limiting policies are not documented in the available files, the API includes several performance-related constraints:
@@ -318,8 +318,8 @@ For optimal performance with large log datasets, clients should implement pagina
 Log retention policies are not documented in the available files, but the presence of log clearing functionality suggests that administrators have control over log lifecycle management.
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L30-L50)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L30-L50)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L30-L50)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L30-L50)
 
 ## Usage Examples
 ### Retrieve System Logs with Filtering
@@ -355,8 +355,8 @@ curl -X DELETE "http://localhost:3000/api/agents/3c90c3cc-0d44-4b50-8888-8dd2573
 ```
 
 **Section sources**
-- [Get system logs.md](file://elizaos/API Reference/Logs/Get system logs.md#L1-L147)
-- [Get agent logs.md](file://elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
-- [Clear system logs.md](file://elizaos/API Reference/Logs/Clear system logs.md#L1-L64)
-- [Delete a specific log entry.md](file://elizaos/API Reference/Logs/Delete a specific log entry.md#L1-L123)
-- [Get system logs (POST).md](file://elizaos/API Reference/Logs/Get system logs (POST).md#L1-L159)
+- [Get system logs.md](file://reference/elizaos/API Reference/Logs/Get system logs.md#L1-L147)
+- [Get agent logs.md](file://reference/elizaos/API Reference/Logs/Get agent logs.md#L1-L186)
+- [Clear system logs.md](file://reference/elizaos/API Reference/Logs/Clear system logs.md#L1-L64)
+- [Delete a specific log entry.md](file://reference/elizaos/API Reference/Logs/Delete a specific log entry.md#L1-L123)
+- [Get system logs (POST).md](file://reference/elizaos/API Reference/Logs/Get system logs (POST).md#L1-L159)

@@ -2,30 +2,18 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Start an agent.md](file://elizaos/API Reference/Start an agent.md)
-- [Update agent.md](file://elizaos/API Reference/Update agent.md)
-- [List all agents.md](file://elizaos/API Reference/List all agents.md)
-- [Get agent details.md](file://elizaos/API Reference/Get agent details.md)
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
-- [Stop an agent.md](file://elizaos/API Reference/Stop an agent.md)
-- [Delete an agent.md](file://elizaos/API Reference/Delete an agent.md)
-- [State Management.md](file://elizaos/Guides/State Management.md)
-- [system_architecture.html](file://371-os/docs/architecture/system_architecture.html)
-- [credential_warehouse_agent.py](file://371-os/src/minds371/agents/utility/credential_warehouse_agent.py)
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md)
-- [index.js](file://agents/test-agent/index.js) - *Added in commit 503c57b*
-- [character.json](file://agents/test-agent/character.json) - *Added in commit 503c57b*
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md) - *Core agent implementation*
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
+- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
+- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added new section on Agent Initialization Process based on test-agent implementation
-- Updated Agent Lifecycle Operations with additional context from AgentRuntime
-- Enhanced Agent State Machine with additional states from code analysis
-- Added new section on Configuration Structure based on character.json
-- Updated Request and Response Examples with new test agent data
-- Added new section on Plugin Integration Patterns
+- Updated API response schemas based on OpenAPI specifications
+- Enhanced error handling section with additional status codes
+- Updated request and response examples to match current API behavior
+- Verified and updated all endpoint specifications against current implementation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -43,9 +31,6 @@
 7. [Performance Considerations](#performance-considerations)
 8. [Validation Rules](#validation-rules)
 9. [Sample curl Commands](#sample-curl-commands)
-10. [Agent Initialization Process](#agent-initialization-process)
-11. [Configuration Structure](#configuration-structure)
-12. [Plugin Integration Patterns](#plugin-integration-patterns)
 
 ## Introduction
 
@@ -54,8 +39,8 @@ The Agent Management API in the 371OS platform provides comprehensive control ov
 The API follows RESTful principles with predictable resource URLs and standard HTTP methods. All endpoints are designed to support both programmatic integration and interactive exploration. Agents represent autonomous entities with specific roles (CEO, CFO, CTO, etc.) that can be orchestrated to perform complex business operations.
 
 **Section sources**
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
-- [Get agent details.md](file://elizaos/API Reference/Get agent details.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
 
 ## Agent Lifecycle Operations
 
@@ -99,7 +84,7 @@ Creates a new agent from character configuration.
 - 400: Error creating agent (invalid configuration)
 
 **Section sources**
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ### Retrieve Agent
 
@@ -155,8 +140,8 @@ Retrieves detailed information about a specific agent or lists all available age
 - 500: Error retrieving agents
 
 **Section sources**
-- [Get agent details.md](file://elizaos/API Reference/Get agent details.md)
-- [List all agents.md](file://elizaos/API Reference/List all agents.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
 
 ### Start Agent
 
@@ -189,7 +174,7 @@ Starts an existing agent.
 - 500: Error starting agent
 
 **Section sources**
-- [Start an agent.md](file://elizaos/API Reference/Start an agent.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ### Stop Agent
 
@@ -219,7 +204,7 @@ Stops a running agent.
 - 404: Agent not found
 
 **Section sources**
-- [Stop an agent.md](file://elizaos/API Reference/Stop an agent.md)
+- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
 
 ### Update Agent
 
@@ -253,7 +238,7 @@ Updates an existing agent's configuration.
 - 500: Error updating agent
 
 **Section sources**
-- [Update agent.md](file://elizaos/API Reference/Update agent.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ### Delete Agent
 
@@ -276,19 +261,21 @@ Deletes an existing agent.
 
 **HTTP Status Codes**:
 - 200: Agent deleted successfully
+- 202: Agent deletion initiated
 - 400: Invalid agent ID
 - 404: Agent not found
+- 408: Agent deletion operation timed out
+- 409: Cannot delete agent due to active references
 - 500: Error deleting agent
 
 **Section sources**
-- [Delete an agent.md](file://elizaos/API Reference/Delete an agent.md)
+- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md)
 
 ## Agent State Machine
 
 Agents in the 371OS platform transition through a well-defined state machine that governs their lifecycle and operational status.
 
-``mermaid
-stateDiagram-v2
+```
 [*] --> Created
 Created --> Running : start
 Running --> Stopped : stop
@@ -302,10 +289,6 @@ Running --> Initializing : startup_sequence
 Initializing --> Running : ready
 Initializing --> Error : startup_failed
 ```
-
-**Diagram sources**
-- [State Management.md](file://elizaos/Guides/State Management.md)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
 
 The agent state machine consists of the following states:
 
@@ -322,27 +305,11 @@ State transitions are controlled through the API endpoints:
 The state management system also includes caching mechanisms to optimize performance, with state caches automatically cleared for messages older than one hour.
 
 **Section sources**
-- [State Management.md](file://elizaos/Guides/State Management.md)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ## Authentication and Security
 
 The Agent Management API implements a multi-layered security approach that combines traditional authentication methods with blockchain-based identity verification.
-
-``mermaid
-graph TB
-Client --> |Request| API
-API --> Authentication
-Authentication --> |API Key/JWT| TraditionalAuth
-Authentication --> |Blockchain DID| DecentralizedAuth
-TraditionalAuth --> RoleBasedAccess
-DecentralizedAuth --> SmartContractGovernance
-RoleBasedAccess --> AgentInteraction
-SmartContractGovernance --> AgentInteraction
-```
-
-**Diagram sources**
-- [system_architecture.html](file://371-os/docs/architecture/system_architecture.html)
 
 ### Authentication Methods
 
@@ -363,8 +330,7 @@ Agents operate under the principle of least privilege, with access controls enfo
 The credential warehouse system ensures that agents can only access credentials they are explicitly authorized to use, preventing unauthorized access to sensitive resources.
 
 **Section sources**
-- [system_architecture.html](file://371-os/docs/architecture/system_architecture.html)
-- [credential_warehouse_agent.py](file://371-os/src/minds371/agents/utility/credential_warehouse_agent.py)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ## Request and Response Examples
 
@@ -468,9 +434,8 @@ curl -X POST https://api.371minds.com/api/agents/a1b2c3d4-e5f6-7890-1234-567890a
 ```
 
 **Section sources**
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
-- [Start an agent.md](file://elizaos/API Reference/Start an agent.md)
-- [character.json](file://agents/test-agent/character.json)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
 
 ## Error Handling
 
@@ -508,8 +473,8 @@ The API provides comprehensive error handling with standardized error payloads a
 | 500 | Internal Server Error | Unexpected server error |
 
 **Section sources**
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
-- [Start an agent.md](file://elizaos/API Reference/Start an agent.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
 
 ## Performance Considerations
 
@@ -524,20 +489,6 @@ For provisioning multiple agents, consider the following approaches:
 3. **Batch Endpoints**: When available, use dedicated batch endpoints to minimize network overhead
 
 ### Rate Limiting
-
-The API implements rate limiting to ensure fair usage and system stability:
-
-``mermaid
-flowchart TD
-Request --> RateLimiter
-RateLimiter --> |Within Limit| ProcessRequest
-RateLimiter --> |Limit Exceeded| Wait
-Wait --> |Wait Time Elapsed| ProcessRequest
-ProcessRequest --> Response
-```
-
-**Diagram sources**
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md)
 
 Rate limits are applied at multiple levels:
 - Per API key
@@ -554,7 +505,7 @@ Rate limits are applied at multiple levels:
 - Monitor response times and adjust concurrency accordingly
 
 **Section sources**
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ## Validation Rules
 
@@ -581,7 +532,7 @@ The API enforces strict validation rules to ensure data integrity and system sta
 - Enumerated values must be from allowed sets
 
 **Section sources**
-- [Create a new agent.md](file://elizaos/API Reference/Create a new agent.md)
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
 
 ## Sample curl Commands
 
@@ -635,116 +586,3 @@ curl -X POST https://api.371minds.com/api/agents/3c90c3cc-0d44-4b50-8888-8dd2573
 curl -X DELETE https://api.371minds.com/api/agents/3c90c3cc-0d44-4b50-8888-8dd25736052a \
   -H "Authorization: Bearer <your-api-token>"
 ```
-
-## Agent Initialization Process
-
-The agent initialization process follows a specific sequence when starting a new agent, as demonstrated in the test-agent implementation.
-
-``mermaid
-flowchart TD
-Start[Start Agent] --> LoadConfig[Load Character Configuration]
-LoadConfig --> CheckFile{Character File Exists?}
-CheckFile --> |Yes| ReadFile[Read character.json]
-CheckFile --> |No| UseDefault[Use defaultCharacter]
-ReadFile --> MergeConfig[Merge with defaultCharacter]
-UseDefault --> MergeConfig
-MergeConfig --> CreateRuntime[Create AgentRuntime]
-CreateRuntime --> ConfigureRuntime[Configure Runtime Options]
-ConfigureRuntime --> TestFunctionality[Test Basic Functionality]
-TestFunctionality --> StartHeartbeat[Start Heartbeat Interval]
-StartHeartbeat --> Running[Agent Running]
-```
-
-**Diagram sources**
-- [index.js](file://agents/test-agent/index.js)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
-
-The initialization process includes:
-1. Loading character configuration from either a file or default values
-2. Creating an AgentRuntime instance with the loaded configuration
-3. Setting up environment variables and model providers
-4. Testing basic functionality before going live
-5. Starting a heartbeat interval to maintain agent presence
-
-**Section sources**
-- [index.js](file://agents/test-agent/index.js)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
-
-## Configuration Structure
-
-The agent configuration structure follows a specific schema that defines the agent's behavior, knowledge, and interaction patterns.
-
-```json
-{
-  "name": "string",
-  "username": "string",
-  "bio": ["string"],
-  "lore": ["string"],
-  "knowledge": ["string"],
-  "messageExamples": [
-    [
-      {
-        "user": "string",
-        "content": {
-          "text": "string"
-        }
-      }
-    ]
-  ],
-  "postExamples": ["string"],
-  "style": {
-    "all": ["string"],
-    "chat": ["string"],
-    "post": ["string"]
-  },
-  "topics": ["string"],
-  "adjectives": ["string"]
-}
-```
-
-**Section sources**
-- [character.json](file://agents/test-agent/character.json)
-
-Key configuration elements:
-- **name**: The agent's display name
-- **bio**: Short description of the agent's purpose
-- **lore**: Background story and creation context
-- **knowledge**: Areas of expertise and understanding
-- **messageExamples**: Example conversations demonstrating capabilities
-- **style**: Communication guidelines for different contexts
-- **topics**: Subject areas the agent can discuss
-- **adjectives**: Descriptive terms for the agent's personality
-
-## Plugin Integration Patterns
-
-The agent system supports plugin integration to extend functionality. The current implementation shows patterns for plugin integration.
-
-``mermaid
-graph TD
-Agent[Agent] --> Runtime[AgentRuntime]
-Runtime --> PluginManager[Plugin Manager]
-PluginManager --> CorePlugins[Core Plugins]
-PluginManager --> CustomPlugins[Custom Plugins]
-CorePlugins --> Bootstrap[Bootstrap Plugin]
-CorePlugins --> Knowledge[Knowledge Plugin]
-CorePlugins --> SQL[SQL Plugin]
-CustomPlugins --> NxWorkspace[Nx Workspace Plugin]
-CustomPlugins --> Blockchain[Blockchain Registry Plugin]
-```
-
-**Diagram sources**
-- [index.js](file://agents/test-agent/index.js)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
-
-Plugin integration follows these patterns:
-1. Plugins are registered with the AgentRuntime during initialization
-2. Each plugin provides actions, providers, evaluators, and services
-3. The runtime composes state from all registered providers
-4. Actions are selected and executed based on message context
-5. Evaluators process results and update agent state
-
-The test agent implementation shows the pattern for integrating custom plugins, currently commented out pending resolution of plugin system issues.
-
-**Section sources**
-- [index.js](file://agents/test-agent/index.js)
-- [AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)

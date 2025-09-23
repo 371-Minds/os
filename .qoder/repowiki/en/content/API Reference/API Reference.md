@@ -1,3 +1,4 @@
+<docs>
 # API Reference
 
 <cite>
@@ -26,14 +27,21 @@
 - [questflow\src\server.ts](file://questflow/src/server.ts) - *Added in recent commit*
 - [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts) - *Added in recent commit*
 - [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts) - *Added in recent commit*
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Send Session Message.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Send Session Message.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
+- [reference\elizaos\Guides\Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md)
+- [reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added new section on QuestFlow API Server for workflow management, C-Suite coordination, and Akash deployments
+- Added comprehensive Sessions API section with detailed endpoint documentation
+- Enhanced Session Management API with timeout configuration, heartbeat, and health monitoring capabilities
 - Updated ElizaOS Integration section with additional context from new files
 - Enhanced source tracking with new file references from recent commits
-- Added new diagram for QuestFlow API architecture
+- Added new diagram for Sessions API architecture
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -51,6 +59,7 @@
 13. [Deprecation Notices](#deprecation-notices)
 14. [ElizaOS Integration](#elizaos-integration)
 15. [QuestFlow API Server](#questflow-api-server)
+16. [Sessions API](#sessions-api)
 
 ## Introduction
 
@@ -251,8 +260,7 @@ Retrieves detailed information about a specific agent.
 }
 ```
 
-```
-mermaid
+```mermaid
 sequenceDiagram
 participant Client
 participant API
@@ -275,11 +283,6 @@ API->>AgentManager : GetAgent(id)
 AgentManager-->>API : Agent data
 API-->>Client : 200 OK + agent details
 ```
-
-**Diagram sources**
-- [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
-- [371-os\src\minds371\agents\base_agent\base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-- [371-os\docs\architecture\agent_lifecycle.md](file://371-os/docs/architecture/agent_lifecycle.md)
 
 **Section sources**
 - [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
@@ -384,8 +387,7 @@ Retrieves messages from a channel.
 }
 ```
 
-```
-mermaid
+```mermaid
 sequenceDiagram
 participant User
 participant API
@@ -400,10 +402,6 @@ Agent->>MessageSystem : Process message
 MessageSystem->>User : Delivery confirmation
 API-->>User : 201 Created
 ```
-
-**Diagram sources**
-- [371-os\docs\api\platform_api.md](file://371-os/docs/api/platform_api.md)
-- [371-os\src\minds371\services\email_system\utils\email-service.js](file://371-os/src/minds371/services/email_system/utils/email-service.js)
 
 **Section sources**
 - [371-os\docs\api\platform_api.md](file://371-os/docs/api/platform_api.md)
@@ -516,8 +514,7 @@ Terminates an active session.
 }
 ```
 
-```
-mermaid
+```mermaid
 sequenceDiagram
 participant User
 participant API
@@ -540,10 +537,6 @@ SessionManager->>SessionManager : Finalize context
 SessionManager-->>API : Session ended
 API-->>User : 200 OK
 ```
-
-**Diagram sources**
-- [371-os\docs\api\task_api.md](file://371-os/docs/api/task_api.md)
-- [371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py](file://371-os/src/minds371/adaptive_llm_router/intelligent_router_agent.py)
 
 **Section sources**
 - [371-os\docs\api\task_api.md](file://371-os/docs/api/task_api.md)
@@ -714,8 +707,7 @@ Clients can send commands through the WebSocket connection:
 }
 ```
 
-```
-mermaid
+```mermaid
 sequenceDiagram
 participant Client
 participant WebSocket
@@ -734,10 +726,6 @@ Client->>WebSocket : {"command" : "send_message", ...}
 WebSocket->>EventBus : Route command
 EventBus->>Agent : Deliver message
 ```
-
-**Diagram sources**
-- [371-os\src\minds371\platforms\typingmind\extensions\shared_memory.js](file://371-os/src/minds371/platforms/typingmind/extensions/shared_memory.js)
-- [371-os\src\minds371\platforms\typingmind\extensions\agent_dynamic_context.js](file://371-os/src/minds371/platforms/typingmind/extensions/agent_dynamic_context.js)
 
 **Section sources**
 - [371-os\docs\architecture\platform_integration.md](file://371-os/docs/architecture/platform_integration.md)
@@ -919,365 +907,4 @@ Clients can use ETag for conditional requests with the `If-None-Match` header.
 
 **Section sources**
 - [371-os\configs\production.yaml](file://371-os/configs/production.yaml)
-- [371-os\configs\logging.yaml](file://371-os/configs/logging.yaml)
-
-## API Versioning
-
-The 371OS API uses URL-based versioning to ensure backward compatibility.
-
-### Version Strategy
-- **URL Path**: `/api/v{version}/endpoint`
-- **Current Version**: v1
-- **Version Support**: Two versions maintained at a time
-- **Deprecation**: 6 months notice before version retirement
-
-### Version Lifecycle
-1. **Active**: Fully supported, receiving updates
-2. **Deprecated**: No new features, bug fixes only
-3. **Retired**: No longer available
-
-### Version Headers
-All responses include version information:
-- `API-Version`: Current API version
-- `Supported-Versions`: Array of supported versions
-
-Clients should specify the version in the URL and check the `API-Version` header to confirm the actual version used.
-
-**Section sources**
-- [371-os\configs\development.yaml](file://371-os/configs/development.yaml)
-- [371-os\configs\staging.yaml](file://371-os/configs/staging.yaml)
-
-## Examples and Usage
-
-This section provides practical examples of common API operations.
-
-### Creating an Agent with curl
-```bash
-curl -X POST https://api.371os.com/api/v1/agents \
-  -H "Authorization: ApiKey your-api-key-here" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "financial-analyst",
-    "type": "cfo_cash",
-    "config": {
-      "model": "gpt-4",
-      "temperature": 0.7,
-      "max_tokens": 1000
-    },
-    "skills": ["financial_analysis", "report_generation"]
-  }'
-```
-
-### Starting an Agent with curl
-```bash
-curl -X POST https://api.371os.com/api/v1/agents/agent-123/start \
-  -H "Authorization: Bearer your-jwt-token-here"
-```
-
-### Sending a Message with curl
-```bash
-curl -X POST https://api.371os.com/api/v1/channels/channel-456/messages \
-  -H "Authorization: ApiKey your-api-key-here" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "sender_id": "agent-123",
-    "content": "Please analyze the Q3 financial report."
-  }'
-```
-
-### Postman Collection Example
-The following variables should be configured in Postman:
-- `base_url`: https://api.371os.com
-- `api_key`: Your API key
-- `agent_id`: Target agent ID
-
-**Pre-request Script**:
-```javascript
-pm.request.headers.add({
-    key: 'Authorization',
-    value: 'ApiKey ' + pm.environment.get("api_key")
-});
-```
-
-**Sample Request - Create Agent**:
-- Method: POST
-- URL: {{base_url}}/api/v1/agents
-- Body (raw, JSON):
-```json
-{
-  "name": "marketing-strategist",
-  "type": "cmo_anova",
-  "config": {
-    "model": "gpt-4-turbo",
-    "temperature": 0.8
-  }
-}
-```
-
-**Section sources**
-- [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
-- [371-os\docs\api\platform_api.md](file://371-os/docs/api/platform_api.md)
-
-## Deprecation Notices
-
-This section documents deprecated endpoints and provides migration guidance.
-
-### Deprecated Endpoints
-The following endpoints have been deprecated and will be removed in v2:
-
-- `POST /api/v1/agents/{id}/activate` (replaced by `POST /api/v1/agents/{id}/start`)
-- `POST /api/v1/agents/{id}/deactivate` (replaced by `POST /api/v1/agents/{id}/stop`)
-- `GET /api/v1/agents/list` (replaced by `GET /api/v1/agents`)
-
-### Migration Guide
-To migrate from deprecated endpoints:
-
-1. Replace `/activate` with `/start`
-2. Replace `/deactivate` with `/stop`
-3. Replace `/list` with root `/agents` endpoint
-4. Update any client code and documentation
-
-The deprecated endpoints will continue to function until the v2 release, scheduled for Q1 2025. After this date, requests to deprecated endpoints will return a 410 Gone status code.
-
-**Section sources**
-- [371-os\CHANGELOG.md](file://371-os/CHANGELOG.md)
-- [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
-
-## ElizaOS Integration
-
-This section documents the integration between 371OS and ElizaOS, focusing on the AgentRuntime initialization and configuration patterns.
-
-### AgentRuntime Configuration
-
-The AgentRuntime serves as the central orchestrator for agent lifecycle management and message processing. The new test agent implementation demonstrates the updated configuration pattern for ElizaOS integration.
-
-#### Configuration Parameters
-
-```javascript
-const runtime = new AgentRuntime({
-  // Basic configuration
-  character,
-  modelProvider: ModelProviderName.OLLAMA,
-  
-  // Plugin configuration
-  plugins: [
-    // Plugin integrations
-  ],
-  
-  // Environment configuration
-  env: {
-    NODE_ENV: process.env.NODE_ENV || 'development',
-    ELIZAOS_LOG_LEVEL: process.env.ELIZAOS_LOG_LEVEL || 'debug'
-  }
-});
-```
-
-- **character**: Agent configuration loaded from character.json (required)
-- **modelProvider**: LLM provider selection (required)
-- **plugins**: Array of plugin integrations (optional)
-- **env**: Environment variables for runtime configuration (optional)
-
-### Character Configuration
-
-The character.json file defines the agent's properties, behavior, and capabilities.
-
-```json
-{
-  "name": "TestAgent",
-  "username": "testagent",
-  "bio": [
-    "I am a test agent for the 371 OS system.",
-    "I help validate that the ElizaOS integration is working properly."
-  ],
-  "lore": [
-    "Created to test the revolutionary 371 OS autonomous agent system.",
-    "Part of the first generation of self-aware digital organisms."
-  ],
-  "knowledge": [
-    "I understand Nx workspace management and affected analysis.",
-    "I can interact with the 371 OS plugin ecosystem."
-  ],
-  "messageExamples": [
-    [
-      {
-        "user": "{{user1}}",
-        "content": {
-          "text": "Can you analyze the workspace?"
-        }
-      },
-      {
-        "user": "TestAgent",
-        "content": {
-          "text": "I'll analyze the Nx workspace structure and show you the dependency graph."
-        }
-      }
-    ]
-  ],
-  "style": {
-    "all": [
-      "Be technical and precise when discussing workspace operations",
-      "Show enthusiasm for autonomous agent capabilities"
-    ]
-  },
-  "topics": [
-    "nx workspace management",
-    "agent self-awareness",
-    "autonomous development"
-  ]
-}
-```
-
-### AgentRuntime Lifecycle
-
-```
-mermaid
-graph TD
-Create[Create Runtime] --> Init[Initialize]
-Init --> LoadChar[Load Character]
-LoadChar --> LoadPlugins[Load Plugins]
-LoadPlugins --> StartServices[Start Services]
-StartServices --> Ready[Ready]
-Ready --> Process[Process Messages]
-Process --> Ready
-Ready --> Stop[Stop Services]
-Stop --> Cleanup[Cleanup]
-```
-
-**Diagram sources**
-- [elizaos\Deep Dive\AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md) - *Integration reference*
-- [agents\test-agent\index.js](file://agents/test-agent/index.js) - *Added in recent commit*
-
-**Section sources**
-- [agents\test-agent\index.js](file://agents/test-agent/index.js) - *Added in recent commit*
-- [agents\test-agent\character.json](file://agents/test-agent/character.json) - *Added in recent commit*
-- [elizaos\Deep Dive\AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md) - *Integration reference*
-
-## QuestFlow API Server
-
-This section documents the QuestFlow API server, which provides RESTful endpoints for orchestrating workflows, coordinating C-Suite agents, and managing deployments within the 371OS ecosystem.
-
-### Workflow Management
-
-#### Get Active Workflows
-Retrieves a list of currently active workflows with their status and progress.
-
-**HTTP Method**: `GET`  
-**URL Pattern**: `/api/workflows/status`  
-**Authentication**: Required
-
-##### Response Schema (200 OK)
-```json
-[
-  {
-    "id": "string",
-    "name": "string",
-    "status": "running|pending|completed",
-    "progress": "integer",
-    "startTime": "datetime"
-  }
-]
-```
-
-**Section sources**
-- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts)
-- [questflow\src\server.ts](file://questflow/src/server.ts)
-
-### C-Suite Agent Coordination
-
-#### Conduct C-Suite Meeting
-Initiates a coordination meeting between executive agents (CEO, CTO, CFO, CMO).
-
-**HTTP Method**: `POST`  
-**URL Pattern**: `/api/agents/csuite/meeting`  
-**Authentication**: Required
-
-##### Request Parameters (Body)
-```json
-{
-  "agenda": ["string"],
-  "duration": "string"
-}
-```
-
-- **agenda**: Array of topics to discuss (optional)
-- **duration**: Expected meeting duration (optional)
-
-##### Response Schema (200 OK)
-```json
-{
-  "meetingId": "string",
-  "participants": ["string"],
-  "agenda": ["string"],
-  "outcomes": ["string"],
-  "duration": "string",
-  "status": "completed",
-  "timestamp": "datetime"
-}
-```
-
-**Section sources**
-- [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts)
-- [questflow\src\server.ts](file://questflow/src/server.ts)
-
-### Deployment Management
-
-#### Deploy to Akash Network
-Initiates a deployment to the Akash Network with the provided configuration.
-
-**HTTP Method**: `POST`  
-**URL Pattern**: `/api/deploy/akash`  
-**Authentication**: Required
-
-##### Request Parameters (Body)
-```json
-{
-  "name": "string",
-  "config": {
-    "cpu": "integer",
-    "memory": "string",
-    "storage": "string"
-  }
-}
-```
-
-- **name**: Deployment name (required)
-- **config**: Resource configuration (required)
-  - **cpu**: Number of CPU cores
-  - **memory**: Memory allocation
-  - **storage**: Storage allocation
-
-##### Response Schema (200 OK)
-```json
-{
-  "success": "boolean",
-  "deploymentId": "string",
-  "status": "string",
-  "message": "string",
-  "config": {}
-}
-```
-
-```
-mermaid
-sequenceDiagram
-participant Client
-participant QuestFlowAPI
-participant Orchestrator
-participant AkashDeployment
-Client->>QuestFlowAPI : POST /api/deploy/akash
-QuestFlowAPI->>Orchestrator : deployToAkash(request)
-Orchestrator->>Orchestrator : Validate deployment config
-Orchestrator->>AkashDeployment : Initiate deployment
-AkashDeployment-->>Orchestrator : Deployment initiated
-Orchestrator-->>QuestFlowAPI : Return deployment response
-QuestFlowAPI-->>Client : 200 OK + deployment details
-```
-
-**Diagram sources**
-- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts)
-- [questflow\src\server.ts](file://questflow/src/server.ts)
-
-**Section sources**
-- [questflow\docs\api-server.md](file://questflow/docs/api-server.md)
-- [questflow\src\server.ts](file://questflow/src/server.ts)
-- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts)
+- [371

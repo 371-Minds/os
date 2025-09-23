@@ -2,11 +2,11 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Transcribe audio.md](file://elizaos/API Reference/Audio/Transcribe audio.md)
-- [Process audio message.md](file://elizaos/API Reference/Audio/Process audio message.md)
-- [Synthesize speech from text.md](file://elizaos/API Reference/Audio/Synthesize speech from text.md)
-- [Generate speech from text.md](file://elizaos/API Reference/Audio/Generate speech from text.md)
-- [Convert conversation to speech.md](file://elizaos/API Reference/Audio/Convert conversation to speech.md)
+- [Transcribe audio.md](file://reference\elizaos\API Reference\Audio\Transcribe audio.md)
+- [Process audio message.md](file://reference\elizaos\API Reference\Audio\Process audio message.md)
+- [Synthesize speech from text.md](file://reference\elizaos\API Reference\Audio\Synthesize speech from text.md)
+- [Generate speech from text.md](file://reference\elizaos\API Reference\Audio\Generate speech from text.md)
+- [Convert conversation to speech.md](file://reference\elizaos\API Reference\Audio\Convert conversation to speech.md)
 </cite>
 
 ## Table of Contents
@@ -47,7 +47,7 @@ Converts an uploaded audio file into transcribed text.
 ```
 
 **Section sources**
-- [Transcribe audio.md](file://elizaos/API Reference/Audio/Transcribe audio.md)
+- [Transcribe audio.md](file://reference\elizaos\API Reference\Audio\Transcribe audio.md)
 
 ### Process Audio Message
 Processes an audio message by transcribing it and generating an agent response, optionally including an audio response.
@@ -74,7 +74,7 @@ Processes an audio message by transcribing it and generating an agent response, 
 ```
 
 **Section sources**
-- [Process audio message.md](file://elizaos/API Reference/Audio/Process audio message.md)
+- [Process audio message.md](file://reference\elizaos\API Reference\Audio\Process audio message.md)
 
 ### Synthesize Speech from Text
 Generates speech audio from input text using agent-specific voice settings.
@@ -91,7 +91,7 @@ Generates speech audio from input text using agent-specific voice settings.
 **Response**: Binary audio/mpeg file on success (200 OK)
 
 **Section sources**
-- [Synthesize speech from text.md](file://elizaos/API Reference/Audio/Synthesize speech from text.md)
+- [Synthesize speech from text.md](file://reference\elizaos\API Reference\Audio\Synthesize speech from text.md)
 
 ### Generate Speech from Text
 Generates speech from plain text input using default agent voice settings.
@@ -106,7 +106,7 @@ Generates speech from plain text input using default agent voice settings.
 **Response**: Binary audio/mpeg file on success (200 OK)
 
 **Section sources**
-- [Generate speech from text.md](file://elizaos/API Reference/Audio/Generate speech from text.md)
+- [Generate speech from text.md](file://reference\elizaos\API Reference\Audio\Generate speech from text.md)
 
 ### Convert Conversation to Speech
 Converts a sequence of messages into a continuous audio narration with speaker differentiation.
@@ -124,7 +124,7 @@ Converts a sequence of messages into a continuous audio narration with speaker d
 **Response**: Binary audio/mpeg file on success (200 OK)
 
 **Section sources**
-- [Convert conversation to speech.md](file://elizaos/API Reference/Audio/Convert conversation to speech.md)
+- [Convert conversation to speech.md](file://reference\elizaos\API Reference\Audio\Convert conversation to speech.md)
 
 ## Authentication and Headers
 The audio endpoints do not require authentication tokens in the current implementation, as indicated by the empty `security: []` field in the OpenAPI specifications. However, valid `agentId` and `userId` parameters are required for authorization and context tracking. No additional headers beyond standard HTTP headers are required.
@@ -168,8 +168,8 @@ Error responses follow the format:
 Common audio quality issues that may trigger errors include excessive background noise, low volume, or poor microphone quality.
 
 **Section sources**
-- [Transcribe audio.md](file://elizaos/API Reference/Audio/Transcribe audio.md)
-- [Process audio message.md](file://elizaos/API Reference/Audio/Process audio message.md)
+- [Transcribe audio.md](file://reference\elizaos\API Reference\Audio\Transcribe audio.md)
+- [Process audio message.md](file://reference\elizaos\API Reference\Audio\Process audio message.md)
 
 ## Speech Synthesis Parameters
 The speech synthesis endpoints support voice and language customization through the `options` parameter:
@@ -180,7 +180,7 @@ The speech synthesis endpoints support voice and language customization through 
 These parameters allow tuning of speech quality and character. The system uses agent-configured default voices when options are not specified. For optimal results, use clear, grammatically correct text input.
 
 **Section sources**
-- [Synthesize speech from text.md](file://elizaos/API Reference/Audio/Synthesize speech from text.md)
+- [Synthesize speech from text.md](file://reference\elizaos\API Reference\Audio\Synthesize speech from text.md)
 
 ## Example Requests
 

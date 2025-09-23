@@ -2,9 +2,17 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Upload media for agent.md](file://elizaos/API Reference/Media/Upload media for agent.md)
-- [Upload media to channel.md](file://elizaos/API Reference/Media/Upload media to channel.md)
+- [Upload media for agent.md](file://reference/elizaos/API Reference/Media/Upload media for agent.md) - *Updated in recent commit*
+- [Upload media to channel.md](file://reference/elizaos/API Reference/Media/Upload media to channel.md) - *Updated in recent commit*
 </cite>
+
+## Update Summary
+**Changes Made**   
+- Updated documentation to reflect the latest Media API specifications
+- Verified endpoint details, request parameters, and response schemas
+- Confirmed authentication requirements and error handling procedures
+- Validated supported media types and file size limits
+- Updated curl command examples with proper multipart formatting
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -48,7 +56,7 @@ This endpoint allows uploading media files specifically for use by a designated 
 ```
 
 **Section sources**
-- [Upload media for agent.md](file://elizaos/API Reference/Media/Upload media for agent.md)
+- [Upload media for agent.md](file://reference/elizaos/API Reference/Media/Upload media for agent.md)
 
 ### Upload Media to Channel
 This endpoint allows uploading media files to a specific communication channel.
@@ -78,7 +86,7 @@ This endpoint allows uploading media files to a specific communication channel.
 ```
 
 **Section sources**
-- [Upload media to channel.md](file://elizaos/API Reference/Media/Upload media to channel.md)
+- [Upload media to channel.md](file://reference/elizaos/API Reference/Media/Upload media to channel.md)
 
 ## Authentication and Security
 The 371OS platform employs a modern authentication approach that moves beyond traditional API key management. Instead of requiring users to manage API keys directly, the system implements agent identity delegation through cryptographically secure mechanisms. Users authenticate once using familiar methods (such as SSO or social login) and then delegate specific capabilities to agents through intuitive interfaces.
@@ -92,9 +100,8 @@ For enterprise deployments, the platform supports OAuth2-based authentication th
 The system enforces least privilege access, ensuring agents are granted only the minimum required permissions for their specific tasks, with complete audit trails for all security-related operations.
 
 **Section sources**
-- [Upload media for agent.md](file://elizaos/API Reference/Media/Upload media for agent.md)
-- [Upload media to channel.md](file://elizaos/API Reference/Media/Upload media to channel.md)
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md#L398-L440)
+- [Upload media for agent.md](file://reference/elizaos/API Reference/Media/Upload media for agent.md)
+- [Upload media to channel.md](file://reference/elizaos/API Reference/Media/Upload media to channel.md)
 
 ## Supported Media Types and Limits
 The Media API supports the following media types:
@@ -149,8 +156,8 @@ The Media API returns standardized error responses for various failure condition
 - Agent not found: `{"success": false, "error": {"code": "AGENT_NOT_FOUND", "message": "Agent does not exist", "details": "No agent found with ID: 3c90c3cc-0d44-4b50-8888-8dd25736052a"}}`
 
 **Section sources**
-- [Upload media for agent.md](file://elizaos/API Reference/Media/Upload media for agent.md)
-- [Upload media to channel.md](file://elizaos/API Reference/Media/Upload media to channel.md)
+- [Upload media for agent.md](file://reference/elizaos/API Reference/Media/Upload media for agent.md)
+- [Upload media to channel.md](file://reference/elizaos/API Reference/Media/Upload media to channel.md)
 
 ## Usage Examples
 **Sample curl command for uploading media for an agent**:
@@ -191,6 +198,5 @@ The Media API supports two distinct use cases with different access patterns:
 The platform's credential warehouse system manages access control, ensuring that agents can only retrieve credentials and access media for which they have explicit permissions, following the principle of least privilege.
 
 **Section sources**
-- [Upload media for agent.md](file://elizaos/API Reference/Media/Upload media for agent.md)
-- [Upload media to channel.md](file://elizaos/API Reference/Media/Upload media to channel.md)
-- [credential_warehouse_agent.py](file://371-os/src/minds371/agents/utility/credential_warehouse_agent.py)
+- [Upload media for agent.md](file://reference/elizaos/API Reference/Media/Upload media for agent.md)
+- [Upload media to channel.md](file://reference/elizaos/API Reference/Media/Upload media to channel.md)

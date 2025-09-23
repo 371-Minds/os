@@ -5,9 +5,6 @@
   "type": "module",
   "packageManager": "bun@1.2.18",
   "description": "371 Minds OS - Revolutionary AI Agent Operating System",
-  "workspaces": [
-    "os-workspace"
-  ],
   "scripts": {
     "nx": "cd os-workspace && bun nx",
     "start": "cd os-workspace && bun nx serve",
@@ -20,6 +17,9 @@
     "view-logs": "cd os-workspace && bun nx view-logs"
   },
   "devDependencies": {
+    "nx": "^21.4.1",
+    "@nx/js": "^21.4.1",
+    "@nx/workspace": "^21.4.1",
     "bun-types": "latest"
   }
 }

@@ -1,61 +1,11 @@
 {
-  "$schema": "./os-workspace/node_modules/nx/schemas/nx-schema.json",
-  "workspaceLayout": {
-    "appsDir": "os-workspace/apps",
-    "libsDir": "os-workspace/libs"
-  },
-  "targetDefaults": {
-    "build": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
-    },
-    "lint": {
-      "cache": true,
-      "inputs": ["default", "{workspaceRoot}/os-workspace/biome.json"]
-    },
-    "@nx/js:tsc": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "@nx/esbuild:esbuild": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    }
-  },
-  "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
-      "default",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/biome.json"
-    ],
-    "sharedGlobals": []
-  },
-  "plugins": [
-    {
-      "plugin": "@nx/js",
-      "options": {
-        "analyzeSourceFiles": true
-      }
-    }
-  ],
-  "generators": {
-    "@nx/js:library": {
-      "buildable": true,
-      "publishable": false,
-      "unitTestRunner": "none"
-    }
-  },
-  "release": {
-    "version": {
-      "preVersionCommand": "npx nx run-many -t build"
-    }
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "projects": {
+    "dao-governance-service": "os-workspace/apps/dao-governance-service",
+    "cognitive-engine": "os-workspace/packages/cognitive-engine",
+    "elizaos-plugin-nx-workspace": "os-workspace/packages/elizaos-plugins/nx-workspace",
+    "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
+    "core-types": "os-workspace/libs/core-types",
+    "core-libraries": "os-workspace/libs/core-libraries"
   }
 }

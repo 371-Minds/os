@@ -2,10 +2,13 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
-- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
-- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
-- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md)
+- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md) - *Updated in recent commit*
+- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md) - *Updated in recent commit*
+- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md) - *Updated in recent commit*
+- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md) - *Updated in recent commit*
+- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md) - *Updated in recent commit*
+- [Update agent.md](file://reference/elizaos/API Reference/Update agent.md) - *Updated in recent commit*
+- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md) - *Updated in recent commit*
 </cite>
 
 ## Update Summary
@@ -14,6 +17,7 @@
 - Enhanced error handling section with additional status codes
 - Updated request and response examples to match current API behavior
 - Verified and updated all endpoint specifications against current implementation
+- Added comprehensive source tracking for all referenced files
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -84,7 +88,7 @@ Creates a new agent from character configuration.
 - 400: Error creating agent (invalid configuration)
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
 
 ### Retrieve Agent
 
@@ -174,7 +178,7 @@ Starts an existing agent.
 - 500: Error starting agent
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md)
 
 ### Stop Agent
 
@@ -238,7 +242,7 @@ Updates an existing agent's configuration.
 - 500: Error updating agent
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Update agent.md](file://reference/elizaos/API Reference/Update agent.md)
 
 ### Delete Agent
 
@@ -434,7 +438,8 @@ curl -X POST https://api.371minds.com/api/agents/a1b2c3d4-e5f6-7890-1234-567890a
 ```
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
+- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md)
 - [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
 
 ## Error Handling
@@ -532,7 +537,7 @@ The API enforces strict validation rules to ensure data integrity and system sta
 - Enumerated values must be from allowed sets
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
 
 ## Sample curl Commands
 

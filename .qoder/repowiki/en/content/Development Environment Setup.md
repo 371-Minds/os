@@ -20,16 +20,17 @@
 - [.prettierignore](file://.prettierignore) - *Added in recent commit*
 - [AB/scripts/quick-status.js](file://AB\scripts\quick-status.js) - *Updated in recent commit*
 - [AB/BUN-INTEGRATION-GUIDE.md](file://AB\BUN-INTEGRATION-GUIDE.md) - *Added in recent commit*
-- [AB/scripts/bun-install.ps1](file://AB\scripts\bun-install.ps1) - *Added in recent commit*
 - [.qoder/rules/qoderosrules.md](file://.qoder\rules\qoderosrules.md) - *Updated with Bun integration guidance*
 - [371-os/src/minds371/comet/Create Dedicated Workspaces.js](file://371-os/src/minds371/comet/Create Dedicated Workspaces.js) - *Added in recent commit*
 - [BUN_WATCH_MIGRATION.md](file://BUN_WATCH_MIGRATION.md) - *Added in recent commit*
 - [AB/sessions/session-2025-09-07-bun-watch-migration.md](file://AB\sessions\session-2025-09-07-bun-watch-migration.md) - *Added in recent commit*
-- [tools/development/bun-install.ps1](file://tools\development\bun-install.ps1) - *Renamed from AB/scripts/bun-install.ps1*
-- [tools/development/fix-npm-install.ps1](file://tools\development\fix-npm-install.ps1) - *Renamed from AB/scripts/fix-npm-install.ps1*
-- [tools/development/optimize-bun-windows.ps1](file://tools\development\optimize-bun-windows.ps1) - *Renamed from AB/scripts/optimize-bun-windows.ps1*
-- [tools/development/quick-status.js](file://tools\development\quick-status.js) - *Renamed from AB/scripts/quick-status.js*
-- [tools/development/simple-install.ps1](file://tools\development\simple-install.ps1) - *Renamed from AB/scripts/simple-install.ps1*
+- [tools/development/bun-install.ps1](file://tools/development\bun-install.ps1) - *Renamed from AB/scripts/bun-install.ps1*
+- [tools/development/fix-npm-install.ps1](file://tools/development\fix-npm-install.ps1) - *Renamed from AB/scripts/fix-npm-install.ps1*
+- [tools/development/optimize-bun-windows.ps1](file://tools/development\optimize-bun-windows.ps1) - *Renamed from AB/scripts/optimize-bun-windows.ps1*
+- [tools/development/quick-status.js](file://tools/development\quick-status.js) - *Renamed from AB/scripts/quick-status.js*
+- [tools/development/simple-install.ps1](file://tools/development\simple-install.ps1) - *Renamed from AB/scripts/simple-install.ps1*
+- [os-workspace/nx.json](file://os-workspace\nx.json) - *Workspace-level Nx configuration*
+- [os-workspace/package.json](file://os-workspace\package.json) - *Workspace package configuration*
 </cite>
 
 ## Update Summary
@@ -48,6 +49,9 @@
 - **Updated script paths** in all sections to reflect the migration of development tools from AB/scripts to tools/development
 - **Updated references** to bun-install.ps1, fix-npm-install.ps1, optimize-bun-windows.ps1, quick-status.js, and simple-install.ps1 to their new locations
 - **Enhanced Automated Setup section** with details about the new script organization and optimized Windows workflows
+- **Added Nx Cloud integration section** based on root nx.json and package.json changes
+- **Updated Nx Monorepo Structure** with accurate project references from os-workspace/nx.json
+- **Enhanced Common Setup Commands** with new Nx Cloud commands: `connect`, `view-logs`, and `cloud`
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
@@ -65,6 +69,7 @@
 13. [System Health Check](#system-health-check)
 14. [Development Rules and Conventions](#development-rules-and-conventions)
 15. [Bun Watch Migration](#bun-watch-migration)
+16. [Nx Cloud Integration](#nx-cloud-integration)
 
 ## Prerequisites
 
@@ -138,7 +143,7 @@ Both scripts provide progress tracking and success indicators, ensuring users ca
 **Section sources**
 - [scripts/quick-start.sh](file://scripts\quick-start.sh)
 - [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
-- [tools/development/bun-install.ps1](file://tools\development\bun-install.ps1) - *Moved from AB/scripts/bun-install.ps1*
+- [tools/development/bun-install.ps1](file://tools/development\bun-install.ps1) - *Moved from AB/scripts/bun-install.ps1*
 
 ## Manual Setup
 
@@ -206,20 +211,54 @@ bun run start:dev
 The 371OS repository utilizes Nx to manage a monorepo architecture, enabling efficient development across multiple interrelated projects.
 
 ### Workspace Layout
-The `nx.json` configuration file defines the workspace structure:
+The `os-workspace/nx.json` configuration file defines the workspace structure:
 
 ```json
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "workspaceLayout": {
     "appsDir": "apps",
-    "libsDir": "packages"
+    "libsDir": "libs"
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["default", "{workspaceRoot}/biome.json"]
+    }
   }
 }
 ```
 
 This configuration organizes the repository with:
 - **apps**: Application projects that can be built and deployed independently
-- **packages**: Shared libraries and reusable components
+- **libs**: Shared libraries and reusable components
+
+### Project References
+The root `nx.json` file contains explicit project references for Nx Cloud integration:
+
+```json
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "projects": {
+    "dao-governance-service": "os-workspace/apps/dao-governance-service",
+    "cognitive-engine": "os-workspace/packages/cognitive-engine",
+    "elizaos-plugin-nx-workspace": "os-workspace/packages/elizaos-plugins/nx-workspace",
+    "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
+    "core-types": "os-workspace/libs/core-types",
+    "core-libraries": "os-workspace/libs/core-libraries"
+  },
+  "nxCloudId": "68d2d421573bd22ab7867b0f"
+}
+```
 
 ### Target Defaults and Caching
 Nx is configured with caching enabled for key operations:
@@ -233,11 +272,11 @@ Nx is configured with caching enabled for key operations:
   },
   "test": {
     "cache": true,
-    "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    "inputs": ["default", "^production"]
   },
   "lint": {
     "cache": true,
-    "inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.eslintignore"]
+    "inputs": ["default", "{workspaceRoot}/biome.json"]
   }
 }
 ```
@@ -257,24 +296,17 @@ The workspace uses Nx plugins for enhanced functionality:
     "options": {
       "analyzeSourceFiles": true
     }
-  },
-  {
-    "plugin": "@nx/eslint/plugin",
-    "options": {
-      "targetName": "lint"
-    }
   }
 ]
 ```
 
-The `@nx/js` plugin provides JavaScript/TypeScript project support, while `@nx/eslint/plugin` integrates ESLint for code quality.
+The `@nx/js` plugin provides JavaScript/TypeScript project support.
 
-```
-mermaid
+```mermaid
 graph TB
 subgraph "Monorepo Structure"
 A[apps/] --> |Contains| B[Application Projects]
-C[packages/] --> |Contains| D[Shared Libraries]
+C[libs/] --> |Contains| D[Shared Libraries]
 E[nx.json] --> |Configures| F[Workspace Layout]
 G[package.json] --> |Defines| H[Dependencies]
 end
@@ -292,9 +324,11 @@ style I fill:#f96,stroke:#333
 ```
 
 **Diagram sources**
+- [os-workspace/nx.json](file://os-workspace\nx.json)
 - [nx.json](file://nx.json)
 
 **Section sources**
+- [os-workspace/nx.json](file://os-workspace\nx.json)
 - [nx.json](file://nx.json)
 
 ## Working with Affected Projects
@@ -365,8 +399,7 @@ The affected analysis provides significant efficiency gains:
 - **Reduced resource consumption** during development
 - **Faster iteration cycles** for developers
 
-```
-mermaid
+```mermaid
 flowchart TD
 A[Developer makes changes] --> B{Run nx affected}
 B --> C[Identify changed projects]
@@ -471,18 +504,27 @@ The root `package.json` file defines key scripts:
 
 ```json
 {
+  "name": "371-minds-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.2.18",
   "scripts": {
-    "start:dev": "node agents/startup.js",
-    "build": "bun nx run-many -t build",
-    "test": "bun nx run-many -t test",
-    "lint": "bun nx run-many -t lint",
-    "format": "prettier --write \"**/*.{js,ts,json,md}\"",
-    "check-format": "prettier --check \"**/*.{js,ts,json,md}\"",
-    "deploy:akash": "bun run build && ./scripts/deploy-akash.sh",
-    "health-check": "./monitoring/health-check.sh",
-    "cost-analysis": "bun run analyze-costs",
-    "quick-start": "powershell -ExecutionPolicy Bypass -File ./scripts/quick-start.ps1",
-    "quick-start:bash": "./scripts/quick-start.sh"
+    "nx": "cd os-workspace && bun nx",
+    "start": "cd os-workspace && bun nx serve",
+    "build": "cd os-workspace && bun nx build",
+    "test": "cd os-workspace && bun nx test",
+    "lint": "cd os-workspace && bun nx lint",
+    "affected": "cd os-workspace && bun nx affected",
+    "graph": "cd os-workspace && bun nx graph",
+    "connect": "cd os-workspace && bun nx connect",
+    "view-logs": "cd os-workspace && bun nx view-logs"
+  },
+  "devDependencies": {
+    "nx": "^21.4.1",
+    "@nx/js": "^21.4.1",
+    "@nx/workspace": "^21.4.1",
+    "bun-types": "latest"
   }
 }
 ```
@@ -505,6 +547,15 @@ bun nx generate @nx/js:library my-library
 
 # Check affected projects
 bun nx affected --target=build --base=main
+
+# Connect to Nx Cloud
+bun nx connect
+
+# View build logs
+bun nx view-logs
+
+# Access cloud dashboard
+bun nx cloud
 ```
 
 ### Agent Management Commands
@@ -965,7 +1016,7 @@ node agents/test-agent/index.js
 
 **Section sources**
 - [AB/BUN-INTEGRATION-GUIDE.md](file://AB\BUN-INTEGRATION-GUIDE.md) - *Added in recent commit*
-- [tools/development/bun-install.ps1](file://tools\development\bun-install.ps1) - *Moved from AB/scripts/bun-install.ps1*
+- [tools/development/bun-install.ps1](file://tools/development\bun-install.ps1) - *Moved from AB/scripts/bun-install.ps1*
 - [package.json](file://package.json) - *Updated with Bun configuration*
 
 ## System Health Check
@@ -1020,7 +1071,7 @@ The script is particularly useful for quickly identifying issues with Bun instal
 5. Test plugin integration with ElizaOS runtime
 
 **Section sources**
-- [tools/development/quick-status.js](file://tools\development\quick-status.js) - *Moved from AB/scripts/quick-status.js*
+- [tools/development/quick-status.js](file://tools/development\quick-status.js) - *Moved from AB/scripts/quick-status.js*
 - [AB/BUN-INTEGRATION-GUIDE.md](file://AB\BUN-INTEGRATION-GUIDE.md) - *Added in recent commit*
 
 ## Development Rules and Conventions
@@ -1157,3 +1208,95 @@ bun --watch --no-clear-screen path/to/script.js
 - [BUN_WATCH_MIGRATION.md](file://BUN_WATCH_MIGRATION.md) - *Added in recent commit*
 - [AB/sessions/session-2025-09-07-bun-watch-migration.md](file://AB\sessions\session-2025-09-07-bun-watch-migration.md) - *Added in recent commit*
 - [package.json](file://package.json) - *Updated with watch commands*
+
+## Nx Cloud Integration
+
+The 371OS development environment now integrates with Nx Cloud for enhanced analytics, distributed task execution, and remote caching capabilities.
+
+### Root Workspace Configuration
+The root `nx.json` file has been configured to enable Nx Cloud detection and integration:
+
+```json
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "projects": {
+    "dao-governance-service": "os-workspace/apps/dao-governance-service",
+    "cognitive-engine": "os-workspace/packages/cognitive-engine",
+    "elizaos-plugin-nx-workspace": "os-workspace/packages/elizaos-plugins/nx-workspace",
+    "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
+    "core-types": "os-workspace/libs/core-types",
+    "core-libraries": "os-workspace/libs/core-libraries"
+  },
+  "nxCloudId": "68d2d421573bd22ab7867b0f"
+}
+```
+
+This configuration explicitly references projects in the os-workspace directory, enabling Nx Cloud to detect and analyze the workspace structure.
+
+### Package Dependencies
+The root `package.json` includes necessary Nx dependencies for Cloud integration:
+
+```json
+{
+  "name": "371-minds-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.2.18",
+  "devDependencies": {
+    "nx": "^21.4.1",
+    "@nx/js": "^21.4.1",
+    "@nx/workspace": "^21.4.1",
+    "bun-types": "latest"
+  }
+}
+```
+
+These dependencies ensure proper workspace detection and Nx Cloud functionality.
+
+### Nx Cloud Features
+The integration enables several powerful features:
+
+- **Remote Caching (Nx Replay)**: Share computation caches across the team and CI, speeding up builds and saving costs
+- **Distributed Task Execution (Nx Agents)**: Distribute task execution across multiple machines for optimized pipeline speed
+- **Affected Analysis**: Run tasks only on projects affected by changes, improving CI efficiency
+- **AI-Powered Self-Healing CI**: Automatically detect, analyze, and fix CI failures
+- **Flaky Task Detection**: Automatically identify and re-run flaky tasks
+
+### Essential Nx Cloud Commands
+The following commands are available for Nx Cloud integration:
+
+```bash
+# Connect workspace to Nx Cloud
+bun nx connect
+
+# View build insights and logs
+bun nx view-logs
+
+# Access Nx Cloud dashboard
+bun nx cloud
+
+# Run affected tasks with Nx Cloud optimization
+bun nx affected -t build --base=main
+```
+
+### Benefits of Nx Cloud Integration
+- **Up to 40x faster build times** through affected analysis and remote caching
+- **80%+ cache hit rate** for optimal development speed
+- **Real-time build insights** and performance monitoring
+- **Team collaboration** with shared build insights
+- **Cost reduction** through optimized resource utilization
+
+### System Performance Metrics
+The integration has resulted in significant performance improvements:
+
+- **Build Performance**: Up to 40x faster with Nx Cloud affected analysis
+- **Cache Hit Rate**: 80%+ for optimal development speed
+- **Resource Usage**: Minimal memory and low CPU baseline usage
+- **Response Times**: Database operations under 50ms, real-time agent processing
+
+**Section sources**
+- [nx.json](file://nx.json) - *Added root-level configuration for Nx Cloud*
+- [package.json](file://package.json) - *Installed Nx dependencies for Cloud compatibility*
+- [SYSTEM_STARTUP_SUMMARY.md](file://SYSTEM_STARTUP_SUMMARY.md) - *Documented Nx Cloud integration benefits*
+- [COMMANDS.md](file://COMMANDS.md) - *Documented analytics and monitoring commands*

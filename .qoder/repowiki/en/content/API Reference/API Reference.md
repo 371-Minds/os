@@ -1,19 +1,14 @@
-<docs>
 # API Reference
 
 <cite>
 **Referenced Files in This Document**   
-- [371-os\configs\production.yaml](file://371-os/configs/production.yaml)
-- [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
-- [371-os\docs\api\platform_api.md](file://371-os/docs/api/platform_api.md)
-- [371-os\docs\api\task_api.md](file://371-os/docs/api/task_api.md)
+- [371-os\README.md](file://371-os/README.md)
+- [371-os\_MASTER_ARCHITECTURE.md](file://371-os/_MASTER_ARCHITECTURE.md)
 - [371-os\src\minds371\adaptive_llm_router\data_models.py](file://371-os/src/minds371/adaptive_llm_router/data_models.py)
 - [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
 - [371-os\src\minds371\adaptive_llm_router\llm.py](file://371-os/src/minds371/adaptive_llm_router/llm.py)
 - [371-os\src\minds371\agents\base_agent\base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
 - [371-os\src\minds371\services\email_system\utils\email-service.js](file://371-os/src/minds371/services/email_system/utils/email-service.js)
-- [371-os\_MASTER_ARCHITECTURE.md](file://371-os/_MASTER_ARCHITECTURE.md)
-- [371-os\README.md](file://371-os/README.md)
 - [371-os\docs\architecture\agent_lifecycle.md](file://371-os/docs/architecture/agent_lifecycle.md)
 - [371-os\docs\architecture\platform_integration.md](file://371-os/docs/architecture/platform_integration.md)
 - [371-os\src\minds371\comet\comet_371os_shortcuts.py](file://371-os/src/minds371/comet/comet_371os_shortcuts.py)
@@ -43,6 +38,8 @@
 - Updated ElizaOS Integration section with additional context from new files
 - Enhanced source tracking with new file references from recent commits
 - Added new diagram for Sessions API architecture
+- Integrated QuestFlow API Server endpoints for workflow orchestration and C-Suite agent coordination
+- Expanded session management with detailed timeout configurations and expiration monitoring
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -908,4 +905,240 @@ Clients can use ETag for conditional requests with the `If-None-Match` header.
 
 **Section sources**
 - [371-os\configs\production.yaml](file://371-os/configs/production.yaml)
-- [371
+- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
+
+## API Versioning
+
+The 371OS API uses semantic versioning in the URL path to manage backward compatibility and feature evolution.
+
+### Version Strategy
+- **Major versions**: Breaking changes, new URL path (e.g., `/api/v2/`)
+- **Minor versions**: Backward-compatible additions, same URL path
+- **Patch versions**: Bug fixes and minor improvements
+
+### Current Versions
+- **v1**: Stable production version
+- **v2**: In development, available in staging environment
+
+### Version Deprecation
+Deprecated versions will continue to operate for 6 months after announcement before being retired. Developers will receive notifications through API response headers and email alerts.
+
+**Section sources**
+- [371-os\configs\api_versioning.yaml](file://371-os/configs/api_versioning.yaml)
+- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
+
+## Examples and Usage
+
+### Creating an Agent with curl
+```bash
+curl -X POST https://api.371os.com/api/v1/agents \
+  -H "Authorization: ApiKey your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "marketing-assistant",
+    "type": "cmo_anova",
+    "config": {
+      "model": "gpt-4",
+      "temperature": 0.7,
+      "max_tokens": 1000
+    },
+    "skills": ["content_generation", "market_analysis"]
+  }'
+```
+
+### Starting a Session with Postman
+1. Set request method to POST
+2. URL: `https://api.371os.com/api/v1/sessions`
+3. Headers:
+   - Authorization: Bearer your-jwt-token
+   - Content-Type: application/json
+4. Body (raw JSON):
+```json
+{
+  "agent_id": "ceo-mimi-001",
+  "user_id": "user-123",
+  "context": {
+    "conversation_topic": "Q4 strategy planning"
+  }
+}
+```
+
+**Section sources**
+- [371-os\docs\examples\basic_agent_example.py](file://371-os/docs/examples/basic_agent_example.py)
+- [371-os\docs\examples\workflow_example.py](file://371-os/docs/examples/workflow_example.py)
+
+## Deprecation Notices
+
+### Deprecated Endpoints
+The following endpoints are deprecated and will be removed in v2:
+
+- `POST /api/v1/agents/{id}/restart` - Use separate stop and start calls instead
+- `GET /api/v1/agents/active` - Use list agents with status filter
+
+Migration guide available at [Migration Guide](file://MIGRATION_SUMMARY.md).
+
+**Section sources**
+- [MIGRATION_SUMMARY.md](file://MIGRATION_SUMMARY.md)
+- [JEST_MIGRATION.md](file://JEST_MIGRATION.md)
+
+## ElizaOS Integration
+
+The 371OS platform integrates with ElizaOS for enhanced agent capabilities and extended functionality.
+
+### Agent Runtime Integration
+371OS agents can leverage ElizaOS runtime features including:
+- Persistent memory storage
+- Advanced natural language processing
+- Cross-agent collaboration
+
+**Section sources**
+- [elizaos\Deep Dive\AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
+- [reference\elizaos\Core Concepts\Agents.md](file://reference/elizaos/Core Concepts/Agents.md)
+
+## QuestFlow API Server
+
+The QuestFlow API Server provides RESTful endpoints for orchestrating workflows, coordinating C-Suite agents, and managing deployments within the 371OS ecosystem.
+
+### Workflow Management
+
+#### Get Active Workflows
+```http
+GET /api/workflows/status
+```
+
+Returns a list of active workflows with their status and progress.
+
+**Response:**
+```json
+[
+  {
+    "id": "workflow-1",
+    "name": "Plugin Development",
+    "status": "running",
+    "progress": 75,
+    "startTime": "2025-09-13T17:28:17.400Z"
+  }
+]
+```
+
+### C-Suite Agent Coordination
+
+#### Conduct C-Suite Meeting
+```http
+POST /api/agents/csuite/meeting
+```
+
+Initiates a coordination meeting between C-Suite agents.
+
+**Response:**
+```json
+{
+  "meetingId": "meeting-1757784629042",
+  "participants": ["CEO", "CTO", "CFO", "CMO"],
+  "agenda": ["Review quarterly performance", "Discuss new initiatives"],
+  "outcomes": ["Agreed on Q4 priorities", "Allocated budget for new projects"],
+  "duration": "45 minutes",
+  "status": "completed",
+  "timestamp": "2025-09-13T17:30:29.042Z"
+}
+```
+
+### Deployment Management
+
+#### Deploy to Akash Network
+```http
+POST /api/deploy/akash
+```
+
+Initiates a deployment to the Akash Network with the provided configuration.
+
+**Request Body:**
+```json
+{
+  "name": "my-deployment",
+  "config": {
+    "cpu": 1,
+    "memory": "1GB",
+    "storage": "10GB"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "deploymentId": "akash-deployment-1757784629046",
+  "status": "initiated",
+  "message": "Deployment to Akash initiated successfully",
+  "config": {
+    "name": "my-deployment",
+    "config": {
+      "cpu": 1,
+      "memory": "1GB",
+      "storage": "10GB"
+    }
+  }
+}
+```
+
+**Section sources**
+- [questflow\docs\api-server.md](file://questflow/docs/api-server.md)
+- [questflow\src\server.ts](file://questflow/src/server.ts)
+- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts)
+- [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts)
+
+## Sessions API
+
+The Sessions API provides comprehensive management of agent-user interactions with advanced timeout configuration and health monitoring.
+
+### Session Timeout Configuration
+Sessions support configurable timeout settings:
+
+```json
+{
+  "timeoutConfig": {
+    "timeoutMinutes": 30,
+    "autoRenew": true,
+    "maxDurationMinutes": 1440,
+    "warningThresholdMinutes": 15
+  }
+}
+```
+
+### Session Health Monitoring
+Monitor the health of the sessions service:
+
+```javascript
+const healthResponse = await fetch('/api/messaging/sessions/health');
+const { 
+  status, 
+  activeSessions, 
+  expiringSoon,
+  uptime 
+} = await healthResponse.json();
+```
+
+### List All Active Sessions (Admin)
+Retrieve comprehensive session information:
+
+```javascript
+const listResponse = await fetch('/api/messaging/sessions');
+const { 
+  sessions, 
+  total,
+  stats 
+} = await listResponse.json();
+```
+
+### Troubleshooting Common Issues
+1. **Session Not Found (404)**: Session may have expired or been deleted
+2. **Session Expired (410)**: Session exceeded its timeout period
+3. **Cannot Renew Session (422)**: Session has reached maximum duration limit
+4. **Invalid Timeout Configuration (400)**: Values outside allowed range (5-1440 minutes)
+
+**Section sources**
+- [reference\elizaos\Guides\Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md)
+- [reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)

@@ -1,3 +1,4 @@
+<docs>
 # Troubleshooting and FAQ
 
 <cite>
@@ -68,6 +69,11 @@
 - [troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_INDEX_FIXES.md](file://troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_INDEX_FIXES.md) - *Updated in recent commit*
 - [troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_PROVIDER_FIXES.md](file://troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_PROVIDER_FIXES.md) - *Updated in recent commit*
 - [troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_TSCONFIG_FIXES.md](file://troubleshooting/integration-fixes/BUSINESS_INTELLIGENCE_TSCONFIG_FIXES.md) - *Updated in recent commit*
+- [README.md](file://371-os/README.md) - *Updated in recent commit*
+- [COMMANDS.md](file://COMMANDS.md) - *Updated in recent commit*
+- [GETTING_STARTED.md](file://GETTING_STARTED.md) - *Updated in recent commit*
+- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md) - *Updated in recent commit*
+- [INTEGRATION_ROADMAP.md](file://INTEGRATION_ROADMAP.md) - *Updated in recent commit*
 </cite>
 
 ## Update Summary
@@ -88,6 +94,7 @@
 - Added new integration fixes for Business Intelligence plugin components including type safety, configuration, exports, and provider fixes
 - Added troubleshooting guidance for AdaptiveLayout.tsx compilation issues and module isolation
 - Updated section sources to include new integration fix documentation files
+- Updated document to reflect changes in README.md, COMMANDS.md, GETTING_STARTED.md, IMPLEMENTATION_GUIDE.md, and INTEGRATION_ROADMAP.md with enhanced details on Nx Cloud integration, Akash Network deployment, and agent command structure
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -1775,201 +1782,4 @@ New providers can be added by implementing the LLM provider interface and regist
 
 ### Limited Support for Stateful Agent Interactions
 
-**Limitation**: The current agent coordination system has limited support for complex, stateful interactions between agents.
-
-**Workaround**: Use the router agent as a coordination hub:
-```python
-# Instead of direct agent-to-agent calls
-result = agent_a.execute(task)
-final_result = agent_b.process(result)
-
-# Use the router for state management
-coordinator = self.agent_coordinator.get_agent("router")
-workflow_id = coordinator.create_workflow("complex_task")
-coordinator.add_step(workflow_id, agent_a, task_part1)
-coordinator.add_step(workflow_id, agent_b, task_part2)
-result = coordinator.execute_workflow(workflow_id)
-```
-
-**Section sources**
-- [router_agent.py](file://371-os/src/minds371/agents/utility/router_agent.py)
-- [base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-
-### Cold Start Latency for Adaptive Router
-
-**Limitation**: The adaptive router requires historical data to make optimal decisions, leading to suboptimal choices during initial system operation.
-
-**Workaround**: Implement default provider mappings:
-```python
-# In router configuration
-DEFAULT_PROVIDER_MAP = {
-    "creative_writing": "anthropic",
-    "code_generation": "openai",
-    "data_analysis": "google",
-    "business_strategy": "openai",
-    "technical_qa": "openrouter"
-}
-
-# Use defaults until sufficient data is collected
-if self.usage_ledger.data_collection_period_complete():
-    return self.intelligent_selection(request)
-else:
-    return self.get_default_provider(request.purpose)
-```
-
-**Section sources**
-- [intelligent_router_agent.py](file://371-os/src/minds371/adaptive_llm_router/intelligent_router_agent.py)
-- [config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
-
-### Memory Usage Growth in Long-Running Agents
-
-**Limitation**: Some agents exhibit gradual memory usage growth during extended operation.
-
-**Workaround**: Implement periodic agent restarts:
-```python
-# In agent base class
-def start_memory_monitoring(self):
-    self.memory_monitor = threading.Thread(target=self._memory_monitor_loop, daemon=True)
-    self.memory_monitor.start()
-
-def _memory_monitor_loop(self):
-    while self.running:
-        current_memory = self.get_memory_usage()
-        if current_memory > self.config.get("max_memory_mb", 1024):
-            self.logger.warning(f"Memory limit exceeded: {current_memory}MB")
-            self.restart()
-        time.sleep(300)  # Check every 5 minutes
-```
-
-**Section sources**
-- [base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-- [improved_base_agent.py](file://371-os/src/minds371/agents/base_agent/improved_base_agent.py)
-
-## Debugging and Diagnostic Tools
-
-### Log Analysis
-
-371OS generates comprehensive logs for all system components. Key log files include:
-
-- `logs/system.log`: Overall system operation
-- `logs/agent_name.log`: Individual agent logs
-- `logs/router.log`: LLM routing decisions
-- `logs/security.log`: Security events and access attempts
-- `logs/performance.log`: Performance metrics and bottlenecks
-
-Use the following commands to analyze logs:
-```bash
-# Monitor logs in real-time
-tail -f logs/*.log
-
-# Search for errors
-grep -i "error\|exception\|fail" logs/*.log
-
-# Analyze router decisions
-grep "selected provider" logs/router.log | tail -20
-```
-
-**Section sources**
-- [base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-- [intelligent_router_agent.py](file://371-os/src/minds371/adaptive_llm_router/intelligent_router_agent.py)
-
-### Performance Profiling
-
-Use Python's cProfile to identify performance bottlenecks:
-```bash
-python -m cProfile -o profile_output.prof src/minds371/371OS_launch/371_os_launcher.py
-
-# Analyze results
-python -c "
-import pstats
-p = pstats.Stats('profile_output.prof')
-p.sort_stats('cumulative').print_stats(20)
-"
-```
-
-For line-by-line profiling, use line_profiler:
-```bash
-# Add @profile decorator to functions of interest
-@profile
-def function_to_profile(self):
-    # function code
-
-# Run with line profiler
-kernprof -l -v src/minds371/371OS_launch/371_os_launcher.py
-```
-
-**Section sources**
-- [base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-- [improved_base_agent.py](file://371-os/src/minds371/agents/base_agent/improved_base_agent.py)
-
-### Diagnostic Scripts
-
-The system includes diagnostic scripts to check various components:
-
-1. **System health check**:
-```bash
-python scripts/diagnostic/system_health.py
-```
-
-2. **LLM connectivity test**:
-```bash
-python scripts/diagnostic/llm_connectivity.py
-```
-
-3. **Agent availability check**:
-```bash
-python scripts/diagnostic/agent_status.py
-```
-
-4. **Performance benchmark**:
-```bash
-python scripts/diagnostic/performance_benchmark.py
-```
-
-These scripts provide detailed output about system status and can be used to quickly identify issues.
-
-**Section sources**
-- [scripts/diagnostic/*.py](file://371-os/scripts/diagnostic/)
-- [tests/performance/benchmark.py](file://371-os/tests/performance/benchmark.py)
-
-## Support and Escalation
-
-### Issue Reporting
-
-When reporting issues, include the following information:
-1. System configuration (OS, Python version, hardware)
-2. 371OS version
-3. Steps to reproduce the issue
-4. Relevant log excerpts
-5. Expected vs. actual behavior
-6. Screenshots (if applicable)
-
-Submit issues through the GitHub repository or contact support@371os.com.
-
-### Escalation Path
-
-For unresolved issues, follow this escalation path:
-
-1. **Level 1 Support**: Community forums and documentation
-2. **Level 2 Support**: Email support with detailed issue report
-3. **Level 3 Support**: Direct engineering team consultation
-4. **Emergency Support**: Critical issue hotline (for enterprise customers)
-
-Enterprise customers have access to priority support with guaranteed response times.
-
-### Monitoring and Alerting
-
-Implement monitoring for production deployments:
-
-1. **System metrics**: CPU, memory, disk usage
-2. **Agent status**: Running agents, error rates
-3. **LLM performance**: Response times, error rates by provider
-4. **Budget usage**: Daily and monthly spending
-5. **Security events**: Authentication failures, access attempts
-
-Use tools like Prometheus/Grafana or Datadog for comprehensive monitoring.
-
-**Section sources**
-- [README.md](file://README.md)
-- [GETTING_STARTED.md](file://GETTING_STARTED.md)
-- [COMMANDS.md](file://COMMANDS.md)
+**Limitation**: The current agent coordination system has limited support for complex, stateful interactions

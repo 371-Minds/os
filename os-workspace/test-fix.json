@@ -1,0 +1,698 @@
+{
+  "graph": {
+    "nodes": {
+      "dao-governance-service": {
+        "name": "dao-governance-service",
+        "type": "app",
+        "data": {
+          "root": "apps/dao-governance-service",
+          "name": "dao-governance-service",
+          "$schema": "../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/dao-governance-service/src",
+          "projectType": "application",
+          "tags": [],
+          "targets": {
+            "build": {
+              "executor": "@nx/esbuild:esbuild",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "defaultConfiguration": "production",
+              "options": {
+                "platform": "node",
+                "outputPath": "dist/apps/dao-governance-service",
+                "format": [
+                  "cjs"
+                ],
+                "bundle": false,
+                "main": "apps/dao-governance-service/src/main.ts",
+                "tsConfig": "apps/dao-governance-service/tsconfig.app.json",
+                "assets": [
+                  "apps/dao-governance-service/src/assets"
+                ],
+                "generatePackageJson": true,
+                "esbuildOptions": {
+                  "sourcemap": true,
+                  "outExtension": {
+                    ".js": ".js"
+                  }
+                }
+              },
+              "configurations": {
+                "development": {},
+                "production": {
+                  "esbuildOptions": {
+                    "sourcemap": false,
+                    "outExtension": {
+                      ".js": ".js"
+                    }
+                  }
+                }
+              },
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "prune-lockfile": {
+              "dependsOn": [
+                "build"
+              ],
+              "cache": true,
+              "executor": "@nx/js:prune-lockfile",
+              "outputs": [
+                "{workspaceRoot}/dist/apps/dao-governance-service/package.json",
+                "{workspaceRoot}/dist/apps/dao-governance-service/package-lock.json"
+              ],
+              "options": {
+                "buildTarget": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "copy-workspace-modules": {
+              "dependsOn": [
+                "build"
+              ],
+              "cache": true,
+              "outputs": [
+                "{workspaceRoot}/dist/apps/dao-governance-service/workspace_modules"
+              ],
+              "executor": "@nx/js:copy-workspace-modules",
+              "options": {
+                "buildTarget": "build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "prune": {
+              "dependsOn": [
+                "prune-lockfile",
+                "copy-workspace-modules"
+              ],
+              "executor": "nx:noop",
+              "configurations": {},
+              "options": {},
+              "parallelism": true
+            },
+            "serve": {
+              "continuous": true,
+              "executor": "@nx/js:node",
+              "defaultConfiguration": "development",
+              "dependsOn": [
+                "build"
+              ],
+              "options": {
+                "buildTarget": "dao-governance-service:build",
+                "runBuildTargetDependencies": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "dao-governance-service:build:development"
+                },
+                "production": {
+                  "buildTarget": "dao-governance-service:build:production"
+                }
+              },
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "chief-of-staff-agent": {
+        "name": "chief-of-staff-agent",
+        "type": "app",
+        "data": {
+          "root": "apps/chief-of-staff-agent",
+          "name": "chief-of-staff-agent",
+          "projectType": "application",
+          "tags": [
+            "npm:public",
+            "npm:chief-of-staff",
+            "npm:dao-proposals",
+            "npm:strategic-orchestration",
+            "npm:371-os",
+            "npm:governance"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "dev",
+                "start",
+                "validate"
+              ]
+            },
+            "description": "Chief of Staff Agent (Ortega) - Orchestrates strategic plans into DAO proposals",
+            "js": {
+              "packageName": "@371minds/chief-of-staff-agent",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "dev": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "dev"
+              },
+              "metadata": {
+                "scriptContent": "nx serve chief-of-staff-agent",
+                "runCommand": "npm run dev"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "start"
+              },
+              "metadata": {
+                "scriptContent": "bun src/index.ts",
+                "runCommand": "npm run start"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "validate": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "validate"
+              },
+              "metadata": {
+                "scriptContent": "bun src/index.ts --validate",
+                "runCommand": "npm run validate"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/chief-of-staff-agent",
+                "main": "apps/chief-of-staff-agent/src/index.ts",
+                "tsConfig": "apps/chief-of-staff-agent/tsconfig.json",
+                "assets": []
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "serve": {
+              "executor": "@nx/js:node",
+              "options": {
+                "buildTarget": "chief-of-staff-agent:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test apps/chief-of-staff-agent"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            },
+            "lint": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bunx @biomejs/biome check --write apps/chief-of-staff-agent"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/biome.json"
+              ]
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/chief-of-staff-agent/src",
+          "implicitDependencies": []
+        }
+      },
+      "blockchain-registry": {
+        "name": "blockchain-registry",
+        "type": "lib",
+        "data": {
+          "root": "libs/blockchain-registry",
+          "name": "blockchain-registry",
+          "projectType": "library",
+          "tags": [
+            "npm:public",
+            "npm:blockchain",
+            "npm:registry",
+            "npm:371-minds",
+            "npm:elizaos",
+            "library",
+            "blockchain"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "description": "Blockchain Registry Provider for 371 Minds OS",
+            "js": {
+              "packageName": "@371minds/blockchain-registry",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun run build",
+                "cwd": "libs/blockchain-registry"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test",
+                "cwd": "libs/blockchain-registry"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/blockchain-registry/src",
+          "implicitDependencies": []
+        }
+      },
+      "cognitive-interface": {
+        "name": "cognitive-interface",
+        "type": "app",
+        "data": {
+          "root": "apps/cognitive-interface",
+          "name": "cognitive-interface",
+          "projectType": "application",
+          "tags": [
+            "npm:public",
+            "npm:cognitive-ui",
+            "npm:adaptive-interface",
+            "npm:galaxy-engine",
+            "npm:371-os"
+          ],
+          "metadata": {
+            "targetGroups": {
+              "NPM Scripts": [
+                "dev"
+              ]
+            },
+            "description": "Revolutionary cognitive-aware interface system for 371 OS",
+            "js": {
+              "packageName": "@371minds/cognitive-interface",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "dev": {
+              "executor": "nx:run-script",
+              "options": {
+                "script": "dev"
+              },
+              "metadata": {
+                "scriptContent": "nx serve cognitive-interface",
+                "runCommand": "npm run dev"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/cognitive-interface",
+                "main": "apps/cognitive-interface/src/index.ts",
+                "tsConfig": "apps/cognitive-interface/tsconfig.json",
+                "assets": []
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "serve": {
+              "executor": "@nx/js:node",
+              "options": {
+                "buildTarget": "cognitive-interface:build"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test apps/cognitive-interface"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            },
+            "lint": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bunx @biomejs/biome check --write apps/cognitive-interface"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/biome.json"
+              ]
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/cognitive-interface/src",
+          "implicitDependencies": []
+        }
+      },
+      "elizaos-plugin-nx-workspace": {
+        "name": "elizaos-plugin-nx-workspace",
+        "type": "lib",
+        "data": {
+          "root": "packages/nx-workspace",
+          "name": "elizaos-plugin-nx-workspace",
+          "tags": [
+            "npm:public",
+            "npm:elizaos",
+            "npm:plugin",
+            "npm:nx",
+            "npm:workspace",
+            "npm:self-aware-agents",
+            "elizaos",
+            "plugin",
+            "nx-workspace",
+            "self-awareness"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "description": "ElizaOS plugin that enables agents to understand and manipulate their own Nx workspace",
+            "js": {
+              "packageName": "@elizaos/plugin-nx-workspace",
+              "packageMain": "dist/index.js",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "@nx/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/packages/elizaos-plugins/nx-workspace",
+                "main": "packages/elizaos-plugins/nx-workspace/src/index.ts",
+                "tsConfig": "packages/elizaos-plugins/nx-workspace/tsconfig.lib.json",
+                "assets": [
+                  "packages/elizaos-plugins/nx-workspace/*.md"
+                ]
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test packages/nx-workspace"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            },
+            "lint": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bunx @biomejs/biome check --write packages/nx-workspace"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "{workspaceRoot}/biome.json"
+              ]
+            }
+          },
+          "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "packages/elizaos-plugins/nx-workspace/src",
+          "projectType": "library",
+          "implicitDependencies": []
+        }
+      },
+      "ipfs-storage": {
+        "name": "ipfs-storage",
+        "type": "lib",
+        "data": {
+          "root": "libs/ipfs-storage",
+          "name": "ipfs-storage",
+          "projectType": "library",
+          "tags": [
+            "npm:public",
+            "npm:ipfs",
+            "npm:storage",
+            "npm:371-minds",
+            "npm:elizaos",
+            "library",
+            "storage"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "description": "IPFS Storage Implementation for 371 Minds OS",
+            "js": {
+              "packageName": "@371minds/ipfs-storage",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun run build",
+                "cwd": "libs/ipfs-storage"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test",
+                "cwd": "libs/ipfs-storage"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/ipfs-storage/src",
+          "implicitDependencies": []
+        }
+      },
+      "core-types": {
+        "name": "core-types",
+        "type": "lib",
+        "data": {
+          "root": "libs/core-types",
+          "name": "core-types",
+          "projectType": "library",
+          "tags": [
+            "npm:public",
+            "npm:types",
+            "npm:interfaces",
+            "npm:371-minds",
+            "npm:elizaos",
+            "library",
+            "types"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "description": "Shared TypeScript interfaces for 371 Minds OS",
+            "js": {
+              "packageName": "@371minds/core-types",
+              "packageMain": "src/index.ts",
+              "isInPackageManagerWorkspaces": false
+            }
+          },
+          "targets": {
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun run build",
+                "cwd": "libs/core-types"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "test": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "bun test",
+                "cwd": "libs/core-types"
+              },
+              "configurations": {},
+              "parallelism": true,
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production"
+              ]
+            }
+          },
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/core-types/src",
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "dao-governance-service": [],
+      "chief-of-staff-agent": [],
+      "blockchain-registry": [],
+      "cognitive-interface": [],
+      "elizaos-plugin-nx-workspace": [],
+      "ipfs-storage": [],
+      "core-types": []
+    }
+  }
+}

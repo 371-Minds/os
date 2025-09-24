@@ -975,7 +975,7 @@ The following endpoints are deprecated and will be removed in v2:
 - `POST /api/v1/agents/{id}/restart` - Use separate stop and start calls instead
 - `GET /api/v1/agents/active` - Use list agents with status filter
 
-Migration guide available at [Migration Guide](file://MIGRATION_SUMMARY.md).
+Migration guide available at [MIGRATION_SUMMARY.md](file://MIGRATION_SUMMARY.md).
 
 **Section sources**
 - [MIGRATION_SUMMARY.md](file://MIGRATION_SUMMARY.md)

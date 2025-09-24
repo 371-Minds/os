@@ -2,10 +2,27 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Sessions Health Check.md](file://elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md)
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [Create Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md) - *Updated in recent commit*
+- [Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md) - *Updated in recent commit*
+- [List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md) - *Updated in recent commit*
+- [End Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/End Session.md) - *Updated in recent commit*
+- [Send Session Message.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Send Session Message.md) - *Updated in recent commit*
+- [Get Session Messages.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session Messages.md) - *Updated in recent commit*
+- [Renew Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Renew Session.md) - *Updated in recent commit*
+- [Session Heartbeat.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Session Heartbeat.md) - *Updated in recent commit*
 </cite>
+
+## Update Summary
+**Changes Made**   
+- Updated all endpoint documentation with enhanced timeout configurations and renewal mechanisms
+- Added comprehensive health monitoring details for the Sessions API service
+- Enhanced request/response schemas with detailed examples and parameter descriptions
+- Improved error handling documentation with specific error classes and recovery strategies
+- Added rate limiting information and WebSocket event integration details
+- Updated sample requests with complete curl and Postman examples
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -40,8 +57,8 @@ The Sessions API in the 371OS platform provides a comprehensive interface for ma
 The API supports various operations including session creation, message sending and retrieval, session renewal, timeout configuration updates, and health monitoring. It implements sophisticated session management features such as automatic renewal, expiration warnings, and hierarchical configuration that allows for global, agent-specific, and session-specific settings.
 
 **Section sources**
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L127-L192)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L127-L192)
 
 ## Authentication and Headers
 The Sessions API requires authentication via session tokens or API keys. All requests must include appropriate authentication headers to access protected endpoints.
@@ -65,8 +82,8 @@ Different operations require specific permission scopes:
 - `sessions:health` - Required for accessing health check endpoints
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L127-L192)
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L127-L192)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
 
 ## Session Lifecycle Management
 
@@ -82,13 +99,13 @@ Creates a new session between a user and an agent.
 {
   "agentId": "string",
   "userId": "string",
+  "metadata": {},
   "timeoutConfig": {
     "timeoutMinutes": 30,
     "autoRenew": true,
     "maxDurationMinutes": 180,
     "warningThresholdMinutes": 5
-  },
-  "metadata": {}
+  }
 }
 ```
 
@@ -116,10 +133,12 @@ Creates a new session between a user and an agent.
 - `400 Bad Request`: Invalid request parameters
 - `401 Unauthorized`: Authentication failed
 - `403 Forbidden`: Insufficient permissions
+- `404 Not Found`: Agent not found
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L127-L192)
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
+- [Create Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L127-L192)
 
 ### Get Session
 Retrieves information about a specific session.
@@ -158,9 +177,11 @@ Retrieves information about a specific session.
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session does not exist
 - `410 Gone`: Session has expired
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L331-L390)
+- [Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L331-L390)
 
 ### List Sessions
 Retrieves a list of active sessions.
@@ -192,7 +213,12 @@ Retrieves a list of active sessions.
   ],
   "total": 0,
   "limit": 0,
-  "offset": 0
+  "offset": 0,
+  "stats": {
+    "totalSessions": 0,
+    "activeSessions": 0,
+    "expiredSessions": 0
+  }
 }
 ```
 
@@ -200,6 +226,11 @@ Retrieves a list of active sessions.
 - `200 OK`: Sessions retrieved successfully
 - `401 Unauthorized`: Authentication failed
 - `403 Forbidden`: Insufficient permissions
+- `500 Internal Server Error`: Unexpected server error
+
+**Section sources**
+- [List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L331-L390)
 
 ### End Session
 Terminates a session and cleans up associated resources.
@@ -214,8 +245,7 @@ Terminates a session and cleans up associated resources.
 ```json
 {
   "success": true,
-  "message": "Session {sessionId} deleted successfully",
-  "sessionId": "string"
+  "message": "Session {sessionId} deleted successfully"
 }
 ```
 
@@ -224,9 +254,11 @@ Terminates a session and cleans up associated resources.
 - `401 Unauthorized`: Authentication failed
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session does not exist
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L331-L390)
+- [End Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/End Session.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L331-L390)
 
 ## Session Messaging
 
@@ -244,6 +276,13 @@ Sends a message within a session context.
 ```json
 {
   "content": "string",
+  "attachments": [
+    {
+      "type": "string",
+      "url": "string",
+      "name": "string"
+    }
+  ],
   "metadata": {}
 }
 ```
@@ -251,18 +290,16 @@ Sends a message within a session context.
 **Response Schema (201 Created)**
 ```json
 {
-  "messageId": "string",
-  "sessionId": "string",
-  "authorId": "string",
+  "id": "string",
   "content": "string",
-  "timestamp": "string",
+  "authorId": "string",
+  "createdAt": "string",
   "metadata": {},
   "sessionStatus": {
     "expiresAt": "string",
-    "timeRemaining": 0,
+    "renewalCount": 0,
     "wasRenewed": false,
-    "isNearExpiration": false,
-    "renewalCount": 0
+    "isNearExpiration": false
   }
 }
 ```
@@ -274,10 +311,11 @@ Sends a message within a session context.
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session not found
 - `410 Gone`: Session has expired
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L127-L192)
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L175-L224)
+- [Send Session Message.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Send Session Message.md)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L175-L224)
 
 ### Get Session Messages
 Retrieves message history for a session with cursor-based pagination.
@@ -289,27 +327,27 @@ Retrieves message history for a session with cursor-based pagination.
 - `sessionId`: The unique identifier of the session
 
 **Query Parameters**
-- `limit`: Number of messages to return (default: 20, max: 100)
-- `before`: Cursor for retrieving older messages
-- `after`: Cursor for retrieving newer messages
+- `limit`: Number of messages to return (default: 50, max: 100)
+- `before`: Timestamp for retrieving older messages
+- `after`: Timestamp for retrieving newer messages
 
 **Response Schema (200 OK)**
 ```json
 {
   "messages": [
     {
-      "messageId": "string",
-      "sessionId": "string",
-      "authorId": "string",
+      "id": "string",
       "content": "string",
-      "timestamp": "string",
+      "authorId": "string",
+      "isAgent": false,
+      "createdAt": "string",
       "metadata": {}
     }
   ],
   "hasMore": false,
   "cursors": {
-    "before": "string",
-    "after": "string"
+    "before": 0,
+    "after": 0
   }
 }
 ```
@@ -319,10 +357,12 @@ Retrieves message history for a session with cursor-based pagination.
 - `401 Unauthorized`: Authentication failed
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session not found
+- `410 Gone`: Session has expired
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L261-L312)
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L507-L559)
+- [Get Session Messages.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session Messages.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L261-L312)
 
 ## Session Management Operations
 
@@ -338,10 +378,20 @@ Manually renews a session, extending its expiration time.
 **Response Schema (200 OK)**
 ```json
 {
+  "sessionId": "string",
+  "agentId": "string",
+  "userId": "string",
+  "createdAt": "string",
+  "lastActivity": "string",
   "expiresAt": "string",
-  "timeRemaining": 0,
+  "timeoutConfig": {
+    "timeoutMinutes": 30,
+    "autoRenew": true,
+    "maxDurationMinutes": 180,
+    "warningThresholdMinutes": 5
+  },
   "renewalCount": 0,
-  "wasRenewed": false,
+  "timeRemaining": 0,
   "isNearExpiration": false
 }
 ```
@@ -353,9 +403,11 @@ Manually renews a session, extending its expiration time.
 - `404 Not Found`: Session not found
 - `410 Gone`: Session has expired
 - `422 Unprocessable Entity`: Session cannot be renewed (e.g., max duration reached)
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L261-L312)
+- [Renew Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Renew Session.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L261-L312)
 
 ### Update Session Timeout
 Updates the timeout configuration for an active session.
@@ -398,9 +450,10 @@ Updates the timeout configuration for an active session.
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session not found
 - `410 Gone`: Session has expired
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L312-L333)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L312-L333)
 
 ## Session Heartbeat Mechanism
 The session heartbeat mechanism allows clients to keep sessions alive and receive status updates without sending messages.
@@ -414,15 +467,21 @@ The session heartbeat mechanism allows clients to keep sessions alive and receiv
 **Response Schema (200 OK)**
 ```json
 {
+  "sessionId": "string",
+  "agentId": "string",
+  "userId": "string",
+  "createdAt": "string",
+  "lastActivity": "string",
   "expiresAt": "string",
-  "timeRemaining": 0,
-  "isNearExpiration": false,
   "timeoutConfig": {
     "timeoutMinutes": 30,
     "autoRenew": true,
     "maxDurationMinutes": 180,
     "warningThresholdMinutes": 5
-  }
+  },
+  "renewalCount": 0,
+  "timeRemaining": 0,
+  "isNearExpiration": false
 }
 ```
 
@@ -476,9 +535,11 @@ class SessionManager {
 - `403 Forbidden`: Insufficient permissions
 - `404 Not Found`: Session not found
 - `410 Gone`: Session has expired
+- `500 Internal Server Error`: Unexpected server error
 
 **Section sources**
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L495-L558)
+- [Session Heartbeat.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Session Heartbeat.md)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L495-L558)
 
 ## Health Monitoring
 
@@ -505,7 +566,7 @@ Checks the health status of the sessions service and retrieves active session st
 - `503 Service Unavailable`: Service is unhealthy
 
 **Section sources**
-- [Sessions Health Check.md](file://elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
+- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
 
 ## Error Handling
 The Sessions API uses specific error classes for precise error handling and recovery.
@@ -553,8 +614,8 @@ class ResilientSessionClient {
 ```
 
 **Section sources**
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L421-L473)
-- [Sessions API Guide.md](file://elizaos/Guides/Sessions API Guide.md#L434-L493)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L421-L473)
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L434-L493)
 
 ## Session Configuration and Policies
 
@@ -575,13 +636,13 @@ const finalConfig = {
 ```
 
 **Timeout Parameters**
-- `timeoutMinutes`: Inactivity timeout before session expires
+- `timeoutMinutes`: Inactivity timeout before session expires (5-1440 minutes)
 - `autoRenew`: Whether the session automatically renews on each message
 - `maxDurationMinutes`: Maximum total duration of the session
 - `warningThresholdMinutes`: Time before expiration to trigger warnings
 
 **Section sources**
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
 
 ### Message Retention
 Messages are stored within the session's associated channel and are retained according to the following policies:
@@ -592,7 +653,7 @@ Messages are stored within the session's associated channel and are retained acc
 - No permanent message storage beyond session lifecycle
 
 **Section sources**
-- [Sessions Architecture Deep Dive.md](file://elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L50-L124)
 
 ### Rate Limiting
 The API implements rate limiting to prevent abuse:
@@ -602,6 +663,9 @@ The API implements rate limiting to prevent abuse:
 - **Per-agent limits**: 5000 requests per hour per agent
 
 Exceeding rate limits results in a 429 Too Many Requests response with a Retry-After header.
+
+**Section sources**
+- [Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md#L434-L493)
 
 ## Data Validation
 The API performs comprehensive validation on all inputs:
@@ -617,9 +681,12 @@ The API performs comprehensive validation on all inputs:
 - Prohibited content: executable code, scripts, or malicious payloads
 
 ### Configuration Validation
-- `timeoutMinutes`: 1-1440 (1-24 hours)
+- `timeoutMinutes`: 5-1440 (5 minutes to 24 hours)
 - `maxDurationMinutes`: 1-4320 (1-72 hours)
 - `warningThresholdMinutes`: 1-60
+
+**Section sources**
+- [Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md#L421-L473)
 
 ## Sample Requests
 
@@ -654,7 +721,7 @@ curl -X POST "http://localhost:3000/api/messaging/sessions/session-789/messages"
 
 **Get Messages**
 ```bash
-curl -X GET "http://localhost:3000/api/messaging/sessions/session-789/messages?limit=20" \
+curl -X GET "http://localhost:3000/api/messaging/sessions/session-789/messages?limit=50" \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 

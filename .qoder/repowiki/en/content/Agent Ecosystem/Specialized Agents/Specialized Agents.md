@@ -24,16 +24,25 @@
 - [agent-backstory-template.json](file://questflow/agents/templates/agent-backstory-template.json) - *Added in recent commit*
 - [MIGRATION_SUMMARY.md](file://questflow/agents/MIGRATION_SUMMARY.md) - *Added in recent commit*
 - [README.md](file://questflow/agents/README.md) - *Added in recent commit*
+- [intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml) - *Added in recent commit*
+- [index.ts](file://os-workspace/apps/intelligent-router/src/index.ts) - *Added in recent commit*
+- [router-engine.ts](file://os-workspace/apps/intelligent-router/src/router-engine.ts) - *Added in recent commit*
+- [task-analyzer.ts](file://os-workspace/apps/intelligent-router/src/task-analyzer.ts) - *Added in recent commit*
+- [agent-selector.ts](file://os-workspace/apps/intelligent-router/src/agent-selector.ts) - *Added in recent commit*
+- [delegation-orchestrator.ts](file://os-workspace/apps/intelligent-router/src/delegation-orchestrator.ts) - *Added in recent commit*
+- [performance-monitor.ts](file://os-workspace/apps/intelligent-router/src/performance-monitor.ts) - *Added in recent commit*
+- [types.ts](file://os-workspace/apps/intelligent-router/src/types.ts) - *Added in recent commit*
+- [README.md](file://os-workspace/apps/intelligent-router/README.md) - *Added in recent commit*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated Analytics Agents section to reflect full backstory format migration
-- Enhanced Integration with C-Suite Agents section with new backstory details
-- Added new section on Agent Backstory Architecture
-- Updated Base Agent Inheritance Model with backstory integration
-- Added new diagram showing backstory component relationships
-- Updated referenced files list to include new documentation and template files
+- Added new section on Intelligent Router Agent as a central component for task routing
+- Updated Integration with C-Suite Agents section to include Intelligent Router's role
+- Enhanced Performance and Resource Management section with Intelligent Router integration details
+- Added new diagram showing Intelligent Router architecture and components
+- Updated referenced files list to include new Intelligent Router implementation files
+- Added detailed information about the Intelligent Router's analysis, selection, and delegation processes
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -44,13 +53,14 @@
 6. [Utility Agents](#utility-agents)
 7. [Analytics Agents](#analytics-agents)
 8. [Agent Backstory Architecture](#agent-backstory-architecture)
-9. [Integration with C-Suite Agents](#integration-with-c-suite-agents)
-10. [Prompt Templates and Domain Models](#prompt-templates-and-domain-models)
-11. [Agent Composition and Chaining](#agent-composition-and-chaining)
-12. [Error Handling and Result Reporting](#error-handling-and-result-reporting)
-13. [Performance and Resource Management](#performance-and-resource-management)
-14. [Troubleshooting Common Issues](#troubleshooting-common-issues)
-15. [Conclusion](#conclusion)
+9. [Intelligent Router Agent](#intelligent-router-agent)
+10. [Integration with C-Suite Agents](#integration-with-c-suite-agents)
+11. [Prompt Templates and Domain Models](#prompt-templates-and-domain-models)
+12. [Agent Composition and Chaining](#agent-composition-and-chaining)
+13. [Error Handling and Result Reporting](#error-handling-and-result-reporting)
+14. [Performance and Resource Management](#performance-and-resource-management)
+15. [Troubleshooting Common Issues](#troubleshooting-common-issues)
+16. [Conclusion](#conclusion)
 
 ## Introduction
 The 371-OS agent ecosystem is built around a modular, hierarchical architecture where specialized agents serve as execution units responsible for domain-specific tasks. These agents inherit core capabilities from a shared base model and are orchestrated by executive-level C-Suite agents (CEO, CTO, CMO, CFO, CCO). This document details the structure, responsibilities, and operational patterns of specialized agents across three primary categories: Marketing, Technical, and Utility. The design emphasizes reusability, scalability, and integration with the Adaptive LLM Router for intelligent workload distribution.
@@ -401,6 +411,72 @@ Agent --> Blockchain
 - [README.md](file://questflow/agents/README.md)
 - [agent-backstory-template.json](file://questflow/agents/templates/agent-backstory-template.json)
 
+## Intelligent Router Agent
+The Intelligent Router Agent serves as the central nervous system for task routing within the 371 OS ecosystem. It analyzes incoming tasks with sophisticated intelligence and routes them to the most appropriate C-Suite agents based on content analysis, workload distribution, and strategic priorities.
+
+### Architecture and Components
+The Intelligent Router follows the unified "brain/body" architecture pattern:
+- **Brain**: `libs/prompts/agent-definitions/intelligent_router.yml` - Contains the agent's core instructions, personality, and routing policies
+- **Body**: TypeScript application - Implements the execution runtime with sophisticated routing logic
+
+#### Core Components
+- **RouterEngine**: Core orchestration logic for routing decisions
+- **TaskAnalyzer**: Advanced natural language processing for task content analysis
+- **AgentSelector**: Agent selection based on capabilities, availability, and historical performance
+- **DelegationOrchestrator**: Multi-agent coordination and task delegation management
+- **PerformanceMonitor**: Metrics collection and routing optimization
+
+```mermaid
+graph TD
+subgraph "Intelligent Router Components"
+TA[Task Analyzer]
+AS[Agent Selector]
+DO[Delegation Orchestrator]
+PM[Performance Monitor]
+RE[Router Engine]
+end
+User[Incoming Task] --> TA
+TA --> AS
+AS --> DO
+DO --> RE
+RE --> C-Suite[C-Suite Agents]
+PM -.-> RE
+RE --> PM
+```
+
+**Diagram sources**
+- [intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml)
+- [index.ts](file://os-workspace/apps/intelligent-router/src/index.ts)
+- [router-engine.ts](file://os-workspace/apps/intelligent-router/src/router-engine.ts)
+
+**Section sources**
+- [intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml)
+- [index.ts](file://os-workspace/apps/intelligent-router/src/index.ts)
+- [router-engine.ts](file://os-workspace/apps/intelligent-router/src/router-engine.ts)
+
+### Routing Process
+The Intelligent Router follows a systematic process to route tasks:
+
+1. **Task Analysis**: Extract keywords, classify domains, assess complexity, and identify resource requirements
+2. **Agent Selection**: Select the most appropriate agent(s) based on domain expertise, availability, and performance history
+3. **Coordination Strategy**: Determine if sequential, parallel, or collaborative execution is required
+4. **Delegation**: Execute the delegation through the DelegationOrchestrator
+5. **Monitoring**: Track performance metrics and outcomes for continuous improvement
+
+### Key Features
+- **Intelligent Task Analysis**: Advanced NLP for extracting meaning from task descriptions
+- **Multi-Factor Routing**: Considers domain expertise, agent availability, workload, and historical performance
+- **Multi-Agent Coordination**: Orchestrates complex tasks requiring multiple agent types
+- **Performance Optimization**: Continuously improves routing decisions based on success metrics
+- **Escalation Management**: Identifies when human intervention is required
+
+### Integration Points
+The Intelligent Router integrates with:
+- **Agent Registry**: For real-time capability and availability information
+- **Performance Monitoring System**: For continuous improvement based on routing outcomes
+- **C-Suite Agents**: For task delegation and escalation handling
+- **Escalation System**: For human intervention when confidence is low or complexity is high
+
 ## Integration with C-Suite Agents
 Specialized agents integrate with C-Suite agents through a delegation model where executive agents analyze high-level tasks and route them to appropriate specialized units.
 
@@ -524,25 +600,26 @@ Specialized agents are optimized for efficient resource utilization and integrat
 - **Resource Monitoring**: CPU, memory, and LLM token usage are tracked.
 - **Adaptive LLM Routing**: The router selects the most cost-effective LLM provider based on task requirements.
 
-### Adaptive LLM Router Integration
-The Adaptive LLM Router analyzes task complexity and budget constraints to route requests to optimal LLM providers, minimizing costs while maintaining quality.
+### Intelligent Router Integration
+The Intelligent Router Agent enhances performance management by analyzing task complexity and strategic importance to route requests to optimal agents. It continuously monitors routing outcomes and adjusts its decision algorithms for improved accuracy.
 
 ```mermaid
 graph TD
-Agent[Specialized Agent] --> Router[Adaptive LLM Router]
-Router --> |Low Complexity| ProviderA[Provider A - Low Cost]
-Router --> |High Complexity| ProviderB[Provider B - High Quality]
-Router --> |Budget Constrained| ProviderC[Provider C - Optimized]
-ProviderA --> Agent
-ProviderB --> Agent
-ProviderC --> Agent
+Agent[Specialized Agent] --> Router[Intelligent Router Agent]
+Router --> |Simple Task| CMO[CMO Anova Agent]
+Router --> |Complex Task| CEO[CEO Mimi Agent]
+Router --> |Technical Task| CTO[CTO Alex Agent]
+Router --> |Financial Task| CFO[CFO Cash Agent]
+Router --> |Community Task| CCO[CCO Agent]
 ```
 
 **Diagram sources**
-- [adaptive_llm_router_results.md](file://371-os/src/minds371/adaptive_llm_router/adaptive_llm_router_results.md)
+- [intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml)
+- [index.ts](file://os-workspace/apps/intelligent-router/src/index.ts)
 
 **Section sources**
-- [adaptive_llm_router_results.md](file://371-os/src/minds371/adaptive_llm_router/adaptive_llm_router_results.md)
+- [intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml)
+- [index.ts](file://os-workspace/apps/intelligent-router/src/index.ts)
 
 ## Troubleshooting Common Issues
 ### Failed Deployments
@@ -565,4 +642,4 @@ These issues are monitored through the real-time metrics system inherited from t
 - [content_generation_agent.py](file://371-os/src/minds371/agents/marketing/content_generation_agent.py)
 
 ## Conclusion
-Specialized Agents in the 371-OS ecosystem serve as modular execution units that enable scalable, domain-specific automation. By inheriting from a robust base agent model and integrating with C-Suite agents, they form a hierarchical, resilient architecture capable of handling complex business workflows. The use of standardized prompt templates, domain models, and the Adaptive LLM Router ensures consistency, efficiency, and cost-effectiveness across all operations. This design supports both independent agent execution and sophisticated composition patterns for end-to-end process automation. The recent addition of Analytics Agents expands the ecosystem's capabilities to include business intelligence and data analysis, providing enhanced decision support for executive leadership. The migration to full backstory format further enhances agent capabilities by providing comprehensive context, personality, and domain expertise, resulting in more consistent and effective interactions across the agent ecosystem.
+Specialized Agents in the 371-OS ecosystem serve as modular execution units that enable scalable, domain-specific automation. By inheriting from a robust base agent model and integrating with C-Suite agents, they form a hierarchical, resilient architecture capable of handling complex business workflows. The use of standardized prompt templates, domain models, and the Adaptive LLM Router ensures consistency, efficiency, and cost-effectiveness across all operations. This design supports both independent agent execution and sophisticated composition patterns for end-to-end process automation. The recent addition of Analytics Agents expands the ecosystem's capabilities to include business intelligence and data analysis, providing enhanced decision support for executive leadership. The migration to full backstory format further enhances agent capabilities by providing comprehensive context, personality, and domain expertise, resulting in more consistent and effective interactions across the agent ecosystem. The introduction of the Intelligent Router Agent as the central nervous system for task routing represents a significant advancement in the ecosystem's ability to intelligently analyze, coordinate, and delegate tasks based on sophisticated analysis of content, complexity, and strategic priorities.

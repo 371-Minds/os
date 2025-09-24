@@ -17,19 +17,27 @@
 - [csuite.ts](file://questflow\src\agents\csuite.ts) - *Added in recent commit*
 - [csuite.js](file://questflow\src\agents\csuite.js) - *Added in recent commit*
 - [api-server.md](file://questflow\docs\api-server.md) - *Added C-Suite meeting endpoint documentation*
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts) - *Updated in recent commit*
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts) - *Updated in recent commit*
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts) - *Updated in recent commit*
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts) - *Updated in recent commit*
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts) - *Updated in recent commit*
+- [mimi_ceo.yml](file://os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml) - *Updated in recent commit*
+- [README.md](file://os-workspace\apps\ceo-agent\README.md) - *Updated in recent commit*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added comprehensive documentation for CTO Agent (Alex) with full technical leadership capabilities
-- Enhanced CEO Agent (Mimi) documentation with complete backstory and expanded delegation logic
-- Updated Table of Contents to reflect new CTO Agent section and enhanced CEO capabilities
-- Added new class diagram for CTO Agent architecture
-- Expanded Detailed Component Analysis with in-depth CTO Agent functionality
-- Updated Project Structure to include new cto-alex.json configuration
-- Enhanced Architecture Overview with technical delegation patterns
-- Updated Section sources and Diagram sources to include new CTO-related files
-- Added implementation details for technology evaluation and infrastructure planning workflows
+- Updated CEO Agent (Mimi) implementation with refactored TypeScript application following unified brain/body architecture
+- Enhanced strategic orchestration framework with improved task complexity analysis and delegation logic
+- Added comprehensive health monitoring system for agent performance tracking
+- Introduced enhanced routing logic beyond keyword matching with semantic analysis and context awareness
+- Updated Table of Contents to reflect new CEO Agent capabilities and architectural components
+- Expanded Detailed Component Analysis with in-depth CEO Agent functionality
+- Updated Project Structure to include new TypeScript-based CEO Agent implementation
+- Enhanced Architecture Overview with strategic delegation patterns and health monitoring
+- Updated Section sources and Diagram sources to include new CEO-related files
+- Added implementation details for intelligent task delegation and performance optimization workflows
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -44,10 +52,10 @@
 10. [Conclusion](#conclusion)
 
 ## Introduction
-The C-Suite Agents represent a strategic layer within the 371-OS agent ecosystem, functioning as executive decision-makers responsible for high-level orchestration, domain-specific oversight, and cross-functional coordination. Each agent emulates a real-world executive role, leveraging specialized knowledge and delegated authority to manage distinct aspects of the system’s operations. This document provides a comprehensive analysis of the architecture, functionality, and integration patterns of these agents, including CEO Agent (Mimi), CTO Agent (Alex), CFO Agent (Cash), CLO Agent (Sage), CMO Agent (Anova), CGO Agent, and CPO Agent. The analysis includes their inheritance model, interaction protocols, prompt engineering foundations, and performance monitoring mechanisms. Recent updates have introduced enhanced capabilities for the CTO Agent with comprehensive technical leadership functions and expanded the CEO Agent with a complete operational backstory, significantly strengthening the technical decision-making capabilities of the executive layer.
+The C-Suite Agents represent a strategic layer within the 371-OS agent ecosystem, functioning as executive decision-makers responsible for high-level orchestration, domain-specific oversight, and cross-functional coordination. Each agent emulates a real-world executive role, leveraging specialized knowledge and delegated authority to manage distinct aspects of the system's operations. This document provides a comprehensive analysis of the architecture, functionality, and integration patterns of these agents, including CEO Agent (Mimi), CTO Agent (Alex), CFO Agent (Cash), CLO Agent (Sage), CMO Agent (Anova), CGO Agent, and CPO Agent. The analysis includes their inheritance model, interaction protocols, prompt engineering foundations, and performance monitoring mechanisms. Recent updates have introduced an enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern, significantly strengthening the strategic orchestration capabilities of the executive layer.
 
 ## Project Structure
-The C-Suite Agents are organized within the `src/minds371/agents/business/` directory, each implemented as a dedicated Python module. These agents inherit core functionality from `improved_base_agent.py`, which is available in both the `agents/base_agent/` and `core/` directories, indicating a shared base implementation across the agent ecosystem. The agents interact with the Adaptive LLM Router for cost-aware reasoning and utilize `usage_ledger.py` for audit logging and resource tracking. Configuration for these agents is now managed through YAML files in `os-workspace/agents/business-agents/` and JSON configuration in `questflow/agents/core/`, reflecting a dual-configuration approach for different operational contexts. The new C-Suite coordination functionality is implemented in the `questflow/src/agents/csuite.ts` and `questflow/src/agents/csuite.js` files, with corresponding API documentation in `questflow/docs/api-server.md`. The CTO Agent (Alex) has been enhanced with comprehensive technical leadership capabilities, including architecture design, technology evaluation, security response, and infrastructure planning.
+The C-Suite Agents are organized within the `src/minds371/agents/business/` directory, each implemented as a dedicated Python module. These agents inherit core functionality from `improved_base_agent.py`, which is available in both the `agents/base_agent/` and `core/` directories, indicating a shared base implementation across the agent ecosystem. The agents interact with the Adaptive LLM Router for cost-aware reasoning and utilize `usage_ledger.py` for audit logging and resource tracking. Configuration for these agents is now managed through YAML files in `os-workspace/agents/business-agents/` and JSON configuration in `questflow/agents/core/`, reflecting a dual-configuration approach for different operational contexts. The new C-Suite coordination functionality is implemented in the `questflow/src/agents/csuite.ts` and `questflow/src/agents/csuite.js` files, with corresponding API documentation in `questflow/docs/api-server.md`. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" consists of the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`.
 
 ```mermaid
 graph TD
@@ -68,10 +76,18 @@ end
 subgraph "Configuration"
 YAMLConfig[business-agents/]
 JSONConfig[questflow/core/]
+Brain[mimi_ceo.yml]
 end
 subgraph "C-Suite Coordination"
 CSuite[csuite.ts/js]
 API[api-server.md]
+end
+subgraph "CEO Agent Implementation"
+Body[index.ts]
+Orchestrator[orchestrator.ts]
+Delegator[delegator.ts]
+HealthMonitor[health-monitor.ts]
+Types[types.ts]
 end
 CEO --> BaseAgent
 CFO --> BaseAgent
@@ -95,6 +111,12 @@ CSuite --> CEO
 CSuite --> CTO
 CSuite --> CFO
 CSuite --> CMO
+CEO --> Brain
+Brain --> Body
+Body --> Orchestrator
+Body --> Delegator
+Body --> HealthMonitor
+Body --> Types
 style CEO fill:#f9f,stroke:#333
 style CFO fill:#f9f,stroke:#333
 style CTO fill:#f9f,stroke:#333
@@ -103,6 +125,7 @@ style CMO fill:#f9f,stroke:#333
 style CGO fill:#f9f,stroke:#333
 style CPO fill:#f9f,stroke:#333
 style CSuite fill:#00ccff,stroke:#333
+style Body fill:#00ccff,stroke:#333
 ```
 
 **Diagram sources**
@@ -121,6 +144,12 @@ style CSuite fill:#00ccff,stroke:#333
 - [csuite.ts](file://questflow\src\agents\csuite.ts)
 - [csuite.js](file://questflow\src\agents\csuite.js)
 - [api-server.md](file://questflow\docs\api-server.md)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts)
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts)
+- [mimi_ceo.yml](file://os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml)
 
 **Section sources**
 - [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py)
@@ -136,9 +165,16 @@ style CSuite fill:#00ccff,stroke:#333
 - [csuite.ts](file://questflow\src\agents\csuite.ts)
 - [csuite.js](file://questflow\src\agents\csuite.js)
 - [api-server.md](file://questflow\docs\api-server.md)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts)
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts)
+- [mimi_ceo.yml](file://os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml)
+- [README.md](file://os-workspace\apps\ceo-agent\README.md)
 
 ## Core Components
-The C-Suite Agents are built upon a modular architecture that emphasizes role-specific expertise, hierarchical delegation, and cost-aware execution. Each agent extends the `ImprovedBaseAgent` class, inheriting foundational capabilities such as message processing, context management, and LLM interaction. The agents are designed to operate autonomously within their domains while coordinating with other executives through a shared governance model. Key responsibilities include strategic planning, resource allocation, compliance enforcement, and performance optimization. Configuration is now managed through both YAML templates in `os-workspace/agents/business-agents/` and JSON configuration files in `questflow/agents/core/`, enabling flexible deployment across different operational environments. The CTO Agent (Alex) has been enhanced with comprehensive technical leadership capabilities, including architecture design, technology evaluation, security response, and infrastructure planning, making it a critical component in the technical decision-making process.
+The C-Suite Agents are built upon a modular architecture that emphasizes role-specific expertise, hierarchical delegation, and cost-aware execution. Each agent extends the `ImprovedBaseAgent` class, inheriting foundational capabilities such as message processing, context management, and LLM interaction. The agents are designed to operate autonomously within their domains while coordinating with other executives through a shared governance model. Key responsibilities include strategic planning, resource allocation, compliance enforcement, and performance optimization. Configuration is now managed through both YAML templates in `os-workspace/agents/business-agents/` and JSON configuration files in `questflow/agents/core/`, enabling flexible deployment across different operational environments. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, significantly enhancing the strategic orchestration capabilities of the executive layer.
 
 **Section sources**   
 - [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py#L1-L50)
@@ -149,9 +185,15 @@ The C-Suite Agents are built upon a modular architecture that emphasizes role-sp
 - [cto-alex.json](file://questflow\agents\core\cto-alex.json#L1-L28)
 - [csuite.ts](file://questflow\src\agents\csuite.ts#L1-L26)
 - [csuite.js](file://questflow\src\agents\csuite.js#L1-L28)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts#L1-L459)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L1-L849)
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts#L1-L486)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L677)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L1-L411)
+- [mimi_ceo.yml](file://os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml#L1-L106)
 
 ## Architecture Overview
-The C-Suite Agents function as a decentralized executive board, with the CEO Agent (Mimi) serving as the primary orchestrator. Mimi delegates tasks to specialized agents based on domain relevance, using a routing mechanism integrated with the Adaptive LLM Router. This router evaluates cost, latency, and accuracy trade-offs when selecting LLM providers, ensuring efficient resource utilization. All agent interactions are logged via `usage_ledger.py`, enabling auditability and cost monitoring. The system supports conflict resolution through priority-based decision arbitration and consensus mechanisms. Configuration is now dual-faceted, with YAML files providing prompt templates and JSON files defining agent parameters, capabilities, and blockchain integration. The CTO Agent (Alex) plays a crucial role in technical decision-making, handling architecture design, technology evaluation, security response, and infrastructure planning, ensuring robust technical governance across the system.
+The C-Suite Agents function as a decentralized executive board, with the CEO Agent (Mimi) serving as the primary orchestrator. Mimi delegates tasks to specialized agents based on domain relevance, using a routing mechanism integrated with the Adaptive LLM Router. This router evaluates cost, latency, and accuracy trade-offs when selecting LLM providers, ensuring efficient resource utilization. All agent interactions are logged via `usage_ledger.py`, enabling auditability and cost monitoring. The system supports conflict resolution through priority-based decision arbitration and consensus mechanisms. Configuration is now dual-faceted, with YAML files providing prompt templates and JSON files defining agent parameters, capabilities, and blockchain integration. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, featuring a strategic orchestrator, enhanced task delegator, and comprehensive health monitor.
 
 ```mermaid
 sequenceDiagram
@@ -183,11 +225,15 @@ CEO-->>User : Final Strategic Decision
 - [cto_alex.py](file://371-os\src\minds371\agents\business\cto_alex.py#L20-L60)
 - [cfo_cash.py](file://371-os\src\minds371\agents\business\cfo_cash.py#L25-L70)
 - [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py#L10-L40)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts#L1-L459)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L1-L849)
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts#L1-L486)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L677)
 
 ## Detailed Component Analysis
 
 ### CEO Agent (Mimi) Analysis
-The CEO Agent, implemented in `ceo_mimi.py`, serves as the central orchestrator within the C-Suite hierarchy. It receives high-level strategic requests and delegates them to appropriate specialized agents. Mimi uses a decision matrix to evaluate task domains and routes them via the Adaptive LLM Router. The agent maintains a global context of ongoing initiatives and ensures alignment across executive functions. Configuration for Mimi is now defined in both `ceo_mimi.yaml` which provides the prompt template with delegation logic, and `ceo-mimi.json` in questflow which defines operational parameters, capabilities, and blockchain identity. The YAML configuration includes structured delegation requirements and response formats, while the JSON configuration specifies model parameters, plugins, and reputation metrics.
+The CEO Agent, implemented in `index.ts`, serves as the central orchestrator within the C-Suite hierarchy. It receives high-level strategic requests and delegates them to appropriate specialized agents. Mimi uses a decision matrix to evaluate task domains and routes them via the Adaptive LLM Router. The agent maintains a global context of ongoing initiatives and ensures alignment across executive functions. Configuration for Mimi is defined in `mimi_ceo.yml` which provides the prompt template with delegation logic, and the TypeScript application in `os-workspace/apps/ceo-agent/src/` implements the strategic orchestrator, enhanced task delegator, and comprehensive health monitor. The YAML configuration includes structured delegation requirements and response formats, while the TypeScript implementation provides robust task processing, semantic analysis, and performance monitoring.
 
 ```mermaid
 classDiagram
@@ -211,13 +257,17 @@ ImprovedBaseAgent <|-- CEOAgent
 ```
 
 **Diagram sources**
-- [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py#L15-L45)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts#L15-L45)
 - [improved_base_agent.py](file://371-os\src\minds371\agents\base_agent\improved_base_agent.py#L5-L20)
 
 **Section sources**
-- [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py#L1-L100)
-- [ceo_mimi.yaml](file://os-workspace\agents\business-agents\ceo_mimi.yaml#L1-L47)
-- [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json#L1-L26)
+- [index.ts](file://os-workspace\apps\ceo-agent\src\index.ts#L1-L459)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L1-L849)
+- [delegator.ts](file://os-workspace\apps\ceo-agent\src\delegator.ts#L1-L486)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L677)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L1-L411)
+- [mimi_ceo.yml](file://os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml#L1-L106)
+- [README.md](file://os-workspace\apps\ceo-agent\README.md#L1-L281)
 
 ### CTO Agent (Alex) Analysis
 The CTO Agent, implemented in `cto_alex.py`, manages technical architecture and system design with comprehensive leadership capabilities. Alex evaluates infrastructure requirements, proposes technology stacks, oversees deployment strategies, and handles security responses. When delegated infrastructure tasks by Mimi, Alex generates detailed technical specifications and coordinates with deployment agents. The agent has four primary capabilities: designing architecture, evaluating technology, handling security responses, and planning infrastructure. For architecture design tasks, Alex creates technical specifications for new services. For technology evaluation, Alex plans proof-of-concept implementations. For security vulnerabilities, Alex oversees mitigation and post-mortem analysis. For infrastructure planning, Alex drafts scaling plans for anticipated events.
@@ -305,7 +355,6 @@ Coordinator->>CFO : Request financial analysis
 Coordinator->>CMO : Request market insights
 CEO-->>Coordinator : Return strategic priorities
 CTO-->>Coordinator : Return technical assessment
-CFO-->>Coordinator : Return financial analysis
 CMO-->>Coordinator : Return market insights
 Coordinator->>API : Return meeting outcomes
 API-->>User : Return meeting summary
@@ -388,4 +437,4 @@ Common issues in the C-Suite Agent system include conflicting recommendations be
 - [api-server.md](file://questflow\docs\api-server.md#L50-L100)
 
 ## Conclusion
-The C-Suite Agents represent a sophisticated implementation of role-based autonomous agents within the 371-OS ecosystem. By emulating executive functions, they enable strategic decision-making, domain specialization, and coordinated action across complex operational domains. The architecture leverages inheritance, delegation, and cost-aware reasoning to deliver a scalable and efficient agent framework. The recent introduction of dual-configuration models (YAML for prompt templates and JSON for operational parameters) enhances flexibility and adaptability across different deployment scenarios. The enhanced CTO Agent (Alex) with comprehensive technical leadership capabilities significantly strengthens the system's technical governance, while the expanded CEO Agent (Mimi) with complete backstory improves strategic coordination. The CSuiteCoordinator class and C-Suite meeting functionality enable synchronized strategic planning across executive functions, representing a significant advancement in multi-agent coordination. Future enhancements could include real-time consensus mechanisms for conflict resolution and enhanced predictive analytics for proactive decision support.
+The C-Suite Agents represent a sophisticated implementation of role-based autonomous agents within the 371-OS ecosystem. By emulating executive functions, they enable strategic decision-making, domain specialization, and coordinated action across complex operational domains. The architecture leverages inheritance, delegation, and cost-aware reasoning to deliver a scalable and efficient agent framework. The recent introduction of dual-configuration models (YAML for prompt templates and JSON for operational parameters) enhances flexibility and adaptability across different deployment scenarios. The enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern significantly strengthens the system's strategic orchestration capabilities, while the expanded CEO Agent with complete backstory improves strategic coordination. The CSuiteCoordinator class and C-Suite meeting functionality enable synchronized strategic planning across executive functions, representing a significant advancement in multi-agent coordination. Future enhancements could include real-time consensus mechanisms for conflict resolution and enhanced predictive analytics for proactive decision support.

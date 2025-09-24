@@ -3,9 +3,9 @@
 <cite>
 **Referenced Files in This Document**   
 - [README.md](file://README.md)
-- [scripts/quick-start.sh](file://scripts\quick-start.sh)
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
-- [scripts/test-setup.ps1](file://scripts\test-setup.ps1) - *Added in recent commit*
+- [tools/development/quick-start.sh](file://tools/development\quick-start.sh) - *Updated with new script location*
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1) - *Updated with new script location*
+- [tools/development/test-setup.ps1](file://tools/development\test-setup.ps1) - *Added in recent commit*
 - [nx.json](file://nx.json)
 - [371-os/src/minds371/pyproject.toml](file://371-os/src/minds371/pyproject.toml)
 - [371-os/src/minds371/services/email_system/package.json](file://371-os/src/minds371/services/email_system/package.json)
@@ -18,7 +18,7 @@
 - [.eslintignore](file://.eslintignore) - *Added in recent commit*
 - [.prettierrc](file://.prettierrc) - *Added in recent commit*
 - [.prettierignore](file://.prettierignore) - *Added in recent commit*
-- [AB/scripts/quick-status.js](file://AB\scripts\quick-status.js) - *Updated in recent commit*
+- [tools/development/quick-status.js](file://tools/development\quick-status.js) - *Updated in recent commit*
 - [AB/BUN-INTEGRATION-GUIDE.md](file://AB\BUN-INTEGRATION-GUIDE.md) - *Added in recent commit*
 - [.qoder/rules/qoderosrules.md](file://.qoder\rules\qoderosrules.md) - *Updated with Bun integration guidance*
 - [371-os/src/minds371/comet/Create Dedicated Workspaces.js](file://371-os/src/minds371/comet/Create Dedicated Workspaces.js) - *Added in recent commit*
@@ -27,7 +27,6 @@
 - [tools/development/bun-install.ps1](file://tools/development\bun-install.ps1) - *Renamed from AB/scripts/bun-install.ps1*
 - [tools/development/fix-npm-install.ps1](file://tools/development\fix-npm-install.ps1) - *Renamed from AB/scripts/fix-npm-install.ps1*
 - [tools/development/optimize-bun-windows.ps1](file://tools/development\optimize-bun-windows.ps1) - *Renamed from AB/scripts/optimize-bun-windows.ps1*
-- [tools/development/quick-status.js](file://tools/development\quick-status.js) - *Renamed from AB/scripts/quick-status.js*
 - [tools/development/simple-install.ps1](file://tools/development\simple-install.ps1) - *Renamed from AB/scripts/simple-install.ps1*
 - [os-workspace/nx.json](file://os-workspace\nx.json) - *Workspace-level Nx configuration*
 - [os-workspace/package.json](file://os-workspace\package.json) - *Workspace package configuration*
@@ -87,8 +86,8 @@ The repository uses a combination of Node.js and Python technologies, with Nx ma
 
 **Section sources**
 - [README.md](file://README.md)
-- [scripts/quick-start.sh](file://scripts\quick-start.sh)
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
+- [tools/development/quick-start.sh](file://tools/development\quick-start.sh)
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1)
 - [AB/BUN-INTEGRATION-GUIDE.md](file://AB\BUN-INTEGRATION-GUIDE.md) - *Added in recent commit*
 - [.qoder/rules/qoderosrules.md](file://.qoder\rules\qoderosrules.md) - *Updated with Bun integration guidance*
 
@@ -105,8 +104,8 @@ git clone https://github.com/371-Minds/os.git
 cd os
 
 # Make the script executable and run it
-chmod +x scripts/quick-start.sh
-./scripts/quick-start.sh
+chmod +x tools/development/quick-start.sh
+./tools/development/quick-start.sh
 ```
 
 The shell script performs the following operations:
@@ -127,7 +126,7 @@ git clone https://github.com/371-Minds/os.git
 cd os
 
 # Run the PowerShell script
-.\scripts\quick-start.ps1
+.\tools\development\quick-start.ps1
 ```
 
 The PowerShell script performs equivalent operations to the shell script:
@@ -141,8 +140,8 @@ The PowerShell script performs equivalent operations to the shell script:
 Both scripts provide progress tracking and success indicators, ensuring users can monitor the setup process. The PowerShell version includes additional security measures by setting file access controls on the `.env` file.
 
 **Section sources**
-- [scripts/quick-start.sh](file://scripts\quick-start.sh)
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
+- [tools/development/quick-start.sh](file://tools/development\quick-start.sh)
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1)
 - [tools/development/bun-install.ps1](file://tools/development\bun-install.ps1) - *Moved from AB/scripts/bun-install.ps1*
 
 ## Manual Setup
@@ -491,8 +490,8 @@ Key environment variables used in the system include:
 | `PORT` | HTTP API port number |
 
 **Section sources**
-- [scripts/quick-start.sh](file://scripts\quick-start.sh)
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
+- [tools/development/quick-start.sh](file://tools/development\quick-start.sh)
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1)
 - [elizaos/CLI Reference/Commands/Environment Configuration.md](file://elizaos\CLI Reference\Commands\Environment Configuration.md)
 
 ## Common Setup Commands
@@ -720,8 +719,8 @@ npx prettier --check "**/*.{js,ts,json,md}"
 ```
 
 **Section sources**
-- [scripts/quick-start.sh](file://scripts\quick-start.sh)
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1)
+- [tools/development/quick-start.sh](file://tools/development\quick-start.sh)
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1)
 - [elizaos/CLI Reference/Commands/Environment Configuration.md](file://elizaos\CLI Reference\Commands\Environment Configuration.md)
 - [.eslintrc.json](file://.eslintrc.json) - *Added in recent commit*
 - [.prettierrc](file://.prettierrc) - *Added in recent commit*
@@ -815,7 +814,7 @@ The `test-setup.ps1` script provides comprehensive environment validation:
 
 ```powershell
 # Run the environment validation script
-.\scripts\test-setup.ps1
+.\tools\development\test-setup.ps1
 ```
 
 This script performs the following checks:
@@ -842,8 +841,8 @@ The test-setup script should be used as follows:
 The script is particularly useful in CI/CD pipelines and for new developers setting up their environment for the first time.
 
 **Section sources**
-- [scripts/test-setup.ps1](file://scripts\test-setup.ps1) - *Added in recent commit*
-- [scripts/quick-start.ps1](file://scripts\quick-start.ps1) - *Updated to reference test script*
+- [tools/development/test-setup.ps1](file://tools/development\test-setup.ps1) - *Added in recent commit*
+- [tools/development/quick-start.ps1](file://tools/development\quick-start.ps1) - *Updated to reference test script*
 - [package.json](file://package.json) - *Updated with validation context*
 
 ## Code Quality and Formatting Configuration

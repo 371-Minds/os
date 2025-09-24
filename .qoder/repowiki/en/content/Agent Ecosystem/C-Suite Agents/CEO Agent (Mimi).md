@@ -9,23 +9,23 @@
 - [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py) - *Updated in recent commit*
 - [csuite.ts](file://questflow\src\agents\csuite.ts) - *Added in recent commit*
 - [csuite.js](file://questflow\src\agents\csuite.js) - *Added in recent commit*
-- [apps/cognitive-interface/src/components/C3UniversalTemplate.tsx](file://os-workspace\apps\cognitive-interface\src\components\C3UniversalTemplate.tsx) - *Added real-time communication features*
-- [apps/cognitive-interface/src/components/CommunicationsUniverse.tsx](file://os-workspace\apps\cognitive-interface\src\components\CommunicationsUniverse.tsx) - *Enhanced spatial visualization of agent interactions*
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts) - *Refactored implementation with unified brain/body architecture*
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts) - *Type definitions for strategic orchestrator*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated **Executive Communication Orchestration** section to reflect new C-Suite coordination capabilities
-- Added new **Executive Meeting Coordination** section detailing the CSuiteCoordinator class and daily meeting workflow
-- Added source references for new files csuite.ts and csuite.js
-- Verified integration points with updated cognitive interface components
-- Enhanced **Interaction with Specialized Agents** section to include meeting-based coordination patterns
-- Updated **Workflow-Driven Initialization** section with expanded backstory, communication examples, and blockchain identity from ceo-mimi.json
+- Updated **Delegation Logic and Task Routing** section to reflect new TypeScript-based StrategicOrchestrator implementation
+- Added new **Strategic Orchestration Framework** section detailing the refactored orchestration logic and decision-making process
+- Added source references for new files orchestrator.ts and types.ts
+- Enhanced **Core Architecture** section to include unified brain/body architecture pattern
+- Updated **Configuration and Customization** section with new type definitions and delegation rules
+- Removed outdated flowchart diagram that no longer reflects current implementation
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Core Architecture](#core-architecture)
-3. [Delegation Logic and Task Routing](#delegation-logic-and-task-routing)
+3. [Strategic Orchestration Framework](#strategic-orchestration-framework)
 4. [Executive Behavior Configuration](#executive-behavior-configuration)
 5. [Workflow-Driven Initialization](#workflow-driven-initialization)
 6. [Integration with Adaptive LLM Router](#integration-with-adaptive-llm-router)
@@ -45,81 +45,72 @@ The CEO Agent (Mimi) serves as the primary orchestrator within the 371-OS agent 
 
 ## Core Architecture
 
-The CEO Agent (Mimi) is implemented as a Python class `CeoMimiAgent` that inherits from the `BaseAgent` class defined in the improved base agent framework. This inheritance provides Mimi with foundational capabilities including task processing, health monitoring, performance metrics, and integration with the system's LLM routing infrastructure.
+The CEO Agent (Mimi) has been refactored to follow a unified brain/body architecture pattern, where the core intelligence is implemented in TypeScript for enhanced type safety and maintainability. The agent now features a `StrategicOrchestrator` class that handles high-level strategic decision making, task complexity analysis, and coordination of cross-functional initiatives within the 371 DAO ecosystem.
 
-The agent is initialized with a unique identifier (`ceo_mimi_001`) and designated as type `AgentType.CEO`. Its primary capability is strategic delegation, allowing it to analyze incoming tasks and determine the appropriate recipient agent within the executive team. The architecture follows a clean separation of concerns, where Mimi focuses exclusively on orchestration rather than executing domain-specific logic.
+The orchestrator is initialized with a `CEOAgentDefinition` that includes organizational priorities such as cost optimization (97.6% reduction through Akash Network), agent autonomy, and DAO governance. This strategic context guides all decision-making processes and ensures alignment with organizational goals.
 
 ```
 classDiagram
-class CeoMimiAgent {
-+agent_id : str
-+agent_type : AgentType
-+capabilities : List[AgentCapability]
-+__init__()
-+process_task(task : Task) Dict[str, Any]
-+health_check() bool
-}
-class BaseAgent {
-+agent_id : str
-+agent_type : AgentType
-+capabilities : List[AgentCapability]
+class StrategicOrchestrator {
++agentDefinition : CEOAgentDefinition
 +logger : Logger
-+metrics : PerformanceMetrics
-+cache : SimpleCache
-+circuit_breaker : CircuitBreaker
-+connection_pool : ConnectionPool
-+__init__(agent_id, agent_type, capabilities)
-+process_task(task : Task) Dict[str, Any]
-+health_check() bool
++performanceHistory : Map<string, PerformanceMetrics>
++strategicContext : OrchestrationContext
++orchestrateTask(request : OrchestrationRequest) Promise<DelegationDecision>
++validate() Promise<boolean>
 }
-CeoMimiAgent --|> BaseAgent : inherits
+class CEOAgentDefinition {
++agent_name : string
++agent_type : 'STRATEGIC_LEADERSHIP'
++core_instructions : string
++personality_traits : string[]
++required_tools : string[]
++delegation_rules : DelegationRules
++escalation_criteria : EscalationCriteria
++performance_targets : PerformanceTargets
++monitoring_metrics : string[]
+}
+StrategicOrchestrator --> CEOAgentDefinition : uses
 ```
 
 **Diagram sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L1-L100)
-- [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L23-L848)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L8-L18)
 
 **Section sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L1-L100)
-- [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L23-L848)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L8-L18)
 
-## Delegation Logic and Task Routing
+## Strategic Orchestration Framework
 
-The core functionality of CEO Agent (Mimi) resides in its `process_task` method, which implements a keyword-based routing system to delegate tasks to appropriate C-suite agents. The method analyzes the lowercase description of incoming tasks and matches them against predefined keyword patterns to determine the delegation target.
+The core functionality of CEO Agent (Mimi) has been significantly enhanced with the introduction of the `StrategicOrchestrator` class, which implements a sophisticated multi-step decision-making process. Unlike the previous keyword-based routing system, the new framework analyzes tasks across multiple dimensions including technical complexity, domain complexity, coordination complexity, and strategic complexity.
 
-The current implementation supports delegation to four executive agents:
-- **CFO Cash**: Handles financial tasks containing keywords like "financial", "budget", or "quarterly"
-- **CTO Alex**: Manages technical and infrastructure tasks with keywords like "feature", "application", "security", or "infrastructure"
-- **CMO Anova**: Receives marketing-related tasks containing "marketing" or "campaign"
-- **CCO Sage**: Addresses community and outreach tasks
+The orchestration process follows six key steps:
+1. Analyze task complexity and strategic implications
+2. Evaluate strategic impact and priority alignment
+3. Assess resource requirements and availability
+4. Determine optimal decision type (delegate, coordinate, or escalate)
+5. Generate decision context with workload and performance data
+6. Create delegation decision with confidence scoring
 
-When no specific match is found, Mimi acknowledges the task without delegation, maintaining executive oversight.
+This approach enables more nuanced decision-making that considers not just task content but also organizational priorities, resource constraints, and risk factors.
 
-```
+```mermaid
 flowchart TD
-Start([Task Received]) --> Extract["Extract Task Description"]
-Extract --> Lowercase["Convert to Lowercase"]
-Lowercase --> CheckFinancial{"Contains 'financial', 'budget', 'quarterly'?}
-CheckFinancial --> |Yes| DelegateCFO["Delegate to CFO Cash"]
-CheckFinancial --> |No| CheckTechnical{"Contains 'feature', 'application', 'security', 'infrastructure'?}
-CheckTechnical --> |Yes| DelegateCTO["Delegate to CTO Alex"]
-CheckTechnical --> |No| CheckMarketing{"Contains 'marketing', 'campaign'?}
-CheckMarketing --> |Yes| DelegateCMO["Delegate to CMO Anova"]
-CheckMarketing --> |No| CheckCommunity{"Contains 'community', 'outreach'?}
-CheckCommunity --> |Yes| DelegateCCO["Delegate to CCO Sage"]
-CheckCommunity --> |No| NoteTask["Note Task - No Delegation"]
-DelegateCFO --> End([Task Delegated])
-DelegateCTO --> End
-DelegateCMO --> End
-DelegateCCO --> End
-NoteTask --> End
+Start([Strategic Task Received]) --> Complexity["Analyze Task Complexity"]
+Complexity --> Impact["Evaluate Strategic Impact"]
+Impact --> Resources["Assess Resource Requirements"]
+Resources --> DecisionType["Determine Decision Type"]
+DecisionType --> Context["Generate Decision Context"]
+Context --> Delegation["Create Delegation Decision"]
+Delegation --> End([Return Decision])
 ```
 
 **Diagram sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L50-L90)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L71-L118)
 
 **Section sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L50-L90)
+- [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts#L71-L118)
 
 ## Executive Behavior Configuration
 
@@ -434,11 +425,11 @@ The CEO Agent (Mimi) can be customized through several configuration mechanisms 
 
 ### Decision Thresholds and Delegation Rules
 
-The delegation logic in `ceo_mimi.py` can be extended by modifying the keyword matching patterns or implementing more sophisticated natural language processing. Additional C-suite agents can be integrated by adding new keyword conditions to the `process_task` method.
+The new TypeScript implementation introduces typed delegation rules through the `DelegationRules` interface, which defines domain-specific rules with keywords, primary agents, fallback agents, and confidence thresholds. This structured approach enhances reliability and maintainability compared to the previous keyword matching patterns.
 
 ### Escalation Protocols
 
-While not explicitly implemented in the current code, the architecture supports escalation protocols through the task priority system (ranging from 1-highest to 10-lowest) and the `requires_human_approval` flag in the `Task` dataclass. High-priority tasks or those requiring human oversight can be routed accordingly.
+The `EscalationCriteria` interface defines conditions under which tasks should be escalated, including high financial impact, cross-domain conflicts, strategic uncertainty, and performance degradation. Each criterion specifies an action (human_review, multi_agent_coordination, executive_decision, or system_review) and whether notification is required.
 
 ### LLM Cost Management
 
@@ -465,6 +456,7 @@ The new `ceo-mimi.json` configuration introduces additional customization option
 - [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json#L1-L92)
 - [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py#L1-L34)
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
+- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L21-L34)
 
 ## Conclusion
 

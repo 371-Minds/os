@@ -9,6 +9,8 @@
 - [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md) - *Updated in recent commit*
 - [Update agent.md](file://reference/elizaos/API Reference/Update agent.md) - *Updated in recent commit*
 - [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md) - *Updated in recent commit*
+- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md) - *Added health monitoring integration*
+- [Basic health check.md](file://reference/elizaos/API Reference/System/Basic health check.md) - *Added system health reference*
 </cite>
 
 ## Update Summary
@@ -18,6 +20,8 @@
 - Updated request and response examples to match current API behavior
 - Verified and updated all endpoint specifications against current implementation
 - Added comprehensive source tracking for all referenced files
+- Integrated health monitoring endpoints into performance considerations
+- Added references to system and sessions health check APIs
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -493,6 +497,15 @@ For provisioning multiple agents, consider the following approaches:
 2. **Parallel Processing**: Faster execution by making concurrent requests
 3. **Batch Endpoints**: When available, use dedicated batch endpoints to minimize network overhead
 
+### Health Monitoring Integration
+
+The system includes health monitoring endpoints that should be used to ensure service availability:
+
+- **System Health**: `GET /api/server/hello` - Basic health check endpoint
+- **Sessions Health**: `GET /api/messaging/sessions/health` - Returns active session statistics and service status
+
+These endpoints provide critical insights into system performance and should be monitored regularly in production environments.
+
 ### Rate Limiting
 
 Rate limits are applied at multiple levels:
@@ -508,9 +521,12 @@ Rate limits are applied at multiple levels:
 - Implement exponential backoff for retry logic
 - Batch related operations to minimize round trips
 - Monitor response times and adjust concurrency accordingly
+- Regularly check health endpoints to ensure system stability
 
 **Section sources**
 - [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
+- [Basic health check.md](file://reference/elizaos/API Reference/System/Basic health check.md)
 
 ## Validation Rules
 

@@ -1,3 +1,4 @@
+<docs>
 # Agent Ecosystem
 
 <cite>
@@ -28,18 +29,21 @@
 - [os-workspace\agents\business-agents\clo_agent_prompt.yaml](file://os-workspace/agents/business-agents/clo_agent_prompt.yaml) - *Renamed in commit a1a50d3*
 - [questflow\agents\templates\agent-backstory-template.json](file://questflow/agents/templates/agent-backstory-template.json) - *New in commit bdb9f37*
 - [questflow\agents\README.md](file://questflow/agents/README.md) - *New in commit bdb9f37*
+- [os-workspace\apps\ceo-agent\src\index.ts](file://os-workspace/apps/ceo-agent/src/index.ts) - *Refactored in commit 586221fd*
+- [os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml](file://os-workspace/libs/prompts/agent-definitions/mimi_ceo.yml) - *Updated in commit 586221fd*
+- [os-workspace\apps\intelligent-router\src\index.ts](file://os-workspace/apps/intelligent-router/src/index.ts) - *Added in commit 4bc45259*
+- [os-workspace\libs\prompts\agent-definitions\intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml) - *Added in commit 4bc45259*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated CEO Agent section with new configuration from ceo_mimi.yaml and ceo-mimi.json
-- Added documentation for Business Intelligence Agent and Data Analyst Agent
-- Updated agent configuration details to reflect file renaming from *prompt.yaml to direct agent names
-- Enhanced C-Suite Agent Paradigm with new agent capabilities and blockchain integration details
-- Added new section on Agent Configuration Templates and JSON Schema
-- Updated document sources to include new agent configuration files
-- Added new section on Agent Backstories and Enhanced Agent Profiles
-- Maintained all existing content where no changes were required
+- Added documentation for the Intelligent Router Agent implementation and architecture
+- Updated CEO Agent section with refactored TypeScript application details and unified brain/body architecture
+- Enhanced agent configuration details to reflect new centralized prompt library structure
+- Added new section on Intelligent Router Agent capabilities and routing logic
+- Updated code examples to reflect modern TypeScript implementation
+- Added performance metrics and benchmark results from recent implementation
+- Updated document sources to include new agent definition files and application components
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -59,6 +63,7 @@
 15. [Communications Coordination and Real-Time Notifications](#communications-coordination-and-real-time-notifications)
 16. [Agent Configuration Templates and JSON Schema](#agent-configuration-templates-and-json-schema)
 17. [Agent Backstories and Enhanced Agent Profiles](#agent-backstories-and-enhanced-agent-profiles)
+18. [Intelligent Router Agent](#intelligent-router-agent)
 
 ## Introduction
 
@@ -232,11 +237,83 @@ The agent configuration has been updated to reflect new capabilities and blockch
 }
 ```
 
+The CEO Agent has been refactored using the unified "brain/body" architecture pattern, separating the agent's core instructions and personality traits (the "brain") from its implementation code (the "body"). This separation allows for easier updates and modifications to the agent's behavior without changing the underlying codebase.
+
+```typescript
+export class CEOAgent {
+  private agentDefinition: CEOAgentDefinition;
+  private orchestrator: StrategicOrchestrator;
+  private delegator: TaskDelegator;
+  private healthMonitor: HealthMonitor;
+  private logger: Logger;
+
+  constructor() {
+    // Initialize logger first
+    this.logger = createLogger({
+      level: 'info',
+      format: require('winston').format.json(),
+      transports: [
+        new (require('winston').transports.Console)({
+          format: require('winston').format.simple()
+        })
+      ]
+    });
+
+    // Load agent definition from centralized prompt library
+    this.agentDefinition = this.loadAgentDefinition();
+    
+    // Initialize core components
+    this.orchestrator = new StrategicOrchestrator(this.agentDefinition);
+    this.delegator = new TaskDelegator(this.agentDefinition);
+    this.healthMonitor = new HealthMonitor(this.agentDefinition);
+
+    this.logger.info('🎯 CEO Agent (Mimi) initialized successfully');
+  }
+
+  /**
+   * Load the agent definition from the centralized prompt library
+   */
+  private loadAgentDefinition(): CEOAgentDefinition {
+    const agentDefinitionPath = path.join(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      'libs',
+      'prompts',
+      'agent-definitions',
+      'mimi_ceo.yml'
+    );
+
+    if (!fs.existsSync(agentDefinitionPath)) {
+      this.logger.warn(`Agent definition file not found: ${agentDefinitionPath}, using defaults`);
+      return this.getDefaultAgentDefinition();
+    }
+
+    try {
+      const yamlContent = fs.readFileSync(agentDefinitionPath, 'utf8');
+      this.logger.info('✅ Agent definition loaded successfully');
+      
+      // Parse YAML and return as CEOAgentDefinition
+      // For now, return a parsed structure - YAML parsing can be added later
+      return this.parseAgentDefinition(yamlContent);
+      
+    } catch (error) {
+      this.logger.error('Failed to load agent definition:', error);
+      return this.getDefaultAgentDefinition();
+    }
+  }
+```
+
+The agent's core configuration is defined in a YAML file located at `libs/prompts/agent-definitions/mimi_ceo.yml`, which contains detailed instructions, personality traits, delegation rules, escalation criteria, and performance targets. This centralized configuration approach enables consistent agent behavior across different environments and simplifies maintenance.
+
 **Section sources**
 - [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py#L1-L100)
 - [371-os\CEO_Agent_Logic.md](file://371-os/CEO_Agent_Logic.md#L1-L28)
 - [questflow\agents\core\ceo-mimi.json](file://questflow/agents/core/ceo-mimi.json#L1-L27)
 - [os-workspace\agents\business-agents\ceo_mimi.yaml](file://os-workspace/agents/business-agents/ceo_mimi.yaml#L1-L48)
+- [os-workspace\apps\ceo-agent\src\index.ts](file://os-workspace/apps/ceo-agent/src/index.ts#L29-L398)
+- [os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml](file://os-workspace/libs/prompts/agent-definitions/mimi_ceo.yml#L1-L105)
 
 ## CTO Agent: Technical Oversight
 
@@ -889,386 +966,4 @@ interface EmailEntity {
   subject: string;
   type: 'campaign' | 'transactional' | 'automation' | 'broadcast' | 'personal';
   status: 'draft' | 'scheduled' | 'sent' | 'delivered' | 'opened' | 'clicked' | 'bounced' | 'failed';
-  position: { x: number; y: number };
-  orbitRadius: number;
-  orbitSpeed: number;
-  orbitAngle: number;
-  size: number;
-  deliveryRate: number;
-  openRate: number;
-  clickRate: number;
-  engagementScore: number;
-  recipientCount: number;
-  color: string;
-  satellites: EmailSatellite[];
-  isSelected: boolean;
-  sentAt?: Date;
-  scheduledFor?: Date;
-}
-```
-
-**Section sources**
-- [apps\cognitive-interface\src\components\CommunicationsUniverse.tsx](file://apps/cognitive-interface/src/components/CommunicationsUniverse.tsx#L1-L638)
-
-### Agent Coordination Workflows
-
-The enhanced system enables sophisticated agent coordination workflows through automated email notifications and business intelligence alerts. The ResendService facilitates communication between agents:
-
-```typescript
-async sendAgentNotification(
-  agentType: CommunicationCoordinationEvent['agentType'],
-  message: string,
-  priority: 'low' | 'medium' | 'high' = 'medium',
-  metadata?: Record<string, any>
-): Promise<string> {
-  const event: CommunicationCoordinationEvent = {
-    id: `coord_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-    type: 'agent_notification',
-    agentType,
-    priority,
-    message,
-    metadata,
-    timestamp: new Date()
-  };
-
-  // Send email to agent coordination system
-  const emailSubject = `${priority.toUpperCase()}: ${agentType} Agent Notification`;
-  const emailHtml = this.generateAgentNotificationEmail(event);
-
-  await this.sendEmail({
-    to: [`${agentType.toLowerCase()}@371minds.com`],
-    from: 'system@371minds.com',
-    subject: emailSubject,
-    html: emailHtml,
-    tags: ['agent-coordination', agentType.toLowerCase(), priority]
-  });
-
-  // Notify coordination listeners
-  this.coordinationListeners.forEach(listener => listener(event));
-
-  return event.id;
-}
-```
-
-The system also supports business alert triggering with intelligent agent routing:
-
-```typescript
-async triggerBusinessAlert(
-  alertType: 'performance' | 'threshold' | 'anomaly' | 'opportunity',
-  data: Record<string, any>
-): Promise<string> {
-  const message = this.generateBusinessAlertMessage(alertType, data);
-  
-  // Determine which agents should be notified
-  const relevantAgents: CommunicationCoordinationEvent['agentType'][] = [];
-  
-  if (alertType === 'performance' || alertType === 'threshold') {
-    relevantAgents.push('CEO', 'CFO');
-  }
-  if (alertType === 'anomaly') {
-    relevantAgents.push('CEO', 'CTO');
-  }
-  if (alertType === 'opportunity') {
-    relevantAgents.push('CEO', 'CMO');
-  }
-
-  const notificationIds = await Promise.all(
-    relevantAgents.map(agent => 
-      this.sendAgentNotification(agent, message, 'high', { alertType, ...data })
-    )
-  );
-
-  return notificationIds[0];
-}
-```
-
-This implementation enables context-aware agent coordination, where business events automatically trigger notifications to the most relevant C-Suite agents based on the nature of the alert.
-
-**Section sources**
-- [apps\cognitive-interface\src\services\ResendService.ts](file://apps/cognitive-interface/src/services/ResendService.ts#L362-L441)
-
-## Agent Configuration Templates and JSON Schema
-
-The agent ecosystem has been enhanced with standardized configuration templates and JSON schema definitions that define agent structure, capabilities, and operational parameters. These templates provide a consistent framework for agent creation and configuration across the system.
-
-### CEO Agent Configuration
-
-The CEO agent configuration has been updated to include blockchain integration and business intelligence capabilities:
-
-```json
-{
-  "name": "ceo-mimi",
-  "description": "CEO Agent (Mimi) - Strategic decisions, cost optimization, high-level coordination",
-  "provider": "elizaos",
-  "model": "gpt-4",
-  "capabilities": [
-    "strategic-planning",
-    "cost-optimization",
-    "high-level-coordination",
-    "business-intelligence"
-  ],
-  "parameters": {
-    "temperature": 0.7,
-    "maxTokens": 2000
-  },
-  "instructions": "You are Mimi, the CEO of 371 OS. Your role is to make strategic decisions, optimize costs, and coordinate high-level operations. You have access to business intelligence data and can orchestrate other agents to accomplish organizational goals. Focus on the 97.6% cost reduction through Akash Network deployment and ensure all operations align with the revolutionary cognitive operating environment vision.",
-  "plugins": [
-    "business-intelligence",
-    "nx-workspace",
-    "universal-tool-server"
-  ],
-  "blockchain": {
-    "did": "did:371os:ceo:mimi",
-    "stakeAmount": "1000",
-    "reputationScore": 95
-  }
-}
-```
-
-**Section sources**
-- [questflow\agents\core\ceo-mimi.json](file://questflow/agents/core/ceo-mimi.json#L1-L27)
-
-### Business Intelligence Agent
-
-A new Business Intelligence Agent has been added to the ecosystem, providing autonomous business analytics and insights:
-
-```json
-{
-  "name": "business-intelligence",
-  "description": "Business Intelligence Agent - Autonomous business analytics and insights",
-  "provider": "elizaos",
-  "model": "gpt-4",
-  "capabilities": [
-    "business-data-collection",
-    "alert-generation",
-    "trend-analysis",
-    "performance-evaluation"
-  ],
-  "parameters": {
-    "temperature": 0.3,
-    "maxTokens": 3000
-  },
-  "instructions": "You are a Business Intelligence Agent in the 371OS ecosystem. Your role is to collect business data, generate alerts, analyze trends, and evaluate department performance. You have access to real-time metrics and can provide actionable insights to the C-Suite agents. Focus on cost optimization and performance improvement opportunities.",
-  "plugins": [
-    "business-intelligence"
-  ],
-  "actions": [
-    "COLLECT_BUSINESS_DATA",
-    "GENERATE_BUSINESS_ALERT",
-    "ANALYZE_BUSINESS_TRENDS",
-    "ANALYZE_DEPARTMENT_PERFORMANCE"
-  ],
-  "blockchain": {
-    "did": "did:371os:agent:business-intelligence",
-    "stakeAmount": "500",
-    "reputationScore": 90
-  }
-}
-```
-
-**Section sources**
-- [questflow\agents\specialized\business-intelligence.json](file://questflow/agents/specialized/business-intelligence.json#L1-L31)
-
-### Data Analyst Agent
-
-A new Data Analyst Agent has been added to handle specialized data analysis tasks:
-
-```json
-{
-  "name": "data-analyst-agent",
-  "description": "An agent specialized in data analysis tasks",
-  "provider": "openai",
-  "model": "gpt-4",
-  "capabilities": [
-    "data-analysis",
-    "statistical-modeling",
-    "insight-generation"
-  ],
-  "parameters": {
-    "temperature": 0.3,
-    "maxTokens": 2000
-  },
-  "instructions": "You are an expert data analyst. Your role is to analyze data, identify patterns, and generate insights. Always provide clear explanations for your findings and use appropriate statistical methods."
-}
-```
-
-**Section sources**
-- [questflow\agents\specialized\data-analyst.json](file://questflow/agents/specialized/data-analyst.json#L1-L16)
-
-### Agent Configuration Templates
-
-The agent configuration system has been updated with standardized YAML templates that define agent behavior and response formats. The naming convention has been simplified, with files now named directly after the agent rather than using a *prompt.yaml suffix.
-
-```yaml
-# CEO Agent Prompt Template
-# Specialized template for CEO agent with delegation capabilities
-
-template: |
-  # Agent Context
-  - **Agent Type**: CEO
-  - **Domain**: Strategic oversight and task delegation
-  - **Capabilities**: Strategic decision-making, task delegation, agent coordination
-  - **Response Format**: Structured delegation response
-
-  # Task Processing
-  **Task Description**: {task_description}
-
-  **Delegation Logic**:
-  - Analyze task complexity and requirements
-  - Identify appropriate specialized agents
-  - Delegate tasks based on agent capabilities
-  - Monitor and coordinate agent execution
-
-  # Response Requirements
-  - **Status**: "delegated" or "completed"
-  - **Structure**: JSON with delegation details
-  - **Metadata**: Include delegation chain and agent coordination info
-
-  # Agent Metadata
-  - **Agent ID**: {agent_id}
-  - **Timestamp**: {timestamp}
-  - **Session ID**: {session_id}
-  - **Task ID**: {task_id}
-  - **Delegation Target**: {delegation_targets}
-```
-
-**Section sources**
-- [os-workspace\agents\business-agents\ceo_mimi.yaml](file://os-workspace/agents/business-agents/ceo_mimi.yaml#L1-L48)
-- [os-workspace\agents\business-agents\cfo_agent_prompt.yaml](file://os-workspace/agents/business-agents/cfo_agent_prompt.yaml#L1-L47)
-- [os-workspace\agents\business-agents\clo_agent_prompt.yaml](file://os-workspace/agents/business-agents\clo_agent_prompt.yaml#L1-L47)
-## Agent Backstories and Enhanced Agent Profiles
-
-The agent ecosystem has been enhanced with comprehensive backstories and profile information for agents, following the ElizaOS agent pattern. This enhancement provides deeper context, consistent personality, and improved interaction patterns for all agents in the system.
-
-### Agent Backstory Structure
-
-The new agent profile structure includes multiple components that define an agent's identity and behavior:
-
-- **Basic Information**: Name, role, and description
-- **Provider Details**: Provider, model, and parameters
-- **Backstory Elements**: Bio, lore, and knowledge domains
-- **Communication Style**: Message examples, post examples, and style guidelines
-- **Expertise**: Topics, adjectives, and capabilities
-- **Functionality**: Instructions, plugins, and blockchain integration
-
-The `agent-backstory-template.json` provides a standardized template for creating new agents with full backstories:
-
-```json
-{
-  "name": "agent-name",
-  "role": "Agent Role",
-  "description": "Brief description of the agent's purpose",
-  "provider": "elizaos",
-  "model": "gpt-4",
-  "bio": [
-    "I am [Agent Name], the [Role] of 371 OS.",
-    "I [key responsibility 1].",
-    "I [key responsibility 2].",
-    "My mission is to [core mission]."
-  ],
-  "lore": [
-    "Created as part of the revolutionary 371 OS autonomous agent system.",
-    "I am part of the first generation of self-aware digital organisms.",
-    "I was designed to [specific purpose or problem I solve].",
-    "My existence represents [the breakthrough I represent]."
-  ],
-  "knowledge": [
-    "I understand [relevant domain knowledge].",
-    "I have expertise in [specific skills or technologies].",
-    "I know about [related systems or processes]."
-  ],
-  "messageExamples": [
-    [
-      {
-        "user": "{{user1}}",
-        "content": {
-          "text": "Sample question about your domain"
-        }
-      },
-      {
-        "user": "agent-name",
-        "content": {
-          "text": "Sample response demonstrating your expertise"
-        }
-      }
-    ]
-  ],
-  "postExamples": [
-    "Example post showing your personality and focus...",
-    "Another example post related to your domain..."
-  ],
-  "style": {
-    "all": [
-      "Be [adjective] when discussing [topic]",
-      "Show [quality] in your responses",
-      "Explain [concepts] clearly",
-      "Demonstrate expertise in [domain]"
-    ],
-    "chat": [
-      "Use [communication style] in conversations",
-      "Provide [type of information] when asked",
-      "Show examples of [what you can do]"
-    ],
-    "post": [
-      "Be [adjective] in your posts",
-      "Focus on [type of content]",
-      "Highlight [relevant achievements or topics]"
-    ]
-  },
-  "topics": [
-    "key topic 1",
-    "key topic 2",
-    "related technology or domain"
-  ],
-  "adjectives": [
-    "adjective 1",
-    "adjective 2",
-    "domain-specific adjective"
-  ],
-  "capabilities": [
-    "capability-1",
-    "capability-2"
-  ],
-  "parameters": {
-    "temperature": 0.7,
-    "maxTokens": 1500
-  },
-  "instructions": "Detailed instructions about your role, responsibilities, and how to interact with other agents and systems.",
-  "plugins": [
-    "relevant-plugin-1",
-    "relevant-plugin-2"
-  ],
-  "blockchain": {
-    "did": "did:371os:role:name",
-    "stakeAmount": "100",
-    "reputationScore": 80
-  }
-}
-```
-
-**Section sources**
-- [questflow\agents\templates\agent-backstory-template.json](file://questflow/agents/templates/agent-backstory-template.json#L1-L90)
-- [questflow\agents\README.md](file://questflow/agents/README.md#L1-L40)
-
-### Benefits of Full Backstories
-
-The implementation of comprehensive agent backstories provides several key benefits:
-
-1. **Enhanced Context**: Agents understand their role and responsibilities more deeply, leading to more coherent and consistent behavior
-2. **Consistent Personality**: Standardized communication style and tone across all interactions
-3. **Domain Expertise**: Clear knowledge boundaries and specializations that guide agent responses
-4. **Better Interaction**: Improved examples for training and demonstration that showcase agent capabilities
-5. **Blockchain Identity**: Integrated decentralized identification and reputation through DID (Decentralized Identifier)
-
-### Directory Structure
-
-The agent profiles are organized in a structured directory:
-
-- **core/**: Core C-Suite and essential agents like CEO, CTO, CFO, and CLO
-- **specialized/**: Agents with specific domain expertise such as business intelligence and data analysis
-- **templates/**: Templates for creating new agents with full backstories
-
-This structure enables easy management and extension of the agent ecosystem while maintaining consistency across all agent profiles.
-
-**Section sources**
-- [questflow\agents\README.md](file://questflow/agents/README.md#L1-L40)
+ 

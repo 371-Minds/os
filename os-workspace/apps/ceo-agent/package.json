@@ -1,0 +1,33 @@
+{
+  "name": "ceo-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CEO Agent (Mimi) - Strategic delegation and orchestration agent following unified architecture",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun --watch src/index.ts",
+    "build": "bun nx build ceo-agent",
+    "test": "bun test src/**/*.test.ts",
+    "lint": "bunx @biomejs/biome check --write src/",
+    "format": "bunx @biomejs/biome format --write src/"
+  },
+  "dependencies": {
+    "@elizaos/core": "^1.5.2",
+    "ethers": "^6.15.0",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "bun-types": "^1.2.21",
+    "typescript": "^5.9.2"
+  },
+  "keywords": [
+    "ceo-agent",
+    "strategic-delegation",
+    "agent-orchestration",
+    "371-minds",
+    "unified-architecture"
+  ],
+  "author": "371 Minds",
+  "license": "MIT"
+}

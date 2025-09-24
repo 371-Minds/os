@@ -10,6 +10,7 @@ import * as path from 'path';
 import { parse } from 'yaml';
 import { TechnicalTaskProcessor } from './technical-task-processor.js';
 import { TechnicalAnalyzer } from './technical-analyzer.js';
+import { SecurityAssessmentEngine } from './security-assessment-engine.js';
 import type { 
   AgentDefinition, 
   TechnicalTask, 
@@ -32,6 +33,7 @@ export class CTOAgent {
   private agentDefinition: AgentDefinition;
   private taskProcessor: TechnicalTaskProcessor;
   private technicalAnalyzer: TechnicalAnalyzer;
+  private securityEngine: SecurityAssessmentEngine;
   private performanceMetrics: {
     tasksProcessed: number;
     averageResponseTime: number;
@@ -46,6 +48,7 @@ export class CTOAgent {
     // Initialize core components
     this.taskProcessor = new TechnicalTaskProcessor();
     this.technicalAnalyzer = new TechnicalAnalyzer();
+    this.securityEngine = new SecurityAssessmentEngine();
     
     // Initialize performance tracking
     this.performanceMetrics = {
@@ -105,6 +108,11 @@ export class CTOAgent {
     const startTime = Date.now();
     
     try {
+      // Validate input first
+      if (!task) {
+        throw new Error('Technical task is required');
+      }
+      
       console.log(`🚀 Processing technical task: ${task.title}`);
       console.log(`🏷️ Category: ${task.category} | Priority: ${task.priority}`);
       
@@ -132,8 +140,15 @@ export class CTOAgent {
           break;
           
         case 'security_response':
-          // Use architecture analyzer for security tasks (can be extended)
-          result = await this.technicalAnalyzer.analyzeArchitecture(task);
+          // Use dedicated security assessment engine
+          const securityAssessment = await this.securityEngine.assessSecurity(task);
+          result = {
+            taskId: task.id,
+            securityLevel: securityAssessment.securityLevel,
+            vulnerabilities: securityAssessment.vulnerabilities,
+            recommendedActions: securityAssessment.mitigationStrategy.immediate,
+            responseTime: securityAssessment.responseTime
+          };
           break;
           
         default:

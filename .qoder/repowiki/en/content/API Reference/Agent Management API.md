@@ -285,17 +285,17 @@ Agents in the 371OS platform transition through a well-defined state machine tha
 
 ```
 [*] --> Created
-Created --> Running : start
-Running --> Stopped : stop
-Stopped --> Running : start
-Created --> Error : initialization_failed
-Running --> Error : execution_error
-Stopped --> Error : configuration_error
-Error --> Created : reset
-Error --> Stopped : reset
-Running --> Initializing : startup_sequence
-Initializing --> Running : ready
-Initializing --> Error : startup_failed
+Created --> Running
+Running --> Stopped
+Stopped --> Running
+Created --> Error
+Running --> Error
+Stopped --> Error
+Error --> Created
+Error --> Stopped
+Running --> Initializing
+Initializing --> Running
+Initializing --> Error
 ```
 
 The agent state machine consists of the following states:

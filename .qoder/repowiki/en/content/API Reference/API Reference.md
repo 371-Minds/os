@@ -23,7 +23,7 @@
 - [questflow\src\server.ts](file://questflow/src/server.ts) - *Added in recent commit*
 - [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts) - *Added in recent commit*
 - [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts) - *Added in recent commit*
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Sessions API Reference.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions API Reference.md)
 - [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
 - [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Send Session Message.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Send Session Message.md)
 - [reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)

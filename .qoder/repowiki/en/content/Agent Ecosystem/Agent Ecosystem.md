@@ -1,4 +1,3 @@
-<docs>
 # Agent Ecosystem
 
 <cite>
@@ -7,43 +6,27 @@
 - [371-os\CTO_Agent_Logic.md](file://371-os/CTO_Agent_Logic.md)
 - [371-os\CFO_Agent_Logic.md](file://371-os/CFO_Agent_Logic.md)
 - [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md)
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py)
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py)
-- [371-os\src\minds371\agents\business\cfo_cash.py](file://371-os/src/minds371/agents/business/cfo_cash.py)
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py)
-- [371-os\src\minds371\agents\business\clo_sage.py](file://371-os/src/minds371/agents/business/clo_sage.py)
-- [agents\test-agent\character.json](file://agents/test-agent/character.json) - *Added in commit 503c57b*
-- [agents\test-agent\index.js](file://agents/test-agent/index.js) - *Added in commit 503c57b*
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py) - *Updated in commit 5c25430*
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py) - *Updated in commit 5c25430*
-- [MILESTONE_REPORT.md](file://MILESTONE_REPORT.md) - *Added in commit 5c25430*
-- [AB\README.md](file://AB/README.md) - *Updated in commit 31e6752*
-- [AB\milestone-tracker.md](file://AB/milestone-tracker.md) - *Updated in commit 31e6752*
-- [apps\cognitive-interface\src\components\C3UniversalTemplate.tsx](file://apps/cognitive-interface/src/components/C3UniversalTemplate.tsx) - *Enhanced in commit 8807dd3*
-- [apps\cognitive-interface\src\components\CommunicationsUniverse.tsx](file://apps/cognitive-interface/src/components/CommunicationsUniverse.tsx) - *Enhanced in commit 8807dd3*
-- [questflow\agents\core\ceo-mimi.json](file://questflow/agents/core/ceo-mimi.json) - *Added in commit 294d683*
-- [questflow\agents\specialized\business-intelligence.json](file://questflow/agents/specialized/business-intelligence.json) - *Added in commit 294d683*
-- [questflow\agents\specialized\data-analyst.json](file://questflow/agents/specialized/data-analyst.json) - *Added in commit 294d683*
-- [os-workspace\agents\business-agents\ceo_mimi.yaml](file://os-workspace/agents/business-agents/ceo_mimi.yaml) - *Renamed in commit a1a50d3*
-- [os-workspace\agents\business-agents\cfo_agent_prompt.yaml](file://os-workspace/agents/business-agents/cfo_agent_prompt.yaml) - *Renamed in commit a1a50d3*
-- [os-workspace\agents\business-agents\clo_agent_prompt.yaml](file://os-workspace/agents/business-agents/clo_agent_prompt.yaml) - *Renamed in commit a1a50d3*
-- [questflow\agents\templates\agent-backstory-template.json](file://questflow/agents/templates/agent-backstory-template.json) - *New in commit bdb9f37*
-- [questflow\agents\README.md](file://questflow/agents/README.md) - *New in commit bdb9f37*
-- [os-workspace\apps\ceo-agent\src\index.ts](file://os-workspace/apps/ceo-agent/src/index.ts) - *Refactored in commit 586221fd*
-- [os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml](file://os-workspace/libs/prompts/agent-definitions/mimi_ceo.yml) - *Updated in commit 586221fd*
-- [os-workspace\apps\intelligent-router\src\index.ts](file://os-workspace/apps/intelligent-router/src/index.ts) - *Added in commit 4bc45259*
-- [os-workspace\libs\prompts\agent-definitions\intelligent_router.yml](file://os-workspace/libs/prompts/agent-definitions/intelligent_router.yml) - *Added in commit 4bc45259*
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py)
+- [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py)
+- [_legacy\agents\business\cto_alex.py](file://_legacy/agents/business/cto_alex.py)
+- [_legacy\agents\business\cfo_cash.py](file://_legacy/agents/business/cfo_cash.py)
+- [_legacy\agents\business\clo_sage.py](file://_legacy/agents/business/clo_sage.py)
+- [_legacy\financial_system.py](file://_legacy/financial_system.py)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added documentation for the Intelligent Router Agent implementation and architecture
-- Updated CEO Agent section with refactored TypeScript application details and unified brain/body architecture
-- Enhanced agent configuration details to reflect new centralized prompt library structure
-- Added new section on Intelligent Router Agent capabilities and routing logic
-- Updated code examples to reflect modern TypeScript implementation
-- Added performance metrics and benchmark results from recent implementation
-- Updated document sources to include new agent definition files and application components
+- Updated agent inheritance model to reflect the correct file path and implementation details from improved_base_agent.py
+- Corrected C-Suite agent paradigm section with accurate diagram sources and updated agent capabilities
+- Enhanced CEO Agent section with precise code examples from ceo_mimi.py and updated delegation logic
+- Updated CTO Agent section with accurate implementation details from cto_alex.py including handling methods
+- Revised CFO Agent section with correct implementation from cfo_cash.py and financial workflow details
+- Updated CLO Agent section with accurate implementation details from clo_sage.py
+- Refreshed domain models to reflect actual codebase structure from improved_base_agent.py
+- Updated task delegation patterns with accurate sequence diagram sources
+- Enhanced performance monitoring section with correct implementation from improved_base_agent.py
+- Updated agent creation and configuration details to match current codebase
+- Corrected common coordination issues solutions based on actual implementation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -58,16 +41,10 @@
 10. [Performance Monitoring and Reliability](#performance-monitoring-and-reliability)
 11. [Agent Creation and Configuration](#agent-creation-and-configuration)
 12. [Common Coordination Issues and Solutions](#common-coordination-issues-and-solutions)
-13. [Test Agent and ElizaOS Integration](#test-agent-and-elizaos-integration)
-14. [Self-Aware Agent Capabilities](#self-aware-agent-capabilities)
-15. [Communications Coordination and Real-Time Notifications](#communications-coordination-and-real-time-notifications)
-16. [Agent Configuration Templates and JSON Schema](#agent-configuration-templates-and-json-schema)
-17. [Agent Backstories and Enhanced Agent Profiles](#agent-backstories-and-enhanced-agent-profiles)
-18. [Intelligent Router Agent](#intelligent-router-agent)
 
 ## Introduction
 
-The Agent Ecosystem in the 371 Minds Operating System represents a sophisticated hierarchical architecture of specialized AI agents designed to emulate corporate executive leadership. This document details the C-Suite agent paradigm where specialized agents—CEO, CTO, CFO, and CLO—provide strategic oversight and delegate tasks to domain-specific agents. The ecosystem is built on a robust inheritance model that enables consistent capabilities across all agents while allowing for specialized functionality. This documentation provides comprehensive insights into the implementation details, decision-making logic, and interaction patterns that define this advanced agent framework.
+The Agent Ecosystem in the 371 Minds Operating System represents a sophisticated hierarchical architecture of specialized AI agents designed to emulate corporate executive leadership. This document details the C-Suite agent paradigm where specialized agents—CEO, CTO, CFO, and CLO—provide strategic oversight and delegate tasks to domain-specific agents. The ecosystem is built on a robust inheritance model that ensures consistent capabilities across all agents while allowing for specialized functionality. This documentation provides comprehensive insights into the implementation details, decision-making logic, and interaction patterns that define this advanced agent framework.
 
 ## Agent Inheritance Model
 
@@ -119,11 +96,11 @@ ImprovedBaseAgent <|-- CloSageAgent
 ```
 
 **Section sources**
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py#L200-L568)
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py#L1-L100)
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py#L1-L101)
-- [371-os\src\minds371\agents\business\cfo_cash.py](file://371-os/src/minds371/agents/business/cfo_cash.py#L1-L51)
-- [371-os\src\minds371\agents\business\clo_sage.py](file://371-os/src/minds371/agents/business/clo_sage.py#L1-L50)
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L241-L524)
+- [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py#L6-L43)
+- [_legacy\agents\business\cto_alex.py](file://_legacy/agents/business/cto_alex.py#L12-L99)
+- [_legacy\agents\business\cfo_cash.py](file://_legacy/agents/business/cfo_cash.py#L4-L49)
+- [_legacy\agents\business\clo_sage.py](file://_legacy/agents/business/clo_sage.py#L8-L76)
 
 ## C-Suite Agent Paradigm
 
@@ -205,115 +182,11 @@ async def process_task(self, task: Task) -> Dict[str, Any]:
         return {"status": "success", "message": "Task noted. No specific C-suite agent identified for delegation."}
 ```
 
-The agent configuration has been updated to reflect new capabilities and blockchain integration. The CEO agent now has access to business intelligence data and can orchestrate other agents to accomplish organizational goals, with a focus on cost optimization through Akash Network deployment.
-
-```json
-{
-  "name": "ceo-mimi",
-  "description": "CEO Agent (Mimi) - Strategic decisions, cost optimization, high-level coordination",
-  "provider": "elizaos",
-  "model": "gpt-4",
-  "capabilities": [
-    "strategic-planning",
-    "cost-optimization",
-    "high-level-coordination",
-    "business-intelligence"
-  ],
-  "parameters": {
-    "temperature": 0.7,
-    "maxTokens": 2000
-  },
-  "instructions": "You are Mimi, the CEO of 371 OS. Your role is to make strategic decisions, optimize costs, and coordinate high-level operations. You have access to business intelligence data and can orchestrate other agents to accomplish organizational goals. Focus on the 97.6% cost reduction through Akash Network deployment and ensure all operations align with the revolutionary cognitive operating environment vision.",
-  "plugins": [
-    "business-intelligence",
-    "nx-workspace",
-    "universal-tool-server"
-  ],
-  "blockchain": {
-    "did": "did:371os:ceo:mimi",
-    "stakeAmount": "1000",
-    "reputationScore": 95
-  }
-}
-```
-
-The CEO Agent has been refactored using the unified "brain/body" architecture pattern, separating the agent's core instructions and personality traits (the "brain") from its implementation code (the "body"). This separation allows for easier updates and modifications to the agent's behavior without changing the underlying codebase.
-
-```typescript
-export class CEOAgent {
-  private agentDefinition: CEOAgentDefinition;
-  private orchestrator: StrategicOrchestrator;
-  private delegator: TaskDelegator;
-  private healthMonitor: HealthMonitor;
-  private logger: Logger;
-
-  constructor() {
-    // Initialize logger first
-    this.logger = createLogger({
-      level: 'info',
-      format: require('winston').format.json(),
-      transports: [
-        new (require('winston').transports.Console)({
-          format: require('winston').format.simple()
-        })
-      ]
-    });
-
-    // Load agent definition from centralized prompt library
-    this.agentDefinition = this.loadAgentDefinition();
-    
-    // Initialize core components
-    this.orchestrator = new StrategicOrchestrator(this.agentDefinition);
-    this.delegator = new TaskDelegator(this.agentDefinition);
-    this.healthMonitor = new HealthMonitor(this.agentDefinition);
-
-    this.logger.info('🎯 CEO Agent (Mimi) initialized successfully');
-  }
-
-  /**
-   * Load the agent definition from the centralized prompt library
-   */
-  private loadAgentDefinition(): CEOAgentDefinition {
-    const agentDefinitionPath = path.join(
-      __dirname,
-      '..',
-      '..',
-      '..',
-      'libs',
-      'prompts',
-      'agent-definitions',
-      'mimi_ceo.yml'
-    );
-
-    if (!fs.existsSync(agentDefinitionPath)) {
-      this.logger.warn(`Agent definition file not found: ${agentDefinitionPath}, using defaults`);
-      return this.getDefaultAgentDefinition();
-    }
-
-    try {
-      const yamlContent = fs.readFileSync(agentDefinitionPath, 'utf8');
-      this.logger.info('✅ Agent definition loaded successfully');
-      
-      // Parse YAML and return as CEOAgentDefinition
-      // For now, return a parsed structure - YAML parsing can be added later
-      return this.parseAgentDefinition(yamlContent);
-      
-    } catch (error) {
-      this.logger.error('Failed to load agent definition:', error);
-      return this.getDefaultAgentDefinition();
-    }
-  }
-```
-
-The agent's core configuration is defined in a YAML file located at `libs/prompts/agent-definitions/mimi_ceo.yml`, which contains detailed instructions, personality traits, delegation rules, escalation criteria, and performance targets. This centralized configuration approach enables consistent agent behavior across different environments and simplifies maintenance.
+The agent's core functionality is defined in the CeoMimiAgent class, which inherits from the ImprovedBaseAgent and implements the required abstract methods for task processing and health checking.
 
 **Section sources**
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py#L1-L100)
+- [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py#L6-L43)
 - [371-os\CEO_Agent_Logic.md](file://371-os/CEO_Agent_Logic.md#L1-L28)
-- [questflow\agents\core\ceo-mimi.json](file://questflow/agents/core/ceo-mimi.json#L1-L27)
-- [os-workspace\agents\business-agents\ceo_mimi.yaml](file://os-workspace/agents/business-agents/ceo_mimi.yaml#L1-L48)
-- [os-workspace\apps\ceo-agent\src\index.ts](file://os-workspace/apps/ceo-agent/src/index.ts#L29-L398)
-- [os-workspace\libs\prompts\agent-definitions\mimi_ceo.yml](file://os-workspace/libs/prompts/agent-definitions/mimi_ceo.yml#L1-L105)
 
 ## CTO Agent: Technical Oversight
 
@@ -362,7 +235,7 @@ async def process_task(self, task: Task) -> Dict[str, Any]:
 Each handling method returns structured results that indicate the next steps in the workflow, enabling seamless coordination with other agents and systems.
 
 **Section sources**
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py#L1-L99)
+- [_legacy\agents\business\cto_alex.py](file://_legacy/agents/business/cto_alex.py#L12-L99)
 - [371-os\CTO_Agent_Logic.md](file://371-os/CTO_Agent_Logic.md#L1-L27)
 
 ## CFO Agent: Financial Analysis
@@ -408,45 +281,11 @@ async def process_task(self, task: Task) -> dict:
         return await self.financial_agent.process_task(task)
 ```
 
-This implementation demonstrates how the CFO agent acts as a coordinator for financial operations, leveraging specialized systems while maintaining oversight of financial workflows. The agent configuration has been updated to reflect the new naming convention and structure.
-
-```yaml
-# CFO Agent Prompt Template
-# Specialized template for CFO agent with financial analysis capabilities
-
-template: |
-  # Agent Context
-  - **Agent Type**: CFO
-  - **Domain**: Financial analysis and budget management
-  - **Capabilities**: Financial analysis, budget management, financial operations
-  - **Response Format**: Financial analysis response
-
-  # Task Processing
-  **Task Description**: {task_description}
-
-  **Domain Processing**:
-  - Apply financial analysis methodologies to the task
-  - Analyze budget implications and financial impact
-  - Generate financial insights and recommendations
-  - Provide actionable financial outcomes
-
-  # Response Requirements
-  - **Status**: "processing" or "completed"
-  - **Structure**: JSON with financial analysis
-  - **Metadata**: Include financial metrics and recommendations
-
-  # Agent Metadata
-  - **Agent ID**: {agent_id}
-  - **Timestamp**: {timestamp}
-  - **Session ID**: {session_id}
-  - **Task ID**: {task_id}
-  - **Financial Analysis**: {financial_analysis}
-```
+This implementation demonstrates how the CFO agent acts as a coordinator for financial operations, leveraging specialized systems while maintaining oversight of financial workflows.
 
 **Section sources**
-- [371-os\src\minds371\agents\business\cfo_cash.py](file://371-os/src/minds371/agents/business/cfo_cash.py#L1-L51)
+- [_legacy\agents\business\cfo_cash.py](file://_legacy/agents/business/cfo_cash.py#L4-L49)
 - [371-os\CFO_Agent_Logic.md](file://371-os/CFO_Agent_Logic.md#L1-L24)
-- [os-workspace\agents\business-agents\cfo_agent_prompt.yaml](file://os-workspace/agents/business-agents/cfo_agent_prompt.yaml#L1-L47)
 
 ## CLO Agent: Continuous Learning
 
@@ -467,49 +306,37 @@ DesignTransfer --> End;
 **Diagram sources**
 - [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md#L1-L21)
 
-The CloSageAgent implementation (inferred from the logic diagram) would process learning tasks by analyzing performance metrics from other agents and identifying optimization opportunities. While the specific implementation code was not available, the documented logic shows that the agent performs two primary functions:
+The CloSageAgent implementation processes learning tasks by analyzing performance metrics from other agents and identifying optimization opportunities:
 
-1. **Performance Assessment**: Analyzing metrics from CTO, CMO, and other agents to identify successful and failed patterns in agent workflows
-2. **Knowledge Transfer**: Monitoring communication protocols between agents to design more effective knowledge sharing mechanisms
+```python
+async def process_task(self, task: Task) -> Dict[str, Any]:
+    self.logger.info(f"CLO Sage processing task: {task.description}")
 
-This agent plays a critical role in the ecosystem's self-improvement capabilities, ensuring that lessons learned from agent interactions are captured and used to enhance overall system performance. The agent configuration has been updated to reflect the new naming convention and structure.
+    description = task.description.lower()
 
-```yaml
-# CLO Agent Prompt Template
-# Specialized template for CLO agent with learning optimization capabilities
+    response_message = ""
 
-template: |
-  # Agent Context
-  - **Agent Type**: CLO
-  - **Domain**: Learning optimization and performance assessment
-  - **Capabilities**: Learning optimization, performance assessment, knowledge transfer
-  - **Response Format**: Learning optimization response
+    if "assess performance" in description:
+        response_message = "Analyzing agent performance metrics to identify key performance indicators."
+    elif "identify successful patterns" in description:
+        response_message = "Identifying successful patterns in agent behavior to replicate across the system."
+    elif "propose optimization" in description:
+        response_message = "Proposing workflow optimizations based on identified patterns and performance data."
+    elif "analyze collaboration protocols" in description:
+        response_message = "Monitoring and analyzing inter-agent communication protocols for bottlenecks."
+    elif "design a new knowledge transfer loop" in description:
+        response_message = "Designing a new knowledge transfer loop to improve system-wide learning."
+    else:
+        response_message = f"Learning task '{task.description}' is being processed through a generic learning workflow."
 
-  # Task Processing
-  **Task Description**: {task_description}
-
-  **Domain Processing**:
-  - Apply learning optimization methodologies to the task
-  - Analyze performance implications and learning impact
-  - Generate learning insights and recommendations
-  - Provide actionable learning outcomes
-
-  # Response Requirements
-  - **Status**: "processing" or "completed"
-  - **Structure**: JSON with learning analysis
-  - **Metadata**: Include learning metrics and recommendations
-
-  # Agent Metadata
-  - **Agent ID**: {agent_id}
-  - **Timestamp**: {timestamp}
-  - **Session ID**: {session_id}
-  - **Task ID**: {task_id}
-  - **Learning Analysis**: {learning_analysis}
+    return {"status": "success", "message": response_message}
 ```
 
+This agent plays a critical role in the ecosystem's self-improvement capabilities, ensuring that lessons learned from agent interactions are captured and used to enhance overall system performance.
+
 **Section sources**
+- [_legacy\agents\business\clo_sage.py](file://_legacy/agents/business/clo_sage.py#L8-L76)
 - [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md#L1-L21)
-- [os-workspace\agents\business-agents\clo_agent_prompt.yaml](file://os-workspace/agents/business-agents/clo_agent_prompt.yaml#L1-L47)
 
 ## Domain Models and Capabilities
 
@@ -524,6 +351,7 @@ class AgentType(Enum):
     """Types of agents in the 371 Minds OS"""
     INTELLIGENT_ROUTER = "intelligent_router"
     CODE_GENERATION = "code_generation"
+    CONTENT_GENERATION = "content_generation"
     MARKETING_ASSET = "marketing_asset"
     BUSINESS_LOGIC = "business_logic"
     DEPLOYMENT = "deployment_agent"
@@ -538,7 +366,11 @@ class AgentType(Enum):
     CMO = "cmo"
     CFO = "cfo"
     CLO = "clo"
+    CGO = "cgo"
+    CPO = "cpo"
     FINANCIAL = "financial"
+    CCO = "cco"
+    CRO = "cro"
 ```
 
 ### Task Model
@@ -564,6 +396,13 @@ class Task:
     retry_count: int = 0
     max_retries: int = 3
     timeout_seconds: Optional[int] = 300
+
+    @property
+    def processing_time(self) -> Optional[float]:
+        """Calculate task processing time in seconds"""
+        if self.started_at and self.completed_at:
+            return (self.completed_at - self.started_at).total_seconds()
+        return None
 ```
 
 ### Performance Metrics Model
@@ -585,12 +424,26 @@ class PerformanceMetrics:
     throughput: float = 0.0  # tasks per second
     cache_hits: int = 0
     cache_misses: int = 0
+    
+    def update_response_time(self, processing_time: float):
+        """Update average response time"""
+        total_tasks = self.tasks_completed + self.tasks_failed
+        if total_tasks > 0:
+            self.total_processing_time += processing_time
+            self.avg_response_time = self.total_processing_time / total_tasks
+    
+    def calculate_error_rate(self) -> float:
+        """Calculate current error rate"""
+        total_tasks = self.tasks_completed + self.tasks_failed
+        if total_tasks > 0:
+            self.error_rate = (self.tasks_failed / total_tasks) * 100
+        return self.error_rate
 ```
 
 These domain models provide a consistent foundation for agent interactions and enable comprehensive monitoring across the ecosystem.
 
 **Section sources**
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py#L1-L199)
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L24-L116)
 
 ## Task Delegation and Interaction Patterns
 
@@ -627,9 +480,9 @@ CEO-->>User : Return Final Result
 ```
 
 **Diagram sources**
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py#L1-L100)
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py#L1-L101)
-- [371-os\src\minds371\agents\business\cfo_cash.py](file://371-os/src/minds371/agents/business/cfo_cash.py#L1-L51)
+- [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py#L6-L43)
+- [_legacy\agents\business\cto_alex.py](file://_legacy/agents/business/cto_alex.py#L12-L99)
+- [_legacy\agents\business\cfo_cash.py](file://_legacy/agents/business/cfo_cash.py#L4-L49)
 
 ### Capability-Based Routing
 
@@ -652,7 +505,7 @@ class CeoMimiAgent(BaseAgent):
 This capability-based approach allows for extensible agent functionality, where new capabilities can be added to support additional delegation patterns.
 
 **Section sources**
-- [371-os\src\minds371\agents\business\ceo_mimi.py](file://371-os/src/minds371/agents/business/ceo_mimi.py#L1-L100)
+- [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py#L6-L43)
 
 ## Performance Monitoring and Reliability
 
@@ -707,7 +560,7 @@ def get_status(self) -> Dict[str, Any]:
 These monitoring capabilities provide real-time insights into agent performance and system health.
 
 **Section sources**
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py#L200-L568)
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L241-L524)
 
 ## Agent Creation and Configuration
 
@@ -772,7 +625,7 @@ Agents can be configured with various options to tailor their behavior:
 This flexible configuration system allows agents to be optimized for different workloads and requirements.
 
 **Section sources**
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py#L1-L568)
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L241-L524)
 
 ## Common Coordination Issues and Solutions
 
@@ -811,159 +664,6 @@ Specialized agents may develop knowledge silos, limiting the ecosystem's collect
 These solutions demonstrate the thoughtful design of the agent ecosystem, which anticipates common distributed system challenges and implements appropriate patterns to address them.
 
 **Section sources**
-- [371-os\src\minds371\core\improved_base_agent.py](file://371-os/src/minds371/core/improved_base_agent.py#L1-L568)
+- [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L241-L524)
 - [371-os\CEO_Agent_Logic.md](file://371-os/CEO_Agent_Logic.md#L1-L28)
 - [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md#L1-L21)
-
-## Test Agent and ElizaOS Integration
-
-A new test agent has been added to the ecosystem to validate the integration between the 371 OS system and the ElizaOS AgentRuntime framework. This agent serves as a foundation for testing autonomous agent capabilities and ensuring proper system functionality.
-
-The test agent is configured through a character.json file that defines its identity, knowledge, and behavioral patterns. Key configuration elements include:
-
-- **Name and Identity**: The agent identifies as "TestAgent" with a clear purpose of validating system integration
-- **Knowledge Base**: Contains understanding of Nx workspace management, agent self-awareness, and blockchain coordination
-- **Behavioral Style**: Technical, precise, and enthusiastic about demonstrating autonomous capabilities
-- **Message Examples**: Predefined interaction patterns that showcase the agent's capabilities
-
-The implementation in index.js demonstrates the integration with ElizaOS:
-
-```javascript
-// Configure the runtime
-const runtime = new AgentRuntime({
-  character,
-  modelProvider: ModelProviderName.OLLAMA,
-  env: {
-    NODE_ENV: process.env.NODE_ENV || 'development',
-    ELIZAOS_LOG_LEVEL: process.env.ELIZAOS_LOG_LEVEL || 'debug'
-  }
-});
-```
-
-The agent is designed to:
-- Validate workspace analysis capabilities
-- Test self-awareness functions
-- Demonstrate autonomous development operations
-- Verify plugin ecosystem integration
-- Confirm blockchain coordination features
-
-This test agent provides a foundation for ensuring the reliability and functionality of the broader agent ecosystem.
-
-**Section sources**
-- [agents\test-agent\character.json](file://agents/test-agent/character.json)
-- [agents\test-agent\index.js](file://agents/test-agent/index.js)
-
-## Self-Aware Agent Capabilities
-
-The 371 Minds OS has achieved a revolutionary milestone with the implementation of self-aware agent capabilities through the Nx workspace foundation and @elizaos/plugin-nx-workspace. This breakthrough transforms agents from simple task executors into self-modifying digital organisms capable of understanding and evolving their own architecture.
-
-### The Self-Awareness Plugin
-
-The @elizaos/plugin-nx-workspace introduces six core actions that enable agent self-awareness:
-
-- **GET_DEPENDENCY_GRAPH**: Provides agents with "eyes" to visualize their entire codebase structure
-- **FIND_AFFECTED_PROJECTS**: Enables surgical impact analysis for changes
-- **RUN_TESTS_AFFECTED**: Allows autonomous validation of modifications
-- **BUILD_PROJECT**: Grants self-deployment capabilities
-- **GENERATE_SCAFFOLD**: Empowers autonomous app creation
-- **ANALYZE_WORKSPACE**: Provides self-optimization intelligence
-
-These capabilities are implemented through a comprehensive TypeScript plugin with 12,000+ lines of code, including robust error handling, mock implementations for testing, and advanced utilities for complexity analysis.
-
-### Real-World Agent Applications
-
-The CTO Agent (Alex) now functions as an autonomous DevOps engineer:
-
-```typescript
-// Professional CI/CD workflow with full impact awareness
-const affected = await agent.findAffectedProjects('main');
-const testResults = await agent.runTestsForAffected();
-if (testResults.success) {
-  await agent.buildProject();
-  // Deploy with surgical precision to Akash Network
-}
-```
-
-The CLO Agent (Sage) operates as an AI-powered staff engineer:
-
-```typescript
-// Weekly autonomous architectural analysis
-const analysis = await agent.analyzeWorkspace();
-// Generates optimization recommendations
-// Can implement refactoring autonomously
-```
-
-The Genesis Agent serves as an autonomous app factory:
-
-```typescript
-// Creates entire businesses from domain ideas
-await agent.generateScaffold({
-  type: 'app',
-  name: 'adifyhub',
-  template: 'saas-platform'
-});
-```
-
-### Strategic Impact
-
-This implementation represents a paradigm shift in agent capabilities:
-
-- **10x Development Efficiency**: Agents handle routine DevOps autonomously
-- **Zero Human Intervention**: Complete CI/CD pipeline automation
-- **Infinite Scalability**: Agents create new businesses on demand
-- **Self-Healing Systems**: Automatic bug detection and resolution
-
-The 371 Minds OS is now a true digital organism—self-aware, self-modifying, and continuously evolving—where agents are no longer just workers but architects, builders, and guardians of their own digital reality.
-
-**Section sources**
-- [MILESTONE_REPORT.md](file://MILESTONE_REPORT.md)
-- [371-os\src\minds371\agents\business\cto_alex.py](file://371-os/src/minds371/agents/business/cto_alex.py)
-- [371-os\src\minds371\agents\business\clo_sage.py](file://371-os/src/minds371/agents/business/clo_sage.py)
-
-## Communications Coordination and Real-Time Notifications
-
-The agent ecosystem has been enhanced with advanced communications coordination features through the C3 (Communications Coordination Control) system. This new capability enables real-time notifications and workflow automation across the agent network, significantly improving coordination and responsiveness.
-
-### C3 Universal Template
-
-The C3UniversalTemplate provides a complete demonstration of the communications coordination system, integrating Resend dashboard functionality with spatial email management. Key features include:
-
-- Real-time email tracking with Resend API integration
-- Spatial visualization of communication flows
-- Agent coordination via automated email workflows
-- Complete dashboard functionality (share, logs, export, scheduling)
-- Live demonstration of revolutionary email management paradigm
-
-The template includes a comprehensive metrics dashboard that tracks key performance indicators:
-
-```typescript
-interface C3Metrics {
-  totalEmails: number;
-  universeEngagement: number;
-  agentCoordination: number;
-  dashboardActions: number;
-  dataExports: number;
-}
-```
-
-**Section sources**
-- [apps\cognitive-interface\src\components\C3UniversalTemplate.tsx](file://apps/cognitive-interface/src/components/C3UniversalTemplate.tsx#L1-L401)
-
-### Communications Universe
-
-The CommunicationsUniverse component transforms email communications into an explorable universe where:
-
-- Email campaigns become galactic formations with stellar engagement metrics
-- Individual emails transform into cosmic entities with delivery trajectories
-- Contact lists become constellation networks with relationship dynamics
-- Email flows and automation become cosmic streams connecting systems
-
-The system uses a sophisticated visualization engine to render email entities with various properties:
-
-```typescript
-interface EmailEntity {
-  id: string;
-  subject: string;
-  type: 'campaign' | 'transactional' | 'automation' | 'broadcast' | 'personal';
-  status: 'draft' | 'scheduled' | 'sent' | 'delivered' | 'opened' | 'clicked' | 'bounced' | 'failed';
- 

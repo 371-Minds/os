@@ -1,0 +1,36 @@
+{
+  "name": "intelligent-router",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/intelligent-router/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/intelligent-router",
+        "main": "apps/intelligent-router/src/index.ts",
+        "tsConfig": "apps/intelligent-router/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "intelligent-router:build"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun test {projectRoot}"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
+      }
+    }
+  }
+}

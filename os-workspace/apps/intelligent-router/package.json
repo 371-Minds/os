@@ -1,0 +1,33 @@
+{
+  "name": "intelligent-router",
+  "version": "1.0.0",
+  "description": "Intelligent Router Agent for 371 OS - Central nervous system for task routing",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "bun run build:tsc",
+    "build:tsc": "tsc -p tsconfig.app.json",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "lint": "bunx @biomejs/biome check --write .",
+    "format": "bunx @biomejs/biome format --write .",
+    "demo": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "intelligent-router",
+    "task-routing",
+    "agent-coordination",
+    "371-os",
+    "typescript"
+  ],
+  "author": "371 Minds",
+  "license": "MIT"
+}

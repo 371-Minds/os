@@ -1,0 +1,88 @@
+{
+  "name": "cao-agent",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cao-agent/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/cao-agent",
+        "format": ["esm"],
+        "bundle": false,
+        "main": "apps/cao-agent/src/index.ts",
+        "tsConfig": "apps/cao-agent/tsconfig.app.json",
+        "assets": ["apps/cao-agent/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "cao-agent:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "cao-agent:build:development"
+        },
+        "production": {
+          "buildTarget": "cao-agent:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/cao-agent/test",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/cao-agent/src/**/*.test.ts",
+        "tsConfig": "apps/cao-agent/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "files": ["apps/cao-agent/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "deploy:github": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "command": "echo 'Deploying CAO Agent to Akash via GitHub Actions'"
+      }
+    }
+  },
+  "tags": ["scope:agent", "type:application", "role:academic"]
+}

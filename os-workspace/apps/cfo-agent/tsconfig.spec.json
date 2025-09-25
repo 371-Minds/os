@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/cfo-agent",
+    "types": ["bun-types", "node"]
+  },
+  "include": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ]
+}

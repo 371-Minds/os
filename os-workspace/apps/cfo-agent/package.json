@@ -1,0 +1,16 @@
+{
+  "name": "cfo-agent",
+  "version": "1.0.0",
+  "description": "CFO Agent (Maya) - Financial Leadership and Analysis",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "test": "bun test",
+    "build": "bun build src/index.ts --outdir dist --target node"
+  },
+  "dependencies": {
+    "yaml": "^2.4.1"
+  }
+}

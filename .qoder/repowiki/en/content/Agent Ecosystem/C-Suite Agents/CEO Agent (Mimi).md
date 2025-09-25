@@ -6,20 +6,21 @@
 - [ceo_mimi.yaml](file://os-workspace\agents\business-agents\ceo_mimi.yaml) - *Updated in recent commit*
 - [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json) - *Enhanced with backstory and blockchain identity*
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py) - *Updated in recent commit*
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py) - *Updated in recent commit*
-- [csuite.ts](file://questflow\src\agents\csuite.ts) - *Added in recent commit*
-- [csuite.js](file://questflow\src\agents\csuite.js) - *Added in recent commit*
+- [intelligent_router_agent.py](file://_legacy\adaptive_llm_router\intelligent_router_agent.py) - *Updated in recent commit*
+- [policy_engine.py](file://_legacy\adaptive_llm_router\policy_engine.py) - *Updated in recent commit*
+- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py) - *Updated in recent commit*
 - [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts) - *Refactored implementation with unified brain/body architecture*
 - [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts) - *Type definitions for strategic orchestrator*
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts) - *Added comprehensive health monitoring system*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated **Delegation Logic and Task Routing** section to reflect new TypeScript-based StrategicOrchestrator implementation
-- Added new **Strategic Orchestration Framework** section detailing the refactored orchestration logic and decision-making process
-- Added source references for new files orchestrator.ts and types.ts
-- Enhanced **Core Architecture** section to include unified brain/body architecture pattern
-- Updated **Configuration and Customization** section with new type definitions and delegation rules
+- Updated **Core Architecture** section to reflect new TypeScript-based StrategicOrchestrator implementation with unified brain/body pattern
+- Added new **Comprehensive Health Monitoring System** section detailing the enhanced monitoring capabilities
+- Enhanced **Performance and Monitoring** section with new health monitoring components and metrics
+- Updated **Configuration and Customization** section to include health monitoring parameters
+- Added source references for new file health-monitor.ts
 - Removed outdated flowchart diagram that no longer reflects current implementation
 
 ## Table of Contents
@@ -33,8 +34,9 @@
 8. [Executive Meeting Coordination](#executive-meeting-coordination)
 9. [Executive Communication Orchestration](#executive-communication-orchestration)
 10. [Performance and Monitoring](#performance-and-monitoring)
-11. [Configuration and Customization](#configuration-and-customization)
-12. [Conclusion](#conclusion)
+11. [Comprehensive Health Monitoring System](#comprehensive-health-monitoring-system)
+12. [Configuration and Customization](#configuration-and-customization)
+13. [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -200,14 +202,14 @@ Router-->>Mimi : Processed Result
 ```
 
 **Diagram sources**
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py#L1-L105)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py#L1-L34)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py#L1-L89)
+- [intelligent_router_agent.py](file://_legacy\adaptive_llm_router\intelligent_router_agent.py#L1-L105)
+- [policy_engine.py](file://_legacy\adaptive_llm_router\policy_engine.py#L1-L34)
+- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
 
 **Section sources**
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py#L1-L105)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py#L1-L34)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py#L1-L89)
+- [intelligent_router_agent.py](file://_legacy\adaptive_llm_router\intelligent_router_agent.py#L1-L105)
+- [policy_engine.py](file://_legacy\adaptive_llm_router\policy_engine.py#L1-L34)
+- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
 
 ## Interaction with Specialized Agents
 
@@ -413,11 +415,27 @@ CeoMimiAgent --> CircuitBreaker : uses
 
 **Diagram sources**
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py#L1-L89)
+- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
 
 **Section sources**
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py#L1-L89)
+- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
+
+## Comprehensive Health Monitoring System
+
+A new comprehensive health monitoring system has been implemented for CEO Agent (Mimi) through the `health-monitor.ts` module, providing enhanced reliability and system observability. This system extends beyond basic health checks to provide continuous monitoring of agent state, resource utilization, and operational integrity.
+
+The health monitoring framework includes:
+- **Real-time Status Tracking**: Continuous monitoring of agent availability and responsiveness
+- **Resource Utilization Monitoring**: Tracking of memory consumption, CPU usage, and connection pool status
+- **Task Queue Monitoring**: Visibility into pending, active, and completed tasks
+- **Circuit Breaker State**: Monitoring of circuit breaker status to detect service degradation
+- **Automated Alerting**: Notification system for health status changes and threshold breaches
+
+The system integrates with the existing performance metrics framework to provide a holistic view of agent health, combining quantitative metrics with qualitative status assessments. This enables proactive issue detection and resolution before they impact system operations.
+
+**Section sources**
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L150)
 
 ## Configuration and Customization
 
@@ -450,13 +468,15 @@ The new `ceo-mimi.json` configuration introduces additional customization option
 - **Blockchain Identity**: Configurable stake amount and reputation score for decentralized operations
 - **Communication Style**: Customizable chat and post communication patterns
 - **Personality Traits**: Configurable executive characteristics and decision frameworks
+- **Health Monitoring Settings**: Configurable thresholds for resource utilization and alerting
 
 **Section sources**
 - [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L1-L100)
 - [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json#L1-L92)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py#L1-L34)
+- [policy_engine.py](file://_legacy\adaptive_llm_router\policy_engine.py#L1-L34)
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
 - [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L21-L34)
+- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L150)
 
 ## Conclusion
 
@@ -468,4 +488,4 @@ Recent enhancements have introduced a dual-configuration model with both YAML an
 
 A significant new capability is the formalized executive meeting coordination through the `CSuiteCoordinator` class, which ensures that major strategic decisions are made collaboratively with all C-suite agents. This structured approach to executive decision-making enhances alignment, accountability, and strategic coherence across the organization.
 
-Key strengths of the implementation include its transparent delegation logic, comprehensive performance monitoring, flexible cost management through the policy engine, and now formalized executive coordination processes. Future enhancements could include more sophisticated natural language understanding for task classification, confidence scoring for delegation decisions, and automated escalation protocols for high-risk decisions.
+Key strengths of the implementation include its transparent delegation logic, comprehensive performance monitoring, flexible cost management through the policy engine, formalized executive coordination processes, and now enhanced health monitoring capabilities. Future enhancements could include more sophisticated natural language understanding for task classification, confidence scoring for delegation decisions, and automated escalation protocols for high-risk decisions.

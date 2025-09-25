@@ -10,27 +10,22 @@
 - [policy_engine.py](file://_legacy/adaptive_llm_router/policy_engine.py) - *Updated in recent commit*
 - [improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py) - *Updated in recent commit*
 - [financial_agent.py](file://_legacy/agents/utility/financial_agent.py) - *Updated in recent commit*
-- [BusinessIntelligenceIntegration.tsx](file://os-workspace/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx) - *Enhanced with real-time notifications and spatial visualization*
-- [CommunicationsUniverse.tsx](file://os-workspace/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx) - *Enhanced with real-time notifications and spatial visualization*
-- [C3UniversalTemplate.tsx](file://os-workspace/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx) - *Enhanced with real-time notifications and spatial visualization*
-- [business-intelligence.ts](file://os-workspace/apps/cognitive-interface/src/types/business-intelligence.ts) - *Type definitions for BI integration*
-- [csuite.js](file://questflow/src/agents/csuite.js) - *Added CSuiteCoordinator class for executive meetings*
-- [csuite.ts](file://questflow/src/agents/csuite.ts) - *Added CSuiteCoordinator class for executive meetings*
-- [budget-analysis-engine.ts](file://os-workspace/apps/cfo-agent/src/budget-analysis-engine.ts) - *New budget analysis engine implementation*
-- [types.ts](file://os-workspace/apps/cfo-agent/src/types.ts) - *Type definitions for financial analysis components*
+- [maya_cfo.yml](file://os-workspace/libs/prompts/agent-definitions/maya_cfo.yml) - *Added in recent commit*
+- [index.ts](file://os-workspace/apps/cfo-agent/src/index.ts) - *New implementation with unified brain/body architecture*
+- [BudgetAnalysisEngine.ts](file://os-workspace/apps/cfo-agent/src/budget-analysis-engine.ts) - *Enhanced budget analysis capabilities*
+- [router-integration.ts](file://os-workspace/apps/cfo-agent/src/router-integration.ts) - *Intelligent router integration*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Added new section on Budget Analysis Engine reflecting the new implementation in `budget-analysis-engine.ts`
-- Updated file references to include newly added files for the budget analysis system
-- Enhanced documentation of financial analysis capabilities with detailed type definitions
-- Added Mermaid diagram for the BudgetAnalysisEngine architecture
-- Updated domain model section to reflect enhanced financial analysis structure
-- Integrated new budget template and variance threshold configurations
-- Added details on cache mechanism and performance optimization in budget analysis
-- Updated configuration and alerting section with new budget analysis parameters
-- Maintained consistency between documented behavior and current implementation
+- Updated documentation to reflect the new unified "brain/body" architecture for Maya
+- Added details on centralized configuration via `maya_cfo.yml` in the agent definitions library
+- Enhanced description of TypeScript-based execution runtime in `apps/cfo-agent/src/`
+- Updated financial capabilities section to include strategic decision-making and ROI assessment
+- Added information about router integration and capability registration
+- Included performance targets and configuration options from the new implementation
+- Removed outdated references to legacy Python implementation where superseded by new architecture
+- Maintained compatibility notes for legacy components still in use
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -57,74 +52,79 @@ This document provides a comprehensive analysis of Maya's architecture, implemen
 
 ## Core Architecture
 
-The CFO Agent (Maya) is implemented as the `CfoCashAgent` class in the `cfo_cash.py` file, inheriting from the `ImprovedBaseAgent` to leverage advanced agent capabilities including task queuing, performance monitoring, and fault tolerance. The agent follows a modular design that separates financial logic from execution responsibilities, delegating complex financial operations to the `FinancialAgent` system while maintaining control over task routing and workflow management.
+The CFO Agent (Maya) follows a unified "brain/body" architecture pattern, separating personality and behavioral configuration from execution logic. The agent's cognitive framework is defined in the `maya_cfo.yml` file located in the centralized prompt library, while its execution runtime is implemented in TypeScript within the `apps/cfo-agent/src/` directory.
 
 ```mermaid
 classDiagram
-class CfoCashAgent {
-+agent_id : string
-+agent_type : AgentType
-+financial_agent : FinancialAgent
-+__init__(financial_agent)
-+process_task(task : Task) dict
-+health_check() dict
+class CFOAgent {
++agentDefinition : AgentDefinition
++taskProcessor : FinancialTaskProcessor
++financialAnalyzer : FinancialAnalyzer
++budgetEngine : BudgetAnalysisEngine
++performanceMetrics : PerformanceMetrics
++routerIntegration : RouterIntegration
++constructor()
++processTask(task : FinancialTask) Promise~AnalysisResult~
++healthCheck() Promise~HealthStatus~
++getCapabilities() AgentCapability
 }
-class ImprovedBaseAgent {
-+agent_id : string
-+agent_type : AgentType
-+task_queue : TaskQueue
-+metrics : PerformanceMetrics
-+start_workers()
-+stop_workers()
-+_worker_loop(worker_name)
-+_execute_task_with_monitoring(task)
+class FinancialTaskProcessor {
++process(task : FinancialTask) TaskClassification
 }
-class FinancialAgent {
-+process_task(task : Task) dict
-+health_check() dict
+class FinancialAnalyzer {
++analyze(task : FinancialTask) FinancialInsights
 }
-ImprovedBaseAgent <|-- CfoCashAgent : "inherits"
-CfoCashAgent --> FinancialAgent : "delegates"
+class BudgetAnalysisEngine {
++analyzeBudget(task : FinancialTask) Promise~BudgetAnalysis~
+}
+class RouterIntegration {
++registerCapabilities() AgentCapability
++handleRoutingRequest(request) RoutingResponse
+}
+CFOAgent --> FinancialTaskProcessor : "uses"
+CFOAgent --> FinancialAnalyzer : "uses"
+CFOAgent --> BudgetAnalysisEngine : "uses"
+CFOAgent --> RouterIntegration : "integrates"
 ```
 
 **Section sources**
-- [cfo_cash.py](file://_legacy/agents/business/cfo_cash.py#L1-L50)
-- [improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L1-L50)
+- [index.ts](file://os-workspace/apps/cfo-agent/src/index.ts#L43-L85) - *CFO Agent class initialization and component setup*
+- [maya_cfo.yml](file://os-workspace/libs/prompts/agent-definitions/maya_cfo.yml) - *Centralized agent definition and personality configuration*
+- [router-integration.ts](file://os-workspace/apps/cfo-agent/src/router-integration.ts#L98-L130) - *Router capability registration and integration*
 
-The agent's architecture follows a delegation pattern where the `CfoCashAgent` acts as a workflow orchestrator, routing tasks to the appropriate financial processing components based on task description keywords. This design enables specialized handling of different financial operations while maintaining a unified interface for task processing.
+The agent's architecture implements a modular design that separates concerns across multiple specialized components:
+- **FinancialTaskProcessor**: Handles intelligent categorization and preprocessing of financial tasks
+- **FinancialAnalyzer**: Performs multi-domain financial analysis across various financial domains
+- **BudgetAnalysisEngine**: Conducts comprehensive budget performance evaluation and optimization
+- **RouterIntegration**: Manages integration with the Intelligent Router for task distribution
+
+This separation enables flexible behavior modification through configuration changes while maintaining robust execution capabilities in the TypeScript runtime.
 
 ## Financial Reasoning Framework
 
-The financial reasoning capabilities of Maya are defined in the `cfo_agent_prompt.yaml` configuration file, which establishes the agent's role, domain expertise, and response format. This prompt template serves as the cognitive framework that guides Maya's decision-making processes and ensures consistent financial analysis across different task types.
+The financial reasoning capabilities of Maya are defined in the `maya_cfo.yml` configuration file located in the centralized `libs/prompts/agent-definitions/` directory. This prompt template serves as the cognitive framework that guides Maya's decision-making processes and ensures consistent financial analysis across different task types.
 
-```mermaid
-flowchart TD
-A["Task Received"] --> B["Extract Task Description"]
-B --> C["Apply Financial Analysis Methodologies"]
-C --> D["Analyze Budget Implications"]
-D --> E["Generate Financial Insights"]
-E --> F["Provide Actionable Outcomes"]
-F --> G["Return JSON Response with Financial Analysis"]
-```
+The configuration defines several key aspects of Maya's operation:
+
+- **Agent Name**: Maya (CFO)
+- **Agent Type**: Financial Leadership
+- **Core Instructions**: Strategic financial oversight and cost optimization
+- **Personality Traits**: Analytical, detail-oriented, risk-aware, performance-driven
+- **Required Tools**: Financial analysis engine, budget optimization system, ROI calculator
+- **Financial Domains**: Budget analysis, cost optimization, ROI assessment, financial reporting
+- **Decision Criteria**: Cost-benefit analysis, risk-adjusted returns, budget variance thresholds
+- **Escalation Criteria**: High-risk decisions, major capital expenditures, strategic pivots
+- **Performance Targets**: 
+  - Response time: ≤ 1000ms
+  - Decision confidence threshold: ≥ 0.85
+  - Forecast accuracy target: ≥ 0.90
+  - Budget variance threshold: ≤ 0.05
+
+When processing tasks, Maya identifies the appropriate financial domain based on task content and applies specialized analysis methodologies. The agent supports multiple financial decision types including budget allocation recommendations, cost reduction strategies, investment approval decisions, financial risk assessments, revenue optimization plans, and capital expenditure analysis.
 
 **Section sources**
-- [cfo_agent_prompt.yaml](file://os-workspace/agents/business-agents/cfo_agent_prompt.yaml#L1-L46)
-
-The prompt template defines several key aspects of Maya's operation:
-
-- **Agent Type**: CFO
-- **Domain Expertise**: Financial analysis and budget management
-- **Capabilities**: Financial analysis, budget management, financial operations
-- **Response Format**: Structured JSON with financial analysis
-- **Processing Logic**: Domain-specific financial methodologies applied to task content
-
-When processing tasks, Maya identifies the financial domain based on keywords in the task description:
-- "p&l" triggers Profit & Loss analysis
-- "r&d" initiates R&D tax optimization
-- "forecast" invokes revenue forecasting
-- "stripe" or "banking" activates transaction processing
-
-For each identified domain, Maya delegates the task to the `FinancialAgent` system while augmenting the response with domain-specific messaging and status information. This approach allows for extensible financial capabilities while maintaining consistent response patterns.
+- [maya_cfo.yml](file://os-workspace/libs/prompts/agent-definitions/maya_cfo.yml) - *Centralized agent definition with financial reasoning framework*
+- [types.ts](file://os-workspace/apps/cfo-agent/src/types.ts#L0-L43) - *Type definitions for agent configuration and decision criteria*
 
 ## Cost Monitoring System
 
@@ -297,70 +297,69 @@ Maya generates financial reports for the CEO Agent (Mimi) by aggregating data fr
 
 ## Performance and Reliability
 
-The CFO Agent inherits comprehensive performance monitoring and reliability features from the `ImprovedBaseAgent` class. These capabilities ensure that Maya can operate efficiently under varying workloads while maintaining data integrity and service availability.
+The CFO Agent implements comprehensive performance monitoring and reliability features to ensure efficient operation under varying workloads while maintaining data integrity and service availability.
 
 Key performance features include:
-- **Task Queueing**: Priority-based task processing with configurable concurrency limits
-- **Circuit Breaker**: Protection against cascading failures in external dependencies
-- **Caching**: Response caching to reduce redundant processing
-- **Metrics Collection**: Comprehensive performance monitoring including response times, error rates, and resource usage
+- **Task Processing Pipeline**: Streamlined workflow for financial task analysis and response generation
+- **Component Health Monitoring**: Regular health checks for all core components
+- **Performance Metrics Collection**: Comprehensive monitoring including response times, success rates, and accuracy metrics
+- **Cache Mechanism**: Response caching to reduce redundant processing of similar financial analyses
 
 ```mermaid
 classDiagram
-class ImprovedBaseAgent {
-+task_queue : TaskQueue
-+connection_pool : ConnectionPool
-+metrics : PerformanceMetrics
-+cache : SimpleCache
-+circuit_breaker : CircuitBreaker
-+_worker_loop()
-+_execute_task_with_monitoring()
-+_metrics_loop()
+class CFOAgent {
++performanceMetrics : PerformanceMetrics
++currentWorkload : number
++maxConcurrentTasks : number
++availabilityStatus : string
++reportPerformanceMetrics() PerformanceReport
 }
 class PerformanceMetrics {
-+tasks_completed : int
-+tasks_failed : int
-+avg_response_time : float
-+error_rate : float
-+throughput : float
-+peak_memory_mb : float
++tasksProcessed : number
++averageResponseTime : number
++successRate : number
++escalationRate : number
++accuracyRate : number
 }
-class TaskQueue {
-+add_task(task)
-+get_task()
-+mark_active(task)
-+mark_completed(task)
+class PerformanceReport {
++timestamp : Date
++responseTimeMs : number
++decisionConfidence : number
++forecastAccuracy : number
++systemLoad : number
 }
-class CircuitBreaker {
-+can_execute()
-+record_success()
-+record_failure()
-}
-ImprovedBaseAgent --> PerformanceMetrics
-ImprovedBaseAgent --> TaskQueue
-ImprovedBaseAgent --> CircuitBreaker
+CFOAgent --> PerformanceMetrics
+CFOAgent --> PerformanceReport
 ```
 
 **Section sources**
-- [improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py#L1-L526)
+- [index.ts](file://os-workspace/apps/cfo-agent/src/index.ts#L43-L85) - *Performance metrics initialization and tracking*
+- [types.ts](file://os-workspace/apps/cfo-agent/src/types.ts#L0-L43) - *Performance metrics type definitions*
+- [index.test.ts](file://os-workspace/apps/cfo-agent/src/index.test.ts#L0-L34) - *Test suite validating performance targets*
 
 The agent implements several reliability mechanisms:
-- **Timeout Handling**: Tasks are automatically retried with exponential backoff if they exceed their timeout
-- **Error Recovery**: Failed tasks are retried up to a configurable maximum before being marked as failed
-- **Graceful Shutdown**: Worker tasks are properly terminated during shutdown to prevent data loss
-- **Health Monitoring**: Regular health checks ensure the agent and its dependencies are operational
+- **Graceful Degradation**: When confidence in financial recommendations falls below threshold (0.85), results are escalated for review
+- **Health Monitoring**: Regular health checks ensure all components are operational
+- **Error Handling**: Comprehensive error handling with structured error responses
+- **Version Compatibility**: Maintains backward compatibility with legacy systems during transition
 
 These features ensure that Maya can reliably perform its financial monitoring and optimization functions even under adverse conditions.
 
 ## Configuration and Alerting
 
-The CFO Agent's behavior is configurable through several mechanisms that allow administrators to customize budget thresholds, alerting rules, and reporting intervals. These configuration options enable fine-tuning of the financial governance system to meet organizational requirements.
+The CFO Agent's behavior is configurable through multiple mechanisms that allow administrators to customize budget thresholds, alerting rules, and reporting intervals. These configuration options enable fine-tuning of the financial governance system to meet organizational requirements.
 
 Key configuration parameters include:
-- **Monthly Budget Cap**: Defined in `config.py` as `MONTHLY_BUDGET_CAP`
-- **Budget Alert Thresholds**: Configured in the policy engine (e.g., 5% for low budget mode)
-- **Task Priorities**: Configurable priority levels (1-10) for task queueing
-- **Retry Policies**: Maximum retries and timeout settings for task execution
+- **Environment Variables**:
+  - `CFO_AGENT_LOG_LEVEL`: Logging verbosity (debug, info, warn, error)
+  - `CFO_AGENT_CACHE_TTL`: Analysis cache time-to-live in seconds
+  - `CFO_AGENT_MAX_CONCURRENT`: Maximum concurrent task processing
+- **Performance Targets**:
+  - Response time: ≤ 1000ms
+  - Decision confidence threshold: ≥ 0.85
+  - Forecast accuracy target: ≥ 0.90
+  - Budget variance threshold: ≤ 0.05
+- **Variance Thresholds**: Configurable thresholds for different budget categories (personnel: 3%, technology: 10%, marketing: 15%, etc.)
 
 The system supports several alerting mechanisms:
 - **Budget Exceeded Exception**: Raised when spending exceeds the monthly cap
@@ -368,7 +367,12 @@ The system supports several alerting mechanisms:
 - **Cost Spike Detection**: Potential future enhancement to detect anomalous spending patterns
 - **Automatic Throttling**: Future capability to automatically reduce spending when thresholds are breached
 
-Configuration is primarily code-based rather than file-based, with key parameters defined as constants in the source code. This approach ensures configuration consistency but limits runtime flexibility. Future enhancements could include external configuration files or database-backed settings to improve adaptability.
+Configuration is managed through a combination of environment variables and centralized YAML configuration files, providing both runtime flexibility and version-controlled settings management.
+
+**Section sources**
+- [README.md](file://os-workspace/apps/cfo-agent/README.md#L146-L201) - *Configuration and environment variable documentation*
+- [maya_cfo.yml](file://os-workspace/libs/prompts/agent-definitions/maya_cfo.yml) - *Centralized configuration with performance targets*
+- [index.ts](file://os-workspace/apps/cfo-agent/src/index.ts#L576-L618) - *Performance target definitions in code*
 
 ## Troubleshooting Guide
 

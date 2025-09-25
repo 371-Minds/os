@@ -2,13 +2,12 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [clo_sage.py](file://_legacy/agents/business/clo_sage.py) - *Original implementation of CLO agent*
-- [improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py) - *Base class with performance monitoring and task management*
+- [clo_sage.py](file://_legacy/agents/business/clo_sage.py) - *Core implementation of CLO agent logic*
+- [improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py) - *Base class with performance monitoring and task management capabilities*
 - [clo_agent_prompt.yaml](file://os-workspace/agents/business-agents/clo_agent_prompt.yaml) - *Prompt template defining legal reasoning parameters*
 - [credential_warehouse_agent.py](file://_legacy/agents/utility/credential_warehouse_agent.py) - *Integration for secure credential access and validation*
 - [usage_ledger.py](file://_legacy/adaptive_llm_router/usage_ledger.py) - *Audit trail generation and cost tracking*
 - [CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md) - *Architectural blueprint and compliance workflows*
-- [apps/clo-agent/src/index.ts](file://os-workspace/apps/clo-agent/src/index.ts) - *Updated agent configuration and integration logic*
 </cite>
 
 ## Update Summary

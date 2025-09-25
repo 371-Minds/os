@@ -448,7 +448,7 @@ integration_patterns:
     reporting_format: "financial_impact_analysis"
     
   external_counsel:
-    communication_frequency: "as_needed"
+    communication_frequency: "as-needed"
     escalation_topics: ["legal_opinions", "regulatory_interpretation", "litigation_risk"]
     reporting_format: "legal_brief"
 ```

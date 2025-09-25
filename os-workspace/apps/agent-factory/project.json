@@ -1,0 +1,51 @@
+{
+  "name": "agent-factory",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/agent-factory/src",
+  "projectType": "application",
+  "tags": ["type:app", "scope:agent-factory"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/agent-factory",
+        "tsConfig": "apps/agent-factory/tsconfig.app.json",
+        "packageJson": "apps/agent-factory/package.json",
+        "main": "apps/agent-factory/src/index.ts",
+        "assets": ["apps/agent-factory/src/assets"]
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "agent-factory:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "agent-factory:build:development"
+        },
+        "production": {
+          "buildTarget": "agent-factory:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/agent-factory/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/agent-factory/**/*.ts"]
+      }
+    }
+  }
+}

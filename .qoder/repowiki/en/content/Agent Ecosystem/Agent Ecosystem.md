@@ -5,7 +5,7 @@
 - [371-os\CEO_Agent_Logic.md](file://371-os/CEO_Agent_Logic.md) - *Updated in recent commit*
 - [371-os\CTO_Agent_Logic.md](file://371-os/CTO_Agent_Logic.md) - *Updated in recent commit*
 - [371-os\CFO_Agent_Logic.md](file://371-os/CFO_Agent_Logic.md) - *Updated in recent commit*
-- [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md) - *Updated in recent commit*
+- [371-os\CLO_Agent_Logic.md](file://371-os\CLO_Agent_Logic.md) - *Updated in recent commit*
 - [_legacy\agents\base_agent\improved_base_agent.py](file://_legacy/agents/base_agent/improved_base_agent.py) - *Updated in recent commit*
 - [_legacy\agents\business\ceo_mimi.py](file://_legacy/agents/business/ceo_mimi.py) - *Updated in recent commit*
 - [_legacy\agents\business\cto_alex.py](file://_legacy/agents/business/cto_alex.py) - *Updated in recent commit*
@@ -301,7 +301,7 @@ DesignTransfer --> End;
 ```
 
 **Diagram sources**
-- [371-os\CLO_Agent_Logic.md](file://371-os/CLO_Agent_Logic.md#L1-L21) - *Updated in recent commit*
+- [371-os\CLO_Agent_Logic.md](file://371-os\CLO_Agent_Logic.md#L1-L21) - *Updated in recent commit*
 
 The CloSageAgent implementation processes learning tasks by analyzing performance metrics from other agents and identifying optimization opportunities:
 

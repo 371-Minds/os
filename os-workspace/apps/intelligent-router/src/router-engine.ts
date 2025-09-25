@@ -21,6 +21,8 @@ import { TaskAnalyzer } from './task-analyzer';
 import { AgentSelector } from './agent-selector';
 import { DelegationOrchestrator } from './delegation-orchestrator';
 import { PerformanceMonitor } from './performance-monitor';
+import { CapabilityGapDetector } from './capability-gap-detector';
+import { AgentSpawner } from './agent-spawner';
 
 interface RouterEngineConfig {
   agent_brain_definition: IntelligentRouterDefinition;
@@ -34,6 +36,8 @@ export class RouterEngine {
   private agentSelector: AgentSelector;
   private delegationOrchestrator: DelegationOrchestrator;
   private performanceMonitor: PerformanceMonitor;
+  private capabilityGapDetector: CapabilityGapDetector;
+  private agentSpawner: AgentSpawner;
   
   private config: RouterEngineConfig;
   private activeRoutings: Map<string, RoutingTask> = new Map();
@@ -59,8 +63,10 @@ export class RouterEngine {
     this.performanceMonitor = new PerformanceMonitor(
       config.agent_brain_definition.performance_targets
     );
+    this.capabilityGapDetector = new CapabilityGapDetector();
+    this.agentSpawner = new AgentSpawner();
 
-    console.log('[RouterEngine] Initialized with advanced routing capabilities');
+    console.log('[RouterEngine] Initialized with advanced routing capabilities and autonomous spawning');
   }
 
   /**
@@ -100,6 +106,47 @@ export class RouterEngine {
 
       // Select agent
       const agentSelection = await this.agentSelector.selectAgent(task, analysis);
+
+      // Check for capability gaps before creating routing decision
+      if (agentSelection.confidence_score < 0.3) {
+        const capabilityGap = await this.capabilityGapDetector.detectCapabilityGap(task, analysis);
+        
+        if (capabilityGap.shouldSpawn) {
+          console.log(`[RouterEngine] Capability gap detected for task ${task.id}: ${capabilityGap.missingCapability}`);
+          
+          // Trigger autonomous agent spawning
+          const spawnResult = await this.agentSpawner.spawnAgentForCapability(capabilityGap, task);
+          
+          if (spawnResult.spawningInitiated) {
+            // Queue task for retry after agent is ready
+            setTimeout(async () => {
+              console.log(`[RouterEngine] Retrying task ${task.id} after agent spawn`);
+              await this.routeTask(task);
+            }, spawnResult.estimatedReadyTime);
+            
+            return {
+              success: true,
+              data: {
+                success: false,
+                primary_agent: 'spawning_new_agent',
+                confidence_score: 0.9, // High confidence in spawning solution
+                routing_rationale: `Spawning new agent for missing capability: ${capabilityGap.missingCapability}. Task queued for retry.`,
+                coordination_required: false,
+                estimated_completion_time: spawnResult.estimatedReadyTime + 60000, // Add 1 minute buffer
+                escalation_required: false,
+                decision_timestamp: new Date(),
+                spawning_info: {
+                  spawn_id: spawnResult.spawnId,
+                  missing_capability: capabilityGap.missingCapability,
+                  estimated_ready_time: spawnResult.estimatedReadyTime
+                }
+              },
+              timestamp: new Date(),
+              routing_id: routingId
+            };
+          }
+        }
+      }
 
       // Create routing decision
       const decision = this.createRoutingDecision(task, analysis, agentSelection, startTime);

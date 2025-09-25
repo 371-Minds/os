@@ -27,6 +27,10 @@
 - [refactor-cto-agent.md](file://.qoder\quests\refactor-cto-agent.md) - *Refactoring design for CTO agent introducing unified brain/body architecture*
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml) - *CTO Agent definition file with centralized configuration*
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts) - *CTO Agent implementation with unified brain/body architecture*
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml) - *CFO Agent definition file with centralized configuration*
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts) - *New budget analysis engine implementation*
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts) - *CFO Agent implementation with unified brain/body architecture*
+- [README.md](file://os-workspace\apps\cfo-agent\README.md) - *New CFO Agent documentation*
 </cite>
 
 ## Update Summary
@@ -45,6 +49,11 @@
 - Added detailed documentation for CTO Agent's technical decision-making framework and escalation criteria
 - Updated CTO Agent analysis with new TypeScript implementation and centralized configuration
 - Added diagram illustrating CTO Agent's unified brain/body architecture
+- Added new CFO Agent (Maya) implementation with unified brain/body architecture pattern
+- Integrated Budget Analysis Engine for comprehensive financial performance evaluation
+- Added detailed documentation for CFO Agent's financial decision-making framework and escalation criteria
+- Updated CFO Agent analysis with new TypeScript implementation and centralized configuration
+- Added diagram illustrating CFO Agent's unified brain/body architecture
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -59,10 +68,10 @@
 10. [Conclusion](#conclusion)
 
 ## Introduction
-The C-Suite Agents represent a strategic layer within the 371-OS agent ecosystem, functioning as executive decision-makers responsible for high-level orchestration, domain-specific oversight, and cross-functional coordination. Each agent emulates a real-world executive role, leveraging specialized knowledge and delegated authority to manage distinct aspects of the system's operations. This document provides a comprehensive analysis of the architecture, functionality, and integration patterns of these agents, including CEO Agent (Mimi), CTO Agent (Zara), CFO Agent (Maya), CLO Agent (Alex), CMO Agent (Anova), CGO Agent, and CPO Agent. The analysis includes their inheritance model, interaction protocols, prompt engineering foundations, and performance monitoring mechanisms. Recent updates have introduced an enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern, significantly strengthening the strategic orchestration capabilities of the executive layer. Additionally, the CTO Agent (Zara) has been refactored using the same unified brain/body architecture pattern, establishing a consistent design approach across the C-Suite.
+The C-Suite Agents represent a strategic layer within the 371-OS agent ecosystem, functioning as executive decision-makers responsible for high-level orchestration, domain-specific oversight, and cross-functional coordination. Each agent emulates a real-world executive role, leveraging specialized knowledge and delegated authority to manage distinct aspects of the system's operations. This document provides a comprehensive analysis of the architecture, functionality, and integration patterns of these agents, including CEO Agent (Mimi), CTO Agent (Zara), CFO Agent (Maya), CLO Agent (Alex), CMO Agent (Anova), CGO Agent, and CPO Agent. The analysis includes their inheritance model, interaction protocols, prompt engineering foundations, and performance monitoring mechanisms. Recent updates have introduced an enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern, significantly strengthening the strategic orchestration capabilities of the executive layer. Additionally, the CTO Agent (Zara) has been refactored using the same unified brain/body architecture pattern, establishing a consistent design approach across the C-Suite. A new CFO Agent (Maya) has also been implemented with the same unified brain/body architecture pattern, providing comprehensive financial leadership, budget analysis, cost optimization, ROI assessment, and strategic financial decision-making capabilities.
 
 ## Project Structure
-The C-Suite Agents are organized within the `src/minds371/agents/business/` directory, each implemented as a dedicated Python module. These agents inherit core functionality from `improved_base_agent.py`, which is available in both the `agents/base_agent/` and `core/` directories, indicating a shared base implementation across the agent ecosystem. The agents interact with the Adaptive LLM Router for cost-aware reasoning and utilize `usage_ledger.py` for audit logging and resource tracking. Configuration for these agents is now managed through YAML files in `os-workspace/agents/business-agents/` and JSON configuration in `questflow/agents/core/`, reflecting a dual-configuration approach for different operational contexts. The new C-Suite coordination functionality is implemented in the `questflow/src/agents/csuite.ts` and `questflow/src/agents/csuite.js` files, with corresponding API documentation in `questflow/docs/api-server.md`. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" consists of the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`.
+The C-Suite Agents are organized within the `src/minds371/agents/business/` directory, each implemented as a dedicated Python module. These agents inherit core functionality from `improved_base_agent.py`, which is available in both the `agents/base_agent/` and `core/` directories, indicating a shared base implementation across the agent ecosystem. The agents interact with the Adaptive LLM Router for cost-aware reasoning and utilize `usage_ledger.py` for audit logging and resource tracking. Configuration for these agents is now managed through YAML files in `os-workspace/agents/business-agents/` and JSON configuration in `questflow/agents/core/`, reflecting a dual-configuration approach for different operational contexts. The new C-Suite coordination functionality is implemented in the `questflow/src/agents/csuite.ts` and `questflow/src/agents/csuite.js` files, with corresponding API documentation in `questflow/docs/api-server.md`. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" consists of the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`. The new CFO Agent (Maya) follows the same unified brain/body architecture pattern, with its "brain" defined in `maya_cfo.yml` and its "body" implemented in `os-workspace/apps/cfo-agent/src/index.ts`.
 
 ```mermaid
 graph TD
@@ -85,6 +94,7 @@ YAMLConfig[business-agents/]
 JSONConfig[questflow/core/]
 BrainCEO[mimi_ceo.yml]
 BrainCTO[zara_cto.yml]
+BrainCFO[maya_cfo.yml]
 end
 subgraph "C-Suite Coordination"
 CSuite[csuite.ts/js]
@@ -102,6 +112,12 @@ BodyCTO[index.ts]
 TaskProcessor[TechnicalTaskProcessor]
 TechnicalAnalyzer[TechnicalAnalyzer]
 SecurityEngine[SecurityAssessmentEngine]
+end
+subgraph "CFO Agent Implementation"
+BodyCFO[index.ts]
+FinancialTaskProcessor[FinancialTaskProcessor]
+FinancialAnalyzer[FinancialAnalyzer]
+BudgetAnalysisEngine[BudgetAnalysisEngine]
 end
 CEO --> BaseAgent
 CFO --> BaseAgent
@@ -136,6 +152,11 @@ BrainCTO --> BodyCTO
 BodyCTO --> TaskProcessor
 BodyCTO --> TechnicalAnalyzer
 BodyCTO --> SecurityEngine
+CFO --> BrainCFO
+BrainCFO --> BodyCFO
+BodyCFO --> FinancialTaskProcessor
+BodyCFO --> FinancialAnalyzer
+BodyCFO --> BudgetAnalysisEngine
 style CEO fill:#f9f,stroke:#333
 style CFO fill:#f9f,stroke:#333
 style CTO fill:#f9f,stroke:#333
@@ -146,6 +167,7 @@ style CPO fill:#f9f,stroke:#333
 style CSuite fill:#00ccff,stroke:#333
 style BodyCEO fill:#00ccff,stroke:#333
 style BodyCTO fill:#00ccff,stroke:#333
+style BodyCFO fill:#00ccff,stroke:#333
 ```
 
 **Diagram sources**
@@ -173,6 +195,10 @@ style BodyCTO fill:#00ccff,stroke:#333
 - [refactor-cto-agent.md](file://.qoder\quests\refactor-cto-agent.md)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts)
+- [README.md](file://os-workspace\apps\cfo-agent\README.md)
 
 **Section sources**
 - [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py)
@@ -197,14 +223,18 @@ style BodyCTO fill:#00ccff,stroke:#333
 - [refactor-cto-agent.md](file://.qoder\quests\refactor-cto-agent.md)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts)
-- [README.md](file://os-workspace\apps\ceo-agent\README.md)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts)
+- [README.md](file://os-workspace\apps\cfo-agent\README.md)
 
 ## Core Components
-The C-Suite Agents are built upon a modular architecture that emphasizes role-specific expertise, hierarchical delegation, and cost-aware execution. Each agent extends the `ImprovedBaseAgent` class, inheriting foundational capabilities such as message processing, context management, and LLM interaction. The agents are designed to operate autonomously within their domains while coordinating with other executives through a shared governance model. Key responsibilities include strategic planning, resource allocation, compliance enforcement, and performance optimization. Configuration is now managed through both YAML templates in `os-workspace/agents/business-agents/` and JSON configuration files in `questflow/agents/core/`, enabling flexible deployment across different operational environments. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, significantly enhancing the strategic orchestration capabilities of the executive layer. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`, establishing a consistent design approach across the C-Suite.
+The C-Suite Agents are built upon a modular architecture that emphasizes role-specific expertise, hierarchical delegation, and cost-aware execution. Each agent extends the `ImprovedBaseAgent` class, inheriting foundational capabilities such as message processing, context management, and LLM interaction. The agents are designed to operate autonomously within their domains while coordinating with other executives through a shared governance model. Key responsibilities include strategic planning, resource allocation, compliance enforcement, and performance optimization. Configuration is now managed through both YAML templates in `os-workspace/agents/business-agents/` and JSON configuration files in `questflow/agents/core/`, enabling flexible deployment across different operational environments. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, significantly enhancing the strategic orchestration capabilities of the executive layer. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`, establishing a consistent design approach across the C-Suite. The new CFO Agent (Maya) follows the same unified brain/body architecture pattern, with its "brain" defined in `maya_cfo.yml` and its "body" implemented in `os-workspace/apps/cfo-agent/src/index.ts`, providing comprehensive financial leadership, budget analysis, cost optimization, ROI assessment, and strategic financial decision-making capabilities.
 
 **Section sources**   
 - [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py#L1-L50)
 - [cto_alex.py](file://371-os\src\minds371\agents\business\cto_alex.py#L1-L50)
+- [cfo_cash.py](file://371-os\src\minds371\agents\business\cfo_cash.py#L1-L50)
 - [improved_base_agent.py](file://371-os\src\minds371\agents\base_agent\improved_base_agent.py#L1-L100)
 - [ceo_mimi.yaml](file://os-workspace\agents\business-agents\ceo_mimi.yaml#L1-L47)
 - [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json#L1-L26)
@@ -220,9 +250,13 @@ The C-Suite Agents are built upon a modular architecture that emphasizes role-sp
 - [refactor-cto-agent.md](file://.qoder\quests\refactor-cto-agent.md#L1-L320)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml#L1-L145)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts#L31-L465)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts#L18-L525)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
+- [README.md](file://os-workspace\apps\cfo-agent\README.md#L1-L270)
 
 ## Architecture Overview
-The C-Suite Agents function as a decentralized executive board, with the CEO Agent (Mimi) serving as the primary orchestrator. Mimi delegates tasks to specialized agents based on domain relevance, using a routing mechanism integrated with the Adaptive LLM Router. This router evaluates cost, latency, and accuracy trade-offs when selecting LLM providers, ensuring efficient resource utilization. All agent interactions are logged via `usage_ledger.py`, enabling auditability and cost monitoring. The system supports conflict resolution through priority-based decision arbitration and consensus mechanisms. Configuration is now dual-faceted, with YAML files providing prompt templates and JSON files defining agent parameters, capabilities, and blockchain integration. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, featuring a strategic orchestrator, enhanced task delegator, and comprehensive health monitor. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`, establishing a consistent design approach across the C-Suite.
+The C-Suite Agents function as a decentralized executive board, with the CEO Agent (Mimi) serving as the primary orchestrator. Mimi delegates tasks to specialized agents based on domain relevance, using a routing mechanism integrated with the Adaptive LLM Router. This router evaluates cost, latency, and accuracy trade-offs when selecting LLM providers, ensuring efficient resource utilization. All agent interactions are logged via `usage_ledger.py`, enabling auditability and cost monitoring. The system supports conflict resolution through priority-based decision arbitration and consensus mechanisms. Configuration is now dual-faceted, with YAML files providing prompt templates and JSON files defining agent parameters, capabilities, and blockchain integration. The CEO Agent (Mimi) has been enhanced with a refactored TypeScript implementation following the unified brain/body architecture pattern, where the "brain" contains the agent definition in `mimi_ceo.yml` and the "body" comprises the TypeScript application in `os-workspace/apps/ceo-agent/src/`, featuring a strategic orchestrator, enhanced task delegator, and comprehensive health monitor. Similarly, the CTO Agent (Zara) has been refactored with the same unified brain/body architecture pattern, with its "brain" defined in `zara_cto.yml` and its "body" implemented in `os-workspace/apps/cto-agent/src/index.ts`, establishing a consistent design approach across the C-Suite. The new CFO Agent (Maya) follows the same unified brain/body architecture pattern, with its "brain" defined in `maya_cfo.yml` and its "body" implemented in `os-workspace/apps/cfo-agent/src/index.ts`, providing comprehensive financial leadership, budget analysis, cost optimization, ROI assessment, and strategic financial decision-making capabilities.
 
 ```mermaid
 sequenceDiagram
@@ -260,6 +294,9 @@ CEO-->>User : Final Strategic Decision
 - [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L677)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts#L31-L465)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml#L1-L145)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts#L18-L525)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
 
 ## Detailed Component Analysis
 
@@ -336,11 +373,45 @@ ImprovedBaseAgent <|-- CTOAgent
 - [refactor-cto-agent.md](file://.qoder\quests\refactor-cto-agent.md#L1-L320)
 
 ### CFO Agent (Maya) Analysis
-The CFO Agent, implemented in `cfo_cash.py`, specializes in financial optimization and cost monitoring. It analyzes budget allocations, forecasts expenses, and evaluates ROI for proposed initiatives. Cash integrates with the Adaptive LLM Router to select cost-effective LLM providers and logs all financial transactions in `usage_ledger.py`. Configuration is managed through `cfo_agent_prompt.yaml` which defines the financial analysis template and response requirements.
+The CFO Agent, implemented in `index.ts`, specializes in financial optimization and cost monitoring with comprehensive financial leadership capabilities. Maya analyzes budget allocations, forecasts expenses, evaluates ROI for proposed initiatives, conducts variance analysis, identifies optimization opportunities, and generates financial reports. The agent follows the unified brain/body architecture pattern, with its "brain" defined in `maya_cfo.yml` containing core instructions, personality traits, required tools, financial domains, decision criteria, escalation criteria, and performance targets. The "body" is implemented in `os-workspace/apps/cfo-agent/src/index.ts` with core components including a financial task processor, financial analyzer, and budget analysis engine. The agent processes financial tasks through a structured workflow: validating input, categorizing task type, generating comprehensive financial analysis, making decisions based on task category, updating performance metrics, and handling escalations when necessary. The implementation includes specific methods for budget analysis, cost optimization, ROI assessment, financial reporting, revenue forecasting, and health checks.
+
+The Budget Analysis Engine, implemented in `budget-analysis-engine.ts`, provides specialized capabilities for budget performance evaluation. It performs comprehensive budget analysis including performance rating, variance identification, root cause analysis, optimization opportunity identification, recommendation generation, and forecast adjustments. The engine uses configurable thresholds for different budget categories and provides confidence scoring for recommendations. It includes caching mechanisms for performance optimization and validation methods for reliability assurance.
+
+```mermaid
+classDiagram
+class ImprovedBaseAgent {
++str agent_id
++dict context
++list message_history
++process_message(msg) str
++update_context(data) void
++get_response(prompt) str
+}
+class CFOAgent {
++str role : "CFO"
++list capabilities
++process_task(task) dict
++analyze_budget(budgetData) dict
++optimize_costs(costData) dict
++assess_roi(investmentProposal) dict
++generate_report(reportSpec) dict
++forecast_revenue(forecastSpec) dict
++health_check() dict
+}
+ImprovedBaseAgent <|-- CFOAgent
+```
+
+**Diagram sources**
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts#L18-L525)
+- [improved_base_agent.py](file://371-os\src\minds371\agents\base_agent\improved_base_agent.py#L5-L20)
 
 **Section sources**
-- [cfo_cash.py](file://371-os\src\minds371\agents\business\cfo_cash.py#L1-L80)
-- [cfo_agent_prompt.yaml](file://os-workspace\agents\business-agents\cfo_agent_prompt.yaml)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [budget-analysis-engine.ts](file://os-workspace\apps\cfo-agent\src\budget-analysis-engine.ts#L18-L525)
+- [README.md](file://os-workspace\apps\cfo-agent\README.md#L1-L270)
 
 ### CLO Agent (Alex) Analysis
 The CLO Agent, implemented in `clo_sage.py`, ensures legal compliance and governance. Sage reviews all strategic decisions for regulatory adherence, manages risk assessments, and maintains audit trails. The agent collaborates with other executives to embed compliance into operational workflows. Configuration is managed through `clo_agent_prompt.yaml` which defines compliance review templates and legal requirements.
@@ -403,7 +474,7 @@ API-->>User : Return meeting summary
 - [api-server.md](file://questflow\docs\api-server.md#L50-L100)
 
 ## Dependency Analysis
-The C-Suite Agents exhibit a well-defined dependency structure centered on the `ImprovedBaseAgent` class. All agents depend on the Adaptive LLM Router for LLM provider selection and cost management. The router, in turn, depends on `usage_ledger.py` for tracking resource consumption. While the agents operate semi-independently, they share context through the CEO Agent, which maintains global state and resolves inter-agent conflicts. Configuration dependencies have evolved to include both YAML-based prompt templates in `os-workspace/agents/business-agents/` and JSON-based agent definitions in `questflow/agents/core/`, creating a dual-configuration dependency model. The new CSuiteCoordinator introduces additional dependencies on the API server and individual C-Suite agents for meeting coordination. The CTO Agent's refactoring has established a consistent dependency pattern with its configuration loaded from `zara_cto.yml` and its implementation in `os-workspace/apps/cto-agent/src/index.ts`.
+The C-Suite Agents exhibit a well-defined dependency structure centered on the `ImprovedBaseAgent` class. All agents depend on the Adaptive LLM Router for LLM provider selection and cost management. The router, in turn, depends on `usage_ledger.py` for tracking resource consumption. While the agents operate semi-independently, they share context through the CEO Agent, which maintains global state and resolves inter-agent conflicts. Configuration dependencies have evolved to include both YAML-based prompt templates in `os-workspace/agents/business-agents/` and JSON-based agent definitions in `questflow/agents/core/`, creating a dual-configuration dependency model. The new CSuiteCoordinator introduces additional dependencies on the API server and individual C-Suite agents for meeting coordination. The CTO Agent's refactoring has established a consistent dependency pattern with its configuration loaded from `zara_cto.yml` and its implementation in `os-workspace/apps/cto-agent/src/index.ts`. The new CFO Agent follows the same pattern with its configuration in `maya_cfo.yml` and implementation in `os-workspace/apps/cfo-agent/src/index.ts`.
 
 ```mermaid
 graph TD
@@ -431,6 +502,8 @@ CSuite --> CFO
 CSuite --> CMO
 CTO --> BrainCTO
 BrainCTO --> BodyCTO
+CFO --> BrainCFO
+BrainCFO --> BodyCFO
 style BaseAgent fill:#bbf,stroke:#333
 style Router fill:#fbb,stroke:#333
 style Ledger fill:#bfb,stroke:#333
@@ -440,6 +513,8 @@ style CSuite fill:#00ccff,stroke:#333
 style API fill:#99ccff,stroke:#333
 style BrainCTO fill:#ffcc00,stroke:#333
 style BodyCTO fill:#00ccff,stroke:#333
+style BrainCFO fill:#ffcc00,stroke:#333
+style BodyCFO fill:#00ccff,stroke:#333
 ```
 
 **Diagram sources**
@@ -452,6 +527,8 @@ style BodyCTO fill:#00ccff,stroke:#333
 - [api-server.md](file://questflow\docs\api-server.md#L50-L100)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml#L1-L145)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts#L31-L465)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
 
 **Section sources**
 - [improved_base_agent.py](file://371-os\src\minds371\agents\base_agent\improved_base_agent.py#L1-L30)
@@ -463,12 +540,14 @@ style BodyCTO fill:#00ccff,stroke:#333
 - [api-server.md](file://questflow\docs\api-server.md#L50-L100)
 - [zara_cto.yml](file://os-workspace\libs\prompts\agent-definitions\zara_cto.yml#L1-L145)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts#L31-L465)
+- [maya_cfo.yml](file://os-workspace\libs\prompts\agent-definitions\maya_cfo.yml#L1-L155)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
 
 ## Performance Considerations
-The C-Suite Agents are designed with performance and cost efficiency in mind. The integration with the Adaptive LLM Router enables dynamic selection of LLM providers based on cost-performance trade-offs. Audit logging via `usage_ledger.py` provides visibility into resource consumption, enabling proactive cost management. Response latency is minimized through parallel task delegation and asynchronous processing. However, potential bottlenecks may arise from sequential decision-making in conflict resolution scenarios, suggesting opportunities for implementing concurrent consensus algorithms. The dual-configuration system (YAML and JSON) may introduce additional parsing overhead that should be monitored in high-throughput scenarios. The new C-Suite meeting functionality adds coordination overhead but enables more comprehensive strategic decision-making. The CTO Agent's implementation includes performance metrics tracking for tasks processed, average response time, success rate, and escalation rate, with health checks verifying component status and overall agent health.
+The C-Suite Agents are designed with performance and cost efficiency in mind. The integration with the Adaptive LLM Router enables dynamic selection of LLM providers based on cost-performance trade-offs. Audit logging via `usage_ledger.py` provides visibility into resource consumption, enabling proactive cost management. Response latency is minimized through parallel task delegation and asynchronous processing. However, potential bottlenecks may arise from sequential decision-making in conflict resolution scenarios, suggesting opportunities for implementing concurrent consensus algorithms. The dual-configuration system (YAML and JSON) may introduce additional parsing overhead that should be monitored in high-throughput scenarios. The new C-Suite meeting functionality adds coordination overhead but enables more comprehensive strategic decision-making. The CTO Agent's implementation includes performance metrics tracking for tasks processed, average response time, success rate, and escalation rate, with health checks verifying component status and overall agent health. The CFO Agent includes similar performance metrics tracking with specific targets for response time (<1000ms), decision confidence (>85%), budget variance detection (95% accuracy), and forecast accuracy (>90%).
 
 ## Troubleshooting Guide
-Common issues in the C-Suite Agent system include conflicting recommendations between executives and suboptimal LLM provider selection. Conflicts are resolved through a priority-based arbitration system led by the CEO Agent, with final decisions logged for audit purposes. Performance degradation may occur if the usage ledger becomes a bottleneck; this can be mitigated through batched logging or asynchronous write operations. Misrouting of tasks can be diagnosed by reviewing the delegation policies in each agent’s configuration. Configuration-related issues may arise from inconsistencies between YAML prompt templates and JSON operational parameters; these should be validated during deployment to ensure alignment between prompt logic and agent capabilities. Issues with C-Suite meetings can be diagnosed by checking the API server logs and verifying agent availability. The CTO Agent includes specific escalation criteria for high-risk critical tasks, low-confidence decisions, and complex architecture decisions, which can be reviewed when troubleshooting decision-making issues.
+Common issues in the C-Suite Agent system include conflicting recommendations between executives and suboptimal LLM provider selection. Conflicts are resolved through a priority-based arbitration system led by the CEO Agent, with final decisions logged for audit purposes. Performance degradation may occur if the usage ledger becomes a bottleneck; this can be mitigated through batched logging or asynchronous write operations. Misrouting of tasks can be diagnosed by reviewing the delegation policies in each agent’s configuration. Configuration-related issues may arise from inconsistencies between YAML prompt templates and JSON operational parameters; these should be validated during deployment to ensure alignment between prompt logic and agent capabilities. Issues with C-Suite meetings can be diagnosed by checking the API server logs and verifying agent availability. The CTO Agent includes specific escalation criteria for high-risk critical tasks, low-confidence decisions, and complex architecture decisions, which can be reviewed when troubleshooting decision-making issues. The CFO Agent includes specific escalation criteria for budget variances exceeding 10%, cost overruns, investment risks below threshold, and cash flow concerns, which can be reviewed when troubleshooting financial decision-making issues.
 
 **Section sources**
 - [ceo_mimi.py](file://371-os\src\minds371\agents\business\ceo_mimi.py#L120-L150)
@@ -476,6 +555,7 @@ Common issues in the C-Suite Agent system include conflicting recommendations be
 - [csuite.ts](file://questflow\src\agents\csuite.ts#L1-L26)
 - [api-server.md](file://questflow\docs\api-server.md#L50-L100)
 - [index.ts](file://os-workspace\apps\cto-agent\src\index.ts#L31-L465)
+- [index.ts](file://os-workspace\apps\cfo-agent\src\index.ts#L35-L609)
 
 ## Conclusion
-The C-Suite Agents represent a sophisticated implementation of role-based autonomous agents within the 371-OS ecosystem. By emulating executive functions, they enable strategic decision-making, domain specialization, and coordinated action across complex operational domains. The architecture leverages inheritance, delegation, and cost-aware reasoning to deliver a scalable and efficient agent framework. The recent introduction of dual-configuration models (YAML for prompt templates and JSON for operational parameters) enhances flexibility and adaptability across different deployment scenarios. The enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern significantly strengthens the system's strategic orchestration capabilities, while the expanded CEO Agent with complete backstory improves strategic coordination. The CSuiteCoordinator class and C-Suite meeting functionality enable synchronized strategic planning across executive functions, representing a significant advancement in multi-agent coordination. The refactoring of the CTO Agent (Zara) with the same unified brain/body architecture pattern establishes a consistent design approach across the C-Suite, improving maintainability and scalability. Future enhancements could include real-time consensus mechanisms for conflict resolution and enhanced predictive analytics for proactive decision support.
+The C-Suite Agents represent a sophisticated implementation of role-based autonomous agents within the 371-OS ecosystem. By emulating executive functions, they enable strategic decision-making, domain specialization, and coordinated action across complex operational domains. The architecture leverages inheritance, delegation, and cost-aware reasoning to deliver a scalable and efficient agent framework. The recent introduction of dual-configuration models (YAML for prompt templates and JSON for operational parameters) enhances flexibility and adaptability across different deployment scenarios. The enhanced CEO Agent (Mimi) with a refactored TypeScript implementation following the unified brain/body architecture pattern significantly strengthens the system's strategic orchestration capabilities, while the expanded CEO Agent with complete backstory improves strategic coordination. The CSuiteCoordinator class and C-Suite meeting functionality enable synchronized strategic planning across executive functions, representing a significant advancement in multi-agent coordination. The refactoring of the CTO Agent (Zara) with the same unified brain/body architecture pattern establishes a consistent design approach across the C-Suite, improving maintainability and scalability. The new CFO Agent (Maya) with the same unified brain/body architecture pattern provides comprehensive financial leadership, budget analysis, cost optimization, ROI assessment, and strategic financial decision-making capabilities. Future enhancements could include real-time consensus mechanisms for conflict resolution and enhanced predictive analytics for proactive decision support.

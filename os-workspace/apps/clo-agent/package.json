@@ -1,0 +1,21 @@
+{
+  "name": "clo-agent",
+  "version": "1.0.0",
+  "description": "CLO Agent (Alex) - Legal Compliance and Governance",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "test": "bun test",
+    "build": "bun build src/index.ts --outdir dist --target node"
+  },
+  "dependencies": {
+    "yaml": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "bun-types": "^1.1.0",
+    "typescript": "^5.4.0"
+  }
+}

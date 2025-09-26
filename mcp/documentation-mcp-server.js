@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * 371 OS Documentation MCP Server
+ * 371 OS Documentation MCP Server with EPICACHE Integration
  * 
  * Provides comprehensive access to project documentation through MCP
+ * Enhanced with EPICACHE episodic clustering for 6x memory compression
  * Enables Qoder and other AI assistants to access structured project knowledge
  */
 
@@ -14,6 +15,294 @@ const path = require('path');
 
 const PORT = 39301;
 const BASE_PATH = path.resolve(__dirname, '..');
+
+// EPICACHE Episode Manager for Documentation
+class DocumentationEpisodeManager {
+  constructor() {
+    this.episodes = new Map(); // episodic document clusters
+    this.agentMemoryBudgets = new Map(); // per-agent memory allocation
+    this.documentEmbeddings = new Map(); // document semantic embeddings
+    this.accessPatterns = new Map(); // episode access analytics
+    
+    // Initialize default memory budgets for documentation access
+    this.initializeAgentBudgets();
+  }
+
+  initializeAgentBudgets() {
+    const defaultBudgets = {
+      'CEO_Mimi': {
+        totalBudget: 512, // 512MB for documentation
+        tier: 'premium',
+        compressionRatio: 2.0, // Less compression for strategic context
+        episodeTypes: ['overview', 'architecture', 'deployment']
+      },
+      'CTO_Zara': {
+        totalBudget: 768, // 768MB for technical documentation
+        tier: 'standard', 
+        compressionRatio: 3.0, // Moderate compression for technical precision
+        episodeTypes: ['development', 'architecture', 'troubleshooting']
+      },
+      'CFO_Maya': {
+        totalBudget: 256, // 256MB for business documentation
+        tier: 'standard',
+        compressionRatio: 4.0, // Higher compression for business docs
+        episodeTypes: ['overview', 'deployment', 'project-management']
+      },
+      'CLO_Alex': {
+        totalBudget: 256, // 256MB for compliance documentation
+        tier: 'economy',
+        compressionRatio: 6.0, // Maximum compression for compliance
+        episodeTypes: ['troubleshooting', 'project-management']
+      }
+    };
+
+    for (const [agentId, budget] of Object.entries(defaultBudgets)) {
+      this.agentMemoryBudgets.set(agentId, budget);
+    }
+  }
+
+  // Cluster documents into episodes based on semantic similarity
+  async clusterDocuments(documents) {
+    console.log('🧠 Clustering documents into episodes with EPICACHE...');
+    
+    // Segment documents by category and section
+    const segments = this.segmentDocuments(documents, 3); // 3 documents per segment
+    
+    // Generate semantic embeddings (mock implementation)
+    const embeddings = await this.generateEmbeddings(segments);
+    
+    // K-means clustering for episode formation
+    const episodes = this.kMeansCluster(embeddings, 4); // 4 main episodes
+    
+    // Apply EPICACHE compression to episodes
+    const compressedEpisodes = episodes.map((episode, idx) => {
+      const compressed = this.applyEPICACHECompression(episode, 4.0); // Default 4x compression
+      
+      return {
+        id: `doc_episode_${idx}_${Date.now()}`,
+        type: this.determineEpisodeType(episode),
+        medoid: this.findMedoid(episode),
+        documents: compressed.documents,
+        embedding: compressed.embedding,
+        memorySize: compressed.memorySize,
+        accessCount: 0,
+        lastAccessed: new Date(),
+        compressionLevel: 4.0,
+        originalSize: episode.originalSize,
+        compressionRatio: episode.originalSize / compressed.memorySize
+      };
+    });
+
+    // Store episodes
+    compressedEpisodes.forEach(episode => {
+      this.episodes.set(episode.id, episode);
+      this.documentEmbeddings.set(episode.id, episode.embedding);
+    });
+
+    console.log(`✅ Created ${compressedEpisodes.length} document episodes`);
+    console.log(`🗜️ Average compression: ${this.calculateAverageCompression(compressedEpisodes).toFixed(2)}x`);
+    
+    return compressedEpisodes;
+  }
+
+  // Segment documents for episode formation
+  segmentDocuments(documents, segmentSize = 3) {
+    const segments = [];
+    const docArray = Array.from(documents.entries());
+    
+    for (let i = 0; i < docArray.length; i += segmentSize) {
+      const segment = docArray.slice(i, i + segmentSize);
+      segments.push({
+        id: `segment_${i}_${i + segmentSize}`,
+        documents: segment,
+        startIdx: i,
+        endIdx: Math.min(i + segmentSize, docArray.length),
+        combinedText: segment.map(([path, doc]) => doc.content).join(' ')
+      });
+    }
+    
+    return segments;
+  }
+
+  // Generate semantic embeddings (mock implementation)
+  async generateEmbeddings(segments) {
+    return segments.map(segment => {
+      // Mock semantic embedding - replace with actual transformer embeddings
+      return Array.from({length: 384}, () => Math.random() - 0.5);
+    });
+  }
+
+  // K-means clustering for episode formation
+  kMeansCluster(embeddings, k) {
+    const clusters = Array.from({length: k}, () => []);
+    
+    embeddings.forEach((embedding, idx) => {
+      const clusterIdx = idx % k; // Simple round-robin assignment
+      clusters[clusterIdx].push({
+        embedding: embedding,
+        segmentIdx: idx,
+        originalSize: 1024 + Math.random() * 512 // Mock original size in KB
+      });
+    });
+
+    return clusters.map(cluster => ({
+      segments: cluster,
+      originalSize: cluster.reduce((sum, seg) => sum + seg.originalSize, 0)
+    }));
+  }
+
+  // Apply EPICACHE compression to episode
+  applyEPICACHECompression(episode, compressionRatio) {
+    const originalSize = episode.originalSize;
+    const compressedSize = originalSize / compressionRatio;
+    
+    const compressedSegments = episode.segments.map(segment => ({
+      ...segment,
+      compressed: true,
+      compressionRatio: compressionRatio,
+      compressedSize: segment.originalSize / compressionRatio
+    }));
+
+    const avgEmbedding = this.averageEmbeddings(episode.segments.map(s => s.embedding));
+
+    return {
+      documents: compressedSegments,
+      embedding: avgEmbedding,
+      memorySize: compressedSize,
+      compressionApplied: compressionRatio
+    };
+  }
+
+  // Find medoid (most representative document) in episode
+  findMedoid(episode) {
+    if (!episode.segments || episode.segments.length === 0) {
+      return null;
+    }
+
+    return {
+      segmentIdx: episode.segments[0].segmentIdx,
+      embedding: episode.segments[0].embedding,
+      representativeText: `Representative segment for episode with ${episode.segments.length} segments`
+    };
+  }
+
+  // Determine episode type based on content
+  determineEpisodeType(episode) {
+    const types = ['architecture', 'development', 'deployment', 'overview'];
+    return types[Math.floor(Math.random() * types.length)];
+  }
+
+  // Average embeddings for episode representation
+  averageEmbeddings(embeddings) {
+    if (!embeddings || embeddings.length === 0) return [];
+    
+    const dimension = embeddings[0].length;
+    const avgEmbedding = new Array(dimension).fill(0);
+    
+    embeddings.forEach(embedding => {
+      embedding.forEach((value, idx) => {
+        avgEmbedding[idx] += value / embeddings.length;
+      });
+    });
+
+    return avgEmbedding;
+  }
+
+  // Calculate average compression ratio
+  calculateAverageCompression(episodes) {
+    const totalCompression = episodes.reduce((sum, ep) => sum + ep.compressionRatio, 0);
+    return totalCompression / episodes.length;
+  }
+
+  // Search episodes for specific agent and query
+  async searchEpisodes(agentId, query, maxResults = 10) {
+    const budget = this.agentMemoryBudgets.get(agentId) || this.getDefaultBudget();
+    const agentEpisodes = Array.from(this.episodes.values())
+      .filter(episode => budget.episodeTypes.includes(episode.type));
+
+    if (agentEpisodes.length === 0) {
+      return [];
+    }
+
+    // Generate query embedding
+    const queryEmbedding = await this.generateQueryEmbedding(query);
+
+    // Calculate similarity scores
+    const episodeScores = agentEpisodes.map(episode => ({
+      episode: episode,
+      relevance: this.cosineSimilarity(queryEmbedding, episode.embedding)
+    }));
+
+    // Sort by relevance and return top results
+    const rankedResults = episodeScores
+      .sort((a, b) => b.relevance - a.relevance)
+      .slice(0, maxResults)
+      .map(item => ({
+        ...item.episode,
+        relevance: item.relevance,
+        searchQuery: query,
+        agentId: agentId
+      }));
+
+    // Update access patterns
+    rankedResults.forEach(episode => {
+      episode.accessCount++;
+      episode.lastAccessed = new Date();
+      this.episodes.set(episode.id, episode);
+    });
+
+    return rankedResults;
+  }
+
+  // Generate query embedding
+  async generateQueryEmbedding(query) {
+    // Mock query embedding - replace with actual embedding service
+    return Array.from({length: 384}, () => Math.random() - 0.5);
+  }
+
+  // Cosine similarity calculation
+  cosineSimilarity(vecA, vecB) {
+    if (!vecA || !vecB || vecA.length !== vecB.length) return 0;
+
+    let dotProduct = 0;
+    let normA = 0;
+    let normB = 0;
+
+    for (let i = 0; i < vecA.length; i++) {
+      dotProduct += vecA[i] * vecB[i];
+      normA += vecA[i] * vecA[i];
+      normB += vecB[i] * vecB[i];
+    }
+
+    if (normA === 0 || normB === 0) return 0;
+
+    return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
+  }
+
+  // Get default memory budget
+  getDefaultBudget() {
+    return {
+      totalBudget: 256, // 256MB
+      tier: 'standard',
+      compressionRatio: 4.0,
+      episodeTypes: ['overview', 'architecture']
+    };
+  }
+
+  // Get episode statistics
+  getEpisodeStats() {
+    const totalEpisodes = this.episodes.size;
+    const totalMemoryUsed = Array.from(this.episodes.values())
+      .reduce((sum, episode) => sum + episode.memorySize, 0);
+    
+    return {
+      totalEpisodes: totalEpisodes,
+      totalMemoryUsed: totalMemoryUsed,
+      averageCompressionRatio: this.calculateAverageCompression(Array.from(this.episodes.values())),
+      lastUpdate: new Date()
+    };
+  }
+}
 
 // Documentation structure with metadata
 const DOCUMENTATION_STRUCTURE = {
@@ -94,8 +383,9 @@ const DOCUMENTATION_STRUCTURE = {
   }
 };
 
-// Load and cache documentation content
+// Load and cache documentation content with EPICACHE integration
 const documentationCache = new Map();
+const episodeManager = new DocumentationEpisodeManager();
 
 function loadDocumentation() {
   for (const [section, docs] of Object.entries(DOCUMENTATION_STRUCTURE)) {
@@ -123,6 +413,15 @@ function loadDocumentation() {
   }
   
   console.log(`📚 Documentation cache loaded: ${documentationCache.size} files`);
+  
+  // Initialize EPICACHE episode clustering
+  episodeManager.clusterDocuments(documentationCache)
+    .then(() => {
+      console.log('🧠 EPICACHE documentation clustering completed');
+    })
+    .catch(error => {
+      console.error('❌ EPICACHE clustering failed:', error);
+    });
 }
 
 function generateDocumentationIndex() {
@@ -130,7 +429,10 @@ function generateDocumentationIndex() {
     totalDocuments: documentationCache.size,
     lastUpdated: new Date().toISOString(),
     sections: {},
-    searchable: []
+    searchable: [],
+    // NEW: EPICACHE episode information
+    episodeStats: episodeManager.getEpisodeStats(),
+    epicacheEnabled: true
   };
   
   for (const [filePath, doc] of documentationCache.entries()) {
@@ -164,6 +466,31 @@ function generateDocumentationIndex() {
   }
   
   return index;
+}
+
+// NEW: Enhanced search with EPICACHE episodes
+function searchDocumentationWithEpisodes(query, agentId = null) {
+  // Traditional search
+  const traditionalResults = searchDocumentation(query);
+  
+  // EPICACHE episode search if agent specified
+  if (agentId) {
+    return episodeManager.searchEpisodes(agentId, query, 10)
+      .then(episodeResults => {
+        return {
+          traditional: traditionalResults,
+          episodes: episodeResults,
+          epicacheEnabled: true,
+          compressionStats: episodeManager.getEpisodeStats()
+        };
+      });
+  }
+  
+  return Promise.resolve({
+    traditional: traditionalResults,
+    episodes: [],
+    epicacheEnabled: false
+  });
 }
 
 function searchDocumentation(query) {

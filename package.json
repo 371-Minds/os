@@ -17,9 +17,13 @@
     "view-logs": "cd os-workspace && bun nx view-logs"
   },
   "devDependencies": {
-    "nx": "^21.4.1",
     "@nx/js": "^21.4.1",
     "@nx/workspace": "^21.4.1",
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "nx": "^21.4.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   }
 }

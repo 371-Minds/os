@@ -1,3 +1,4 @@
+<docs>
 # CFO Agent (Maya)
 
 <cite>
@@ -14,6 +15,7 @@
 - [index.ts](file://os-workspace/apps/cfo-agent/src/index.ts) - *New implementation with unified brain/body architecture*
 - [BudgetAnalysisEngine.ts](file://os-workspace/apps/cfo-agent/src/budget-analysis-engine.ts) - *Enhanced budget analysis capabilities*
 - [router-integration.ts](file://os-workspace/apps/cfo-agent/src/router-integration.ts) - *Intelligent router integration*
+- [agent-resolver.service.ts](file://os-workspace/apps/dao-governance-service/src/agent-resolver.service.ts) - *New agent resolver service for standardized registration and invocation*
 </cite>
 
 ## Update Summary
@@ -26,6 +28,7 @@
 - Included performance targets and configuration options from the new implementation
 - Removed outdated references to legacy Python implementation where superseded by new architecture
 - Maintained compatibility notes for legacy components still in use
+- Integrated new agent resolver service functionality for standardized agent registration and invocation
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,6 +44,7 @@
 11. [Business Intelligence Integration](#business-intelligence-integration)
 12. [Executive Coordination and Financial Planning](#executive-coordination-and-financial-planning)
 13. [Budget Analysis Engine](#budget-analysis-engine)
+14. [Agent Resolver Service Integration](#agent-resolver-service-integration)
 
 ## Introduction
 
@@ -523,123 +527,4 @@ Coordinator->>Coordinator : Record meeting outcomes
 
 Key meeting outcomes involving Maya include:
 - **Budget Allocation**: Approval of budget distribution for new projects based on financial analysis
-- **Resource Planning**: Strategic allocation of resources across departments with financial oversight
-- **Risk Identification**: Financial risk assessment and mitigation planning
-- **Performance Review**: Quarterly financial performance evaluation and forecasting
-
-The meeting structure includes:
-- **Participants**: CEO, CTO, CFO (Maya), CMO
-- **Agenda Items**: Quarterly performance review, new initiatives discussion, resource allocation, challenge addressing
-- **Outcomes**: Agreed priorities, budget allocation decisions, risk identification
-
-This coordination framework ensures that financial considerations are central to executive decision-making, with Maya providing data-driven insights for budget planning and cost optimization across the organization.
-
-## Budget Analysis Engine
-
-The CFO Agent (Maya) has been enhanced with a new Budget Analysis Engine implemented in `budget-analysis-engine.ts`, which provides comprehensive financial analysis, variance detection, and optimization recommendations. This engine represents a significant upgrade to Maya's financial analysis capabilities, offering more sophisticated budget performance assessment and strategic guidance.
-
-```mermaid
-classDiagram
-class BudgetAnalysisEngine {
-+analyzeBudget(task : FinancialTask) Promise~BudgetAnalysis~
-+validate() Promise~boolean~
-+budgetTemplates : Map<string, any>
-+varianceThresholds : Map<string, number>
-+analysisCache : Map<string, BudgetAnalysis>
-+constructor()
-+initializeBudgetTemplates()
-+initializeVarianceThresholds()
-+generateCacheKey(task)
-+extractBudgetData(description)
-+analyzeBudgetPerformance(budgetData)
-+performVarianceAnalysis(budgetData)
-+identifyOptimizationOpportunities(budgetData, varianceAnalysis)
-+generateBudgetRecommendations(performance, variance, opportunities)
-+createForecastAdjustments(budgetData, varianceAnalysis)
-}
-class BudgetAnalysis {
-+taskId : string
-+budgetPeriod : string
-+totalBudget : number
-+actualSpending : number
-+budgetPerformance : BudgetPerformance
-+varianceAnalysis : VarianceAnalysis
-+optimizationOpportunities : OptimizationOpportunity[]
-+recommendations : BudgetRecommendation[]
-+forecastAdjustments : ForecastAdjustment[]
-}
-class BudgetPerformance {
-+actualVsBudget : number
-+variancePercentage : number
-+varianceAmount : number
-+trendAnalysis : string
-+performanceRating : 'excellent' | 'good' | 'acceptable' | 'concerning' | 'critical'
-}
-class VarianceAnalysis {
-+positiveVariances : VarianceItem[]
-+negativeVariances : VarianceItem[]
-+significantVariances : VarianceItem[]
-+rootCauseAnalysis : string[]
-}
-class VarianceItem {
-+category : string
-+budgetAmount : number
-+actualAmount : number
-+variance : number
-+variancePercentage : number
-+explanation : string
-+impact : 'low' | 'medium' | 'high'
-}
-class BudgetRecommendation {
-+priority : 'high' | 'medium' | 'low'
-+action : string
-+expectedImpact : number
-+timeframe : string
-+implementation : string
-+riskLevel : 'low' | 'medium' | 'high'
-}
-class ForecastAdjustment {
-+category : string
-+currentForecast : number
-+adjustedForecast : number
-+adjustment : number
-+reasoning : string
-+confidenceLevel : number
-}
-BudgetAnalysisEngine --> BudgetAnalysis
-BudgetAnalysis --> BudgetPerformance
-BudgetAnalysis --> VarianceAnalysis
-BudgetAnalysis --> BudgetRecommendation
-BudgetAnalysis --> ForecastAdjustment
-```
-
-**Diagram sources**
-- [budget-analysis-engine.ts](file://os-workspace/apps/cfo-agent/src/budget-analysis-engine.ts#L18-L525) - *Budget analysis engine implementation*
-- [types.ts](file://os-workspace/apps/cfo-agent/src/types.ts#L1-L656) - *Type definitions for financial analysis*
-
-The Budget Analysis Engine performs comprehensive analysis through the following process:
-
-1. **Data Extraction**: Parses budget information from task descriptions using regex patterns to identify budget amounts, actual spending, and time periods
-2. **Performance Analysis**: Calculates actual vs. budget ratios, variance percentages, and assigns performance ratings (excellent, good, acceptable, concerning, critical)
-3. **Variance Analysis**: Identifies significant variances by category, categorizing them as positive (under budget) or negative (over budget) with impact assessments
-4. **Root Cause Analysis**: Determines potential causes for significant variances, such as systematic issues or category-specific problems
-5. **Optimization Opportunities**: Identifies cost-saving opportunities with estimated savings, payback periods, and implementation complexity
-6. **Recommendations Generation**: Creates prioritized recommendations based on performance rating, variance significance, and optimization potential
-7. **Forecast Adjustments**: Creates conservative forecast adjustments based on current variances with confidence levels
-
-The engine utilizes predefined budget templates for quarterly and annual budgets with default allocations across categories like personnel, technology, marketing, operations, facilities, and strategic initiatives. It also maintains variance thresholds for different categories (personnel: 3%, technology: 10%, marketing: 15%, etc.) to determine what constitutes a significant variance.
-
-Key features of the Budget Analysis Engine include:
-- **Caching Mechanism**: Stores analysis results to avoid redundant processing of similar tasks
-- **Comprehensive Type System**: Uses detailed TypeScript interfaces for all financial analysis components
-- **Configurable Thresholds**: Allows customization of variance thresholds and budget templates
-- **Performance Ratings**: Five-tier rating system for budget performance assessment
-- **Risk Assessment**: Evaluates implementation complexity and risk level for optimization opportunities
-- **Payback Period Estimation**: Calculates expected return timelines for cost optimization initiatives
-
-The engine is designed to be extensible, allowing for additional analysis methods and integration with external financial systems. It validates its own functionality through a built-in validation method that tests the engine with sample data to ensure proper initialization and analysis capabilities.
-
-**Section sources**
-- [budget-analysis-engine.ts](file://os-workspace/apps/cfo-agent/src/budget-analysis-engine.ts#L1-L525)
-- [types.ts](file://os-workspace/apps/cfo-agent/src/types.ts#L1-L656)
-- [cfo_cash.py](file://_legacy/agents/business/cfo_cash.py#L1-L50)
+-

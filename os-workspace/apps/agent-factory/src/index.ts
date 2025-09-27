@@ -10,6 +10,7 @@ import { DeploymentManager } from './deployment-manager';
 import { EconomicCoordinator } from './economic-coordinator';
 import { SpawningAnalytics } from './spawning-analytics';
 import { CharacterFactory, demonstrateCharacterFactory } from './character-factory';
+import { CSuiteRunnerFactory, type CSuiteRunnerInstance, type RunnerBuildOptions } from './csuite-runner-integration';
 import {
   FactoryConfiguration,
   SpawnRequest,
@@ -85,14 +86,66 @@ function createDefaultConfiguration(): FactoryConfiguration {
 export class AgentFactory {
   private factoryController: FactoryController;
   private characterFactory: CharacterFactory;
+  private csuiteRunnerFactory: CSuiteRunnerFactory; // NEW: C-Suite Agent Runner Factory
 
   constructor(config?: Partial<FactoryConfiguration>) {
     const fullConfig = { ...createDefaultConfiguration(), ...config };
     this.factoryController = new FactoryController(fullConfig);
     this.characterFactory = new CharacterFactory(fullConfig.deploymentManager);
+    this.csuiteRunnerFactory = new CSuiteRunnerFactory(); // NEW: Initialize runner factory
     
     console.log('[AgentFactory] Autonomous Agent Spawning System initialized');
     console.log('[AgentFactory] Character-based C-Suite agents available');
+    console.log('[AgentFactory] 🏭 C-Suite Agent Runner Factory integrated - Ready to build distributables!');
+  }
+
+  /**
+   * NEW FACTORY CAPABILITY: Build C-Suite Agent Runner Package
+   * 
+   * This transforms the factory into a true "factory" that builds
+   * and packages instances of the c-suite-agent-runner application.
+   */
+  async buildCSuiteRunnerPackage(options?: RunnerBuildOptions) {
+    console.log('🏭 Building C-Suite Agent Runner package...');
+    return await this.csuiteRunnerFactory.buildRunnerPackage(options);
+  }
+
+  /**
+   * NEW FACTORY CAPABILITY: Start C-Suite Agent Runner Instance
+   * 
+   * Factory can now produce running instances of the c-suite-agent-runner
+   */
+  async startCSuiteRunnerInstance(packageId?: string, roles?: string[]) {
+    console.log('🚀 Starting C-Suite Agent Runner instance...');
+    return await this.csuiteRunnerFactory.startRunnerInstance(packageId, roles);
+  }
+
+  /**
+   * NEW FACTORY CAPABILITY: Stop C-Suite Agent Runner Instance
+   */
+  async stopCSuiteRunnerInstance(instanceId: string) {
+    return await this.csuiteRunnerFactory.stopRunnerInstance(instanceId);
+  }
+
+  /**
+   * Get all running C-Suite Agent Runner instances
+   */
+  getRunningCSuiteInstances(): CSuiteRunnerInstance[] {
+    return this.csuiteRunnerFactory.getRunningInstances();
+  }
+
+  /**
+   * Get all built C-Suite Agent Runner packages
+   */
+  getBuiltCSuitePackages() {
+    return this.csuiteRunnerFactory.getBuiltPackages();
+  }
+
+  /**
+   * Get C-Suite Runner Factory statistics
+   */
+  getCSuiteRunnerFactoryStats() {
+    return this.csuiteRunnerFactory.getFactoryStats();
   }
 
   /**
@@ -155,10 +208,18 @@ export class AgentFactory {
   }
 
   /**
-   * Shutdown factory
+   * Shutdown factory and all running instances
    */
   async shutdown() {
+    console.log('🔄 Shutting down Agent Factory...');
+    
+    // Shutdown C-Suite Runner Factory first
+    await this.csuiteRunnerFactory.shutdown();
+    
+    // Then shutdown the main factory controller
     await this.factoryController.shutdown();
+    
+    console.log('🎆 Agent Factory shutdown complete');
   }
 }
 
@@ -167,12 +228,43 @@ export class AgentFactory {
  */
 async function demonstrateFactory(): Promise<void> {
   console.log('\n=== Agent Factory Demonstration ===\n');
+  console.log('🏭 Now includes C-Suite Agent Runner Factory capabilities!\n');
 
   const factory = new AgentFactory();
 
   // Health check
   const health = await factory.healthCheck();
   console.log('Factory Health:', health.success ? 'HEALTHY' : 'UNHEALTHY');
+
+  // === NEW: C-Suite Agent Runner Factory Demo ===
+  console.log('\n--- C-Suite Agent Runner Factory ---');
+  
+  // Build a C-Suite Agent Runner package
+  console.log('🏭 Building C-Suite Agent Runner package...');
+  const packageResult = await factory.buildCSuiteRunnerPackage({
+    buildTarget: 'production',
+    outputFormat: 'package',
+    deploymentTarget: 'local'
+  });
+  
+  console.log(`✅ Package built: ${packageResult.packageId}`);
+  console.log(`📦 Size: ${Math.round(packageResult.size / 1024 / 1024 * 100) / 100}MB`);
+  console.log(`⏱️ Build time: ${packageResult.buildTime}ms`);
+  
+  // Start a C-Suite Agent Runner instance
+  console.log('\n🚀 Starting C-Suite Agent Runner instance...');
+  const instanceResult = await factory.startCSuiteRunnerInstance(packageResult.packageId);
+  
+  console.log(`✅ Instance started: ${instanceResult.instanceId}`);
+  console.log(`🌐 URL: http://${instanceResult.host}:${instanceResult.port}`);
+  console.log(`👥 Roles: ${instanceResult.roles.join(', ')}`);
+  
+  // Show C-Suite Runner Factory stats
+  const runnerStats = factory.getCSuiteRunnerFactoryStats();
+  console.log('\n📊 C-Suite Runner Factory Statistics:');
+  console.log(`Running Instances: ${runnerStats.running_instances}`);
+  console.log(`Built Packages: ${runnerStats.built_packages}`);
+  console.log(`Average Build Time: ${Math.round(runnerStats.average_build_time_ms)}ms`);
 
   // === Character-Based Agent Demo ===
   console.log('\n--- Character-Based C-Suite Agents ---');
@@ -238,9 +330,18 @@ async function demonstrateFactory(): Promise<void> {
     console.log(`Success Rate: ${((metrics.data?.successfulSpawns || 0) / Math.max(1, metrics.data?.totalSpawnRequests || 1) * 100).toFixed(1)}%`);
   }
 
+  // Wait a moment to show the running instance
+  console.log('\n⏱️ Letting instance run for 5 seconds...');
+  await new Promise(resolve => setTimeout(resolve, 5000));
+  
+  // Stop the C-Suite Agent Runner instance
+  console.log('\n🔄 Stopping C-Suite Agent Runner instance...');
+  await factory.stopCSuiteRunnerInstance(instanceResult.instanceId);
+  
   // Shutdown
   await factory.shutdown();
   console.log('\n=== Demonstration Complete ===');
+  console.log('\n🎆 Agent Factory now includes C-Suite Agent Runner capabilities! 🎆');
 }
 
 /**
@@ -268,6 +369,7 @@ export {
   EconomicCoordinator, 
   SpawningAnalytics,
   CharacterFactory,
+  CSuiteRunnerFactory, // NEW: Export C-Suite Runner Factory
   createDefaultConfiguration,
   demonstrateCharacterFactory
 };

@@ -7,6 +7,8 @@
 - [cfo_cash.py](file://_legacy\agents\business\cfo_cash.py) - *Updated in recent commit*
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py) - *Core base class for all C-Suite agents*
 - [financial_system.py](file://_legacy\financial_system.py) - *Financial operations backend*
+- [agent-resolver.service.ts](file://os-workspace\apps\dao-governance-service\src\agent-resolver.service.ts) - *Added in recent commit: C-Suite agent standardization*
+- [governance-service.ts](file://os-workspace\apps\dao-governance-service\src\governance-service.ts) - *Added in recent commit: Enhanced cognitive integration*
 </cite>
 
 ## Update Summary
@@ -19,6 +21,9 @@
 - Verified inheritance model from improved_base_agent.py
 - Confirmed integration points with financial_system.py for CFO agent
 - Updated task delegation logic examples based on actual code implementation
+- Added new sections on Agent Resolver Service and DAO Governance Service for C-Suite agent standardization
+- Integrated information about cognitive query capabilities and human approval workflows
+- Updated project structure to reflect new TypeScript-based C-Suite agent ecosystem
 
 ## Table of Contents
 1. [Introduction](#introduction)

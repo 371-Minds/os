@@ -18,10 +18,10 @@
     "paths": {
       "@371-minds/cognitive-layer": ["packages/cognitive-layer/src/index.ts"],
       "@371-minds/shared-ui": ["packages/shared-ui/src/index.ts"],
+      "@elizaos/characters": ["packages/elizaos-characters/src/index.ts"],
       "@elizaos/plugin-nx-workspace": [
         "packages/elizaos-plugins/nx-workspace/src/index.ts"
       ],
-      "@elizaos/characters": ["packages/elizaos-characters/src/index.ts"],
       "cognitive-engine": ["packages/elizaos-plugins/src/index.ts"]
     }
   },

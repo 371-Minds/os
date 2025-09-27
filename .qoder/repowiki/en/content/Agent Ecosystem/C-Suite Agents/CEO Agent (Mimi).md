@@ -12,6 +12,9 @@
 - [orchestrator.ts](file://os-workspace\apps\ceo-agent\src\orchestrator.ts) - *Refactored implementation with unified brain/body architecture*
 - [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts) - *Type definitions for strategic orchestrator*
 - [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts) - *Added comprehensive health monitoring system*
+- [agent-resolver.service.ts](file://os-workspace\apps\dao-governance-service\src\agent-resolver.service.ts) - *Added agent resolver service for C-Suite coordination*
+- [governance-service.ts](file://os-workspace\apps\dao-governance-service\src\governance-service.ts) - *Enhanced governance workflows with cognitive oversight*
+- [cognitive-query.service.ts](file://os-workspace\apps\dao-governance-service\src\cognitive-query.service.ts) - *Added cognitive integration for human approval workflows*
 </cite>
 
 ## Update Summary
@@ -22,6 +25,10 @@
 - Updated **Configuration and Customization** section to include health monitoring parameters
 - Added source references for new file health-monitor.ts
 - Removed outdated flowchart diagram that no longer reflects current implementation
+- Added **Enhanced Governance Workflows** section covering the new DAO governance service with cognitive oversight
+- Added **Agent Resolution Service** section explaining the mapping between legacy and modern agent identifiers
+- Added **Cognitive Oversight Integration** section detailing the cognitive analysis of proposals
+- Added **Human-in-the-Loop Approval Process** section describing the enhanced decision-making workflow
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -35,8 +42,12 @@
 9. [Executive Communication Orchestration](#executive-communication-orchestration)
 10. [Performance and Monitoring](#performance-and-monitoring)
 11. [Comprehensive Health Monitoring System](#comprehensive-health-monitoring-system)
-12. [Configuration and Customization](#configuration-and-customization)
-13. [Conclusion](#conclusion)
+12. [Enhanced Governance Workflows](#enhanced-governance-workflows)
+13. [Agent Resolution Service](#agent-resolution-service)
+14. [Cognitive Oversight Integration](#cognitive-oversight-integration)
+15. [Human-in-the-Loop Approval Process](#human-in-the-loop-approval-process)
+16. [Configuration and Customization](#configuration-and-customization)
+17. [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -213,279 +224,4 @@ Router-->>Mimi : Processed Result
 
 ## Interaction with Specialized Agents
 
-CEO Agent (Mimi) coordinates with specialized C-suite agents through the Model Context Protocol (MCP), delegating domain-specific tasks while maintaining executive oversight. The interaction patterns demonstrate a clear division of responsibilities within the agent ecosystem.
-
-### Financial Analysis Delegation
-
-When financial tasks are detected, Mimi delegates to CFO Agent (Cash), which specializes in financial workflow logic. The CFO agent interfaces with the `FinancialAgent` system to handle P&L analysis, R&D tax optimization, revenue forecasting, and transaction processing. This delegation pattern ensures that financial expertise is applied consistently across the organization.
-
-```
-sequenceDiagram
-participant User
-participant Mimi as CEO Agent (Mimi)
-participant CFO as CFO Agent (Cash)
-participant Financial as Financial System
-User->>Mimi : "Analyze quarterly financial results"
-Mimi->>Mimi : Detect financial keywords
-Mimi->>CFO : Delegate financial task
-CFO->>Financial : Process financial analysis
-Financial-->>CFO : Financial data
-CFO-->>Mimi : "P&L analysis complete"
-Mimi-->>User : Task delegated and completed
-```
-
-**Diagram sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L60-L70)
-- [cfo_cash.py](file://_legacy\agents\business\cfo_cash.py#L1-L51)
-
-### Technical Infrastructure Delegation
-
-For technical tasks, Mimi delegates to CTO Agent (Alex), which specializes in technical strategy and infrastructure oversight. The CTO agent handles architecture design, technology evaluation, security response, and infrastructure planning. This ensures that technical decisions are made by an agent with specialized expertise in engineering domains.
-
-```
-sequenceDiagram
-participant User
-participant Mimi as CEO Agent (Mimi)
-participant CTO as CTO Agent (Alex)
-User->>Mimi : "Coordinate response to security vulnerability"
-Mimi->>Mimi : Detect security keywords
-Mimi->>CTO : Delegate security task
-CTO->>CTO : Handle security response
-CTO-->>Mimi : "Mitigation for vulnerability underway"
-Mimi-->>User : Task delegated to CTO
-```
-
-**Diagram sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L70-L80)
-- [cto_alex.py](file://_legacy\agents\business\cto_alex.py#L1-L101)
-
-### Legal and Compliance Delegation
-
-Although not explicitly implemented in the current keyword routing, Mimi is designed to work with CLO Agent (Sage), which focuses on continuous learning, optimization, and compliance oversight. The CLO agent can assess performance, identify patterns, propose optimizations, and design knowledge transfer protocols, providing legal and operational governance for the agent ecosystem.
-
-**Section sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L1-L100)
-- [cfo_cash.py](file://_legacy\agents\business\cfo_cash.py#L1-L51)
-- [cto_alex.py](file://_legacy\agents\business\cto_alex.py#L1-L101)
-- [clo_sage.py](file://_legacy\agents\business\clo_sage.py#L1-L78)
-
-## Executive Meeting Coordination
-
-A new C-Suite coordination capability has been introduced through the `CSuiteCoordinator` class, which enables structured executive meetings that include the CEO Agent (Mimi) as a mandatory participant. This enhancement formalizes the decision-making process across the executive team, ensuring alignment on strategic priorities, resource allocation, and risk management.
-
-The `conductDailyMeeting` method orchestrates a comprehensive executive meeting with the following structure:
-- **Participants**: CEO, CTO, CFO, and CMO agents
-- **Agenda Items**: Quarterly performance review, new initiatives discussion, resource allocation, and challenge addressing
-- **Meeting Outcomes**: Documented agreements on Q4 priorities, budget allocation for new projects, and identified potential risks
-- **Duration**: 45 minutes with ISO timestamp for audit purposes
-
-This coordination mechanism ensures that major strategic decisions are made collaboratively, with Mimi providing executive oversight and final approval. The meeting outcomes are structured as JSON responses containing meeting ID, participant list, agenda items, outcomes, duration, status, and timestamp, enabling integration with audit and reporting systems.
-
-```
-sequenceDiagram
-participant Mimi as CEO Agent (Mimi)
-participant Coordinator as CSuiteCoordinator
-participant CTO as CTO Agent (Alex)
-participant CFO as CFO Agent (Cash)
-participant CMO as CMO Agent (Anova)
-Mimi->>Coordinator : Request daily meeting
-Coordinator->>CTO : Notify meeting invitation
-Coordinator->>CFO : Notify meeting invitation
-Coordinator->>CMO : Notify meeting invitation
-CTO-->>Coordinator : Confirm attendance
-CFO-->>Coordinator : Confirm attendance
-CMO-->>Coordinator : Confirm attendance
-Coordinator->>Coordinator : Compile agenda items
-Coordinator->>Mimi : Present meeting agenda
-Mimi->>Coordinator : Approve meeting start
-Coordinator->>All : Conduct meeting discussion
-All-->>Coordinator : Submit recommendations
-Coordinator->>Mimi : Present consolidated outcomes
-Mimi->>All : Approve final decisions
-Coordinator-->>Mimi : Deliver meeting summary
-```
-
-**Diagram sources**
-- [csuite.ts](file://questflow\src\agents\csuite.ts#L1-L26)
-- [csuite.js](file://questflow\src\agents\csuite.js#L1-L28)
-
-**Section sources**
-- [csuite.ts](file://questflow\src\agents\csuite.ts#L1-L26)
-- [csuite.js](file://questflow\src\agents\csuite.js#L1-L28)
-
-## Executive Communication Orchestration
-
-Recent enhancements to the cognitive interface have introduced advanced communication orchestration capabilities for CEO Agent (Mimi). These features enable real-time notifications, workflow automation, and spatial visualization of communication flows between executive agents, significantly improving coordination efficiency.
-
-The **C3UniversalTemplate** component provides a unified interface for monitoring all executive communications, while the **CommunicationsUniverse** component offers a spatial representation of information flow across the agent ecosystem. These tools allow Mimi to visualize decision pathways, identify communication bottlenecks, and optimize information dissemination across the executive team.
-
-Key features include:
-- Real-time notification system for critical task updates
-- Spatial visualization of agent interaction patterns
-- Workflow automation for recurring executive processes
-- Context-aware message routing based on task priority
-- Integrated monitoring dashboard for cross-functional initiatives
-
-```
-sequenceDiagram
-participant Mimi as CEO Agent (Mimi)
-participant C3Template as C3UniversalTemplate
-participant CommUniverse as CommunicationsUniverse
-participant CTO as CTO Agent (Alex)
-participant CFO as CFO Agent (Cash)
-Mimi->>C3Template : Request executive dashboard
-C3Template->>CommUniverse : Initialize spatial visualization
-CommUniverse-->>C3Template : Render communication topology
-C3Template-->>Mimi : Display executive overview
-Mimi->>CFO : Delegate financial analysis
-Mimi->>CTO : Delegate infrastructure review
-CFO->>CommUniverse : Send completion notification
-CTO->>CommUniverse : Send completion notification
-CommUniverse->>C3Template : Update status indicators
-C3Template-->>Mimi : Show task completion
-```
-
-**Diagram sources**
-- [apps/cognitive-interface/src/components/C3UniversalTemplate.tsx](file://os-workspace\apps\cognitive-interface\src\components\C3UniversalTemplate.tsx#L1-L150)
-- [apps/cognitive-interface/src/components/CommunicationsUniverse.tsx](file://os-workspace\apps\cognitive-interface\src\components\CommunicationsUniverse.tsx#L1-L200)
-
-**Section sources**
-- [apps/cognitive-interface/src/components/C3UniversalTemplate.tsx](file://os-workspace\apps\cognitive-interface\src\components\C3UniversalTemplate.tsx#L1-L150)
-- [apps/cognitive-interface/src/components/CommunicationsUniverse.tsx](file://os-workspace\apps\cognitive-interface\src\components\CommunicationsUniverse.tsx#L1-L200)
-
-## Performance and Monitoring
-
-The CEO Agent (Mimi) inherits comprehensive performance monitoring capabilities from the `improved_base_agent.py` framework. These capabilities ensure that Mimi operates efficiently while providing visibility into system performance and resource utilization.
-
-Key performance components include:
-- **Performance Metrics**: Tracks tasks completed, failure rates, processing times, memory usage, CPU utilization, and throughput
-- **Connection Pooling**: Manages LLM API connections efficiently with configurable maximum connections
-- **Caching System**: Implements a TTL-based cache to reduce redundant processing and improve response times
-- **Circuit Breaker**: Protects against cascading failures by monitoring external API health
-- **Health Checks**: Provides a simple health check mechanism to verify agent availability
-
-The system also includes audit logging through the `usage_ledger.py` component, which persists every LLM request's cost, latency, success status, and quality score. This enables detailed cost analysis and budget management through the `budget_manager` system.
-
-```
-classDiagram
-class PerformanceMetrics {
-+tasks_completed : int
-+tasks_failed : int
-+total_processing_time : float
-+avg_response_time : float
-+current_memory_mb : float
-+peak_memory_mb : float
-+cpu_usage_percent : float
-+error_rate : float
-+throughput : float
-+cache_hits : int
-+cache_misses : int
-+update_response_time(processing_time)
-+calculate_error_rate()
-}
-class ConnectionPool {
-+max_connections : int
-+available_connections : Queue
-+active_connections : int
-+get_connection()
-+return_connection(connection)
-}
-class SimpleCache {
-+cache : Dict[str, tuple]
-+max_size : int
-+ttl_seconds : int
-+get(key)
-+set(key, value)
-}
-class CircuitBreaker {
-+failure_threshold : int
-+timeout : int
-+failure_count : int
-+last_failure_time : float
-+is_open : bool
-+can_execute()
-+record_success()
-+record_failure()
-}
-CeoMimiAgent --> PerformanceMetrics : uses
-CeoMimiAgent --> ConnectionPool : uses
-CeoMimiAgent --> SimpleCache : uses
-CeoMimiAgent --> CircuitBreaker : uses
-```
-
-**Diagram sources**
-- [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
-- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
-
-**Section sources**
-- [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
-- [usage_ledger.py](file://_legacy\adaptive_llm_router\usage_ledger.py#L1-L89)
-
-## Comprehensive Health Monitoring System
-
-A new comprehensive health monitoring system has been implemented for CEO Agent (Mimi) through the `health-monitor.ts` module, providing enhanced reliability and system observability. This system extends beyond basic health checks to provide continuous monitoring of agent state, resource utilization, and operational integrity.
-
-The health monitoring framework includes:
-- **Real-time Status Tracking**: Continuous monitoring of agent availability and responsiveness
-- **Resource Utilization Monitoring**: Tracking of memory consumption, CPU usage, and connection pool status
-- **Task Queue Monitoring**: Visibility into pending, active, and completed tasks
-- **Circuit Breaker State**: Monitoring of circuit breaker status to detect service degradation
-- **Automated Alerting**: Notification system for health status changes and threshold breaches
-
-The system integrates with the existing performance metrics framework to provide a holistic view of agent health, combining quantitative metrics with qualitative status assessments. This enables proactive issue detection and resolution before they impact system operations.
-
-**Section sources**
-- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L150)
-
-## Configuration and Customization
-
-The CEO Agent (Mimi) can be customized through several configuration mechanisms that allow organizations to adapt its behavior to specific operational requirements.
-
-### Decision Thresholds and Delegation Rules
-
-The new TypeScript implementation introduces typed delegation rules through the `DelegationRules` interface, which defines domain-specific rules with keywords, primary agents, fallback agents, and confidence thresholds. This structured approach enhances reliability and maintainability compared to the previous keyword matching patterns.
-
-### Escalation Protocols
-
-The `EscalationCriteria` interface defines conditions under which tasks should be escalated, including high financial impact, cross-domain conflicts, strategic uncertainty, and performance degradation. Each criterion specifies an action (human_review, multi_agent_coordination, executive_decision, or system_review) and whether notification is required.
-
-### LLM Cost Management
-
-The `policy_engine.py` provides configurable cost management policies that can be adjusted based on organizational requirements:
-- Budget thresholds for different model tiers
-- Privacy policies for data handling
-- Quality requirements for critical tasks
-- Context length requirements for complex analyses
-
-These policies can be modified without changing the CEO agent's core logic, allowing for flexible cost optimization strategies.
-
-### JSON Configuration Parameters
-
-The new `ceo-mimi.json` configuration introduces additional customization options:
-- **Temperature**: Adjustable from 0.0 (deterministic) to 1.0 (creative) for response generation
-- **Max Tokens**: Configurable up to 2000 tokens for extended response length
-- **Plugin Selection**: Ability to enable/disable business intelligence, NX workspace, and universal tool server plugins
-- **Blockchain Identity**: Configurable stake amount and reputation score for decentralized operations
-- **Communication Style**: Customizable chat and post communication patterns
-- **Personality Traits**: Configurable executive characteristics and decision frameworks
-- **Health Monitoring Settings**: Configurable thresholds for resource utilization and alerting
-
-**Section sources**
-- [ceo_mimi.py](file://_legacy\agents\business\ceo_mimi.py#L1-L100)
-- [ceo-mimi.json](file://questflow\agents\core\ceo-mimi.json#L1-L92)
-- [policy_engine.py](file://_legacy\adaptive_llm_router\policy_engine.py#L1-L34)
-- [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L1-L200)
-- [types.ts](file://os-workspace\apps\ceo-agent\src\types.ts#L21-L34)
-- [health-monitor.ts](file://os-workspace\apps\ceo-agent\src\health-monitor.ts#L1-L150)
-
-## Conclusion
-
-The CEO Agent (Mimi) represents the strategic apex of the 371-OS agent ecosystem, serving as the primary orchestrator that coordinates specialized C-suite agents through intelligent task delegation. By inheriting robust capabilities from the improved base agent framework and integrating with the adaptive LLM router system, Mimi provides cost-aware, efficient, and auditable executive decision-making.
-
-The agent's architecture demonstrates a clear separation of concerns, where Mimi focuses exclusively on high-level orchestration while delegating domain-specific tasks to specialized agents like CFO Cash, CTO Alex, and CLO Sage. This design enables scalable, maintainable, and extensible autonomous operations across business functions.
-
-Recent enhancements have introduced a dual-configuration model with both YAML and JSON formats, allowing Mimi to operate with prompt-based behavior definition and workflow-driven operational parameters. The JSON configuration in `ceo-mimi.json` provides comprehensive parameters for strategic planning, cost optimization, and blockchain integration, complementing the existing YAML prompt template.
-
-A significant new capability is the formalized executive meeting coordination through the `CSuiteCoordinator` class, which ensures that major strategic decisions are made collaboratively with all C-suite agents. This structured approach to executive decision-making enhances alignment, accountability, and strategic coherence across the organization.
-
-Key strengths of the implementation include its transparent delegation logic, comprehensive performance monitoring, flexible cost management through the policy engine, formalized executive coordination processes, and now enhanced health monitoring capabilities. Future enhancements could include more sophisticated natural language understanding for task classification, confidence scoring for delegation decisions, and automated escalation protocols for high-risk decisions.
+CEO Agent (M

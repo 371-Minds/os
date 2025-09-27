@@ -7,6 +7,10 @@
 - [server.ts](file://questflow\src\server.ts) - *Contains API endpoint definition*
 - [api-server.md](file://questflow\docs\api-server.md) - *Updated API documentation*
 - [cto-alex.json](file://questflow\agents\core\cto-alex.json) - *New CTO agent configuration*
+- [api-routes.ts](file://os-workspace\apps\dao-governance-service\src\api-routes.ts) - *Added human approval endpoints and workflow triggers*
+- [governance-service.ts](file://os-workspace\apps\dao-governance-service\src\governance-service.ts) - *Enhanced with cognitive analysis and human approval logic*
+- [cognitive-query.service.ts](file://os-workspace\apps\dao-governance-service\src\cognitive-query.service.ts) - *Cognitive analysis integration for governance decisions*
+- [agent-resolver.service.ts](file://os-workspace\apps\dao-governance-service\src\agent-resolver.service.ts) - *Modernized agent resolution and role mapping*
 </cite>
 
 ## Update Summary
@@ -15,7 +19,10 @@
 - Updated response schema to include timestamp
 - Enhanced example response with timestamp
 - Added CTO agent integration details
+- Integrated human approval workflow from DAO Governance Service
+- Added cognitive analysis capabilities for executive decision-making
 - Updated section sources with new file references
+- Enhanced agent resolution system for C-Suite coordination
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -41,8 +48,7 @@ graph TD
 A[API Client] --> B[/api/agents/csuite/meeting POST]
 B --> C[server.ts]
 C --> D[CSuiteCoordinator]
-D --> E[csuite.ts]
-E --> F[Meeting Result Object]
+D --> E[Meeting Result Object]
 F --> G[JSON Response]
 C --> G
 ```

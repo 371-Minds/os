@@ -31,7 +31,7 @@
   },
   "namedInputs": {
     "default": [
-      "{projectRoot}/**/*", 
+      "{projectRoot}/**/*",
       "sharedGlobals",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?",
       "!{projectRoot}/node_modules/**/*"

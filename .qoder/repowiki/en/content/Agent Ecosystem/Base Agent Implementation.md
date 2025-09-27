@@ -1,3 +1,4 @@
+<docs>
 # Base Agent Implementation
 
 <cite>
@@ -73,7 +74,7 @@ IBA --> UL
 ## Core Components
 The base agent implementation consists of several core components that define the behavior and capabilities of all agents in the 371-OS ecosystem. The `BaseAgent` class provides the fundamental interface with abstract methods for task processing and health checking, while the `ImprovedBaseAgent` extends this foundation with performance optimizations and monitoring capabilities. Key data structures include `Task` for representing work items, `AgentCapability` for defining agent functions, and `PerformanceMetrics` for tracking system performance. The implementation uses Python's `abc` module to enforce the agent interface, ensuring consistency across all specialized agents.
 
-**Section sources**
+**Section sources**   
 - [base_agent.py](file://_legacy\agents\base_agent\base_agent.py#L94-L158)
 - [improved_base_agent.py](file://_legacy\agents\base_agent\improved_base_agent.py#L241-L524)
 
@@ -427,4 +428,4 @@ When troubleshooting issues with base agents, several key areas should be examin
 - [credential_warehouse_agent.py](file://_legacy\agents\utility\credential_warehouse_agent.py)
 
 ## Conclusion
-The Base Agent Implementation in the 371-OS ecosystem represents a sophisticated foundation for autonomous agent development. The evolution from the basic `BaseAgent` to the enhanced `ImprovedBaseAgent` demonstrates a thoughtful approach to performance, reliability, and observability. Key architectural decisions such as stateless execution, modular service integration, and comprehensive monitoring have created a robust platform for agent development. The integration with services like the Adaptive LLM Router, Credential Warehouse, and Usage Ledger enables powerful capabilities while maintaining security and accountability. This foundation supports the development of specialized agents for various domains while ensuring consistency and reliability across the entire system.
+The Base Agent Implementation in the 371-OS ecosystem represents a sophisticated foundation for autonomous agent development. The evolution from the basic `BaseAgent` to the enhanced `ImprovedBaseAgent` demonstrates a thoughtful

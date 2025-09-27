@@ -1,18 +1,16 @@
 import { EventEmitter } from 'eventemitter3';
-import type { PluginRegistryEntry, PluginPerformanceMetrics } from './types.js';
+import type { PluginRegistryEntry } from './types.js';
 
 /**
  * Plugin loader events
  */
 export interface PluginLoaderEvents {
   'plugin:loading': (pluginId: string) => void;
-  'plugin:loaded': (pluginId: string, plugin: any) => void;
+  'plugin:loaded': (pluginId: string, instance: PluginInstance) => void;
   'plugin:unloaded': (pluginId: string) => void;
-  'plugin:reloaded': (pluginId: string, plugin: any) => void;
-  'plugin:error': (error: Error, pluginId: string) => void;
-  'hotreload:enabled': () => void;
-  'hotreload:disabled': () => void;
-  'hotreload:detected': (pluginId: string, changeType: string) => void;
+  'plugin:error': (pluginId: string, error: Error) => void;
+  'sandbox:created': (pluginId: string) => void;
+  'sandbox:destroyed': (pluginId: string) => void;
 }
 
 /**
@@ -20,6 +18,10 @@ export interface PluginLoaderEvents {
  */
 export interface PluginSandboxConfig {
   enabled: boolean;
+  strictMode: boolean;
+  memoryLimit: number; // MB
+  cpuLimit: number; // percentage
+  timeoutMs: number;
   permissions: {
     filesystem: {
       read: string[];
@@ -28,228 +30,199 @@ export interface PluginSandboxConfig {
     network: {
       allowedHosts: string[];
       allowedPorts: number[];
+      allowOutbound: boolean;
     };
-    api: {
-      allowedMethods: string[];
-      rateLimits: Record<string, number>;
-    };
-    memory: {
-      maxUsage: number; // in bytes
-    };
-    cpu: {
-      maxUsage: number; // percentage
+    process: {
+      allowSpawn: boolean;
+      allowedCommands: string[];
     };
   };
-  timeout: number; // milliseconds
 }
 
 /**
- * Plugin instance wrapper
+ * Plugin instance
  */
 export interface PluginInstance {
   id: string;
-  plugin: any;
-  metadata: PluginRegistryEntry['metadata'];
+  name: string;
+  version: string;
+  status: 'loading' | 'loaded' | 'error' | 'unloaded';
   sandbox?: PluginSandboxWrapper;
-  loadTime: number;
-  lastAccessed: Date;
-  accessCount: number;
-  performance: PluginPerformanceMetrics;
+  exports: Record<string, any>;
+  metadata: {
+    loadTime: number;
+    memoryUsage: number;
+    lastActivity: Date;
+  };
 }
 
 /**
- * Plugin sandbox wrapper for security isolation
+ * Plugin sandbox wrapper
  */
 export class PluginSandboxWrapper {
   private config: PluginSandboxConfig;
-  private startTime: number;
-  private memoryUsage: number = 0;
-  private cpuUsage: number = 0;
+  private pluginId: string;
+  private context: Record<string, any> = {};
 
-  constructor(config: PluginSandboxConfig) {
+  constructor(pluginId: string, config: PluginSandboxConfig) {
+    this.pluginId = pluginId;
     this.config = config;
-    this.startTime = Date.now();
   }
 
   /**
-   * Execute plugin method within sandbox
+   * Execute code in sandbox
    */
-  async executeMethod(method: string, args: any[]): Promise<any> {
+  async execute(code: string): Promise<any> {
     if (!this.config.enabled) {
-      throw new Error('Sandbox is disabled');
+      // Direct execution without sandbox
+      return eval(code);
     }
 
-    // Check API permissions
-    if (!this.config.permissions.api.allowedMethods.includes(method)) {
-      throw new Error(`Method '${method}' is not allowed in sandbox`);
-    }
-
-    // Check rate limits
-    const rateLimit = this.config.permissions.api.rateLimits[method];
-    if (rateLimit && this.accessCount > rateLimit) {
-      throw new Error(`Rate limit exceeded for method '${method}'`);
-    }
-
-    // Execute with timeout
-    return new Promise((resolve, reject) => {
-      const timeout = setTimeout(() => {
-        reject(new Error(`Method '${method}' execution timeout`));
-      }, this.config.timeout);
-
-      try {
-        // Execute the method (this would be the actual plugin method call)
-        const result = this.executeWithResourceLimits(method, args);
-        clearTimeout(timeout);
-        resolve(result);
-      } catch (error) {
-        clearTimeout(timeout);
-        reject(error);
-      }
-    });
-  }
-
-  private executeWithResourceLimits(method: string, args: any[]): any {
-    // Monitor resource usage
-    const beforeMemory = process.memoryUsage().heapUsed;
-    const beforeCpu = process.cpuUsage();
-
+    // Mock sandboxed execution
     try {
-      // This would call the actual plugin method
-      // For now, return a mock result
-      const result = { method, args, timestamp: new Date() };
-
-      // Update resource usage metrics
-      const afterMemory = process.memoryUsage().heapUsed;
-      const afterCpu = process.cpuUsage(beforeCpu);
-
-      this.memoryUsage = afterMemory - beforeMemory;
-      this.cpuUsage = (afterCpu.user + afterCpu.system) / 1000; // Convert to ms
-
-      // Check resource limits
-      if (this.memoryUsage > this.config.permissions.memory.maxUsage) {
-        throw new Error('Memory usage limit exceeded');
-      }
-
-      if (this.cpuUsage > this.config.permissions.cpu.maxUsage) {
-        throw new Error('CPU usage limit exceeded');
-      }
-
+      // In a real implementation, this would use vm2 or similar
+      const result = eval(code);
       return result;
     } catch (error) {
-      throw error;
+      throw new Error(`Sandbox execution failed: ${error}`);
     }
   }
 
   /**
-   * Get current resource usage
+   * Set context variable
    */
-  getResourceUsage(): { memory: number; cpu: number; uptime: number } {
-    return {
-      memory: this.memoryUsage,
-      cpu: this.cpuUsage,
-      uptime: Date.now() - this.startTime,
-    };
+  setContext(key: string, value: any): void {
+    this.context[key] = value;
+  }
+
+  /**
+   * Get context variable
+   */
+  getContext(key: string): any {
+    return this.context[key];
+  }
+
+  /**
+   * Check if permission is allowed
+   */
+  hasPermission(type: string, resource: string): boolean {
+    switch (type) {
+      case 'filesystem:read':
+        return this.config.permissions.filesystem.read.some(path => 
+          resource.startsWith(path)
+        );
+      case 'filesystem:write':
+        return this.config.permissions.filesystem.write.some(path => 
+          resource.startsWith(path)
+        );
+      case 'network:connect':
+        const [host, port] = resource.split(':');
+        return this.config.permissions.network.allowedHosts.includes(host) &&
+               this.config.permissions.network.allowedPorts.includes(parseInt(port));
+      default:
+        return false;
+    }
+  }
+
+  /**
+   * Destroy sandbox
+   */
+  destroy(): void {
+    this.context = {};
   }
 }
 
 /**
- * Dynamic Plugin Loader with Hot-Reload Capabilities
+ * Plugin Loader
+ * 
+ * Handles loading and unloading plugins with security sandboxing
  */
 export class PluginLoader extends EventEmitter<PluginLoaderEvents> {
+  private config: PluginSandboxConfig;
   private loadedPlugins = new Map<string, PluginInstance>();
-  private watchers = new Map<string, any>(); // File watchers for hot reload
-  private hotReloadEnabled = false;
-  private sandboxConfig: PluginSandboxConfig;
+  private sandboxes = new Map<string, PluginSandboxWrapper>();
 
-  constructor(sandboxConfig?: Partial<PluginSandboxConfig>) {
+  constructor(config?: Partial<PluginSandboxConfig>) {
     super();
     
-    this.sandboxConfig = {
+    this.config = {
       enabled: true,
+      strictMode: true,
+      memoryLimit: 100, // 100MB
+      cpuLimit: 80, // 80%
+      timeoutMs: 30000, // 30 seconds
       permissions: {
         filesystem: {
           read: ['./plugins', './data'],
-          write: ['./data/plugins'],
+          write: ['./data/plugins']
         },
         network: {
           allowedHosts: ['localhost', '127.0.0.1'],
-          allowedPorts: [3000, 8080, 9000],
+          allowedPorts: [3000, 8080],
+          allowOutbound: false
         },
-        api: {
-          allowedMethods: ['*'],
-          rateLimits: {
-            'default': 100, // 100 calls per minute
-          },
-        },
-        memory: {
-          maxUsage: 100 * 1024 * 1024, // 100MB
-        },
-        cpu: {
-          maxUsage: 80, // 80% CPU
-        },
+        process: {
+          allowSpawn: false,
+          allowedCommands: []
+        }
       },
-      timeout: 30000, // 30 seconds
-      ...sandboxConfig,
+      ...config,
     };
   }
 
   /**
-   * Load a plugin from registry entry
+   * Load a plugin
    */
   async loadPlugin(entry: PluginRegistryEntry): Promise<PluginInstance> {
-    const startTime = Date.now();
+    const pluginId = entry.id;
     
-    try {
-      this.emit('plugin:loading', entry.id);
-      
-      // Check if plugin is already loaded
-      if (this.loadedPlugins.has(entry.id)) {
-        const existing = this.loadedPlugins.get(entry.id)!;
-        existing.lastAccessed = new Date();
-        existing.accessCount++;
-        return existing;
-      }
+    if (this.loadedPlugins.has(pluginId)) {
+      throw new Error(`Plugin already loaded: ${pluginId}`);
+    }
 
-      // Load the plugin module
-      const plugin = await this.loadPluginModule(entry);
-      
-      // Create sandbox if enabled
-      const sandbox = entry.metadata.sandboxed ? new PluginSandboxWrapper(this.sandboxConfig) : undefined;
-      
-      // Create plugin instance
-      const instance: PluginInstance = {
-        id: entry.id,
-        plugin,
-        metadata: entry.metadata,
-        sandbox,
-        loadTime: Date.now() - startTime,
-        lastAccessed: new Date(),
-        accessCount: 1,
-        performance: {
-          pluginId: entry.id,
-          loadTime: Date.now() - startTime,
-          memoryUsage: 0,
-          cpuUsage: 0,
-          apiCalls: 0,
-          errors: 0,
-          lastSeen: new Date(),
-          uptime: 0,
-        },
+    this.emit('plugin:loading', pluginId);
+
+    try {
+      const startTime = Date.now();
+
+      // Create sandbox
+      const sandbox = new PluginSandboxWrapper(pluginId, this.config);
+      this.sandboxes.set(pluginId, sandbox);
+      this.emit('sandbox:created', pluginId);
+
+      // Mock plugin loading - in production, this would load actual plugin code
+      const pluginExports = {
+        // Mock plugin exports
+        name: entry.metadata.name,
+        version: entry.metadata.version,
+        init: () => console.log(`Plugin ${pluginId} initialized`),
+        execute: () => console.log(`Plugin ${pluginId} executed`),
+        cleanup: () => console.log(`Plugin ${pluginId} cleaned up`)
       };
 
-      // Store instance
-      this.loadedPlugins.set(entry.id, instance);
-      
-      // Set up hot reload if enabled
-      if (this.hotReloadEnabled) {
-        this.setupHotReload(entry);
-      }
-      
-      this.emit('plugin:loaded', entry.id, plugin);
-      
+      const loadTime = Date.now() - startTime;
+
+      const instance: PluginInstance = {
+        id: pluginId,
+        name: entry.metadata.name,
+        version: entry.metadata.version,
+        status: 'loaded',
+        sandbox,
+        exports: pluginExports,
+        metadata: {
+          loadTime,
+          memoryUsage: Math.random() * 50 + 10, // Mock memory usage 10-60MB
+          lastActivity: new Date()
+        }
+      };
+
+      this.loadedPlugins.set(pluginId, instance);
+      this.emit('plugin:loaded', pluginId, instance);
+
       return instance;
+
     } catch (error) {
-      this.emit('plugin:error', error as Error, entry.id);
+      this.emit('plugin:error', pluginId, error as Error);
       throw error;
     }
   }
@@ -264,60 +237,27 @@ export class PluginLoader extends EventEmitter<PluginLoaderEvents> {
     }
 
     try {
-      // Stop watching for hot reload
-      const watcher = this.watchers.get(pluginId);
-      if (watcher) {
-        watcher.close();
-        this.watchers.delete(pluginId);
+      // Call cleanup if available
+      if (instance.exports.cleanup) {
+        await instance.exports.cleanup();
       }
 
-      // Call plugin cleanup if available
-      if (instance.plugin.cleanup && typeof instance.plugin.cleanup === 'function') {
-        await instance.plugin.cleanup();
+      // Destroy sandbox
+      const sandbox = this.sandboxes.get(pluginId);
+      if (sandbox) {
+        sandbox.destroy();
+        this.sandboxes.delete(pluginId);
+        this.emit('sandbox:destroyed', pluginId);
       }
 
-      // Remove from loaded plugins
+      // Update status and remove from loaded plugins
+      instance.status = 'unloaded';
       this.loadedPlugins.delete(pluginId);
-      
+
       this.emit('plugin:unloaded', pluginId);
-    } catch (error) {
-      this.emit('plugin:error', error as Error, pluginId);
-      throw error;
-    }
-  }
 
-  /**
-   * Reload a plugin (hot reload)
-   */
-  async reloadPlugin(pluginId: string): Promise<PluginInstance> {
-    const instance = this.loadedPlugins.get(pluginId);
-    if (!instance) {
-      throw new Error(`Plugin not loaded: ${pluginId}`);
-    }
-
-    try {
-      // Unload current instance
-      await this.unloadPlugin(pluginId);
-      
-      // Create a mock registry entry for reloading
-      const entry: PluginRegistryEntry = {
-        id: pluginId,
-        metadata: instance.metadata,
-        source: 'local',
-        uri: `./plugins/${pluginId}`,
-        lastUpdated: new Date(),
-        status: 'active',
-        tags: [],
-      };
-      
-      // Load new instance
-      const newInstance = await this.loadPlugin(entry);
-      
-      this.emit('plugin:reloaded', pluginId, newInstance.plugin);
-      
-      return newInstance;
     } catch (error) {
-      this.emit('plugin:error', error as Error, pluginId);
+      this.emit('plugin:error', pluginId, error as Error);
       throw error;
     }
   }
@@ -326,168 +266,68 @@ export class PluginLoader extends EventEmitter<PluginLoaderEvents> {
    * Get loaded plugin instance
    */
   getPlugin(pluginId: string): PluginInstance | undefined {
-    const instance = this.loadedPlugins.get(pluginId);
-    if (instance) {
-      instance.lastAccessed = new Date();
-      instance.accessCount++;
-    }
-    return instance;
+    return this.loadedPlugins.get(pluginId);
   }
 
   /**
-   * List all loaded plugins
+   * Get all loaded plugins
    */
   getLoadedPlugins(): PluginInstance[] {
     return Array.from(this.loadedPlugins.values());
   }
 
   /**
-   * Execute plugin method safely
+   * Check if plugin is loaded
    */
-  async executePluginMethod(pluginId: string, method: string, args: any[] = []): Promise<any> {
-    const instance = this.getPlugin(pluginId);
-    if (!instance) {
-      throw new Error(`Plugin not loaded: ${pluginId}`);
-    }
-
-    try {
-      instance.performance.apiCalls++;
-      instance.performance.lastSeen = new Date();
-
-      // Execute through sandbox if available
-      if (instance.sandbox) {
-        return await instance.sandbox.executeMethod(method, args);
-      }
-
-      // Direct execution
-      if (!instance.plugin[method] || typeof instance.plugin[method] !== 'function') {
-        throw new Error(`Method '${method}' not found in plugin ${pluginId}`);
-      }
-
-      return await instance.plugin[method](...args);
-    } catch (error) {
-      instance.performance.errors++;
-      this.emit('plugin:error', error as Error, pluginId);
-      throw error;
-    }
+  isLoaded(pluginId: string): boolean {
+    return this.loadedPlugins.has(pluginId);
   }
 
   /**
-   * Enable hot reload
+   * Update plugin configuration
    */
-  enableHotReload(): void {
-    this.hotReloadEnabled = true;
-    
-    // Set up watchers for all loaded plugins
-    for (const [pluginId, instance] of this.loadedPlugins) {
-      this.setupHotReload({
-        id: pluginId,
-        metadata: instance.metadata,
-        source: 'local',
-        uri: `./plugins/${pluginId}`,
-        lastUpdated: new Date(),
-        status: 'active',
-        tags: [],
-      });
-    }
-    
-    this.emit('hotreload:enabled');
+  updateConfig(newConfig: Partial<PluginSandboxConfig>): void {
+    this.config = { ...this.config, ...newConfig };
   }
 
   /**
-   * Disable hot reload
+   * Get plugin statistics
    */
-  disableHotReload(): void {
-    this.hotReloadEnabled = false;
+  getStatistics(): {
+    totalLoaded: number;
+    totalMemoryUsage: number;
+    averageLoadTime: number;
+  } {
+    const plugins = Array.from(this.loadedPlugins.values());
     
-    // Close all watchers
-    for (const [pluginId, watcher] of this.watchers) {
-      watcher.close();
-    }
-    this.watchers.clear();
-    
-    this.emit('hotreload:disabled');
-  }
-
-  /**
-   * Get plugin performance metrics
-   */
-  getPluginPerformance(pluginId: string): PluginPerformanceMetrics | undefined {
-    const instance = this.loadedPlugins.get(pluginId);
-    if (!instance) return undefined;
-
-    // Update uptime
-    instance.performance.uptime = Date.now() - (instance.performance.lastSeen.getTime() - instance.performance.uptime);
-    
-    // Update resource usage from sandbox
-    if (instance.sandbox) {
-      const usage = instance.sandbox.getResourceUsage();
-      instance.performance.memoryUsage = usage.memory;
-      instance.performance.cpuUsage = usage.cpu;
-    }
-
-    return instance.performance;
-  }
-
-  /**
-   * Cleanup and destroy loader
-   */
-  destroy(): void {
-    // Unload all plugins
-    for (const pluginId of this.loadedPlugins.keys()) {
-      this.unloadPlugin(pluginId).catch(console.warn);
-    }
-    
-    // Disable hot reload
-    this.disableHotReload();
-    
-    // Remove all listeners
-    this.removeAllListeners();
-  }
-
-  // Private methods
-
-  private async loadPluginModule(entry: PluginRegistryEntry): Promise<any> {
-    // This would implement the actual module loading based on entry.source and entry.uri
-    // For now, return a mock plugin
     return {
-      name: entry.metadata.name,
-      version: entry.metadata.version,
-      init: () => console.log(`Initializing plugin ${entry.metadata.name}`),
-      execute: (action: string) => console.log(`Executing action: ${action}`),
-      cleanup: () => console.log(`Cleaning up plugin ${entry.metadata.name}`),
+      totalLoaded: plugins.length,
+      totalMemoryUsage: plugins.reduce((sum, p) => sum + p.metadata.memoryUsage, 0),
+      averageLoadTime: plugins.length > 0 
+        ? plugins.reduce((sum, p) => sum + p.metadata.loadTime, 0) / plugins.length 
+        : 0
     };
   }
 
-  private setupHotReload(entry: PluginRegistryEntry): void {
-    if (entry.source !== 'local') return; // Only support hot reload for local plugins
-
-    try {
-      // Mock file watcher - in a real implementation, this would use fs.watch or chokidar
-      const watcher = {
-        close: () => {
-          console.log(`Stopped watching ${entry.id} for changes`);
-        }
-      };
-
-      this.watchers.set(entry.id, watcher);
-      
-      // Simulate file change detection
-      // In real implementation, this would detect actual file changes
-      console.log(`Started watching ${entry.id} for hot reload`);
-    } catch (error) {
-      console.warn(`Failed to set up hot reload for ${entry.id}:`, error);
-    }
-  }
-
-  private onFileChanged(pluginId: string, changeType: string): void {
-    this.emit('hotreload:detected', pluginId, changeType);
+  /**
+   * Cleanup all loaded plugins
+   */
+  destroy(): void {
+    // Unload all plugins
+    const pluginIds = Array.from(this.loadedPlugins.keys());
     
-    // Auto-reload if enabled
-    if (this.hotReloadEnabled) {
-      this.reloadPlugin(pluginId).catch(error => {
-        console.warn(`Failed to hot reload plugin ${pluginId}:`, error);
-      });
+    for (const pluginId of pluginIds) {
+      try {
+        this.unloadPlugin(pluginId);
+      } catch (error) {
+        console.error(`Failed to unload plugin ${pluginId}:`, error);
+      }
     }
+
+    // Clear all data
+    this.loadedPlugins.clear();
+    this.sandboxes.clear();
+    
+    this.removeAllListeners();
   }
 }

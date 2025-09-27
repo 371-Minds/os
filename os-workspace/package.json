@@ -93,6 +93,7 @@
     "concurrently": "^8.0.0",
     "esbuild": "^0.19.2",
     "hardhat": "^2.19.0",
+    "nexe": "^4.0.0-rc.6",
     "nx": "^21.4.1",
     "prettier": "^2.6.2",
     "tslib": "^2.3.0",

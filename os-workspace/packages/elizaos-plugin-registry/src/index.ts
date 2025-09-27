@@ -4,7 +4,14 @@ import type { SecurityPolicy } from './security.js';
 import type { PluginSandboxConfig } from './loader.js';
 import type { PerformanceConfig } from './performance.js';
 
-// Core plugin registry components
+// Import classes for the factory function
+import { PluginRegistry } from './registry.js';
+import { PluginLoader, PluginSandboxWrapper } from './loader.js';
+import { PluginMarketplace } from './marketplace.js';
+import { PluginSecurityFramework, SecurityViolationError } from './security.js';
+import { PluginPerformanceMonitor } from './performance.js';
+
+// Re-export all components
 export { PluginRegistry } from './registry.js';
 export { PluginLoader, PluginSandboxWrapper } from './loader.js';
 export { PluginMarketplace } from './marketplace.js';
@@ -47,7 +54,7 @@ export type {
 export type {
   SecurityPolicy,
   SecurityViolationType,
-  ISecurityViolation,
+  SecurityViolation,
   CodeAnalysisResult,
   SecurityEvents,
   QuarantineStatus,
@@ -79,14 +86,6 @@ export {
  * Advanced plugin registry system with hot-reload capabilities,
  * security sandboxing, and blockchain marketplace integration.
  */
-
-export { PluginRegistry } from './registry';
-export { PluginLoader } from './loader';
-export { SecurityFramework } from './security';
-export * from './types';
-
-// Main registry export for convenience
-export { PluginRegistry as default } from './registry';
 
 /**
  * ElizaOS Plugin Registry System
@@ -209,3 +208,6 @@ export function createPluginSystem(config?: {
     }
   };
 }
+
+// Main registry export for convenience
+export { PluginRegistry as default } from './registry.js';

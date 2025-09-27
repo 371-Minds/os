@@ -1,0 +1,94 @@
+{
+  "name": "ping-agent",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/utility-agents/ping-agent/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/utility-agents/ping-agent",
+        "format": ["esm"],
+        "bundle": true,
+        "main": "apps/utility-agents/ping-agent/src/index.ts",
+        "tsConfig": "apps/utility-agents/ping-agent/tsconfig.app.json",
+        "assets": ["apps/utility-agents/ping-agent/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "package": {
+      "executor": "nx:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "commands": [
+          "bun nx build ping-agent:production",
+          "cd dist/apps/utility-agents/ping-agent && npx nexe index.js --output ../../../bin/ping-agent.exe --build --verbose"
+        ],
+        "parallel": false,
+        "outputPath": "dist/bin"
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ping-agent:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ping-agent:build:development"
+        },
+        "production": {
+          "buildTarget": "ping-agent:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/utility-agents/ping-agent/test",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/utility-agents/ping-agent/src/**/*.test.ts",
+        "tsConfig": "apps/utility-agents/ping-agent/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "files": ["apps/utility-agents/ping-agent/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": ["scope:utility", "type:application", "role:network", "packaging:nexe"]
+}

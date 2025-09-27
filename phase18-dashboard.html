@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 18: C-Suite Governance Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "agents proposal workflow"
+                "timeline timeline timeline";
+            grid-template-rows: 80px 1fr 200px;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 100vh;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .header {
+            grid-area: header;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        .header .status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow-y: auto;
+        }
+
+        .agents-panel {
+            grid-area: agents;
+        }
+
+        .proposal-panel {
+            grid-area: proposal;
+        }
+
+        .workflow-panel {
+            grid-area: workflow;
+        }
+
+        .timeline-panel {
+            grid-area: timeline;
+        }
+
+        .panel h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .agent-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .agent-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .agent-card.ceo { border-left-color: #ff6b6b; }
+        .agent-card.cto { border-left-color: #4ecdc4; }
+        .agent-card.cfo { border-left-color: #45b7d1; }
+        .agent-card.clo { border-left-color: #96ceb4; }
+
+        .agent-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .agent-status {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .agent-action {
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .vote-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .vote-for { background: #2ecc71; }
+        .vote-against { background: #e74c3c; }
+        .vote-pending { background: #f39c12; }
+
+        .proposal-details {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .proposal-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .proposal-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .workflow-step.active {
+            background: rgba(46, 204, 113, 0.2);
+            border-left: 3px solid #2ecc71;
+        }
+
+        .workflow-step.completed {
+            background: rgba(46, 204, 113, 0.1);
+            opacity: 0.7;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .step-number.active {
+            background: #2ecc71;
+        }
+
+        .step-number.completed {
+            background: #27ae60;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-icon.active {
+            background: #2ecc71;
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-icon.completed {
+            background: #27ae60;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .start-btn {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .start-btn:disabled {
+            background: #7f8c8d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .log-entry {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            border-left: 3px solid #3498db;
+        }
+
+        .log-entry.success { border-left-color: #2ecc71; }
+        .log-entry.warning { border-left-color: #f39c12; }
+        .log-entry.error { border-left-color: #e74c3c; }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div style="display: flex; align-items: center;">
+                <span style="font-size: 28px;">🎯</span>
+                <h1>Phase 18: C-Suite Governance Dashboard</h1>
+            </div>
+            <div class="status">
+                <div class="status-item">
+                    <span id="simulation-status">⏸️ Ready</span>
+                </div>
+                <div class="status-item">
+                    <span id="execution-time">⏱️ 0s</span>
+                </div>
+                <button id="start-simulation" class="start-btn">🚀 Start Simulation</button>
+            </div>
+        </div>
+
+        <div class="panel agents-panel">
+            <h2>🤖 C-Suite Agents</h2>
+            <div id="agents-container">
+                <div class="agent-card ceo" data-agent="mimi">
+                    <div class="agent-name">CEO Mimi <span class="vote-indicator vote-pending"></span></div>
+                    <div class="agent-status">Strategic visionary with balanced risk approach</div>
+                    <div class="agent-action">Awaiting proposal...</div>
+                </div>
+                <div class="agent-card cto" data-agent="zara">
+                    <div class="agent-name">CTO Zara <span class="vote-indicator vote-pending"></span></div>
+                    <div class="agent-status">Technical innovator with high risk tolerance</div>
+                    <div class="agent-action">Ready to propose...</div>
+                </div>
+                <div class="agent-card cfo" data-agent="maya">
+                    <div class="agent-name">CFO Maya <span class="vote-indicator vote-pending"></span></div>
+                    <div class="agent-status">Financial analyst with conservative approach</div>
+                    <div class="agent-action">Awaiting proposal...</div>
+                </div>
+                <div class="agent-card clo" data-agent="alex">
+                    <div class="agent-name">CLO Alex <span class="vote-indicator vote-pending"></span></div>
+                    <div class="agent-status">Legal compliance with security focus</div>
+                    <div class="agent-action">Awaiting proposal...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel proposal-panel">
+            <h2>📋 Current Proposal</h2>
+            <div id="proposal-container">
+                <div class="proposal-details">
+                    <div class="proposal-title">Legacy Python Utils Refactor</div>
+                    <div class="proposal-meta">
+                        <span>Proposer: CTO Zara</span>
+                        <span>Status: Pending</span>
+                    </div>
+                    <div style="font-size: 14px; line-height: 1.4;">
+                        Refactor legacy-python-utils to modern core-utils package with Bun + TypeScript for 10x performance improvement and enhanced maintainability.
+                    </div>
+                </div>
+                <div class="metrics">
+                    <div class="metric-card">
+                        <span class="metric-value" id="votes-for">0</span>
+                        <span class="metric-label">Votes For</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="votes-against">0</span>
+                        <span class="metric-label">Votes Against</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="participation">0%</span>
+                        <span class="metric-label">Participation</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="budget-impact">96%</span>
+                        <span class="metric-label">Budget Efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel workflow-panel">
+            <h2>⚡ Workflow Status</h2>
+            <div id="workflow-container">
+                <div class="workflow-step" data-step="1">
+                    <div class="step-number">1</div>
+                    <div>
+                        <div style="font-weight: bold;">Proposal Creation</div>
+                        <div style="font-size: 12px; opacity: 0.8;">CTO identifies technical debt</div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div>
+                        <div style="font-weight: bold;">Dissemination</div>
+                        <div style="font-size: 12px; opacity: 0.8;">Nextcloud & Novu notifications</div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div>
+                        <div style="font-weight: bold;">Deliberation</div>
+                        <div style="font-size: 12px; opacity: 0.8;">C-Suite agents discuss proposal</div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div>
+                        <div style="font-weight: bold;">Voting</div>
+                        <div style="font-size: 12px; opacity: 0.8;">Autonomous decision making</div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div>
+                        <div style="font-weight: bold;">Execution</div>
+                        <div style="font-size: 12px; opacity: 0.8;">GraphBit workflow triggered</div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-step="6">
+                    <div class="step-number">6</div>
+                    <div>
+                        <div style="font-weight: bold;">Completion</div>
+                        <div style="font-size: 12px; opacity: 0.8;">Financial closure & reporting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel timeline-panel">
+            <h2>⏱️ Execution Timeline</h2>
+            <div class="timeline" id="timeline-container">
+                <div class="timeline-item" data-time="0">
+                    <div class="timeline-icon">🎯</div>
+                    <div style="font-size: 12px;">Start</div>
+                </div>
+                <div class="timeline-item" data-time="3">
+                    <div class="timeline-icon">📝</div>
+                    <div style="font-size: 12px;">Proposal</div>
+                </div>
+                <div class="timeline-item" data-time="6">
+                    <div class="timeline-icon">📢</div>
+                    <div style="font-size: 12px;">Notify</div>
+                </div>
+                <div class="timeline-item" data-time="10">
+                    <div class="timeline-icon">💬</div>
+                    <div style="font-size: 12px;">Deliberate</div>
+                </div>
+                <div class="timeline-item" data-time="15">
+                    <div class="timeline-icon">🗳️</div>
+                    <div style="font-size: 12px;">Vote</div>
+                </div>
+                <div class="timeline-item" data-time="20">
+                    <div class="timeline-icon">🎆</div>
+                    <div style="font-size: 12px;">Complete</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        let simulationRunning = false;
+        let currentStep = 0;
+        let startTime = null;
+        let socket = null;
+        
+        // Initialize WebSocket connection
+        function initializeWebSocket() {
+            socket = io();
+            
+            socket.on('connect', () => {
+                console.log('🔌 Connected to Phase 18 dashboard server');
+                document.getElementById('simulation-status').textContent = '🔌 Connected';
+            });
+            
+            socket.on('disconnect', () => {
+                console.log('🔌 Disconnected from server');
+                document.getElementById('simulation-status').textContent = '🔌 Disconnected';
+            });
+            
+            socket.on('simulation-started', () => {
+                simulationRunning = true;
+                startTime = Date.now();
+                document.getElementById('start-simulation').disabled = true;
+                document.getElementById('simulation-status').textContent = '🚀 Running';
+            });
+            
+            socket.on('step-activated', (data) => {
+                activateWorkflowStep(data.step);
+                updateTimeline((data.step - 1) * 3 + 3);
+            });
+            
+            socket.on('simulation-event', (event) => {
+                switch(event.type) {
+                    case 'agent-action':
+                        updateAgentAction(event.agent, event.action);
+                        break;
+                    case 'agent-vote':
+                        updateAgentAction(event.agent, event.action);
+                        updateAgentVote(event.agent, event.vote);
+                        break;
+                    case 'proposal-status':
+                        document.querySelector('.proposal-meta span:last-child').textContent = `Status: ${event.status}`;
+                        break;
+                    case 'simulation-complete':
+                        document.getElementById('simulation-status').textContent = '✅ Complete';
+                        break;
+                }
+            });
+            
+            socket.on('simulation-completed', () => {
+                updateTimeline(20);
+                simulationRunning = false;
+                
+                setTimeout(() => {
+                    document.getElementById('start-simulation').disabled = false;
+                    document.getElementById('start-simulation').textContent = '🔄 Run Again';
+                }, 2000);
+            });
+        }
+
+        const agents = {
+            mimi: { name: 'CEO Mimi', voted: false, vote: null },
+            zara: { name: 'CTO Zara', voted: false, vote: null },
+            maya: { name: 'CFO Maya', voted: false, vote: null },
+            alex: { name: 'CLO Alex', voted: false, vote: null }
+        };
+
+        const steps = [
+            { title: 'Proposal Creation', duration: 3000, action: stepProposalCreation },
+            { title: 'Dissemination', duration: 2000, action: stepDissemination },
+            { title: 'Deliberation', duration: 4000, action: stepDeliberation },
+            { title: 'Voting', duration: 5000, action: stepVoting },
+            { title: 'Execution', duration: 3000, action: stepExecution },
+            { title: 'Completion', duration: 3000, action: stepCompletion }
+        ];
+
+        function updateAgentAction(agentId, action) {
+            const agentCard = document.querySelector(`[data-agent="${agentId}"]`);
+            const actionElement = agentCard.querySelector('.agent-action');
+            actionElement.textContent = action;
+            actionElement.classList.add('fade-in');
+        }
+
+        function updateAgentVote(agentId, vote) {
+            agents[agentId].voted = true;
+            agents[agentId].vote = vote;
+            
+            const agentCard = document.querySelector(`[data-agent="${agentId}"]`);
+            const voteIndicator = agentCard.querySelector('.vote-indicator');
+            voteIndicator.className = `vote-indicator vote-${vote}`;
+            
+            updateVotingMetrics();
+        }
+
+        function updateVotingMetrics() {
+            const votesFor = Object.values(agents).filter(a => a.vote === 'for').length;
+            const votesAgainst = Object.values(agents).filter(a => a.vote === 'against').length;
+            const totalVoted = Object.values(agents).filter(a => a.voted).length;
+            const participation = Math.round((totalVoted / 4) * 100);
+
+            document.getElementById('votes-for').textContent = votesFor;
+            document.getElementById('votes-against').textContent = votesAgainst;
+            document.getElementById('participation').textContent = participation + '%';
+        }
+
+        function activateWorkflowStep(stepNumber) {
+            // Reset all steps
+            document.querySelectorAll('.workflow-step').forEach(step => {
+                step.classList.remove('active', 'completed');
+                step.querySelector('.step-number').classList.remove('active', 'completed');
+            });
+
+            // Mark completed steps
+            for (let i = 1; i < stepNumber; i++) {
+                const step = document.querySelector(`[data-step="${i}"]`);
+                step.classList.add('completed');
+                step.querySelector('.step-number').classList.add('completed');
+            }
+
+            // Mark active step
+            const activeStep = document.querySelector(`[data-step="${stepNumber}"]`);
+            if (activeStep) {
+                activeStep.classList.add('active');
+                activeStep.querySelector('.step-number').classList.add('active');
+            }
+        }
+
+        function updateTimeline(currentTime) {
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                const itemTime = parseInt(item.dataset.time);
+                const icon = item.querySelector('.timeline-icon');
+                
+                if (itemTime <= currentTime) {
+                    icon.classList.add('completed');
+                    icon.classList.remove('active');
+                } else if (Math.abs(itemTime - currentTime) <= 1) {
+                    icon.classList.add('active');
+                    icon.classList.remove('completed');
+                } else {
+                    icon.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function updateExecutionTime() {
+            if (startTime) {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                document.getElementById('execution-time').textContent = `⏱️ ${elapsed}s`;
+            }
+        }
+
+        async function stepProposalCreation() {
+            updateAgentAction('zara', 'Creating technical proposal...');
+            await sleep(1000);
+            updateAgentAction('zara', 'Technical debt analysis complete');
+            await sleep(1000);
+            updateAgentAction('zara', 'Proposal submitted to DAO');
+        }
+
+        async function stepDissemination() {
+            updateAgentAction('zara', 'Setting up Nextcloud discussion...');
+            await sleep(1000);
+            updateAgentAction('mimi', 'Novu notification received');
+            updateAgentAction('maya', 'Novu notification received');
+            updateAgentAction('alex', 'Novu notification received');
+        }
+
+        async function stepDeliberation() {
+            updateAgentAction('maya', 'Analyzing budget implications...');
+            await sleep(1500);
+            updateAgentAction('maya', 'Requesting cost justification');
+            await sleep(1000);
+            updateAgentAction('zara', 'Providing benchmark data...');
+            await sleep(1000);
+            updateAgentAction('mimi', 'Reviewing strategic alignment');
+            updateAgentAction('alex', 'Assessing legal compliance');
+        }
+
+        async function stepVoting() {
+            updateAgentAction('zara', 'Voting: FOR (Proposer)');
+            updateAgentVote('zara', 'for');
+            await sleep(1000);
+            
+            updateAgentAction('mimi', 'Voting: FOR (Strategic benefit)');
+            updateAgentVote('mimi', 'for');
+            await sleep(1200);
+            
+            updateAgentAction('maya', 'Voting: FOR (Budget approved)');
+            updateAgentVote('maya', 'for');
+            await sleep(1000);
+            
+            updateAgentAction('alex', 'Voting: FOR (Compliant)');
+            updateAgentVote('alex', 'for');
+            await sleep(800);
+            
+            document.querySelector('.proposal-meta span:last-child').textContent = 'Status: APPROVED';
+        }
+
+        async function stepExecution() {
+            updateAgentAction('zara', 'Triggering GraphBit workflow...');
+            await sleep(1000);
+            updateAgentAction('mimi', 'Monitoring execution progress');
+            updateAgentAction('maya', 'Tracking budget adherence');
+            await sleep(1500);
+            updateAgentAction('alex', 'Validating compliance requirements');
+        }
+
+        async function stepCompletion() {
+            updateAgentAction('zara', 'Refactor completed successfully');
+            await sleep(1000);
+            updateAgentAction('maya', 'Budget compliance: 96% efficiency');
+            await sleep(1000);
+            updateAgentAction('mimi', 'Proposal marked as executed');
+            updateAgentAction('alex', 'All requirements satisfied');
+            
+            document.getElementById('simulation-status').textContent = '✅ Complete';
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function runSimulation() {
+            if (simulationRunning) return;
+            
+            if (socket && socket.connected) {
+                // Use WebSocket for real-time simulation
+                socket.emit('start-simulation');
+            } else {
+                // Fallback to local simulation
+                await runLocalSimulation();
+            }
+        }
+        
+        async function runLocalSimulation() {
+            simulationRunning = true;
+            startTime = Date.now();
+            document.getElementById('start-simulation').disabled = true;
+            document.getElementById('simulation-status').textContent = '🚀 Running (Local)';
+            
+            // Update execution time every second
+            const timeInterval = setInterval(updateExecutionTime, 1000);
+            
+            try {
+                for (let i = 0; i < steps.length; i++) {
+                    currentStep = i + 1;
+                    activateWorkflowStep(currentStep);
+                    updateTimeline(i * 3 + 3);
+                    
+                    await steps[i].action();
+                    await sleep(500); // Brief pause between steps
+                }
+                
+                // Final timeline update
+                updateTimeline(20);
+                
+            } catch (error) {
+                console.error('Simulation error:', error);
+                document.getElementById('simulation-status').textContent = '❌ Error';
+            } finally {
+                clearInterval(timeInterval);
+                simulationRunning = false;
+                
+                // Re-enable button after a delay
+                setTimeout(() => {
+                    document.getElementById('start-simulation').disabled = false;
+                    document.getElementById('start-simulation').textContent = '🔄 Run Again';
+                }, 2000);
+            }
+        }
+
+        // Initialize the dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeWebSocket();
+            document.getElementById('start-simulation').addEventListener('click', runSimulation);
+            
+            // Start the execution timer display
+            setInterval(updateExecutionTime, 100);
+            
+            console.log('🎯 Phase 18 Governance Dashboard Initialized');
+            console.log('🔌 WebSocket connection established for real-time updates');
+            console.log('🚀 Click "Start Simulation" to begin the autonomous C-Suite governance demonstration');
+        });
+    </script>
+</body>
+</html>

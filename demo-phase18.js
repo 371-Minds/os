@@ -37,6 +37,13 @@ refactoring to modern core-utils package with Bun + TypeScript for
    cd os-workspace
    bun apps/phase18-voting-simulation/src/index.ts
 
+🌐 To run with GUI Dashboard:
+   bun dashboard              # Start web server
+   # OR
+   bun launch-dashboard.js    # Auto-install & open browser
+   # OR
+   powershell -ExecutionPolicy Bypass -File start-phase18-dashboard.ps1
+
 📊 Expected Results:
 • End-to-end execution in 15-20 seconds
 • 100% C-Suite participation (4 agents)

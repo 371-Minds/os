@@ -1,0 +1,47 @@
+{
+  "name": "phase18-voting-simulation",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/phase18-voting-simulation/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/phase18-voting-simulation",
+        "main": "apps/phase18-voting-simulation/src/index.ts",
+        "tsConfig": "apps/phase18-voting-simulation/tsconfig.app.json",
+        "format": ["cjs", "esm"]
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "phase18-voting-simulation:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "phase18-voting-simulation:build:development"
+        },
+        "production": {
+          "buildTarget": "phase18-voting-simulation:build:production"
+        }
+      }
+    },
+    "start": {
+      "command": "bun --watch apps/phase18-voting-simulation/src/index.ts",
+      "options": {
+        "cwd": "."
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/phase18-voting-simulation/jest.config.ts"
+      }
+    }
+  },
+  "tags": ["type:app", "scope:simulation", "phase:18"]
+}

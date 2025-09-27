@@ -5,10 +5,19 @@ Test script for the prompt classifier to ensure it's working correctly.
 
 import sys
 import os
-sys.path.append('371-os/scripts')
 
-# Import the classifier
-from prompt_classifier import classify_prompt
+# Add the scripts directory to Python path
+scripts_path = os.path.join(os.path.dirname(__file__), '371-os', 'scripts')
+sys.path.insert(0, scripts_path)
+
+try:
+    # Import the classifier
+    from prompt_classifier import classify_prompt, CATEGORIES
+except ImportError as e:
+    print(f"Error importing prompt_classifier: {e}")
+    print(f"Scripts path: {scripts_path}")
+    print(f"Files in scripts directory: {os.listdir(scripts_path) if os.path.exists(scripts_path) else 'Directory not found'}")
+    sys.exit(1)
 
 # Test cases
 test_prompts = {
@@ -30,12 +39,14 @@ for expected_category, prompt_text in test_prompts.items():
     # Debug: show which keywords matched for failed cases
     if predicted_category != expected_category:
         print(f"🐛 DEBUG: Expected '{expected_category}' but got '{predicted_category}'")
-        from prompt_classifier import CATEGORIES
-        content_lower = prompt_text.lower()
-        for cat, keywords in CATEGORIES.items():
-            matches = [kw for kw in keywords if kw in content_lower]
-            if matches:
-                print(f"   Category '{cat}' matched keywords: {matches}")
+        try:
+            content_lower = prompt_text.lower()
+            for cat, keywords in CATEGORIES.items():
+                matches = [kw for kw in keywords if kw in content_lower]
+                if matches:
+                    print(f"   Category '{cat}' matched keywords: {matches}")
+        except NameError:
+            print("   CATEGORIES not available for debugging")
     
     print(f"{status} Expected: {expected_category:15} | Predicted: {predicted_category:15}")
     print(f"     Text: {prompt_text[:60]}...")

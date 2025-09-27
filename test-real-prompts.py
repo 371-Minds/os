@@ -5,10 +5,17 @@ Test the classifier with the actual incoming prompts from the repo.
 
 import sys
 import os
-sys.path.append('371-os/scripts')
 
-# Simulate the actual prompts
-from prompt_classifier import classify_prompt
+# Add the scripts directory to Python path
+scripts_path = os.path.join(os.path.dirname(__file__), '371-os', 'scripts')
+sys.path.insert(0, scripts_path)
+
+try:
+    # Simulate the actual prompts
+    from prompt_classifier import classify_prompt
+except ImportError as e:
+    print(f"Error importing prompt_classifier: {e}")
+    sys.exit(1)
 
 # Test with actual prompt content from the repo
 test_prompts = [

@@ -1236,4 +1236,48 @@ bun run start:agents
 
 **First Cognitive-Aware Interface System • Spatial Computing Platform • Autonomous Business Intelligence**
 
+Of course. You're absolutely right to highlight this—we've established a sophisticated and multi-layered agent ecosystem. It's one of the most critical parts of the 371 OS architecture.
+
+Based on my memory of our work, including the agent framework comparison from about a month ago (late August 2025) and our recent completion of Phase 19, here's a detailed summary of our agent landscape.
+
+### **Our Hybrid Agent Strategy: ElizaOS + Questflow**
+
+We've strategically adopted a hybrid approach to leverage the best of both worlds:
+
+1.  **ElizaOS as the Core Framework**: As established in our [project rules](file:///C:/Users/bedfo/Documents/os-main/.qoder/rules.md) and technical deep dives, **ElizaOS** is our primary framework for building modular, self-aware agents. Its plugin-based architecture is perfect for our agents that need to interact directly with the Nx workspace (`@elizaos/plugin-nx-workspace`) and the blockchain (`@elizaos/plugin-universal-tool-server`).
+
+2.  **Questflow for Swarm Orchestration**: We use **Questflow** for its advanced Multi-Agent Orchestration Protocol (MAOP) and Web3-native capabilities. This is our "swarm" layer, ideal for coordinating complex workflows between multiple specialized agents, as documented in the **[Questflow Agents README](https://github.com/371-Minds/os/blob/main/questflow/agents/README.md)**.
+
+### **The Established Agent Tiers**
+
+Our agents can be broadly categorized into three tiers, each with a distinct role in the 371 OS.
+
+#### **1. C-Suite / Business Agents**
+These are the high-level strategic agents that form the autonomous core of the business. They have been central to our recent work on Phase 18 and 19 governance simulations.
+
+*   **CEO (Mimi)**: Handles strategic decision-making, high-level coordination, and task delegation.
+*   **CTO (Zara/Alex)**: Oversees technical architecture, DevOps, and system optimization. Was the protagonist in our Phase 18 simulation, proposing the refactor of `legacy-python-utils`.
+*   **CFO (Maya/Cash)**: Manages financial analysis, budget allocation, and ROI. Played a key role in questioning the budget during the Phase 18 simulation.
+*   **CLO (Alex/Sage)**: Governs legal compliance and regulatory frameworks.
+
+These agents have defined personalities and are now enhanced with the "Cognitive Oversight" from Phase 19, allowing them to make decisions aligned with your workstreams.
+
+#### **2. Technical / Specialized Agents**
+These are task-oriented agents designed to perform specific jobs within the ecosystem. The links you provided point to their homes.
+
+*   **[os-workspace/agents](https://github.com/371-Minds/os/tree/eec2f8d58907f851893523aac466d19b4b9c44ba/os-workspace/agents)**: This directory contains the "blueprints" or definitions for our agents. These are likely consumed by the **[`agent-factory`](https://github.com/371-Minds/os/tree/main/os-workspace/apps/agent-factory)** to create and manage agent instances.
+*   **[questflow/task-manager/apps/api/agents](https://github.com/371-Minds/os/tree/main/questflow/task-manager/apps/api/agents)**: This is where we have specialized agents for our development pipeline, including:
+    *   `code-mern-agent`: Automates MERN stack development.
+    *   `code-t3-agent`: Scaffolds features for the T3 stack.
+    *   `qa-agent`: Runs automated testing and validation.
+    *   `deploy-agent`: Orchestrates deployments to the Akash Network.
+
+#### **3. Architectural Agents & The "Brain/Body" Model**
+This is our most recent innovation. We've established a "brain/body" architecture that separates agent logic from execution.
+
+*   **The "Brain" (371 Prompts Management System)**: The agent's core logic, personality, and instructions are stored as prompts. This makes them easy to manage, version, and update without redeploying code.
+*   **The "Body" (Execution Frameworks)**: The **ElizaOS** and **Questflow** frameworks act as the "bodies" that consume these prompts and perform actions in the world.
+
+This diverse and well-structured agent ecosystem is the engine driving our autonomous business operations. It's a testament to the "two-track empire" strategy we defined, allowing for both rapid development and deep, enterprise-grade capabilities.
+
 </div>

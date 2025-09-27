@@ -13,7 +13,8 @@ import {
   ProposalQueryParams,
   ProposalStatus,
   ProposalType,
-  VoteOption
+  VoteOption,
+  HumanApprovalRequest
 } from './types.js';
 
 export class GovernanceApiRoutes {
@@ -44,6 +45,11 @@ export class GovernanceApiRoutes {
     this.router.post('/proposals/:id/start-voting', this.startVoting.bind(this));
     this.router.get('/proposals/:id/results', this.getVotingResults.bind(this));
     this.router.get('/proposals/:id/execution-status', this.getExecutionStatus.bind(this));
+
+    // Human approval routes (Phase 19 enhancement)
+    this.router.post('/proposals/:id/approve', this.approveProposal.bind(this));
+    this.router.post('/proposals/:id/reject', this.rejectProposal.bind(this));
+    this.router.get('/proposals/pending-approval', this.getPendingApprovalProposals.bind(this));
 
     // Voting routes
     this.router.post('/votes', this.submitVote.bind(this));
@@ -297,8 +303,156 @@ export class GovernanceApiRoutes {
   }
 
   /**
-   * GET /proposals/:id/votes - Get all votes for a proposal (admin only)
+   * POST /proposals/:id/approve - Approve a proposal awaiting human approval
    */
+  private async approveProposal(req: Request, res: Response): Promise<void> {
+    try {
+      const proposalId = req.params.id;
+      const {
+        approved_by,
+        reasoning,
+        conditions,
+        escalation_level
+      } = req.body;
+
+      if (!approved_by) {
+        res.status(400).json({
+          success: false,
+          error: 'approved_by field is required'
+        });
+        return;
+      }
+
+      const approvalRequest: HumanApprovalRequest = {
+        proposal_id: proposalId,
+        decision: 'approved' as any,
+        approved_by,
+        reasoning,
+        conditions,
+        escalation_level: escalation_level || 'standard'
+      };
+
+      const result = await this.governanceService.processHumanApproval(approvalRequest);
+
+      if (result.success) {
+        res.json({
+          success: true,
+          data: result.data,
+          message: `Proposal ${proposalId} approved by ${approved_by}`
+        });
+      } else {
+        res.status(400).json(result);
+      }
+
+    } catch (error) {
+      console.error('❌ Error approving proposal:', error);
+      res.status(500).json({
+        success: false,
+        error: 'Internal server error'
+      });
+    }
+  }
+
+  /**
+   * POST /proposals/:id/reject - Reject a proposal awaiting human approval
+   */
+  private async rejectProposal(req: Request, res: Response): Promise<void> {
+    try {
+      const proposalId = req.params.id;
+      const {
+        approved_by,
+        reasoning,
+        modifications,
+        escalation_level
+      } = req.body;
+
+      if (!approved_by) {
+        res.status(400).json({
+          success: false,
+          error: 'approved_by field is required'
+        });
+        return;
+      }
+
+      const approvalRequest: HumanApprovalRequest = {
+        proposal_id: proposalId,
+        decision: 'rejected' as any,
+        approved_by,
+        reasoning,
+        modifications,
+        escalation_level: escalation_level || 'standard'
+      };
+
+      const result = await this.governanceService.processHumanApproval(approvalRequest);
+
+      if (result.success) {
+        res.json({
+          success: true,
+          data: result.data,
+          message: `Proposal ${proposalId} rejected by ${approved_by}`
+        });
+      } else {
+        res.status(400).json(result);
+      }
+
+    } catch (error) {
+      console.error('❌ Error rejecting proposal:', error);
+      res.status(500).json({
+        success: false,
+        error: 'Internal server error'
+      });
+    }
+  }
+
+  /**
+   * GET /proposals/pending-approval - Get all proposals pending human approval
+   */
+  private async getPendingApprovalProposals(req: Request, res: Response): Promise<void> {
+    try {
+      const queryParams: ProposalQueryParams = {
+        status: 'pending_human_approval' as ProposalStatus,
+        page: req.query.page ? parseInt(req.query.page as string) : 1,
+        limit: req.query.limit ? parseInt(req.query.limit as string) : 10,
+        sort_by: 'created_at',
+        sort_order: 'desc'
+      };
+
+      const result = await this.governanceService.queryProposals(queryParams);
+      
+      if (result.success) {
+        // Enrich response with cognitive summaries for easier human review
+        const enrichedProposals = result.data?.map(proposal => ({
+          id: proposal.id,
+          title: proposal.title,
+          description: proposal.description,
+          type: proposal.type,
+          status: proposal.status,
+          proposer: proposal.proposer,
+          createdAt: proposal.createdAt,
+          votingResults: proposal.votingResults,
+          cognitiveSummary: proposal.cognitiveSummary,
+          budgetRequest: proposal.budgetRequest,
+          executionDetails: proposal.executionDetails,
+          stakeholders: proposal.stakeholders
+        }));
+
+        res.json({
+          success: true,
+          data: enrichedProposals,
+          metadata: result.metadata
+        });
+      } else {
+        res.status(400).json(result);
+      }
+
+    } catch (error) {
+      console.error('❌ Error getting pending approval proposals:', error);
+      res.status(500).json({
+        success: false,
+        error: 'Internal server error'
+      });
+    }
+  }
   private async getProposalVotes(req: Request, res: Response): Promise<void> {
     try {
       // Note: In production, this should be restricted to authorized users only
@@ -319,7 +473,7 @@ export class GovernanceApiRoutes {
   }
 
   /**
-   * GET /health - Health check endpoint
+   * GET /proposals/:id/votes - Get all votes for a proposal (admin only)
    */
   private async healthCheck(req: Request, res: Response): Promise<void> {
     try {

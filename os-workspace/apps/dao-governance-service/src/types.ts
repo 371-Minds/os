@@ -29,12 +29,17 @@ export interface GovernanceProposal {
   votingResults?: VotingResults;
   executionStatus?: ExecutionStatus;
   
+  // Cognitive oversight enhancements
+  cognitiveSummary?: CognitiveSummary;
+  humanApprovalStatus?: HumanApprovalStatus;
+  
   // Metadata
   createdAt: Date;
   submittedAt?: Date;
   votingStartsAt?: Date;
   votingEndsAt?: Date;
   executedAt?: Date;
+  humanApprovedAt?: Date;
   
   // Blockchain integration
   blockchainData?: BlockchainProposalData;
@@ -75,6 +80,7 @@ export enum ProposalStatus {
   VOTING_ENDED = 'voting_ended',
   APPROVED = 'approved',
   REJECTED = 'rejected',
+  PENDING_HUMAN_APPROVAL = 'pending_human_approval',
   EXECUTED = 'executed',
   FAILED_EXECUTION = 'failed_execution',
   CANCELLED = 'cancelled',
@@ -519,7 +525,11 @@ export enum GovernanceEventType {
   MILESTONE_REACHED = 'milestone_reached',
   ISSUE_REPORTED = 'issue_reported',
   BUDGET_MILESTONE_PAID = 'budget_milestone_paid',
-  PROPOSAL_COMPLETED = 'proposal_completed'
+  PROPOSAL_COMPLETED = 'proposal_completed',
+  COGNITIVE_ANALYSIS_COMPLETED = 'cognitive_analysis_completed',
+  HUMAN_APPROVAL_REQUESTED = 'human_approval_requested',
+  HUMAN_APPROVAL_GRANTED = 'human_approval_granted',
+  HUMAN_APPROVAL_REJECTED = 'human_approval_rejected'
 }
 
 /**
@@ -598,6 +608,44 @@ export interface EscalationProcedure {
 }
 
 /**
+ * Cognitive summary from Cognition Layer MCP analysis
+ */
+export interface CognitiveSummary {
+  keyInsights: string[];
+  riskAnalysis: string[];
+  relevantWorkstreams: string[];
+  alignmentScore: number; // 0.0 to 1.0
+  confidence: number; // Analysis confidence level
+  analysisTimestamp: Date;
+  sourceQueries: string[]; // Queries made to cognition layer
+  recommendations: string[];
+  potentialBlockers: string[];
+}
+
+/**
+ * Human approval status for proposals
+ */
+export enum HumanApprovalStatus {
+  PENDING = 'pending',
+  APPROVED = 'approved',
+  REJECTED = 'rejected',
+  REQUIRES_MODIFICATION = 'requires_modification'
+}
+
+/**
+ * Human approval decision with reasoning
+ */
+export interface HumanApprovalDecision {
+  status: HumanApprovalStatus;
+  approvedBy: string;
+  timestamp: Date;
+  reasoning?: string;
+  conditions?: string[]; // Conditions for approval
+  modifications?: string[]; // Required modifications if rejected
+  escalationLevel?: 'standard' | 'high_priority' | 'emergency';
+}
+
+/**
  * API request/response types
  */
 export interface CreateProposalRequest {
@@ -646,4 +694,30 @@ export interface GovernanceServiceResponse<T = any> {
     limit?: number;
     execution_time_ms?: number;
   };
+}
+
+/**
+ * Request for human approval/rejection of a proposal
+ */
+export interface HumanApprovalRequest {
+  proposal_id: string;
+  decision: HumanApprovalStatus;
+  reasoning?: string;
+  conditions?: string[];
+  modifications?: string[];
+  approved_by: string;
+  escalation_level?: 'standard' | 'high_priority' | 'emergency';
+}
+
+/**
+ * Cognitive analysis request for MCP integration
+ */
+export interface CognitiveAnalysisRequest {
+  proposalId: string;
+  proposalTitle: string;
+  proposalDescription: string;
+  proposalType: ProposalType;
+  executionDetails: ExecutionDetails;
+  agentId: string; // Agent requesting the analysis
+  context: string; // Additional context for the analysis
 }

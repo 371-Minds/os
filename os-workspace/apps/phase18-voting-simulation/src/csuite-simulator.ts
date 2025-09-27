@@ -1,5 +1,9 @@
 /**
- * C-Suite Simulator
+ * C-Suite Simulator with Cognitive Voting
+ * 
+ * Enhanced simulator that integrates Cognitive Oversight for informed decision-making.
+ * Agents now query the Cognition Layer MCP before voting to align with the 
+ * Chief AI Orchestrator's workstreams and strategic priorities.
  * 
  * Simulates the behavior and interactions of the four C-Suite agents:
  * - CEO Mimi: Strategic oversight and coordination
@@ -13,9 +17,12 @@ import type {
   CreateProposalRequest,
   VotingResults,
   VoteOption,
-  ExecutionStatus
+  ExecutionStatus,
+  CognitiveSummary,
+  CognitiveAnalysisRequest
 } from '../../dao-governance-service/src/types.js';
 import { ProposalType } from '../../dao-governance-service/src/types.js';
+import { CognitiveQueryService } from '../../dao-governance-service/src/cognitive-query.service.js';
 
 export interface AgentPersonality {
   agent_id: string;
@@ -35,20 +42,29 @@ export interface DeliberationMessage {
   agent_id: string;
   message: string;
   timestamp: Date;
-  message_type: 'question' | 'response' | 'concern' | 'support';
+  message_type: 'question' | 'response' | 'concern' | 'support' | 'cognitive_insight';
   references_proposal_section?: string;
+  cognitive_data?: {
+    alignment_score: number;
+    key_insights: string[];
+    confidence: number;
+  };
 }
 
 export class CSuiteSimulator {
   private agents: Map<string, AgentPersonality>;
   private deliberationHistory: DeliberationMessage[];
+  private cognitiveQueryService: CognitiveQueryService;
+  private cognitiveSummaryCache: Map<string, CognitiveSummary>;
 
   constructor() {
     this.agents = new Map();
     this.deliberationHistory = [];
+    this.cognitiveQueryService = new CognitiveQueryService();
+    this.cognitiveSummaryCache = new Map();
     this.initializeAgentPersonalities();
     
-    console.log('👥 C-Suite Simulator initialized with 4 executive agents');
+    console.log('👥 Enhanced C-Suite Simulator initialized with cognitive voting capabilities');
   }
 
   /**
@@ -284,21 +300,36 @@ export class CSuiteSimulator {
   }
 
   /**
-   * Execute voting period with all C-Suite agents
+   * Enhanced voting period with cognitive analysis
    */
   public async executeVotingPeriod(proposal: GovernanceProposal): Promise<VotingResults> {
-    console.log('🗳️ Starting C-Suite voting period...');
+    console.log('🗳️ Starting C-Suite voting period with cognitive analysis...');
     
-    const votes: Array<{ agent: AgentPersonality; vote: VoteOption; reason: string }> = [];
+    // First, get cognitive analysis for the proposal
+    const cognitiveSummary = await this.performCognitiveAnalysis(proposal);
+    
+    if (cognitiveSummary) {
+      console.log(`🧠 Cognitive Analysis Complete - Alignment Score: ${cognitiveSummary.alignmentScore}`);
+      console.log(`   Key Insights: ${cognitiveSummary.keyInsights.length} identified`);
+      
+      // Add cognitive insights to deliberation
+      this.addCognitiveDeliberationMessage(
+        'cognitive_system',
+        `Cognitive Analysis Results: Alignment Score ${cognitiveSummary.alignmentScore} | Key Insights: ${cognitiveSummary.keyInsights.slice(0, 2).join(', ')}`,
+        cognitiveSummary
+      );
+    }
+    
+    const votes: Array<{ agent: AgentPersonality; vote: VoteOption; reason: string; cognitiveFactor: number }> = [];
 
-    // Each agent votes based on their personality
+    // Each agent votes based on their personality AND cognitive insights
     for (const [agentKey, agent] of this.agents) {
       await this.delay(agent.response_time_ms);
       
-      const vote = this.calculateAgentVote(agent, proposal);
+      const vote = await this.calculateCognitiveVote(agent, proposal, cognitiveSummary);
       votes.push(vote);
       
-      console.log(`✅ ${agent.name} (${agent.role}) voted: ${vote.vote}`);
+      console.log(`✅ ${agent.name} (${agent.role}) voted: ${vote.vote} (Cognitive Factor: ${vote.cognitiveFactor.toFixed(2)})`);
     }
 
     // Calculate results
@@ -335,15 +366,155 @@ export class CSuiteSimulator {
       results_finalized_at: new Date()
     };
 
-    console.log('📊 Voting Results Summary:');
+    console.log('📊 Cognitive-Enhanced Voting Results Summary:');
     console.log(`   For: ${votingResults.votes_for} | Against: ${votingResults.votes_against}`);
     console.log(`   Outcome: ${votingResults.outcome}`);
+    if (cognitiveSummary) {
+      console.log(`   Avg Alignment Score: ${cognitiveSummary.alignmentScore}`);
+    }
 
     return votingResults;
   }
 
   /**
-   * Calculate how an agent would vote based on their personality
+   * Perform cognitive analysis for a proposal using the Cognition Layer MCP
+   */
+  private async performCognitiveAnalysis(proposal: GovernanceProposal): Promise<CognitiveSummary | null> {
+    console.log(`🧠 Querying Cognition Layer for proposal: ${proposal.title}`);
+    
+    // Check cache first
+    if (this.cognitiveSummaryCache.has(proposal.id)) {
+      console.log('📋 Using cached cognitive analysis');
+      return this.cognitiveSummaryCache.get(proposal.id)!;
+    }
+    
+    const analysisRequest: CognitiveAnalysisRequest = {
+      proposalId: proposal.id,
+      proposalTitle: proposal.title,
+      proposalDescription: proposal.description,
+      proposalType: proposal.type,
+      executionDetails: proposal.executionDetails,
+      agentId: 'csuite_voting_system',
+      context: `C-Suite voting analysis for ${proposal.type} proposal. Focus on strategic alignment, risk assessment, and implementation feasibility.`
+    };
+    
+    try {
+      const cognitiveSummary = await this.cognitiveQueryService.analyzeProposal(analysisRequest);
+      
+      if (cognitiveSummary) {
+        this.cognitiveSummaryCache.set(proposal.id, cognitiveSummary);
+        console.log(`✅ Cognitive analysis completed - Alignment Score: ${cognitiveSummary.alignmentScore}`);
+        return cognitiveSummary;
+      } else {
+        console.warn('⚠️ Cognitive analysis returned null - proceeding without cognitive insights');
+        return null;
+      }
+    } catch (error) {
+      console.error('❌ Cognitive analysis failed:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Calculate agent vote with cognitive analysis integration
+   */
+  private async calculateCognitiveVote(
+    agent: AgentPersonality, 
+    proposal: GovernanceProposal, 
+    cognitiveSummary: CognitiveSummary | null
+  ): Promise<{ agent: AgentPersonality; vote: VoteOption; reason: string; cognitiveFactor: number }> {
+    
+    // Base vote calculation (original logic)
+    const baseVote = this.calculateAgentVote(agent, proposal);
+    
+    // Apply cognitive enhancement if available
+    if (cognitiveSummary) {
+      const cognitiveInfluence = this.calculateCognitiveInfluence(agent, cognitiveSummary);
+      
+      // Adjust vote based on cognitive insights
+      let finalVote = baseVote.vote;
+      let cognitiveReason = baseVote.reason;
+      
+      // High alignment score reinforces positive votes
+      if (cognitiveSummary.alignmentScore >= 0.8 && baseVote.vote === 'for') {
+        cognitiveReason += ` Enhanced by high strategic alignment (${cognitiveSummary.alignmentScore.toFixed(2)})`;
+      }
+      
+      // Low alignment score may cause reconsideration
+      if (cognitiveSummary.alignmentScore < 0.5 && baseVote.vote === 'for') {
+        // Conservative agents might switch to abstain
+        if (agent.decision_style === 'conservative') {
+          finalVote = 'abstain' as VoteOption;
+          cognitiveReason = `Abstaining due to low strategic alignment (${cognitiveSummary.alignmentScore.toFixed(2)}) - requires further review`;
+        } else {
+          cognitiveReason += ` Proceeding despite moderate alignment concerns (${cognitiveSummary.alignmentScore.toFixed(2)})`;
+        }
+      }
+      
+      // Risk analysis affects risk-sensitive agents
+      if (cognitiveSummary.riskAnalysis.some(risk => risk.toLowerCase().includes('high risk'))) {
+        if (agent.voting_patterns.risk_tolerance < 0.5) {
+          // High-risk items concern conservative agents
+          cognitiveReason += " | Noted high-risk factors in cognitive analysis";
+        }
+      }
+      
+      return {
+        agent,
+        vote: finalVote,
+        reason: cognitiveReason,
+        cognitiveFactor: cognitiveInfluence
+      };
+    }
+    
+    // Fallback to base vote without cognitive enhancement
+    return {
+      ...baseVote,
+      cognitiveFactor: 0.5 // Neutral cognitive factor
+    };
+  }
+
+  /**
+   * Calculate cognitive influence factor for an agent
+   */
+  private calculateCognitiveInfluence(agent: AgentPersonality, cognitiveSummary: CognitiveSummary): number {
+    let influence = cognitiveSummary.alignmentScore;
+    
+    // Adjust based on agent personality
+    switch (agent.decision_style) {
+      case 'analytical':
+        // Analytical agents weight cognitive data more heavily
+        influence = influence * 1.2;
+        break;
+      case 'conservative':
+        // Conservative agents are more cautious about alignment
+        influence = influence * 0.9;
+        break;
+      case 'visionary':
+        // Visionary agents balance cognitive data with intuition
+        influence = influence * 1.1;
+        break;
+      case 'innovative':
+        // Innovative agents may discount alignment for breakthrough opportunities
+        influence = influence * 0.95;
+        break;
+    }
+    
+    // Confidence factor
+    influence = influence * cognitiveSummary.confidence;
+    
+    return Math.min(Math.max(influence, 0), 1); // Clamp to 0-1 range
+  }
+
+  /**
+   * Get the cached cognitive summary for a proposal
+   */
+  public getCognitiveSummary(proposalId: string): CognitiveSummary | null {
+    return this.cognitiveSummaryCache.get(proposalId) || null;
+  }
+
+  /**
+   * Calculate how an agent would vote based on their personality (base logic)
    */
   private calculateAgentVote(agent: AgentPersonality, proposal: GovernanceProposal): { agent: AgentPersonality; vote: VoteOption; reason: string } {
     // For this simulation, all agents vote FOR based on the deliberation
@@ -364,8 +535,42 @@ export class CSuiteSimulator {
   }
 
   /**
-   * Simulate execution completion
+   * Add cognitive insights to deliberation history
    */
+  private addCognitiveDeliberationMessage(agentId: string, message: string, cognitiveSummary: CognitiveSummary): void {
+    this.deliberationHistory.push({
+      agent_id: agentId,
+      message,
+      timestamp: new Date(),
+      message_type: 'cognitive_insight',
+      cognitive_data: {
+        alignment_score: cognitiveSummary.alignmentScore,
+        key_insights: cognitiveSummary.keyInsights.slice(0, 3), // Top 3 insights
+        confidence: cognitiveSummary.confidence
+      }
+    });
+  }
+  /**
+   * Test the cognitive query service integration
+   */
+  public async testCognitiveIntegration(): Promise<boolean> {
+    console.log('🧪 Testing Cognitive Query Service integration...');
+    
+    try {
+      const healthCheck = await this.cognitiveQueryService.healthCheck();
+      if (healthCheck) {
+        console.log('✅ Cognitive Query Service is operational');
+        return true;
+      } else {
+        console.warn('⚠️ Cognitive Query Service health check failed');
+        return false;
+      }
+    } catch (error) {
+      console.error('❌ Cognitive integration test failed:', error);
+      return false;
+    }
+  }
+
   public async simulateExecutionCompletion(proposal: GovernanceProposal, executionStatus: ExecutionStatus): Promise<void> {
     console.log('🎯 Simulating execution completion...');
     

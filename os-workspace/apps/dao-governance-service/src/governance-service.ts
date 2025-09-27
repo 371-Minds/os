@@ -1,7 +1,8 @@
 /**
- * DAO Governance Service
+ * DAO Governance Service with Cognitive Oversight
  * 
- * Core service managing the complete DAO governance lifecycle.
+ * Enhanced service managing the complete DAO governance lifecycle with
+ * Cognitive Oversight Architecture and Human-in-the-Loop approval gates.
  */
 
 import {
@@ -19,8 +20,13 @@ import {
   SubmitVoteRequest,
   ProposalQueryParams,
   GovernanceServiceResponse,
-  VotingConfiguration
+  VotingConfiguration,
+  CognitiveSummary,
+  HumanApprovalStatus,
+  HumanApprovalRequest,
+  HumanApprovalDecision
 } from './types.js';
+import { CognitiveQueryService } from './cognitive-query.service.js';
 
 export class DAOGovernanceService {
   private proposals: Map<string, GovernanceProposal> = new Map();
@@ -147,7 +153,7 @@ export class DAOGovernanceService {
   }
 
   /**
-   * Calculate voting results for a proposal
+   * Calculate voting results for a proposal with cognitive enhancement
    */
   private async calculateVotingResults(proposalId: string): Promise<VotingResults> {
     const proposal = this.proposals.get(proposalId)!;
@@ -187,6 +193,11 @@ export class DAOGovernanceService {
       outcome = VotingOutcome.REJECTED;
     }
 
+    // If approved, transition to PENDING_HUMAN_APPROVAL instead of EXECUTED
+    if (outcome === VotingOutcome.APPROVED) {
+      await this.transitionToPendingHumanApproval(proposalId);
+    }
+
     return {
       proposal_id: proposalId,
       total_votes_cast: votes.length,
@@ -206,13 +217,167 @@ export class DAOGovernanceService {
       delegated_votes_count: votes.filter(v => v.delegated_votes && v.delegated_votes.length > 0).length,
       agent_participation: await this.calculateAgentParticipation(votes),
       outcome,
-      execution_authorized: outcome === VotingOutcome.APPROVED,
+      execution_authorized: false, // Will be set to true only after human approval
       voting_ended_at: new Date(),
       results_finalized_at: new Date()
     };
   }
 
-  // Helper methods
+  /**
+   * Transition proposal to pending human approval after agent vote passes
+   */
+  private async transitionToPendingHumanApproval(proposalId: string): Promise<void> {
+    const proposal = this.proposals.get(proposalId);
+    if (!proposal) return;
+
+    console.log(`👤 Transitioning proposal ${proposalId} to pending human approval`);
+    
+    proposal.status = ProposalStatus.PENDING_HUMAN_APPROVAL;
+    proposal.humanApprovalStatus = HumanApprovalStatus.PENDING;
+
+    await this.recordEvent({
+      id: this.generateEventId(),
+      type: GovernanceEventType.HUMAN_APPROVAL_REQUESTED,
+      proposal_id: proposalId,
+      triggered_by: 'governance_system',
+      timestamp: new Date(),
+      data: {
+        voting_results: 'approved_by_agents',
+        cognitive_summary: proposal.cognitiveSummary ? {
+          alignment_score: proposal.cognitiveSummary.alignmentScore,
+          key_insights_count: proposal.cognitiveSummary.keyInsights.length
+        } : null
+      }
+    });
+
+    // TODO: Trigger Novu notification to human approver
+    console.log(`📧 Human approval notification triggered for proposal: ${proposal.title}`);
+    console.log(`   Cognitive Alignment Score: ${proposal.cognitiveSummary?.alignmentScore || 'N/A'}`);
+  }
+
+  /**
+   * Process human approval decision
+   */
+  public async processHumanApproval(request: HumanApprovalRequest): Promise<GovernanceServiceResponse<GovernanceProposal>> {
+    console.log(`👤 Processing human approval decision for proposal ${request.proposal_id}: ${request.decision}`);
+
+    try {
+      const proposal = this.proposals.get(request.proposal_id);
+      if (!proposal) {
+        throw new Error(`Proposal ${request.proposal_id} not found`);
+      }
+
+      if (proposal.status !== ProposalStatus.PENDING_HUMAN_APPROVAL) {
+        throw new Error(`Proposal ${request.proposal_id} is not pending human approval`);
+      }
+
+      const decision: HumanApprovalDecision = {
+        status: request.decision,
+        approvedBy: request.approved_by,
+        timestamp: new Date(),
+        reasoning: request.reasoning,
+        conditions: request.conditions,
+        modifications: request.modifications,
+        escalationLevel: request.escalation_level
+      };
+
+      proposal.humanApprovalStatus = request.decision;
+      
+      if (request.decision === HumanApprovalStatus.APPROVED) {
+        proposal.status = ProposalStatus.EXECUTED;
+        proposal.humanApprovedAt = new Date();
+        
+        // Enable execution authorization
+        if (proposal.votingResults) {
+          proposal.votingResults.execution_authorized = true;
+        }
+
+        await this.recordEvent({
+          id: this.generateEventId(),
+          type: GovernanceEventType.HUMAN_APPROVAL_GRANTED,
+          proposal_id: request.proposal_id,
+          triggered_by: request.approved_by,
+          timestamp: new Date(),
+          data: {
+            reasoning: request.reasoning,
+            conditions: request.conditions,
+            escalation_level: request.escalation_level
+          }
+        });
+
+        console.log(`✅ Proposal ${request.proposal_id} approved by human: ${request.approved_by}`);
+        
+        // TODO: Trigger GraphBit workflow execution
+        console.log(`🚀 Execution workflow triggered for proposal: ${proposal.title}`);
+        
+      } else if (request.decision === HumanApprovalStatus.REJECTED) {
+        proposal.status = ProposalStatus.REJECTED;
+
+        await this.recordEvent({
+          id: this.generateEventId(),
+          type: GovernanceEventType.HUMAN_APPROVAL_REJECTED,
+          proposal_id: request.proposal_id,
+          triggered_by: request.approved_by,
+          timestamp: new Date(),
+          data: {
+            reasoning: request.reasoning,
+            modifications: request.modifications
+          }
+        });
+
+        console.log(`❌ Proposal ${request.proposal_id} rejected by human: ${request.approved_by}`);
+      }
+
+      return { success: true, data: proposal };
+
+    } catch (error) {
+      console.error(`❌ Failed to process human approval:`, error);
+      return {
+        success: false,
+        error: `Human approval processing failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      };
+    }
+  }
+
+  /**
+   * Attach cognitive summary to a proposal
+   */
+  public async attachCognitiveSummary(proposalId: string, cognitiveSummary: CognitiveSummary): Promise<GovernanceServiceResponse<GovernanceProposal>> {
+    console.log(`🧠 Attaching cognitive summary to proposal ${proposalId}`);
+
+    try {
+      const proposal = this.proposals.get(proposalId);
+      if (!proposal) {
+        throw new Error(`Proposal ${proposalId} not found`);
+      }
+
+      proposal.cognitiveSummary = cognitiveSummary;
+
+      await this.recordEvent({
+        id: this.generateEventId(),
+        type: GovernanceEventType.COGNITIVE_ANALYSIS_COMPLETED,
+        proposal_id: proposalId,
+        triggered_by: 'cognitive_system',
+        timestamp: new Date(),
+        data: {
+          alignment_score: cognitiveSummary.alignmentScore,
+          confidence: cognitiveSummary.confidence,
+          insights_count: cognitiveSummary.keyInsights.length,
+          risk_factors: cognitiveSummary.riskAnalysis.length
+        }
+      });
+
+      console.log(`✅ Cognitive summary attached - Alignment Score: ${cognitiveSummary.alignmentScore}`);
+      return { success: true, data: proposal };
+
+    } catch (error) {
+      console.error(`❌ Failed to attach cognitive summary:`, error);
+      return {
+        success: false,
+        error: `Cognitive summary attachment failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      };
+    }
+  }
   private generateProposalId(): string {
     const timestamp = Date.now().toString(36);
     const random = Math.random().toString(36).substr(2, 5);

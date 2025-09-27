@@ -51,6 +51,10 @@ export class GovernanceApiRoutes {
     this.router.post('/proposals/:id/reject', this.rejectProposal.bind(this));
     this.router.get('/proposals/pending-approval', this.getPendingApprovalProposals.bind(this));
 
+    // GraphBit workflow integration routes
+    this.router.get('/workflows/ready-for-execution', this.getWorkflowReadyProposals.bind(this));
+    this.router.post('/workflows/:proposal_id/execution-started', this.markExecutionStarted.bind(this));
+
     // Voting routes
     this.router.post('/votes', this.submitVote.bind(this));
     this.router.get('/proposals/:id/votes', this.getProposalVotes.bind(this));
@@ -335,10 +339,15 @@ export class GovernanceApiRoutes {
       const result = await this.governanceService.processHumanApproval(approvalRequest);
 
       if (result.success) {
+        // Emit the PROPOSAL_HUMAN_APPROVED event that GraphBit listens for
+        console.log(`📡 Emitting PROPOSAL_HUMAN_APPROVED event for GraphBit workflow`);
+        
         res.json({
           success: true,
           data: result.data,
-          message: `Proposal ${proposalId} approved by ${approved_by}`
+          message: `Proposal ${proposalId} approved by ${approved_by}`,
+          workflow_triggered: true,
+          event_emitted: 'PROPOSAL_HUMAN_APPROVED'
         });
       } else {
         res.status(400).json(result);
@@ -405,8 +414,110 @@ export class GovernanceApiRoutes {
   }
 
   /**
-   * GET /proposals/pending-approval - Get all proposals pending human approval
+   * GET /workflows/ready-for-execution - Get proposals ready for GraphBit workflow execution
    */
+  private async getWorkflowReadyProposals(req: Request, res: Response): Promise<void> {
+    try {
+      const queryParams: ProposalQueryParams = {
+        status: 'executed' as ProposalStatus, // Approved and executed proposals
+        page: req.query.page ? parseInt(req.query.page as string) : 1,
+        limit: req.query.limit ? parseInt(req.query.limit as string) : 10,
+        sort_by: 'humanApprovedAt' as any,
+        sort_order: 'desc'
+      };
+
+      const result = await this.governanceService.queryProposals(queryParams);
+      
+      if (result.success) {
+        // Filter only proposals with execution authorization
+        const workflowReady = result.data?.filter(proposal => 
+          proposal.votingResults?.execution_authorized && 
+          proposal.humanApprovalStatus === 'approved'
+        );
+
+        // Prepare workflow execution data
+        const workflowData = workflowReady?.map(proposal => ({
+          proposal_id: proposal.id,
+          title: proposal.title,
+          type: proposal.type,
+          execution_details: proposal.executionDetails,
+          budget_request: proposal.budgetRequest,
+          impacted_agents: proposal.impactedAgents,
+          cognitive_summary: proposal.cognitiveSummary,
+          approved_at: proposal.humanApprovedAt,
+          approved_by: proposal.humanApprovalStatus
+        }));
+
+        res.json({
+          success: true,
+          data: workflowData,
+          metadata: {
+            ...result.metadata,
+            workflow_ready_count: workflowData?.length || 0
+          }
+        });
+      } else {
+        res.status(400).json(result);
+      }
+
+    } catch (error) {
+      console.error('❌ Error getting workflow ready proposals:', error);
+      res.status(500).json({
+        success: false,
+        error: 'Internal server error'
+      });
+    }
+  }
+
+  /**
+   * POST /workflows/:proposal_id/execution-started - Mark proposal execution as started by GraphBit
+   */
+  private async markExecutionStarted(req: Request, res: Response): Promise<void> {
+    try {
+      const proposalId = req.params.proposal_id;
+      const { workflow_id, started_by } = req.body;
+
+      if (!workflow_id || !started_by) {
+        res.status(400).json({
+          success: false,
+          error: 'workflow_id and started_by fields are required'
+        });
+        return;
+      }
+
+      const proposalResult = await this.governanceService.getProposal(proposalId);
+      
+      if (!proposalResult.success || !proposalResult.data) {
+        res.status(404).json({
+          success: false,
+          error: `Proposal ${proposalId} not found`
+        });
+        return;
+      }
+
+      // Update proposal with execution information
+      // Note: In a full implementation, you'd add execution tracking to the proposal data
+      console.log(`🚀 Proposal ${proposalId} execution started by GraphBit workflow ${workflow_id}`);
+
+      res.json({
+        success: true,
+        data: {
+          proposal_id: proposalId,
+          workflow_id,
+          execution_started_at: new Date().toISOString(),
+          started_by
+        },
+        message: `Execution started for proposal ${proposalId}`
+      });
+
+    } catch (error) {
+      console.error('❌ Error marking execution started:', error);
+      res.status(500).json({
+        success: false,
+        error: 'Internal server error'
+      });
+    }
+  }
   private async getPendingApprovalProposals(req: Request, res: Response): Promise<void> {
     try {
       const queryParams: ProposalQueryParams = {

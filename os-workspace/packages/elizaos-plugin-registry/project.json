@@ -1,0 +1,33 @@
+{
+  "name": "elizaos-plugin-registry",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugin-registry/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/elizaos-plugin-registry",
+        "main": "packages/elizaos-plugin-registry/src/index.ts",
+        "tsConfig": "packages/elizaos-plugin-registry/tsconfig.lib.json",
+        "assets": ["packages/elizaos-plugin-registry/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/biome:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/elizaos-plugin-registry/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/js:bun",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "testPathPattern": "packages/elizaos-plugin-registry"
+      }
+    }
+  },
+  "tags": ["scope:elizaos", "type:package"]
+}

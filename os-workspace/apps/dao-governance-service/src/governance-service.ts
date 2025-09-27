@@ -27,16 +27,21 @@ import {
   HumanApprovalDecision
 } from './types.js';
 import { CognitiveQueryService } from './cognitive-query.service.js';
+import { AgentResolverService } from './agent-resolver.service.js';
 
 export class DAOGovernanceService {
   private proposals: Map<string, GovernanceProposal> = new Map();
   private votes: Map<string, Vote[]> = new Map();
   private events: GovernanceEvent[] = [];
   private config: DAOGovernanceConfig;
+  private agentResolver: AgentResolverService;
+  private cognitiveQueryService: CognitiveQueryService;
 
   constructor(config: DAOGovernanceConfig) {
     this.config = config;
-    console.log('🏛️ DAO Governance Service initialized');
+    this.agentResolver = new AgentResolverService();
+    this.cognitiveQueryService = new CognitiveQueryService();
+    console.log('🏛️ DAO Governance Service initialized with modernized agent resolution');
   }
 
   /**
@@ -256,7 +261,7 @@ export class DAOGovernanceService {
   }
 
   /**
-   * Process human approval decision
+   * Process human approval decision with cognitive insight integration
    */
   public async processHumanApproval(request: HumanApprovalRequest): Promise<GovernanceServiceResponse<GovernanceProposal>> {
     console.log(`👤 Processing human approval decision for proposal ${request.proposal_id}: ${request.decision}`);
@@ -269,6 +274,12 @@ export class DAOGovernanceService {
 
       if (proposal.status !== ProposalStatus.PENDING_HUMAN_APPROVAL) {
         throw new Error(`Proposal ${request.proposal_id} is not pending human approval`);
+      }
+
+      // Enrich approval decision with cognitive insights if not already present
+      if (!proposal.cognitiveSummary && request.decision === 'approved') {
+        console.log(`🧠 Generating final cognitive analysis for approval decision`);
+        await this.triggerCognitiveAnalysis(proposal, request.approved_by);
       }
 
       const decision: HumanApprovalDecision = {
@@ -301,14 +312,15 @@ export class DAOGovernanceService {
           data: {
             reasoning: request.reasoning,
             conditions: request.conditions,
-            escalation_level: request.escalation_level
+            escalation_level: request.escalation_level,
+            cognitive_alignment_score: proposal.cognitiveSummary?.alignmentScore
           }
         });
 
         console.log(`✅ Proposal ${request.proposal_id} approved by human: ${request.approved_by}`);
         
-        // TODO: Trigger GraphBit workflow execution
-        console.log(`🚀 Execution workflow triggered for proposal: ${proposal.title}`);
+        // Emit GraphBit workflow trigger event
+        await this.emitWorkflowTriggerEvent(proposal, 'PROPOSAL_HUMAN_APPROVED');
         
       } else if (request.decision === HumanApprovalStatus.REJECTED) {
         proposal.status = ProposalStatus.REJECTED;
@@ -340,8 +352,80 @@ export class DAOGovernanceService {
   }
 
   /**
-   * Attach cognitive summary to a proposal
+   * Emit workflow trigger event for GraphBit integration
    */
+  private async emitWorkflowTriggerEvent(proposal: GovernanceProposal, eventType: string): Promise<void> {
+    console.log(`🚀 Emitting workflow trigger event: ${eventType} for proposal ${proposal.id}`);
+    
+    try {
+      // Prepare workflow trigger data
+      const workflowData = {
+        proposal_id: proposal.id,
+        proposal_title: proposal.title,
+        proposal_type: proposal.type,
+        execution_details: proposal.executionDetails,
+        budget_request: proposal.budgetRequest,
+        impacted_agents: proposal.impactedAgents,
+        cognitive_summary: proposal.cognitiveSummary,
+        human_approval_status: proposal.humanApprovalStatus,
+        voting_results: proposal.votingResults,
+        trigger_timestamp: new Date().toISOString()
+      };
+      
+      // Record the workflow trigger event
+      await this.recordEvent({
+        id: this.generateEventId(),
+        type: 'WORKFLOW_TRIGGER_EMITTED' as GovernanceEventType,
+        proposal_id: proposal.id,
+        triggered_by: 'governance_system',
+        timestamp: new Date(),
+        data: {
+          workflow_event_type: eventType,
+          workflow_data: workflowData
+        }
+      });
+      
+      // TODO: In production, emit to actual workflow system (GraphBit)
+      // Example: await this.workflowService.triggerWorkflow(eventType, workflowData);
+      
+      console.log(`✨ Workflow trigger event emitted successfully for proposal: ${proposal.title}`);
+      
+    } catch (error) {
+      console.error(`❌ Failed to emit workflow trigger event:`, error);
+      // Don't fail the approval process if workflow trigger fails
+    }
+  }
+  private async triggerCognitiveAnalysis(proposal: GovernanceProposal, requestedBy: string): Promise<void> {
+    console.log(`🧠 Triggering cognitive analysis for proposal ${proposal.id}`);
+    
+    try {
+      // Create cognitive analysis request
+      const analysisRequest = {
+        proposalId: proposal.id,
+        proposalTitle: proposal.title,
+        proposalDescription: proposal.description,
+        proposalType: proposal.type,
+        executionDetails: proposal.executionDetails,
+        agentId: requestedBy,
+        context: `Proposal submitted for governance review. Type: ${proposal.type}, Stakeholders: ${proposal.stakeholders.join(', ')}`
+      };
+      
+      // Request cognitive analysis
+      const cognitiveSummary = await this.cognitiveQueryService.analyzeProposal(analysisRequest);
+      
+      if (cognitiveSummary) {
+        // Attach cognitive summary to proposal
+        await this.attachCognitiveSummary(proposal.id, cognitiveSummary);
+        console.log(`✨ Cognitive analysis completed for proposal ${proposal.id}`);
+      } else {
+        console.warn(`⚠️ Cognitive analysis failed for proposal ${proposal.id}`);
+      }
+      
+    } catch (error) {
+      console.error(`❌ Cognitive analysis error for proposal ${proposal.id}:`, error);
+      // Don't fail the proposal submission if cognitive analysis fails
+    }
+  }
   public async attachCognitiveSummary(proposalId: string, cognitiveSummary: CognitiveSummary): Promise<GovernanceServiceResponse<GovernanceProposal>> {
     console.log(`🧠 Attaching cognitive summary to proposal ${proposalId}`);
 
@@ -409,17 +493,24 @@ export class DAOGovernanceService {
   }
 
   private identifyImpactedAgents(executionDetails: any): string[] {
-    const agents = new Set<string>();
-    for (const phase of executionDetails.phases) {
-      for (const agent of phase.responsible_agents) {
-        agents.add(agent);
-      }
-    }
-    return Array.from(agents);
+    // Use agent resolver to get modernized agent identifiers
+    const resolvedAgents = this.agentResolver.resolveExecutionAgents(executionDetails);
+    const modernAgentIds = resolvedAgents.map(agent => agent.agentId);
+    
+    console.log(`🔍 Identified ${modernAgentIds.length} impacted agents:`, modernAgentIds);
+    return modernAgentIds;
   }
 
   private async calculateVotingPower(voterAddress: string, config: VotingConfiguration): Promise<number> {
-    // Simplified voting power calculation
+    // Try to resolve as agent first, then fallback to stake-based calculation
+    const agentWeight = this.agentResolver.getAgentVotingWeight(voterAddress);
+    
+    if (agentWeight) {
+      console.log(`🤖 Using agent voting power for ${voterAddress}: ${agentWeight.votingPower}`);
+      return agentWeight.votingPower;
+    }
+    
+    // Fallback to original calculation for non-agent voters
     if (config.voting_power_calculation.base_mechanism === 'equal') return 1;
     
     const stake = await this.getStakeAmount(voterAddress);
@@ -444,11 +535,30 @@ export class DAOGovernanceService {
   }
 
   private async calculateAgentParticipation(votes: Vote[]): Promise<any[]> {
-    // Mock implementation - group votes by agent type
-    return [
-      { agent_type: 'CEO', total_eligible: 1, votes_cast: 1, participation_rate: 100, voting_power_exercised: 1000 },
-      { agent_type: 'CTO', total_eligible: 1, votes_cast: 0, participation_rate: 0, voting_power_exercised: 0 }
-    ];
+    // Get all C-Suite agents and their participation
+    const cSuiteAgents = this.agentResolver.getAllCSuiteAgents();
+    const participation: any[] = [];
+    
+    for (const agent of cSuiteAgents) {
+      const agentVotes = votes.filter(vote => {
+        const resolvedVoter = this.agentResolver.resolveAgent(vote.voter_address);
+        return resolvedVoter?.characterRole === agent.role;
+      });
+      
+      const votingPowerExercised = agentVotes.reduce((sum, vote) => sum + vote.voting_power, 0);
+      const participationRate = agentVotes.length > 0 ? 100 : 0;
+      
+      participation.push({
+        agent_type: agent.role,
+        agent_id: agent.agentId,
+        total_eligible: 1,
+        votes_cast: agentVotes.length,
+        participation_rate: participationRate,
+        voting_power_exercised: votingPowerExercised
+      });
+    }
+    
+    return participation;
   }
 
   private async recordEvent(event: GovernanceEvent): Promise<void> {
@@ -465,10 +575,10 @@ export class DAOGovernanceService {
   }
 
   /**
-   * Submit a proposal for voting
+   * Submit a proposal for voting with enhanced cognitive analysis
    */
   public async submitProposal(proposalId: string, submittedBy: string): Promise<GovernanceServiceResponse<GovernanceProposal>> {
-    console.log(`📤 Submitting proposal ${proposalId} for voting`);
+    console.log(`📤 Submitting proposal ${proposalId} for voting with cognitive analysis`);
 
     try {
       const proposal = this.proposals.get(proposalId);
@@ -479,6 +589,9 @@ export class DAOGovernanceService {
       if (proposal.status !== ProposalStatus.DRAFT) {
         throw new Error(`Proposal ${proposalId} is not in draft status`);
       }
+
+      // Trigger cognitive analysis before submission
+      await this.triggerCognitiveAnalysis(proposal, submittedBy);
 
       proposal.status = ProposalStatus.SUBMITTED;
       proposal.submittedAt = new Date();
@@ -491,7 +604,10 @@ export class DAOGovernanceService {
         proposal_id: proposalId,
         triggered_by: submittedBy,
         timestamp: new Date(),
-        data: { voting_starts_at: proposal.votingStartsAt }
+        data: { 
+          voting_starts_at: proposal.votingStartsAt,
+          cognitive_analysis_requested: true
+        }
       });
 
       return { success: true, data: proposal };

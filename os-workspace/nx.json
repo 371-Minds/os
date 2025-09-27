@@ -53,7 +53,12 @@
     ]
   },
   "plugins": [
-    "@nx/js",
+    {
+      "plugin": "@nx/js",
+      "options": {
+        "analyzeSourceFiles": false
+      }
+    },
     "@nx/esbuild"
   ],
   "generators": {

@@ -74,6 +74,21 @@ export {
 } from './types.js';
 
 /**
+ * ElizaOS Plugin Registry - Main Entry Point
+ * 
+ * Advanced plugin registry system with hot-reload capabilities,
+ * security sandboxing, and blockchain marketplace integration.
+ */
+
+export { PluginRegistry } from './registry';
+export { PluginLoader } from './loader';
+export { SecurityFramework } from './security';
+export * from './types';
+
+// Main registry export for convenience
+export { PluginRegistry as default } from './registry';
+
+/**
  * ElizaOS Plugin Registry System
  * 
  * A comprehensive plugin management system providing:

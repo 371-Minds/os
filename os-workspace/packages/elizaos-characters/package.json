@@ -1,0 +1,62 @@
+{
+  "name": "@elizaos/characters",
+  "version": "1.0.0",
+  "description": "ElizaOS character definitions for 371 OS C-Suite agents",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "bun test",
+    "lint": "bunx @biomejs/biome check .",
+    "lint:fix": "bunx @biomejs/biome check --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "elizaos",
+    "agents",
+    "characters",
+    "c-suite",
+    "ai",
+    "371os"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "dependencies": {
+    "@elizaos/core": "^1.5.2"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./ceo-mimi": {
+      "types": "./dist/ceo-mimi.character.d.ts",
+      "import": "./dist/ceo-mimi.character.mjs",
+      "require": "./dist/ceo-mimi.character.js"
+    },
+    "./cto-zara": {
+      "types": "./dist/cto-zara.character.d.ts",
+      "import": "./dist/cto-zara.character.mjs",
+      "require": "./dist/cto-zara.character.js"
+    },
+    "./cfo-maya": {
+      "types": "./dist/cfo-maya.character.d.ts",
+      "import": "./dist/cfo-maya.character.mjs",
+      "require": "./dist/cfo-maya.character.js"
+    },
+    "./clo-alex": {
+      "types": "./dist/clo-alex.character.d.ts",
+      "import": "./dist/clo-alex.character.mjs",
+      "require": "./dist/clo-alex.character.js"
+    }
+  }
+}

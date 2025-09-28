@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "cognition": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-http"],
+      "command": "node",
+      "args": ["f:/os-main/core/mcp/mock-cognition-server.cjs"],
       "env": {
         "MCP_SERVER_URL": "http://localhost:39300/model_context_protocol/2024-11-05/sse"
       }

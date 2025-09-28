@@ -2,7 +2,7 @@
   "mcpServers": {
     "documentation": {
       "command": "node",
-      "args": ["f:/os-main/mcp/documentation-mcp-server.js"],
+      "args": ["f:/os-main/core/mcp/documentation-mcp-server.cjs"],
       "env": {
         "MCP_SERVER_URL": "http://localhost:39301/model_context_protocol/2024-11-05/documentation",
         "PROJECT_ROOT": "f:/os-main"
@@ -10,22 +10,14 @@
     },
     "cognition": {
       "command": "node", 
-      "args": ["f:/os-main/mcp/mock-cognition-server.js"],
+      "args": ["f:/os-main/core/mcp/mock-cognition-server.cjs"],
       "env": {
         "MCP_SERVER_URL": "http://localhost:39300/model_context_protocol/2024-11-05/sse"
       }
     },
     "memory": {
       "command": "node",
-      "args": ["f:/os-main/mcp/memory-management-mcp-server.js"],
-      "env": {
-        "MCP_SERVER_URL": "http://localhost:39302/model_context_protocol/2024-11-05/memory",
-        "PROJECT_ROOT": "f:/os-main",
-        "EPICACHE_ENABLED": "true"
-      }
-    }
-  }
-}      "args": ["f:/os-main/mcp/memory-management-mcp-server.js"],
+      "args": ["f:/os-main/core/mcp/memory-management-mcp-server.cjs"],
       "env": {
         "MCP_SERVER_URL": "http://localhost:39302/model_context_protocol/2024-11-05/memory",
         "PROJECT_ROOT": "f:/os-main",

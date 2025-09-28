@@ -9,6 +9,8 @@
 
 > **Beyond MCP Limitations**: The next evolution in AI agent coordination through blockchain-based Universal Tool Servers, achieving **97.6% cost reduction** and true agent autonomy with integrated cloud infrastructure and AI capabilities.
 
+> 📋 **New to 371 OS?** Check out our [**Navigation Guide**](NAVIGATION_GUIDE.md) to understand the organized repository structure!
+
 ---
 
 ## 🎆 Current Status: Revolutionary Agent Factory Implementation Complete
@@ -88,10 +90,12 @@ Our groundbreaking episodic memory management achieves:
 ### 1. **One-Command Setup**
 ```bash
 git clone https://github.com/371-Minds/os.git
-cd os/os-workspace
+cd os/core/os-workspace
 bun install
 bun nx affected -t build
 ```
+
+> 📋 **New to 371 OS?** Check out our [Navigation Guide](NAVIGATION_GUIDE.md) to understand the organized repository structure!
 
 ### 2. **Start Agents Locally**
 ```bash
@@ -179,24 +183,25 @@ Agent Factory ──┬── C-Suite Agent Runner (Standalone Applications)
 #### **⚡ Quick MCP Setup**
 ```bash
 # Start both MCP servers
-cd mcp
+cd core/mcp
 node documentation-mcp-server.js    # Terminal 1 (Documentation)
 node mock-cognition-server.js        # Terminal 2 (Cognition)
 
 # Test servers
 powershell .\mcp-status.ps1 -Test
 
-# Configure Qoder IDE with: mcp/qoder-mcp-config.json
+# Configure Qoder IDE with: core/mcp/qoder-mcp-config.json
 ```
 
-For detailed MCP configuration and usage, see the [**mcp/**](./mcp/) directory.
+For detailed MCP configuration and usage, see the [**core/mcp/**](./core/mcp/) directory.
 
 ### **Revolutionary Workspace Architecture**
-The 371 OS project represents the world's most advanced autonomous agent workspace:
+The 371 OS project represents the world's most advanced autonomous agent workspace with a newly organized structure:
 
 ```
 371-minds-os/
-├── os-workspace/                   # Main development workspace (Nx monorepo)
+├── core/                           # 🎯 MAIN DEVELOPMENT HUB
+│   ├── os-workspace/               # Main development workspace (Nx monorepo)
 │   ├── apps/                       # Production applications
 │   │   ├── cognitive-interface/    # 🧠 Cognitive-aware UI system
 │   │   ├── c-suite-agent-runner/   # 🏭 Revolutionary agent productization runtime
@@ -220,14 +225,24 @@ The 371 OS project represents the world's most advanced autonomous agent workspa
 │   │   ├── core-types/            # 🔤 Shared TypeScript interfaces
 │   │   └── prompts/agent-definitions/ # 🤖 Agent "brains" (YAML)
 │   └── agents/                    # Agent runtime configurations
-├── mcp/                           # 🔌 Model Context Protocol servers
-│   ├── documentation-mcp-server.js    # 📚 Documentation search (Port 39301)
-│   ├── mock-cognition-server.js       # 🧠 Cognitive awareness (Port 39300)
-│   └── memory-management-mcp-server.js # 🎆 EPICACHE memory (Port 39302)
-├── questflow/                     # 🔄 Business workflow automation
-├── AB/                           # 📋 Milestone tracking & session continuity
-├── troubleshooting/              # 🔧 Comprehensive developer support
-├── reference/                    # 📖 Third-party documentation
+│   ├── mcp/                        # 🔌 Model Context Protocol servers
+│   │   ├── documentation-mcp-server.js    # 📚 Documentation search (Port 39301)
+│   │   ├── mock-cognition-server.js       # 🧠 Cognitive awareness (Port 39300)
+│   │   └── memory-management-mcp-server.js # 🎆 EPICACHE memory (Port 39302)
+│   ├── questflow/                  # 🔄 Business workflow automation
+│   └── tools/                      # 🛠️ Development and deployment scripts
+├── documentation/                  # 📚 CENTRALIZED DOCUMENTATION
+│   ├── troubleshooting/            # 🔧 Comprehensive developer support
+│   ├── reference/                  # 📖 Third-party documentation
+│   ├── guides/                     # Development guides and tutorials
+│   └── api/                        # API documentation
+├── project-management/             # 📋 PROJECT TRACKING & SESSIONS
+│   └── AB/                         # Milestone tracking & session continuity
+├── integrations/                   # 🔌 THIRD-PARTY INTEGRATIONS
+│   ├── puter/                      # Puter.js integration docs
+│   ├── akash/                      # Akash Network deployment configs
+│   └── composio/                   # Composio integration
+├── legacy/                         # 📂 ARCHIVED/LEGACY CONTENT
 │   ├── elizaos/                  # ElizaOS framework docs
 │   └── akash_docs/               # Akash Network deployment
 ├── deployments/                  # 🚀 Production deployment configs
@@ -317,7 +332,7 @@ The `dev-team/` directory contains internal tooling and development support for 
 
 ```bash
 # Navigate to workspace
-cd os-workspace
+cd core/os-workspace
 
 # Install dependencies (50x faster with Bun)
 bun install
@@ -338,7 +353,7 @@ bun run start:cognitive-interface
 bun run start:developers-galaxy
 
 # Start EPICACHE memory management
-node mcp/memory-management-mcp-server.js
+node core/mcp/memory-management-mcp-server.js
 
 # Start all development servers
 bun run start:dev
@@ -349,7 +364,7 @@ bun launch-dashboard.js          # Auto-launch with browser
 node simple-dashboard-server.js  # Manual server start
 
 # Traditional CLI simulation
-cd os-workspace && bun apps/phase18-voting-simulation/src/index.ts
+cd core/os-workspace && bun apps/phase18-voting-simulation/src/index.ts
 ```
 
 ### **Nx Cloud Integration**
@@ -1302,5 +1317,44 @@ This is our most recent innovation. We've established a "brain/body" architectur
 *   **The "Body" (Execution Frameworks)**: The **ElizaOS** and **Questflow** frameworks act as the "bodies" that consume these prompts and perform actions in the world.
 
 This diverse and well-structured agent ecosystem is the engine driving our autonomous business operations. It's a testament to the "two-track empire" strategy we defined, allowing for both rapid development and deep, enterprise-grade capabilities.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to the 371 OS project! Please see our comprehensive guides:
+
+- **[Contributing Guide](community/CONTRIBUTING.md)** - How to contribute code, documentation, and ideas
+- **[Code of Conduct](community/CODE_OF_CONDUCT.md)** - Our community standards and values
+- **[Security Policy](community/SECURITY.md)** - How to report security vulnerabilities
+- **[Navigation Guide](NAVIGATION_GUIDE.md)** - Understanding the repository structure
+
+### 🎯 High-Priority Contribution Areas
+- **Cognitive Engine Development** - Cognitive state detection and spatial interfaces
+- **Agent System Enhancement** - Self-awareness capabilities and cross-agent coordination
+- **Cost Optimization** - Akash Network integration and resource allocation
+- **Documentation** - Developer guides, tutorials, and API references
+
+### 🚀 Quick Contribution Start
+```bash
+# Fork and clone the repository
+git clone https://github.com/YOUR_USERNAME/os.git
+cd os/core/os-workspace
+
+# Install dependencies and build
+bun install
+bun nx affected -t build
+
+# Create a feature branch
+git checkout -b feature/my-contribution
+
+# Make your changes and test
+bun nx affected -t test
+bun nx affected -t lint
+
+# Submit a pull request
+```
+
+---
 
 </div>

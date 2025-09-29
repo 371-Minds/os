@@ -31,12 +31,12 @@ Start-Sleep -Seconds 3
 Write-Host "🚀 Starting servers..." -ForegroundColor Green
 
 Write-Host "  📚 Starting Documentation MCP server on port 39301..." -ForegroundColor Cyan
-Start-Process -FilePath "node" -ArgumentList "f:/os-main/core/mcp/documentation-mcp-server.js" -WindowStyle Hidden
+Start-Process -FilePath "node" -ArgumentList "f:/os-main/core/mcp/documentation-mcp-server.cjs" -WindowStyle Hidden
 
 Start-Sleep -Seconds 2
 
 Write-Host "  🧠 Starting Cognition MCP server on port 39300..." -ForegroundColor Cyan
-Start-Process -FilePath "node" -ArgumentList "f:/os-main/core/mcp/mock-cognition-server.js" -WindowStyle Hidden
+Start-Process -FilePath "node" -ArgumentList "f:/os-main/core/mcp/mock-cognition-server.cjs" -WindowStyle Hidden
 
 Start-Sleep -Seconds 5
 

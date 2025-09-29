@@ -303,8 +303,8 @@ const server = http.createServer((req, res) => {
     episodicCognitionServer.addSSEClient(res);
     
     // Send initial connection event
-    res.write('event: connected\\n');
-    res.write('data: {"status": "connected", "server": "episodic-cognition-mcp", "epicache": true, "timestamp": "' + new Date().toISOString() + '"}\\n\\n');
+    res.write('event: connected\n');
+    res.write('data: {"status": "connected", "server": "episodic-cognition-mcp", "epicache": true, "timestamp": "' + new Date().toISOString() + '"}\n\n');
     
     // Send periodic cognitive state updates with memory information
     const interval = setInterval(() => {

@@ -22,11 +22,6 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
-    },
-    "@nx/esbuild:esbuild": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
@@ -53,13 +48,7 @@
     ]
   },
   "plugins": [
-    {
-      "plugin": "@nx/js",
-      "options": {
-        "analyzeSourceFiles": false
-      }
-    },
-    "@nx/esbuild"
+    "@nx/js"
   ],
   "generators": {
     "@nx/js:library": {

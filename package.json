@@ -11,16 +11,23 @@
     "socket.io": "^4.7.2"
   },
   "scripts": {
-    "nx": "cd os-workspace && bun nx",
-    "start": "cd os-workspace && bun nx serve",
-    "build": "cd os-workspace && bun nx build",
-    "test": "cd os-workspace && bun nx test",
-    "lint": "cd os-workspace && bun nx lint",
-    "affected": "cd os-workspace && bun nx affected",
-    "graph": "cd os-workspace && bun nx graph",
-    "connect": "cd os-workspace && bun nx connect",
-    "view-logs": "cd os-workspace && bun nx view-logs",
+    "nx": "cd core/os-workspace && bun nx",
+    "start": "cd core/os-workspace && bun nx serve",
+    "build": "cd core/os-workspace && bun nx build",
+    "test": "cd core/os-workspace && bun nx test",
+    "lint": "cd core/os-workspace && bun nx lint",
+    "affected": "cd core/os-workspace && bun nx affected",
+    "graph": "cd core/os-workspace && bun nx graph",
+    "connect": "cd core/os-workspace && bun nx connect",
+    "view-logs": "cd core/os-workspace && bun nx view-logs",
     "dashboard": "bun phase18-dashboard-server.js",
-    "demo-phase18": "bun demo-phase18.js"
+    "demo-phase18": "bun demo-phase18.js",
+    "env:load": "powershell -ExecutionPolicy Bypass -File ./scripts/load-env.ps1",
+    "env:validate": "powershell -ExecutionPolicy Bypass -File ./scripts/load-env.ps1 -Validate",
+    "publish:all": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Package all",
+    "publish:plugins": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Package elizaos-plugins",
+    "publish:core": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Package core-libraries",
+    "publish:secure": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Production",
+    "deploy:with-secrets": "bun run env:load && cd core/os-workspace && bun run deploy:github:all"
   }
 }

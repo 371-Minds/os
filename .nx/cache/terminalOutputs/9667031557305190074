@@ -1,0 +1,11 @@
+[2m> [22mbun test apps/cognitive-interface
+
+[0m[1mbun test [0m[2mv1.2.18 (0d4089ea)[0m
+[0m
+apps\cognitive-interface\src\App.test.tsx:
+[0m[32m✓[0m [0mCognitive Interface[2m >[0m[1m should have basic test structure[0m
+
+[0m[32m 1 pass[0m
+[0m[2m 0 fail[0m
+ 1 expect() calls
+Ran 1 test across 1 file. [0m[2m[[1m74.00ms[0m[2m][0m

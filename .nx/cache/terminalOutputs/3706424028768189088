@@ -1,0 +1,1251 @@
+[2m> [22mbun test packages/elizaos-plugins/nx-workspace
+
+[0m[1mbun test [0m[2mv1.2.18 (0d4089ea)[0m
+[0m
+packages\elizaos-plugins\nx-workspace\src\provider.test.ts:
+[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m61 |[0m       [0m[35mawait[0m fs[0m[3m[1m.unlink[0m(outputFile)[0m[3m[1m.catch[0m(() => {})[0m[2m;[0m
+[0m[1m62 |[0m 
+[0m[1m63 |[0m       [0m[35mreturn[0m graph[0m[2m;[0m
+[0m[1m64 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m65 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error generating dependency graph:'[0m, error)[0m[2m;[0m
+[0m[1m66 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                 [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to generate dependency graph: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m66[0m[2m:[33m13[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should generate and parse dependency graph[0m
+[0m[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json --focus=app1\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json --focus=app1\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m61 |[0m       [0m[35mawait[0m fs[0m[3m[1m.unlink[0m(outputFile)[0m[3m[1m.catch[0m(() => {})[0m[2m;[0m
+[0m[1m62 |[0m 
+[0m[1m63 |[0m       [0m[35mreturn[0m graph[0m[2m;[0m
+[0m[1m64 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m65 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error generating dependency graph:'[0m, error)[0m[2m;[0m
+[0m[1m66 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                 [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to generate dependency graph: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m66[0m[2m:[33m13[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should handle focus parameter[0m [0m[2m[[1m16.00ms[0m[2m][0m
+[0m[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m117 |[0m       [0m[35mtry[0m {
+[0m[1m118 |[0m         [0m[35mawait[0m provider[0m[3m[1m.getDependencyGraph[0m()[0m[2m;[0m
+[0m[1m119 |[0m         expect([0m[33mtrue[0m)[0m[3m[1m.toBe[0m([0m[33mfalse[0m)[0m[2m;[0m [0m[2m// Should not reach here[0m
+[0m[1m120 |[0m       } [0m[35mcatch[0m (error: [0m[34munknown[0m) {
+[0m[1m121 |[0m         [0m[35mif[0m (error [0m[35minstanceof[0m Error) {
+[0m[1m122 |[0m           expect(error.message)[0m[3m[1m.toBe[0m(
+                                      [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [2m"Failed to generate dependency graph: [0m[32mGraph[0m[2m [0m[32mge[0m[2mn[0m[2me[0m[2mr[0m[32mat[0m[2mi[0m[2mo[0m[32mn[0m[2m [0m[32mf[0m[2ma[0m[2mi[0m[32ml[0m[2me[0m[2md[0m[2m"[0m
+Received: [2m"Failed to generate dependency graph: [0m[31mENOENT:[0m[2m [0m[2mn[0m[31mo such fil[0m[2me[0m[31m o[0m[2mr[0m[31m d[0m[2mi[0m[31mrect[0m[2mo[0m[31mry,[0m[2m [0m[31muv_sp[0m[2ma[0m[31mwn 'C:\\w[0m[2mi[0m[31mndows\\syst[0m[2me[0m[31mm32\\cm[0m[2md[0m[31m.exe'[0m[2m"[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m122[0m[2m:[33m33[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should handle errors gracefully[0m
+[0m[0m[31mError finding affected projects: [0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+
+[0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+[0m
+[0m[1m127 |[0m         projects,
+[0m[1m128 |[0m         tasks,
+[0m[1m129 |[0m       }[0m[2m;[0m
+[0m[1m130 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m131 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error finding affected projects:'[0m, error)[0m[2m;[0m
+[0m[1m132 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                  [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to find affected projects: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m132[0m[2m:[33m13[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mfindAffectedProjects[2m >[0m[1m should find affected projects[0m
+[0m[0m[31mError finding affected projects: [0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+
+[0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+[0m
+[0m[1m127 |[0m         projects,
+[0m[1m128 |[0m         tasks,
+[0m[1m129 |[0m       }[0m[2m;[0m
+[0m[1m130 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m131 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error finding affected projects:'[0m, error)[0m[2m;[0m
+[0m[1m132 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                  [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to find affected projects: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m132[0m[2m:[33m13[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mfindAffectedProjects[2m >[0m[1m should handle empty results[0m
+[0m[0m[1m166 |[0m 
+[0m[1m167 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Tests passed'[0m))[0m[2m;[0m
+[0m[1m168 |[0m 
+[0m[1m169 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.runTestsForAffected[0m([0m[32m'main'[0m)[0m[2m;[0m
+[0m[1m170 |[0m 
+[0m[1m171 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m171[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should run tests successfully[0m
+[0m[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should handle test failures[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should handle no affected projects[0m
+[0m[1m207 |[0m     test([0m[32m'should build specific project successfully'[0m, [0m[35masync[0m () => {
+[0m[1m208 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Build successful'[0m))[0m[2m;[0m
+[0m[1m209 |[0m 
+[0m[1m210 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.buildProject[0m([0m[32m'app1'[0m)[0m[2m;[0m
+[0m[1m211 |[0m 
+[0m[1m212 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m212[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should build specific project successfully[0m
+[0m[0m[1m225 |[0m 
+[0m[1m226 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Build successful'[0m))[0m[2m;[0m
+[0m[1m227 |[0m 
+[0m[1m228 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.buildProject[0m()[0m[2m;[0m
+[0m[1m229 |[0m 
+[0m[1m230 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m230[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should build all affected projects when no project specified[0m
+[0m[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should handle build failures[0m
+[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app --directory=apps --tags=frontend\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m269[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m251[0m[2m:[33m47[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app --directory=apps --tags=frontend\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m269[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m251[0m[2m:[33m47[0m[2m)[0m
+[0m
+[0m[1m266 |[0m         },
+[0m[1m267 |[0m       }))[0m[2m;[0m
+[0m[1m268 |[0m 
+[0m[1m269 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.generateScaffold[0m(options)[0m[2m;[0m
+[0m[1m270 |[0m 
+[0m[1m271 |[0m       expect(result)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                           [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m271[0m[2m:[33m22[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should generate React application[0m
+[0m[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/js:library shared-utils\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m294[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m278[0m[2m:[33m37[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/js:library shared-utils\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m294[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m278[0m[2m:[33m37[0m[2m)[0m
+[0m
+[0m[1m291 |[0m         },
+[0m[1m292 |[0m       }))[0m[2m;[0m
+[0m[1m293 |[0m 
+[0m[1m294 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.generateScaffold[0m(options)[0m[2m;[0m
+[0m[1m295 |[0m 
+[0m[1m296 |[0m       expect(result)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                           [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m296[0m[2m:[33m22[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should generate library[0m [0m[2m[[1m15.00ms[0m[2m][0m
+[0m[0m[31mError generating scaffold: [0m[1m288 |[0m           [0m[35mbreak[0m[0m[2m;[0m
+[0m[1m289 |[0m         [0m[35mcase[0m [0m[32m'service'[0m:
+[0m[1m290 |[0m           generator = [0m[32m'@nx/node:service'[0m[0m[2m;[0m
+[0m[1m291 |[0m           [0m[35mbreak[0m[0m[2m;[0m
+[0m[1m292 |[0m         [0m[35mdefault[0m:
+[0m[1m293 |[0m           [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m([0m[32m`Unsupported generator type: [0m${options.[0m[34mtype[0m}[0m[32m`[0m)[0m[2m;[0m
+                      [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mUnsupported generator type: unknown[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m293[0m[2m:[33m17[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m309[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m303[0m[2m:[33m55[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should handle unsupported generator types[0m
+[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m324[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m314[0m[2m:[33m47[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m324[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m314[0m[2m:[33m47[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should handle generation failures[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0manalyzeWorkspace[2m >[0m[1m should analyze workspace successfully[0m
+[0m[31mError analyzing workspace: [0m[1m366 |[0m       expect(result.recommendations.length)[0m[3m[1m.toBeGreaterThan[0m([0m[33m0[0m)[0m[2m;[0m
+[0m[1m367 |[0m     })[0m[2m;[0m
+[0m[1m368 |[0m 
+[0m[1m369 |[0m     test([0m[32m'should handle analysis errors'[0m, [0m[35masync[0m () => {
+[0m[1m370 |[0m       spyOn(provider, [0m[32m'getDependencyGraph'[0m)[0m[3m[1m.mockRejectedValue[0m(
+[0m[1m371 |[0m         [0m[35mnew[0m [0m[1mError[0m([0m[32m'Graph error'[0m),
+              [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mGraph error[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m371[0m[2m:[33m9[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m369[0m[2m:[33m43[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0manalyzeWorkspace[2m >[0m[1m should handle analysis errors[0m
+
+[0m[32m 7 pass[0m
+[0m[31m 10 fail[0m
+ 20 expect() calls
+Ran 17 tests across 1 file. [0m[2m[[1m161.00ms[0m[2m][0m
+[2m> [22mbun test packages/elizaos-plugins/nx-workspace
+
+[0m[1mbun test [0m[2mv1.2.18 (0d4089ea)[0m
+[0m
+packages\elizaos-plugins\nx-workspace\src\provider.test.ts:
+[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m61 |[0m       [0m[35mawait[0m fs[0m[3m[1m.unlink[0m(outputFile)[0m[3m[1m.catch[0m(() => {})[0m[2m;[0m
+[0m[1m62 |[0m 
+[0m[1m63 |[0m       [0m[35mreturn[0m graph[0m[2m;[0m
+[0m[1m64 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m65 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error generating dependency graph:'[0m, error)[0m[2m;[0m
+[0m[1m66 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                 [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to generate dependency graph: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m66[0m[2m:[33m13[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should generate and parse dependency graph[0m
+[0m[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json --focus=app1\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json --focus=app1\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m61 |[0m       [0m[35mawait[0m fs[0m[3m[1m.unlink[0m(outputFile)[0m[3m[1m.catch[0m(() => {})[0m[2m;[0m
+[0m[1m62 |[0m 
+[0m[1m63 |[0m       [0m[35mreturn[0m graph[0m[2m;[0m
+[0m[1m64 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m65 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error generating dependency graph:'[0m, error)[0m[2m;[0m
+[0m[1m66 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                 [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to generate dependency graph: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m66[0m[2m:[33m13[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should handle focus parameter[0m [0m[2m[[1m16.00ms[0m[2m][0m
+[0m[0m[31mError generating dependency graph: [0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+
+[0m[1m46 |[0m       [0m[35mif[0m (focus) {
+[0m[1m47 |[0m         command += [0m[32m` --focus=[0m${focus}[0m[32m`[0m[0m[2m;[0m
+[0m[1m48 |[0m       }
+[0m[1m49 |[0m 
+[0m[1m50 |[0m       [0m[2m// Execute command[0m
+[0m[1m51 |[0m       execSync(command, {
+           [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx graph --file=\\test\\workspace\\tmp\\dependency-graph.json\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgetDependencyGraph[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m51[0m[2m:[33m7[0m[2m)[0m
+[0m
+[0m[1m117 |[0m       [0m[35mtry[0m {
+[0m[1m118 |[0m         [0m[35mawait[0m provider[0m[3m[1m.getDependencyGraph[0m()[0m[2m;[0m
+[0m[1m119 |[0m         expect([0m[33mtrue[0m)[0m[3m[1m.toBe[0m([0m[33mfalse[0m)[0m[2m;[0m [0m[2m// Should not reach here[0m
+[0m[1m120 |[0m       } [0m[35mcatch[0m (error: [0m[34munknown[0m) {
+[0m[1m121 |[0m         [0m[35mif[0m (error [0m[35minstanceof[0m Error) {
+[0m[1m122 |[0m           expect(error.message)[0m[3m[1m.toBe[0m(
+                                      [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [2m"Failed to generate dependency graph: [0m[32mGraph[0m[2m [0m[32mge[0m[2mn[0m[2me[0m[2mr[0m[32mat[0m[2mi[0m[2mo[0m[32mn[0m[2m [0m[32mf[0m[2ma[0m[2mi[0m[32ml[0m[2me[0m[2md[0m[2m"[0m
+Received: [2m"Failed to generate dependency graph: [0m[31mENOENT:[0m[2m [0m[2mn[0m[31mo such fil[0m[2me[0m[31m o[0m[2mr[0m[31m d[0m[2mi[0m[31mrect[0m[2mo[0m[31mry,[0m[2m [0m[31muv_sp[0m[2ma[0m[31mwn 'C:\\w[0m[2mi[0m[31mndows\\syst[0m[2me[0m[31mm32\\cm[0m[2md[0m[31m.exe'[0m[2m"[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m122[0m[2m:[33m33[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgetDependencyGraph[2m >[0m[1m should handle errors gracefully[0m
+[0m[0m[31mError finding affected projects: [0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+
+[0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+[0m
+[0m[1m127 |[0m         projects,
+[0m[1m128 |[0m         tasks,
+[0m[1m129 |[0m       }[0m[2m;[0m
+[0m[1m130 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m131 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error finding affected projects:'[0m, error)[0m[2m;[0m
+[0m[1m132 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                  [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to find affected projects: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m132[0m[2m:[33m13[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m139[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m133[0m[2m:[33m43[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mfindAffectedProjects[2m >[0m[1m should find affected projects[0m
+[0m[0m[31mError finding affected projects: [0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+
+[0m[1m75 |[0m    * Executes [0m[32m`nx affected --base=<base>`[0m and returns affected projects
+[0m[1m76 |[0m    */
+[0m[1m77 |[0m   [0m[35masync[0m findAffectedProjects(base = [0m[32m'main'[0m): Promise[0m<[0mNxAffectedProjects> {
+[0m[1m78 |[0m     [0m[35mtry[0m {
+[0m[1m79 |[0m       [0m[2m// Get affected projects as plain list[0m
+[0m[1m80 |[0m       [0m[35mconst[0m projectsOutput = execSync(
+                                  [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx affected:apps --base=main --plain\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m80[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+[0m
+[0m[1m127 |[0m         projects,
+[0m[1m128 |[0m         tasks,
+[0m[1m129 |[0m       }[0m[2m;[0m
+[0m[1m130 |[0m     } [0m[35mcatch[0m (error) {
+[0m[1m131 |[0m       console[0m[3m[1m.error[0m([0m[32m'Error finding affected projects:'[0m, error)[0m[2m;[0m
+[0m[1m132 |[0m       [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m(
+                  [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mFailed to find affected projects: ENOENT: no such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m132[0m[2m:[33m13[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mfindAffectedProjects[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m77[0m[2m:[33m30[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m152[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m146[0m[2m:[33m41[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mfindAffectedProjects[2m >[0m[1m should handle empty results[0m
+[0m[0m[1m166 |[0m 
+[0m[1m167 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Tests passed'[0m))[0m[2m;[0m
+[0m[1m168 |[0m 
+[0m[1m169 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.runTestsForAffected[0m([0m[32m'main'[0m)[0m[2m;[0m
+[0m[1m170 |[0m 
+[0m[1m171 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m171[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should run tests successfully[0m
+[0m[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should handle test failures[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mrunTestsForAffected[2m >[0m[1m should handle no affected projects[0m
+[0m[1m207 |[0m     test([0m[32m'should build specific project successfully'[0m, [0m[35masync[0m () => {
+[0m[1m208 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Build successful'[0m))[0m[2m;[0m
+[0m[1m209 |[0m 
+[0m[1m210 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.buildProject[0m([0m[32m'app1'[0m)[0m[2m;[0m
+[0m[1m211 |[0m 
+[0m[1m212 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m212[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should build specific project successfully[0m
+[0m[0m[1m225 |[0m 
+[0m[1m226 |[0m       mockExecSync[0m[3m[1m.mockReturnValue[0m(Buffer[0m[3m[1m.from[0m([0m[32m'Build successful'[0m))[0m[2m;[0m
+[0m[1m227 |[0m 
+[0m[1m228 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.buildProject[0m()[0m[2m;[0m
+[0m[1m229 |[0m 
+[0m[1m230 |[0m       expect(result.success)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                                   [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m230[0m[2m:[33m30[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should build all affected projects when no project specified[0m
+[0m[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mbuildProject[2m >[0m[1m should handle build failures[0m
+[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app --directory=apps --tags=frontend\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m269[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m251[0m[2m:[33m47[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app --directory=apps --tags=frontend\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m269[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m251[0m[2m:[33m47[0m[2m)[0m
+[0m
+[0m[1m266 |[0m         },
+[0m[1m267 |[0m       }))[0m[2m;[0m
+[0m[1m268 |[0m 
+[0m[1m269 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.generateScaffold[0m(options)[0m[2m;[0m
+[0m[1m270 |[0m 
+[0m[1m271 |[0m       expect(result)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                           [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m271[0m[2m:[33m22[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should generate React application[0m
+[0m[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/js:library shared-utils\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m294[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m278[0m[2m:[33m37[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/js:library shared-utils\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m294[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m278[0m[2m:[33m37[0m[2m)[0m
+[0m
+[0m[1m291 |[0m         },
+[0m[1m292 |[0m       }))[0m[2m;[0m
+[0m[1m293 |[0m 
+[0m[1m294 |[0m       [0m[35mconst[0m result = [0m[35mawait[0m provider[0m[3m[1m.generateScaffold[0m(options)[0m[2m;[0m
+[0m[1m295 |[0m 
+[0m[1m296 |[0m       expect(result)[0m[3m[1m.toBe[0m([0m[33mtrue[0m)[0m[2m;[0m
+                           [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1m[2mexpect([0m[31mreceived[0m[2m).[0mtoBe[2m([0m[32mexpected[0m[2m)[0m
+
+Expected: [32mtrue[0m
+Received: [31mfalse[0m
+[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m296[0m[2m:[33m22[0m[2m)[0m
+[0m[31m✗[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should generate library[0m [0m[2m[[1m15.00ms[0m[2m][0m
+[0m[0m[31mError generating scaffold: [0m[1m288 |[0m           [0m[35mbreak[0m[0m[2m;[0m
+[0m[1m289 |[0m         [0m[35mcase[0m [0m[32m'service'[0m:
+[0m[1m290 |[0m           generator = [0m[32m'@nx/node:service'[0m[0m[2m;[0m
+[0m[1m291 |[0m           [0m[35mbreak[0m[0m[2m;[0m
+[0m[1m292 |[0m         [0m[35mdefault[0m:
+[0m[1m293 |[0m           [0m[35mthrow[0m [0m[35mnew[0m [0m[1mError[0m([0m[32m`Unsupported generator type: [0m${options.[0m[34mtype[0m}[0m[32m`[0m)[0m[2m;[0m
+                      [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mUnsupported generator type: unknown[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m293[0m[2m:[33m17[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m309[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m303[0m[2m:[33m55[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should handle unsupported generator types[0m
+[0m[31mError generating scaffold: [0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m324[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m314[0m[2m:[33m47[0m[2m)[0m
+
+[0m[1m312 |[0m         ) {
+[0m[1m313 |[0m           command += [0m[32m` --[0m${key}[0m[32m=[0m${value}[0m[32m`[0m[0m[2m;[0m
+[0m[1m314 |[0m         }
+[0m[1m315 |[0m       })[0m[2m;[0m
+[0m[1m316 |[0m 
+[0m[1m317 |[0m       execSync(command, {
+            [31m[1m^[0m
+[0m[31mENOENT[0m[2m:[0m [1mno such file or directory, uv_spawn 'C:\windows\system32\cmd.exe'[0m
+      path[0m[2m:[0m [0m[32m"C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+   syscall[0m[2m:[0m [0m[32m"spawnSync C:\\windows\\system32\\cmd.exe"[0m[0m[2m,[0m
+     errno[0m[2m:[0m [0m[33m-4058[0m[0m[2m,[0m
+ spawnargs[0m[2m:[0m [
+  [0m[32m"/d"[0m[0m[0m[2m,[0m [0m[32m"/s"[0m[0m[0m[2m,[0m [0m[32m"/c"[0m[0m[0m[2m,[0m [0m[32m"\"npx nx generate @nx/react:application new-app\""[0m[0m
+][0m[2m,[0m
+    signal[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    status[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+    output[0m[2m:[0m [ [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m[0m[2m,[0m [0m[33mnull[0m ][0m[2m,[0m
+       pid[0m[2m:[0m [0m[2mundefined[0m[0m[2m,[0m
+     error[0m[2m:[0m [0m[36m[Circular][0m[0m[2m,[0m
+    stdout[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+    stderr[0m[2m:[0m [0m[33mnull[0m[0m[2m,[0m
+      code[0m[2m:[0m [32m"ENOENT"[0m
+
+[0m      [2mat [0m[0m[1m[3mspawnSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m226[0m[2m:[33m22[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mexecSync[0m[2m ([0m[0m[36mnode:child_process[0m[2m:[0m[33m275[0m[2m:[33m109[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m317[0m[2m:[33m7[0m[2m)[0m
+[0m      [2mat [0m[0m[1m[3mgenerateScaffold[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.ts[0m[2m:[0m[33m274[0m[2m:[33m26[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m324[0m[2m:[33m37[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m314[0m[2m:[33m47[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0mgenerateScaffold[2m >[0m[1m should handle generation failures[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0manalyzeWorkspace[2m >[0m[1m should analyze workspace successfully[0m
+[0m[31mError analyzing workspace: [0m[1m366 |[0m       expect(result.recommendations.length)[0m[3m[1m.toBeGreaterThan[0m([0m[33m0[0m)[0m[2m;[0m
+[0m[1m367 |[0m     })[0m[2m;[0m
+[0m[1m368 |[0m 
+[0m[1m369 |[0m     test([0m[32m'should handle analysis errors'[0m, [0m[35masync[0m () => {
+[0m[1m370 |[0m       spyOn(provider, [0m[32m'getDependencyGraph'[0m)[0m[3m[1m.mockRejectedValue[0m(
+[0m[1m371 |[0m         [0m[35mnew[0m [0m[1mError[0m([0m[32m'Graph error'[0m),
+              [31m[1m^[0m
+[0m[31merror[0m[2m:[0m [1mGraph error[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m371[0m[2m:[33m9[0m[2m)[0m
+[0m      [2mat [0m[0m[2m<anonymous>[0m[2m ([0m[0m[36mF:\os-main\packages\elizaos-plugins\nx-workspace\src\provider.test.ts[0m[2m:[0m[33m369[0m[2m:[33m43[0m[2m)[0m
+[0m
+[0m[32m✓[0m [0mNxWorkspaceProvider[2m > [0manalyzeWorkspace[2m >[0m[1m should handle analysis errors[0m
+
+[0m[32m 7 pass[0m
+[0m[31m 10 fail[0m
+ 20 expect() calls
+Ran 17 tests across 1 file. [0m[2m[[1m161.00ms[0m[2m][0m
+Warning: command "bun test packages/elizaos-plugins/nx-workspace" exited with non-zero status code

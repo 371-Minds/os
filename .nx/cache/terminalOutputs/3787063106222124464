@@ -1,0 +1,33 @@
+
+[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mCannot find module 'jest'[39m
+
+Require stack:
+- F:\os-main\node_modules\@nx\jest\src\executors\jest\jest.impl.js
+- F:\os-main\node_modules\nx\src\config\schema-utils.js
+- F:\os-main\node_modules\nx\src\command-line\run\executor-utils.js
+- F:\os-main\node_modules\nx\src\project-graph\utils\project-configuration-utils.js
+- F:\os-main\node_modules\nx\src\utils\package-json.js
+- F:\os-main\node_modules\nx\src\utils\print-help.js
+- F:\os-main\node_modules\nx\src\command-line\run\run.js
+- F:\os-main\node_modules\nx\bin\run-executor.js
+Error: Cannot find module 'jest'
+Require stack:
+- F:\os-main\node_modules\@nx\jest\src\executors\jest\jest.impl.js
+- F:\os-main\node_modules\nx\src\config\schema-utils.js
+- F:\os-main\node_modules\nx\src\command-line\run\executor-utils.js
+- F:\os-main\node_modules\nx\src\project-graph\utils\project-configuration-utils.js
+- F:\os-main\node_modules\nx\src\utils\package-json.js
+- F:\os-main\node_modules\nx\src\utils\print-help.js
+- F:\os-main\node_modules\nx\src\command-line\run\run.js
+- F:\os-main\node_modules\nx\bin\run-executor.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (F:\os-main\node_modules\@nx\jest\src\executors\jest\jest.impl.js:6:16)
+    at Module._compile (node:internal/modules/cjs/loader:1738:14)
+

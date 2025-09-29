@@ -1,0 +1,15 @@
+Compiling TypeScript files for project "cognitive-engine"...
+[1m[31m[96m/os-main/packages/elizaos-plugins/cognitive-engine/src/plugin.ts[0m:[93m30[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'initialize' does not exist in type 'typeof Service'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m30[0m       initialize: async (runtime: any) => {[39m[22m
+[1m[31m[7m  [0m [91m      ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/cognitive-engine/src/provider.ts[0m:[93m221[0m:[93m11[0m - [91merror[0m[90m TS2322: [0mType '{ state: string; confidence: number; }[]' is not assignable to type '{ state: CognitiveState; confidence: number; }[]'.[39m[22m
+[1m[31m  Type '{ state: string; confidence: number; }' is not assignable to type '{ state: CognitiveState; confidence: number; }'.[39m[22m
+[1m[31m    Types of property 'state' are incompatible.[39m[22m
+[1m[31m      Type 'string' is not assignable to type 'CognitiveState'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m221[0m     const alternatives: Array<{ state: CognitiveState; confidence: number }> = [[39m[22m
+[1m[31m[7m   [0m [91m          ~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+
+[2m..\..\..\dist\packages\elizaos-plugins\cognitive-engine\README.md[22m

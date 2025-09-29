@@ -1,0 +1,52 @@
+Compiling TypeScript files for project "elizaos-plugin-nx-workspace"...
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m191[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'boolean' is not assignable to type 'void'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m191[0m       return results.success;[39m[22m
+[1m[31m[7m   [0m [91m      ~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m197[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m197[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m254[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'boolean' is not assignable to type 'void'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m254[0m       return results.success;[39m[22m
+[1m[31m[7m   [0m [91m      ~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m260[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m260[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m283[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory) => Promise<true | undefined>' is not assignable to type 'Validator'.[39m[22m
+[1m[31m  Type 'Promise<true | undefined>' is not assignable to type 'Promise<boolean>'.[39m[22m
+[1m[31m    Type 'boolean | undefined' is not assignable to type 'boolean'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m283[0m   validate: async (runtime: IAgentRuntime, message: Memory) => {[39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m63[0m:[93m3[0m[39m[22m
+[1m[31m    [7m63[0m   validate: Validator;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'validate' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m321[0m:[93m7[0m - [91merror[0m[90m TS2322: [0mType 'boolean' is not assignable to type 'void'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m321[0m       return success;[39m[22m
+[1m[31m[7m   [0m [91m      ~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m327[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m327[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m385[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m385[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/plugin.ts[0m:[93m40[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'onLoad' does not exist in type 'Plugin'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m40[0m   async onLoad(runtime: any) {[39m[22m
+[1m[31m[7m  [0m [91m        ~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m227[0m:[93m22[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m227[0m             errors: [error.message],[39m[22m
+[1m[31m[7m   [0m [91m                     ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+
+[2mdist\README.md[22m

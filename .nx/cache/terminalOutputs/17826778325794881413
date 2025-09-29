@@ -1,0 +1,1211 @@
+[2J[3J[H6:57:40 PM - Starting compilation in watch mode...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+6:57:45 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:06:50 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:06:57 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:06:58 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:07:06 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:07:12 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:07:15 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:07:16 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:07:23 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:07:25 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:07:27 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:07:28 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:07:29 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:08 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:10 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:09:12 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:19 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:21 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:21 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:22 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:22 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:23 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:23 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:24 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:25 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:36 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:37 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:38 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:39 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:09:39 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:40 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:09:48 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:52 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:09:53 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:09:53 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:02 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:02 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:10:04 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:05 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:06 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:07 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:08 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:13 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:16 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:33 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:35 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:36 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:10:37 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:38 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:39 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:40 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:42 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:42 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:44 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:44 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:49 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:50 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:10:50 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:51 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:52 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:10:55 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:10:57 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:04 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:11:04 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:05 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:08 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:08 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:10 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:11 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:14 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:15 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:19 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:19 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:23 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:23 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:11:24 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:24 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:35 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:35 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:39 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:42 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:11:42 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:44 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:50 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:11:58 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:11:59 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:04 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:12:37 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:39 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:12:40 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:42 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:12:47 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:49 PM - Found 3 errors. Watching for file changes.
+[2J[3J[H7:12:50 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:53 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:12:55 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:12:57 PM - Found 3 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:16:28 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/App.tsx(8,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/App.tsx(36,3): error TS7031: Binding element 'cognitiveEnginePlugin' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(37,3): error TS7031: Binding element 'onStateChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(46,78): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(48,66): error TS7006: Parameter 'action' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(95,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/App.tsx(146,23): error TS7006: Parameter 'state' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(11,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(204,46): error TS2345: Argument of type '(a: [string, number], b: [string, number]) => [string, number]' is not assignable to parameter of type '(previousValue: [string, unknown], currentValue: [string, unknown], currentIndex: number, array: [string, unknown][]) => [string, unknown]'.
+  Types of parameters 'a' and 'previousValue' are incompatible.
+    Type '[string, unknown]' is not assignable to type '[string, number]'.
+      Type at position 1 in source is not compatible with type at position 1 in target.
+        Type 'unknown' is not assignable to type 'number'.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(342,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(6,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(303,3): error TS7031: Binding element 'onDataUpdate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(304,3): error TS7031: Binding element 'onError' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(305,3): error TS7031: Binding element 'realTimeMode' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(306,3): error TS7031: Binding element 'refreshInterval' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(307,3): error TS7031: Binding element 'agentEndpoint' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(6,46): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(36,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(37,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(38,3): error TS7031: Binding element 'onTimeTravel' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(39,3): error TS7031: Binding element 'onDataRefresh' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(40,3): error TS7031: Binding element 'onExportData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(41,3): error TS7031: Binding element 'onResetView' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(42,3): error TS7031: Binding element 'isRealTimeMode' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(43,3): error TS7031: Binding element 'onRealTimeModeToggle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(44,3): error TS7031: Binding element 'lastUpdated' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(45,3): error TS7031: Binding element 'connectionStatus' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(97,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(125,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(138,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(181,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(202,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(215,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(223,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(231,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(239,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(283,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(15,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(77,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(83,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(139,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(143,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(154,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(161,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(182,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(199,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(206,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(356,45): error TS7006: Parameter 'notification' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(150,3): error TS7031: Binding element 'agentEndpoint' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(151,3): error TS7031: Binding element 'onPlanetSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(152,3): error TS7031: Binding element 'onDepartmentSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(153,3): error TS7031: Binding element 'onInsightCapture' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(154,3): error TS7031: Binding element 'onAlertAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(155,3): error TS7031: Binding element 'onDataDrillDown' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(156,3): error TS7031: Binding element 'onDataExport' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(268,27): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(332,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(375,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(427,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(443,30): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(444,27): error TS7006: Parameter 'planetId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(444,37): error TS7006: Parameter 'timeRange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(445,29): error TS7006: Parameter 'alert' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(456,34): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(476,32): error TS7006: Parameter 'enabled' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(547,57): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(552,59): error TS7006: Parameter 'i' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(561,63): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(10,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(41,3): error TS7031: Binding element 'onModeChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(42,3): error TS7031: Binding element 'onStateDetection' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(122,26): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(286,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(317,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(407,41): error TS7006: Parameter 'transition' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(407,53): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(14,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(110,3): error TS7031: Binding element 'onEmailSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(111,3): error TS7031: Binding element 'onConstellationSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(112,3): error TS7031: Binding element 'onFlowAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(113,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(114,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(326,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(340,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(340,40): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(349,54): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(388,28): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(428,16): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,14): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,30): error TS7006: Parameter 'emailId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(436,45): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(438,51): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(438,70): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(460,21): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(460,36): error TS7006: Parameter 'emailId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(461,43): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(464,36): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(464,68): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(558,50): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(558,55): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(559,52): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(559,57): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(579,46): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(587,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(592,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(592,42): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(605,38): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(606,38): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(608,39): error TS2339: Property 'size' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(627,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(9,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(97,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(451,19): error TS7006: Parameter 'prevEmails' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(452,54): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(454,48): error TS7006: Parameter 'existingEmail' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(473,29): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(484,15): error TS7006: Parameter 'prevEmails' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(485,22): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(509,33): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(610,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(627,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(627,34): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(649,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(890,49): error TS7006: Parameter 'event' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(10,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(76,3): error TS7031: Binding element 'projects' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(77,3): error TS7031: Binding element 'creativeFlows' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(78,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(79,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(80,3): error TS7031: Binding element 'onProjectFilter' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(81,3): error TS7031: Binding element 'onCreativeAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(82,3): error TS7031: Binding element 'onExportData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(83,3): error TS7031: Binding element 'onResetView' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(160,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(160,41): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(172,26): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(172,43): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(179,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(179,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(191,30): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(191,47): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(204,39): error TS7006: Parameter 'acc' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(204,44): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(209,42): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(209,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(210,44): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(210,49): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(211,44): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(211,49): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(223,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(301,28): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(320,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(365,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(368,59): error TS7006: Parameter 't' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(386,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(389,62): error TS7006: Parameter 's' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(403,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(416,42): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(450,42): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(450,47): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(457,34): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(494,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(502,36): error TS7006: Parameter 'action' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(58,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(59,3): error TS7031: Binding element 'onProjectCreate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(60,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(188,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(188,34): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(214,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(236,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(314,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(314,42): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(326,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(355,34): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(355,42): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(376,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(413,38): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(413,43): error TS7006: Parameter 'tagIndex' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(450,33): error TS7006: Parameter 'tool' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(450,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(479,36): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(479,45): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(525,36): error TS7006: Parameter 'inspiration' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(525,49): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(13,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(103,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(104,3): error TS7031: Binding element 'onParticleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(105,3): error TS7031: Binding element 'onCreativeAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(106,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(291,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(305,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(305,40): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(314,54): error TS7006: Parameter 'particle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(353,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(388,16): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,14): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,32): error TS7006: Parameter 'projectId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,43): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(395,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(397,53): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(397,72): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(514,48): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(522,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(527,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(527,42): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(539,56): error TS7006: Parameter 'particle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(566,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(6,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(83,3): error TS7031: Binding element 'departments' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(84,3): error TS7031: Binding element 'onDepartmentSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(85,3): error TS7031: Binding element 'onTeamSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(88,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(89,3): error TS7031: Binding element 'orbitTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(186,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(186,45): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(187,43): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(192,55): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(206,50): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(206,59): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(224,33): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(236,26): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(245,33): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(256,31): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(279,56): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(285,29): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(292,43): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(306,38): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(324,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(324,45): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(8,46): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(42,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(43,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(44,3): error TS7031: Binding element 'onBuildAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(45,3): error TS7031: Binding element 'onNavigate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(46,3): error TS7031: Binding element 'onProjectFilter' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(47,3): error TS7031: Binding element 'selectedProjects' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(48,3): error TS7031: Binding element 'buildStatus' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(49,3): error TS7031: Binding element 'lastBuildTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(89,30): error TS7006: Parameter 'f' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(116,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(203,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(228,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(236,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(244,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(252,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(304,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(304,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(312,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(312,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(320,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(320,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(371,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(13,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(89,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(90,3): error TS7031: Binding element 'onModuleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(91,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(263,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(277,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(277,40): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(286,50): error TS7006: Parameter 'module' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(325,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(343,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(344,36): error TS7006: Parameter 'depId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(345,48): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(363,20): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,18): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,36): error TS7006: Parameter 'projectId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,47): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(370,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(372,53): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(372,76): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(467,48): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(475,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(480,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(480,42): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(492,52): error TS7006: Parameter 'module' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(519,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(96,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(97,3): error TS7031: Binding element 'onModuleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(98,3): error TS7031: Binding element 'onBuildTrigger' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(99,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(258,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(261,28): error TS7006: Parameter 'id' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(298,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(298,36): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(316,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(340,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(437,47): error TS7006: Parameter 'dep' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(47,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(48,3): error TS7031: Binding element 'onActionTrigger' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(123,21): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(123,38): error TS7006: Parameter 'kpi' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(135,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(162,30): error TS7006: Parameter 'kpi' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(162,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(186,33): error TS7006: Parameter 'agent' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(186,40): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(216,35): error TS7006: Parameter 'alert' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(6,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(65,3): error TS7031: Binding element 'businessData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(66,3): error TS7031: Binding element 'onPlanetSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(69,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(70,3): error TS7031: Binding element 'orbitTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(148,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(148,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(155,55): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(176,21): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(202,35): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(233,40): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(238,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(238,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(252,40): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(258,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(275,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(275,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(12,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(59,3): error TS7031: Binding element 'onBookSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(60,3): error TS7031: Binding element 'onReadingProgress' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(61,3): error TS7031: Binding element 'onInsightCapture' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(286,28): error TS7006: Parameter 'constellation' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(287,47): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(321,19): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(322,32): error TS7006: Parameter 'connectionId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(323,42): error TS7006: Parameter 'b' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(339,19): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(525,40): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(525,45): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(559,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(570,38): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(577,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(593,36): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(601,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(625,22): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(650,14): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(650,31): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(662,14): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(662,31): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(673,35): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(676,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(683,34): error TS7006: Parameter 'b' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(704,49): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(746,47): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(746,56): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(755,41): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(755,46): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(773,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(773,47): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(55,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(56,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(208,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(208,34): error TS7006: Parameter 't' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(265,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(265,41): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(282,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(315,33): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(315,41): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(337,29): error TS7006: Parameter 'build' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(337,36): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(371,31): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(371,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(398,28): error TS7006: Parameter 'tool' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(398,34): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(433,36): error TS7006: Parameter 'line' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(433,42): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(35,3): error TS7031: Binding element 'galaxyEngine' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(36,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(37,3): error TS7031: Binding element 'onEntityClick' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(38,3): error TS7031: Binding element 'onConstellationClick' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(46,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(85,22): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(268,41): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(282,28): error TS7006: Parameter 'constellation' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(298,22): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(323,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(335,3): error TS7031: Binding element 'configuration' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(337,3): error TS7031: Binding element 'onEntitySelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(338,3): error TS7031: Binding element 'onConstellationSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(339,3): error TS7031: Binding element 'onFlowAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(340,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(380,40): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(452,51): error TS18046: 'value' is of type 'unknown'.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(464,101): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(468,92): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(472,95): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:16:32 PM - Found 394 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[2J[3J[H7:16:34 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/App.tsx(8,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/App.tsx(36,3): error TS7031: Binding element 'cognitiveEnginePlugin' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(37,3): error TS7031: Binding element 'onStateChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(46,78): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(48,66): error TS7006: Parameter 'action' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/App.tsx(95,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/App.tsx(146,23): error TS7006: Parameter 'state' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(11,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(204,46): error TS2345: Argument of type '(a: [string, number], b: [string, number]) => [string, number]' is not assignable to parameter of type '(previousValue: [string, unknown], currentValue: [string, unknown], currentIndex: number, array: [string, unknown][]) => [string, unknown]'.
+  Types of parameters 'a' and 'previousValue' are incompatible.
+    Type '[string, unknown]' is not assignable to type '[string, number]'.
+      Type at position 1 in source is not compatible with type at position 1 in target.
+        Type 'unknown' is not assignable to type 'number'.
+/os-main/apps/cognitive-interface/src/components/AdaptiveLayout.tsx(342,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(6,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(303,3): error TS7031: Binding element 'onDataUpdate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(304,3): error TS7031: Binding element 'onError' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(305,3): error TS7031: Binding element 'realTimeMode' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(306,3): error TS7031: Binding element 'refreshInterval' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessIntelligenceIntegration.tsx(307,3): error TS7031: Binding element 'agentEndpoint' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(6,46): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(36,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(37,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(38,3): error TS7031: Binding element 'onTimeTravel' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(39,3): error TS7031: Binding element 'onDataRefresh' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(40,3): error TS7031: Binding element 'onExportData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(41,3): error TS7031: Binding element 'onResetView' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(42,3): error TS7031: Binding element 'isRealTimeMode' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(43,3): error TS7031: Binding element 'onRealTimeModeToggle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(44,3): error TS7031: Binding element 'lastUpdated' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(45,3): error TS7031: Binding element 'connectionStatus' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(97,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(125,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(138,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(181,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(202,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(215,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(223,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(231,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(239,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/BusinessUniverseControls.tsx(283,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(15,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(77,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(83,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(139,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(143,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(154,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(161,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(182,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(199,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(206,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/C3UniversalTemplate.tsx(356,45): error TS7006: Parameter 'notification' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(150,3): error TS7031: Binding element 'agentEndpoint' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(151,3): error TS7031: Binding element 'onPlanetSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(152,3): error TS7031: Binding element 'onDepartmentSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(153,3): error TS7031: Binding element 'onInsightCapture' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(154,3): error TS7031: Binding element 'onAlertAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(155,3): error TS7031: Binding element 'onDataDrillDown' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(156,3): error TS7031: Binding element 'onDataExport' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(268,27): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(332,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(375,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(427,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(443,30): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(444,27): error TS7006: Parameter 'planetId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(444,37): error TS7006: Parameter 'timeRange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(445,29): error TS7006: Parameter 'alert' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(456,34): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(476,32): error TS7006: Parameter 'enabled' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(547,57): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(552,59): error TS7006: Parameter 'i' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CEOsOrrery.tsx(561,63): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(10,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(41,3): error TS7031: Binding element 'onModeChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(42,3): error TS7031: Binding element 'onStateDetection' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(122,26): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(286,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(317,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(407,41): error TS7006: Parameter 'transition' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CognitiveModeSwither.tsx(407,53): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(14,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(110,3): error TS7031: Binding element 'onEmailSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(111,3): error TS7031: Binding element 'onConstellationSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(112,3): error TS7031: Binding element 'onFlowAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(113,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(114,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(326,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(340,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(340,40): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(349,54): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(388,28): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(428,16): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,14): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,30): error TS7006: Parameter 'emailId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(435,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(436,45): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(438,51): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(438,70): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(460,21): error TS2339: Property 'emails' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(460,36): error TS7006: Parameter 'emailId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(461,43): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(464,36): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(464,68): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(558,50): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(558,55): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(559,52): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(559,57): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(579,46): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(587,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(592,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(592,42): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(605,38): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(606,38): error TS2339: Property 'centerPosition' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(608,39): error TS2339: Property 'size' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverse.tsx(627,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(9,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(97,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(451,19): error TS7006: Parameter 'prevEmails' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(452,54): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(454,48): error TS7006: Parameter 'existingEmail' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(473,29): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(484,15): error TS7006: Parameter 'prevEmails' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(485,22): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(509,33): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(610,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(627,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(627,34): error TS7006: Parameter 'email' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(649,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CommunicationsUniverseController.tsx(890,49): error TS7006: Parameter 'event' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(10,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(76,3): error TS7031: Binding element 'projects' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(77,3): error TS7031: Binding element 'creativeFlows' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(78,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(79,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(80,3): error TS7031: Binding element 'onProjectFilter' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(81,3): error TS7031: Binding element 'onCreativeAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(82,3): error TS7031: Binding element 'onExportData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(83,3): error TS7031: Binding element 'onResetView' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(160,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(160,41): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(172,26): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(172,43): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(179,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(179,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(191,30): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(191,47): error TS7006: Parameter 'a' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(204,39): error TS7006: Parameter 'acc' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(204,44): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(209,42): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(209,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(210,44): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(210,49): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(211,44): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(211,49): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(223,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(301,28): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(320,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(365,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(368,59): error TS7006: Parameter 't' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(386,36): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(389,62): error TS7006: Parameter 's' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(403,30): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(416,42): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(450,42): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(450,47): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(457,34): error TS7006: Parameter 'flow' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(494,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeCosmosControls.tsx(502,36): error TS7006: Parameter 'action' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(58,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(59,3): error TS7031: Binding element 'onProjectCreate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(60,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(188,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(188,34): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(214,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(236,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(314,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(314,42): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(326,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(355,34): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(355,42): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(376,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(413,38): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(413,43): error TS7006: Parameter 'tagIndex' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(450,33): error TS7006: Parameter 'tool' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(450,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(479,36): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(479,45): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(525,36): error TS7006: Parameter 'inspiration' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreativeMode.tsx(525,49): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(13,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(103,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(104,3): error TS7031: Binding element 'onParticleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(105,3): error TS7031: Binding element 'onCreativeAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(106,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(291,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(305,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(305,40): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(314,54): error TS7006: Parameter 'particle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(353,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(388,16): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,14): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,32): error TS7006: Parameter 'projectId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(394,43): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(395,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(397,53): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(397,72): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(514,48): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(522,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(527,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(527,42): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(539,56): error TS7006: Parameter 'particle' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/CreatorsCosmos.tsx(566,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(6,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(83,3): error TS7031: Binding element 'departments' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(84,3): error TS7031: Binding element 'onDepartmentSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(85,3): error TS7031: Binding element 'onTeamSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(88,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(89,3): error TS7031: Binding element 'orbitTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(186,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(186,45): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(187,43): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(192,55): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(206,50): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(206,59): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(224,33): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(236,26): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(245,33): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(256,31): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(279,56): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(285,29): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(292,43): error TS7006: Parameter 'team' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(306,38): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(324,28): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DepartmentSolarSystems.tsx(324,45): error TS7006: Parameter 'dept' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(8,46): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(42,3): error TS7031: Binding element 'controls' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(43,3): error TS7031: Binding element 'onControlsChange' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(44,3): error TS7031: Binding element 'onBuildAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(45,3): error TS7031: Binding element 'onNavigate' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(46,3): error TS7031: Binding element 'onProjectFilter' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(47,3): error TS7031: Binding element 'selectedProjects' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(48,3): error TS7031: Binding element 'buildStatus' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(49,3): error TS7031: Binding element 'lastBuildTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(89,30): error TS7006: Parameter 'f' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(116,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(203,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(228,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(236,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(244,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(252,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(304,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(304,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(312,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(312,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(320,34): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(320,56): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperGalaxyControls.tsx(371,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(13,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(89,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(90,3): error TS7031: Binding element 'onModuleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(91,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(263,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(277,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(277,40): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(286,50): error TS7006: Parameter 'module' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(325,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(343,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(344,36): error TS7006: Parameter 'depId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(345,48): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(363,20): error TS2339: Property 'status' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,18): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,36): error TS7006: Parameter 'projectId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(369,47): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(370,47): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(372,53): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(372,76): error TS2339: Property 'projects' does not exist on type 'never'.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(467,48): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(475,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(480,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(480,42): error TS7006: Parameter 'p' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(492,52): error TS7006: Parameter 'module' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DevelopersGalaxy.tsx(519,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(96,3): error TS7031: Binding element 'onProjectSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(97,3): error TS7031: Binding element 'onModuleSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(98,3): error TS7031: Binding element 'onBuildTrigger' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(99,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(258,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(261,28): error TS7006: Parameter 'id' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(298,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(298,36): error TS7006: Parameter 'project' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(316,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(340,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/DeveloperUniverse.tsx(437,47): error TS7006: Parameter 'dep' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(47,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(48,3): error TS7031: Binding element 'onActionTrigger' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(123,21): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(123,38): error TS7006: Parameter 'kpi' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(135,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(162,30): error TS7006: Parameter 'kpi' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(162,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(186,33): error TS7006: Parameter 'agent' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(186,40): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ExecutiveMode.tsx(216,35): error TS7006: Parameter 'alert' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(6,57): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(65,3): error TS7031: Binding element 'businessData' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(66,3): error TS7031: Binding element 'onPlanetSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(69,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(70,3): error TS7031: Binding element 'orbitTime' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(148,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(148,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(155,55): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(176,21): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(202,35): error TS7006: Parameter 'satellite' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(233,40): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(238,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(238,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(252,40): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(258,25): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(275,16): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/FinancialPlanets.tsx(275,33): error TS7006: Parameter 'planet' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(12,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(59,3): error TS7031: Binding element 'onBookSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(60,3): error TS7031: Binding element 'onReadingProgress' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(61,3): error TS7031: Binding element 'onInsightCapture' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(286,28): error TS7006: Parameter 'constellation' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(287,47): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(321,19): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(322,32): error TS7006: Parameter 'connectionId' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(323,42): error TS7006: Parameter 'b' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(339,19): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(525,40): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(525,45): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(559,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(570,38): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(577,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(593,36): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(601,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(625,22): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(650,14): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(650,31): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(662,14): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(662,31): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(673,35): error TS7006: Parameter 'book' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(676,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(683,34): error TS7006: Parameter 'b' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(704,49): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(746,47): error TS7006: Parameter 'insight' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(746,56): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(755,41): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(755,46): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(773,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/ReaderConstellation.tsx(773,47): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(11,44): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(55,3): error TS7031: Binding element 'onModeSwitch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(56,3): error TS7031: Binding element 'onToolLaunch' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(208,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(208,34): error TS7006: Parameter 't' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(265,24): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(265,41): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(282,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(315,33): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(315,41): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(337,29): error TS7006: Parameter 'build' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(337,36): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(371,31): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(371,39): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(398,28): error TS7006: Parameter 'tool' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(398,34): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(433,36): error TS7006: Parameter 'line' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/components/TechnicalMode.tsx(433,42): error TS7006: Parameter 'index' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(11,65): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(35,3): error TS7031: Binding element 'galaxyEngine' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(36,3): error TS7031: Binding element 'canvasRef' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(37,3): error TS7031: Binding element 'onEntityClick' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(38,3): error TS7031: Binding element 'onConstellationClick' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(46,20): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(85,22): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(268,41): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(282,28): error TS7006: Parameter 'constellation' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(298,22): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(323,5): error TS2875: This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(335,3): error TS7031: Binding element 'configuration' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(337,3): error TS7031: Binding element 'onEntitySelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(338,3): error TS7031: Binding element 'onConstellationSelect' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(339,3): error TS7031: Binding element 'onFlowAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(340,3): error TS7031: Binding element 'onUniverseAction' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(380,40): error TS7006: Parameter 'e' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(452,51): error TS18046: 'value' is of type 'unknown'.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(464,101): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(468,92): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/engine/UniverseFactory.tsx(472,95): error TS7006: Parameter 'props' implicitly has an 'any' type.
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/sentry/instrument.node.ts(22,31): error TS2307: Cannot find module '@sentry/node' or its corresponding type declarations.
+node_modules/@elizaos/core/src/sentry/instrument.ts(46,33): error TS2307: Cannot find module '@sentry/node' or its corresponding type declarations.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:16:38 PM - Found 396 errors. Watching for file changes.
+[2J[3J[H7:16:39 PM - File change detected. Starting incremental compilation...
+
+/os-main/apps/cognitive-interface/src/integration/orrery-integration.ts(22,8): error TS6059: File '/os-main/packages/elizaos-plugins/business-intelligence/src/types.ts' is not under 'rootDir' '/os-main/apps/cognitive-interface'. 'rootDir' is expected to contain all source files.
+node_modules/@elizaos/core/src/actions.ts(82,39): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+node_modules/@elizaos/core/src/sentry/instrument.node.ts(22,31): error TS2307: Cannot find module '@sentry/node' or its corresponding type declarations.
+node_modules/@elizaos/core/src/sentry/instrument.ts(46,33): error TS2307: Cannot find module '@sentry/node' or its corresponding type declarations.
+node_modules/@elizaos/core/src/utils.ts(174,21): error TS2550: Property 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.
+
+7:16:49 PM - Found 5 errors. Watching for file changes.
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mBuild failed, waiting for changes to restart...[39m[22m
+[1m[31mWatch error: Daemon closed the connection[39m[22m

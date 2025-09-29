@@ -1,0 +1,13 @@
+[2m> [22mbun test packages/elizaos-plugins/cognitive-engine
+
+[0m[1mbun test [0m[2mv1.2.18 (0d4089ea)[0m
+[0m
+packages\elizaos-plugins\cognitive-engine\src\plugin.test.ts:
+[0m[32m✓[0m [0mCognitive Engine Plugin[2m >[0m[1m should have correct name[0m
+[0m[32m✓[0m [0mCognitive Engine Plugin[2m >[0m[1m should have actions defined[0m
+[0m[32m✓[0m [0mCognitive Engine Plugin[2m >[0m[1m should have providers defined[0m
+
+[0m[32m 3 pass[0m
+[0m[2m 0 fail[0m
+ 5 expect() calls
+Ran 3 tests across 1 file. [0m[2m[[1m69.00ms[0m[2m][0m

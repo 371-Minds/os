@@ -39,6 +39,13 @@
     "deploy:github:uts": "bun nx run elizaos-plugin-universal-tool-server:deploy:github",
     "deploy:github:ceo": "bun nx run agents/ceo-mimi:deploy:github",
     "deploy:github:coordinator": "bun nx run agents/coordinator:deploy:github",
+    "env:load": "powershell -ExecutionPolicy Bypass -File ../../scripts/load-env.ps1",
+    "env:validate": "powershell -ExecutionPolicy Bypass -File ../../scripts/load-env.ps1 -Validate",
+    "publish:all": "powershell -ExecutionPolicy Bypass -File ../../scripts/publish-packages.ps1 -Package all",
+    "publish:plugins": "powershell -ExecutionPolicy Bypass -File ../../scripts/publish-packages.ps1 -Package elizaos-plugins",
+    "publish:core": "powershell -ExecutionPolicy Bypass -File ../../scripts/publish-packages.ps1 -Package core-libraries",
+    "publish:secure": "powershell -ExecutionPolicy Bypass -File ../../scripts/publish-packages.ps1 -Production",
+    "deploy:with-secrets": "bun run env:load && bun run deploy:github:all",
     "deploy:github:all": "bun nx run-many -t deploy:github --all"
   },
   "keywords": [

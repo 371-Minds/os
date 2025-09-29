@@ -1,0 +1,65 @@
+{
+  "run": {
+    "command": "nx affected -t test",
+    "startTime": "2025-09-08T02:55:19.936Z",
+    "endTime": "2025-09-08T02:55:20.040Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "@elizaos/plugin-business-intelligence:test",
+      "target": "test",
+      "projectName": "@elizaos/plugin-business-intelligence",
+      "hash": "13046302765194956064",
+      "startTime": "2025-09-08T02:55:19.962Z",
+      "endTime": "2025-09-08T02:55:19.993Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "mongodb-integration:test",
+      "target": "test",
+      "projectName": "mongodb-integration",
+      "hash": "9484335542720375995",
+      "startTime": "2025-09-08T02:55:19.962Z",
+      "endTime": "2025-09-08T02:55:19.993Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "elizaos-plugin-nx-workspace:test",
+      "target": "test",
+      "projectName": "elizaos-plugin-nx-workspace",
+      "hash": "4619167879633939553",
+      "startTime": "2025-09-08T02:55:19.962Z",
+      "endTime": "2025-09-08T02:55:19.993Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "cognitive-engine:test",
+      "target": "test",
+      "projectName": "cognitive-engine",
+      "hash": "14498435398700990811",
+      "startTime": "2025-09-08T02:55:20.001Z",
+      "endTime": "2025-09-08T02:55:20.016Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "cognitive-interface:test",
+      "target": "test",
+      "projectName": "cognitive-interface",
+      "hash": "9667031557305190074",
+      "startTime": "2025-09-08T02:55:20.020Z",
+      "endTime": "2025-09-08T02:55:20.028Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    }
+  ]
+}

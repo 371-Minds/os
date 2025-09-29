@@ -1,0 +1,3422 @@
+{
+  "os-workspace/apps/agent-factory": {
+    "root": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-factory": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:autonomous-spawning": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-creation": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:typescript": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.3": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.4": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.options.script": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata.scriptContent": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata.runCommand": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options.script": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.scriptContent": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.runCommand": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.options.script": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata.scriptContent": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata.runCommand": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:app": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:agent-factory": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.packageJson": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.dependsOn": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.runBuildTargetDependencies": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "os-workspace/apps/agent-factory/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/cao-agent": {
+    "root": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:cao-agent": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:performance-monitoring": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:educational-leadership": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-assessment": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:unified-architecture": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:agent": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:application": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.role:academic": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.platform": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.format": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.bundle": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.esbuildOptions": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.esbuildOptions": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.esbuildOptions": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.platform": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.outputPath": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.format": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.bundle": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.main": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.tsConfig": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.files": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.executor": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.options": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.options.command": [
+      "os-workspace/apps/cao-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/ceo-agent": {
+    "root": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:ceo-agent": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:strategic-delegation": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-orchestration": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:unified-architecture": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:agent": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:application": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.role:strategic": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.platform": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.format": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.bundle": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.esbuildOptions": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.esbuildOptions": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.esbuildOptions": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.platform": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.outputPath": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.format": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.bundle": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.main": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.tsConfig": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.files": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.executor": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.options": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.deploy:github.options.command": [
+      "os-workspace/apps/ceo-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/cfo-agent": {
+    "root": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/cfo-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/chief-of-staff-agent": {
+    "root": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:chief-of-staff": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:dao-proposals": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:strategic-orchestration": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:governance": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.executor": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.options": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.metadata": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.options.script": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.metadata.scriptContent": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.validate.metadata.runCommand": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/chief-of-staff-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/clo-agent": {
+    "root": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/clo-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/cognitive-interface": {
+    "root": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:cognitive-ui": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:adaptive-interface": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:galaxy-engine": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/cognitive-interface/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/cto-agent": {
+    "root": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/cto-agent/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/intelligent-router": {
+    "root": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:intelligent-router": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:task-routing": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-coordination": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:typescript": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.3": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.4": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.options.script": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata.scriptContent": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.build:tsc.metadata.runCommand": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options.script": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.scriptContent": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.runCommand": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.options.script": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata.scriptContent": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.demo.metadata.runCommand": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/apps/intelligent-router/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/libs/blockchain-registry": {
+    "root": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:registry": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/libs/blockchain-registry/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.library": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.blockchain": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "os-workspace/libs/blockchain-registry/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/libs/core-types": {
+    "root": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:types": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:interfaces": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/libs/core-types/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.library": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.types": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "os-workspace/libs/core-types/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/libs/ipfs-storage": {
+    "root": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:ipfs": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:storage": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/libs/ipfs-storage/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.library": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.storage": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "os-workspace/libs/ipfs-storage/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/packages/nx-workspace": {
+    "root": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:plugin": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:nx": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:workspace": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:self-aware-agents": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "os-workspace/packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.elizaos": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.plugin": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.nx-workspace": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.self-awareness": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "os-workspace/packages/nx-workspace/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "os-workspace/apps/dao-governance-service": {
+    "root": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.platform": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.format": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.bundle": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.esbuildOptions": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.esbuildOptions": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.dependsOn": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.cache": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.executor": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.outputs": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.options": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.options.buildTarget": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.dependsOn": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.cache": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.outputs": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.executor": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.options": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.options.buildTarget": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune.dependsOn": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune.executor": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.continuous": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.dependsOn": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.runBuildTargetDependencies": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "os-workspace/apps/dao-governance-service/project.json",
+      "nx/core/project-json"
+    ]
+  }
+}

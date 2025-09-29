@@ -1,0 +1,361 @@
+Compiling TypeScript files for project "elizaos-plugin-nx-workspace"...
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m38[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m38[0m   handler: async ([39m[22m
+[1m[31m[7m  [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m73[0m:[93m57[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m73[0m           text: `Failed to retrieve dependency graph: ${error.message}`,[39m[22m
+[1m[31m[7m  [0m [91m                                                        ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m74[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m74[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m  [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m101[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m101[0m   handler: async ([39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m133[0m:[93m54[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m133[0m           text: `Failed to find affected projects: ${error.message}`,[39m[22m
+[1m[31m[7m   [0m [91m                                                     ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m134[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m134[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m160[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m160[0m   handler: async ([39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m196[0m:[93m41[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m196[0m           text: `Failed to run tests: ${error.message}`,[39m[22m
+[1m[31m[7m   [0m [91m                                        ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m197[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m197[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m223[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m223[0m   handler: async ([39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m259[0m:[93m45[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m259[0m           text: `Failed to build project: ${error.message}`,[39m[22m
+[1m[31m[7m   [0m [91m                                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m260[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m260[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m285[0m:[93m18[0m - [91merror[0m[90m TS4111: [0mProperty 'type' comes from an index signature, so it must be accessed with ['type'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m285[0m     if (!content.type || !content.name) {[39m[22m
+[1m[31m[7m   [0m [91m                 ~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m285[0m:[93m35[0m - [91merror[0m[90m TS4111: [0mProperty 'name' comes from an index signature, so it must be accessed with ['name'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m285[0m     if (!content.type || !content.name) {[39m[22m
+[1m[31m[7m   [0m [91m                                  ~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m290[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m290[0m   handler: async ([39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m300[0m:[93m48[0m - [91merror[0m[90m TS4111: [0mProperty 'type' comes from an index signature, so it must be accessed with ['type'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m300[0m         type: options?.type || message.content.type,[39m[22m
+[1m[31m[7m   [0m [91m                                               ~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m301[0m:[93m48[0m - [91merror[0m[90m TS4111: [0mProperty 'name' comes from an index signature, so it must be accessed with ['name'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m301[0m         name: options?.name || message.content.name,[39m[22m
+[1m[31m[7m   [0m [91m                                               ~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m326[0m:[93m49[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m326[0m           text: `Failed to generate scaffold: ${error.message}`,[39m[22m
+[1m[31m[7m   [0m [91m                                                ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m327[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m327[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m353[0m:[93m3[0m - [91merror[0m[90m TS2322: [0mType '(runtime: IAgentRuntime, message: Memory, state: State, options: any, callback?: HandlerCallback) => Promise<boolean>' is not assignable to type 'Handler'.[39m[22m
+[1m[31m  Types of parameters 'state' and 'state' are incompatible.[39m[22m
+[1m[31m    Type 'State | undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m      Type 'undefined' is not assignable to type 'State'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m353[0m   handler: async ([39m[22m
+[1m[31m[7m   [0m [91m  ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/@elizaos/core/src/types/components.ts[0m:[93m57[0m:[93m3[0m[39m[22m
+[1m[31m    [7m57[0m   handler: Handler;[39m[22m
+[1m[31m    [7m  [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'handler' which is declared here on type 'Action'[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m384[0m:[93m49[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m384[0m           text: `Failed to analyze workspace: ${error.message}`,[39m[22m
+[1m[31m[7m   [0m [91m                                                ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/actions.ts[0m:[93m385[0m:[93m29[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m385[0m           content: { error: error.message }[39m[22m
+[1m[31m[7m   [0m [91m                            ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/plugin.ts[0m:[93m40[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'onLoad' does not exist in type 'Plugin'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m40[0m   async onLoad(runtime: any) {[39m[22m
+[1m[31m[7m  [0m [91m        ~~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/plugin.ts[0m:[93m59[0m:[93m62[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m59[0m       console.error('❌ Failed to load Nx Workspace Plugin:', error.message);[39m[22m
+[1m[31m[7m  [0m [91m                                                             ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m62[0m:[93m63[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m62[0m       throw new Error(`Failed to generate dependency graph: ${error.message}`);[39m[22m
+[1m[31m[7m  [0m [91m                                                              ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m111[0m:[93m60[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m111[0m       throw new Error(`Failed to find affected projects: ${error.message}`);[39m[22m
+[1m[31m[7m   [0m [91m                                                           ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m160[0m:[93m21[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m160[0m             output: error.message[39m[22m
+[1m[31m[7m   [0m [91m                    ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m171[0m:[93m47[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m171[0m       throw new Error(`Failed to run tests: ${error.message}`);[39m[22m
+[1m[31m[7m   [0m [91m                                              ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m227[0m:[93m22[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m227[0m             errors: [error.message],[39m[22m
+[1m[31m[7m   [0m [91m                     ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m239[0m:[93m51[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m239[0m       throw new Error(`Failed to build project: ${error.message}`);[39m[22m
+[1m[31m[7m   [0m [91m                                                  ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/provider.ts[0m:[93m363[0m:[93m55[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m363[0m       throw new Error(`Failed to analyze workspace: ${error.message}`);[39m[22m
+[1m[31m[7m   [0m [91m                                                      ~~~~~[0m[39m[22m
+[1m[31m[96m/os-main/packages/elizaos-plugins/nx-workspace/src/utils.ts[0m:[93m31[0m:[93m64[0m - [91merror[0m[90m TS18046: [0m'error' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m31[0m     throw new Error(`Failed to read workspace configuration: ${error.message}`);[39m[22m
+[1m[31m[7m  [0m [91m                                                               ~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/actions.ts[0m:[93m82[0m:[93m39[0m - [91merror[0m[90m TS2550: [0mProperty 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m82[0m             messageText = messageText.replaceAll(`{{name${i + 1}}}`, randomNames[i]);[39m[22m
+[1m[31m[7m  [0m [91m                                      ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m109[0m:[93m33[0m - [91merror[0m[90m TS4111: [0mProperty 'interactions' comes from an index signature, so it must be accessed with ['interactions'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m109[0m     if (relationship?.metadata?.interactions) {[39m[22m
+[1m[31m[7m   [0m [91m                                ~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m110[0m:[93m48[0m - [91merror[0m[90m TS4111: [0mProperty 'interactions' comes from an index signature, so it must be accessed with ['interactions'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m110[0m       interactionScore = relationship.metadata.interactions as number;[39m[22m
+[1m[31m[7m   [0m [91m                                               ~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m142[0m:[93m27[0m - [91merror[0m[90m TS4111: [0mProperty 'room' comes from an index signature, so it must be accessed with ['room'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m142[0m   const room = state.data.room ?? (await runtime.getRoom(message.roomId));[39m[22m
+[1m[31m[7m   [0m [91m                          ~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m238[0m:[93m18[0m - [91merror[0m[90m TS4111: [0mProperty 'type' comes from an index signature, so it must be accessed with ['type'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m238[0m   if (resolution.type === 'EXACT_MATCH' && resolution.entityId) {[39m[22m
+[1m[31m[7m   [0m [91m                 ~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m238[0m:[93m55[0m - [91merror[0m[90m TS4111: [0mProperty 'entityId' comes from an index signature, so it must be accessed with ['entityId'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m238[0m   if (resolution.type === 'EXACT_MATCH' && resolution.entityId) {[39m[22m
+[1m[31m[7m   [0m [91m                                                      ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m239[0m:[93m59[0m - [91merror[0m[90m TS4111: [0mProperty 'entityId' comes from an index signature, so it must be accessed with ['entityId'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m239[0m     const entity = await runtime.getEntityById(resolution.entityId as UUID);[39m[22m
+[1m[31m[7m   [0m [91m                                                          ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m261[0m:[93m18[0m - [91merror[0m[90m TS4111: [0mProperty 'matches' comes from an index signature, so it must be accessed with ['matches'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m261[0m   if (resolution.matches?.match) {[39m[22m
+[1m[31m[7m   [0m [91m                 ~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m263[0m:[93m45[0m - [91merror[0m[90m TS4111: [0mProperty 'matches' comes from an index signature, so it must be accessed with ['matches'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m263[0m     matchesArray = Array.isArray(resolution.matches.match)[39m[22m
+[1m[31m[7m   [0m [91m                                            ~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m264[0m:[93m20[0m - [91merror[0m[90m TS4111: [0mProperty 'matches' comes from an index signature, so it must be accessed with ['matches'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m264[0m       ? resolution.matches.match[39m[22m
+[1m[31m[7m   [0m [91m                   ~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m265[0m:[93m21[0m - [91merror[0m[90m TS4111: [0mProperty 'matches' comes from an index signature, so it must be accessed with ['matches'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m265[0m       : [resolution.matches.match];[39m[22m
+[1m[31m[7m   [0m [91m                    ~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m279[0m:[93m19[0m - [91merror[0m[90m TS4111: [0mProperty 'username' comes from an index signature, so it must be accessed with ['username'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m279[0m           (c.data.username as string)?.toLowerCase() === matchName ||[39m[22m
+[1m[31m[7m   [0m [91m                  ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m280[0m:[93m19[0m - [91merror[0m[90m TS4111: [0mProperty 'handle' comes from an index signature, so it must be accessed with ['handle'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m280[0m           (c.data.handle as string)?.toLowerCase() === matchName[39m[22m
+[1m[31m[7m   [0m [91m                  ~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/entities.ts[0m:[93m286[0m:[93m22[0m - [91merror[0m[90m TS4111: [0mProperty 'type' comes from an index signature, so it must be accessed with ['type'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m286[0m       if (resolution.type === 'RELATIONSHIP_MATCH') {[39m[22m
+[1m[31m[7m   [0m [91m                     ~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/logger.ts[0m:[93m241[0m:[93m19[0m - [91merror[0m[90m TS4111: [0mProperty 'namespace' comes from an index signature, so it must be accessed with ['namespace'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m241[0m   if (typeof base.namespace === 'string') namespaces.push(base.namespace);[39m[22m
+[1m[31m[7m   [0m [91m                  ~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/logger.ts[0m:[93m241[0m:[93m64[0m - [91merror[0m[90m TS4111: [0mProperty 'namespace' comes from an index signature, so it must be accessed with ['namespace'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m241[0m   if (typeof base.namespace === 'string') namespaces.push(base.namespace);[39m[22m
+[1m[31m[7m   [0m [91m                                                               ~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/logger.ts[0m:[93m242[0m:[93m26[0m - [91merror[0m[90m TS4111: [0mProperty 'namespaces' comes from an index signature, so it must be accessed with ['namespaces'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m242[0m   if (Array.isArray(base.namespaces)) namespaces.push(...(base.namespaces as string[]));[39m[22m
+[1m[31m[7m   [0m [91m                         ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/logger.ts[0m:[93m242[0m:[93m64[0m - [91merror[0m[90m TS4111: [0mProperty 'namespaces' comes from an index signature, so it must be accessed with ['namespaces'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m242[0m   if (Array.isArray(base.namespaces)) namespaces.push(...(base.namespaces as string[]));[39m[22m
+[1m[31m[7m   [0m [91m                                                               ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m191[0m:[93m24[0m - [91merror[0m[90m TS4111: [0mProperty 'MAX_WORKING_MEMORY_ENTRIES' comes from an index signature, so it must be accessed with ['MAX_WORKING_MEMORY_ENTRIES'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m191[0m     if (opts.settings?.MAX_WORKING_MEMORY_ENTRIES) {[39m[22m
+[1m[31m[7m   [0m [91m                       ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m192[0m:[93m61[0m - [91merror[0m[90m TS4111: [0mProperty 'MAX_WORKING_MEMORY_ENTRIES' comes from an index signature, so it must be accessed with ['MAX_WORKING_MEMORY_ENTRIES'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m192[0m       this.maxWorkingMemoryEntries = parseInt(opts.settings.MAX_WORKING_MEMORY_ENTRIES, 10) || 50;[39m[22m
+[1m[31m[7m   [0m [91m                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m517[0m:[93m58[0m - [91merror[0m[90m TS4111: [0mProperty 'secrets' comes from an index signature, so it must be accessed with ['secrets'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m517[0m         (this.character.settings as Record<string, any>).secrets?.[key]) ||[39m[22m
+[1m[31m[7m   [0m [91m                                                         ~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m674[0m:[93m33[0m - [91merror[0m[90m TS4111: [0mProperty 'actionPlan' comes from an index signature, so it must be accessed with ['actionPlan'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m674[0m           accumulatedState.data.actionPlan = actionPlan;[39m[22m
+[1m[31m[7m   [0m [91m                                ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m675[0m:[93m33[0m - [91merror[0m[90m TS4111: [0mProperty 'actionResults' comes from an index signature, so it must be accessed with ['actionResults'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m675[0m           accumulatedState.data.actionResults = actionResults;[39m[22m
+[1m[31m[7m   [0m [91m                                ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m784[0m:[93m56[0m - [91merror[0m[90m TS4111: [0mProperty 'actionName' comes from an index signature, so it must be accessed with ['actionName'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m784[0m               return actionResults.find((r) => r.data?.actionName === actionName);[39m[22m
+[1m[31m[7m   [0m [91m                                                       ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m794[0m:[93m21[0m - [91merror[0m[90m TS4111: [0mProperty 'actionPlan' comes from an index signature, so it must be accessed with ['actionPlan'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m794[0m             options.actionPlan = {[39m[22m
+[1m[31m[7m   [0m [91m                    ~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m850[0m:[93m62[0m - [91merror[0m[90m TS4111: [0mProperty 'actionResults' comes from an index signature, so it must be accessed with ['actionResults'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m850[0m                   actionResults: [...(accumulatedState.data?.actionResults || []), actionResult],[39m[22m
+[1m[31m[7m   [0m [91m                                                             ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m858[0m:[93m42[0m - [91merror[0m[90m TS4111: [0mProperty 'workingMemory' comes from an index signature, so it must be accessed with ['workingMemory'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m858[0m               if (!accumulatedState.data.workingMemory) accumulatedState.data.workingMemory = {};[39m[22m
+[1m[31m[7m   [0m [91m                                         ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m858[0m:[93m79[0m - [91merror[0m[90m TS4111: [0mProperty 'workingMemory' comes from an index signature, so it must be accessed with ['workingMemory'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m858[0m               if (!accumulatedState.data.workingMemory) accumulatedState.data.workingMemory = {};[39m[22m
+[1m[31m[7m   [0m [91m                                                                              ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m867[0m:[93m37[0m - [91merror[0m[90m TS4111: [0mProperty 'workingMemory' comes from an index signature, so it must be accessed with ['workingMemory'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m867[0m               accumulatedState.data.workingMemory[memoryKey] = memoryEntry;[39m[22m
+[1m[31m[7m   [0m [91m                                    ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m870[0m:[93m68[0m - [91merror[0m[90m TS4111: [0mProperty 'workingMemory' comes from an index signature, so it must be accessed with ['workingMemory'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m870[0m               const entries = Object.entries(accumulatedState.data.workingMemory);[39m[22m
+[1m[31m[7m   [0m [91m                                                                   ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m881[0m:[93m39[0m - [91merror[0m[90m TS4111: [0mProperty 'workingMemory' comes from an index signature, so it must be accessed with ['workingMemory'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m881[0m                 accumulatedState.data.workingMemory = Object.fromEntries([39m[22m
+[1m[31m[7m   [0m [91m                                      ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m1474[0m:[93m60[0m - [91merror[0m[90m TS4111: [0mProperty 'providers' comes from an index signature, so it must be accessed with ['providers'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1474[0m     const currentProviderResults = { ...(cachedState.data?.providers || {}) };[39m[22m
+[1m[31m[7m    [0m [91m                                                           ~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m1779[0m:[93m43[0m - [91merror[0m[90m TS4111: [0mProperty 'maxTokens' comes from an index signature, so it must be accessed with ['maxTokens'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1779[0m     if (maxTokens !== null) modelSettings.maxTokens = maxTokens;[39m[22m
+[1m[31m[7m    [0m [91m                                          ~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m1780[0m:[93m45[0m - [91merror[0m[90m TS4111: [0mProperty 'temperature' comes from an index signature, so it must be accessed with ['temperature'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1780[0m     if (temperature !== null) modelSettings.temperature = temperature;[39m[22m
+[1m[31m[7m    [0m [91m                                            ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m1781[0m:[93m50[0m - [91merror[0m[90m TS4111: [0mProperty 'frequencyPenalty' comes from an index signature, so it must be accessed with ['frequencyPenalty'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1781[0m     if (frequencyPenalty !== null) modelSettings.frequencyPenalty = frequencyPenalty;[39m[22m
+[1m[31m[7m    [0m [91m                                                 ~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/runtime.ts[0m:[93m1782[0m:[93m49[0m - [91merror[0m[90m TS4111: [0mProperty 'presencePenalty' comes from an index signature, so it must be accessed with ['presencePenalty'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1782[0m     if (presencePenalty !== null) modelSettings.presencePenalty = presencePenalty;[39m[22m
+[1m[31m[7m    [0m [91m                                                ~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m251[0m:[93m18[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m251[0m   world.metadata.settings = saltedSettings;[39m[22m
+[1m[31m[7m   [0m [91m                 ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m269[0m:[93m34[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m269[0m   if (!world || !world.metadata?.settings) {[39m[22m
+[1m[31m[7m   [0m [91m                                 ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m274[0m:[93m41[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m274[0m   const saltedSettings = world.metadata.settings as WorldSettings;[39m[22m
+[1m[31m[7m   [0m [91m                                        ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m290[0m:[93m23[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m290[0m   if (world.metadata?.settings) {[39m[22m
+[1m[31m[7m   [0m [91m                      ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m293[0m:[93m43[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m293[0m     const saltedSettings = world.metadata.settings as WorldSettings;[39m[22m
+[1m[31m[7m   [0m [91m                                          ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/settings.ts[0m:[93m314[0m:[93m18[0m - [91merror[0m[90m TS4111: [0mProperty 'settings' comes from an index signature, so it must be accessed with ['settings'].[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m314[0m   world.metadata.settings = worldSettings;[39m[22m
+[1m[31m[7m   [0m [91m                 ~~~~~~~~[0m[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/utils.ts[0m:[93m2[0m:[93m8[0m - [91merror[0m[90m TS1259: [0mModule '"handlebars"' can only be default-imported using the 'esModuleInterop' flag[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m2[0m import Handlebars from 'handlebars';[39m[22m
+[1m[31m[7m [0m [91m       ~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/handlebars/types/index.d.ts[0m:[93m417[0m:[93m3[0m[39m[22m
+[1m[31m    [7m417[0m   export = Handlebars;[39m[22m
+[1m[31m    [7m   [0m [96m  ~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    This module is declared with 'export =', and can only be used with a default import when using the 'esModuleInterop' flag.[39m[22m
+[1m[31m[96mnode_modules/@elizaos/core/src/utils.ts[0m:[93m174[0m:[93m21[0m - [91merror[0m[90m TS2550: [0mProperty 'replaceAll' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2021' or later.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m174[0m     result = result.replaceAll(`{{name${i + 1}}}`, exampleNames[i]);[39m[22m
+[1m[31m[7m   [0m [91m                    ~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+
+[2mdist\README.md[22m

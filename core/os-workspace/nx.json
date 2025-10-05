@@ -22,6 +22,11 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "namedInputs": {
@@ -47,9 +52,7 @@
       "{workspaceRoot}/biome.json"
     ]
   },
-  "plugins": [
-    "@nx/js"
-  ],
+  "plugins": ["@nx/js"],
   "generators": {
     "@nx/js:library": {
       "buildable": true,

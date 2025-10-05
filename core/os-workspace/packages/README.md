@@ -1,0 +1,7 @@
+# thinng-foundation
+
+This library was generated with [Nx](https://nx.dev).
+
+## Building
+
+Run `nx build thinng-foundation` to build the library.

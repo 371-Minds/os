@@ -1,0 +1,25 @@
+{
+  "name": "@371minds/thinng-foundation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@thi.ng/api": "^8.11.7",
+    "@thi.ng/checks": "^3.6.9",
+    "@thi.ng/errors": "^2.5.13",
+    "@thi.ng/math": "^5.11.5",
+    "@thi.ng/matrices": "^2.3.54",
+    "@thi.ng/transducers": "^9.0.12",
+    "@thi.ng/vectors": "^7.11.6",
+    "@thi.ng/geom": "^8.0.6",
+    "@thi.ng/color": "^5.6.54",
+    "@thi.ng/random": "^4.0.1",
+    "@elizaos/core": "^1.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "@types/node": "^22.18.0"
+  }
+}

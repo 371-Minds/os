@@ -22,7 +22,8 @@
       "@elizaos/plugin-nx-workspace": [
         "packages/elizaos-plugins/nx-workspace/src/index.ts"
       ],
-      "cognitive-engine": ["packages/elizaos-plugins/src/index.ts"]
+      "cognitive-engine": ["packages/elizaos-plugins/src/index.ts"],
+      "thinng-foundation": ["packages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

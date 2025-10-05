@@ -257,8 +257,11 @@
             "configurations": {},
             "parallelism": true,
             "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
             "inputs": [
-              "default",
+              "production",
               "^production"
             ]
           },
@@ -1385,8 +1388,11 @@
             "configurations": {},
             "parallelism": true,
             "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
             "inputs": [
-              "default",
+              "production",
               "^production"
             ]
           },
@@ -1576,8 +1582,11 @@
             "configurations": {},
             "parallelism": true,
             "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
             "inputs": [
-              "default",
+              "production",
               "^production"
             ]
           },
@@ -1970,6 +1979,59 @@
         },
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "apps/cto-agent/src",
+        "implicitDependencies": []
+      }
+    },
+    "thinng-foundation": {
+      "name": "thinng-foundation",
+      "type": "lib",
+      "data": {
+        "root": "packages",
+        "name": "thinng-foundation",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {},
+          "js": {
+            "packageName": "thinng-foundation",
+            "packageMain": "./index.cjs",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "@nx/esbuild:esbuild",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages",
+              "main": "packages/src/index.ts",
+              "tsConfig": "packages/tsconfig.lib.json",
+              "assets": [
+                "packages/*.md"
+              ],
+              "format": [
+                "cjs"
+              ],
+              "generatePackageJson": true
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ]
+          }
+        },
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/src",
+        "projectType": "library",
         "implicitDependencies": []
       }
     }
@@ -16780,6 +16842,13 @@
       {
         "source": "cto-agent",
         "target": "npm:yaml",
+        "type": "static"
+      }
+    ],
+    "thinng-foundation": [
+      {
+        "source": "thinng-foundation",
+        "target": "npm:@elizaos/core",
         "type": "static"
       }
     ],
@@ -36115,5 +36184,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1759112126024
+  "computedAt": 1759624135748
 }

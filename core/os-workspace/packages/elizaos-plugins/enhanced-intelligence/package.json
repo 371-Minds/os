@@ -1,0 +1,46 @@
+{
+  "name": "@elizaos/plugin-enhanced-intelligence",
+  "version": "1.0.0",
+  "description": "ElizaOS plugin that enhances agent intelligence with fuzzy logic decision engines, multi-criteria decision matrices, and pattern recognition",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "bun test",
+    "lint": "biome check src/",
+    "format": "biome format --write src/"
+  },
+  "keywords": [
+    "elizaos",
+    "plugin",
+    "intelligence",
+    "fuzzy-logic",
+    "decision-making",
+    "pattern-recognition",
+    "optimization",
+    "thinng-integration"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "peerDependencies": {
+    "@elizaos/core": "^1.5.2"
+  },
+  "dependencies": {
+    "@thi.ng/math": "^5.11.5",
+    "@thi.ng/vectors": "^7.11.6",
+    "@thi.ng/matrices": "^2.3.54",
+    "@thi.ng/transducers": "^9.0.12",
+    "@thi.ng/fuzzy": "^2.1.72",
+    "@thi.ng/dsp": "^4.7.42",
+    "@thi.ng/random": "^4.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "tsup": "^8.0.2",
+    "@biomejs/biome": "^1.8.0",
+    "@types/node": "^22.18.0"
+  }
+}

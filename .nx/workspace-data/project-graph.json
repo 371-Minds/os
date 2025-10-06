@@ -1745,6 +1745,51 @@
         "sourceRoot": "apps/cto-agent/src",
         "implicitDependencies": []
       }
+    },
+    "thinng-foundation": {
+      "name": "thinng-foundation",
+      "type": "lib",
+      "data": {
+        "root": "core/os-workspace/packages",
+        "name": "thinng-foundation",
+        "tags": [
+          "npm:private"
+        ],
+        "metadata": {
+          "targetGroups": {},
+          "js": {
+            "packageName": "@371minds/thinng-foundation",
+            "packageMain": "./src/index.ts",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "@nx/esbuild:esbuild",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages",
+              "main": "packages/src/index.ts",
+              "tsConfig": "packages/tsconfig.lib.json",
+              "assets": [
+                "packages/*.md"
+              ],
+              "format": [
+                "cjs"
+              ],
+              "generatePackageJson": true
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/src",
+        "projectType": "library",
+        "implicitDependencies": []
+      }
     }
   },
   "externalNodes": {
@@ -4930,7 +4975,8 @@
     "ceo-agent": [],
     "cfo-agent": [],
     "clo-agent": [],
-    "cto-agent": []
+    "cto-agent": [],
+    "thinng-foundation": []
   },
   "version": "6.0",
   "errors": [
@@ -4939,5 +4985,5 @@
       "name": "ProcessDependenciesError"
     }
   ],
-  "computedAt": 1759705304003
+  "computedAt": 1759709878329
 }

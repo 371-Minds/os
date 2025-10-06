@@ -3169,6 +3169,100 @@
       "nx/core/project-json"
     ]
   },
+  "core/os-workspace/packages": {
+    "root": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "core/os-workspace/packages/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.format": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "core/os-workspace/apps/c-suite-agent-runner": {
     "root": [
       "core/os-workspace/apps/c-suite-agent-runner/project.json",

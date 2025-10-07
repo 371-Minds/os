@@ -181,7 +181,7 @@ export class Phase4PerformanceDemo {
     console.log('    🏊 Benchmarking optimized memory pooling...');
     // Optimized pooling benchmark
     const afterTime = performance.now();
-    const pooledObjects = [];
+    const pooledObjects: number[][] = [];
     
     for (let i = 0; i < allocations; i++) {
       // Simulate getting from pool (would be actual pool in real implementation)
@@ -308,7 +308,7 @@ export class Phase4PerformanceDemo {
     optimizationResults: any,
     benchmarkComparison: any
   ): Promise<any> {
-    const analysis = {
+    const analysis: any = {
       mathematicalOperations: {
         improvementFactor: benchmarkComparison.mathematicalOperations.improvement,
         description: 'Vector and matrix operations optimized with thi.ng algorithms',
@@ -383,7 +383,7 @@ export class Phase4PerformanceDemo {
    * Generate test scenarios for agent intelligence benchmarking
    */
   private generateTestScenarios(count: number): any[] {
-    const scenarios = [];
+    const scenarios: any[] = [];
     
     for (let i = 0; i < count; i++) {
       scenarios.push({

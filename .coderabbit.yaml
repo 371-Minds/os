@@ -1,0 +1,38 @@
+# .coderabbit.yaml
+# Configuration for CodeRabbit AI code reviews for the 371 OS project.
+
+# See documentation at: https://docs.coderabbit.ai/reference/coderabbit-yaml
+version: 2.0
+
+# Settings for pull request summaries and walkthroughs
+summaries:
+  # Do not collapse the file-by-file walkthrough by default.
+  collapse_walkthrough: false
+
+# Instructions for automatically generating a PR title.
+auto_title:
+  instructions: >
+    Generate a pull request title using the conventional commit format: `<type>(<scope>): <subject>`.
+    The <type> should be one of: feat, fix, docs, style, refactor, test, chore.
+    The <scope> should be the primary package or area affected (e.g., 'phase-4', 'enhanced-intelligence', 'security').
+
+# Instructions for automatically labeling the PR.
+auto_label:
+  instructions: >
+    Analyze the changed files and their content. Apply labels based on the following rules:
+    - If changes are in 'packages/elizaos-plugins/enhanced-intelligence', add the 'phase-3' and 'agent-intelligence' labels.
+    - If changes are related to performance optimization files like 'phase4-performance-optimizer.ts', add the 'phase-4' and 'performance' labels.
+    - If changes modify '.github/workflows' or scripts related to deployment, add the 'ci-cd' label.
+    - If changes involve '.env.example' or security configurations, add the 'security' label.
+    - If only '.md' files are changed, add the 'documentation' label.
+
+# Settings for code reviews
+reviews:
+  # Paths to exclude from reviews to reduce noise.
+  path_filters:
+    - '!**/dist/**'
+    - '!**/node_modules/**'
+    - '!**/*.md'
+    - '!package-lock.json'
+    - '!bun.lockb'
+    - '!.nx/cache/**'

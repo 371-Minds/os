@@ -1,0 +1,47 @@
+# .github/dependabot.yml
+# Comprehensive Dependabot configuration for the 371 OS monorepo.
+# See documentation: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+
+version: 2
+updates:
+  # Maintain dependencies for npm (used by Bun)
+  - package-ecosystem: "npm"
+    directory: "/" # Our monorepo root contains the primary package.json and bun.lockb
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 10
+    # Group updates to reduce PR noise, which is critical for a monorepo.
+    groups:
+      # Group all dev dependencies together
+      development-dependencies:
+        patterns:
+          - "*"
+        dependency-type: "development"
+      # Group all Nx-related packages
+      nx-monorepo:
+        patterns:
+          - "@nx/*"
+          - "nx"
+      # Group all of our foundational thi.ng packages
+      thing-packages:
+        patterns:
+          - "@thi.ng/*"
+      # Group all TypeScript type definitions
+      types-dependencies:
+        patterns:
+          - "@types/*"
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Scan the entire repository for workflow files
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    # Group all actions together into a single PR
+    groups:
+      github-actions:
+        patterns:
+          - "*"

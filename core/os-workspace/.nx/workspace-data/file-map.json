@@ -33,491 +33,293 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".nx/workspace-data/project-graph.json~8b95065a",
-        "hash": "5967023563550649934"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~776a616a",
-        "hash": "15322254780508062439"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~f57a2b03",
-        "hash": "2696301867965252097"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6a554024",
-        "hash": "97197553601493262"
-      },
-      {
-        "file": "README.md",
-        "hash": "2166154308199962685"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ff8efa3f",
-        "hash": "8435634891387964952"
-      },
-      {
-        "file": "test-graph.json",
-        "hash": "11119487994046350011"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~d48e6154",
-        "hash": "11660813889770016878"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~f56aafa0",
-        "hash": "7499776691849704581"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2da5e113",
-        "hash": "18229441746975344643"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6741c041",
-        "hash": "10745681996851706585"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~23926de9",
-        "hash": "6417708629903309671"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~3226bc15",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": "test-ping-agent.mjs",
-        "hash": "3057981436213361725"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~b79037bb",
-        "hash": "4117854869122306000"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~1db2e3f2",
-        "hash": "16824171367600515977"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~12041745",
-        "hash": "8147503671534779191"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~c88cbdd8",
-        "hash": "3106615471124182718"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ba04994a",
-        "hash": "7586811129040621413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~b913204e",
-        "hash": "16640646513383300518"
-      },
-      {
-        "file": "apps/phase19-cognitive-oversight-test/phase19-validation.js",
-        "hash": "10354769542105977589"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~fca432d2",
-        "hash": "4257091275658992415"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~dc024877",
-        "hash": "7766615289714975639"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2288ed9f",
-        "hash": "3877974045794846456"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~a691747e",
-        "hash": "4301916638261251984"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~60d1d7b5",
-        "hash": "13589285629410370526"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~3068c1a4",
-        "hash": "8531972158824404909"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~03d7e306",
-        "hash": "16376372354429847777"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6b73bf6d",
-        "hash": "16189366560329711260"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~cc68fa73",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~44c8fd75",
-        "hash": "12382691902100590279"
-      },
-      {
-        "file": "package.json",
-        "hash": "350122973016120280"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~099f561d",
-        "hash": "6580441308093914579"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~384f943e",
-        "hash": "4023888117248748697"
-      },
-      {
-        "file": "test-graph-2.json",
-        "hash": "11119487994046350011"
-      },
-      {
-        "file": ".gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~3448c761",
-        "hash": "6329866928884447761"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2169b34f",
-        "hash": "16864448130979870774"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~de6d9de7",
-        "hash": "16721284505656151948"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~cd890858",
-        "hash": "12651737476004390777"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~deb59985",
-        "hash": "6974880565277182375"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~89ae5a7d",
-        "hash": "16224481977510090480"
-      },
-      {
-        "file": "phase20-validation-test.ts",
-        "hash": "3710836320470764689"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "12404194999191057749"
-      },
-      {
-        "file": ".nx/workspace-data/source-maps.json",
-        "hash": "8188205302005154273"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~592e24b2",
-        "hash": "9125292968553001768"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~3aeade2e",
-        "hash": "16946961938762394057"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bfa78e58",
-        "hash": "6887547023230530321"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bbfe9025",
-        "hash": "9525673369330299046"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ad2c3cee",
-        "hash": "11908637812301177110"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~41b36158",
-        "hash": "5096287399946298883"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~c67b8b58",
-        "hash": "14053830736329235709"
-      },
-      {
-        "file": "biome.json",
-        "hash": "9460880714750162336"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~cb5b784d",
-        "hash": "18360915932425067385"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bff62452",
-        "hash": "2035730665741497624"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json",
-        "hash": "7364510222824959384"
-      },
-      {
-        "file": "validate-clo-agent.js",
-        "hash": "3976305877826572878"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": "test-fix.json",
-        "hash": "6521760176540146247"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~2e14253c",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2b18eac7",
-        "hash": "14349996596586057389"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~9e1495d7",
-        "hash": "16099703079729055970"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bb337d5b",
-        "hash": "15239012149517093327"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~4160e960",
-        "hash": "2731475278730877696"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2daeb4a2",
-        "hash": "1090841531066132474"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~5a5ab12b",
-        "hash": "5267791583511431011"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json",
-        "hash": "6362976457380281571"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~82e874eb",
-        "hash": "16564442067803880081"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~fd9b249a",
-        "hash": "16621937519054070755"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bf366275",
-        "hash": "14147911127290906178"
+        "file": ".nx/workspace-data/50ae0ab6-f5b5-4401-8aaf-e3dee6a9e042.db-shm",
+        "hash": "13255642480667812937"
       },
       {
         "file": "validation-graph.json",
         "hash": "18061297677812021441"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~a6665904",
-        "hash": "15283931407451229714"
+        "file": "apps/utility-agents/NEXE_PACKAGING_GUIDE.md",
+        "hash": "13858813720498492919"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~7d197988",
-        "hash": "13668063863673400013"
-      },
-      {
-        "file": "CLO_AGENT_VALIDATION_REPORT.md",
-        "hash": "5043323333696324908"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ea45d08c",
-        "hash": "14167135627570638443"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~80a394bd",
-        "hash": "8295102741558179804"
-      },
-      {
-        "file": "nx.json",
-        "hash": "1457262173735904874"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6c7f0df0",
-        "hash": "14529385629171825636"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~84bcb8d9",
-        "hash": "8834156014806613534"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~29ec1dbc",
-        "hash": "2988250752798264084"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~58f2d1eb",
-        "hash": "5764470650348150174"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~33689e50",
-        "hash": "11433174502413141357"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~97ef0d15",
-        "hash": "3994978896447261944"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~afe56639",
-        "hash": "6264732652212209825"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~7635f7c3",
-        "hash": "12156119763190250784"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~60bc4e07",
-        "hash": "6164091882723999358"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~4210af23",
-        "hash": "17668287790696882794"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~80bbe191",
-        "hash": "6541625743560150625"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~16b669e9",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~252a6708",
-        "hash": "4774921660428665818"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~5f0837bc",
-        "hash": "5946105651911326130"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~0bfa74b0",
-        "hash": "6831623172837399699"
+        "file": "biome.json",
+        "hash": "9460880714750162336"
       },
       {
         "file": "test-graph-fix.json",
         "hash": "3405278405208997191"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~2642e117",
-        "hash": "2570709086068506508"
+        "file": ".nx/workspace-data/50ae0ab6-f5b5-4401-8aaf-e3dee6a9e042.db",
+        "hash": "6240709564311096908"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~ffb93d81",
-        "hash": "7978903756840917237"
+        "file": "package.json",
+        "hash": "350122973016120280"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~9b710019",
-        "hash": "714134130283771936"
+        "file": "test-fix.json",
+        "hash": "6521760176540146247"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~12010c51",
-        "hash": "5393712155915297992"
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~f8ad32cf",
-        "hash": "4784576583114930742"
+        "file": ".nx/workspace-data/source-maps.json",
+        "hash": "8188205302005154273"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~8de1405e",
-        "hash": "5168465490049784753"
+        "file": ".nx/cache/run.json",
+        "hash": "18041286921887800101"
       },
       {
-        "file": "apps/utility-agents/NEXE_PACKAGING_GUIDE.md",
-        "hash": "13858813720498492919"
+        "file": ".gitkeep",
+        "hash": "3244421341483603138"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~a9612c7d",
-        "hash": "17534844353981026594"
+        "file": "tsconfig.base.json",
+        "hash": "12404194999191057749"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~0947e4b2",
-        "hash": "12811940304435167049"
+        "file": ".nx/workspace-data/project-graph.json",
+        "hash": "9315599623508226263"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~f754af99",
-        "hash": "8862464387983564029"
+        "file": "CLO_AGENT_VALIDATION_REPORT.md",
+        "hash": "5043323333696324908"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~ceb5c539",
-        "hash": "2255836882380792907"
+        "file": "validate-clo-agent.js",
+        "hash": "3976305877826572878"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~7652936a",
-        "hash": "15067776744199179572"
+        "file": "test-ping-agent.mjs",
+        "hash": "3057981436213361725"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "test-graph-2.json",
+        "hash": "11119487994046350011"
+      },
+      {
+        "file": "README.md",
+        "hash": "2166154308199962685"
+      },
+      {
+        "file": "test-graph.json",
+        "hash": "11119487994046350011"
+      },
+      {
+        "file": "apps/phase19-cognitive-oversight-test/phase19-validation.js",
+        "hash": "10354769542105977589"
+      },
+      {
+        "file": "phase20-validation-test.ts",
+        "hash": "3710836320470764689"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1457262173735904874"
+      },
+      {
+        "file": ".nx/workspace-data/file-map.json",
+        "hash": "14449871912858011487"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/11108130580926815461",
+        "hash": "1945669982782996961"
       }
     ],
     "projectFileMap": {
-      "clo-agent": [
+      "agent-factory": [
         {
-          "file": "apps/clo-agent/package.json",
-          "hash": "11780664396649252686"
+          "file": "apps/agent-factory/README.md",
+          "hash": "15466479041746076346"
         },
         {
-          "file": "apps/clo-agent/project.json",
-          "hash": "3769535577187549965"
+          "file": "apps/agent-factory/package.json",
+          "hash": "7131284566282466116"
         },
         {
-          "file": "apps/clo-agent/src/compliance-analyzer.test.ts",
-          "hash": "1200206812592392287"
+          "file": "apps/agent-factory/project.json",
+          "hash": "11015890647582132585"
         },
         {
-          "file": "apps/clo-agent/src/compliance-analyzer.ts",
-          "hash": "14767272246916285595"
+          "file": "apps/agent-factory/src/brain-generator.ts",
+          "hash": "1479928241729255679"
         },
         {
-          "file": "apps/clo-agent/src/governance-engine.ts",
-          "hash": "17467748563108918463"
+          "file": "apps/agent-factory/src/character-factory.ts",
+          "hash": "2516569481132216375",
+          "deps": [
+            "thinng-foundation"
+          ]
         },
         {
-          "file": "apps/clo-agent/src/index.test.ts",
-          "hash": "4974907778337181246"
+          "file": "apps/agent-factory/src/csuite-runner-integration.ts",
+          "hash": "6011586353674515252"
         },
         {
-          "file": "apps/clo-agent/src/index.ts",
-          "hash": "3398699742276281299"
+          "file": "apps/agent-factory/src/deployment-manager.ts",
+          "hash": "8639081053963244425"
         },
         {
-          "file": "apps/clo-agent/src/legal-task-processor.test.ts",
-          "hash": "10053814911630012740"
+          "file": "apps/agent-factory/src/economic-coordinator.ts",
+          "hash": "13825061318470444219"
         },
         {
-          "file": "apps/clo-agent/src/legal-task-processor.ts",
-          "hash": "17309848102183547674"
+          "file": "apps/agent-factory/src/factory-controller.ts",
+          "hash": "10759512718913718953"
         },
         {
-          "file": "apps/clo-agent/src/router-integration.ts",
-          "hash": "7761982155887441429"
+          "file": "apps/agent-factory/src/index.ts",
+          "hash": "9004805354061030479"
         },
         {
-          "file": "apps/clo-agent/src/types.ts",
-          "hash": "9936998322968975058"
+          "file": "apps/agent-factory/src/scaffold-generator.ts",
+          "hash": "11459969657502904037"
         },
         {
-          "file": "apps/clo-agent/tsconfig.json",
-          "hash": "244684856460895855"
+          "file": "apps/agent-factory/src/spawning-analytics.ts",
+          "hash": "11349662797719905245"
         },
         {
-          "file": "apps/clo-agent/tsconfig.lib.json",
-          "hash": "7694498928845402524"
+          "file": "apps/agent-factory/src/types.ts",
+          "hash": "4324968216636534901"
         },
         {
-          "file": "apps/clo-agent/tsconfig.spec.json",
-          "hash": "8897422042899787882"
+          "file": "apps/agent-factory/tsconfig.app.json",
+          "hash": "3105202752636193067"
+        },
+        {
+          "file": "apps/agent-factory/tsconfig.spec.json",
+          "hash": "7699487533351179848"
+        }
+      ],
+      "dao-governance-service": [
+        {
+          "file": "apps/dao-governance-service/DAO_GOVERNANCE_MODERNIZATION.md",
+          "hash": "14904955525810226082"
+        },
+        {
+          "file": "apps/dao-governance-service/README.md",
+          "hash": "8053561585340811263"
+        },
+        {
+          "file": "apps/dao-governance-service/project.json",
+          "hash": "12384393043161548182"
+        },
+        {
+          "file": "apps/dao-governance-service/src/agent-resolver.service.ts",
+          "hash": "12738108321004479593",
+          "deps": [
+            "thinng-foundation"
+          ]
+        },
+        {
+          "file": "apps/dao-governance-service/src/api-routes.ts",
+          "hash": "5031703291575273133"
+        },
+        {
+          "file": "apps/dao-governance-service/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/dao-governance-service/src/cognitive-query.service.ts",
+          "hash": "9504396555003979198"
+        },
+        {
+          "file": "apps/dao-governance-service/src/config.ts",
+          "hash": "1163475891023478086"
+        },
+        {
+          "file": "apps/dao-governance-service/src/dao-governance-integration-test.ts",
+          "hash": "11501760049346633971"
+        },
+        {
+          "file": "apps/dao-governance-service/src/governance-service.ts",
+          "hash": "17015542419048041693"
+        },
+        {
+          "file": "apps/dao-governance-service/src/main.ts",
+          "hash": "13398626502785350259"
+        },
+        {
+          "file": "apps/dao-governance-service/src/test-example.ts",
+          "hash": "6089161268736238053"
+        },
+        {
+          "file": "apps/dao-governance-service/src/types.ts",
+          "hash": "13747788968636554821"
+        },
+        {
+          "file": "apps/dao-governance-service/tsconfig.app.json",
+          "hash": "13972901993207365929"
+        },
+        {
+          "file": "apps/dao-governance-service/tsconfig.json",
+          "hash": "3025378044812449119"
+        }
+      ],
+      "cao-agent": [
+        {
+          "file": "apps/cao-agent/README.md",
+          "hash": "11597628056556141357"
+        },
+        {
+          "file": "apps/cao-agent/package.json",
+          "hash": "16004010870337894269"
+        },
+        {
+          "file": "apps/cao-agent/project.json",
+          "hash": "8253226218192125595"
+        },
+        {
+          "file": "apps/cao-agent/src/assessment-analyzer.ts",
+          "hash": "6095332499290040272"
+        },
+        {
+          "file": "apps/cao-agent/src/cao-agent.test.ts",
+          "hash": "15252778060449262881"
+        },
+        {
+          "file": "apps/cao-agent/src/curriculum-manager.ts",
+          "hash": "457047461884660420"
+        },
+        {
+          "file": "apps/cao-agent/src/index.ts",
+          "hash": "4760246809739545216"
+        },
+        {
+          "file": "apps/cao-agent/src/learning-optimizer.ts",
+          "hash": "4732402860537549258"
+        },
+        {
+          "file": "apps/cao-agent/src/performance-monitor.ts",
+          "hash": "11733385712565073689"
+        },
+        {
+          "file": "apps/cao-agent/src/types.ts",
+          "hash": "11406711122763021654"
+        },
+        {
+          "file": "apps/cao-agent/tsconfig.app.json",
+          "hash": "18202180184646285871"
+        },
+        {
+          "file": "apps/cao-agent/tsconfig.json",
+          "hash": "5404899870104465974"
         }
       ],
       "ceo-agent": [
@@ -568,6 +370,40 @@
         {
           "file": "apps/ceo-agent/tsconfig.spec.json",
           "hash": "4150768349035337235"
+        }
+      ],
+      "ping-agent": [
+        {
+          "file": "apps/utility-agents/ping-agent/README.md",
+          "hash": "11671203231403465508"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/package.json",
+          "hash": "7888876277450868848"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/project.json",
+          "hash": "320066054498960681"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/src/index.ts",
+          "hash": "16946299515371708557"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/src/types.ts",
+          "hash": "2935028535051576363"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.app.json",
+          "hash": "5864099390250414070"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.json",
+          "hash": "5070439177883408905"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.spec.json",
+          "hash": "13920650602150815467"
         }
       ],
       "cognitive-interface": [
@@ -779,327 +615,96 @@
           "hash": "11423316387004447258"
         }
       ],
-      "ping-agent": [
+      "c-suite-agent-runner": [
         {
-          "file": "apps/utility-agents/ping-agent/README.md",
-          "hash": "11671203231403465508"
+          "file": "apps/c-suite-agent-runner/README.md",
+          "hash": "6738852747956814394"
         },
         {
-          "file": "apps/utility-agents/ping-agent/package.json",
-          "hash": "7888876277450868848"
+          "file": "apps/c-suite-agent-runner/project.json",
+          "hash": "12104433053783068651"
         },
         {
-          "file": "apps/utility-agents/ping-agent/project.json",
-          "hash": "320066054498960681"
+          "file": "apps/c-suite-agent-runner/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
         },
         {
-          "file": "apps/utility-agents/ping-agent/src/index.ts",
-          "hash": "16946299515371708557"
+          "file": "apps/c-suite-agent-runner/src/csuite-agent.ts",
+          "hash": "7287846834763657581"
         },
         {
-          "file": "apps/utility-agents/ping-agent/src/types.ts",
-          "hash": "2935028535051576363"
+          "file": "apps/c-suite-agent-runner/src/main.ts",
+          "hash": "9381226353903679244"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.app.json",
-          "hash": "5864099390250414070"
+          "file": "apps/c-suite-agent-runner/src/types.ts",
+          "hash": "1910990891800185081"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.json",
-          "hash": "5070439177883408905"
+          "file": "apps/c-suite-agent-runner/tsconfig.app.json",
+          "hash": "663763413802756907"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.spec.json",
-          "hash": "13920650602150815467"
+          "file": "apps/c-suite-agent-runner/tsconfig.json",
+          "hash": "3025378044812449119"
         }
       ],
-      "thinng-foundation": [
+      "clo-agent": [
         {
-          "file": "packages/README.md",
-          "hash": "6010055664090574579"
+          "file": "apps/clo-agent/package.json",
+          "hash": "11780664396649252686"
         },
         {
-          "file": "packages/business-intelligence/README.md",
-          "hash": "5939456200066148424"
+          "file": "apps/clo-agent/project.json",
+          "hash": "3769535577187549965"
         },
         {
-          "file": "packages/business-intelligence/src/actions.ts",
-          "hash": "13291502510307889066"
+          "file": "apps/clo-agent/src/compliance-analyzer.test.ts",
+          "hash": "1200206812592392287"
         },
         {
-          "file": "packages/business-intelligence/src/index.ts",
-          "hash": "6368042428285266435"
+          "file": "apps/clo-agent/src/compliance-analyzer.ts",
+          "hash": "14767272246916285595"
         },
         {
-          "file": "packages/business-intelligence/src/plugin.ts",
-          "hash": "16718801717783610077"
+          "file": "apps/clo-agent/src/governance-engine.ts",
+          "hash": "17467748563108918463"
         },
         {
-          "file": "packages/business-intelligence/src/types.ts",
-          "hash": "17837574284028693746"
+          "file": "apps/clo-agent/src/index.test.ts",
+          "hash": "4974907778337181246"
         },
         {
-          "file": "packages/business-intelligence/tsup.config.ts",
-          "hash": "9384454130553684396"
+          "file": "apps/clo-agent/src/index.ts",
+          "hash": "3398699742276281299"
         },
         {
-          "file": "packages/cognitive-engine/README.md",
-          "hash": "2425481673831860578"
+          "file": "apps/clo-agent/src/legal-task-processor.test.ts",
+          "hash": "10053814911630012740"
         },
         {
-          "file": "packages/cognitive-engine/src/actions.ts",
-          "hash": "15460844628393351015"
+          "file": "apps/clo-agent/src/legal-task-processor.ts",
+          "hash": "17309848102183547674"
         },
         {
-          "file": "packages/cognitive-engine/src/plugin.test.ts",
-          "hash": "18310347980439598685"
+          "file": "apps/clo-agent/src/router-integration.ts",
+          "hash": "7761982155887441429"
         },
         {
-          "file": "packages/cognitive-engine/src/provider.ts",
-          "hash": "17846044731599640322"
+          "file": "apps/clo-agent/src/types.ts",
+          "hash": "9936998322968975058"
         },
         {
-          "file": "packages/cognitive-engine/src/types.ts",
-          "hash": "8447885355950495890"
+          "file": "apps/clo-agent/tsconfig.json",
+          "hash": "244684856460895855"
         },
         {
-          "file": "packages/cognitive-engine/tsconfig.json",
-          "hash": "4515318142346122505"
+          "file": "apps/clo-agent/tsconfig.lib.json",
+          "hash": "7694498928845402524"
         },
         {
-          "file": "packages/demo/phase1-demo.ts",
-          "hash": "285999742093565573"
-        },
-        {
-          "file": "packages/demo/phase2-webgl-demo.ts",
-          "hash": "1099811017970856607"
-        },
-        {
-          "file": "packages/demo/simple-demo.ts",
-          "hash": "17897642874991569408"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/README.md",
-          "hash": "7137604449930213783"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/demo/phase3-enhanced-intelligence-demo.ts",
-          "hash": "461662239203028593"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/package.json",
-          "hash": "16293343627591771291"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/actions.ts",
-          "hash": "9028552512143334007"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/decision-matrix.ts",
-          "hash": "3803528071702925091"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/fuzzy-logic.ts",
-          "hash": "5734574106844978863"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/index.ts",
-          "hash": "5826202940477598780"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/pattern-recognition.ts",
-          "hash": "18274869135391103400"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/plugin.ts",
-          "hash": "7255733023500848429"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/types.ts",
-          "hash": "2342932299985444727"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/tsconfig.json",
-          "hash": "1967282473968306433"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/tsup.config.ts",
-          "hash": "18068966804968922154"
-        },
-        {
-          "file": "packages/package.json",
-          "hash": "10826520847584355945"
-        },
-        {
-          "file": "packages/project.json",
-          "hash": "5010353767896294498"
-        },
-        {
-          "file": "packages/src/index.ts",
-          "hash": "8460417837110739874"
-        },
-        {
-          "file": "packages/src/lib/math-bridge.ts",
-          "hash": "8713799318780775549"
-        },
-        {
-          "file": "packages/src/lib/performance-benchmarks.ts",
-          "hash": "4398084953264154928"
-        },
-        {
-          "file": "packages/src/lib/shader-system.ts",
-          "hash": "368192005889487678"
-        },
-        {
-          "file": "packages/src/lib/test-runner.ts",
-          "hash": "3299397363182649821"
-        },
-        {
-          "file": "packages/src/lib/thinng-foundation.test.ts",
-          "hash": "8950250154292934409"
-        },
-        {
-          "file": "packages/src/lib/thinng-foundation.ts",
-          "hash": "9129049322331308402"
-        },
-        {
-          "file": "packages/src/lib/types.ts",
-          "hash": "16777414074354610891"
-        },
-        {
-          "file": "packages/src/lib/webgl-renderer.ts",
-          "hash": "282875181907763161"
-        },
-        {
-          "file": "packages/tsconfig.json",
-          "hash": "14348528073521137485"
-        },
-        {
-          "file": "packages/tsconfig.lib.json",
-          "hash": "9908975088309596753"
-        }
-      ],
-      "phase18-voting-simulation": [
-        {
-          "file": "apps/phase18-voting-simulation/.swcrc",
-          "hash": "16253791935946449516"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/README.md",
-          "hash": "17654314338950409100"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/project.json",
-          "hash": "11986265973665042765"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/csuite-simulator.ts",
-          "hash": "1183304774451929314",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/governance-integration.ts",
-          "hash": "262260961639576749",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/index.ts",
-          "hash": "7326327742648185540"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/notification-engine.ts",
-          "hash": "10525752581879789856",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/orchestrator.ts",
-          "hash": "16526055350710512907",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/workflow-engine.ts",
-          "hash": "13294746413232651531",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/tsconfig.app.json",
-          "hash": "9618049478774648997"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/tsconfig.json",
-          "hash": "18294568105317511560"
-        }
-      ],
-      "cfo-agent": [
-        {
-          "file": "apps/cfo-agent/README.md",
-          "hash": "11474295708073322839"
-        },
-        {
-          "file": "apps/cfo-agent/package.json",
-          "hash": "15909936831997988504"
-        },
-        {
-          "file": "apps/cfo-agent/project.json",
-          "hash": "17159651534342272704"
-        },
-        {
-          "file": "apps/cfo-agent/src/budget-analysis-engine.ts",
-          "hash": "8414216800130669929"
-        },
-        {
-          "file": "apps/cfo-agent/src/demo.ts",
-          "hash": "1704941972973673796"
-        },
-        {
-          "file": "apps/cfo-agent/src/financial-analyzer.ts",
-          "hash": "14887663918620928664"
-        },
-        {
-          "file": "apps/cfo-agent/src/financial-task-processor.ts",
-          "hash": "17816946033919313431"
-        },
-        {
-          "file": "apps/cfo-agent/src/index.test.ts",
-          "hash": "8492374931874462246"
-        },
-        {
-          "file": "apps/cfo-agent/src/index.ts",
-          "hash": "6614521684908987335"
-        },
-        {
-          "file": "apps/cfo-agent/src/router-integration.test.ts",
-          "hash": "17608032594865393099"
-        },
-        {
-          "file": "apps/cfo-agent/src/router-integration.ts",
-          "hash": "10705113423065975233"
-        },
-        {
-          "file": "apps/cfo-agent/src/types.ts",
-          "hash": "11589029692672342448"
-        },
-        {
-          "file": "apps/cfo-agent/tsconfig.json",
-          "hash": "13210047728320946792"
-        },
-        {
-          "file": "apps/cfo-agent/tsconfig.lib.json",
-          "hash": "14001282957148601614"
-        },
-        {
-          "file": "apps/cfo-agent/tsconfig.spec.json",
-          "hash": "1146067670763212134"
+          "file": "apps/clo-agent/tsconfig.spec.json",
+          "hash": "8897422042899787882"
         }
       ],
       "elizaos-plugin-nx-workspace": [
@@ -1158,155 +763,6 @@
         {
           "file": "packages/nx-workspace/tsconfig.spec.json",
           "hash": "9827228927025126330"
-        }
-      ],
-      "dao-governance-service": [
-        {
-          "file": "apps/dao-governance-service/DAO_GOVERNANCE_MODERNIZATION.md",
-          "hash": "14904955525810226082"
-        },
-        {
-          "file": "apps/dao-governance-service/README.md",
-          "hash": "8053561585340811263"
-        },
-        {
-          "file": "apps/dao-governance-service/project.json",
-          "hash": "12384393043161548182"
-        },
-        {
-          "file": "apps/dao-governance-service/src/agent-resolver.service.ts",
-          "hash": "12738108321004479593",
-          "deps": [
-            "thinng-foundation"
-          ]
-        },
-        {
-          "file": "apps/dao-governance-service/src/api-routes.ts",
-          "hash": "5031703291575273133"
-        },
-        {
-          "file": "apps/dao-governance-service/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/dao-governance-service/src/cognitive-query.service.ts",
-          "hash": "9504396555003979198"
-        },
-        {
-          "file": "apps/dao-governance-service/src/config.ts",
-          "hash": "1163475891023478086"
-        },
-        {
-          "file": "apps/dao-governance-service/src/dao-governance-integration-test.ts",
-          "hash": "11501760049346633971"
-        },
-        {
-          "file": "apps/dao-governance-service/src/governance-service.ts",
-          "hash": "17015542419048041693"
-        },
-        {
-          "file": "apps/dao-governance-service/src/main.ts",
-          "hash": "13398626502785350259"
-        },
-        {
-          "file": "apps/dao-governance-service/src/test-example.ts",
-          "hash": "6089161268736238053"
-        },
-        {
-          "file": "apps/dao-governance-service/src/types.ts",
-          "hash": "13747788968636554821"
-        },
-        {
-          "file": "apps/dao-governance-service/tsconfig.app.json",
-          "hash": "13972901993207365929"
-        },
-        {
-          "file": "apps/dao-governance-service/tsconfig.json",
-          "hash": "3025378044812449119"
-        }
-      ],
-      "cao-agent": [
-        {
-          "file": "apps/cao-agent/README.md",
-          "hash": "11597628056556141357"
-        },
-        {
-          "file": "apps/cao-agent/package.json",
-          "hash": "16004010870337894269"
-        },
-        {
-          "file": "apps/cao-agent/project.json",
-          "hash": "8253226218192125595"
-        },
-        {
-          "file": "apps/cao-agent/src/assessment-analyzer.ts",
-          "hash": "6095332499290040272"
-        },
-        {
-          "file": "apps/cao-agent/src/cao-agent.test.ts",
-          "hash": "15252778060449262881"
-        },
-        {
-          "file": "apps/cao-agent/src/curriculum-manager.ts",
-          "hash": "457047461884660420"
-        },
-        {
-          "file": "apps/cao-agent/src/index.ts",
-          "hash": "4760246809739545216"
-        },
-        {
-          "file": "apps/cao-agent/src/learning-optimizer.ts",
-          "hash": "4732402860537549258"
-        },
-        {
-          "file": "apps/cao-agent/src/performance-monitor.ts",
-          "hash": "11733385712565073689"
-        },
-        {
-          "file": "apps/cao-agent/src/types.ts",
-          "hash": "11406711122763021654"
-        },
-        {
-          "file": "apps/cao-agent/tsconfig.app.json",
-          "hash": "18202180184646285871"
-        },
-        {
-          "file": "apps/cao-agent/tsconfig.json",
-          "hash": "5404899870104465974"
-        }
-      ],
-      "c-suite-agent-runner": [
-        {
-          "file": "apps/c-suite-agent-runner/README.md",
-          "hash": "6738852747956814394"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/project.json",
-          "hash": "12104433053783068651"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/src/csuite-agent.ts",
-          "hash": "7287846834763657581"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/src/main.ts",
-          "hash": "9381226353903679244"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/src/types.ts",
-          "hash": "1910990891800185081"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/tsconfig.app.json",
-          "hash": "663763413802756907"
-        },
-        {
-          "file": "apps/c-suite-agent-runner/tsconfig.json",
-          "hash": "3025378044812449119"
         }
       ],
       "chief-of-staff-agent": [
@@ -1551,131 +1007,127 @@
           "hash": "5188573206099221072"
         }
       ],
-      "intelligent-router": [
+      "phase18-voting-simulation": [
         {
-          "file": "apps/intelligent-router/README.md",
-          "hash": "11153567147177627692"
+          "file": "apps/phase18-voting-simulation/.swcrc",
+          "hash": "16253791935946449516"
         },
         {
-          "file": "apps/intelligent-router/package.json",
-          "hash": "15631660340828649881"
+          "file": "apps/phase18-voting-simulation/README.md",
+          "hash": "17654314338950409100"
         },
         {
-          "file": "apps/intelligent-router/project.json",
-          "hash": "15878661385974716308"
+          "file": "apps/phase18-voting-simulation/project.json",
+          "hash": "11986265973665042765"
         },
         {
-          "file": "apps/intelligent-router/src/agent-selector.ts",
-          "hash": "3855025165342656870"
-        },
-        {
-          "file": "apps/intelligent-router/src/agent-spawner.ts",
-          "hash": "5979482799729009083"
-        },
-        {
-          "file": "apps/intelligent-router/src/capability-gap-detector.ts",
-          "hash": "1986626026649503971"
-        },
-        {
-          "file": "apps/intelligent-router/src/delegation-orchestrator.ts",
-          "hash": "5538025659332206212"
-        },
-        {
-          "file": "apps/intelligent-router/src/index.ts",
-          "hash": "2946791229879794136"
-        },
-        {
-          "file": "apps/intelligent-router/src/intelligent-router.test.ts",
-          "hash": "7066672376521472811"
-        },
-        {
-          "file": "apps/intelligent-router/src/performance-monitor.ts",
-          "hash": "4063719716968496041"
-        },
-        {
-          "file": "apps/intelligent-router/src/router-engine.ts",
-          "hash": "8356920216133708630"
-        },
-        {
-          "file": "apps/intelligent-router/src/task-analyzer.ts",
-          "hash": "5951394580687962535"
-        },
-        {
-          "file": "apps/intelligent-router/src/types.ts",
-          "hash": "1200912522928902757"
-        },
-        {
-          "file": "apps/intelligent-router/tsconfig.app.json",
-          "hash": "17840012195657330865"
-        },
-        {
-          "file": "apps/intelligent-router/tsconfig.json",
-          "hash": "9850660559705542025"
-        }
-      ],
-      "agent-factory": [
-        {
-          "file": "apps/agent-factory/README.md",
-          "hash": "15466479041746076346"
-        },
-        {
-          "file": "apps/agent-factory/package.json",
-          "hash": "7131284566282466116"
-        },
-        {
-          "file": "apps/agent-factory/project.json",
-          "hash": "11015890647582132585"
-        },
-        {
-          "file": "apps/agent-factory/src/brain-generator.ts",
-          "hash": "1479928241729255679"
-        },
-        {
-          "file": "apps/agent-factory/src/character-factory.ts",
-          "hash": "2516569481132216375",
+          "file": "apps/phase18-voting-simulation/src/csuite-simulator.ts",
+          "hash": "1183304774451929314",
           "deps": [
-            "thinng-foundation"
+            "dao-governance-service"
           ]
         },
         {
-          "file": "apps/agent-factory/src/csuite-runner-integration.ts",
-          "hash": "6011586353674515252"
+          "file": "apps/phase18-voting-simulation/src/governance-integration.ts",
+          "hash": "262260961639576749",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/agent-factory/src/deployment-manager.ts",
-          "hash": "8639081053963244425"
+          "file": "apps/phase18-voting-simulation/src/index.ts",
+          "hash": "7326327742648185540"
         },
         {
-          "file": "apps/agent-factory/src/economic-coordinator.ts",
-          "hash": "13825061318470444219"
+          "file": "apps/phase18-voting-simulation/src/notification-engine.ts",
+          "hash": "10525752581879789856",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/agent-factory/src/factory-controller.ts",
-          "hash": "10759512718913718953"
+          "file": "apps/phase18-voting-simulation/src/orchestrator.ts",
+          "hash": "16526055350710512907",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/agent-factory/src/index.ts",
-          "hash": "9004805354061030479"
+          "file": "apps/phase18-voting-simulation/src/workflow-engine.ts",
+          "hash": "13294746413232651531",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/agent-factory/src/scaffold-generator.ts",
-          "hash": "11459969657502904037"
+          "file": "apps/phase18-voting-simulation/tsconfig.app.json",
+          "hash": "9618049478774648997"
         },
         {
-          "file": "apps/agent-factory/src/spawning-analytics.ts",
-          "hash": "11349662797719905245"
+          "file": "apps/phase18-voting-simulation/tsconfig.json",
+          "hash": "18294568105317511560"
+        }
+      ],
+      "cfo-agent": [
+        {
+          "file": "apps/cfo-agent/README.md",
+          "hash": "11474295708073322839"
         },
         {
-          "file": "apps/agent-factory/src/types.ts",
-          "hash": "4324968216636534901"
+          "file": "apps/cfo-agent/package.json",
+          "hash": "15909936831997988504"
         },
         {
-          "file": "apps/agent-factory/tsconfig.app.json",
-          "hash": "3105202752636193067"
+          "file": "apps/cfo-agent/project.json",
+          "hash": "17159651534342272704"
         },
         {
-          "file": "apps/agent-factory/tsconfig.spec.json",
-          "hash": "7699487533351179848"
+          "file": "apps/cfo-agent/src/budget-analysis-engine.ts",
+          "hash": "8414216800130669929"
+        },
+        {
+          "file": "apps/cfo-agent/src/demo.ts",
+          "hash": "1704941972973673796"
+        },
+        {
+          "file": "apps/cfo-agent/src/financial-analyzer.ts",
+          "hash": "14887663918620928664"
+        },
+        {
+          "file": "apps/cfo-agent/src/financial-task-processor.ts",
+          "hash": "17816946033919313431"
+        },
+        {
+          "file": "apps/cfo-agent/src/index.test.ts",
+          "hash": "8492374931874462246"
+        },
+        {
+          "file": "apps/cfo-agent/src/index.ts",
+          "hash": "6614521684908987335"
+        },
+        {
+          "file": "apps/cfo-agent/src/router-integration.test.ts",
+          "hash": "17608032594865393099"
+        },
+        {
+          "file": "apps/cfo-agent/src/router-integration.ts",
+          "hash": "10705113423065975233"
+        },
+        {
+          "file": "apps/cfo-agent/src/types.ts",
+          "hash": "11589029692672342448"
+        },
+        {
+          "file": "apps/cfo-agent/tsconfig.json",
+          "hash": "13210047728320946792"
+        },
+        {
+          "file": "apps/cfo-agent/tsconfig.lib.json",
+          "hash": "14001282957148601614"
+        },
+        {
+          "file": "apps/cfo-agent/tsconfig.spec.json",
+          "hash": "1146067670763212134"
         }
       ],
       "cto-agent": [
@@ -1738,6 +1190,246 @@
         {
           "file": "apps/cto-agent/verify.ts",
           "hash": "15788364114203280205"
+        }
+      ],
+      "thinng-foundation": [
+        {
+          "file": "packages/README.md",
+          "hash": "6010055664090574579"
+        },
+        {
+          "file": "packages/business-intelligence/README.md",
+          "hash": "5939456200066148424"
+        },
+        {
+          "file": "packages/business-intelligence/src/actions.ts",
+          "hash": "13291502510307889066"
+        },
+        {
+          "file": "packages/business-intelligence/src/index.ts",
+          "hash": "6368042428285266435"
+        },
+        {
+          "file": "packages/business-intelligence/src/plugin.ts",
+          "hash": "16718801717783610077"
+        },
+        {
+          "file": "packages/business-intelligence/src/types.ts",
+          "hash": "17837574284028693746"
+        },
+        {
+          "file": "packages/business-intelligence/tsup.config.ts",
+          "hash": "9384454130553684396"
+        },
+        {
+          "file": "packages/cognitive-engine/README.md",
+          "hash": "2425481673831860578"
+        },
+        {
+          "file": "packages/cognitive-engine/src/actions.ts",
+          "hash": "15460844628393351015"
+        },
+        {
+          "file": "packages/cognitive-engine/src/plugin.test.ts",
+          "hash": "18310347980439598685"
+        },
+        {
+          "file": "packages/cognitive-engine/src/provider.ts",
+          "hash": "17846044731599640322"
+        },
+        {
+          "file": "packages/cognitive-engine/src/types.ts",
+          "hash": "8447885355950495890"
+        },
+        {
+          "file": "packages/cognitive-engine/tsconfig.json",
+          "hash": "4515318142346122505"
+        },
+        {
+          "file": "packages/demo/phase1-demo.ts",
+          "hash": "285999742093565573"
+        },
+        {
+          "file": "packages/demo/phase2-webgl-demo.ts",
+          "hash": "1099811017970856607"
+        },
+        {
+          "file": "packages/demo/phase4-performance-demo.ts",
+          "hash": "13382226489153709277"
+        },
+        {
+          "file": "packages/demo/phase4-quick-test.ts",
+          "hash": "13410373837212866008"
+        },
+        {
+          "file": "packages/demo/simple-demo.ts",
+          "hash": "17897642874991569408"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/README.md",
+          "hash": "7137604449930213783"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/demo/phase3-enhanced-intelligence-demo.ts",
+          "hash": "461662239203028593"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/package.json",
+          "hash": "16293343627591771291"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/actions.ts",
+          "hash": "9028552512143334007"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/decision-matrix.ts",
+          "hash": "3803528071702925091"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/fuzzy-logic.ts",
+          "hash": "5734574106844978863"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/index.ts",
+          "hash": "5826202940477598780"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/pattern-recognition.ts",
+          "hash": "18274869135391103400"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/plugin.ts",
+          "hash": "7255733023500848429"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/types.ts",
+          "hash": "2342932299985444727"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/tsconfig.json",
+          "hash": "1967282473968306433"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/tsup.config.ts",
+          "hash": "18068966804968922154"
+        },
+        {
+          "file": "packages/package.json",
+          "hash": "10826520847584355945"
+        },
+        {
+          "file": "packages/project.json",
+          "hash": "5010353767896294498"
+        },
+        {
+          "file": "packages/src/index.ts",
+          "hash": "16090103493152015148"
+        },
+        {
+          "file": "packages/src/lib/math-bridge.ts",
+          "hash": "8713799318780775549"
+        },
+        {
+          "file": "packages/src/lib/performance-benchmarks.ts",
+          "hash": "4398084953264154928"
+        },
+        {
+          "file": "packages/src/lib/phase4-performance-optimizer.ts",
+          "hash": "301592303245194358"
+        },
+        {
+          "file": "packages/src/lib/shader-system.ts",
+          "hash": "368192005889487678"
+        },
+        {
+          "file": "packages/src/lib/test-runner.ts",
+          "hash": "3299397363182649821"
+        },
+        {
+          "file": "packages/src/lib/thinng-foundation.test.ts",
+          "hash": "8950250154292934409"
+        },
+        {
+          "file": "packages/src/lib/thinng-foundation.ts",
+          "hash": "9129049322331308402"
+        },
+        {
+          "file": "packages/src/lib/types.ts",
+          "hash": "9452895577148190986"
+        },
+        {
+          "file": "packages/src/lib/webgl-renderer.ts",
+          "hash": "282875181907763161"
+        },
+        {
+          "file": "packages/tsconfig.json",
+          "hash": "14348528073521137485"
+        },
+        {
+          "file": "packages/tsconfig.lib.json",
+          "hash": "9908975088309596753"
+        }
+      ],
+      "intelligent-router": [
+        {
+          "file": "apps/intelligent-router/README.md",
+          "hash": "11153567147177627692"
+        },
+        {
+          "file": "apps/intelligent-router/package.json",
+          "hash": "15631660340828649881"
+        },
+        {
+          "file": "apps/intelligent-router/project.json",
+          "hash": "15878661385974716308"
+        },
+        {
+          "file": "apps/intelligent-router/src/agent-selector.ts",
+          "hash": "3855025165342656870"
+        },
+        {
+          "file": "apps/intelligent-router/src/agent-spawner.ts",
+          "hash": "5979482799729009083"
+        },
+        {
+          "file": "apps/intelligent-router/src/capability-gap-detector.ts",
+          "hash": "1986626026649503971"
+        },
+        {
+          "file": "apps/intelligent-router/src/delegation-orchestrator.ts",
+          "hash": "5538025659332206212"
+        },
+        {
+          "file": "apps/intelligent-router/src/index.ts",
+          "hash": "2946791229879794136"
+        },
+        {
+          "file": "apps/intelligent-router/src/intelligent-router.test.ts",
+          "hash": "7066672376521472811"
+        },
+        {
+          "file": "apps/intelligent-router/src/performance-monitor.ts",
+          "hash": "4063719716968496041"
+        },
+        {
+          "file": "apps/intelligent-router/src/router-engine.ts",
+          "hash": "8356920216133708630"
+        },
+        {
+          "file": "apps/intelligent-router/src/task-analyzer.ts",
+          "hash": "5951394580687962535"
+        },
+        {
+          "file": "apps/intelligent-router/src/types.ts",
+          "hash": "1200912522928902757"
+        },
+        {
+          "file": "apps/intelligent-router/tsconfig.app.json",
+          "hash": "17840012195657330865"
+        },
+        {
+          "file": "apps/intelligent-router/tsconfig.json",
+          "hash": "9850660559705542025"
         }
       ]
     }

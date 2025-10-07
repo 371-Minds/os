@@ -222,6 +222,10 @@ export interface SpatialQuery {
  */
 export interface OptimizationConfig {
   target: 'performance' | 'precision' | 'memory' | 'balanced';
+  targetPerformanceGain?: number;
+  enableProfiling?: boolean;
+  optimizationLevel?: 'conservative' | 'moderate' | 'aggressive';
+  preservePrecision?: boolean;
   constraints: {
     max_execution_time_ms?: number;
     max_memory_usage_bytes?: number;
@@ -401,6 +405,72 @@ export interface ThinngConfiguration {
     log_level: 'error' | 'warn' | 'info' | 'debug';
     benchmark_mode: boolean;
   };
+}
+
+/**
+ * Phase 4: Performance Optimization Types
+ */
+
+/**
+ * Performance metrics for optimization tracking
+ */
+export interface PerformanceMetrics {
+  timestamp: number;
+  category: string;
+  executionTime: number;
+  memoryUsage: number;
+  throughput: number;
+  accuracy: number;
+  efficiency: number;
+}
+
+/**
+ * Memory pool configuration for optimization
+ */
+export interface MemoryPoolConfig {
+  poolSizes: {
+    vec3Pool: number;
+    vec4Pool: number;
+    mat4Pool: number;
+    geometryPool: number;
+  };
+  enableAutoExpansion: boolean;
+  gcOptimization: boolean;
+  memoryLeakDetection: boolean;
+}
+
+/**
+ * WebGL rendering performance configuration
+ */
+export interface RenderingPerformanceConfig {
+  targetFPS: number;
+  enableAdvancedCulling: boolean;
+  batchRendering: boolean;
+  gpuMemoryOptimization: boolean;
+  shaderOptimization: boolean;
+}
+
+/**
+ * Agent intelligence performance configuration
+ */
+export interface AgentIntelligencePerformanceConfig {
+  fuzzyLogicOptimization: boolean;
+  patternRecognitionSpeedup: number;
+  decisionMatrixCaching: boolean;
+  parallelProcessing: boolean;
+  intelligenceAccuracy: number;
+}
+
+/**
+ * Performance optimization result
+ */
+export interface PerformanceOptimizationResult {
+  phase: string;
+  beforeMetrics: PerformanceMetrics;
+  optimizations: any[];
+  afterMetrics: PerformanceMetrics | null;
+  improvementFactors: any;
+  recommendations: string[];
 }
 
 /**

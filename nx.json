@@ -1,8 +1,23 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "plugins": [
+    {
+      "plugin": "@nx/js",
+      "options": {
+        "analyzeSourceFiles": false
+      }
+    }
+  ],
   "projects": {
     "dao-governance-service": "os-workspace/apps/dao-governance-service",
     "cognitive-engine": "os-workspace/packages/cognitive-engine",
+    "elizaos-plugin-nx-workspace": "os-workspace/packages/elizaos-plugins/nx-workspace",
+    "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
+    "core-types": "os-workspace/libs/core-types",
+    "core-libraries": "os-workspace/libs/core-libraries"
+  },
+  "nxCloudId": "68d2d421573bd22ab7867b0f"
+}    "cognitive-engine": "os-workspace/packages/cognitive-engine",
     "elizaos-plugin-nx-workspace": "os-workspace/packages/elizaos-plugins/nx-workspace",
     "elizaos-plugin-universal-tool-server": "os-workspace/packages/elizaos-plugins/universal-tool-server",
     "core-types": "os-workspace/libs/core-types",

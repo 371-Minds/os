@@ -80,6 +80,10 @@
       "apps/agent-factory/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/agent-factory/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/agent-factory/package.json",
       "nx/core/package-json"
@@ -502,6 +506,10 @@
       "apps/cao-agent/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/cao-agent/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/cao-agent/package.json",
       "nx/core/package-json"
@@ -912,6 +920,10 @@
       "apps/ceo-agent/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/ceo-agent/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/ceo-agent/package.json",
       "nx/core/package-json"
@@ -1302,6 +1314,10 @@
       "apps/cfo-agent/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/cfo-agent/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/cfo-agent/package.json",
       "nx/core/package-json"
@@ -1585,6 +1601,10 @@
       "nx/core/package-json"
     ],
     "metadata.js.packageName": [
+      "apps/chief-of-staff-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
       "apps/chief-of-staff-agent/package.json",
       "nx/core/package-json"
     ],
@@ -1878,6 +1898,10 @@
       "apps/clo-agent/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/clo-agent/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/clo-agent/package.json",
       "nx/core/package-json"
@@ -2152,6 +2176,10 @@
       "apps/cognitive-interface/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "apps/cognitive-interface/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "apps/cognitive-interface/package.json",
       "nx/core/package-json"
@@ -2383,6 +2411,10 @@
       "nx/core/package-json"
     ],
     "metadata.js.packageName": [
+      "apps/cto-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
       "apps/cto-agent/package.json",
       "nx/core/package-json"
     ],
@@ -2677,6 +2709,10 @@
       "nx/core/package-json"
     ],
     "metadata.js.packageName": [
+      "apps/intelligent-router/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
       "apps/intelligent-router/package.json",
       "nx/core/package-json"
     ],
@@ -3047,6 +3083,10 @@
       "nx/core/package-json"
     ],
     "metadata.js.packageName": [
+      "apps/utility-agents/ping-agent/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
       "apps/utility-agents/ping-agent/package.json",
       "nx/core/package-json"
     ],
@@ -3460,6 +3500,10 @@
       "packages/nx-workspace/package.json",
       "nx/core/package-json"
     ],
+    "metadata.js.packageVersion": [
+      "packages/nx-workspace/package.json",
+      "nx/core/package-json"
+    ],
     "metadata.js.packageMain": [
       "packages/nx-workspace/package.json",
       "nx/core/package-json"
@@ -3647,6 +3691,10 @@
       "nx/core/package-json"
     ],
     "metadata.js.packageName": [
+      "packages/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
       "packages/package.json",
       "nx/core/package-json"
     ],

@@ -62,11 +62,11 @@ async function runPhase1Demo() {
   // Test optimized data structures
   console.log('\n\ud83d\udcbe Optimized Data Structures:');
   const vec1 = OptimizedDataStructures.getVec3(1, 2, 3);
-  console.log(`  Memory pool Vec3: [${vec1.join(', ')}]`);
+  console.log(`  Memory pool Vec3: [${Array.from(vec1).join(', ')}]`);
   
   OptimizedDataStructures.returnVec3(vec1);
   const vec2 = OptimizedDataStructures.getVec3(4, 5, 6);
-  console.log(`  Reused Vec3: [${vec2.join(', ')}] (same instance: ${vec1 === vec2})`);
+  console.log(`  Reused Vec3: [${Array.from(vec2).join(', ')}] (same instance: ${vec1 === vec2})`);
   
   // Test functional processing
   const data = [1, 2, 3, 4, 5];
@@ -81,10 +81,10 @@ async function runPhase1Demo() {
   console.log('\n\ud83d\udd04 Type Conversions:');
   const vec3d = new Vector3D(10, 20, 30);
   const vec3 = vec3d.toVec3();
-  console.log(`  Vector3D [${vec3d.x}, ${vec3d.y}, ${vec3d.z}] \u2192 Vec3 [${vec3.join(', ')}]`);
+  console.log(`  Vector3D [${vec3d.x}, ${vec3d.y}, ${vec3d.z}] \u2192 Vec3 [${Array.from(vec3).join(', ')}]`);
   
   const fromVec3 = Vector3D.from(vec3);
-  console.log(`  Vec3 [${vec3.join(', ')}] \u2192 Vector3D [${fromVec3.x}, ${fromVec3.y}, ${fromVec3.z}]`);
+  console.log(`  Vec3 [${Array.from(vec3).join(', ')}] \u2192 Vector3D [${fromVec3.x}, ${fromVec3.y}, ${fromVec3.z}]`);
   
   // Test performance benchmarks
   console.log('\n\ud83d\udcca Performance Benchmarks:');

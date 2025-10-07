@@ -33,432 +33,192 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".nx/workspace-data/project-graph.json~8b95065a",
-        "hash": "5967023563550649934"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~776a616a",
-        "hash": "15322254780508062439"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~f57a2b03",
-        "hash": "2696301867965252097"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6a554024",
-        "hash": "97197553601493262"
-      },
-      {
         "file": "README.md",
         "hash": "2166154308199962685"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ff8efa3f",
-        "hash": "8435634891387964952"
-      },
-      {
-        "file": "test-graph.json",
-        "hash": "11119487994046350011"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~d48e6154",
-        "hash": "11660813889770016878"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~f56aafa0",
-        "hash": "7499776691849704581"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2da5e113",
-        "hash": "18229441746975344643"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6741c041",
-        "hash": "10745681996851706585"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~23926de9",
-        "hash": "6417708629903309671"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~3226bc15",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": "test-ping-agent.mjs",
-        "hash": "3057981436213361725"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~b79037bb",
-        "hash": "4117854869122306000"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~1db2e3f2",
-        "hash": "16824171367600515977"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~12041745",
-        "hash": "8147503671534779191"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~c88cbdd8",
-        "hash": "3106615471124182718"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ba04994a",
-        "hash": "7586811129040621413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~b913204e",
-        "hash": "16640646513383300518"
-      },
-      {
-        "file": "apps/phase19-cognitive-oversight-test/phase19-validation.js",
-        "hash": "10354769542105977589"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~fca432d2",
-        "hash": "4257091275658992415"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~dc024877",
-        "hash": "7766615289714975639"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2288ed9f",
-        "hash": "3877974045794846456"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~a691747e",
-        "hash": "4301916638261251984"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~60d1d7b5",
-        "hash": "13589285629410370526"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~3068c1a4",
-        "hash": "8531972158824404909"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~03d7e306",
-        "hash": "16376372354429847777"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6b73bf6d",
-        "hash": "16189366560329711260"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~cc68fa73",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~44c8fd75",
-        "hash": "12382691902100590279"
-      },
-      {
-        "file": "package.json",
-        "hash": "350122973016120280"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~099f561d",
-        "hash": "6580441308093914579"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~384f943e",
-        "hash": "4023888117248748697"
-      },
-      {
-        "file": "test-graph-2.json",
-        "hash": "11119487994046350011"
-      },
-      {
-        "file": ".gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~3448c761",
-        "hash": "6329866928884447761"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2169b34f",
-        "hash": "16864448130979870774"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~de6d9de7",
-        "hash": "16721284505656151948"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~cd890858",
-        "hash": "12651737476004390777"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~deb59985",
-        "hash": "6974880565277182375"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~89ae5a7d",
-        "hash": "16224481977510090480"
-      },
-      {
-        "file": "phase20-validation-test.ts",
-        "hash": "3710836320470764689"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "12404194999191057749"
-      },
-      {
-        "file": ".nx/workspace-data/source-maps.json",
-        "hash": "8188205302005154273"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~592e24b2",
-        "hash": "9125292968553001768"
       },
       {
         "file": ".nx/workspace-data/project-graph.json~3aeade2e",
         "hash": "16946961938762394057"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~bfa78e58",
-        "hash": "6887547023230530321"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bbfe9025",
-        "hash": "9525673369330299046"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ad2c3cee",
-        "hash": "11908637812301177110"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~41b36158",
-        "hash": "5096287399946298883"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~c67b8b58",
-        "hash": "14053830736329235709"
-      },
-      {
-        "file": "biome.json",
-        "hash": "9460880714750162336"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~cb5b784d",
-        "hash": "18360915932425067385"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bff62452",
-        "hash": "2035730665741497624"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json",
-        "hash": "7364510222824959384"
-      },
-      {
-        "file": "validate-clo-agent.js",
-        "hash": "3976305877826572878"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": "test-fix.json",
-        "hash": "6521760176540146247"
-      },
-      {
-        "file": ".nx/workspace-data/file-map.json~2e14253c",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2b18eac7",
-        "hash": "14349996596586057389"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~9e1495d7",
-        "hash": "16099703079729055970"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~bb337d5b",
-        "hash": "15239012149517093327"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~4160e960",
-        "hash": "2731475278730877696"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2daeb4a2",
-        "hash": "1090841531066132474"
+        "file": ".nx/workspace-data/project-graph.json~ffb93d81",
+        "hash": "7978903756840917237"
       },
       {
         "file": ".nx/workspace-data/project-graph.json~5a5ab12b",
         "hash": "5267791583511431011"
       },
       {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": "phase20-validation-test.ts",
+        "hash": "3710836320470764689"
+      },
+      {
+        "file": "test-ping-agent.mjs",
+        "hash": "3057981436213361725"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~1db2e3f2",
+        "hash": "16824171367600515977"
+      },
+      {
         "file": ".nx/workspace-data/file-map.json",
-        "hash": "6362976457380281571"
+        "hash": "9723772718733256498"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~82e874eb",
-        "hash": "16564442067803880081"
+        "file": "test-graph.json",
+        "hash": "11119487994046350011"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~fd9b249a",
-        "hash": "16621937519054070755"
+        "file": "package.json",
+        "hash": "350122973016120280"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~bf366275",
-        "hash": "14147911127290906178"
-      },
-      {
-        "file": "validation-graph.json",
-        "hash": "18061297677812021441"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~a6665904",
-        "hash": "15283931407451229714"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~7d197988",
-        "hash": "13668063863673400013"
-      },
-      {
-        "file": "CLO_AGENT_VALIDATION_REPORT.md",
-        "hash": "5043323333696324908"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ea45d08c",
-        "hash": "14167135627570638443"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~80a394bd",
-        "hash": "8295102741558179804"
-      },
-      {
-        "file": "nx.json",
-        "hash": "1457262173735904874"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~6c7f0df0",
-        "hash": "14529385629171825636"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~84bcb8d9",
-        "hash": "8834156014806613534"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~29ec1dbc",
-        "hash": "2988250752798264084"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~58f2d1eb",
-        "hash": "5764470650348150174"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~33689e50",
-        "hash": "11433174502413141357"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~97ef0d15",
-        "hash": "3994978896447261944"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~afe56639",
-        "hash": "6264732652212209825"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~7635f7c3",
-        "hash": "12156119763190250784"
+        "file": ".nx/workspace-data/project-graph.json~3068c1a4",
+        "hash": "8531972158824404909"
       },
       {
         "file": ".nx/workspace-data/project-graph.json~60bc4e07",
         "hash": "6164091882723999358"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~4210af23",
-        "hash": "17668287790696882794"
+        "file": ".nx/workspace-data/project-graph.json~60d1d7b5",
+        "hash": "13589285629410370526"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~80bbe191",
-        "hash": "6541625743560150625"
+        "file": "test-graph-2.json",
+        "hash": "11119487994046350011"
       },
       {
-        "file": ".nx/workspace-data/file-map.json~16b669e9",
-        "hash": "12184009878988387413"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~252a6708",
-        "hash": "4774921660428665818"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~5f0837bc",
-        "hash": "5946105651911326130"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~0bfa74b0",
-        "hash": "6831623172837399699"
-      },
-      {
-        "file": "test-graph-fix.json",
-        "hash": "3405278405208997191"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~2642e117",
-        "hash": "2570709086068506508"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~ffb93d81",
-        "hash": "7978903756840917237"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~9b710019",
-        "hash": "714134130283771936"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~12010c51",
-        "hash": "5393712155915297992"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~f8ad32cf",
-        "hash": "4784576583114930742"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~8de1405e",
-        "hash": "5168465490049784753"
-      },
-      {
-        "file": "apps/utility-agents/NEXE_PACKAGING_GUIDE.md",
-        "hash": "13858813720498492919"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~a9612c7d",
-        "hash": "17534844353981026594"
-      },
-      {
-        "file": ".nx/workspace-data/project-graph.json~0947e4b2",
-        "hash": "12811940304435167049"
+        "file": ".nx/workspace-data/project-graph.json~9e1495d7",
+        "hash": "16099703079729055970"
       },
       {
         "file": ".nx/workspace-data/project-graph.json~f754af99",
         "hash": "8862464387983564029"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~ceb5c539",
-        "hash": "2255836882380792907"
+        "file": ".nx/workspace-data/project-graph.json~7635f7c3",
+        "hash": "12156119763190250784"
       },
       {
-        "file": ".nx/workspace-data/project-graph.json~7652936a",
-        "hash": "15067776744199179572"
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~cb5b784d",
+        "hash": "18360915932425067385"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json",
+        "hash": "16919820125723804967"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~f8ad32cf",
+        "hash": "4784576583114930742"
+      },
+      {
+        "file": ".nx/workspace-data/source-maps.json",
+        "hash": "8188205302005154273"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~bb337d5b",
+        "hash": "15239012149517093327"
+      },
+      {
+        "file": "validate-clo-agent.js",
+        "hash": "3976305877826572878"
+      },
+      {
+        "file": "test-graph-fix.json",
+        "hash": "3405278405208997191"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "12404194999191057749"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~099f561d",
+        "hash": "6580441308093914579"
+      },
+      {
+        "file": "test-fix.json",
+        "hash": "6521760176540146247"
+      },
+      {
+        "file": "apps/utility-agents/NEXE_PACKAGING_GUIDE.md",
+        "hash": "13858813720498492919"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~2b18eac7",
+        "hash": "14349996596586057389"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~5f0837bc",
+        "hash": "5946105651911326130"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~4160e960",
+        "hash": "2731475278730877696"
+      },
+      {
+        "file": "apps/phase19-cognitive-oversight-test/phase19-validation.js",
+        "hash": "10354769542105977589"
+      },
+      {
+        "file": "biome.json",
+        "hash": "9460880714750162336"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "validation-graph.json",
+        "hash": "18061297677812021441"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~b79037bb",
+        "hash": "4117854869122306000"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~2288ed9f",
+        "hash": "3877974045794846456"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1457262173735904874"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~c67b8b58",
+        "hash": "14053830736329235709"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~b913204e",
+        "hash": "16640646513383300518"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~80bbe191",
+        "hash": "6541625743560150625"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~ff8efa3f",
+        "hash": "8435634891387964952"
+      },
+      {
+        "file": ".nx/workspace-data/project-graph.json~384f943e",
+        "hash": "4023888117248748697"
+      },
+      {
+        "file": ".gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "CLO_AGENT_VALIDATION_REPORT.md",
+        "hash": "5043323333696324908"
       }
     ],
     "projectFileMap": {

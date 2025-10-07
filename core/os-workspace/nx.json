@@ -52,7 +52,14 @@
       "{workspaceRoot}/biome.json"
     ]
   },
-  "plugins": ["@nx/js"],
+  "plugins": [
+    {
+      "plugin": "@nx/js",
+      "options": {
+        "analyzeSourceFiles": false
+      }
+    }
+  ],
   "generators": {
     "@nx/js:library": {
       "buildable": true,

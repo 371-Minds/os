@@ -1,0 +1,33 @@
+{
+  "name": "thinng-testing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/thinng-testing/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/thinng-testing",
+        "main": "packages/thinng-testing/src/index.ts",
+        "tsConfig": "packages/thinng-testing/tsconfig.lib.json",
+        "assets": ["packages/thinng-testing/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/thinng-testing/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/thinng-testing/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["scope:testing", "type:library"]
+}

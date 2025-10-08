@@ -10,9 +10,9 @@ import type {
   Memory,
 } from '@elizaos/core';
 
-import { FuzzyLogicEngine } from './fuzzy-logic';
-import { DecisionMatrixSystem } from './decision-matrix';
-import { PatternRecognitionEngine } from './pattern-recognition';
+import { FuzzyLogicEngine } from './fuzzy-logic.js';
+import { DecisionMatrixSystem } from './decision-matrix.js';
+import { PatternRecognitionEngine } from './pattern-recognition.js';
 import type {
   FuzzyDecisionScenario,
   FuzzyDecisionResult,
@@ -21,7 +21,7 @@ import type {
   OptimizationProblem,
   OptimizationResult,
   EnhancedIntelligenceState
-} from './types';
+} from './types.js';
 
 /**
  * Action: Make Fuzzy Decision
@@ -214,7 +214,7 @@ export const analyzeDecisionPatternsAction: Action = {
       );
       
       // Prepare visualization data
-      let visualizationData = null;
+      let visualizationData: { webglData: any; renderingHints: any } | undefined = undefined;
       if (options.includeVisualization !== false) {
         visualizationData = {
           webglData: result.visualizationData,
@@ -252,9 +252,9 @@ export const analyzeDecisionPatternsAction: Action = {
           confidenceScore: result.learningMetrics.decisionAccuracy,
           qualityScore: result.learningMetrics.patternRecognitionAccuracy
         },
-        visualization: visualizationData
+        ...(visualizationData && { visualization: visualizationData })
       };
-      
+
     } catch (error) {
       return {
         success: false,
@@ -363,7 +363,7 @@ export const optimizeResourceAllocationAction: Action = {
       };
       
       // Prepare visualization data
-      let visualizationData = null;
+      let visualizationData: { webglData: any; renderingHints: any } | undefined = undefined;
       if (options.includeVisualization !== false) {
         visualizationData = {
           webglData: {
@@ -403,9 +403,9 @@ export const optimizeResourceAllocationAction: Action = {
           confidenceScore: mockSolution.solution.overallScore,
           qualityScore: mockSolution.solution.feasible ? 1.0 : 0.5
         },
-        visualization: visualizationData
+        ...(visualizationData && { visualization: visualizationData })
       };
-      
+
     } catch (error) {
       return {
         success: false,
@@ -517,7 +517,7 @@ export const explainDecisionReasoningAction: Action = {
       };
       
       // Prepare visualization data
-      let visualizationData = null;
+      let visualizationData: { webglData: any; renderingHints: any } | undefined = undefined;
       if (options.includeVisualization !== false) {
         visualizationData = {
           webglData: explanation.visualizationData,
@@ -553,9 +553,9 @@ export const explainDecisionReasoningAction: Action = {
           confidenceScore: explanation.reasoning.confidenceLevel,
           qualityScore: 0.9 // High quality for explanation completeness
         },
-        visualization: visualizationData
+        ...(visualizationData && { visualization: visualizationData })
       };
-      
+
     } catch (error) {
       return {
         success: false,

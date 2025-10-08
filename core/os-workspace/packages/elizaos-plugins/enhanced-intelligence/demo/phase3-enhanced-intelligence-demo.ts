@@ -11,11 +11,12 @@ import type {
   FuzzyDecisionScenario,
   FuzzyDecisionCriteria,
   PatternRecognitionConfig,
-  PatternType,
-  OptimizationProblem,
-  OptimizationAlgorithm,
   EnhancedIntelligenceState
-} from '../src/types';
+} from '../src/types.js';
+import { PatternType, OptimizationAlgorithm } from '../src/types.js';
+import type {
+  OptimizationProblem
+} from '../src/types.js';
 
 /**
  * Phase 3 Enhanced Intelligence Demo
@@ -98,8 +99,18 @@ export class Phase3EnhancedIntelligenceDemo {
   /**
    * Demonstrate advanced fuzzy logic decision making
    */
-  private static async demonstrateFuzzyLogicDecisions(): Promise<any[]> {
-    const results = [];
+  private static async demonstrateFuzzyLogicDecisions(): Promise<{
+    scenario: string;
+    result: any;
+    topAlternative: string;
+    confidence: number;
+  }[]> {
+    const results: {
+      scenario: string;
+      result: any;
+      topAlternative: string;
+      confidence: number;
+    }[] = [];
     
     // Scenario 1: Business Expansion Decision
     const businessExpansionScenario: FuzzyDecisionScenario = {
@@ -274,7 +285,7 @@ export class Phase3EnhancedIntelligenceDemo {
       timeframe: '3_months',
       decisionTypes: ['business', 'technical', 'financial', 'strategic'],
       learningMode: 'adaptive',
-      optimizationGoal: 'decision_accuracy',
+      optimizationGoal: 'accuracy',
       patternTypes: [
         PatternType.TEMPORAL,
         PatternType.BEHAVIORAL,
@@ -285,7 +296,7 @@ export class Phase3EnhancedIntelligenceDemo {
     };
     
     // Mock agent state
-    const agentState: EnhancedIntelligenceState = {
+    const agentState: Partial<EnhancedIntelligenceState> = {
       fuzzyDecisionHistory: [],
       recognizedPatterns: [],
       optimizationProblems: [],
@@ -333,7 +344,7 @@ export class Phase3EnhancedIntelligenceDemo {
     const patternResults = await PatternRecognitionEngine.analyzeDecisionPatterns(
       patternConfig,
       decisionHistory,
-      agentState
+      agentState as EnhancedIntelligenceState
     );
     
     console.log(`  ✅ Identified ${patternResults.identifiedPatterns.length} significant patterns`);
@@ -650,7 +661,7 @@ export class Phase3EnhancedIntelligenceDemo {
    * Generate simulated decision history for pattern recognition testing
    */
   private static generateDecisionHistory(count: number): any[] {
-    const history = [];
+    const history: any[] = [];
     const decisionTypes = ['business', 'technical', 'financial', 'strategic'];
     const baseTime = Date.now() - (90 * 24 * 60 * 60 * 1000); // 90 days ago
     
@@ -722,9 +733,9 @@ export class Phase3EnhancedIntelligenceDemo {
     console.log(`  Test Coverage: ${validation?.qualityMetrics?.testCoverage}`);
     
     console.log('\n🎉 PHASE 3 STATUS: ENHANCED INTELLIGENCE COMPLETE ✨');
-    console.log('🚀 Ready for integration with CEO\\'s Orrery, Developer\\'s Galaxy, Creator\\'s Cosmos');
+    console.log('🚀 Ready for integration with CEO\'s Orrery, Developer\'s Galaxy, Creator\'s Cosmos');
     console.log('⚡ Mathematical precision meets autonomous business intelligence');
-    console.log('🧠 World\\'s most advanced agent decision-making system operational!');
+    console.log('🧠 World\'s most advanced agent decision-making system operational!');
   }
 }
 

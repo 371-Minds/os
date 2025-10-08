@@ -3,31 +3,8 @@
  * Revolutionary testing infrastructure for 371 OS thi.ng integration validation
  */
 
-export * from './test-framework';
-export * from './performance-regression';
-export * from './integration-tests';
-export * from './test-discovery';
-export * from './test-reporting';
-export * from './phase1-tests';
-export * from './phase2-webgl-tests';
-export * from './phase3-intelligence-tests';
-export * from './phase4-performance-tests';
-export * from './cross-phase-integration';
+// Type exports (these should work since types.ts exists)
 export * from './types';
-
-// Core testing framework exports
-export { ThinngTestingFramework } from './test-framework';
-export { PerformanceRegressionSuite } from './performance-regression';
-export { IntegrationTestSuite } from './integration-tests';
-export { TestDiscoveryEngine } from './test-discovery';
-export { TestReportingSystem } from './test-reporting';
-
-// Phase-specific test exports
-export { Phase1MathematicalTests } from './phase1-tests';
-export { Phase2WebGLTests } from './phase2-webgl-tests';
-export { Phase3IntelligenceTests } from './phase3-intelligence-tests';
-export { Phase4PerformanceTests } from './phase4-performance-tests';
-export { CrossPhaseIntegrationTests } from './cross-phase-integration';
 
 // Version and metadata
 export const THINNG_TESTING_VERSION = '1.0.0';
@@ -41,9 +18,55 @@ export async function initializeThinngTesting() {
   console.log(`🧪 ${FRAMEWORK_NAME} v${THINNG_TESTING_VERSION}`);
   console.log('⚡ Initializing comprehensive testing infrastructure...');
   
-  const framework = ThinngTestingFramework.getInstance();
-  await framework.initialize();
-  
-  console.log('✅ Testing framework ready for Phase 5 validation!');
-  return framework;
+  try {
+    const { ThinngTestingFramework } = await import('./test-framework');
+    const framework = ThinngTestingFramework.getInstance();
+    await framework.initialize();
+    
+    console.log('✅ Testing framework ready for Phase 5 validation!');
+    return framework;
+  } catch (error) {
+    console.error('❌ Failed to initialize testing framework:', error);
+    throw error;
+  }
+}
+
+/**
+ * Initialize Phase 1 Mathematical Tests
+ */
+export async function initializePhase1Tests() {
+  const { Phase1MathematicalTests } = await import('./phase1-tests');
+  return new Phase1MathematicalTests();
+}
+
+/**
+ * Initialize Phase 2 WebGL Tests
+ */
+export async function initializePhase2Tests() {
+  const { Phase2WebGLTests } = await import('./phase2-webgl-tests');
+  return new Phase2WebGLTests();
+}
+
+/**
+ * Initialize Phase 3 Intelligence Tests
+ */
+export async function initializePhase3Tests() {
+  const { Phase3IntelligenceTests } = await import('./phase3-intelligence-tests');
+  return new Phase3IntelligenceTests();
+}
+
+/**
+ * Initialize Phase 4 Performance Tests
+ */
+export async function initializePhase4Tests() {
+  const { Phase4PerformanceTests } = await import('./phase4-performance-tests');
+  return new Phase4PerformanceTests();
+}
+
+/**
+ * Initialize Cross-Phase Integration Tests
+ */
+export async function initializeCrossPhaseTests() {
+  const { CrossPhaseIntegrationTests } = await import('./cross-phase-integration');
+  return new CrossPhaseIntegrationTests();
 }

@@ -2,29 +2,26 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [deploy-akash.sh](file://scripts/deploy-akash.sh)
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md)
-- [reference/akash_docs/Akash Documentation.md](file://reference/akash_docs/Akash Documentation.md) - *Renamed in recent commit*
-- [371-os/src/minds371/agents/technical/deployment_agent.py](file://371-os/src/minds371/agents/technical/deployment_agent.py)
-- [371-os/deployment/cloud/digitalocean/app-spec.yaml](file://371-os/deployment/cloud/digitalocean/app-spec.yaml)
-- [371-os/deployment/kubernetes/deployment.yaml](file://371-os/deployment/kubernetes/deployment.yaml)
-- [sotalogic/Claude Sonnet 4/Alignment Review of 371OS_launch Project Plan/now can you create a guide for me .md](file://sotalogic/Claude Sonnet 4/Alignment Review of 371OS_launch Project Plan/now can you create a guide for me .md)
-- [deployments/README.md](file://deployments/README.md) - *Updated in recent commit*
-- [reference/akash_docs/Githubdeployfeature.md](file://reference/akash_docs/Githubdeployfeature.md) - *Added in recent commit*
-- [deployments/universal-tool-server/deploy.yml](file://deployments/universal-tool-server/deploy.yml) - *New GitHub Deploy configuration*
-- [deployments/ceo-agent/deploy.yml](file://deployments/ceo-agent/deploy.yml) - *New GitHub Deploy configuration*
-- [deployments/agent-coordinator/deploy.yml](file://deployments/agent-coordinator/deploy.yml) - *New GitHub Deploy configuration*
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md) - *Added in recent commit*
+- [deploy-akash.sh](file://core\tools\deployment\deploy-akash.sh) - *Updated in recent commit*
+- [deploy-akash.ps1](file://core\tools\deployment\deploy-akash.ps1) - *Updated in recent commit*
+- [integrations/akash/universal-tool-server/deploy.yml](file://integrations\akash\universal-tool-server\deploy.yml) - *New GitHub Deploy configuration*
+- [integrations/akash/ceo-agent/deploy.yml](file://integrations\akash\ceo-agent\deploy.yml) - *New GitHub Deploy configuration*
+- [integrations/akash/agent-coordinator/deploy.yml](file://integrations\akash\agent-coordinator\deploy.yml) - *New GitHub Deploy configuration*
+- [documentation/reference/akash_docs/Akash Documentation.md](file://documentation\reference\akash_docs\Akash Documentation.md) - *Updated in recent commit*
+- [documentation/reference/akash_docs/Stack Definition Language templates/Elizaos/deploy.yaml](file://documentation\reference\akash_docs/Stack Definition Language templates/Elizaos/deploy.yaml) - *Updated in recent commit*
+- [documentation/reference/akash_docs/Stack Definition Language templates/mongoDBdeploy.yaml](file://documentation\reference\akash_docs/Stack Definition Language templates/mongoDBdeploy.yaml) - *Updated in recent commit*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated reference to renamed Akash documentation file
-- Added comprehensive documentation for GitHub Deploy to Akash integration
-- Updated Akash Network Deployment section with new automated deployment workflows
-- Added new section on GitHub Actions automation for Akash deployments
-- Enhanced deployment manifest examples with actual production configurations
-- Updated cost optimization figures with real deployment metrics
-- Added environment variable configuration details for Akash Console
+- Added comprehensive Phase 5 deployment guide with updated deployment procedures and requirements
+- Updated Akash Network Deployment section with new automated deployment workflows and PowerShell support
+- Enhanced deployment manifest examples with actual production configurations from integration directory
+- Updated cost optimization figures with real deployment metrics and savings calculations
+- Added environment variable configuration details for Akash Console and provider selection
+- Integrated new SDL templates for ElizaOS and MongoDB deployments
+- Added detailed PowerShell deployment script analysis and usage instructions
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -43,7 +40,7 @@ This guide provides comprehensive instructions for deploying 371OS, with a prima
 The 371OS system is designed as a multi-agent architecture with specialized AI agents (CEO, CFO, CTO, etc.) that can be orchestrated across various infrastructure platforms. The deployment strategy leverages decentralized cloud infrastructure through Akash Network while maintaining compatibility with traditional providers like AWS and DigitalOcean for hybrid scenarios.
 
 **Section sources**
-- [IMPLEMENTATION_GUIDE.md](file://IMPLEMENTATION_GUIDE.md#L274-L358)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L2-L405)
 
 ## Akash Network Deployment
 
@@ -85,17 +82,18 @@ Fund the wallet using the Akash faucet at https://akash.network/faucet with the 
 BALANCE=$(akash query bank balances $WALLET_ADDRESS --node https://rpc.akashnet.net:443 -o json | jq -r '.balances[] | select(.denom=="uakt") | .amount' || echo "0")
 ```
 
-**Section sources**
-- [deploy-akash.sh](file://scripts/deploy-akash.sh#L52-L100)
+**Section sources**   
+- [deploy-akash.sh](file://core\tools\deployment\deploy-akash.sh#L52-L100)
+- [deploy-akash.ps1](file://core\tools\deployment\deploy-akash.ps1#L100-L150)
 
 ### Deployment Manifest Creation
 
 The deployment manifest is written in Stack Definition Language (SDL) and defines the services, resources, and pricing parameters for the deployment.
 
-The system now supports automated GitHub Deploy integration, eliminating the need for manual Docker image building and pushing. The deployment configurations are organized in the deployments directory:
+The system now supports automated GitHub Deploy integration, eliminating the need for manual Docker image building and pushing. The deployment configurations are organized in the integrations directory:
 
 ```yaml
-# deployments/universal-tool-server/deploy.yml
+# integrations/akash/universal-tool-server/deploy.yml
 ---
 version: "2.0"
 
@@ -116,10 +114,10 @@ services:
 
 Similar configurations exist for the CEO Agent and Agent Coordinator services, each with their specific environment variables and resource requirements.
 
-**Section sources**
-- [deployments/universal-tool-server/deploy.yml](file://deployments/universal-tool-server/deploy.yml#L1-L45)
-- [deployments/ceo-agent/deploy.yml](file://deployments/ceo-agent/deploy.yml#L1-L44)
-- [deployments/agent-coordinator/deploy.yml](file://deployments/agent-coordinator/deploy.yml#L1-L43)
+**Section sources**   
+- [integrations/akash/universal-tool-server/deploy.yml](file://integrations\akash\universal-tool-server\deploy.yml#L1-L45)
+- [integrations/akash/ceo-agent/deploy.yml](file://integrations\akash\ceo-agent\deploy.yml#L1-L44)
+- [integrations/akash/agent-coordinator/deploy.yml](file://integrations\akash\agent-coordinator\deploy.yml#L1-L43)
 
 ### GitHub Deploy Integration
 
@@ -147,19 +145,19 @@ jobs:
         uses: akash-network/github-action@v1
         with:
           wallet: ${{ secrets.AKASH_WALLET }}
-          deployment-file: deployments/universal-tool-server/deploy.yml
+          deployment-file: integrations/akash/universal-tool-server/deploy.yml
 ```
 
-**Section sources**
-- [deployments/README.md](file://deployments/README.md#L1-L84)
-- [reference/akash_docs/Githubdeployfeature.md](file://reference/akash_docs/Githubdeployfeature.md#L1-L279)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L150-L200)
+- [documentation/reference/akash_docs/Akash Documentation.md](file://documentation\reference\akash_docs\Akash Documentation.md#L1-L41)
 
 ### Resource Allocation and Cost Optimization
 
 The resource allocation in the SDL files is optimized for cost efficiency across all components:
 
 ```yaml
-# deployments/universal-tool-server/deploy.yml
+# integrations/akash/universal-tool-server/deploy.yml
 profiles:
   compute:
     universal-tool-server:
@@ -191,9 +189,9 @@ The pricing strategy maintains the 97.6% cost reduction compared to traditional 
 | CEO Agent | $8.00/month | $0.20/month | 97.5% |
 | Agent Coordinator | $4.00/month | $0.10/month | 97.5% |
 
-**Section sources**
-- [deployments/README.md](file://deployments/README.md#L65-L80)
-- [deployments/universal-tool-server/deploy.yml](file://deployments/universal-tool-server/deploy.yml#L25-L45)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L250-L300)
+- [integrations/akash/universal-tool-server/deploy.yml](file://integrations\akash\universal-tool-server\deploy.yml#L25-L45)
 
 ### Deployment Execution
 
@@ -201,7 +199,7 @@ Execute the deployment process by connecting your GitHub repository to Akash Con
 
 1. **Connect Repository**: Navigate to Akash Console and connect your GitHub account
 2. **Select Repository**: Choose the 371 OS repository (public or private)
-3. **Configure Deployment**: Select the appropriate SDL file from the deployments directory
+3. **Configure Deployment**: Select the appropriate SDL file from the integrations directory
 4. **Set Environment Variables**: Configure required variables in the console interface
 5. **Deploy**: Click "Create Deployment" to initiate automated deployment
 
@@ -212,8 +210,8 @@ The system automatically handles:
 - Container image creation
 - Akash deployment submission
 
-**Section sources**
-- [reference/akash_docs/Githubdeployfeature.md](file://reference/akash_docs/Githubdeployfeature.md#L50-L150)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L300-L350)
 
 ## Alternative Deployment Options
 
@@ -239,8 +237,8 @@ AWS deployment uses boto3 for infrastructure management and ECR for container re
 - Load balancer setup
 - CloudWatch monitoring integration
 
-**Section sources**
-- [371-os/src/minds371/agents/technical/deployment_agent.py](file://371-os/src/minds371/agents/technical/deployment_agent.py#L92-L121)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L350-L400)
 
 ### DigitalOcean Deployment
 
@@ -265,8 +263,8 @@ The deployment process includes:
 - DNS management through DigitalOcean's API
 - Automated backups and snapshots
 
-**Section sources**
-- [371-os/src/minds371/agents/technical/deployment_agent.py](file://371-os/src/minds371/agents/technical/deployment_agent.py#L40-L68)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L400-L450)
 
 ### Hybrid Deployment Scenarios
 
@@ -295,8 +293,8 @@ G --> A
 H --> B
 ```
 
-**Diagram sources**
-- [371-os/src/minds371/agents/technical/deployment_agent.py](file://371-os/src/minds371/agents/technical/deployment_agent.py#L65-L95)
+**Diagram sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L450-L500)
 
 ## Deployment Architecture
 
@@ -327,8 +325,8 @@ spec:
         - containerPort: 3000
 ```
 
-**Section sources**
-- [371-os/deployment/kubernetes/deployment.yaml](file://371-os/deployment/kubernetes/deployment.yaml#L1-L20)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L500-L550)
 
 ### Network Topology
 
@@ -347,8 +345,8 @@ Agent-Coordinator --> Logging
 
 External access is managed through ingress controllers with TLS termination, while internal services communicate over private networks with service discovery.
 
-**Diagram sources**
-- [371-os/deployment/kubernetes/ingress.yaml](file://371-os/deployment/kubernetes/ingress.yaml#L1-L15)
+**Diagram sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L550-L600)
 
 ### Storage Configuration
 
@@ -370,8 +368,8 @@ spec:
 
 Stateless services use ephemeral storage, while databases and file services use persistent volumes with regular backups.
 
-**Section sources**
-- [371-os/deployment/kubernetes/secrets.yaml](file://371-os/deployment/kubernetes/secrets.yaml#L1-L10)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L600-L650)
 
 ## Configuration Requirements
 
@@ -402,8 +400,8 @@ Key requirements include:
 - Compliance with security standards
 - High availability configurations
 
-**Section sources**
-- [371-os/configs/production.yaml](file://371-os/configs/production.yaml#L1-L20)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L650-L700)
 
 ### Scaling Parameters
 
@@ -426,8 +424,8 @@ vertical_scaling:
 
 The system monitors resource utilization and automatically adjusts capacity based on demand patterns.
 
-**Section sources**
-- [371-os/configs/agents/routing_rules.yaml](file://371-os/configs/agents/routing_rules.yaml#L1-L15)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L700-L750)
 
 ## Monitoring and Backup
 
@@ -453,8 +451,8 @@ Key metrics tracked:
 - Database performance
 - Queue depths and processing times
 
-**Diagram sources**
-- [371-os/deployment/kubernetes/configmap.yaml](file://371-os/deployment/kubernetes/configmap.yaml#L1-L10)
+**Diagram sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L750-L800)
 
 ### Backup Strategies
 
@@ -482,8 +480,8 @@ Backup retention policy:
 - Monthly backups for 12 months
 - Encrypted storage with access controls
 
-**Section sources**
-- [371-os/configs/logging.yaml](file://371-os/configs/logging.yaml#L1-L15)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L800-L850)
 
 ## Troubleshooting
 
@@ -526,8 +524,9 @@ akash provider lease-logs --dseq $DSEQ --provider $PROVIDER
 # Check for missing required variables in SDL
 ```
 
-**Section sources**
-- [deploy-akash.sh](file://scripts/deploy-akash.sh#L300-L350)
+**Section sources**   
+- [deploy-akash.sh](file://core\tools\deployment\deploy-akash.sh#L300-L350)
+- [deploy-akash.ps1](file://core\tools\deployment\deploy-akash.ps1#L300-L350)
 
 ## Performance and Optimization
 
@@ -560,5 +559,5 @@ Different deployment scenarios have varying performance characteristics:
 
 For latency-sensitive applications, traditional providers may be preferred, while cost-sensitive workloads benefit from Akash deployment.
 
-**Section sources**
-- [deploy-akash.sh](file://scripts/deploy-akash.sh#L250-L280)
+**Section sources**   
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md#L850-L900)

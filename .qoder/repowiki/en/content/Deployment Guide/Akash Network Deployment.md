@@ -2,30 +2,27 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Akash Documentation.md](file://reference\akash_docs\Akash Documentation.md) - *Renamed in recent commit*
-- [Githubdeployfeature.md](file://reference\akash_docs\Githubdeployfeature.md)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md) - *Added in recent commit*
 - [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
 - [deploy-akash.ps1](file://tools\deployment\deploy-akash.ps1)
-- [config.py](file://371-os\src\minds371\adaptive_llm_router\config.py)
-- [provider_registry.py](file://371-os\src\minds371\adaptive_llm_router\provider_registry.py)
-- [providers.json](file://371-os\src\minds371\adaptive_llm_router\providers.json)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py)
-- [budget_guard.py](file://371-os\src\minds371\adaptive_llm_router\budget_guard.py)
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py)
-- [README.md](file://deployments\README.md) - *Updated in recent commit*
-- [AB/milestone-tracker.md](file://AB\milestone-tracker.md) - *Updated in recent commit*
+- [agent-coordinator/deploy.yml](file://integrations\akash\agent-coordinator\deploy.yml)
+- [ceo-agent/deploy.yml](file://integrations\akash\ceo-agent\deploy.yml)
+- [universal-tool-server/deploy.yml](file://integrations\akash\universal-tool-server\deploy.yml)
+- [Akash Documentation.md](file://reference\akash_docs\Akash Documentation.md)
+- [Githubdeployfeature.md](file://reference\akash_docs\Githubdeployfeature.md)
+- [AB/milestone-tracker.md](file://project-management\AB\milestone-tracker.md)
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated file reference for renamed documentation from "Akash Documentation.md" to current filename
-- Added comprehensive section on GitHub Deploy integration with Akash Network
-- Updated cost reduction claims with verified data from milestone tracker
-- Enhanced deployment process description with new automated workflows
-- Added details about directory structure and component configurations
-- Integrated information about environment variables and cost optimization
-- Updated references to include new documentation files
+- Added comprehensive Phase 5 deployment guide with updated requirements, configurations, and deployment workflows
+- Enhanced cost reduction claims with verified data from the new deployment guide
+- Updated deployment manifest examples with actual YAML configurations from integration files
+- Added detailed resource allocation settings based on real deployment files
+- Updated deployment workflow with new automated script commands
+- Added performance validation metrics from production testing
+- Integrated new troubleshooting solutions from the updated guide
+- Enhanced scaling and maintenance procedures with real configuration examples
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -33,36 +30,34 @@
 3. [Core Components](#core-components)
 4. [Architecture Overview](#architecture-overview)
 5. [Detailed Component Analysis](#detailed-component-analysis)
-6. [Dependency Analysis](#dependency-analysis)
-7. [Performance Considerations](#performance-considerations)
-8. [Troubleshooting Guide](#troubleshooting-guide)
-9. [Conclusion](#conclusion)
+6. [Deployment Configuration](#deployment-configuration)
+7. [Performance and Cost Analysis](#performance-and-cost-analysis)
+8. [Deployment Workflow](#deployment-workflow)
+9. [Scaling and Maintenance](#scaling-and-maintenance)
+10. [Troubleshooting Guide](#troubleshooting-guide)
+11. [Conclusion](#conclusion)
 
 ## Introduction
 This document provides comprehensive guidance for deploying 371OS on the Akash Network, focusing on achieving a 97.6% infrastructure cost reduction. The documentation covers the complete deployment workflow, including Akash wallet setup, deployment manifest (YAML) structure, bid strategy configuration, and lease activation. It details how the Universal Tool Server leverages Akash's decentralized compute marketplace for stateless agent execution and explains integration with the Adaptive LLM Router for dynamic scaling of LLM inference workloads based on demand. The document includes examples of deployment scripts, environment variables, and resource allocation settings (CPU, memory, storage), illustrating the workflow from image push to IPFS, deployment submission, and health check validation.
 
 ## Project Structure
-The 371OS project structure is organized to support modular development and deployment across multiple platforms, with specific directories dedicated to Akash Network deployment. The key components for Akash deployment are located in the scripts and akash_docs directories, while the core intelligence and routing logic resides in the 371-os/src/minds371 directory.
+The 371OS project structure is organized to support modular development and deployment across multiple platforms, with specific directories dedicated to Akash Network deployment. The key components for Akash deployment are located in the tools/deployment and integrations/akash directories, while the core intelligence and routing logic resides in the legacy/371-os/src/minds371 directory.
 
 ```mermaid
 graph TD
-A[Root Directory] --> B[371-os]
-A --> C[scripts]
-A --> D[akash_docs]
-A --> E[packages/elizaos-plugins]
-B --> F[src/minds371]
-F --> G[adaptive_llm_router]
-G --> H[config.py]
-G --> I[provider_registry.py]
-G --> J[policy_engine.py]
-G --> K[budget_guard.py]
-G --> L[intelligent_router_agent.py]
-G --> M[usage_ledger.py]
-C --> N[deploy-akash.sh]
-C --> O[deploy-akash.ps1]
-D --> P[Akash Documentation.md]
-D --> Q[Githubdeployfeature.md]
-E --> Q[universal-tool-server]
+A[Root Directory] --> B[integrations/akash]
+A --> C[tools/deployment]
+A --> D[reference/akash_docs]
+A --> E[core/os-workspace]
+B --> F[agent-coordinator]
+B --> G[ceo-agent]
+B --> H[universal-tool-server]
+C --> I[deploy-akash.sh]
+C --> J[deploy-akash.ps1]
+D --> K[Akash Documentation.md]
+D --> L[Githubdeployfeature.md]
+E --> M[packages/thinng-testing]
+E --> N[apps/agent-factory]
 style A fill:#f9f,stroke:#333
 style B fill:#bbf,stroke:#333
 style C fill:#bbf,stroke:#333
@@ -71,16 +66,14 @@ style E fill:#bbf,stroke:#333
 ```
 
 **Diagram sources**
-- [Akash Documentation.md](file://reference\akash_docs\Akash Documentation.md)
-- [Githubdeployfeature.md](file://reference\akash_docs\Githubdeployfeature.md)
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-- [deploy-akash.ps1](file://tools\deployment\deploy-akash.ps1)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
+- [integrations/akash](file://integrations\akash)
+- [tools/deployment](file://tools\deployment)
 
 **Section sources**
-- [Akash Documentation.md](file://reference\akash_docs\Akash Documentation.md)
-- [Githubdeployfeature.md](file://reference\akash_docs\Githubdeployfeature.md)
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-- [deploy-akash.ps1](file://tools\deployment\deploy-akash.ps1)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
+- [integrations/akash](file://integrations\akash)
+- [tools/deployment](file://tools\deployment)
 
 ## Core Components
 The core components for Akash deployment include the deployment scripts, the Adaptive LLM Router, and the Universal Tool Server. The deployment scripts automate the entire process of setting up the Akash environment, creating wallets, validating configurations, and submitting deployments. The Adaptive LLM Router dynamically manages LLM inference workloads based on demand and budget constraints, while the Universal Tool Server provides stateless agent execution capabilities on Akash's decentralized compute marketplace.
@@ -88,7 +81,7 @@ The core components for Akash deployment include the deployment scripts, the Ada
 **Section sources**
 - [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
 - [deploy-akash.ps1](file://tools\deployment\deploy-akash.ps1)
-- [config.py](file://371-os\src\minds371\adaptive_llm_router\config.py)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
 
 ## Architecture Overview
 The architecture for deploying 371OS on Akash Network follows a decentralized compute model where workloads are deployed as containerized services on the Akash marketplace. The system leverages Akash's Stack Definition Language (SDL) to define deployment requirements, resource allocations, and pricing parameters. The Adaptive LLM Router sits at the core of the architecture, intelligently routing requests to appropriate LLM providers based on cost, performance, and availability metrics.
@@ -144,8 +137,8 @@ class I,J,K provider
 
 **Diagram sources**
 - [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-- [config.py](file://371-os\src\minds371\adaptive_llm_router\config.py)
-- [providers.json](file://371-os\src\minds371\adaptive_llm_router\providers.json)
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
+- [integrations/akash/ceo-agent/deploy.yml](file://integrations\akash\ceo-agent\deploy.yml)
 
 ## Detailed Component Analysis
 
@@ -295,143 +288,323 @@ IntelligentRouterAgent --> LogicExtractorAgent : "uses"
 - [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py)
 - [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py)
 
-### Deployment Manifest Analysis
-The Stack Definition Language (SDL) manifest defines the deployment configuration for 371OS on Akash Network. This declarative configuration specifies services, resource requirements, and pricing parameters.
+## Deployment Configuration
+The Stack Definition Language (SDL) manifest defines the deployment configuration for 371OS on Akash Network. This declarative configuration specifies services, resource requirements, and pricing parameters based on the actual deployment files in the integrations/akash directory.
 
-#### SDL Manifest Structure
-```mermaid
-flowchart TD
-A[Deployment Manifest] --> B[Version]
-A --> C[Services]
-A --> D[Profiles]
-A --> E[Deployment]
-C --> F[CEO Agent]
-C --> G[Agent Coordinator]
-F --> H[Image]
-F --> I[Environment Variables]
-F --> J[Exposed Ports]
-F --> K[Command]
-G --> L[Image]
-G --> M[Environment Variables]
-G --> N[Exposed Ports]
-G --> O[Command]
-D --> P[Compute Profile]
-D --> Q[Placement Profile]
-P --> R[CEO Agent Resources]
-P --> S[Agent Coordinator Resources]
-R --> T[CPU Units: 0.5]
-R --> U[Memory Size: 512Mi]
-R --> V[Storage Size: 1Gi]
-S --> W[CPU Units: 0.25]
-S --> X[Memory Size: 256Mi]
-S --> Y[Storage Size: 512Mi]
-Q --> Z[Attributes]
-Q --> AA[SignedBy]
-Q --> AB[Pricing]
-AB --> AC[CEO Agent: 1000 uakt/month]
-AB --> AD[Agent Coordinator: 500 uakt/month]
-E --> AE[CEO Agent Deployment]
-E --> AF[Agent Coordinator Deployment]
-AE --> AG[Profile: ceo-agent]
-AE --> AH[Count: 1]
-AF --> AI[Profile: agent-coordinator]
-AF --> AJ[Count: 1]
-style A fill:#4CAF50,stroke:#333
-style B fill:#2196F3,stroke:#333
-style C fill:#2196F3,stroke:#333
-style D fill:#2196F3,stroke:#333
-style E fill:#2196F3,stroke:#333
-style F fill:#FFC107,stroke:#333
-style G fill:#FFC107,stroke:#333
-style P fill:#9C27B0,stroke:#333
-style Q fill:#9C27B0,stroke:#333
-style R fill:#FF9800,stroke:#333
-style S fill:#FF9800,stroke:#333
-style AB fill:#FF9800,stroke:#333
-style AE fill:#00BCD4,stroke:#333
-style AF fill:#00BCD4,stroke:#333
+### CEO Agent Deployment Configuration
+```yaml
+version: "2.0"
+services:
+  ceo-agent:
+    image: ghcr.io/371-minds/ceo-agent:latest
+    env:
+      - NODE_ENV=production
+      - ELIZAOS_ENVIRONMENT=production
+      - PORT=3000
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+profiles:
+  compute:
+    ceo-agent:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 512Mi
+        storage:
+          size: 1Gi
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        ceo-agent:
+          denom: uakt
+          amount: 1000
+deployment:
+  ceo-agent:
+    dcloud:
+      profile: ceo-agent
+      count: 1
 ```
 
-**Diagram sources**
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-
-**Section sources**
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-
-## Dependency Analysis
-The deployment system has a well-defined dependency structure that ensures components work together seamlessly. The deployment scripts depend on the Akash CLI and configuration, while the Adaptive LLM Router components have specific dependencies on configuration files and data models.
-
-```mermaid
-graph TD
-A[deploy-akash.sh] --> B[Akash CLI]
-A --> C[Akash Configuration]
-A --> D[SDL Manifest]
-A --> E[Wallet]
-F[Adaptive LLM Router] --> G[config.py]
-F --> H[provider_registry.py]
-F --> I[policy_engine.py]
-F --> J[budget_guard.py]
-F --> K[usage_ledger.py]
-F --> L[intelligent_router_agent.py]
-H --> M[providers.json]
-J --> G
-J --> K
-I --> J
-L --> K
-style A fill:#4CAF50,stroke:#333
-style B fill:#2196F3,stroke:#333
-style C fill:#2196F3,stroke:#333
-style D fill:#2196F3,stroke:#333
-style E fill:#2196F3,stroke:#333
-style F fill:#FF9800,stroke:#333
-style G fill:#673AB7,stroke:#333
-style H fill:#673AB7,stroke:#333
-style I fill:#673AB7,stroke:#333
-style J fill:#673AB7,stroke:#333
-style K fill:#673AB7,stroke:#333
-style L fill:#673AB7,stroke:#333
-style M fill:#009688,stroke:#333
-classDef script fill:#4CAF50,stroke:#333;
-classDef akash fill:#2196F3,stroke:#333;
-classDef router fill:#FF9800,stroke:#333;
-classDef config fill:#673AB7,stroke:#333;
-classDef data fill:#009688,stroke:#333;
-class A script
-class B,C,D,E akash
-class F router
-class G,H,I,J,K,L config
-class M data
+### Agent Coordinator Deployment Configuration
+```yaml
+version: "2.0"
+services:
+  agent-coordinator:
+    image: ghcr.io/371-minds/agent-coordinator:latest
+    env:
+      - NODE_ENV=production
+      - COORDINATION_PORT=3001
+    expose:
+      - port: 3001
+        as: 80
+        to:
+          - global: true
+profiles:
+  compute:
+    agent-coordinator:
+      resources:
+        cpu:
+          units: 0.25
+        memory:
+          size: 256Mi
+        storage:
+          size: 512Mi
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        agent-coordinator:
+          denom: uakt
+          amount: 500
+deployment:
+  agent-coordinator:
+    dcloud:
+      profile: agent-coordinator
+      count: 1
 ```
 
-**Diagram sources**
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-- [config.py](file://371-os\src\minds371\adaptive_llm_router\config.py)
-- [provider_registry.py](file://371-os\src\minds371\adaptive_llm_router\provider_registry.py)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py)
-- [budget_guard.py](file://371-os\src\minds371\adaptive_llm_router\budget_guard.py)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py)
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py)
-- [providers.json](file://371-os\src\minds371\adaptive_llm_router\providers.json)
+### Universal Tool Server Deployment Configuration
+```yaml
+version: "2.0"
+services:
+  universal-tool-server:
+    image: ghcr.io/371-minds/universal-tool-server:latest
+    env:
+      - NODE_ENV=production
+      - ETHEREUM_RPC_URL
+      - REGISTRY_CONTRACT_ADDRESS
+      - IPFS_API_URL
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+profiles:
+  compute:
+    universal-tool-server:
+      resources:
+        cpu:
+          units: 0.25
+        memory:
+          size: 256Mi
+        storage:
+          size: 512Mi
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        universal-tool-server:
+          denom: uakt
+          amount: 500
+deployment:
+  universal-tool-server:
+    dcloud:
+      profile: universal-tool-server
+      count: 1
+```
 
 **Section sources**
-- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
-- [config.py](file://371-os\src\minds371\adaptive_llm_router\config.py)
-- [provider_registry.py](file://371-os\src\minds371\adaptive_llm_router\provider_registry.py)
-- [policy_engine.py](file://371-os\src\minds371\adaptive_llm_router\policy_engine.py)
-- [budget_guard.py](file://371-os\src\minds371\adaptive_llm_router\budget_guard.py)
-- [usage_ledger.py](file://371-os\src\minds371\adaptive_llm_router\usage_ledger.py)
-- [intelligent_router_agent.py](file://371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py)
-- [providers.json](file://371-os\src\minds371\adaptive_llm_router\providers.json)
+- [integrations/akash/ceo-agent/deploy.yml](file://integrations\akash\ceo-agent\deploy.yml)
+- [integrations/akash/agent-coordinator/deploy.yml](file://integrations\akash\agent-coordinator\deploy.yml)
+- [integrations/akash/universal-tool-server/deploy.yml](file://integrations\akash\universal-tool-server\deploy.yml)
 
-## Performance Considerations
+## Performance and Cost Analysis
 The deployment architecture is designed to achieve significant cost savings (97.6%) compared to traditional cloud infrastructure. The Adaptive LLM Router optimizes performance by dynamically selecting the most appropriate LLM provider based on cost, latency, and budget constraints. The system uses a tiered approach to provider selection, with high-quality models reserved for critical tasks when budget allows, and cheaper models used when budget is low. The deployment configuration is optimized for cost-efficiency with minimal resource allocations that still meet performance requirements.
+
+### Performance Validation Results
+| Component | Target | Achieved | Status |
+|-----------|--------|----------|---------|
+| **Vector Operations** | 3.2x improvement | 3.5x | ✅ EXCEEDED |
+| **WebGL Rendering** | 60fps guaranteed | 60fps | ✅ ACHIEVED |
+| **Agent Intelligence** | 3.8x faster decisions | 3.8x | ✅ ACHIEVED |
+| **Memory Efficiency** | 60% reduction | 60% | ✅ ACHIEVED |
+| **Overall Performance** | 3.1x improvement | 3.1x | ✅ ACHIEVED |
+
+### Cost Analysis
+- **Traditional Cloud**: $1,000/month
+- **Akash Network**: $24/month
+- **Savings**: $976/month (97.6% reduction)
+- **Setup Cost**: $0 (no upfront fees)
+- **Scaling Cost**: Linear with usage
+
+**Section sources**
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
+
+## Deployment Workflow
+The deployment workflow follows a systematic process from environment preparation to validation and monitoring.
+
+### Step 1: Environment Preparation
+```powershell
+# Prepare production environment
+cd 
+bun install --production
+bun nx build --configuration=production
+```
+
+### Step 2: Testing Validation
+```powershell
+# Execute comprehensive testing
+bun core/os-workspace/packages/demo/phase5-deployment-demo.ts
+
+# Verify results:
+# - Success rate: 95%+
+# - Performance targets: All met
+# - Production readiness: READY
+```
+
+### Step 3: Build and Package
+```powershell
+# Build production packages
+bun nx build thinng-testing --configuration=production
+bun nx build cognitive-engine --configuration=production
+bun nx build business-intelligence --configuration=production
+```
+
+### Step 4: Akash Deployment
+```bash
+# Deploy to Akash Network
+export AKASH_NODE="https://rpc.akashnet.net:443"
+export AKASH_CHAIN_ID="akashnet-2"
+
+# Create deployment
+akash tx deployment create akash-deployment.yml \
+  --from $AKASH_KEY_NAME \
+  --node $AKASH_NODE \
+  --chain-id $AKASH_CHAIN_ID \
+  --gas-prices="0.025uakt" \
+  --gas="auto" \
+  --gas-adjustment="1.15"
+```
+
+### Step 5: Validation and Monitoring
+```bash
+# Validate deployment
+curl https://371os-demo.akash.io/health
+
+# Monitor performance
+curl https://371os-demo.akash.io/api/metrics
+
+# Check logs
+akash provider lease-logs \
+  --dseq $AKASH_DSEQ \
+  --provider $AKASH_PROVIDER \
+  --from $AKASH_KEY_NAME
+```
+
+**Section sources**
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
+- [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
+
+## Scaling and Maintenance
+The system supports horizontal scaling and provides comprehensive maintenance procedures.
+
+### Horizontal Scaling
+```yaml
+# Update deployment count
+deployment:
+  web:
+    westcoast:
+      profile: web
+      count: 3  # Scale to 3 instances
+```
+
+### Monitoring and Alerts
+```typescript
+// Configure monitoring alerts
+const alerts = {
+  performance: {
+    threshold: "2.5x improvement minimum",
+    action: "scale_up"
+  },
+  memory: {
+    threshold: "80% usage",
+    action: "restart_service"
+  },
+  uptime: {
+    threshold: "99% minimum",
+    action: "failover"
+  }
+};
+```
+
+### Update Procedures
+```bash
+# Rolling update procedure
+1. Deploy new version to staging
+2. Run comprehensive test suite
+3. Validate performance targets
+4. Deploy to production with blue-green strategy
+5. Monitor for 24 hours
+6. Complete deployment
+```
+
+**Section sources**
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
 
 ## Troubleshooting Guide
 This section addresses common issues encountered during Akash deployment and provides solutions for each problem.
 
 **Section sources**
+- [PHASE5_DEPLOYMENT_GUIDE.md](file://PHASE5_DEPLOYMENT_GUIDE.md)
 - [deploy-akash.sh](file://tools\deployment\deploy-akash.sh)
 - [deploy-akash.ps1](file://tools\deployment\deploy-akash.ps1)
+
+### Common Deployment Issues
+
+#### 1. Test Failures
+**Issue**: Some tests failing during deployment validation
+**Solution**: 
+```bash
+# Run individual test phases
+bun core/os-workspace/packages/thinng-testing/src/phase1-tests.ts
+bun core/os-workspace/packages/thinng-testing/src/phase2-webgl-tests.ts
+
+# Check test dependencies
+bun nx affected:test --all
+```
+
+#### 2. Performance Regression
+**Issue**: Performance targets not met
+**Solution**:
+```bash
+# Run performance validation
+bun core/os-workspace/packages/demo/phase4-performance-demo.ts
+
+# Check system resources
+node AB/scripts/quick-status.js
+```
+
+#### 3. Akash Deployment Failures
+**Issue**: Deployment to Akash Network fails
+**Solution**:
+```bash
+# Validate SDL configuration
+akash validate akash-deployment.yml
+
+# Check account balance
+akash query bank balances $AKASH_ACCOUNT_ADDRESS
+
+# Retry deployment
+unset AKASH_DSEQ
+akash tx deployment create akash-deployment.yml --from $AKASH_KEY_NAME
+```
 
 ### Insufficient Bids
 If no providers bid on your deployment, consider the following solutions:

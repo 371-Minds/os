@@ -2,33 +2,13 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [371-os\README.md](file://371-os/README.md)
-- [371-os\_MASTER_ARCHITECTURE.md](file://371-os/_MASTER_ARCHITECTURE.md)
-- [371-os\src\minds371\adaptive_llm_router\data_models.py](file://371-os/src/minds371/adaptive_llm_router/data_models.py)
-- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
-- [371-os\src\minds371\adaptive_llm_router\llm.py](file://371-os/src/minds371/adaptive_llm_router/llm.py)
-- [371-os\src\minds371\agents\base_agent\base_agent.py](file://371-os/src/minds371/agents/base_agent/base_agent.py)
-- [371-os\src\minds371\services\email_system\utils\email-service.js](file://371-os/src/minds371/services/email_system/utils/email-service.js)
-- [371-os\docs\architecture\agent_lifecycle.md](file://371-os/docs/architecture/agent_lifecycle.md)
-- [371-os\docs\architecture\platform_integration.md](file://371-os/docs/architecture/platform_integration.md)
-- [371-os\src\minds371\comet\comet_371os_shortcuts.py](file://371-os/src/minds371/comet/comet_371os_shortcuts.py)
-- [371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py](file://371-os/src/minds371/adaptive_llm_router/intelligent_router_agent.py)
-- [371-os\src\minds371\adaptive_llm_router\provider_registry.py](file://371-os/src/minds371/adaptive_llm_router/provider_registry.py)
-- [371-os\src\minds371\adaptive_llm_router\policy_engine.py](file://371-os/src/minds371/adaptive_llm_router/policy_engine.py)
-- [371-os\src\minds371\adaptive_llm_router\usage_ledger.py](file://371-os/src/minds371/adaptive_llm_router/usage_ledger.py)
-- [agents\test-agent\index.js](file://agents/test-agent/index.js) - *Added in recent commit*
-- [agents\test-agent\character.json](file://agents/test-agent/character.json) - *Added in recent commit*
-- [elizaos\Deep Dive\AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md) - *Integration reference*
-- [questflow\docs\api-server.md](file://questflow/docs/api-server.md) - *Added in recent commit*
-- [questflow\src\server.ts](file://questflow/src/server.ts) - *Added in recent commit*
-- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts) - *Added in recent commit*
-- [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts) - *Added in recent commit*
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Sessions API Reference.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions API Reference.md)
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Send Session Message.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Send Session Message.md)
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
-- [reference\elizaos\Guides\Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md)
-- [reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Session Heartbeat.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Session Heartbeat.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Submit a message to the central messaging system.md](file://documentation/reference/elizaos/API Reference/Sessions API/Submit a message to the central messaging system.md)
+- [documentation\reference\elizaos\Guides\Sessions API Guide.md](file://documentation/reference/elizaos/Guides/Sessions API Guide.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 </cite>
 
 ## Update Summary
@@ -68,8 +48,8 @@ The platform is built around intelligent agent orchestration, with a focus on ad
 The API follows RESTful principles for state management and resource operations, with WebSocket support for real-time event streaming. All endpoints are secured via API keys or JWT tokens and follow consistent request/response patterns.
 
 **Section sources**
-- [371-os\README.md](file://371-os/README.md)
-- [371-os\_MASTER_ARCHITECTURE.md](file://371-os/_MASTER_ARCHITECTURE.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Authentication and Security
 
@@ -103,9 +83,8 @@ The platform implements role-based access control (RBAC) with the following role
 Permissions are enforced by the Policy Engine, which evaluates access requests against defined rules in `routing_rules.yaml`.
 
 **Section sources**
-- [371-os\src\minds371\adaptive_llm_router\policy_engine.py](file://371-os/src/minds371/adaptive_llm_router/policy_engine.py)
-- [371-os\configs\agents\routing_rules.yaml](file://371-os/configs/agents/routing_rules.yaml)
-- [371-os\src\minds371\agents\utility\credential_warehouse_agent.py](file://371-os/src/minds371/agents/utility/credential_warehouse_agent.py)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
 
 ## Agent Management API
 
@@ -283,8 +262,8 @@ API-->>Client : 200 OK + agent details
 ```
 
 **Section sources**
-- [371-os\docs\api\agent_api.md](file://371-os/docs/api/agent_api.md)
-- [371-os\docs\architecture\agent_lifecycle.md](file://371-os/docs/architecture/agent_lifecycle.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Messaging API
 
@@ -402,7 +381,7 @@ API-->>User : 201 Created
 ```
 
 **Section sources**
-- [371-os\docs\api\platform_api.md](file://371-os/docs/api/platform_api.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Submit a message to the central messaging system.md](file://documentation/reference/elizaos/API Reference/Sessions API/Submit a message to the central messaging system.md)
 
 ## Session Management API
 
@@ -537,7 +516,8 @@ API-->>User : 200 OK
 ```
 
 **Section sources**
-- [371-os\docs\api\task_api.md](file://371-os/docs/api/task_api.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## System Operations API
 
@@ -625,8 +605,8 @@ Supported task types:
 ```
 
 **Section sources**
-- [371-os\src\minds371\comet\comet_371os_shortcuts.py](file://371-os/src/minds371/comet/comet_371os_shortcuts.py)
-- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
 
 ## WebSocket Real-Time Communication
 
@@ -726,7 +706,8 @@ EventBus->>Agent : Deliver message
 ```
 
 **Section sources**
-- [371-os\docs\architecture\platform_integration.md](file://371-os/docs/architecture/platform_integration.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Data Models and Schemas
 
@@ -819,8 +800,8 @@ Represents the current state of the system.
 ```
 
 **Section sources**
-- [371-os\src\minds371\adaptive_llm_router\data_models.py](file://371-os/src/minds371/adaptive_llm_router/data_models.py)
-- [371-os\src\minds371\adaptive_llm_router\llm.py](file://371-os/src/minds371/adaptive_llm_router/llm.py)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Error Handling and Status Codes
 
@@ -864,8 +845,8 @@ All error responses follow this format:
 - **invalid_message_content**: Message content validation failed
 
 **Section sources**
-- [371-os\src\minds371\adaptive_llm_router\intelligent_router_agent.py](file://371-os/src/minds371/adaptive_llm_router/intelligent_router_agent.py)
-- [371-os\src\minds371\adaptive_llm_router\policy_engine.py](file://371-os/src/minds371/adaptive_llm_router/policy_engine.py)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Rate Limiting and Caching
 
@@ -904,8 +885,8 @@ Cache headers are included in responses:
 Clients can use ETag for conditional requests with the `If-None-Match` header.
 
 **Section sources**
-- [371-os\configs\production.yaml](file://371-os/configs/production.yaml)
-- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
 
 ## API Versioning
 
@@ -924,8 +905,8 @@ The 371OS API uses semantic versioning in the URL path to manage backward compat
 Deprecated versions will continue to operate for 6 months after announcement before being retired. Developers will receive notifications through API response headers and email alerts.
 
 **Section sources**
-- [371-os\configs\api_versioning.yaml](file://371-os/configs/api_versioning.yaml)
-- [371-os\src\minds371\adaptive_llm_router\config.py](file://371-os/src/minds371/adaptive_llm_router/config.py)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Examples and Usage
 
@@ -964,8 +945,8 @@ curl -X POST https://api.371os.com/api/v1/agents \
 ```
 
 **Section sources**
-- [371-os\docs\examples\basic_agent_example.py](file://371-os/docs/examples/basic_agent_example.py)
-- [371-os\docs\examples\workflow_example.py](file://371-os/docs/examples/workflow_example.py)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Deprecation Notices
 
@@ -978,8 +959,8 @@ The following endpoints are deprecated and will be removed in v2:
 Migration guide available at [MIGRATION_SUMMARY.md](file://MIGRATION_SUMMARY.md).
 
 **Section sources**
-- [MIGRATION_SUMMARY.md](file://MIGRATION_SUMMARY.md)
-- [JEST_MIGRATION.md](file://JEST_MIGRATION.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## ElizaOS Integration
 
@@ -992,8 +973,8 @@ The 371OS platform integrates with ElizaOS for enhanced agent capabilities and e
 - Cross-agent collaboration
 
 **Section sources**
-- [elizaos\Deep Dive\AgentRuntime.md](file://elizaos/Deep Dive/AgentRuntime.md)
-- [reference\elizaos\Core Concepts\Agents.md](file://reference/elizaos/Core Concepts/Agents.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## QuestFlow API Server
 
@@ -1083,10 +1064,8 @@ Initiates a deployment to the Akash Network with the provided configuration.
 ```
 
 **Section sources**
-- [questflow\docs\api-server.md](file://questflow/docs/api-server.md)
-- [questflow\src\server.ts](file://questflow/src/server.ts)
-- [questflow\src\orchestrator.ts](file://questflow/src/orchestrator.ts)
-- [questflow\src\agents\csuite.ts](file://questflow/src/agents/csuite.ts)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Create Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Create Session.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
 
 ## Sessions API
 
@@ -1138,7 +1117,7 @@ const {
 4. **Invalid Timeout Configuration (400)**: Values outside allowed range (5-1440 minutes)
 
 **Section sources**
-- [reference\elizaos\Guides\Sessions API Guide.md](file://reference/elizaos/Guides/Sessions API Guide.md)
-- [reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
-- [reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)
+- [documentation\reference\elizaos\Guides\Sessions API Guide.md](file://documentation/reference/elizaos/Guides/Sessions API Guide.md)
+- [documentation\reference\elizaos\Deep Dive\Sessions Architecture Deep Dive.md](file://documentation/reference/elizaos/Deep Dive/Sessions Architecture Deep Dive.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\List Sessions.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/List Sessions.md)
+- [documentation\reference\elizaos\API Reference\Sessions API\Sessions API Reference\Get Session.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Get Session.md)

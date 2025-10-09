@@ -2,26 +2,28 @@
 
 <cite>
 **Referenced Files in This Document**   
-- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md) - *Updated in recent commit*
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md) - *Updated in recent commit*
-- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md) - *Updated in recent commit*
-- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md) - *Updated in recent commit*
-- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md) - *Updated in recent commit*
-- [Update agent.md](file://reference/elizaos/API Reference/Update agent.md) - *Updated in recent commit*
-- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md) - *Updated in recent commit*
-- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md) - *Added health monitoring integration*
-- [Basic health check.md](file://reference/elizaos/API Reference/System/Basic health check.md) - *Added system health reference*
+- [Create a new agent.md](file://documentation/reference/elizaos/API Reference/Create a new agent.md) - *Updated in recent commit*
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md) - *Updated in recent commit*
+- [List all agents.md](file://documentation/reference/elizaos/API Reference/List all agents.md) - *Updated in recent commit*
+- [Start an agent.md](file://documentation/reference/elizaos/API Reference/Start an agent.md) - *Updated in recent commit*
+- [Stop an agent.md](file://documentation/reference/elizaos/API Reference/Stop an agent.md) - *Updated in recent commit*
+- [Update agent.md](file://documentation/reference/elizaos/API Reference/Update agent.md) - *Updated in recent commit*
+- [Delete an agent.md](file://documentation/reference/elizaos/API Reference/Delete an agent.md) - *Updated in recent commit*
+- [Sessions Health Check.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md) - *Added health monitoring integration*
+- [Basic health check.md](file://documentation/reference/elizaos/API Reference/System/Basic health check.md) - *Added system health reference*
 </cite>
 
 ## Update Summary
 **Changes Made**   
-- Updated API response schemas based on OpenAPI specifications
-- Enhanced error handling section with additional status codes
-- Updated request and response examples to match current API behavior
-- Verified and updated all endpoint specifications against current implementation
+- Added new C-Suite Agent Runner Factory capabilities to the Agent Management API
+- Enhanced factory operations with build, start, and stop functionality for C-Suite Agent Runner packages
+- Added new endpoints for managing C-Suite Agent Runner instances and packages
+- Updated agent creation process to include character-based C-Suite agents
+- Added factory statistics and monitoring endpoints
+- Enhanced error handling and response schemas
+- Updated request and response examples to reflect new capabilities
 - Added comprehensive source tracking for all referenced files
 - Integrated health monitoring endpoints into performance considerations
-- Added references to system and sessions health check APIs
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -32,13 +34,25 @@
    - [Stop Agent](#stop-agent)
    - [Update Agent](#update-agent)
    - [Delete Agent](#delete-agent)
-3. [Agent State Machine](#agent-state-machine)
-4. [Authentication and Security](#authentication-and-security)
-5. [Request and Response Examples](#request-and-response-examples)
-6. [Error Handling](#error-handling)
-7. [Performance Considerations](#performance-considerations)
-8. [Validation Rules](#validation-rules)
-9. [Sample curl Commands](#sample-curl-commands)
+3. [C-Suite Agent Runner Factory Operations](#c-suite-agent-runner-factory-operations)
+   - [Build C-Suite Agent Runner Package](#build-c-suite-agent-runner-package)
+   - [Start C-Suite Agent Runner Instance](#start-c-suite-agent-runner-instance)
+   - [Stop C-Suite Agent Runner Instance](#stop-c-suite-agent-runner-instance)
+   - [Get Running C-Suite Instances](#get-running-c-suite-instances)
+   - [Get Built C-Suite Packages](#get-built-c-suite-packages)
+   - [Get C-Suite Runner Factory Statistics](#get-c-suite-runner-factory-statistics)
+4. [Character-Based Agent Operations](#character-based-agent-operations)
+   - [Create C-Suite Agent from Character](#create-c-suite-agent-from-character)
+   - [Create All C-Suite Agents](#create-all-c-suite-agents)
+   - [Get Character Factory Statistics](#get-character-factory-statistics)
+   - [Get Character Agents](#get-character-agents)
+5. [Agent State Machine](#agent-state-machine)
+6. [Authentication and Security](#authentication-and-security)
+7. [Request and Response Examples](#request-and-response-examples)
+8. [Error Handling](#error-handling)
+9. [Performance Considerations](#performance-considerations)
+10. [Validation Rules](#validation-rules)
+11. [Sample curl Commands](#sample-curl-commands)
 
 ## Introduction
 
@@ -46,9 +60,11 @@ The Agent Management API in the 371OS platform provides comprehensive control ov
 
 The API follows RESTful principles with predictable resource URLs and standard HTTP methods. All endpoints are designed to support both programmatic integration and interactive exploration. Agents represent autonomous entities with specific roles (CEO, CFO, CTO, etc.) that can be orchestrated to perform complex business operations.
 
+The Agent Management API has been enhanced with the C-Suite Agent Runner Factory, which enables the creation, building, and management of C-Suite Agent Runner packages and instances. This factory system supports both legacy agent spawning and modern character-based agent creation.
+
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
-- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
+- [List all agents.md](file://documentation/reference/elizaos/API Reference/List all agents.md)
 
 ## Agent Lifecycle Operations
 
@@ -92,7 +108,7 @@ Creates a new agent from character configuration.
 - 400: Error creating agent (invalid configuration)
 
 **Section sources**
-- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
+- [Create a new agent.md](file://documentation/reference/elizaos/API Reference/Create a new agent.md)
 
 ### Retrieve Agent
 
@@ -148,8 +164,8 @@ Retrieves detailed information about a specific agent or lists all available age
 - 500: Error retrieving agents
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
-- [List all agents.md](file://reference/elizaos/API Reference/List all agents.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
+- [List all agents.md](file://documentation/reference/elizaos/API Reference/List all agents.md)
 
 ### Start Agent
 
@@ -182,7 +198,7 @@ Starts an existing agent.
 - 500: Error starting agent
 
 **Section sources**
-- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md)
+- [Start an agent.md](file://documentation/reference/elizaos/API Reference/Start an agent.md)
 
 ### Stop Agent
 
@@ -212,7 +228,7 @@ Stops a running agent.
 - 404: Agent not found
 
 **Section sources**
-- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
+- [Stop an agent.md](file://documentation/reference/elizaos/API Reference/Stop an agent.md)
 
 ### Update Agent
 
@@ -246,7 +262,7 @@ Updates an existing agent's configuration.
 - 500: Error updating agent
 
 **Section sources**
-- [Update agent.md](file://reference/elizaos/API Reference/Update agent.md)
+- [Update agent.md](file://documentation/reference/elizaos/API Reference/Update agent.md)
 
 ### Delete Agent
 
@@ -277,7 +293,383 @@ Deletes an existing agent.
 - 500: Error deleting agent
 
 **Section sources**
-- [Delete an agent.md](file://reference/elizaos/API Reference/Delete an agent.md)
+- [Delete an agent.md](file://documentation/reference/elizaos/API Reference/Delete an agent.md)
+
+## C-Suite Agent Runner Factory Operations
+
+The C-Suite Agent Runner Factory enables the creation, building, and management of C-Suite Agent Runner packages and instances. This factory system supports building distributable packages of the c-suite-agent-runner application and managing running instances.
+
+### Build C-Suite Agent Runner Package
+
+Builds a C-Suite Agent Runner package.
+
+**HTTP Method**: POST  
+**URL Pattern**: `/api/factory/csuite/build`
+
+**Request Parameters**:
+- **Body** (application/json):
+  - `buildTarget`: Target environment (string, optional, default: "production")
+  - `outputFormat`: Output format (string, optional, default: "package")
+  - `deploymentTarget`: Deployment target (string, optional, default: "local")
+  - `nexeOptions`: Nexe options for executable creation (object, optional)
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "packageId": "string",
+    "format": "string",
+    "size": "number",
+    "buildTime": "number",
+    "outputPath": "string",
+    "metadata": {
+      "version": "string",
+      "built_at": "string",
+      "build_target": "string",
+      "includes_roles": ["string"]
+    }
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Package built successfully
+- 400: Invalid build request
+- 500: Error building package
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+### Start C-Suite Agent Runner Instance
+
+Starts a C-Suite Agent Runner instance.
+
+**HTTP Method**: POST  
+**URL Pattern**: `/api/factory/csuite/start`
+
+**Request Parameters**:
+- **Body** (application/json):
+  - `packageId`: ID of the package to start (string, optional)
+  - `roles`: Roles to include in the instance (array of strings, optional, default: all roles)
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "instanceId": "string",
+    "port": "number",
+    "host": "string",
+    "status": "string",
+    "roles": ["string"],
+    "startTime": "string",
+    "processId": "number"
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Instance started successfully
+- 400: Invalid start request
+- 404: Package not found
+- 500: Error starting instance
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+### Stop C-Suite Agent Runner Instance
+
+Stops a running C-Suite Agent Runner instance.
+
+**HTTP Method**: POST  
+**URL Pattern**: `/api/factory/csuite/stop/{instanceId}`
+
+**Path Parameters**:
+- `instanceId`: ID of the instance to stop (string, required)
+
+**Request Body**: Empty
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "stopped": "boolean"
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Instance stopped successfully
+- 400: Invalid instance ID
+- 404: Instance not found
+- 500: Error stopping instance
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+### Get Running C-Suite Instances
+
+Retrieves a list of all running C-Suite Agent Runner instances.
+
+**HTTP Method**: GET  
+**URL Pattern**: `/api/factory/csuite/instances`
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "instances": [
+      {
+        "instanceId": "string",
+        "port": "number",
+        "host": "string",
+        "status": "string",
+        "roles": ["string"],
+        "startTime": "string",
+        "processId": "number"
+      }
+    ]
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Instances retrieved successfully
+- 500: Error retrieving instances
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+### Get Built C-Suite Packages
+
+Retrieves a list of all built C-Suite Agent Runner packages.
+
+**HTTP Method**: GET  
+**URL Pattern**: `/api/factory/csuite/packages`
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "packages": [
+      {
+        "packageId": "string",
+        "format": "string",
+        "size": "number",
+        "buildTime": "number",
+        "outputPath": "string",
+        "metadata": {
+          "version": "string",
+          "built_at": "string",
+          "build_target": "string",
+          "includes_roles": ["string"]
+        }
+      }
+    ]
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Packages retrieved successfully
+- 500: Error retrieving packages
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+### Get C-Suite Runner Factory Statistics
+
+Retrieves statistics about the C-Suite Agent Runner Factory.
+
+**HTTP Method**: GET  
+**URL Pattern**: `/api/factory/csuite/stats`
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "running_instances": "number",
+    "built_packages": "number",
+    "total_build_time_ms": "number",
+    "average_build_time_ms": "number",
+    "factory_uptime_ms": "number",
+    "next_available_port": "number"
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Statistics retrieved successfully
+- 500: Error retrieving statistics
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts](file://core/os-workspace/apps/agent-factory/src/csuite-runner-integration.ts) - *Added C-Suite Agent Runner Factory capabilities*
+
+## Character-Based Agent Operations
+
+The Character-Based Agent Factory enables the creation of agents from character definitions, supporting C-Suite agents with predefined roles and capabilities.
+
+### Create C-Suite Agent from Character
+
+Creates a C-Suite agent from a character definition.
+
+**HTTP Method**: POST  
+**URL Pattern**: `/api/factory/character/create/{role}`
+
+**Path Parameters**:
+- `role`: Role of the agent to create (string, required, enum: "CEO", "CTO", "CFO", "CLO")
+
+**Request Parameters**:
+- **Body** (application/json):
+  - `agentId`: ID for the agent (string, optional)
+  - `deploymentTarget`: Deployment target (string, optional, default: "local")
+  - `customCapabilities`: Custom capabilities to add (array of strings, optional)
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "agentId": "string",
+    "character": "object",
+    "role": "string",
+    "capabilities": ["string"],
+    "deploymentInfo": {
+      "target": "string",
+      "status": "string",
+      "endpoint": "string"
+    }
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Agent created successfully
+- 400: Invalid role or request
+- 500: Error creating agent
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/character-factory.ts](file://core/os-workspace/apps/agent-factory/src/character-factory.ts) - *Added character-based agent creation*
+
+### Create All C-Suite Agents
+
+Creates all C-Suite agents (CEO, CTO, CFO, CLO).
+
+**HTTP Method**: POST  
+**URL Pattern**: `/api/factory/character/create-all`
+
+**Request Parameters**:
+- **Body** (application/json):
+  - `deploymentTarget`: Deployment target (string, optional, default: "local")
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "results": [
+      {
+        "success": "boolean",
+        "agentId": "string",
+        "character": "object",
+        "role": "string",
+        "capabilities": ["string"],
+        "deploymentInfo": {
+          "target": "string",
+          "status": "string",
+          "endpoint": "string"
+        },
+        "error": "string"
+      }
+    ]
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Agents created successfully
+- 500: Error creating agents
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/character-factory.ts](file://core/os-workspace/apps/agent-factory/src/character-factory.ts) - *Added character-based agent creation*
+
+### Get Character Factory Statistics
+
+Retrieves statistics about the Character Factory.
+
+**HTTP Method**: GET  
+**URL Pattern**: `/api/factory/character/stats`
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "totalAgents": "number",
+    "roleDistribution": {
+      "CEO": "number",
+      "CTO": "number",
+      "CFO": "number",
+      "CLO": "number"
+    },
+    "deploymentTargets": {
+      "local": "number",
+      "akash": "number",
+      "hybrid": "number"
+    },
+    "capabilities": ["string"]
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Statistics retrieved successfully
+- 500: Error retrieving statistics
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/character-factory.ts](file://core/os-workspace/apps/agent-factory/src/character-factory.ts) - *Added character-based agent creation*
+
+### Get Character Agents
+
+Retrieves a list of all active character-based agents.
+
+**HTTP Method**: GET  
+**URL Pattern**: `/api/factory/character/agents`
+
+**Response Schema**:
+```json
+{
+  "success": true,
+  "data": {
+    "agents": [
+      {
+        "character": "object",
+        "agentId": "string",
+        "role": "string",
+        "capabilities": ["string"],
+        "deploymentTarget": "string",
+        "resources": {
+          "cpu": "string",
+          "memory": "string",
+          "storage": "string"
+        }
+      }
+    ]
+  }
+}
+```
+
+**HTTP Status Codes**:
+- 200: Agents retrieved successfully
+- 500: Error retrieving agents
+
+**Section sources**
+- [core/os-workspace/apps/agent-factory/src/character-factory.ts](file://core/os-workspace/apps/agent-factory/src/character-factory.ts) - *Added character-based agent creation*
 
 ## Agent State Machine
 
@@ -313,7 +705,7 @@ State transitions are controlled through the API endpoints:
 The state management system also includes caching mechanisms to optimize performance, with state caches automatically cleared for messages older than one hour.
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
 
 ## Authentication and Security
 
@@ -338,7 +730,7 @@ Agents operate under the principle of least privilege, with access controls enfo
 The credential warehouse system ensures that agents can only access credentials they are explicitly authorized to use, preventing unauthorized access to sensitive resources.
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
 
 ## Request and Response Examples
 
@@ -407,12 +799,18 @@ curl -X POST https://api.371minds.com/api/agents \
 }
 ```
 
-### Agent Start Operation
+### Build C-Suite Agent Runner Package
 
 **Request**:
 ```bash
-curl -X POST https://api.371minds.com/api/agents/a1b2c3d4-e5f6-7890-1234-567890abcdef/start \
-  -H "Authorization: Bearer <token>"
+curl -X POST https://api.371minds.com/api/factory/csuite/build \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "buildTarget": "production",
+    "outputFormat": "package",
+    "deploymentTarget": "local"
+  }'
 ```
 
 **Response (200 OK)**:
@@ -420,9 +818,46 @@ curl -X POST https://api.371minds.com/api/agents/a1b2c3d4-e5f6-7890-1234-567890a
 {
   "success": true,
   "data": {
-    "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "name": "TestAgent",
-    "status": "active"
+    "packageId": "csuite-runner-1732456789012",
+    "format": "package",
+    "size": 10485760,
+    "buildTime": 15000,
+    "outputPath": "/dist/apps/c-suite-agent-runner",
+    "metadata": {
+      "version": "1.0.0",
+      "built_at": "2025-11-23T10:30:00.000Z",
+      "build_target": "production",
+      "includes_roles": ["CEO", "CTO", "CFO", "CLO"]
+    }
+  }
+}
+```
+
+### Start C-Suite Agent Runner Instance
+
+**Request**:
+```bash
+curl -X POST https://api.371minds.com/api/factory/csuite/start \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <token>" \
+  -d '{
+    "packageId": "csuite-runner-1732456789012",
+    "roles": ["CEO", "CTO"]
+  }'
+```
+
+**Response (200 OK)**:
+```json
+{
+  "success": true,
+  "data": {
+    "instanceId": "csuite-instance-1732456789013",
+    "port": 4000,
+    "host": "localhost",
+    "status": "running",
+    "roles": ["CEO", "CTO"],
+    "startTime": "2025-11-23T10:31:00.000Z",
+    "processId": 12345
   }
 }
 ```
@@ -442,9 +877,9 @@ curl -X POST https://api.371minds.com/api/agents/a1b2c3d4-e5f6-7890-1234-567890a
 ```
 
 **Section sources**
-- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
-- [Start an agent.md](file://reference/elizaos/API Reference/Start an agent.md)
-- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
+- [Create a new agent.md](file://documentation/reference/elizaos/API Reference/Create a new agent.md)
+- [Start an agent.md](file://documentation/reference/elizaos/API Reference/Start an agent.md)
+- [Stop an agent.md](file://documentation/reference/elizaos/API Reference/Stop an agent.md)
 
 ## Error Handling
 
@@ -482,8 +917,8 @@ The API provides comprehensive error handling with standardized error payloads a
 | 500 | Internal Server Error | Unexpected server error |
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
-- [Stop an agent.md](file://reference/elizaos/API Reference/Stop an agent.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
+- [Stop an agent.md](file://documentation/reference/elizaos/API Reference/Stop an agent.md)
 
 ## Performance Considerations
 
@@ -524,9 +959,9 @@ Rate limits are applied at multiple levels:
 - Regularly check health endpoints to ensure system stability
 
 **Section sources**
-- [Get agent details.md](file://reference/elizaos/API Reference/Get agent details.md)
-- [Sessions Health Check.md](file://reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
-- [Basic health check.md](file://reference/elizaos/API Reference/System/Basic health check.md)
+- [Get agent details.md](file://documentation/reference/elizaos/API Reference/Get agent details.md)
+- [Sessions Health Check.md](file://documentation/reference/elizaos/API Reference/Sessions API/Sessions API Reference/Sessions Health Check.md)
+- [Basic health check.md](file://documentation/reference/elizaos/API Reference/System/Basic health check.md)
 
 ## Validation Rules
 
@@ -553,7 +988,7 @@ The API enforces strict validation rules to ensure data integrity and system sta
 - Enumerated values must be from allowed sets
 
 **Section sources**
-- [Create a new agent.md](file://reference/elizaos/API Reference/Create a new agent.md)
+- [Create a new agent.md](file://documentation/reference/elizaos/API Reference/Create a new agent.md)
 
 ## Sample curl Commands
 
@@ -606,4 +1041,60 @@ curl -X POST https://api.371minds.com/api/agents/3c90c3cc-0d44-4b50-8888-8dd2573
 ```bash
 curl -X DELETE https://api.371minds.com/api/agents/3c90c3cc-0d44-4b50-8888-8dd25736052a \
   -H "Authorization: Bearer <your-api-token>"
+```
+
+### Build C-Suite Agent Runner Package
+```bash
+curl -X POST https://api.371minds.com/api/factory/csuite/build \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <your-api-token>" \
+  -d '{
+    "buildTarget": "production",
+    "outputFormat": "package",
+    "deploymentTarget": "local"
+  }'
+```
+
+### Start C-Suite Agent Runner Instance
+```bash
+curl -X POST https://api.371minds.com/api/factory/csuite/start \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <your-api-token>" \
+  -d '{
+    "packageId": "csuite-runner-1732456789012",
+    "roles": ["CEO", "CTO"]
+  }'
+```
+
+### Stop C-Suite Agent Runner Instance
+```bash
+curl -X POST https://api.371minds.com/api/factory/csuite/stop/csuite-instance-1732456789013 \
+  -H "Authorization: Bearer <your-api-token>"
+```
+
+### Get C-Suite Runner Factory Statistics
+```bash
+curl -X GET https://api.371minds.com/api/factory/csuite/stats \
+  -H "Authorization: Bearer <your-api-token>"
+```
+
+### Create C-Suite Agent from Character
+```bash
+curl -X POST https://api.371minds.com/api/factory/character/create/CEO \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <your-api-token>" \
+  -d '{
+    "agentId": "ceo-demo-agent",
+    "deploymentTarget": "local"
+  }'
+```
+
+### Create All C-Suite Agents
+```bash
+curl -X POST https://api.371minds.com/api/factory/character/create-all \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <your-api-token>" \
+  -d '{
+    "deploymentTarget": "hybrid"
+  }'
 ```

@@ -846,6 +846,64 @@
         "implicitDependencies": []
       }
     },
+    "thinng-testing": {
+      "name": "thinng-testing",
+      "type": "lib",
+      "data": {
+        "root": "core/os-workspace/packages/thinng-testing",
+        "name": "thinng-testing",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/thinng-testing/src",
+        "projectType": "library",
+        "tags": [
+          "scope:testing",
+          "type:library"
+        ],
+        "targets": {
+          "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages/thinng-testing",
+              "main": "packages/thinng-testing/src/index.ts",
+              "tsConfig": "packages/thinng-testing/tsconfig.lib.json",
+              "assets": [
+                "packages/thinng-testing/*.md"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "packages/thinng-testing/jest.config.ts"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/thinng-testing/**/*.ts"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    },
     "elizaos-plugin-nx-workspace": {
       "name": "elizaos-plugin-nx-workspace",
       "type": "lib",
@@ -4969,6 +5027,7 @@
     "chief-of-staff-agent": [],
     "cognitive-interface": [],
     "intelligent-router": [],
+    "thinng-testing": [],
     "elizaos-plugin-nx-workspace": [],
     "agent-factory": [],
     "cao-agent": [],
@@ -4985,5 +5044,5 @@
       "name": "ProcessDependenciesError"
     }
   ],
-  "computedAt": 1759971808087
+  "computedAt": 1759979489727
 }

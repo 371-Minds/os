@@ -3860,5 +3860,115 @@
       "core/os-workspace/apps/phase18-voting-simulation/project.json",
       "nx/core/project-json"
     ]
+  },
+  "core/os-workspace/packages/thinng-testing": {
+    "root": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:testing": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:library": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "core/os-workspace/packages/thinng-testing/project.json",
+      "nx/core/project-json"
+    ]
   }
 }

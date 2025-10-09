@@ -1,0 +1,279 @@
+{
+  "$schema": "./agents-schema.json",
+  "project": {
+    "name": "371-OS",
+    "description": "Revolutionary autonomous agent operating system",
+    "version": "1.0.0",
+    "repository": "https://github.com/371-Minds/os",
+    "workspace": "core/os-workspace"
+  },
+  "runtime": {
+    "packageManager": "bun",
+    "nodeVersion": ">=18.0.0",
+    "bunVersion": ">=1.2.0",
+    "platform": "windows",
+    "shell": "powershell"
+  },
+  "commands": {
+    "install": {
+      "primary": "bun install",
+      "fallback": "powershell -ExecutionPolicy Bypass -File ./AB/scripts/bun-install.ps1",
+      "npm_fallback": "npm install --legacy-peer-deps"
+    },
+    "build": {
+      "single": "bun nx build <app-name>",
+      "affected": "bun nx affected --target=build",
+      "all": "bun nx run-many -t build"
+    },
+    "test": {
+      "single": "bun nx test <app-name>",
+      "affected": "bun nx affected --target=test",
+      "bun": "bun test"
+    },
+    "dev": {
+      "serve": "bun nx serve <app-name>",
+      "watch": "bun --watch <file-path>",
+      "system": "bun run system:full-start"
+    },
+    "lint": {
+      "check": "bunx @biomejs/biome check --write .",
+      "format": "bunx @biomejs/biome format --write ."
+    },
+    "deploy": {
+      "akash": "bun run deploy:akash",
+      "github": "bun run deploy:github:all",
+      "secure": "bun run deploy:with-secrets"
+    }
+  },
+  "agents": {
+    "c_suite": {
+      "ceo": {
+        "name": "Mimi",
+        "app": "ceo-agent",
+        "role": "Strategic decisions, cost optimization",
+        "capabilities": ["strategic_planning", "cost_optimization", "high_level_coordination"],
+        "start_command": "bun nx serve ceo-agent",
+        "brain_file": "libs/prompts/agent-definitions/mimi_ceo.yml",
+        "mcp_integration": true
+      },
+      "cto": {
+        "name": "Zara",
+        "app": "cto-agent", 
+        "role": "Technical architecture, system design",
+        "capabilities": ["architecture_design", "technology_evaluation", "security_oversight"],
+        "start_command": "bun nx serve cto-agent",
+        "brain_file": "libs/prompts/agent-definitions/zara_cto.yml",
+        "mcp_integration": true
+      },
+      "cfo": {
+        "name": "Maya",
+        "app": "cfo-agent",
+        "role": "Financial analysis, budget optimization", 
+        "capabilities": ["financial_analysis", "budget_optimization", "roi_tracking"],
+        "start_command": "bun nx serve cfo-agent",
+        "brain_file": "libs/prompts/agent-definitions/maya_cfo.yml",
+        "mcp_integration": true
+      },
+      "clo": {
+        "name": "Sage",
+        "app": "clo-agent",
+        "role": "Legal compliance, governance",
+        "capabilities": ["legal_compliance", "governance", "regulatory_frameworks"],
+        "start_command": "bun nx serve clo-agent", 
+        "brain_file": "libs/prompts/agent-definitions/sage_clo.yml",
+        "mcp_integration": true
+      },
+      "cao": {
+        "name": "Eduardo",
+        "app": "cao-agent",
+        "role": "Administrative operations, process optimization",
+        "capabilities": ["administrative_operations", "process_optimization", "workflow_management"],
+        "start_command": "bun nx serve cao-agent",
+        "brain_file": "libs/prompts/agent-definitions/eduardo_cao.yml",
+        "mcp_integration": true
+      }
+    },
+    "coordination": {
+      "chief_of_staff": {
+        "name": "Chief of Staff",
+        "app": "chief-of-staff-agent",
+        "role": "Inter-agent coordination, task management",
+        "capabilities": ["task_coordination", "inter_agent_communication", "workflow_orchestration"],
+        "start_command": "bun nx serve chief-of-staff-agent",
+        "brain_file": "libs/prompts/agent-definitions/chief_of_staff.yml",
+        "mcp_server": true,
+        "mcp_clients": ["genspark", "perplexity", "comet", "abacus_ai"],
+        "cognition_access": "high_level"
+      },
+      "intelligent_router": {
+        "name": "Intelligent Router",
+        "app": "intelligent-router",
+        "role": "Adaptive LLM provider selection",
+        "capabilities": ["llm_routing", "cost_optimization", "provider_selection"],
+        "start_command": "bun nx serve intelligent-router",
+        "mcp_integration": true
+      }
+    },
+    "specialized": {
+      "agent_factory": {
+        "name": "Agent Factory",
+        "app": "agent-factory", 
+        "role": "Dynamic agent creation and lifecycle management",
+        "capabilities": ["agent_creation", "lifecycle_management", "dynamic_spawning"],
+        "start_command": "bun nx serve agent-factory",
+        "mcp_integration": true
+      },
+      "cognitive_interface": {
+        "name": "Cognitive Interface",
+        "app": "cognitive-interface",
+        "role": "Cognitive-aware UI system",
+        "capabilities": ["cognitive_detection", "adaptive_ui", "mode_transitions"],
+        "start_command": "bun nx serve cognitive-interface",
+        "mcp_integration": true
+      }
+    }
+  },
+  "mcp_integration": {
+    "servers": {
+      "cognition_mcp": {
+        "type": "high_level_access",
+        "endpoint": "mcp://cognition-layer",
+        "capabilities": ["cognitive_state_detection", "adaptive_interfaces", "mode_coordination"],
+        "access_agents": ["chief_of_staff", "ceo", "cto"]
+      },
+      "chief_of_staff_mcp": {
+        "type": "coordination_hub",
+        "endpoint": "mcp://chief-of-staff",
+        "capabilities": ["task_coordination", "inter_agent_communication", "workflow_management"],
+        "clients": ["genspark", "perplexity", "comet_browser", "abacus_ai"]
+      },
+      "documentation_mcp": {
+        "type": "knowledge_management", 
+        "endpoint": "mcp://documentation",
+        "capabilities": ["document_retrieval", "knowledge_search", "context_provision"],
+        "integration": "all_agents"
+      }
+    },
+    "external_clients": {
+      "genspark": {
+        "type": "ai_search_engine",
+        "mcp_endpoint": "chief_of_staff_mcp",
+        "use_cases": ["research", "knowledge_discovery", "strategic_insights"]
+      },
+      "perplexity": {
+        "type": "ai_research_assistant", 
+        "mcp_endpoint": "chief_of_staff_mcp",
+        "use_cases": ["deep_research", "fact_checking", "analysis"]
+      },
+      "comet_browser": {
+        "type": "web_automation",
+        "mcp_endpoint": "chief_of_staff_mcp", 
+        "use_cases": ["web_scraping", "automation", "data_collection"]
+      },
+      "abacus_ai": {
+        "type": "ml_platform",
+        "mcp_endpoint": "chief_of_staff_mcp",
+        "use_cases": ["machine_learning", "predictive_analytics", "ai_modeling"]
+      }
+    }
+  },
+  "use_cases": {
+    "code_development": {
+      "primary_agents": ["cto", "chief_of_staff"],
+      "supporting_agents": ["ceo", "agent_factory"],
+      "mcp_servers": ["cognition_mcp", "documentation_mcp"],
+      "workflows": ["architecture_design", "code_review", "deployment"]
+    },
+    "documentation": {
+      "primary_agents": ["chief_of_staff", "cto"],
+      "supporting_agents": ["cao"],
+      "mcp_servers": ["documentation_mcp", "cognition_mcp"],
+      "workflows": ["content_creation", "knowledge_management", "version_control"]
+    },
+    "creative_development": {
+      "primary_agents": ["cognitive_interface", "chief_of_staff"],
+      "supporting_agents": ["ceo", "cto"],
+      "mcp_servers": ["cognition_mcp"],
+      "workflows": ["creative_ideation", "content_generation", "design_coordination"]
+    },
+    "prompts_management": {
+      "primary_agents": ["chief_of_staff", "agent_factory"],
+      "supporting_agents": ["cto", "ceo"],
+      "mcp_servers": ["documentation_mcp"],
+      "workflows": ["prompt_optimization", "agent_tuning", "performance_monitoring"]
+    },
+    "cleanup_refactor": {
+      "primary_agents": ["cto", "chief_of_staff"],
+      "supporting_agents": ["cfo", "cao"],
+      "mcp_servers": ["documentation_mcp"],
+      "workflows": ["code_analysis", "refactoring", "optimization", "documentation_update"]
+    }
+  },
+  "deployment_modes": {
+    "standalone": {
+      "description": "Self-contained deployment for external integration",
+      "components": ["chief_of_staff_mcp", "cognition_mcp", "essential_agents"],
+      "requirements": {
+        "runtime": "bun",
+        "platform": "cross_platform",
+        "dependencies": "minimal"
+      },
+      "configuration": {
+        "entry_point": "bun nx serve chief-of-staff-agent --standalone",
+        "mcp_ports": {
+          "chief_of_staff": 3001,
+          "cognition": 3002,
+          "documentation": 3003
+        },
+        "external_api": true,
+        "authentication": "token_based"
+      }
+    },
+    "integrated": {
+      "description": "Full 371-OS ecosystem deployment",
+      "components": "all_agents",
+      "start_command": "bun run system:full-start"
+    },
+    "development": {
+      "description": "Development mode with hot reloading",
+      "start_command": "bun run start:dev"
+    }
+  },
+  "workspace_structure": {
+    "apps": [
+      "agent-factory",
+      "c-suite-agent-runner", 
+      "cao-agent",
+      "ceo-agent",
+      "cfo-agent",
+      "chief-of-staff-agent",
+      "clo-agent",
+      "cognitive-interface",
+      "cto-agent",
+      "dao-governance-service",
+      "intelligent-router",
+      "utility-agents"
+    ],
+    "packages": [
+      "elizaos-plugins",
+      "cognitive-engine",
+      "business-intelligence",
+      "nx-workspace",
+      "thinng-testing"
+    ],
+    "key_directories": {
+      "agent_definitions": "libs/prompts/agent-definitions/",
+      "mcp_servers": "core/mcp/",
+      "documentation": "documentation/",
+      "troubleshooting": "documentation/troubleshooting/",
+      "session_tracking": "project-management/AB/"
+    }
+  },
+  "performance_optimizations": {
+    "dependency_installation": "50x faster with Bun vs npm",
+    "build_system": "10x faster with Nx affected analysis", 
+    "test_execution": "50-100x faster with Bun test runner",
+    "cost_optimization": "97.6% reduction via Akash Network",
+    "cognitive_awareness": "Revolutionary real-time adaptation"
+  }
+}

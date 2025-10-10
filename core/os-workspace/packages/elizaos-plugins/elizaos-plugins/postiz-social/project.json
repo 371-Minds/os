@@ -1,0 +1,31 @@
+{
+  "name": "postiz-social",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugins/elizaos-plugins/postiz-social/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/elizaos-plugins/elizaos-plugins/postiz-social/dist",
+        "main": "packages/elizaos-plugins/elizaos-plugins/postiz-social/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/elizaos-plugins/postiz-social/tsconfig.json",
+        "assets": ["packages/elizaos-plugins/elizaos-plugins/postiz-social/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "postiz-social:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/elizaos-plugins/elizaos-plugins/postiz-social/**/*.ts"]
+      }
+    }
+  },
+  "tags": ["type:plugin", "scope:elizaos", "feature:social-media"]
+}

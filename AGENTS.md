@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project, `371-os`, is a comprehensive OS for running a network of AI agents with revolutionary **email coordination capabilities**. It is structured as an Nx monorepo. The core logic, agent implementations, and various services are organized into `apps` and `packages` within the `core/os-workspace` directory.
+This project, `371-os`, is a comprehensive OS for running a network of AI agents with revolutionary **email coordination** and **social media management capabilities**. It is structured as an Nx monorepo. The core logic, agent implementations, and various services are organized into `apps` and `packages` within the `core/os-workspace` directory.
 
 ### Revolutionary Email Integration
 
@@ -14,6 +14,17 @@ The 371 OS now features the world's first **cognitive-aware, blockchain-governed
 - **Privacy Protection**: proxiedmail.com integration for privacy-preserving delivery
 - **97.6% Cost Reduction**: Akash Network deployment optimization
 - **Spatial Email Universe**: 3D visualization of communication flows in C3 interface
+
+### Revolutionary Social Media Integration
+
+The 371 OS includes the world's first **cognitive-aware social media management platform** with:
+- **Postiz Integration**: Multi-platform social media management (Twitter, LinkedIn, Facebook, Instagram, Threads, Mastodon, Bluesky)
+- **AI-Powered Content Generation**: Leverages 371 OS cognitive engine for superior content creation
+- **Autonomous Social Media Agents**: Self-managing agents with strategic content planning
+- **Spatial Social Media Analytics**: 3D visualization in CEO's Orrery for engagement metrics
+- **Cross-Platform Intelligence**: Unified orchestration across all social platforms
+- **Content Calendar Automation**: AI-driven scheduling and optimization
+- **Multi-Brand Management**: Enterprise-grade multi-brand coordination
 
 ## Build & Test
 
@@ -82,6 +93,9 @@ core/os-workspace/
 │   └── utility-agents/      # Supporting utility agents
 ├── packages/                # Shared libraries and plugins
 │   ├── elizaos-plugins/     # ElizaOS plugin ecosystem
+│   │   ├── postiz-social/   # Social media management plugin
+│   │   ├── business-intelligence/ # Analytics and BI tools
+│   │   └── nx-workspace/    # Self-aware workspace manipulation
 │   ├── cognitive-engine/    # Cognitive state detection
 │   ├── business-intelligence/ # Analytics and BI tools
 │   ├── nx-workspace/        # Self-aware workspace manipulation
@@ -126,6 +140,16 @@ Each agent follows a unified **brain/body architecture**:
 #### Interface and Coordination
 - **Cognitive Interface** (`cognitive-interface`) - Adaptive UI system with **C3 Universal Template**
 - **Agent Factory** (`agent-factory`) - Dynamic agent creation
+
+#### Social Media Management
+- **Postiz Plugin** (`elizaos-plugins/postiz-social`) - Revolutionary social media management with:
+  - Multi-platform publishing and scheduling
+  - AI-powered content generation
+  - Autonomous social media agents (CMO, Content Creator, Community Manager)
+  - Spatial analytics for CEO's Orrery
+  - Engagement metrics and performance optimization
+  - Content calendar automation
+  - Multi-brand management capabilities
 
 #### Support Libraries
 - **React Email Templates** (`react-email-templates`) - Blockchain-verified email templates
@@ -194,6 +218,21 @@ export PROXIEDMAIL_API_KEY="your_proxiedmail_key"
 # Configure blockchain verification
 export EMAIL_VERIFICATION_CONTRACT="0x..."
 export BLOCKCHAIN_NETWORK_ID="status-mainnet"
+```
+
+#### Postiz Social Media Configuration
+```bash
+# Configure Postiz API
+export POSTIZ_API_ENDPOINT="https://api.postiz.com"
+export POSTIZ_API_KEY="your_postiz_api_key"
+
+# Build and test Postiz plugin
+cd core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social
+bun run build
+bun test/plugin.test.ts
+
+# Run integration examples
+bun examples/integration-example.ts
 ```
 
 ## Environment Configuration
@@ -265,3 +304,77 @@ GET /api/cognitive/analytics?timeRange=30d
 # Cost optimization tracking
 GET /api/cost/optimization?timeRange=30d
 ```
+
+## Social Media Management
+
+### Postiz Plugin Usage
+
+The Postiz plugin provides comprehensive social media management capabilities:
+
+```bash
+# Build Postiz plugin
+cd core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social
+bun run build
+
+# Run tests
+bun test/plugin.test.ts
+
+# Run integration examples
+bun examples/integration-example.ts
+```
+
+### Social Media Agent Operations
+
+```typescript
+// Initialize Postiz plugin
+import { PostizPlugin, SocialPlatform } from '@elizaos/plugin-postiz-social';
+
+const plugin = new PostizPlugin({
+  apiEndpoint: process.env.POSTIZ_API_ENDPOINT,
+  apiKey: process.env.POSTIZ_API_KEY,
+  enableSpatialInterface: true,
+  enableCognitiveEngine: true,
+});
+
+// Create autonomous social media agent
+const agent = plugin.createAgent('cmo-agent', {
+  role: 'CMO',
+  useAI: true,
+  autoPublish: false,
+});
+
+// Execute content strategy
+await agent.executeContentStrategy();
+
+// Generate content calendar
+const calendar = await agent.generateContentCalendar(30);
+
+// Monitor campaign performance
+const monitoring = await agent.monitorCampaigns();
+```
+
+### Social Media Analytics
+
+```bash
+# Get spatial analytics for CEO's Orrery
+GET /api/social/spatial-analytics?startDate=2025-01-01&endDate=2025-01-31
+
+# Platform performance metrics
+GET /api/social/platform/:platform/metrics
+
+# Engagement analysis
+GET /api/social/engagement/:postId
+
+# Content recommendations
+GET /api/social/recommendations/:platform
+```
+
+### Key Features
+
+- **Multi-Platform Publishing**: Schedule and publish to 7+ social platforms simultaneously
+- **AI Content Generation**: Leverages 371 OS cognitive engine for optimal content
+- **Spatial Analytics**: 3D visualization of social media performance in CEO's Orrery
+- **Autonomous Agents**: Self-managing social media operations with strategic planning
+- **Performance Optimization**: Real-time engagement tracking and recommendations
+- **Multi-Brand Management**: Coordinate multiple brands from a single interface
+- **Cost Optimization**: Integrated with Akash Network for 97.6% cost reduction

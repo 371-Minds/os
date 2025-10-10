@@ -1,0 +1,42 @@
+{
+  "name": "@elizaos/plugin-postiz-social",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ElizaOS plugin for Postiz social media management with cognitive-aware interfaces",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test",
+    "lint": "bunx @biomejs/biome check --write .",
+    "format": "bunx @biomejs/biome format --write ."
+  },
+  "keywords": [
+    "elizaos",
+    "postiz",
+    "social-media",
+    "ai-content",
+    "spatial-interface",
+    "371-minds"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "dependencies": {
+    "@elizaos/core": "^1.5.2",
+    "axios": "^1.6.0",
+    "zod": "^3.22.0"
+  },
+  "peerDependencies": {
+    "@elizaos/core": "^1.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@elizaos/plugin-status-network",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Status Network integration plugin for 371 OS community building and DAO governance",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test",
+    "lint": "bunx @biomejs/biome check --write .",
+    "format": "bunx @biomejs/biome format --write ."
+  },
+  "keywords": [
+    "status-network",
+    "dao",
+    "governance",
+    "snt-token",
+    "community",
+    "blockchain",
+    "elizaos",
+    "371-os"
+  ],
+  "author": "371 Minds",
+  "license": "MIT",
+  "dependencies": {
+    "@elizaos/core": "^1.5.2",
+    "ethers": "^6.15.0",
+    "@status-network/sdk": "^1.0.0",
+    "@dao-dao/sdk": "^1.0.0",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "@elizaos/core": "^1.5.2"
+  }
+}

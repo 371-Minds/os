@@ -3781,6 +3781,538 @@
       "nx/target-defaults"
     ]
   },
+  "packages/elizaos-plugins/elizaos-plugins/postiz-social": {
+    "root": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:postiz": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:social-media": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:ai-content": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:spatial-interface": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:plugin": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:elizaos": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.feature:social-media": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.buildTarget": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "packages/elizaos-plugins/elizaos-plugins/status-network-integration": {
+    "root": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:status-network": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:dao": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:governance": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:snt-token": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:community": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:plugin": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:blockchain": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:community": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
   "packages/nx-workspace": {
     "root": [
       "packages/nx-workspace/project.json",
@@ -4109,6 +4641,188 @@
       "nx/target-defaults"
     ],
     "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "packages/react-email-templates": {
+    "root": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:email": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:templates": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:react": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:verification": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-coordination": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageVersion": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:lib": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:email": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.external": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.rollupConfig": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
       "nx.json",
       "nx/target-defaults"
     ]

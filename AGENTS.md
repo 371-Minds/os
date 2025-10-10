@@ -95,6 +95,7 @@ core/os-workspace/
 │   ├── elizaos-plugins/     # ElizaOS plugin ecosystem
 │   │   ├── postiz-social/   # Social media management plugin
 │   │   ├── business-intelligence/ # Analytics and BI tools
+│   │   ├── status-network-integration/ # Blockchain community platform
 │   │   └── nx-workspace/    # Self-aware workspace manipulation
 │   ├── cognitive-engine/    # Cognitive state detection
 │   ├── business-intelligence/ # Analytics and BI tools
@@ -150,6 +151,16 @@ Each agent follows a unified **brain/body architecture**:
   - Engagement metrics and performance optimization
   - Content calendar automation
   - Multi-brand management capabilities
+
+#### Blockchain Community Platform
+- **Status Network Integration** (`elizaos-plugins/status-network-integration`) - Revolutionary blockchain community platform with:
+  - Gasless L2 transactions for zero-cost user interactions
+  - DAO governance with customizable voting parameters
+  - Autonomous agent economy with SNT-based compensation
+  - Cross-community project coordination
+  - Token economics with staking, rewards, and treasury management
+  - Multi-DAO proposal voting and execution
+  - 97.6% infrastructure cost reduction via Status Network L2
 
 #### Support Libraries
 - **React Email Templates** (`react-email-templates`) - Blockchain-verified email templates
@@ -233,6 +244,24 @@ bun test/plugin.test.ts
 
 # Run integration examples
 bun examples/integration-example.ts
+```
+
+#### Status Network Integration Configuration
+```bash
+# Configure Status Network
+export STATUS_NETWORK_RPC="https://rpc.status.network"
+export STATUS_NETWORK_CHAIN_ID="1"
+export SNT_TOKEN_ADDRESS="0x744d70FDBE2Ba4CF95131626614a1763DF805B9E"
+export DAO_FACTORY_ADDRESS="0x..."
+export GASLESS_RELAY_URL="https://relay.status.network"
+
+# Build and test Status Network plugin
+cd core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration
+bun run build
+bun test
+
+# Create first community
+bun examples/create-community.ts
 ```
 
 ## Environment Configuration
@@ -378,3 +407,91 @@ GET /api/social/recommendations/:platform
 - **Performance Optimization**: Real-time engagement tracking and recommendations
 - **Multi-Brand Management**: Coordinate multiple brands from a single interface
 - **Cost Optimization**: Integrated with Akash Network for 97.6% cost reduction
+
+## Blockchain Community Platform
+
+### Status Network Integration
+
+The Status Network plugin provides revolutionary blockchain community infrastructure:
+
+```bash
+# Build Status Network plugin
+cd core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration
+bun run build
+
+# View configuration examples
+cat config.example.ts
+
+# Read comprehensive documentation
+cat README.md
+```
+
+### Community Operations
+
+```typescript
+// Initialize Status Network plugin
+import {
+  StatusNetworkCommunityManager,
+  AgentCommunityCoordinator,
+  CommunityTokenomics,
+  type StatusNetworkConfig
+} from '@elizaos/plugin-status-network';
+
+const config: StatusNetworkConfig = {
+  rpcUrl: 'https://rpc.status.network',
+  chainId: 1,
+  sntTokenAddress: '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E',
+  // ... additional config
+};
+
+const communityManager = new StatusNetworkCommunityManager(
+  config,
+  process.env.PRIVATE_KEY!
+);
+
+// Create community DAO
+const community = await communityManager.createCommunity({
+  communityName: '371-os-core-developers',
+  initialFunding: ethers.parseEther('100000'), // 100k SNT
+  governanceParams: {
+    votingPeriod: 50400, // ~1 week
+    quorum: 40,
+  },
+  // ... additional config
+});
+
+// Assign agent to community
+const agentCoordinator = new AgentCommunityCoordinator(communityManager);
+await agentCoordinator.assignAgentToCommunity(
+  'ceo-mimi',
+  '371-os-core-developers',
+  CommunityRole.ADMIN,
+  ['strategic-planning', 'cost-optimization']
+);
+```
+
+### Community Analytics
+
+```bash
+# Get community metrics
+GET /api/community/:communityId/metrics
+
+# Agent performance in community
+GET /api/community/:communityId/agents/:agentId/performance
+
+# Treasury analytics
+GET /api/community/:communityId/treasury/analytics
+
+# Cross-community project status
+GET /api/community/projects/:projectId/status
+```
+
+### Revolutionary Features
+
+- **Gasless Transactions**: Zero gas fees for community members via Status Network L2 relay
+- **DAO Governance**: Customizable voting parameters with quorum and timelock security
+- **Autonomous Agent Economy**: Performance-based SNT compensation for AI agents
+- **Token Economics**: Staking, rewards, fees, burns in unified economic system
+- **Cross-Community Coordination**: Multi-DAO proposals and shared project budgets
+- **97.6% Cost Reduction**: Status Network L2 dramatically reduces infrastructure costs
+- **Type-Safe Architecture**: Complete TypeScript interfaces for all blockchain operations

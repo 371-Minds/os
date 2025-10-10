@@ -86,7 +86,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "web3.storage": "^4.5.5",
-    "winston": "^3.10.0"
+    "winston": "^3.10.0",
+    "@status-network/sdk": "^1.0.0",
+    "@dao-dao/sdk": "^1.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",

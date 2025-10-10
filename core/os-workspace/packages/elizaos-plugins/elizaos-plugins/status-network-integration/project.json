@@ -1,0 +1,39 @@
+{
+  "name": "@elizaos/plugin-status-network",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/src",
+  "projectType": "library",
+  "tags": ["type:plugin", "scope:blockchain", "scope:community"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/elizaos-plugins/status-network-integration",
+        "main": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/src/index.ts",
+        "tsConfig": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/tsconfig.json",
+        "assets": [
+          "packages/elizaos-plugins/elizaos-plugins/status-network-integration/*.md",
+          "packages/elizaos-plugins/elizaos-plugins/status-network-integration/LICENSE"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/elizaos-plugins/elizaos-plugins/status-network-integration/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

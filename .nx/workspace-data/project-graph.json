@@ -255,6 +255,72 @@
         "implicitDependencies": []
       }
     },
+    "react-email-templates": {
+      "name": "react-email-templates",
+      "type": "lib",
+      "data": {
+        "root": "core/os-workspace/packages/react-email-templates",
+        "name": "react-email-templates",
+        "tags": [
+          "npm:private",
+          "npm:email",
+          "npm:templates",
+          "npm:react",
+          "npm:blockchain",
+          "npm:verification",
+          "npm:agent-coordination",
+          "type:lib",
+          "domain:email"
+        ],
+        "metadata": {
+          "targetGroups": {},
+          "description": "React Email templates with blockchain verification and agent coordination",
+          "js": {
+            "packageName": "react-email-templates",
+            "packageMain": "src/index.tsx",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "@nx/rollup:rollup",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages/react-email-templates",
+              "main": "packages/react-email-templates/src/index.ts",
+              "tsConfig": "packages/react-email-templates/tsconfig.lib.json",
+              "assets": [
+                "packages/react-email-templates/*.md"
+              ],
+              "external": [
+                "react",
+                "react-dom"
+              ],
+              "rollupConfig": "@nx/react/plugins/bundle-rollup"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "packages/react-email-templates/jest.config.ts"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/react-email-templates/src",
+        "projectType": "library",
+        "implicitDependencies": []
+      }
+    },
     "dao-governance-service": {
       "name": "dao-governance-service",
       "type": "app",
@@ -368,6 +434,137 @@
             "parallelism": true
           }
         },
+        "implicitDependencies": []
+      }
+    },
+    "enhanced-mail-conduit": {
+      "name": "enhanced-mail-conduit",
+      "type": "app",
+      "data": {
+        "root": "core/os-workspace/apps/enhanced-mail-conduit",
+        "name": "enhanced-mail-conduit",
+        "tags": [
+          "npm:private",
+          "npm:email",
+          "npm:blockchain",
+          "npm:status-network",
+          "npm:agent-coordination",
+          "npm:cognitive-optimization",
+          "npm:privacy",
+          "type:app",
+          "domain:email"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "start",
+              "dev",
+              "test"
+            ]
+          },
+          "description": "Revolutionary email service with Status.network integration and agent coordination",
+          "js": {
+            "packageName": "enhanced-mail-conduit",
+            "packageMain": "src/main.ts",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "node dist/main.js",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "metadata": {
+              "scriptContent": "bun --watch src/main.ts",
+              "runCommand": "npm run dev"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "bun test",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "executor": "@nx/esbuild:esbuild",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "platform": "node",
+              "outputPath": "dist/apps/enhanced-mail-conduit",
+              "format": [
+                "cjs"
+              ],
+              "bundle": false,
+              "main": "apps/enhanced-mail-conduit/src/main.ts",
+              "tsConfig": "apps/enhanced-mail-conduit/tsconfig.app.json",
+              "assets": [
+                "apps/enhanced-mail-conduit/src/assets"
+              ],
+              "generatePackageJson": true,
+              "esbuildOptions": {
+                "sourcemap": true,
+                "outExtension": {
+                  ".js": ".js"
+                }
+              }
+            },
+            "configurations": {
+              "development": {},
+              "production": {
+                "esbuildOptions": {
+                  "sourcemap": false,
+                  "outExtension": {
+                    ".js": ".js"
+                  }
+                }
+              }
+            },
+            "parallelism": true
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "enhanced-mail-conduit:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "enhanced-mail-conduit:build:development"
+              },
+              "production": {
+                "buildTarget": "enhanced-mail-conduit:build:production"
+              }
+            },
+            "parallelism": true
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/enhanced-mail-conduit/src",
+        "projectType": "application",
         "implicitDependencies": []
       }
     },
@@ -5022,7 +5219,9 @@
   "dependencies": {
     "phase18-voting-simulation": [],
     "ping-agent": [],
+    "react-email-templates": [],
     "dao-governance-service": [],
+    "enhanced-mail-conduit": [],
     "c-suite-agent-runner": [],
     "chief-of-staff-agent": [],
     "cognitive-interface": [],
@@ -5044,5 +5243,5 @@
       "name": "ProcessDependenciesError"
     }
   ],
-  "computedAt": 1760058037346
+  "computedAt": 1760072061445
 }

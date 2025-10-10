@@ -1,0 +1,56 @@
+{
+  "name": "enhanced-mail-conduit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/enhanced-mail-conduit/src",
+  "projectType": "application",
+  "tags": ["type:app", "domain:email"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/enhanced-mail-conduit",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/enhanced-mail-conduit/src/main.ts",
+        "tsConfig": "apps/enhanced-mail-conduit/tsconfig.app.json",
+        "assets": ["apps/enhanced-mail-conduit/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "enhanced-mail-conduit:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "enhanced-mail-conduit:build:development"
+        },
+        "production": {
+          "buildTarget": "enhanced-mail-conduit:build:production"
+        }
+      }
+    }
+  }
+}

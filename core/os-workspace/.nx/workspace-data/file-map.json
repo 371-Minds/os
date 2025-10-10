@@ -32,54 +32,262 @@
   ],
   "fileMap": {
     "projectFileMap": {
-      "cao-agent": [
+      "cto-agent": [
         {
-          "file": "apps/cao-agent/README.md",
-          "hash": "11597628056556141357"
+          "file": "apps/cto-agent/IMPLEMENTATION_SUMMARY.md",
+          "hash": "11286139880818208632"
         },
         {
-          "file": "apps/cao-agent/package.json",
-          "hash": "16004010870337894269"
+          "file": "apps/cto-agent/README.md",
+          "hash": "10236433824930784068"
         },
         {
-          "file": "apps/cao-agent/project.json",
-          "hash": "8253226218192125595"
+          "file": "apps/cto-agent/package.json",
+          "hash": "15162525277862751382"
         },
         {
-          "file": "apps/cao-agent/src/assessment-analyzer.ts",
-          "hash": "6095332499290040272"
+          "file": "apps/cto-agent/project.json",
+          "hash": "9712231390417898341"
         },
         {
-          "file": "apps/cao-agent/src/cao-agent.test.ts",
-          "hash": "15252778060449262881"
+          "file": "apps/cto-agent/src/cto-agent.test.ts",
+          "hash": "10218159939913272058"
         },
         {
-          "file": "apps/cao-agent/src/curriculum-manager.ts",
-          "hash": "457047461884660420"
+          "file": "apps/cto-agent/src/index.ts",
+          "hash": "3036145581477765309"
         },
         {
-          "file": "apps/cao-agent/src/index.ts",
-          "hash": "4760246809739545216"
+          "file": "apps/cto-agent/src/router-integration.ts",
+          "hash": "17303836692531963579"
         },
         {
-          "file": "apps/cao-agent/src/learning-optimizer.ts",
-          "hash": "4732402860537549258"
+          "file": "apps/cto-agent/src/security-assessment-engine.ts",
+          "hash": "11615787806252390307"
         },
         {
-          "file": "apps/cao-agent/src/performance-monitor.ts",
-          "hash": "11733385712565073689"
+          "file": "apps/cto-agent/src/technical-analyzer.ts",
+          "hash": "17585955403289965774"
         },
         {
-          "file": "apps/cao-agent/src/types.ts",
-          "hash": "11406711122763021654"
+          "file": "apps/cto-agent/src/technical-task-processor.ts",
+          "hash": "2588773946024559109"
         },
         {
-          "file": "apps/cao-agent/tsconfig.app.json",
-          "hash": "18202180184646285871"
+          "file": "apps/cto-agent/src/types.ts",
+          "hash": "2552126775400326362"
         },
         {
-          "file": "apps/cao-agent/tsconfig.json",
-          "hash": "5404899870104465974"
+          "file": "apps/cto-agent/tsconfig.json",
+          "hash": "244684856460895855"
+        },
+        {
+          "file": "apps/cto-agent/tsconfig.lib.json",
+          "hash": "7694498928845402524"
+        },
+        {
+          "file": "apps/cto-agent/tsconfig.spec.json",
+          "hash": "8897422042899787882"
+        },
+        {
+          "file": "apps/cto-agent/verify.ts",
+          "hash": "15788364114203280205"
+        }
+      ],
+      "thinng-testing": [
+        {
+          "file": "packages/thinng-testing/project.json",
+          "hash": "17662997532607289321"
+        },
+        {
+          "file": "packages/thinng-testing/src/cross-phase-integration.ts",
+          "hash": "15799041403731275625"
+        },
+        {
+          "file": "packages/thinng-testing/src/index.ts",
+          "hash": "13115558261680122932"
+        },
+        {
+          "file": "packages/thinng-testing/src/integration-tests.ts",
+          "hash": "11296414659749250782"
+        },
+        {
+          "file": "packages/thinng-testing/src/performance-regression.ts",
+          "hash": "13334987028426740676"
+        },
+        {
+          "file": "packages/thinng-testing/src/phase1-tests.ts",
+          "hash": "11605231511258615302"
+        },
+        {
+          "file": "packages/thinng-testing/src/phase2-webgl-tests.ts",
+          "hash": "9531764054664630247"
+        },
+        {
+          "file": "packages/thinng-testing/src/phase3-intelligence-tests.ts",
+          "hash": "988879806433009563"
+        },
+        {
+          "file": "packages/thinng-testing/src/phase4-performance-tests.ts",
+          "hash": "12913938240717174809"
+        },
+        {
+          "file": "packages/thinng-testing/src/test-discovery.ts",
+          "hash": "15559032342105150806"
+        },
+        {
+          "file": "packages/thinng-testing/src/test-framework.ts",
+          "hash": "13744406827877944210"
+        },
+        {
+          "file": "packages/thinng-testing/src/test-reporting.ts",
+          "hash": "10283825140822966782"
+        },
+        {
+          "file": "packages/thinng-testing/src/types.ts",
+          "hash": "6974796341311747984"
+        },
+        {
+          "file": "packages/thinng-testing/tsconfig.json",
+          "hash": "1437134259317690806"
+        },
+        {
+          "file": "packages/thinng-testing/tsconfig.lib.json",
+          "hash": "8055042793576455398"
+        }
+      ],
+      "elizaos-plugin-nx-workspace": [
+        {
+          "file": "packages/nx-workspace/README.md",
+          "hash": "3970852638664631534"
+        },
+        {
+          "file": "packages/nx-workspace/jest.config.ts",
+          "hash": "15471657275472846096"
+        },
+        {
+          "file": "packages/nx-workspace/package.json",
+          "hash": "14170087877279169184"
+        },
+        {
+          "file": "packages/nx-workspace/project.json",
+          "hash": "6864558914841102236"
+        },
+        {
+          "file": "packages/nx-workspace/src/actions.ts",
+          "hash": "16304482823364473383"
+        },
+        {
+          "file": "packages/nx-workspace/src/index.ts",
+          "hash": "10495506880962140888"
+        },
+        {
+          "file": "packages/nx-workspace/src/plugin.ts",
+          "hash": "4657195737927550353"
+        },
+        {
+          "file": "packages/nx-workspace/src/provider.test.ts",
+          "hash": "11033516223914558989"
+        },
+        {
+          "file": "packages/nx-workspace/src/provider.ts",
+          "hash": "16458045661985384890"
+        },
+        {
+          "file": "packages/nx-workspace/src/types.ts",
+          "hash": "18416617094247662314"
+        },
+        {
+          "file": "packages/nx-workspace/src/utils.ts",
+          "hash": "16392025498737136911"
+        },
+        {
+          "file": "packages/nx-workspace/tsconfig.json",
+          "hash": "1098465750514412960"
+        },
+        {
+          "file": "packages/nx-workspace/tsconfig.lib.json",
+          "hash": "9737324951801910264"
+        },
+        {
+          "file": "packages/nx-workspace/tsconfig.spec.json",
+          "hash": "9827228927025126330"
+        }
+      ],
+      "ping-agent": [
+        {
+          "file": "apps/utility-agents/ping-agent/README.md",
+          "hash": "11671203231403465508"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/package.json",
+          "hash": "7888876277450868848"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/project.json",
+          "hash": "320066054498960681"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/src/index.ts",
+          "hash": "16946299515371708557"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/src/types.ts",
+          "hash": "2935028535051576363"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.app.json",
+          "hash": "5864099390250414070"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.json",
+          "hash": "5070439177883408905"
+        },
+        {
+          "file": "apps/utility-agents/ping-agent/tsconfig.spec.json",
+          "hash": "13920650602150815467"
+        }
+      ],
+      "enhanced-mail-conduit": [
+        {
+          "file": "apps/enhanced-mail-conduit/package.json",
+          "hash": "11043800648210381509"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/project.json",
+          "hash": "6338191678451597638"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/main.ts",
+          "hash": "13336963148945866478"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/services/agent-email-coordinator.ts",
+          "hash": "5666671187224593820"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/services/blockchain-email-verifier.ts",
+          "hash": "18079289464755980885"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/services/cognitive-email-optimizer.ts",
+          "hash": "12532621569873997475"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/services/proxied-email-service.ts",
+          "hash": "8581645576457048868"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/src/services/status-email-service.ts",
+          "hash": "9852072721800247789"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/tsconfig.app.json",
+          "hash": "10330529796487138090"
+        },
+        {
+          "file": "apps/enhanced-mail-conduit/tsconfig.json",
+          "hash": "4516515445397169025"
         }
       ],
       "cfo-agent": [
@@ -144,189 +352,66 @@
           "hash": "1146067670763212134"
         }
       ],
-      "thinng-foundation": [
+      "intelligent-router": [
         {
-          "file": "packages/README.md",
-          "hash": "6010055664090574579"
+          "file": "apps/intelligent-router/README.md",
+          "hash": "11153567147177627692"
         },
         {
-          "file": "packages/business-intelligence/README.md",
-          "hash": "5939456200066148424"
+          "file": "apps/intelligent-router/package.json",
+          "hash": "15631660340828649881"
         },
         {
-          "file": "packages/business-intelligence/src/actions.ts",
-          "hash": "13291502510307889066"
+          "file": "apps/intelligent-router/project.json",
+          "hash": "15878661385974716308"
         },
         {
-          "file": "packages/business-intelligence/src/index.ts",
-          "hash": "6368042428285266435"
+          "file": "apps/intelligent-router/src/agent-selector.ts",
+          "hash": "3855025165342656870"
         },
         {
-          "file": "packages/business-intelligence/src/plugin.ts",
-          "hash": "16718801717783610077"
+          "file": "apps/intelligent-router/src/agent-spawner.ts",
+          "hash": "5979482799729009083"
         },
         {
-          "file": "packages/business-intelligence/src/types.ts",
-          "hash": "17837574284028693746"
+          "file": "apps/intelligent-router/src/capability-gap-detector.ts",
+          "hash": "1986626026649503971"
         },
         {
-          "file": "packages/business-intelligence/tsup.config.ts",
-          "hash": "9384454130553684396"
+          "file": "apps/intelligent-router/src/delegation-orchestrator.ts",
+          "hash": "5538025659332206212"
         },
         {
-          "file": "packages/cognitive-engine/README.md",
-          "hash": "2425481673831860578"
+          "file": "apps/intelligent-router/src/index.ts",
+          "hash": "2946791229879794136"
         },
         {
-          "file": "packages/cognitive-engine/src/actions.ts",
-          "hash": "15460844628393351015"
+          "file": "apps/intelligent-router/src/intelligent-router.test.ts",
+          "hash": "7066672376521472811"
         },
         {
-          "file": "packages/cognitive-engine/src/plugin.test.ts",
-          "hash": "18310347980439598685"
+          "file": "apps/intelligent-router/src/performance-monitor.ts",
+          "hash": "4063719716968496041"
         },
         {
-          "file": "packages/cognitive-engine/src/provider.ts",
-          "hash": "17846044731599640322"
+          "file": "apps/intelligent-router/src/router-engine.ts",
+          "hash": "8356920216133708630"
         },
         {
-          "file": "packages/cognitive-engine/src/types.ts",
-          "hash": "8447885355950495890"
+          "file": "apps/intelligent-router/src/task-analyzer.ts",
+          "hash": "5951394580687962535"
         },
         {
-          "file": "packages/cognitive-engine/tsconfig.json",
-          "hash": "4515318142346122505"
+          "file": "apps/intelligent-router/src/types.ts",
+          "hash": "1200912522928902757"
         },
         {
-          "file": "packages/demo/phase1-demo.ts",
-          "hash": "285999742093565573"
+          "file": "apps/intelligent-router/tsconfig.app.json",
+          "hash": "17840012195657330865"
         },
         {
-          "file": "packages/demo/phase2-webgl-demo.ts",
-          "hash": "1099811017970856607"
-        },
-        {
-          "file": "packages/demo/phase4-performance-demo.ts",
-          "hash": "13382226489153709277"
-        },
-        {
-          "file": "packages/demo/phase4-quick-test.ts",
-          "hash": "13410373837212866008"
-        },
-        {
-          "file": "packages/demo/phase5-deployment-demo.ts",
-          "hash": "2615365147864213207",
-          "deps": [
-            "thinng-testing"
-          ]
-        },
-        {
-          "file": "packages/demo/simple-demo.ts",
-          "hash": "17897642874991569408"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/README.md",
-          "hash": "7137604449930213783"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/demo/phase3-enhanced-intelligence-demo.ts",
-          "hash": "17151652721197734221"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/package.json",
-          "hash": "16293343627591771291"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/actions.ts",
-          "hash": "18236981095136918167"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/decision-matrix.ts",
-          "hash": "3803528071702925091"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/fuzzy-logic.ts",
-          "hash": "5734574106844978863"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/index.ts",
-          "hash": "5826202940477598780"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/pattern-recognition.ts",
-          "hash": "18274869135391103400"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/plugin.ts",
-          "hash": "7255733023500848429"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/src/types.ts",
-          "hash": "2342932299985444727"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/tsconfig.json",
-          "hash": "1967282473968306433"
-        },
-        {
-          "file": "packages/elizaos-plugins/enhanced-intelligence/tsup.config.ts",
-          "hash": "18068966804968922154"
-        },
-        {
-          "file": "packages/package.json",
-          "hash": "10826520847584355945"
-        },
-        {
-          "file": "packages/project.json",
-          "hash": "5010353767896294498"
-        },
-        {
-          "file": "packages/src/index.ts",
-          "hash": "16090103493152015148"
-        },
-        {
-          "file": "packages/src/lib/math-bridge.ts",
-          "hash": "8713799318780775549"
-        },
-        {
-          "file": "packages/src/lib/performance-benchmarks.ts",
-          "hash": "4398084953264154928"
-        },
-        {
-          "file": "packages/src/lib/phase4-performance-optimizer.ts",
-          "hash": "301592303245194358"
-        },
-        {
-          "file": "packages/src/lib/shader-system.ts",
-          "hash": "368192005889487678"
-        },
-        {
-          "file": "packages/src/lib/test-runner.ts",
-          "hash": "3299397363182649821"
-        },
-        {
-          "file": "packages/src/lib/thinng-foundation.test.ts",
-          "hash": "8950250154292934409"
-        },
-        {
-          "file": "packages/src/lib/thinng-foundation.ts",
-          "hash": "9129049322331308402"
-        },
-        {
-          "file": "packages/src/lib/types.ts",
-          "hash": "9452895577148190986"
-        },
-        {
-          "file": "packages/src/lib/webgl-renderer.ts",
-          "hash": "282875181907763161"
-        },
-        {
-          "file": "packages/tsconfig.json",
-          "hash": "14348528073521137485"
-        },
-        {
-          "file": "packages/tsconfig.lib.json",
-          "hash": "9908975088309596753"
+          "file": "apps/intelligent-router/tsconfig.json",
+          "hash": "9850660559705542025"
         }
       ],
       "chief-of-staff-agent": [
@@ -571,189 +656,65 @@
           "hash": "5188573206099221072"
         }
       ],
-      "intelligent-router": [
+      "phase18-voting-simulation": [
         {
-          "file": "apps/intelligent-router/README.md",
-          "hash": "11153567147177627692"
+          "file": "apps/phase18-voting-simulation/.swcrc",
+          "hash": "16253791935946449516"
         },
         {
-          "file": "apps/intelligent-router/package.json",
-          "hash": "15631660340828649881"
+          "file": "apps/phase18-voting-simulation/README.md",
+          "hash": "17654314338950409100"
         },
         {
-          "file": "apps/intelligent-router/project.json",
-          "hash": "15878661385974716308"
+          "file": "apps/phase18-voting-simulation/project.json",
+          "hash": "11986265973665042765"
         },
         {
-          "file": "apps/intelligent-router/src/agent-selector.ts",
-          "hash": "3855025165342656870"
-        },
-        {
-          "file": "apps/intelligent-router/src/agent-spawner.ts",
-          "hash": "5979482799729009083"
-        },
-        {
-          "file": "apps/intelligent-router/src/capability-gap-detector.ts",
-          "hash": "1986626026649503971"
-        },
-        {
-          "file": "apps/intelligent-router/src/delegation-orchestrator.ts",
-          "hash": "5538025659332206212"
-        },
-        {
-          "file": "apps/intelligent-router/src/index.ts",
-          "hash": "2946791229879794136"
-        },
-        {
-          "file": "apps/intelligent-router/src/intelligent-router.test.ts",
-          "hash": "7066672376521472811"
-        },
-        {
-          "file": "apps/intelligent-router/src/performance-monitor.ts",
-          "hash": "4063719716968496041"
-        },
-        {
-          "file": "apps/intelligent-router/src/router-engine.ts",
-          "hash": "8356920216133708630"
-        },
-        {
-          "file": "apps/intelligent-router/src/task-analyzer.ts",
-          "hash": "5951394580687962535"
-        },
-        {
-          "file": "apps/intelligent-router/src/types.ts",
-          "hash": "1200912522928902757"
-        },
-        {
-          "file": "apps/intelligent-router/tsconfig.app.json",
-          "hash": "17840012195657330865"
-        },
-        {
-          "file": "apps/intelligent-router/tsconfig.json",
-          "hash": "9850660559705542025"
-        }
-      ],
-      "dao-governance-service": [
-        {
-          "file": "apps/dao-governance-service/DAO_GOVERNANCE_MODERNIZATION.md",
-          "hash": "14904955525810226082"
-        },
-        {
-          "file": "apps/dao-governance-service/README.md",
-          "hash": "8053561585340811263"
-        },
-        {
-          "file": "apps/dao-governance-service/project.json",
-          "hash": "12384393043161548182"
-        },
-        {
-          "file": "apps/dao-governance-service/src/agent-resolver.service.ts",
-          "hash": "12738108321004479593",
+          "file": "apps/phase18-voting-simulation/src/csuite-simulator.ts",
+          "hash": "1183304774451929314",
           "deps": [
-            "thinng-foundation"
+            "dao-governance-service"
           ]
         },
         {
-          "file": "apps/dao-governance-service/src/api-routes.ts",
-          "hash": "5031703291575273133"
+          "file": "apps/phase18-voting-simulation/src/governance-integration.ts",
+          "hash": "262260961639576749",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/dao-governance-service/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
+          "file": "apps/phase18-voting-simulation/src/index.ts",
+          "hash": "7326327742648185540"
         },
         {
-          "file": "apps/dao-governance-service/src/cognitive-query.service.ts",
-          "hash": "9504396555003979198"
+          "file": "apps/phase18-voting-simulation/src/notification-engine.ts",
+          "hash": "10525752581879789856",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/dao-governance-service/src/config.ts",
-          "hash": "1163475891023478086"
+          "file": "apps/phase18-voting-simulation/src/orchestrator.ts",
+          "hash": "16526055350710512907",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/dao-governance-service/src/dao-governance-integration-test.ts",
-          "hash": "11501760049346633971"
+          "file": "apps/phase18-voting-simulation/src/workflow-engine.ts",
+          "hash": "13294746413232651531",
+          "deps": [
+            "dao-governance-service"
+          ]
         },
         {
-          "file": "apps/dao-governance-service/src/governance-service.ts",
-          "hash": "17015542419048041693"
+          "file": "apps/phase18-voting-simulation/tsconfig.app.json",
+          "hash": "9618049478774648997"
         },
         {
-          "file": "apps/dao-governance-service/src/main.ts",
-          "hash": "13398626502785350259"
-        },
-        {
-          "file": "apps/dao-governance-service/src/test-example.ts",
-          "hash": "6089161268736238053"
-        },
-        {
-          "file": "apps/dao-governance-service/src/types.ts",
-          "hash": "13747788968636554821"
-        },
-        {
-          "file": "apps/dao-governance-service/tsconfig.app.json",
-          "hash": "13972901993207365929"
-        },
-        {
-          "file": "apps/dao-governance-service/tsconfig.json",
-          "hash": "3025378044812449119"
-        }
-      ],
-      "clo-agent": [
-        {
-          "file": "apps/clo-agent/package.json",
-          "hash": "11780664396649252686"
-        },
-        {
-          "file": "apps/clo-agent/project.json",
-          "hash": "3769535577187549965"
-        },
-        {
-          "file": "apps/clo-agent/src/compliance-analyzer.test.ts",
-          "hash": "1200206812592392287"
-        },
-        {
-          "file": "apps/clo-agent/src/compliance-analyzer.ts",
-          "hash": "14767272246916285595"
-        },
-        {
-          "file": "apps/clo-agent/src/governance-engine.ts",
-          "hash": "17467748563108918463"
-        },
-        {
-          "file": "apps/clo-agent/src/index.test.ts",
-          "hash": "4974907778337181246"
-        },
-        {
-          "file": "apps/clo-agent/src/index.ts",
-          "hash": "3398699742276281299"
-        },
-        {
-          "file": "apps/clo-agent/src/legal-task-processor.test.ts",
-          "hash": "10053814911630012740"
-        },
-        {
-          "file": "apps/clo-agent/src/legal-task-processor.ts",
-          "hash": "17309848102183547674"
-        },
-        {
-          "file": "apps/clo-agent/src/router-integration.ts",
-          "hash": "7761982155887441429"
-        },
-        {
-          "file": "apps/clo-agent/src/types.ts",
-          "hash": "9936998322968975058"
-        },
-        {
-          "file": "apps/clo-agent/tsconfig.json",
-          "hash": "244684856460895855"
-        },
-        {
-          "file": "apps/clo-agent/tsconfig.lib.json",
-          "hash": "7694498928845402524"
-        },
-        {
-          "file": "apps/clo-agent/tsconfig.spec.json",
-          "hash": "8897422042899787882"
+          "file": "apps/phase18-voting-simulation/tsconfig.json",
+          "hash": "18294568105317511560"
         }
       ],
       "cognitive-interface": [
@@ -965,66 +926,247 @@
           "hash": "11423316387004447258"
         }
       ],
-      "thinng-testing": [
+      "thinng-foundation": [
         {
-          "file": "packages/thinng-testing/project.json",
-          "hash": "17662997532607289321"
+          "file": "packages/README.md",
+          "hash": "6010055664090574579"
         },
         {
-          "file": "packages/thinng-testing/src/cross-phase-integration.ts",
-          "hash": "15799041403731275625"
+          "file": "packages/business-intelligence/README.md",
+          "hash": "5939456200066148424"
         },
         {
-          "file": "packages/thinng-testing/src/index.ts",
-          "hash": "14130831861355886474"
+          "file": "packages/business-intelligence/src/actions.ts",
+          "hash": "13291502510307889066"
         },
         {
-          "file": "packages/thinng-testing/src/integration-tests.ts",
-          "hash": "11296414659749250782"
+          "file": "packages/business-intelligence/src/index.ts",
+          "hash": "6368042428285266435"
         },
         {
-          "file": "packages/thinng-testing/src/performance-regression.ts",
-          "hash": "13334987028426740676"
+          "file": "packages/business-intelligence/src/plugin.ts",
+          "hash": "16718801717783610077"
         },
         {
-          "file": "packages/thinng-testing/src/phase1-tests.ts",
-          "hash": "11605231511258615302"
+          "file": "packages/business-intelligence/src/types.ts",
+          "hash": "17837574284028693746"
         },
         {
-          "file": "packages/thinng-testing/src/phase2-webgl-tests.ts",
-          "hash": "9531764054664630247"
+          "file": "packages/business-intelligence/tsup.config.ts",
+          "hash": "9384454130553684396"
         },
         {
-          "file": "packages/thinng-testing/src/phase3-intelligence-tests.ts",
-          "hash": "988879806433009563"
+          "file": "packages/cognitive-engine/README.md",
+          "hash": "2425481673831860578"
         },
         {
-          "file": "packages/thinng-testing/src/phase4-performance-tests.ts",
-          "hash": "12913938240717174809"
+          "file": "packages/cognitive-engine/src/actions.ts",
+          "hash": "15460844628393351015"
         },
         {
-          "file": "packages/thinng-testing/src/test-discovery.ts",
-          "hash": "15559032342105150806"
+          "file": "packages/cognitive-engine/src/plugin.test.ts",
+          "hash": "18310347980439598685"
         },
         {
-          "file": "packages/thinng-testing/src/test-framework.ts",
-          "hash": "13744406827877944210"
+          "file": "packages/cognitive-engine/src/provider.ts",
+          "hash": "17846044731599640322"
         },
         {
-          "file": "packages/thinng-testing/src/test-reporting.ts",
-          "hash": "10283825140822966782"
+          "file": "packages/cognitive-engine/src/types.ts",
+          "hash": "8447885355950495890"
         },
         {
-          "file": "packages/thinng-testing/src/types.ts",
-          "hash": "6974796341311747984"
+          "file": "packages/cognitive-engine/tsconfig.json",
+          "hash": "4515318142346122505"
         },
         {
-          "file": "packages/thinng-testing/tsconfig.json",
-          "hash": "1437134259317690806"
+          "file": "packages/demo/phase1-demo.ts",
+          "hash": "285999742093565573"
         },
         {
-          "file": "packages/thinng-testing/tsconfig.lib.json",
-          "hash": "8055042793576455398"
+          "file": "packages/demo/phase2-webgl-demo.ts",
+          "hash": "1099811017970856607"
+        },
+        {
+          "file": "packages/demo/phase4-performance-demo.ts",
+          "hash": "13382226489153709277"
+        },
+        {
+          "file": "packages/demo/phase4-quick-test.ts",
+          "hash": "13410373837212866008"
+        },
+        {
+          "file": "packages/demo/phase5-deployment-demo.ts",
+          "hash": "2615365147864213207",
+          "deps": [
+            "thinng-testing"
+          ]
+        },
+        {
+          "file": "packages/demo/simple-demo.ts",
+          "hash": "17897642874991569408"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/README.md",
+          "hash": "7137604449930213783"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/demo/phase3-enhanced-intelligence-demo.ts",
+          "hash": "17151652721197734221"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/package.json",
+          "hash": "16293343627591771291"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/actions.ts",
+          "hash": "18236981095136918167"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/decision-matrix.ts",
+          "hash": "3803528071702925091"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/fuzzy-logic.ts",
+          "hash": "5734574106844978863"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/index.ts",
+          "hash": "5826202940477598780"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/pattern-recognition.ts",
+          "hash": "18274869135391103400"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/plugin.ts",
+          "hash": "7255733023500848429"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/src/types.ts",
+          "hash": "2342932299985444727"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/tsconfig.json",
+          "hash": "1967282473968306433"
+        },
+        {
+          "file": "packages/elizaos-plugins/enhanced-intelligence/tsup.config.ts",
+          "hash": "18068966804968922154"
+        },
+        {
+          "file": "packages/package.json",
+          "hash": "10826520847584355945"
+        },
+        {
+          "file": "packages/project.json",
+          "hash": "5010353767896294498"
+        },
+        {
+          "file": "packages/src/index.ts",
+          "hash": "16090103493152015148"
+        },
+        {
+          "file": "packages/src/lib/math-bridge.ts",
+          "hash": "8713799318780775549"
+        },
+        {
+          "file": "packages/src/lib/performance-benchmarks.ts",
+          "hash": "4398084953264154928"
+        },
+        {
+          "file": "packages/src/lib/phase4-performance-optimizer.ts",
+          "hash": "301592303245194358"
+        },
+        {
+          "file": "packages/src/lib/shader-system.ts",
+          "hash": "368192005889487678"
+        },
+        {
+          "file": "packages/src/lib/test-runner.ts",
+          "hash": "3299397363182649821"
+        },
+        {
+          "file": "packages/src/lib/thinng-foundation.test.ts",
+          "hash": "8950250154292934409"
+        },
+        {
+          "file": "packages/src/lib/thinng-foundation.ts",
+          "hash": "9129049322331308402"
+        },
+        {
+          "file": "packages/src/lib/types.ts",
+          "hash": "9452895577148190986"
+        },
+        {
+          "file": "packages/src/lib/webgl-renderer.ts",
+          "hash": "282875181907763161"
+        },
+        {
+          "file": "packages/tsconfig.json",
+          "hash": "14348528073521137485"
+        },
+        {
+          "file": "packages/tsconfig.lib.json",
+          "hash": "9908975088309596753"
+        }
+      ],
+      "clo-agent": [
+        {
+          "file": "apps/clo-agent/package.json",
+          "hash": "11780664396649252686"
+        },
+        {
+          "file": "apps/clo-agent/project.json",
+          "hash": "3769535577187549965"
+        },
+        {
+          "file": "apps/clo-agent/src/compliance-analyzer.test.ts",
+          "hash": "1200206812592392287"
+        },
+        {
+          "file": "apps/clo-agent/src/compliance-analyzer.ts",
+          "hash": "14767272246916285595"
+        },
+        {
+          "file": "apps/clo-agent/src/governance-engine.ts",
+          "hash": "17467748563108918463"
+        },
+        {
+          "file": "apps/clo-agent/src/index.test.ts",
+          "hash": "4974907778337181246"
+        },
+        {
+          "file": "apps/clo-agent/src/index.ts",
+          "hash": "3398699742276281299"
+        },
+        {
+          "file": "apps/clo-agent/src/legal-task-processor.test.ts",
+          "hash": "10053814911630012740"
+        },
+        {
+          "file": "apps/clo-agent/src/legal-task-processor.ts",
+          "hash": "17309848102183547674"
+        },
+        {
+          "file": "apps/clo-agent/src/router-integration.ts",
+          "hash": "7761982155887441429"
+        },
+        {
+          "file": "apps/clo-agent/src/types.ts",
+          "hash": "9936998322968975058"
+        },
+        {
+          "file": "apps/clo-agent/tsconfig.json",
+          "hash": "244684856460895855"
+        },
+        {
+          "file": "apps/clo-agent/tsconfig.lib.json",
+          "hash": "7694498928845402524"
+        },
+        {
+          "file": "apps/clo-agent/tsconfig.spec.json",
+          "hash": "8897422042899787882"
         }
       ],
       "agent-factory": [
@@ -1092,38 +1234,119 @@
           "hash": "7699487533351179848"
         }
       ],
-      "ping-agent": [
+      "dao-governance-service": [
         {
-          "file": "apps/utility-agents/ping-agent/README.md",
-          "hash": "11671203231403465508"
+          "file": "apps/dao-governance-service/DAO_GOVERNANCE_MODERNIZATION.md",
+          "hash": "14904955525810226082"
         },
         {
-          "file": "apps/utility-agents/ping-agent/package.json",
-          "hash": "7888876277450868848"
+          "file": "apps/dao-governance-service/README.md",
+          "hash": "8053561585340811263"
         },
         {
-          "file": "apps/utility-agents/ping-agent/project.json",
-          "hash": "320066054498960681"
+          "file": "apps/dao-governance-service/project.json",
+          "hash": "12384393043161548182"
         },
         {
-          "file": "apps/utility-agents/ping-agent/src/index.ts",
-          "hash": "16946299515371708557"
+          "file": "apps/dao-governance-service/src/agent-resolver.service.ts",
+          "hash": "12738108321004479593",
+          "deps": [
+            "thinng-foundation"
+          ]
         },
         {
-          "file": "apps/utility-agents/ping-agent/src/types.ts",
-          "hash": "2935028535051576363"
+          "file": "apps/dao-governance-service/src/api-routes.ts",
+          "hash": "5031703291575273133"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.app.json",
-          "hash": "5864099390250414070"
+          "file": "apps/dao-governance-service/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.json",
-          "hash": "5070439177883408905"
+          "file": "apps/dao-governance-service/src/cognitive-query.service.ts",
+          "hash": "9504396555003979198"
         },
         {
-          "file": "apps/utility-agents/ping-agent/tsconfig.spec.json",
-          "hash": "13920650602150815467"
+          "file": "apps/dao-governance-service/src/config.ts",
+          "hash": "1163475891023478086"
+        },
+        {
+          "file": "apps/dao-governance-service/src/dao-governance-integration-test.ts",
+          "hash": "11501760049346633971"
+        },
+        {
+          "file": "apps/dao-governance-service/src/governance-service.ts",
+          "hash": "17015542419048041693"
+        },
+        {
+          "file": "apps/dao-governance-service/src/main.ts",
+          "hash": "13398626502785350259"
+        },
+        {
+          "file": "apps/dao-governance-service/src/test-example.ts",
+          "hash": "6089161268736238053"
+        },
+        {
+          "file": "apps/dao-governance-service/src/types.ts",
+          "hash": "13747788968636554821"
+        },
+        {
+          "file": "apps/dao-governance-service/tsconfig.app.json",
+          "hash": "13972901993207365929"
+        },
+        {
+          "file": "apps/dao-governance-service/tsconfig.json",
+          "hash": "3025378044812449119"
+        }
+      ],
+      "cao-agent": [
+        {
+          "file": "apps/cao-agent/README.md",
+          "hash": "11597628056556141357"
+        },
+        {
+          "file": "apps/cao-agent/package.json",
+          "hash": "16004010870337894269"
+        },
+        {
+          "file": "apps/cao-agent/project.json",
+          "hash": "8253226218192125595"
+        },
+        {
+          "file": "apps/cao-agent/src/assessment-analyzer.ts",
+          "hash": "6095332499290040272"
+        },
+        {
+          "file": "apps/cao-agent/src/cao-agent.test.ts",
+          "hash": "15252778060449262881"
+        },
+        {
+          "file": "apps/cao-agent/src/curriculum-manager.ts",
+          "hash": "457047461884660420"
+        },
+        {
+          "file": "apps/cao-agent/src/index.ts",
+          "hash": "4760246809739545216"
+        },
+        {
+          "file": "apps/cao-agent/src/learning-optimizer.ts",
+          "hash": "4732402860537549258"
+        },
+        {
+          "file": "apps/cao-agent/src/performance-monitor.ts",
+          "hash": "11733385712565073689"
+        },
+        {
+          "file": "apps/cao-agent/src/types.ts",
+          "hash": "11406711122763021654"
+        },
+        {
+          "file": "apps/cao-agent/tsconfig.app.json",
+          "hash": "18202180184646285871"
+        },
+        {
+          "file": "apps/cao-agent/tsconfig.json",
+          "hash": "5404899870104465974"
         }
       ],
       "ceo-agent": [
@@ -1208,187 +1431,6 @@
         {
           "file": "apps/c-suite-agent-runner/tsconfig.json",
           "hash": "3025378044812449119"
-        }
-      ],
-      "elizaos-plugin-nx-workspace": [
-        {
-          "file": "packages/nx-workspace/README.md",
-          "hash": "3970852638664631534"
-        },
-        {
-          "file": "packages/nx-workspace/jest.config.ts",
-          "hash": "15471657275472846096"
-        },
-        {
-          "file": "packages/nx-workspace/package.json",
-          "hash": "14170087877279169184"
-        },
-        {
-          "file": "packages/nx-workspace/project.json",
-          "hash": "6864558914841102236"
-        },
-        {
-          "file": "packages/nx-workspace/src/actions.ts",
-          "hash": "16304482823364473383"
-        },
-        {
-          "file": "packages/nx-workspace/src/index.ts",
-          "hash": "10495506880962140888"
-        },
-        {
-          "file": "packages/nx-workspace/src/plugin.ts",
-          "hash": "4657195737927550353"
-        },
-        {
-          "file": "packages/nx-workspace/src/provider.test.ts",
-          "hash": "11033516223914558989"
-        },
-        {
-          "file": "packages/nx-workspace/src/provider.ts",
-          "hash": "16458045661985384890"
-        },
-        {
-          "file": "packages/nx-workspace/src/types.ts",
-          "hash": "18416617094247662314"
-        },
-        {
-          "file": "packages/nx-workspace/src/utils.ts",
-          "hash": "16392025498737136911"
-        },
-        {
-          "file": "packages/nx-workspace/tsconfig.json",
-          "hash": "1098465750514412960"
-        },
-        {
-          "file": "packages/nx-workspace/tsconfig.lib.json",
-          "hash": "9737324951801910264"
-        },
-        {
-          "file": "packages/nx-workspace/tsconfig.spec.json",
-          "hash": "9827228927025126330"
-        }
-      ],
-      "phase18-voting-simulation": [
-        {
-          "file": "apps/phase18-voting-simulation/.swcrc",
-          "hash": "16253791935946449516"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/README.md",
-          "hash": "17654314338950409100"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/project.json",
-          "hash": "11986265973665042765"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/csuite-simulator.ts",
-          "hash": "1183304774451929314",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/governance-integration.ts",
-          "hash": "262260961639576749",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/index.ts",
-          "hash": "7326327742648185540"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/notification-engine.ts",
-          "hash": "10525752581879789856",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/orchestrator.ts",
-          "hash": "16526055350710512907",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/src/workflow-engine.ts",
-          "hash": "13294746413232651531",
-          "deps": [
-            "dao-governance-service"
-          ]
-        },
-        {
-          "file": "apps/phase18-voting-simulation/tsconfig.app.json",
-          "hash": "9618049478774648997"
-        },
-        {
-          "file": "apps/phase18-voting-simulation/tsconfig.json",
-          "hash": "18294568105317511560"
-        }
-      ],
-      "cto-agent": [
-        {
-          "file": "apps/cto-agent/IMPLEMENTATION_SUMMARY.md",
-          "hash": "11286139880818208632"
-        },
-        {
-          "file": "apps/cto-agent/README.md",
-          "hash": "10236433824930784068"
-        },
-        {
-          "file": "apps/cto-agent/package.json",
-          "hash": "15162525277862751382"
-        },
-        {
-          "file": "apps/cto-agent/project.json",
-          "hash": "9712231390417898341"
-        },
-        {
-          "file": "apps/cto-agent/src/cto-agent.test.ts",
-          "hash": "10218159939913272058"
-        },
-        {
-          "file": "apps/cto-agent/src/index.ts",
-          "hash": "3036145581477765309"
-        },
-        {
-          "file": "apps/cto-agent/src/router-integration.ts",
-          "hash": "17303836692531963579"
-        },
-        {
-          "file": "apps/cto-agent/src/security-assessment-engine.ts",
-          "hash": "11615787806252390307"
-        },
-        {
-          "file": "apps/cto-agent/src/technical-analyzer.ts",
-          "hash": "17585955403289965774"
-        },
-        {
-          "file": "apps/cto-agent/src/technical-task-processor.ts",
-          "hash": "2588773946024559109"
-        },
-        {
-          "file": "apps/cto-agent/src/types.ts",
-          "hash": "2552126775400326362"
-        },
-        {
-          "file": "apps/cto-agent/tsconfig.json",
-          "hash": "244684856460895855"
-        },
-        {
-          "file": "apps/cto-agent/tsconfig.lib.json",
-          "hash": "7694498928845402524"
-        },
-        {
-          "file": "apps/cto-agent/tsconfig.spec.json",
-          "hash": "8897422042899787882"
-        },
-        {
-          "file": "apps/cto-agent/verify.ts",
-          "hash": "15788364114203280205"
         }
       ]
     },

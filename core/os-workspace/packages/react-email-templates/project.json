@@ -1,0 +1,28 @@
+{
+  "name": "react-email-templates",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/react-email-templates/src",
+  "projectType": "library",
+  "tags": ["type:lib", "domain:email"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/react-email-templates",
+        "main": "packages/react-email-templates/src/index.ts",
+        "tsConfig": "packages/react-email-templates/tsconfig.lib.json",
+        "assets": ["packages/react-email-templates/*.md"],
+        "external": ["react", "react-dom"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/react-email-templates/jest.config.ts"
+      }
+    }
+  }
+}

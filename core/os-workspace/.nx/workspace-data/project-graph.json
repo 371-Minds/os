@@ -414,6 +414,151 @@
         "implicitDependencies": []
       }
     },
+    "enhanced-mail-conduit": {
+      "name": "enhanced-mail-conduit",
+      "type": "app",
+      "data": {
+        "root": "apps/enhanced-mail-conduit",
+        "name": "enhanced-mail-conduit",
+        "projectType": "application",
+        "tags": [
+          "npm:private",
+          "npm:email",
+          "npm:blockchain",
+          "npm:status-network",
+          "npm:agent-coordination",
+          "npm:cognitive-optimization",
+          "npm:privacy",
+          "type:app",
+          "domain:email"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "start",
+              "dev",
+              "test"
+            ]
+          },
+          "description": "Revolutionary email service with Status.network integration and agent coordination",
+          "js": {
+            "packageName": "enhanced-mail-conduit",
+            "packageVersion": "1.0.0",
+            "packageMain": "src/main.ts",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "node dist/main.js",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "metadata": {
+              "scriptContent": "bun --watch src/main.ts",
+              "runCommand": "npm run dev"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "bun test",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production"
+            ]
+          },
+          "build": {
+            "executor": "@nx/esbuild:esbuild",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "defaultConfiguration": "production",
+            "options": {
+              "platform": "node",
+              "outputPath": "dist/apps/enhanced-mail-conduit",
+              "format": [
+                "cjs"
+              ],
+              "bundle": false,
+              "main": "apps/enhanced-mail-conduit/src/main.ts",
+              "tsConfig": "apps/enhanced-mail-conduit/tsconfig.app.json",
+              "assets": [
+                "apps/enhanced-mail-conduit/src/assets"
+              ],
+              "generatePackageJson": true,
+              "esbuildOptions": {
+                "sourcemap": true,
+                "outExtension": {
+                  ".js": ".js"
+                }
+              }
+            },
+            "configurations": {
+              "development": {},
+              "production": {
+                "esbuildOptions": {
+                  "sourcemap": false,
+                  "outExtension": {
+                    ".js": ".js"
+                  }
+                }
+              }
+            },
+            "parallelism": true,
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ]
+          },
+          "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "enhanced-mail-conduit:build"
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "enhanced-mail-conduit:build:development"
+              },
+              "production": {
+                "buildTarget": "enhanced-mail-conduit:build:production"
+              }
+            },
+            "parallelism": true
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/enhanced-mail-conduit/src",
+        "implicitDependencies": []
+      }
+    },
     "c-suite-agent-runner": {
       "name": "c-suite-agent-runner",
       "type": "app",
@@ -2141,6 +2286,7 @@
         "type": "static"
       }
     ],
+    "enhanced-mail-conduit": [],
     "c-suite-agent-runner": [],
     "chief-of-staff-agent": [],
     "cognitive-interface": [
@@ -2175,5 +2321,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1759951317500
+  "computedAt": 1760065784463
 }

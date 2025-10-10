@@ -1,0 +1,122 @@
+---
+version: "2.0"
+
+services:
+  enhanced-mail-conduit:
+    image: node:20-alpine
+    depends_on:
+      - redis
+    env:
+      - PORT=3001
+      - NODE_ENV=production
+      - STATUS_NETWORK_API_KEY=
+      - STATUS_NETWORK_ENDPOINT=https://api.status.network
+      - EMAIL_DAO_CONTRACT_ADDRESS=
+      - PROXIEDMAIL_API_KEY=
+      - PROXIEDMAIL_ENDPOINT=https://api.proxiedmail.com
+      - EMAIL_VERIFICATION_CONTRACT=
+      - BLOCKCHAIN_NETWORK_ID=status-mainnet
+      - EMAIL_SERVICE_MODE=production
+      - REDIS_URL=redis://redis:6379
+    expose:
+      - port: 3001
+        as: 80
+        to:
+          - global: true
+    command:
+      - "sh"
+      - "-c"
+      - |
+        npm install -g bun
+        cd /app
+        bun install
+        bun build src/main.ts --outdir dist --target node
+        node dist/main.js
+    
+  redis:
+    image: redis:7-alpine
+    expose:
+      - port: 6379
+    params:
+      storage:
+        data:
+          mount: /data
+          readOnly: false
+
+  cognitive-interface:
+    image: node:20-alpine
+    depends_on:
+      - enhanced-mail-conduit
+    env:
+      - PORT=3000
+      - NODE_ENV=production
+      - VITE_API_URL=http://enhanced-mail-conduit:3001
+      - VITE_BLOCKCHAIN_ENABLED=true
+      - VITE_DAO_GOVERNANCE_ENABLED=true
+    expose:
+      - port: 3000
+        as: 8080
+        to:
+          - global: true
+    command:
+      - "sh"
+      - "-c"
+      - |
+        npm install -g bun
+        cd /app
+        bun install
+        bun run build
+        bun run preview --host 0.0.0.0 --port 3000
+
+profiles:
+  compute:
+    enhanced-mail-conduit:
+      resources:
+        cpu:
+          units: 2.0
+        memory:
+          size: 4Gi
+        storage:
+          - size: 10Gi
+    redis:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 1Gi
+        storage:
+          - size: 5Gi
+    cognitive-interface:
+      resources:
+        cpu:
+          units: 1.0
+        memory:
+          size: 2Gi
+        storage:
+          - size: 5Gi
+  placement:
+    westcoast:
+      pricing:
+        enhanced-mail-conduit:
+          denom: uakt
+          amount: 100
+        redis:
+          denom: uakt
+          amount: 50
+        cognitive-interface:
+          denom: uakt
+          amount: 75
+
+deployment:
+  enhanced-mail-conduit:
+    westcoast:
+      profile: enhanced-mail-conduit
+      count: 1
+  redis:
+    westcoast:
+      profile: redis
+      count: 1
+  cognitive-interface:
+    westcoast:
+      profile: cognitive-interface
+      count: 1

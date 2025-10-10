@@ -2271,6 +2271,308 @@
       "nx/core/project-json"
     ]
   },
+  "core/os-workspace/apps/enhanced-mail-conduit": {
+    "root": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:email": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:status-network": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-coordination": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:cognitive-optimization": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:privacy": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.executor": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.options.script": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.scriptContent": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.start.metadata.runCommand": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.executor": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.options": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.metadata": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.options.script": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.metadata.scriptContent": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test.metadata.runCommand": [
+      "core/os-workspace/apps/enhanced-mail-conduit/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:app": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:email": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.platform": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.format": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.bundle": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.esbuildOptions": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.esbuildOptions": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "core/os-workspace/apps/enhanced-mail-conduit/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "core/os-workspace/apps/intelligent-router": {
     "root": [
       "core/os-workspace/apps/intelligent-router/project.json",
@@ -3260,6 +3562,156 @@
     ],
     "targets.build.options.generatePackageJson": [
       "core/os-workspace/packages/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "core/os-workspace/packages/react-email-templates": {
+    "root": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:email": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:templates": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:react": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:verification": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:agent-coordination": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "core/os-workspace/packages/react-email-templates/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:lib": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:email": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.external": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.rollupConfig": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "core/os-workspace/packages/react-email-templates/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "core/os-workspace/packages/react-email-templates/project.json",
       "nx/core/project-json"
     ]
   },

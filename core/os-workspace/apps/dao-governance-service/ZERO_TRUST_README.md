@@ -82,16 +82,18 @@ dao-governance-service/
 
 ### Local Development & Testing
 
-1. **Start the local test environment:**
+1. **Set up development secrets:**
    ```powershell
-   docker-compose up -d
+   cd f:\os-main\core\os-workspace\apps\dao-governance-service
+   node uts-cli.js quick-setup
    ```
+   This creates default test credentials for local development.
 
 2. **Verify services are running:**
    ```powershell
+   docker-compose up -d
    docker-compose ps
    docker logs dao-governance-service
-   docker logs secretless-broker
    ```
 
 3. **Test the API:**
@@ -108,6 +110,92 @@ dao-governance-service/
    ```powershell
    docker-compose down
    ```
+
+### Setting Up Production Credentials
+
+**Important:** The `quick-setup` command creates **test credentials only**. For production deployment, you need to replace them with real credentials.
+
+#### Method 1: Interactive Setup (Recommended for First Time)
+```powershell
+cd f:\os-main\core\os-workspace\apps\dao-governance-service
+node setup-production-secrets.js
+```
+This will prompt you for each credential interactively.
+
+#### Method 2: Manual Setup (Individual Commands)
+```powershell
+# Database credentials
+node uts-cli.js set dao-governance-db/username "your_prod_db_user"
+node uts-cli.js set dao-governance-db/password "YourSecurePassword123!" --encrypted
+node uts-cli.js set dao-governance-db/host "tidb-prod.371minds.com"
+node uts-cli.js set dao-governance-db/port "4000"
+
+# Novu API credentials
+node uts-cli.js set novu/api-key "novu_sk_abc123..." --encrypted
+node uts-cli.js set novu/api-url "https://api.novu.co"
+
+# Blockchain RPC credentials (if needed)
+node uts-cli.js set blockchain/rpc-url "https://mainnet.infura.io/v3/YOUR-PROJECT-ID"
+node uts-cli.js set blockchain/api-key "your-api-key" --encrypted
+
+# Verify all secrets
+node uts-cli.js list
+```
+
+#### Method 3: Import from Existing .env File
+```powershell
+# If you have existing credentials in a .env file
+# Manually copy each value using the set command above
+
+# Or create a simple import script:
+Get-Content .env.production | ForEach-Object {
+    if ($_ -match '^([^=]+)=(.+)$') {
+        $key = $matches[1].ToLower().Replace('_', '/')
+        $value = $matches[2]
+        node uts-cli.js set $key $value
+    }
+}
+```
+
+**📋 Credential Checklist:**
+- [ ] Database username set
+- [ ] Database password set (with --encrypted flag)
+- [ ] Database host set (production hostname)
+- [ ] Database port set (usually 5432 or 4000)
+- [ ] Novu API key set (with --encrypted flag)
+- [ ] Novu API URL set
+- [ ] Blockchain RPC URL set (if using)
+- [ ] Blockchain API key set (if required, with --encrypted flag)
+- [ ] Verified all secrets with `node uts-cli.js list`
+
+#### Where to Get Production Credentials
+
+**Database Credentials:**
+- **Host/Port:** From your database provider (TiDB Cloud, DigitalOcean, AWS RDS, etc.)
+- **Username/Password:** Created in your database admin panel
+- **Example providers:**
+  - TiDB Cloud: https://tidbcloud.com/
+  - DigitalOcean Managed PostgreSQL: https://cloud.digitalocean.com/databases
+  - Supabase: https://supabase.com/
+
+**Novu API Credentials:**
+- **Sign up:** https://novu.co/
+- **Get API key:** Dashboard → Settings → API Keys
+- **API URL:** Usually `https://api.novu.co` (or your self-hosted URL)
+
+**Blockchain RPC Credentials:**
+- **Infura:** https://infura.io/ (Ethereum/Polygon)
+- **Alchemy:** https://www.alchemy.com/ (Multiple chains)
+- **QuickNode:** https://www.quicknode.com/ (Multiple chains)
+- **Or use your own node**
+
+**Security Best Practices:**
+1. ✅ Never share credentials in plain text
+2. ✅ Use strong, unique passwords (20+ characters)
+3. ✅ Enable 2FA on all admin accounts
+4. ✅ Use the `--encrypted` flag for sensitive values
+5. ✅ Rotate credentials every 90 days
+6. ✅ Never commit `.uts-secrets.json` to git
 
 ### Production Deployment to Akash
 

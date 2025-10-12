@@ -3297,6 +3297,450 @@
       "nx/core/project-json"
     ]
   },
+  "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social": {
+    "root": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:postiz": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:social-media": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:ai-content": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:spatial-interface": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-minds": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageExports": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:plugin": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:elizaos": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.feature:social-media": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.buildTarget": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration": {
+    "root": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:public": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:status-network": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:dao": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:governance": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:snt-token": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:community": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:blockchain": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:elizaos": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:371-os": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.description": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.options.script": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.scriptContent": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.format.metadata.runCommand": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.dependsOn": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.nx-release-publish.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:plugin": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:blockchain": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:community": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.lintFilePatterns": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "core/os-workspace/packages/nx-workspace": {
     "root": [
       "core/os-workspace/packages/nx-workspace/project.json",

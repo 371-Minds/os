@@ -3,8 +3,8 @@
 // MCP Connection Test Script
 // Tests the Model Context Protocol connections for 371 OS
 
-const https = require('https');
-const http = require('http');
+import https from 'https';
+import http from 'http';
 
 const servers = [
   {

@@ -1,5 +1,209 @@
 {
   "nodes": {
+    "@elizaos/plugin-status-network": {
+      "name": "@elizaos/plugin-status-network",
+      "type": "lib",
+      "data": {
+        "root": "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/status-network-integration",
+        "name": "@elizaos/plugin-status-network",
+        "tags": [
+          "npm:public",
+          "npm:status-network",
+          "npm:dao",
+          "npm:governance",
+          "npm:snt-token",
+          "npm:community",
+          "npm:blockchain",
+          "npm:elizaos",
+          "npm:371-os",
+          "type:plugin",
+          "scope:blockchain",
+          "scope:community"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "format"
+            ]
+          },
+          "description": "Status Network integration plugin for 371 OS community building and DAO governance",
+          "js": {
+            "packageName": "@elizaos/plugin-status-network",
+            "packageMain": "dist/index.js",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "format": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "format"
+            },
+            "metadata": {
+              "scriptContent": "bunx @biomejs/biome format --write .",
+              "runCommand": "npm run format"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "dist/packages/elizaos-plugins/status-network-integration",
+              "main": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/src/index.ts",
+              "tsConfig": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/tsconfig.json",
+              "assets": [
+                "packages/elizaos-plugins/elizaos-plugins/status-network-integration/*.md",
+                "packages/elizaos-plugins/elizaos-plugins/status-network-integration/LICENSE"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "packages/elizaos-plugins/elizaos-plugins/status-network-integration/**/*.ts"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": [
+              "{workspaceRoot}/coverage/{projectRoot}"
+            ],
+            "options": {
+              "jestConfig": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/jest.config.ts",
+              "passWithNoTests": true
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/elizaos-plugins/elizaos-plugins/status-network-integration/src",
+        "projectType": "library",
+        "implicitDependencies": []
+      }
+    },
+    "postiz-social": {
+      "name": "postiz-social",
+      "type": "lib",
+      "data": {
+        "root": "core/os-workspace/packages/elizaos-plugins/elizaos-plugins/postiz-social",
+        "name": "postiz-social",
+        "tags": [
+          "npm:public",
+          "npm:elizaos",
+          "npm:postiz",
+          "npm:social-media",
+          "npm:ai-content",
+          "npm:spatial-interface",
+          "npm:371-minds",
+          "type:plugin",
+          "scope:elizaos",
+          "feature:social-media"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "format"
+            ]
+          },
+          "description": "ElizaOS plugin for Postiz social media management with cognitive-aware interfaces",
+          "js": {
+            "packageName": "@elizaos/plugin-postiz-social",
+            "packageExports": {
+              ".": {
+                "import": "./dist/index.js",
+                "types": "./dist/index.d.ts"
+              }
+            },
+            "packageMain": "./dist/index.js",
+            "isInPackageManagerWorkspaces": false
+          }
+        },
+        "targets": {
+          "format": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "format"
+            },
+            "metadata": {
+              "scriptContent": "bunx @biomejs/biome format --write .",
+              "runCommand": "npm run format"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "nx-release-publish": {
+            "executor": "@nx/js:release-publish",
+            "dependsOn": [
+              "^nx-release-publish"
+            ],
+            "options": {},
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": [
+              "{options.outputPath}"
+            ],
+            "options": {
+              "outputPath": "packages/elizaos-plugins/elizaos-plugins/postiz-social/dist",
+              "main": "packages/elizaos-plugins/elizaos-plugins/postiz-social/src/index.ts",
+              "tsConfig": "packages/elizaos-plugins/elizaos-plugins/postiz-social/tsconfig.json",
+              "assets": [
+                "packages/elizaos-plugins/elizaos-plugins/postiz-social/*.md"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "@nx/js:node",
+            "options": {
+              "buildTarget": "postiz-social:build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "@nx/linter:eslint",
+            "options": {
+              "lintFilePatterns": [
+                "packages/elizaos-plugins/elizaos-plugins/postiz-social/**/*.ts"
+              ]
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "packages/elizaos-plugins/elizaos-plugins/postiz-social/src",
+        "projectType": "library",
+        "implicitDependencies": []
+      }
+    },
     "phase18-voting-simulation": {
       "name": "phase18-voting-simulation",
       "type": "app",
@@ -5217,6 +5421,8 @@
     }
   },
   "dependencies": {
+    "@elizaos/plugin-status-network": [],
+    "postiz-social": [],
     "phase18-voting-simulation": [],
     "ping-agent": [],
     "react-email-templates": [],
@@ -5243,5 +5449,5 @@
       "name": "ProcessDependenciesError"
     }
   ],
-  "computedAt": 1760124659812
+  "computedAt": 1760229286007
 }

@@ -28,6 +28,7 @@
     "publish:plugins": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Package elizaos-plugins",
     "publish:core": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Package core-libraries",
     "publish:secure": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-packages.ps1 -Production",
-    "deploy:with-secrets": "bun run env:load && cd core/os-workspace && bun run deploy:github:all"
+    "deploy:with-secrets": "bun run env:load && cd core/os-workspace && bun run deploy:github:all",
+    "start:benchmark": "powershell -ExecutionPolicy Bypass -File ./scripts/start-benchmarking-env.ps1"
   }
 }

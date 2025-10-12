@@ -111,21 +111,29 @@ curl -X POST http://uts.internal/secrets/novu/api-url \
 
 ### Using UTS CLI (if available)
 
+**UPDATE:** A development CLI tool is now available! See [UTS_CLI_GUIDE.md](./UTS_CLI_GUIDE.md)
+
 ```bash
-# Install UTS CLI
-npm install -g @371minds/uts-cli
+# Quick setup for development (creates all default secrets)
+cd f:/os-main/core/os-workspace/apps/dao-governance-service
+node uts-cli.js quick-setup
 
-# Authenticate
-uts-cli auth login
+# Or manually set individual secrets
+node uts-cli.js set dao-governance-db/username "dao_governance_user"
+node uts-cli.js set dao-governance-db/password "SECURE_PASSWORD" --encrypted
+node uts-cli.js set dao-governance-db/host "tidb.371minds.production.com"
+node uts-cli.js set dao-governance-db/port "5432"
+node uts-cli.js set novu/api-key "NOVU_API_KEY" --encrypted
+node uts-cli.js set novu/api-url "https://api.novu.co"
 
-# Store secrets
-uts-cli secrets set dao-governance-db/username "dao_governance_user"
-uts-cli secrets set dao-governance-db/password "SECURE_PASSWORD" --encrypted
-uts-cli secrets set dao-governance-db/host "tidb.371minds.production.com"
-uts-cli secrets set dao-governance-db/port "5432"
-uts-cli secrets set novu/api-key "NOVU_API_KEY" --encrypted
-uts-cli secrets set novu/api-url "https://api.novu.co"
+# List all secrets
+node uts-cli.js list
+
+# Export to .env format
+node uts-cli.js export > .env.local
 ```
+
+**Note:** This CLI tool is for **local development only**. For production, use the actual UTS API below.
 
 ---
 

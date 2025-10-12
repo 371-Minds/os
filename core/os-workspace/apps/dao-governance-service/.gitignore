@@ -9,6 +9,7 @@
 *.p12
 secrets/
 credentials/
+.uts-secrets.json
 
 # Ignore local development overrides
 docker-compose.override.yml

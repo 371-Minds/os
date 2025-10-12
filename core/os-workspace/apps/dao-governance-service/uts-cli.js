@@ -46,22 +46,17 @@ function saveSecrets(secrets) {
 }
 
 // Commands
-function setSecret(key, value, encrypted = false) {
+function setSecret(key, value) {
   const secrets = loadSecrets();
   secrets[key] = {
     value,
-    encrypted,
     updated_at: new Date().toISOString()
   };
   
   if (saveSecrets(secrets)) {
     console.log(`✅ Secret stored: ${key}`);
-    if (encrypted) {
-      console.log('   🔐 Marked as encrypted (actual encryption not implemented in dev mode)');
-    }
   }
 }
-
 function getSecret(key) {
   const secrets = loadSecrets();
   if (secrets[key]) {

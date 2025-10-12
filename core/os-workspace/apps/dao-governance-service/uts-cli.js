@@ -46,18 +46,68 @@ function saveSecrets(secrets) {
 }
 
 // Commands
-function setSecret(key, value) {
+// --- getSecret: drop the stale encrypted check ---
+function getSecret(key) {
   const secrets = loadSecrets();
-  secrets[key] = {
-    value,
-    updated_at: new Date().toISOString()
-  };
-  
-  if (saveSecrets(secrets)) {
-    console.log(`✅ Secret stored: ${key}`);
+  if (secrets[key]) {
+    console.log(`🔑 Secret: ${key}`);
+    console.log(`   Value: ${secrets[key].value}`);
+    console.log(`   Updated: ${secrets[key].updated_at}`);
+  } else {
+    console.log(`❌ Secret not found: ${key}`);
   }
 }
-function getSecret(key) {
+
+// --- listSecrets: no more 🔐 indicator ---
+function listSecrets() {
+  const secrets = loadSecrets();
+  const keys = Object.keys(secrets);
+
+  if (keys.length === 0) {
+    console.log('📋 No secrets stored');
+    return;
+  }
+
+  console.log(`📋 Stored secrets (${keys.length}):\n`);
+  keys.forEach(key => {
+    const secret = secrets[key];
+    const value = secret.value.length > 30
+      ? secret.value.substring(0, 30) + '...'
+      : secret.value;
+    console.log(`${key}`);
+    console.log(`     Value: ${value}`);
+    console.log(`     Updated: ${secret.updated_at}\n`);
+  });
+}
+
+// --- quickSetup defaultSecrets loop: drop encrypted:false ---
+Object.entries(defaultSecrets).forEach(([key, value]) => {
+  if (!secrets[key]) {
+    secrets[key] = {
+      value,
+      updated_at: new Date().toISOString()
+    };
+    console.log(`✅ Added: ${key}`);
+    updated++;
+  } else {
+    console.log(`⏭️  Skipped (already exists): ${key}`);
+    skipped++;
+  }
+});
+
+// --- CLI dispatcher: 'set' no longer takes an encrypted flag ---
+case 'set':
+  if (args.length < 3) {
+    console.log('❌ Usage: node uts-cli.js set <key> <value>');
+    process.exit(1);
+  }
+  setSecret(args[1], args[2]);
+  break;
+
+// --- Help text: remove [--encrypted] from usages ---
+console.log('  node uts-cli.js set <key> <value>  # Store a secret');
+…  
+console.log('  node uts-cli.js set dao-governance-db/password "secret123"');function getSecret(key) {
   const secrets = loadSecrets();
   if (secrets[key]) {
     console.log(`🔑 Secret: ${key}`);

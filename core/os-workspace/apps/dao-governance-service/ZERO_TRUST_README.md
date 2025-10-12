@@ -144,18 +144,33 @@ node uts-cli.js list
 
 #### Method 3: Import from Existing .env File
 ```powershell
-# If you have existing credentials in a .env file
-# Manually copy each value using the set command above
+# 1. Copy the example file and fill in your credentials
+cd f:\os-main\core\os-workspace\apps\dao-governance-service
+cp .env.example .env.production
 
-# Or create a simple import script:
+# 2. Edit .env.production with your real credentials
+# See .env.example for complete documentation and format
+
+# 3. Import using the dedicated script (recommended)
+powershell -ExecutionPolicy Bypass -File .\import-env-to-uts.ps1 -EnvFile .env.production
+
+# Or use the manual PowerShell command:
 Get-Content .env.production | ForEach-Object {
-    if ($_ -match '^([^=]+)=(.+)$') {
-        $key = $matches[1].ToLower().Replace('_', '/')
-        $value = $matches[2]
-        node uts-cli.js set $key $value
+    if ($_ -match '^([A-Z_][A-Z0-9_]*)=(.+)$' -and $_ -notmatch '^\s*#') {
+        $key = $matches[1].Trim().ToLower().Replace('_', '/')
+        $value = $matches[2].Trim()
+        $encrypted = if ($key -match 'password|key|secret|token') { '--encrypted' } else { '' }
+        node uts-cli.js set $key $value $encrypted
     }
 }
 ```
+
+**📝 .env File Format:**
+- Use `#` for comments (at the beginning of a line)
+- Format: `KEY=value` (no spaces around `=`)
+- Don't use quotes around values (they'll be included)
+- Use `UPPERCASE_WITH_UNDERSCORES` for variable names
+- See [`.env.example`](./.env.example) for a complete template
 
 **📋 Credential Checklist:**
 - [ ] Database username set

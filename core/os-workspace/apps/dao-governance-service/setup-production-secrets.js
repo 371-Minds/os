@@ -116,8 +116,3 @@ setupSecrets().catch(error => {
   rl.close();
   process.exit(1);
 });
-ets().catch(error => {
-  console.error('\n❌ Error during setup:', error);
-  rl.close();
-  process.exit(1);
-});

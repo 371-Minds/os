@@ -1,0 +1,177 @@
+---
+# Akash Network Deployment Manifest for DAO Governance Service
+# Zero-Trust Architecture with Secretless Broker Sidecar
+version: "2.0"
+
+services:
+  # Main application: DAO Governance Service
+  dao-governance-service:
+    image: ghcr.io/371-minds/dao-governance-service:latest
+    env:
+      # Application Configuration
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=3000
+      
+      # Zero-Trust Mode (CRITICAL)
+      - ZERO_TRUST_MODE=true
+      
+      # Database Configuration (points to Secretless Broker)
+      - DATABASE_HOST=127.0.0.1
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=dao_governance
+      
+      # Notification Configuration (points to Secretless Broker)
+      - NOVU_API_URL=http://127.0.0.1:8081
+      
+      # Blockchain Configuration (points to Secretless Broker)
+      - BLOCKCHAIN_RPC_URL=http://127.0.0.1:8545
+      
+      # Security Headers
+      - ALLOWED_ORIGINS=https://app.371minds.com,https://admin.371minds.com
+      
+      # Logging
+      - LOG_LEVEL=info
+      - LOG_FORMAT=json
+    
+    expose:
+      - port: 3000
+        as: 80
+        to:
+          - global: true
+        accept:
+          - dao-governance.371minds.com
+    
+    # Health check configuration
+    health_check:
+      command: ["curl", "-f", "http://localhost:3000/api/governance/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Sidecar: Secretless Broker for Zero-Trust Credential Injection
+  secretless-broker:
+    image: cyberark/secretless-broker:latest
+    env:
+      # Authentication to Universal Tool Server
+      # This token is injected by Akash from encrypted storage
+      - UTS_AUTH_TOKEN=${UTS_AUTH_TOKEN}
+      - UTS_ENDPOINT=${UTS_ENDPOINT}
+      
+      # Logging
+      - SECRETLESS_LOG_LEVEL=info
+    
+    # Mount configuration file
+    volumes:
+      - /secretless:/etc/secretless:ro
+    
+    # Start broker with configuration
+    command: ["-f", "/etc/secretless/secretless.yml"]
+    
+    # Health check for broker
+    health_check:
+      command: ["curl", "-f", "http://localhost:5335/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+# Resource profiles for compute allocation
+profiles:
+  compute:
+    dao-governance-service:
+      resources:
+        cpu:
+          units: 1.0  # 1 full CPU
+        memory:
+          size: 1Gi   # 1GB RAM
+        storage:
+          size: 5Gi   # 5GB storage for logs and temp data
+    
+    secretless-broker:
+      resources:
+        cpu:
+          units: 0.25  # 1/4 CPU (lightweight proxy)
+        memory:
+          size: 256Mi  # 256MB RAM
+        storage:
+          size: 512Mi  # 512MB storage
+
+  # Placement profile - where to deploy
+  placement:
+    dcloud:
+      attributes:
+        host: akash
+        region: us-west  # Prefer US West for low latency
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"  # Akash official provider
+      pricing:
+        dao-governance-service:
+          denom: uakt
+          amount: 1000  # Max price per block
+        secretless-broker:
+          denom: uakt
+          amount: 250   # Max price per block
+
+# Deployment specification
+deployment:
+  dao-governance-service:
+    dcloud:
+      profile: dao-governance-service
+      count: 1
+
+  secretless-broker:
+    dcloud:
+      profile: secretless-broker
+      count: 1
+
+# Persistent storage for configuration files
+volumes:
+  secretless:
+    type: configMap
+    data:
+      secretless.yml: |
+        # This content will be injected from the secretless.yml file
+        # See deployment scripts for automated injection
+        version: "2"
+        services:
+          dao-governance-db:
+            connector: "tcp"
+            listenOn: "tcp://127.0.0.1:5432"
+            credentials:
+              - name: "username"
+                provider: "http"
+                get: "http://uts.internal/secrets/dao-governance-db/username"
+              - name: "password"
+                provider: "http"
+                get: "http://uts.internal/secrets/dao-governance-db/password"
+              - name: "host"
+                provider: "http"
+                get: "http://uts.internal/secrets/dao-governance-db/host"
+              - name: "port"
+                provider: "http"
+                get: "http://uts.internal/secrets/dao-governance-db/port"
+          
+          novu-api:
+            connector: "http"
+            listenOn: "tcp://127.0.0.1:8081"
+            credentials:
+              - name: "api_key"
+                provider: "http"
+                get: "http://uts.internal/secrets/novu/api-key"
+              - name: "api_url"
+                provider: "http"
+                get: "http://uts.internal/secrets/novu/api-url"
+          
+          blockchain-rpc:
+            connector: "http"
+            listenOn: "tcp://127.0.0.1:8545"
+            credentials:
+              - name: "rpc_url"
+                provider: "http"
+                get: "http://uts.internal/secrets/blockchain/rpc-url"
+              - name: "api_key"
+                provider: "http"
+                get: "http://uts.internal/secrets/blockchain/api-key"

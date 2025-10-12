@@ -138,6 +138,20 @@ Each agent follows a unified **brain/body architecture**:
   - proxiedmail.com privacy protection
   - 97.6% cost reduction via Akash Network
 
+#### DAO Governance with Zero-Trust Security
+- **DAO Governance Service** (`dao-governance-service`) - Enterprise-grade governance with **Zero-Trust Architecture**:
+  - **Secretless Broker Integration**: No credentials in application code
+  - **Universal Tool Server**: Centralized, auditable secret management
+  - **Transparent Credential Injection**: Database and API connections secured
+  - **Akash Network Deployment**: Sidecar container pattern for production
+  - **97.6% Cost Reduction**: Decentralized cloud deployment
+  - **Multi-Type Proposals**: Strategic, Financial, Technical, Governance, Emergency
+  - **Advanced Voting Mechanisms**: Weighted, stake-based, reputation-based
+  - **Cognitive Oversight**: AI-powered proposal analysis
+  - **Human-in-the-Loop**: Approval gates for critical decisions
+  - **Blockchain Audit Trail**: Immutable governance records
+  - **👉 See [dao-governance-service/ZERO_TRUST_README.md](core/os-workspace/apps/dao-governance-service/ZERO_TRUST_README.md)**
+
 #### Interface and Coordination
 - **Cognitive Interface** (`cognitive-interface`) - Adaptive UI system with **C3 Universal Template**
 - **Agent Factory** (`agent-factory`) - Dynamic agent creation

@@ -9,11 +9,28 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { GovernanceApiRoutes } from './api-routes.js';
+import { serviceConfig, validateZeroTrustSetup } from './database-config.js';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
+// Validate Zero-Trust configuration before starting
+const zeroTrustCheck = validateZeroTrustSetup();
+if (!zeroTrustCheck.valid) {
+  console.error('❌ Zero-Trust validation failed:');
+  zeroTrustCheck.errors.forEach(err => console.error(`   - ${err}`));
+  if (process.env.NODE_ENV === 'production') {
+    console.error('⛔ Cannot start in production without valid Zero-Trust setup');
+    process.exit(1);
+  } else {
+    console.warn('⚠️ Continuing in development mode despite Zero-Trust validation warnings');
+  }
+}
+
 const app = express();
+
+// Attach configuration to app for access in routes
+app.locals.serviceConfig = serviceConfig;
 
 // Security middleware
 app.use(helmet());

@@ -1,0 +1,117 @@
+# Docker Compose for Local Testing of Zero-Trust Architecture
+# Tests Secretless Broker integration before Akash deployment
+
+version: '3.8'
+
+services:
+  # Main application: DAO Governance Service
+  dao-governance-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dao-governance-service
+    environment:
+      - NODE_ENV=development
+      - ZERO_TRUST_MODE=true
+      - PORT=3000
+      - HOST=0.0.0.0
+      
+      # Database config (points to broker)
+      - DATABASE_HOST=127.0.0.1
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=dao_governance_test
+      
+      # Notification config (points to broker)
+      - NOVU_API_URL=http://127.0.0.1:8081
+      
+      # Blockchain config (points to broker)
+      - BLOCKCHAIN_RPC_URL=http://127.0.0.1:8545
+      
+      # Logging
+      - LOG_LEVEL=debug
+      - LOG_FORMAT=pretty
+    
+    ports:
+      - "3000:3000"
+    
+    # Share network namespace with secretless-broker for localhost communication
+    network_mode: "service:secretless-broker"
+    
+    depends_on:
+      secretless-broker:
+        condition: service_healthy
+      test-database:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/governance/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    
+    volumes:
+      - ./logs:/app/logs
+
+  # Sidecar: Secretless Broker
+  secretless-broker:
+    image: cyberark/secretless-broker:latest
+    container_name: secretless-broker
+    environment:
+      # For local testing, use environment variables as secret source
+      # In production, this would connect to UTS
+      - SECRETLESS_LOG_LEVEL=debug
+      - DB_USERNAME=test_user
+      - DB_PASSWORD=test_password
+      - DB_HOST=test-database
+      - DB_PORT=5432
+      - NOVU_API_KEY=test_novu_key
+      - NOVU_API_URL=https://api.novu.co
+      - BLOCKCHAIN_RPC_URL=http://localhost:8545
+      - BLOCKCHAIN_API_KEY=test_blockchain_key
+    
+    volumes:
+      - ./secretless-local.yml:/etc/secretless/secretless.yml:ro
+    
+    command: ["-f", "/etc/secretless/secretless.yml"]
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5335/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    
+    ports:
+      - "5335:5335"  # Broker status endpoint
+
+  # Test Database (PostgreSQL)
+  test-database:
+    image: postgres:15-alpine
+    container_name: test-database
+    environment:
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test_password
+      - POSTGRES_DB=dao_governance_test
+    
+    ports:
+      - "5433:5432"  # Expose on different port to avoid conflicts
+    
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d dao_governance_test"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    driver: bridge

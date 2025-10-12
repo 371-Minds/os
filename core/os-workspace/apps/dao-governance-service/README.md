@@ -1,8 +1,21 @@
 # DAO Governance Service
 
-**Phase 6: Complete DAO Proposal & Voting System**
+**Phase 6: Complete DAO Proposal & Voting System**  
+**Phase 20: Zero-Trust Architecture with Secretless Broker** ✨
 
 A comprehensive governance system for the 371 DAO ecosystem that enables decentralized decision-making through sophisticated voting mechanisms, proposal management, and execution tracking.
+
+## 🔐 Zero-Trust Security Architecture
+
+**NEW:** This service implements enterprise-grade zero-trust security using the Secretless Broker pattern:
+
+- ✅ **No credentials in application code**
+- ✅ **No secrets in environment variables**
+- ✅ **Dynamic credential injection from Universal Tool Server**
+- ✅ **Transparent database and API credential management**
+- ✅ **Production-ready security for Akash Network deployment**
+
+**👉 See [ZERO_TRUST_README.md](./ZERO_TRUST_README.md) for complete security documentation**
 
 ## 🚀 Features
 
@@ -173,6 +186,14 @@ The system supports multiple configuration profiles:
 
 ## 🔐 Security Features
 
+### Zero-Trust Architecture (NEW)
+- **Secretless Broker Integration**: All credentials managed through sidecar container
+- **Universal Tool Server**: Centralized, auditable secret management
+- **No Hardcoded Secrets**: Application never handles raw credentials
+- **Transparent Proxying**: Database and API connections through localhost broker
+- **Automated Rotation**: Credentials rotated without application changes
+
+### Governance Security
 - **Signature Verification**: All votes require cryptographic signatures
 - **Stake Requirements**: Minimum stake thresholds prevent spam
 - **Blacklist Support**: Ability to exclude malicious actors
@@ -181,26 +202,72 @@ The system supports multiple configuration profiles:
 
 ## 🚀 Getting Started
 
+### Local Development with Zero-Trust Testing
+
+1. **Start the local test environment (includes Secretless Broker):**
+   ```bash
+   cd f:/os-main/core/os-workspace/apps/dao-governance-service
+   docker-compose up -d
+   ```
+
+2. **Verify services are running:**
+   ```bash
+   docker-compose ps
+   # All services should show "healthy" status
+   ```
+
+3. **Test the API:**
+   ```bash
+   curl http://localhost:3000/api/governance/health
+   ```
+
+4. **View logs:**
+   ```bash
+   docker-compose logs -f dao-governance-service
+   docker-compose logs -f secretless-broker
+   ```
+
+### Traditional Development (Without Docker)
+
 1. **Install Dependencies**
-```bash
-cd f:/os-main/os-workspace
-bun install
-```
+   ```bash
+   cd f:/os-main/os-workspace
+   bun install
+   ```
 
 2. **Build the Service**
-```bash
-bun nx build dao-governance-service
-```
+   ```bash
+   bun nx build dao-governance-service
+   ```
 
 3. **Start the Service**
-```bash
-bun nx serve dao-governance-service
-```
+   ```bash
+   # Set development mode (disables zero-trust for local dev)
+   $env:NODE_ENV = "development"
+   $env:ZERO_TRUST_MODE = "false"
+   bun nx serve dao-governance-service
+   ```
 
-4. **Test the API**
-```bash
-curl http://localhost:3000/api/governance/health
-```
+### Production Deployment to Akash Network
+
+1. **Validate zero-trust configuration:**
+   ```powershell
+   cd f:/os-main/core/os-workspace/apps/dao-governance-service
+   powershell -ExecutionPolicy Bypass -File .\validate-config.ps1 -Verbose
+   ```
+
+2. **Set required environment variables:**
+   ```powershell
+   $env:UTS_AUTH_TOKEN = "your-uts-auth-token"
+   $env:UTS_ENDPOINT = "http://uts.internal"
+   ```
+
+3. **Deploy to Akash:**
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\deploy-akash.ps1
+   ```
+
+**📚 Complete deployment guide:** See [ZERO_TRUST_README.md](./ZERO_TRUST_README.md)
 
 ## 🧪 Testing
 
@@ -225,6 +292,15 @@ This governance service integrates seamlessly with:
 - **Blockchain Registry**: Records all governance actions on-chain
 - **Agent Ecosystem**: Coordinates execution across multiple agents
 - **Financial System**: Manages budget allocation and tracking
+- **Universal Tool Server**: Secure credential management (Zero-Trust)
+- **Secretless Broker**: Transparent credential injection for all services
+
+## 📚 Documentation
+
+- **[ZERO_TRUST_README.md](./ZERO_TRUST_README.md)**: Complete zero-trust architecture guide
+- **[UTS_SECRETS_CONFIG.md](./UTS_SECRETS_CONFIG.md)**: Universal Tool Server secrets configuration
+- **[DAO_GOVERNANCE_MODERNIZATION.md](./DAO_GOVERNANCE_MODERNIZATION.md)**: Agent modernization details
+- **[README.md](./README.md)**: This file - service overview
 
 ## 🎯 Roadmap
 

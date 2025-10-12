@@ -493,6 +493,66 @@ All logs are in JSON format for easy parsing:
 
 ---
 
+## 🔐 Automatic Encryption Detection
+
+The import script **automatically encrypts** values containing these keywords in their variable names:
+
+### Authentication & Security
+- `password` - Database passwords, user passwords
+- `secret` - API secrets, shared secrets
+- `key` - API keys, encryption keys, private keys
+- `token` - Auth tokens, access tokens, refresh tokens
+- `api_key` - Service API keys
+- `auth` - Authentication credentials
+- `keyring` - Keyring identifiers, keyring secrets
+
+### Network & Infrastructure
+- `host` - Database hosts, service hosts, remote hosts
+- `url` - API URLs, service URLs, webhook URLs
+- `uri` - Resource identifiers, connection URIs
+- `rpc` - RPC endpoints, blockchain RPC URLs
+- `endpoint` - API endpoints, service endpoints
+- `websocket` - WebSocket URLs, WS endpoints
+- `registry` - Container registries, service registries
+
+### Blockchain & Contracts
+- `contract` - Smart contract addresses
+- `chain_id` - Blockchain chain identifiers
+- `identifier` - Unique identifiers, resource identifiers
+
+### Configuration & Modes
+- `enable` - Feature flags, enable/disable settings
+- `mode` - Operating modes, configuration modes
+- `cloude` - Cloud-specific configurations
+
+### Examples
+
+**Will be encrypted (🔐):**
+```bash
+DAO_GOVERNANCE_DB_PASSWORD=MySecurePass123      # Contains "password"
+NOVU_API_KEY=novu_sk_abc123                     # Contains "key"
+BLOCKCHAIN_RPC_URL=https://eth.llamarpc.com    # Contains "rpc" and "url"
+DATABASE_HOST=db.production.com                # Contains "host"
+BLOCKCHAIN_CONTRACT_ADDRESS=0xabc123           # Contains "contract"
+ETHEREUM_CHAIN_ID=1                            # Contains "chain_id"
+WEBSOCKET_ENDPOINT=wss://api.example.com       # Contains "websocket" and "endpoint"
+DOCKER_REGISTRY_URL=ghcr.io/371-minds          # Contains "registry" and "url"
+AUTH_TOKEN=bearer_xyz789                       # Contains "auth" and "token"
+ENABLE_FEATURE_X=true                          # Contains "enable"
+```
+
+**Will NOT be encrypted:**
+```bash
+DAO_GOVERNANCE_DB_USERNAME=admin               # No matching keywords
+LOG_LEVEL=info                                 # No matching keywords
+PORT=3000                                      # No matching keywords
+NODE_ENV=production                            # No matching keywords
+```
+
+**Note:** The script checks if the **variable name** (KEY) contains any of these patterns, not the value. This ensures sensitive configuration is always encrypted, regardless of the actual value content.
+
+---
+
 ## 🔄 Migration from Direct Credentials
 
 If migrating from a system that uses direct credentials:

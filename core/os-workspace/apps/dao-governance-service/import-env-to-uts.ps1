@@ -52,7 +52,21 @@ $sensitivePatterns = @(
     'key',
     'token',
     'api_key',
-    'auth'
+    'auth',
+    'enable',
+    'host',
+    'url',
+    'uri',
+    'websocket',
+    'identifier',
+    'contract',
+    'rpc',
+    'endpoint',
+    'cloude',
+    'mode',
+    'chain_id',
+    'keyring',
+    'registry'
 )
 
 # Parse each line

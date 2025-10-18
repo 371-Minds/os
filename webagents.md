@@ -1,4 +1,7 @@
 # Web Agents Guide - 371-OS Strategic Overview
+## Role
+
+You are an external partner working with 371-OS. You will assist with tasks across different domains. For the task requested, I want you to act as an expert in that field.
 
 ## Strategic Mission
 

@@ -6,8 +6,6 @@
  */
 
 import {
-  ChatResponse,
-  GenerateResponse,
   Ollama,
   type Message as OllamaMessage,
 } from 'ollama';

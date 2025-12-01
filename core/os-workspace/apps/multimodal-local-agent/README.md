@@ -1,6 +1,6 @@
 # 🤖 Ultimate Multimodal Local Autonomous Agent
 
-The world's first truly multimodal, locally-deployed autonomous agent optimized for Windows with NVIDIA 4060 GPU and local Ollama cloud.
+The world's first truly multimodal autonomous agent with support for local deployment (Windows + NVIDIA 4060), Ollama Cloud, and Akash Network.
 
 ## 🚀 Features
 
@@ -10,6 +10,8 @@ The world's first truly multimodal, locally-deployed autonomous agent optimized 
 - **⚡ GPU-Optimized** - Configured for NVIDIA 4060 (8GB VRAM)
 - **🔒 Fully Local** - Complete offline operation capability
 - **🎯 Multi-Model Support** - Text, vision, and code generation models
+- **☁️ Multi-Cloud Support** - Local Ollama, Ollama Cloud, and Akash Network
+- **🔀 Router Integration** - Works with 371 OS Intelligent Router for task distribution
 
 ## 📋 Prerequisites
 
@@ -203,6 +205,127 @@ agent.registerTool({
     return { temperature: 72, conditions: 'sunny' };
   },
 });
+```
+
+## ☁️ Cloud Providers
+
+### Local Ollama (Default)
+
+```typescript
+import { createLocalProvider, createMultimodalAgent } from './multimodal-local-agent';
+
+const provider = createLocalProvider('http://localhost:11434');
+const agent = createMultimodalAgent({
+  ollamaEndpoint: provider.getEndpoint(),
+});
+```
+
+### Ollama Cloud
+
+```typescript
+import { createOllamaCloudProvider, createMultimodalAgent } from './multimodal-local-agent';
+
+const provider = createOllamaCloudProvider(
+  process.env.OLLAMA_CLOUD_API_KEY!,
+  'us-west'
+);
+
+const agent = createMultimodalAgent({
+  ollamaEndpoint: provider.getEndpoint(),
+});
+
+// Check provider health
+const health = await provider.healthCheck();
+console.log('Provider healthy:', health.healthy);
+console.log('Available models:', health.availableModels);
+```
+
+### Akash Network
+
+```typescript
+import { createAkashProvider, createMultimodalAgent } from './multimodal-local-agent';
+
+const provider = createAkashProvider('https://your-akash-deployment.akash.network', {
+  walletAddress: 'akash1...',
+  dseq: '12345678',
+  resources: {
+    cpu: 2,
+    memory: '4Gi',
+    storage: '10Gi',
+    gpu: {
+      units: 1,
+      vendor: 'nvidia',
+      model: 'rtx4060',
+    },
+  },
+  pricing: {
+    denom: 'uakt',
+    amount: 500,
+  },
+});
+
+// Generate deployment manifest
+const manifest = provider.generateAkashManifest(
+  'ghcr.io/371-minds/multimodal-agent:latest',
+  {
+    NODE_ENV: 'production',
+    OLLAMA_HOST: '0.0.0.0',
+  }
+);
+console.log(manifest);
+```
+
+## 🔀 Router Integration
+
+Integrate with the 371 OS Intelligent Router for multi-agent task distribution:
+
+```typescript
+import { createRouterIntegration, createMultimodalAgent } from './multimodal-local-agent';
+
+// Create router integration
+const router = createRouterIntegration(
+  'http://localhost:3001', // Router endpoint
+  'multimodal-agent-001'   // Agent ID
+);
+
+// Initialize and register with router
+await router.initialize();
+
+// Create agent
+const agent = createMultimodalAgent();
+await agent.initialize();
+
+// Process task via router
+const task = {
+  id: 'task_001',
+  title: 'Analyze document',
+  description: 'Extract key information from this document image',
+  priority: 'high',
+  requiredCapabilities: ['text', 'image'],
+  expectedOutput: 'structured',
+  timeoutMs: 60000,
+  allowSubTasks: true,
+  createdAt: new Date(),
+  context: {
+    imageInputs: [documentImage],
+  },
+};
+
+// Convert to router task and get routing decision
+const routerTask = router.toRouterTask(task, 'user_001');
+const decision = await router.submitTask(routerTask);
+
+console.log('Routed to:', decision.primary_agent);
+console.log('Confidence:', decision.confidence_score);
+
+// If routed to this agent, process the task
+if (decision.primary_agent === 'multimodal-agent-001') {
+  const result = await agent.processTask(task);
+  await router.reportCompletion(task.id, result);
+}
+
+// Cleanup
+await router.shutdown();
 ```
 
 ## 📊 Configuration

@@ -5,10 +5,7 @@
  * Supports text generation, vision analysis, and code generation
  */
 
-import {
-  Ollama,
-  type Message as OllamaMessage,
-} from 'ollama';
+import { Ollama, type Message as OllamaMessage } from 'ollama';
 import type {
   DetectedObject,
   ExecutionMetrics,

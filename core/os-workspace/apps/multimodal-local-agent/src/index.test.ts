@@ -2,7 +2,7 @@
  * Tests for the Ultimate Multimodal Local Autonomous Agent
  */
 
-import { beforeEach, describe, expect, it, mock, spyOn } from 'bun:test';
+import { beforeEach, describe, expect, it } from 'bun:test';
 import {
   AutonomousTaskProcessor,
   type MultimodalLocalAgent,
@@ -343,25 +343,155 @@ describe('Integration', () => {
       // Verify initial state
       expect(agent.getStats().initialized).toBe(false);
 
-      // Create a test task
-      const task: AutonomousTask = {
-        id: 'integration_001',
-        title: 'Integration Test Task',
-        description: 'Test the full workflow',
-        priority: 'medium',
-        requiredCapabilities: ['text'],
-        expectedOutput: 'text',
-        timeoutMs: 30000,
-        allowSubTasks: false,
-        createdAt: new Date(),
-      };
-
       // Event tracking
       const events: string[] = [];
       agent.onEvent((e) => events.push(e.type));
 
       // Shutdown
       await agent.shutdown();
+    });
+  });
+});
+
+describe('CloudProvider', () => {
+  describe('createLocalProvider', () => {
+    it('should create local provider with default endpoint', () => {
+      const { createLocalProvider } = require('./index.js');
+      const provider = createLocalProvider();
+
+      expect(provider.getType()).toBe('local');
+      expect(provider.getEndpoint()).toBe('http://localhost:11434');
+    });
+
+    it('should create local provider with custom endpoint', () => {
+      const { createLocalProvider } = require('./index.js');
+      const provider = createLocalProvider('http://custom:11434');
+
+      expect(provider.getEndpoint()).toBe('http://custom:11434');
+    });
+  });
+
+  describe('createOllamaCloudProvider', () => {
+    it('should create Ollama Cloud provider', () => {
+      const { createOllamaCloudProvider } = require('./index.js');
+      const provider = createOllamaCloudProvider('test-api-key', 'us-west');
+
+      expect(provider.getType()).toBe('ollama-cloud');
+      expect(provider.getEndpoint()).toBe('https://api.ollama.ai');
+    });
+  });
+
+  describe('createAkashProvider', () => {
+    it('should create Akash provider', () => {
+      const { createAkashProvider } = require('./index.js');
+      const provider = createAkashProvider('https://akash-endpoint.com', {
+        resources: {
+          cpu: 2,
+          memory: '4Gi',
+          storage: '10Gi',
+        },
+        pricing: {
+          denom: 'uakt',
+          amount: 500,
+        },
+      });
+
+      expect(provider.getType()).toBe('akash');
+      expect(provider.getEndpoint()).toBe('https://akash-endpoint.com');
+    });
+
+    it('should generate Akash deployment manifest', () => {
+      const { createAkashProvider } = require('./index.js');
+      const provider = createAkashProvider('https://akash-endpoint.com', {
+        resources: {
+          cpu: 2,
+          memory: '4Gi',
+          storage: '10Gi',
+        },
+        pricing: {
+          denom: 'uakt',
+          amount: 500,
+        },
+      });
+
+      const manifest = provider.generateAkashManifest(
+        'ghcr.io/371-minds/agent:latest',
+        { NODE_ENV: 'production' },
+      );
+
+      expect(manifest).toContain('version: "2.0"');
+      expect(manifest).toContain('multimodal-agent');
+      expect(manifest).toContain('cpu:');
+      expect(manifest).toContain('memory:');
+    });
+  });
+
+  describe('getMetrics', () => {
+    it('should return provider metrics', () => {
+      const { createLocalProvider } = require('./index.js');
+      const provider = createLocalProvider();
+
+      const metrics = provider.getMetrics();
+      expect(metrics.totalRequests).toBe(0);
+      expect(metrics.successfulRequests).toBe(0);
+      expect(metrics.failedRequests).toBe(0);
+    });
+  });
+});
+
+describe('RouterIntegration', () => {
+  describe('createRouterIntegration', () => {
+    it('should create router integration', () => {
+      const { createRouterIntegration } = require('./index.js');
+      const router = createRouterIntegration(
+        'http://localhost:3001',
+        'test-agent-001',
+      );
+
+      expect(router).toBeDefined();
+    });
+  });
+
+  describe('toRouterTask', () => {
+    it('should convert autonomous task to router task', () => {
+      const { createRouterIntegration } = require('./index.js');
+      const router = createRouterIntegration(
+        'http://localhost:3001',
+        'test-agent-001',
+      );
+
+      const autonomousTask: AutonomousTask = {
+        id: 'task_001',
+        title: 'Test Task',
+        description: 'A test task for routing',
+        priority: 'high',
+        requiredCapabilities: ['text', 'image'],
+        expectedOutput: 'structured',
+        timeoutMs: 30000,
+        allowSubTasks: true,
+        createdAt: new Date(),
+      };
+
+      const routerTask = router.toRouterTask(autonomousTask, 'user_001');
+
+      expect(routerTask.id).toBe('task_001');
+      expect(routerTask.title).toBe('Test Task');
+      expect(routerTask.submitted_by).toBe('user_001');
+      expect(routerTask.multimodal_context).toBeDefined();
+      expect(routerTask.multimodal_context?.requiresGPU).toBe(true);
+    });
+  });
+
+  describe('getPendingTasks', () => {
+    it('should return empty map initially', () => {
+      const { createRouterIntegration } = require('./index.js');
+      const router = createRouterIntegration(
+        'http://localhost:3001',
+        'test-agent-001',
+      );
+
+      const pending = router.getPendingTasks();
+      expect(pending.size).toBe(0);
     });
   });
 });

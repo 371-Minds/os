@@ -177,11 +177,6 @@ For each comparison, identify:
 
 Be specific and detailed in your analysis.`;
 
-    // Analyze each image first
-    const analyses = await Promise.all(
-      images.map((img) => this.analyzeImage(img, 'detailed')),
-    );
-
     // Generate comparison using chat with context
     const messages = [
       {

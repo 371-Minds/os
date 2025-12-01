@@ -508,7 +508,6 @@ export class MultimodalLocalAgent {
     };
   } {
     const ollamaStats = this.ollamaClient.getStats();
-    const visionStats = this.visionProcessor.getStats();
 
     return {
       uptime: Date.now() - this.startTime.getTime(),
@@ -666,6 +665,27 @@ export { OllamaClient } from './ollama-client.js';
 export { AutonomousTaskProcessor } from './autonomous-processor.js';
 export { VisionProcessor } from './vision-processor.js';
 export type { VisionMode } from './vision-processor.js';
+export {
+  CloudProvider,
+  createLocalProvider,
+  createOllamaCloudProvider,
+  createAkashProvider,
+} from './cloud-provider.js';
+export type {
+  CloudProviderType,
+  CloudProviderConfig,
+  AkashConfig,
+  AkashResources,
+} from './cloud-provider.js';
+export {
+  RouterIntegration,
+  createRouterIntegration,
+} from './router-integration.js';
+export type {
+  RouterTask,
+  RoutingDecision,
+  RouterConfig,
+} from './router-integration.js';
 
 /**
  * Quick demonstration when run directly
@@ -717,7 +737,7 @@ async function main(): Promise<void> {
   console.log(
     `   Overall: ${health.healthy ? '✅ Healthy' : '⚠️ Issues detected'}`,
   );
-  for (const [key, status] of Object.entries(health.components)) {
+  for (const status of Object.values(health.components)) {
     const icon =
       status.status === 'healthy'
         ? '✅'

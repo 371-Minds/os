@@ -647,18 +647,21 @@ Output only valid JSON.`;
           // Safe evaluation using a simple math parser
           // Only allow numbers, operators, and parentheses
           const expression = String(input.expression);
-          
+
           // Validate expression contains only safe characters
           const safePattern = /^[\d\s+\-*/().%]+$/;
           if (!safePattern.test(expression)) {
-            return { error: 'Expression contains invalid characters. Only numbers and operators (+, -, *, /, %, parentheses) are allowed.' };
+            return {
+              error:
+                'Expression contains invalid characters. Only numbers and operators (+, -, *, /, %, parentheses) are allowed.',
+            };
           }
-          
+
           // Additional safety: prevent very long expressions
           if (expression.length > 100) {
             return { error: 'Expression too long. Maximum 100 characters.' };
           }
-          
+
           // Parse and evaluate safely using recursive descent parser
           const result = this.evaluateMathExpression(expression);
           return { result };
@@ -677,15 +680,15 @@ Output only valid JSON.`;
     // Tokenize
     const tokens = expr.match(/(\d+\.?\d*|[+\-*/%()])/g);
     if (!tokens) throw new Error('Invalid expression');
-    
+
     let pos = 0;
-    
+
     const parseNumber = (): number => {
       const token = tokens[pos];
       if (token === undefined) throw new Error('Unexpected end');
       if (/^\d+\.?\d*$/.test(token)) {
         pos++;
-        return parseFloat(token);
+        return Number.parseFloat(token);
       }
       if (token === '(') {
         pos++;
@@ -700,10 +703,14 @@ Output only valid JSON.`;
       }
       throw new Error('Unexpected token');
     };
-    
+
     const parseMulDiv = (): number => {
       let result = parseNumber();
-      while (tokens[pos] === '*' || tokens[pos] === '/' || tokens[pos] === '%') {
+      while (
+        tokens[pos] === '*' ||
+        tokens[pos] === '/' ||
+        tokens[pos] === '%'
+      ) {
         const op = tokens[pos];
         pos++;
         const right = parseNumber();
@@ -715,7 +722,7 @@ Output only valid JSON.`;
       }
       return result;
     };
-    
+
     const parseAddSub = (): number => {
       let result = parseMulDiv();
       while (tokens[pos] === '+' || tokens[pos] === '-') {
@@ -727,7 +734,7 @@ Output only valid JSON.`;
       }
       return result;
     };
-    
+
     const result = parseAddSub();
     if (pos !== tokens.length) throw new Error('Unexpected token');
     return result;

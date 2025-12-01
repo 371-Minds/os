@@ -1,0 +1,4 @@
+> nx run multimodal-local-agent:build
+
+Compiling TypeScript files for project "multimodal-local-agent"...
+Done compiling TypeScript files for project "multimodal-local-agent".

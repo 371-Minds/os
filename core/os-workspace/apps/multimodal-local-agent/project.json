@@ -1,0 +1,36 @@
+{
+  "name": "multimodal-local-agent",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/multimodal-local-agent/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/multimodal-local-agent",
+        "main": "apps/multimodal-local-agent/src/index.ts",
+        "tsConfig": "apps/multimodal-local-agent/tsconfig.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "multimodal-local-agent:build"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun test {projectRoot}"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bunx @biomejs/biome check --write {projectRoot}"
+      }
+    }
+  }
+}

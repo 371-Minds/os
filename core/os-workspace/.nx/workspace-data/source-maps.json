@@ -5303,6 +5303,152 @@
       "nx/target-defaults"
     ]
   },
+  "apps/multimodal-local-agent": {
+    "root": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "apps/multimodal-local-agent/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
   "apps/phase18-voting-simulation": {
     "root": [
       "apps/phase18-voting-simulation/project.json",

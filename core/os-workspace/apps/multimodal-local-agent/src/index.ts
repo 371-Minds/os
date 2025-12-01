@@ -804,8 +804,9 @@ async function main(): Promise<void> {
   console.log('');
 }
 
-// Run if executed directly
-if (require.main === module) {
+// Run if executed directly (handles both CommonJS and ES modules)
+const isMainModule = typeof require !== 'undefined' && require.main === module;
+if (isMainModule) {
   main().catch((error) => {
     console.error('Fatal error:', error);
     process.exit(1);

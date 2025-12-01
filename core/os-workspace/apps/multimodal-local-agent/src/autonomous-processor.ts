@@ -635,7 +635,7 @@ Output only valid JSON.`;
       },
     });
 
-    // Calculator tool
+    // Calculator tool (safe implementation)
     this.registerTool({
       name: 'calculate',
       description: 'Perform mathematical calculations',
@@ -644,13 +644,92 @@ Output only valid JSON.`;
       requiredPermissions: [],
       execute: async (input: any) => {
         try {
-          // Safe evaluation using Function
-          const result = new Function(`return ${input.expression}`)();
+          // Safe evaluation using a simple math parser
+          // Only allow numbers, operators, and parentheses
+          const expression = String(input.expression);
+          
+          // Validate expression contains only safe characters
+          const safePattern = /^[\d\s+\-*/().%]+$/;
+          if (!safePattern.test(expression)) {
+            return { error: 'Expression contains invalid characters. Only numbers and operators (+, -, *, /, %, parentheses) are allowed.' };
+          }
+          
+          // Additional safety: prevent very long expressions
+          if (expression.length > 100) {
+            return { error: 'Expression too long. Maximum 100 characters.' };
+          }
+          
+          // Parse and evaluate safely using recursive descent parser
+          const result = this.evaluateMathExpression(expression);
           return { result };
         } catch {
           return { error: 'Invalid expression' };
         }
       },
     });
+  }
+
+  /**
+   * Safe math expression evaluator using tokenization
+   * Only supports basic arithmetic: +, -, *, /, %, parentheses
+   */
+  private evaluateMathExpression(expr: string): number {
+    // Tokenize
+    const tokens = expr.match(/(\d+\.?\d*|[+\-*/%()])/g);
+    if (!tokens) throw new Error('Invalid expression');
+    
+    let pos = 0;
+    
+    const parseNumber = (): number => {
+      const token = tokens[pos];
+      if (token === undefined) throw new Error('Unexpected end');
+      if (/^\d+\.?\d*$/.test(token)) {
+        pos++;
+        return parseFloat(token);
+      }
+      if (token === '(') {
+        pos++;
+        const result = parseAddSub();
+        if (tokens[pos] !== ')') throw new Error('Missing )');
+        pos++;
+        return result;
+      }
+      if (token === '-') {
+        pos++;
+        return -parseNumber();
+      }
+      throw new Error('Unexpected token');
+    };
+    
+    const parseMulDiv = (): number => {
+      let result = parseNumber();
+      while (tokens[pos] === '*' || tokens[pos] === '/' || tokens[pos] === '%') {
+        const op = tokens[pos];
+        pos++;
+        const right = parseNumber();
+        if (op === '*') result *= right;
+        else if (op === '/') {
+          if (right === 0) throw new Error('Division by zero');
+          result /= right;
+        } else result %= right;
+      }
+      return result;
+    };
+    
+    const parseAddSub = (): number => {
+      let result = parseMulDiv();
+      while (tokens[pos] === '+' || tokens[pos] === '-') {
+        const op = tokens[pos];
+        pos++;
+        const right = parseMulDiv();
+        if (op === '+') result += right;
+        else result -= right;
+      }
+      return result;
+    };
+    
+    const result = parseAddSub();
+    if (pos !== tokens.length) throw new Error('Unexpected token');
+    return result;
   }
 }

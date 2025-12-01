@@ -262,6 +262,9 @@ export class CloudProvider {
     const envEntries = Object.entries(envVars)
       .map(([key, value]) => `      - ${key}=${value}`)
       .join('\n');
+    
+    // Build GPU section if required
+    const gpuSection = this.buildGpuSection(resources.gpu);
 
     return `---
 version: "2.0"
@@ -287,15 +290,7 @@ profiles:
           size: ${resources.memory}
         storage:
           size: ${resources.storage}
-${
-  resources.gpu
-    ? `        gpu:
-          units: ${resources.gpu.units}
-          attributes:
-            vendor:
-              ${resources.gpu.vendor}: true`
-    : ''
-}
+${gpuSection}
           
   placement:
     dcloud:
@@ -314,6 +309,23 @@ deployment:
     dcloud:
       profile: multimodal-agent
       count: 1`;
+  }
+
+  /**
+   * Build GPU section for Akash manifest
+   */
+  private buildGpuSection(
+    gpu?: AkashResources['gpu'],
+  ): string {
+    if (!gpu) {
+      return '';
+    }
+
+    return `        gpu:
+          units: ${gpu.units}
+          attributes:
+            vendor:
+              ${gpu.vendor}: true`;
   }
 }
 

@@ -254,11 +254,20 @@ export class RouterIntegration {
    * Convert autonomous task to router task format
    */
   toRouterTask(task: AutonomousTask, submittedBy: string): RouterTask {
+    // Map priority: 'critical' maps to 'urgent' for router compatibility
+    const priorityMap: Record<string, 'low' | 'medium' | 'high' | 'urgent'> = {
+      low: 'low',
+      medium: 'medium',
+      high: 'high',
+      critical: 'urgent',
+    };
+    const routerPriority = priorityMap[task.priority] || 'medium';
+
     return {
       id: task.id,
       title: task.title,
       description: task.description,
-      priority: task.priority as 'low' | 'medium' | 'high' | 'urgent',
+      priority: routerPriority,
       domain_hints: this.inferDomainHints(task),
       resource_requirements: this.inferResourceRequirements(task),
       strategic_importance: task.priority === 'critical',
@@ -271,7 +280,9 @@ export class RouterIntegration {
         imageCount: task.context?.imageInputs?.length,
         complexity: this.estimateComplexity(task),
         requiresGPU: task.requiredCapabilities.includes('image'),
-        estimatedTimeMs: task.timeoutMs / 2,
+        // Estimated processing time: conservative estimate at 50% of timeout
+        // This allows buffer for network latency and potential retries
+        estimatedTimeMs: Math.floor(task.timeoutMs * 0.5),
       },
     };
   }

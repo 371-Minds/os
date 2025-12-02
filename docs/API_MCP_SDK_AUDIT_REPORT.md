@@ -346,7 +346,7 @@ import {
 ---
 
 ### 3. Postiz Integration
-**Location:** `integrations/postitz/`
+**Location:** `integrations/postitz/` (note: directory name typo, service is "Postiz")
 **Status:** 📋 Documented
 
 **Capabilities:**

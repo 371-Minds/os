@@ -1,7 +1,0 @@
-[1m[33mYour library compilation option specifies that the compiler external helper (tslib) is needed but it is not installed.[39m[22m
-Compiling TypeScript files for project "thinng-testing"...
-[1m[31m[96m/os-main/core/os-workspace/packages/thinng-testing/src/index.ts[0m:[93m44[0m:[93m21[0m - [91merror[0m[90m TS2304: [0mCannot find name 'ThinngTestingFramework'.[39m[22m
-[1m[31m[39m[22m
-[1m[31m[7m44[0m   const framework = ThinngTestingFramework.getInstance();[39m[22m
-[1m[31m[7m  [0m [91m                    ~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
-[1m[31m[39m[22m

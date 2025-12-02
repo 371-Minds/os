@@ -43,12 +43,14 @@ dist/
 build/
 .cache/
 *.tsbuildinfo
+.nx/
 
 # Node.js
 node_modules/
 npm-debug.log
 yarn-error.log
 .nyc_output/
+package-lock.json
 
 # Test Coverage
 coverage/

@@ -80,15 +80,15 @@
     "fs-extra": "^11.3.1",
     "helmet": "^7.0.0",
     "ipfs-http-client": "^60.0.1",
+    "js-yaml": "^4.1.0",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.3",
+    "ollama": "^0.6.3",
     "posthog-node": "^4.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "web3.storage": "^4.5.5",
-    "winston": "^3.10.0",
-    "@status-network/sdk": "^1.0.0",
-    "@dao-dao/sdk": "^1.0.0"
+    "winston": "^3.10.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",

@@ -7,7 +7,7 @@
 import { Router, Request, Response } from 'express';
 import { createProxyMiddleware, Options } from 'http-proxy-middleware';
 import { getGatewayConfig, ServiceConfig } from '../config/gateway.config';
-import { authenticate, authorize, AuthenticatedRequest } from '../middleware/auth.middleware';
+import { authenticate, authorize, generateToken, AuthenticatedRequest } from '../middleware/auth.middleware';
 import { createServiceRateLimiter } from '../middleware/rate-limit.middleware';
 
 /**
@@ -101,16 +101,26 @@ export const createHealthRoutes = (): Router => {
 
   // All services health check
   router.get('/health/services', async (req: Request, res: Response) => {
+    const HEALTH_CHECK_TIMEOUT = 5000; // 5 second timeout
+
     const healthChecks = await Promise.all(
       config.services.map(async (service) => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), HEALTH_CHECK_TIMEOUT);
+        
         try {
-          const response = await fetch(`${service.target}:${service.port}${service.healthPath}`);
+          const response = await fetch(
+            `${service.target}:${service.port}${service.healthPath}`,
+            { signal: controller.signal }
+          );
+          clearTimeout(timeoutId);
           return {
             name: service.name,
             status: response.ok ? 'healthy' : 'unhealthy',
             statusCode: response.status
           };
         } catch (error) {
+          clearTimeout(timeoutId);
           return {
             name: service.name,
             status: 'unavailable',
@@ -138,6 +148,9 @@ export const createHealthRoutes = (): Router => {
  */
 export const createAuthRoutes = (): Router => {
   const router = Router();
+  
+  // Development API key - must be set via environment in production
+  const DEV_API_KEY = process.env.DEV_API_KEY || (process.env.NODE_ENV === 'development' ? 'dev-api-key-371' : '');
 
   // Token generation endpoint (for development/testing)
   router.post('/auth/token', (req: Request, res: Response) => {
@@ -152,9 +165,9 @@ export const createAuthRoutes = (): Router => {
       return;
     }
 
-    // In production, validate API key against database
-    // For now, use environment variable check
-    if (apiKey !== process.env.ADMIN_API_KEY && apiKey !== 'dev-api-key-371') {
+    // Validate API key against environment variables
+    const validKeys = [process.env.ADMIN_API_KEY, DEV_API_KEY].filter(Boolean);
+    if (!validKeys.includes(apiKey)) {
       res.status(401).json({
         success: false,
         error: 'Unauthorized',
@@ -163,7 +176,6 @@ export const createAuthRoutes = (): Router => {
       return;
     }
 
-    const { generateToken } = require('../middleware/auth.middleware');
     const token = generateToken({
       id: 'user-from-api-key',
       email: 'api-user@371minds.com',
@@ -187,7 +199,6 @@ export const createAuthRoutes = (): Router => {
       return;
     }
 
-    const { generateToken } = require('../middleware/auth.middleware');
     const token = generateToken({
       id: req.user.id,
       email: req.user.email,

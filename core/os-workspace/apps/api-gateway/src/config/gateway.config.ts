@@ -59,7 +59,13 @@ export const getGatewayConfig = (): GatewayConfig => ({
   },
 
   jwt: {
-    secret: process.env.JWT_SECRET || 'development-secret-change-in-production',
+    // In production, JWT_SECRET must be set via environment variable
+    // In development, a random secret is generated if not provided
+    secret: process.env.JWT_SECRET || (
+      process.env.NODE_ENV === 'production' 
+        ? (() => { throw new Error('JWT_SECRET must be set in production'); })()
+        : `dev-secret-${Date.now()}-${Math.random().toString(36)}`
+    ),
     expiresIn: process.env.JWT_EXPIRES_IN || '24h',
     issuer: '371-minds-os'
   },

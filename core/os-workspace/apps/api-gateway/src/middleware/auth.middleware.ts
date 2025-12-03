@@ -23,9 +23,33 @@ export interface AuthenticatedRequest extends Request {
 }
 
 // Store for API keys (in production, use database)
-const apiKeys = new Map<string, AuthUser>([
-  ['dev-api-key-371', { id: 'dev-user', email: 'dev@371minds.com', roles: ['admin'] }],
-]);
+// Initialize with environment-based keys only
+const initApiKeys = (): Map<string, AuthUser> => {
+  const keys = new Map<string, AuthUser>();
+  
+  // Add admin key from environment
+  if (process.env.ADMIN_API_KEY) {
+    keys.set(process.env.ADMIN_API_KEY, { 
+      id: 'admin-user', 
+      email: 'admin@371minds.com', 
+      roles: ['admin'] 
+    });
+  }
+  
+  // Add dev key only in development mode
+  const devKey = process.env.DEV_API_KEY || (process.env.NODE_ENV === 'development' ? 'dev-api-key-371' : '');
+  if (devKey) {
+    keys.set(devKey, { 
+      id: 'dev-user', 
+      email: 'dev@371minds.com', 
+      roles: ['admin'] 
+    });
+  }
+  
+  return keys;
+};
+
+const apiKeys = initApiKeys();
 
 /**
  * Verify JWT token

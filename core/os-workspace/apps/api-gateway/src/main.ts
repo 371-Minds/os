@@ -26,10 +26,21 @@ import { openApiSpec } from './openapi.spec';
 const app = express();
 const config = getGatewayConfig();
 
-// Security middleware
+// Security middleware with API-appropriate CSP settings
 app.use(helmet({
-  contentSecurityPolicy: false, // Disable for API
-  crossOriginEmbedderPolicy: false
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"], // For Swagger UI
+      styleSrc: ["'self'", "'unsafe-inline'"], // For Swagger UI
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'", "https:", "data:"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: []
+    }
+  },
+  crossOriginEmbedderPolicy: false // Required for API access
 }));
 
 // CORS configuration
